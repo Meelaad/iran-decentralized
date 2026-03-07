@@ -1,0 +1,293 @@
+// data.js
+
+export const SECTORS = [
+    {
+        id: "citizens",
+        label: { en: "Citizens & Diaspora", fa: "شهروندان و دیاسپورا" },
+        icon: "👤",
+        color: "#E8F5E9",
+        border: "#2E7D32",
+        x: 50, y: 50,
+        tier: "core",
+        contents: [
+            { en: "Sovereign Digital Identity (Self-Custodied)", fa: "هویت دیجیتال مستقل (خود-حضانتی)" },
+            { en: "Borderless Diaspora Integration Identity", fa: "هویت یکپارچه و بدون مرز دیاسپورا" },
+            { en: "Biometric + Zero-Knowledge Auth", fa: "احراز هویت بیومتریک و دانش صفر" },
+            { en: "Universal Digital Wallet", fa: "کیف پول دیجیتال یکپارچه" },
+            { en: "Voting & Proposal Rights Token", fa: "توکن حق رأی و ارائه پیشنهاد" },
+            { en: "Immutable Civil Liberties Registry", fa: "ثبت تغییرناپذیر آزادی‌های مدنی" },
+        ],
+        desc: {
+            en: "The foundational layer. Every citizen—including the millions in the diaspora—holds a sovereign digital identity, enabling instant, borderless voting, investment, and participation without central gatekeepers.",
+            fa: "لایه پایه. هر شهروند - از جمله میلیون‌ها نفر در دیاسپورا - دارای یک هویت دیجیتال مستقل است که امکان رأی‌دهی، سرمایه‌گذاری و مشارکت فوری و بدون مرز را بدون نیاز به نهادهای متمرکز فراهم می‌کند."
+        },
+    },
+    {
+        id: "governance",
+        label: { en: "Decentralized Federalism", fa: "فدرالیسم غیرمتمرکز" },
+        icon: "🏛",
+        color: "#E3F2FD",
+        border: "#1565C0",
+        x: 50, y: 18,
+        tier: "core",
+        contents: [
+            { en: "Provincial Shora (Council) DAOs", fa: "سازمان‌های خودمختار (DAO) شوراهای استانی" },
+            { en: "Liquid Democracy (Delegate or Direct Vote)", fa: "دموکراسی سیال (رأی مستقیم یا تفویضی)" },
+            { en: "Decentralized Federalism Protocol", fa: "پروتکل فدرالیسم غیرمتمرکز" },
+            { en: "Smart Contract Law Execution", fa: "اجرای قوانین از طریق قراردادهای هوشمند" },
+            { en: "Constitutional Smart Contract (Immutable Rights)", fa: "قرارداد هوشمند قانون اساسی (حقوق تغییرناپذیر)" },
+            { en: "Public Audit Trail (Blockchain Ledger)", fa: "ردیابی حسابرسی عمومی (دفتر کل بلاک‌چین)" },
+        ],
+        desc: {
+            en: "Power is pushed to the edges. Provincial Shoras operate as DAOs with automatic budget allocations, removing Tehran's bottleneck and ensuring true regional autonomy and representation.",
+            fa: "انتقال قدرت به استان‌ها. شوراهای استانی به عنوان DAO با تخصیص بودجه خودکار عمل می‌کنند و با حذف تمرکزگرایی تهران، استقلال و نمایندگی واقعی منطقه‌ای را تضمین می‌کنند."
+        },
+    },
+    {
+        id: "economy",
+        label: { en: "Economy & Finance", fa: "اقتصاد و مالی" },
+        icon: "💰",
+        color: "#FFF8E1",
+        border: "#F9A825",
+        x: 15, y: 30,
+        tier: "primary",
+        contents: [
+            { en: "Algorithmic National Currency (Post-Rial CBDC)", fa: "ارز ملی الگوریتمی (جایگزین ریال)" },
+            { en: "Universal Basic Dividend (Oil/Gas Backed)", fa: "سود پایه همگانی (با پشتوانه نفت و گاز)" },
+            { en: "Programmable Tax Collection (Auto-deducted)", fa: "جمع‌آوری مالیات قابل برنامه‌ریزی (کسر خودکار)" },
+            { en: "Sanction-Proof Decentralized Exchange", fa: "صرافی غیرمتمرکز و ضد تحریم" },
+            { en: "Diaspora Direct Investment Pools", fa: "استخرهای سرمایه‌گذاری مستقیم دیاسپورا" },
+            { en: "Anti-Corruption AI Audit Agents", fa: "عوامل حسابرسی هوش مصنوعی ضد فساد" },
+        ],
+        desc: {
+            en: "The end of opaque state budgets. A post-Rial algorithmic currency and sanction-proof exchanges ensure financial sovereignty. Taxes auto-execute, and the national budget is a real-time public dashboard.",
+            fa: "پایان بودجه‌های مبهم دولتی. یک ارز الگوریتمی جایگزین ریال و صرافی‌های ضد تحریم، حاکمیت مالی را تضمین می‌کنند. مالیات‌ها خودکار اجرا شده و بودجه ملی یک داشبورد عمومی شفاف است."
+        },
+    },
+    {
+        id: "resources",
+        label: { en: "National Wealth", fa: "ثروت و منابع ملی" },
+        icon: "🌍",
+        color: "#E8F5E9",
+        border: "#1B5E20",
+        x: 95, y: 48,
+        tier: "primary",
+        contents: [
+            { en: "Tokenized Oil, Gas & Mineral Reserves", fa: "ذخایر توکن‌شده نفت، گاز و مواد معدنی" },
+            { en: "Direct-to-Citizen Resource Dividend", fa: "سود مستقیم منابع به شهروندان (قرارداد هوشمند)" },
+            { en: "Resource Extraction Licensing (On-Chain)", fa: "مجوزهای استخراج منابع (ثبت در شبکه)" },
+            { en: "Water Rights & Drought Management", fa: "پروتکل حقوق آب و مدیریت خشکسالی" },
+            { en: "Environmental Repair Fund DAO", fa: "صندوق غیرمتمرکز ترمیم محیط زیست" },
+        ],
+        desc: {
+            en: "Iran's natural wealth is tokenized. Instead of state monopolies and shadow organizations, extraction revenues automatically trigger smart contracts that deposit dividends directly into citizens' digital wallets.",
+            fa: "ثروت طبیعی ایران توکن‌سازی شده است. به جای انحصارات دولتی و نهادهای سایه، درآمدهای استخراج به طور خودکار قراردادهای هوشمندی را فعال می‌کنند که سود را مستقیماً به کیف پول شهروندان واریز می‌کند."
+        },
+    },
+    {
+        id: "infrastructure",
+        label: { en: "Connectivity & Infra", fa: "زیرساخت و ارتباطات" },
+        icon: "⚡",
+        color: "#E8EAF6",
+        border: "#283593",
+        x: 5, y: 48,
+        tier: "primary",
+        contents: [
+            { en: "Censorship-Resistant Mesh Network", fa: "شبکه غیرمتمرکز مقاوم در برابر سانسور" },
+            { en: "Satellite-Backed Internet Sovereignty", fa: "لایه حاکمیت اینترنت مبتنی بر ماهواره" },
+            { en: "Smart Grid & Energy Trading P2P", fa: "شبکه هوشمند و تجارت همتا به همتای انرژی" },
+            { en: "Water Management IoT Mesh", fa: "شبکه اینترنت اشیا برای مدیریت آب" },
+            { en: "Decentralized Cloud & Compute Network", fa: "شبکه ابری و محاسباتی غیرمتمرکز" },
+        ],
+        desc: {
+            en: "A decentralized, censorship-resistant mesh and satellite network ensures no central authority can ever trigger an internet blackout. Critical water and power grids are IoT-monitored.",
+            fa: "یک شبکه ارتباطی و ماهواره‌ای غیرمتمرکز و مقاوم در برابر سانسور تضمین می‌کند که هیچ قدرتی نتواند اینترنت را قطع کند. شبکه‌های حیاتی آب و برق توسط اینترنت اشیا نظارت می‌شوند."
+        },
+    },
+    {
+        id: "justice",
+        label: { en: "Justice & Accountability", fa: "عدالت و پاسخگویی" },
+        icon: "⚖️",
+        color: "#FBE9E7",
+        border: "#BF360C",
+        x: 35, y: 5,
+        tier: "secondary",
+        contents: [
+            { en: "Transitional Justice Immutable Ledger", fa: "دفتر کل تغییرناپذیر عدالت انتقالی" },
+            { en: "Human Rights Abuse Audit Trail", fa: "ردیابی حسابرسی نقض حقوق بشر" },
+            { en: "AI-Assisted Case Management", fa: "مدیریت پرونده‌ها با کمک هوش مصنوعی" },
+            { en: "Decentralized Arbitration Panels", fa: "هیئت‌های داوری غیرمتمرکز" },
+            { en: "On-Chain Court Records & Verdicts", fa: "سوابق و احکام دادگاه (ثبت در شبکه)" },
+            { en: "Whistleblower Protection Protocol", fa: "پروتکل حمایت از افشاگران فساد" },
+        ],
+        desc: {
+            en: "An immutable ledger handles transitional justice securely. Court records are on-chain, and whistleblower protections are baked directly into the protocol to prevent future corruption.",
+            fa: "یک دفتر کل تغییرناپذیر، عدالت انتقالی را به طور امن مدیریت می‌کند. سوابق دادگاه روی شبکه ثبت می‌شوند و حمایت از افشاگران مستقیماً در پروتکل گنجانده شده تا از فساد جلوگیری شود."
+        },
+    },
+    {
+        id: "defense",
+        label: { en: "Defence & Security", fa: "دفاع و امنیت" },
+        icon: "🛡",
+        color: "#ECEFF1",
+        border: "#37474F",
+        x: 15, y: 60,
+        tier: "secondary",
+        contents: [
+            { en: "Cybersecurity Operations Center", fa: "مرکز عملیات امنیت سایبری" },
+            { en: "Decentralized Intelligence Network", fa: "شبکه اطلاعاتی غیرمتمرکز" },
+            { en: "Autonomous Border Monitoring", fa: "نظارت خودمختار بر مرزها" },
+            { en: "Military Chain-of-Command Protocol", fa: "پروتکل سلسله مراتب فرماندهی نظامی" },
+            { en: "Civilian Oversight DAO", fa: "سازمان نظارت مدنی (شفافیت بودجه)" },
+        ],
+        desc: {
+            en: "Cyber-first defense doctrine. A dedicated Civilian Oversight DAO ensures the military's budget and procurement are transparent, preventing the formation of shadow economies.",
+            fa: "دکترین دفاعی سایبر-محور. یک نهاد مستقل نظارت مدنی تضمین می‌کند که بودجه و تدارکات نظامی شفاف باشند و از تشکیل اقتصادهای پنهان جلوگیری می‌کند."
+        },
+    },
+    {
+        id: "healthcare",
+        label: { en: "Healthcare", fa: "بهداشت و درمان" },
+        icon: "🏥",
+        color: "#FCE4EC",
+        border: "#C62828",
+        x: 85, y: 30,
+        tier: "secondary",
+        contents: [
+            { en: "Universal Health Record (Patient-Owned)", fa: "پرونده سلامت همگانی (تحت مالکیت بیمار)" },
+            { en: "AI Diagnostics & Triage Network", fa: "شبکه تشخیص و تریاژ با هوش مصنوعی" },
+            { en: "Decentralized Pharma Supply Chain", fa: "زنجیره تامین دارویی غیرمتمرکز" },
+            { en: "Telemedicine & Remote Care Mesh", fa: "شبکه پزشکی از راه دور" },
+        ],
+        desc: {
+            en: "Citizens own their health records. AI assists diagnostics. Drug supply chains are traced end-to-end on-chain to prevent medical hoarding or black markets.",
+            fa: "شهروندان مالک سوابق پزشکی خود هستند. زنجیره تامین دارو به طور کامل روی شبکه ردیابی می‌شود تا از احتکار پزشکی یا بازارهای سیاه جلوگیری شود."
+        },
+    },
+    {
+        id: "education",
+        label: { en: "Education & Research", fa: "آموزش و پژوهش" },
+        icon: "🎓",
+        color: "#F3E5F5",
+        border: "#7B1FA2",
+        x: 82, y: 60,
+        tier: "tertiary",
+        contents: [
+            { en: "Credential NFTs (Verifiable Degrees)", fa: "توکن‌های مدارک تحصیلی (قابل تأیید)" },
+            { en: "Decentralized University Consortium", fa: "کنسرسیوم دانشگاهی غیرمتمرکز" },
+            { en: "Open Research Commons & Funding DAOs", fa: "فضای تحقیقاتی باز و تأمین مالی" },
+            { en: "Diaspora Mentorship Network", fa: "شبکه مشاوره و راهنمایی دیاسپورا" },
+        ],
+        desc: {
+            en: "By verifying credentials on-chain and connecting funding DAOs directly to researchers, the system eliminates academic corruption and incentivizes the diaspora to return or contribute.",
+            fa: "با تأیید مدارک روی شبکه و اتصال مستقیم نهادهای تأمین مالی به پژوهشگران، این سیستم فساد علمی را از بین برده و دیاسپورا را به مشارکت تشویق می‌کند."
+        },
+    },
+    {
+        id: "business",
+        label: { en: "Business & Innovation", fa: "کسب‌وکار و نوآوری" },
+        icon: "🏢",
+        color: "#FFF3E0",
+        border: "#E65100",
+        x: 70, y: 78,
+        tier: "tertiary",
+        contents: [
+            { en: "Instant Business Registration (On-Chain)", fa: "ثبت فوری کسب‌وکار (روی شبکه)" },
+            { en: "Automated Regulatory Compliance", fa: "انطباق خودکار با مقررات" },
+            { en: "Worker Co-op & DAO Formation Tools", fa: "ابزارهای تشکیل تعاونی‌های کارگری" },
+            { en: "IP & Patent Registry (NFT-Based)", fa: "ثبت مالکیت معنوی (مبتنی بر NFT)" },
+        ],
+        desc: {
+            en: "Frictionless commerce. Businesses register instantly on-chain, eliminating the bribery and bureaucracy historically required to start a company.",
+            fa: "تجارت بدون اصطکاک. کسب‌وکارها به صورت فوری روی شبکه ثبت می‌شوند که این امر رشوه‌خواری و بروکراسی اداری برای شروع یک شرکت را از بین می‌برد."
+        },
+    },
+    {
+        id: "housing",
+        label: { en: "Housing & Land", fa: "مسکن و املاک" },
+        icon: "🏠",
+        color: "#E0F2F1",
+        border: "#00695C",
+        x: 30, y: 78,
+        tier: "tertiary",
+        contents: [
+            { en: "On-Chain Land Registry (Tokenized Titles)", fa: "ثبت اسناد املاک روی شبکه (اسناد توکن‌شده)" },
+            { en: "Affordable Housing Allocation Algorithm", fa: "الگوریتم تخصیص مسکن مقرون‌به‌صرفه" },
+            { en: "Building Permit Automation", fa: "اتوماسیون مجوزهای ساخت‌وساز" },
+        ],
+        desc: {
+            en: "All land titles are tokenized on-chain, eliminating title fraud and land grabs by connected elites. Permits are automated through smart contracts.",
+            fa: "تمام اسناد زمین روی شبکه توکن‌سازی می‌شوند که این امر کلاهبرداری اسناد و زمین‌خواری توسط نخبگان متصل را از بین می‌برد."
+        },
+    },
+    {
+        id: "social",
+        label: { en: "Social Services", fa: "خدمات اجتماعی" },
+        icon: "🤝",
+        color: "#F1F8E9",
+        border: "#558B2F",
+        x: 65, y: 5,
+        tier: "tertiary",
+        contents: [
+            { en: "Benefits Eligibility Engine (AI-Driven)", fa: "موتور تشخیص صلاحیت مزایا (هوش مصنوعی)" },
+            { en: "Food Security & Nutrition Tracking", fa: "ردیابی امنیت غذایی و تغذیه" },
+            { en: "Community Mutual Aid DAOs", fa: "سازمان‌های همیاری متقابل محلی" },
+        ],
+        desc: {
+            en: "AI determines benefits eligibility transparently, ensuring aid reaches those who need it without political patronage networks intercepting funds.",
+            fa: "هوش مصنوعی صلاحیت دریافت مزایا را به صورت شفاف تعیین می‌کند و تضمین می‌کند که کمک‌ها بدون دخالت شبکه‌های حمایت سیاسی به نیازمندان برسد."
+        },
+    },
+];
+
+export const CONNECTIONS = [
+    { from: "citizens", to: "governance", label: { en: "Vote & Delegate", fa: "رأی و تفویض" }, strength: 3 },
+    { from: "citizens", to: "economy", label: { en: "Diaspora Investment", fa: "سرمایه دیاسپورا" }, strength: 3 },
+    { from: "resources", to: "economy", label: { en: "Wealth Dividend", fa: "سود ثروت ملی" }, strength: 3 },
+    { from: "justice", to: "governance", label: { en: "Transitional Audit", fa: "حسابرسی انتقالی" }, strength: 3 },
+    { from: "citizens", to: "healthcare", label: { en: "Health Records", fa: "پرونده سلامت" }, strength: 2 },
+    { from: "citizens", to: "education", label: { en: "Credentials", fa: "مدارک تحصیلی" }, strength: 2 },
+    { from: "citizens", to: "housing", label: { en: "Title Ownership", fa: "مالکیت اسناد" }, strength: 2 },
+    { from: "citizens", to: "business", label: { en: "Registration", fa: "ثبت شرکت" }, strength: 2 },
+    { from: "governance", to: "economy", label: { en: "Budget Allocation", fa: "تخصیص بودجه" }, strength: 3 },
+    { from: "governance", to: "defense", label: { en: "Civilian Oversight", fa: "نظارت مدنی" }, strength: 3 },
+    { from: "governance", to: "justice", label: { en: "Legislation", fa: "قانون‌گذاری" }, strength: 3 },
+    { from: "governance", to: "infrastructure", label: { en: "Provincial Works", fa: "پروژه‌های استانی" }, strength: 2 },
+    { from: "economy", to: "business", label: { en: "Commerce & Tax", fa: "تجارت و مالیات" }, strength: 3 },
+    { from: "economy", to: "infrastructure", label: { en: "Funding", fa: "تأمین مالی" }, strength: 2 },
+    { from: "economy", to: "social", label: { en: "UBI / Dividend", fa: "سود همگانی" }, strength: 2 },
+    { from: "healthcare", to: "social", label: { en: "Care Coordination", fa: "هماهنگی مراقبت" }, strength: 2 },
+    { from: "education", to: "business", label: { en: "Innovation Pipeline", fa: "مسیر نوآوری" }, strength: 2 },
+    { from: "defense", to: "infrastructure", label: { en: "Grid Protection", fa: "حفاظت شبکه" }, strength: 2 },
+    { from: "housing", to: "infrastructure", label: { en: "Utilities", fa: "خدمات شهری" }, strength: 2 },
+    { from: "business", to: "resources", label: { en: "Extraction Licenses", fa: "مجوز استخراج" }, strength: 2 },
+    { from: "infrastructure", to: "resources", label: { en: "Water/Energy IoT", fa: "مدیریت آب/انرژی" }, strength: 3 },
+];
+
+export const SHARED_LAYERS = [
+    {
+        name: { en: "Censorship-Resistant Ledger", fa: "دفتر کل مقاوم در برابر سانسور" },
+        icon: "🔗",
+        desc: { en: "Immutable record of all transactions, budgets, and votes, secured across distributed nodes.", fa: "ثبت تغییرناپذیر تمام تراکنش‌ها، بودجه‌ها و آرا که در گره‌های توزیع‌شده ایمن شده‌اند." }
+    },
+    {
+        name: { en: "Zero-Knowledge Privacy", fa: "حریم خصوصی دانش صفر" },
+        icon: "🔒",
+        desc: { en: "Cryptographic layer allowing citizens to prove rights without revealing personal data.", fa: "لایه رمزنگاری که به شهروندان اجازه می‌دهد حقوق خود را بدون افشای داده‌های شخصی ثابت کنند." }
+    },
+    {
+        name: { en: "Decentralized Data Mesh", fa: "شبکه داده غیرمتمرکز" },
+        icon: "🗄",
+        desc: { en: "Federated storage where citizens truly own their data and grant temporary access keys.", fa: "فضای ذخیره‌سازی توزیع‌شده که در آن شهروندان مالک داده‌های خود هستند و کلیدهای دسترسی موقت اعطا می‌کنند." }
+    },
+    {
+        name: { en: "AI Anti-Corruption Engine", fa: "موتور ضد فساد هوش مصنوعی" },
+        icon: "🤖",
+        desc: { en: "Automated anomaly detection scanning budgets and procurement for embezzlement.", fa: "تشخیص خودکار ناهنجاری‌ها که بودجه‌ها و تدارکات را برای جلوگیری از اختلاس اسکن می‌کند." }
+    },
+    {
+        name: { en: "Interoperability Gateway", fa: "درگاه یکپارچه‌سازی و API" },
+        icon: "🔌",
+        desc: { en: "Standardized protocols connecting all provincial DAOs and civic applications.", fa: "پروتکل‌های استاندارد که تمام نهادهای استانی و برنامه‌های مدنی را به هم متصل می‌کند." }
+    },
+];
