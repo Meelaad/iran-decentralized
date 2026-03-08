@@ -336,6 +336,9 @@ svg path, svg text, svg circle, svg g {
     border-radius: 0;
     padding: 18px 18px 16px;
     overflow-y: auto;
+    --panel-opacity: 0.82;
+    opacity: var(--panel-opacity, 0.92);
+    transition: opacity 0.14s ease;
     animation: panelReveal 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
     transform-origin: var(--panel-origin-x, 50%) var(--panel-origin-y, 0);
     backdrop-filter: blur(14px);
@@ -352,15 +355,15 @@ svg path, svg text, svg circle, svg g {
     }
     30% {
         clip-path: inset(0 0 70% 0);
-        opacity: 1;
+        opacity: var(--panel-opacity, 1);
     }
     65% {
         clip-path: inset(0 0 70% 0);
-        opacity: 1;
+        opacity: var(--panel-opacity, 1);
     }
     100% {
         clip-path: inset(0 0 0 0);
-        opacity: 1;
+        opacity: var(--panel-opacity, 1);
     }
 }
 
@@ -370,7 +373,7 @@ svg path, svg text, svg circle, svg g {
         transform: scale(0.4);
     }
     100% {
-        opacity: 1;
+        opacity: var(--panel-opacity, 1);
         transform: scale(1);
     }
 }
@@ -736,24 +739,24 @@ svg path, svg text, svg circle, svg g {
         10% {
             transform: scale(0.88);
             clip-path: inset(0 0 70% 0);
-            opacity: 1;
+            opacity: var(--panel-opacity, 1);
         }
         /* hold the top open so title is visible */
         50% {
             transform: scale(0.88);
             clip-path: inset(0 0 70% 0);
-            opacity: 1;
+            opacity: var(--panel-opacity, 1);
         }
         /* quick slide-down to final */
         75% {
             transform: scale(0.98);
             clip-path: inset(0 0 8% 0);
-            opacity: 1;
+            opacity: var(--panel-opacity, 1);
         }
         100% {
             transform: scale(1);
             clip-path: inset(0 0 0 0);
-            opacity: 1;
+            opacity: var(--panel-opacity, 1);
         }
     }
 
