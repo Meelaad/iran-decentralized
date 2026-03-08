@@ -7,6 +7,30 @@ import { useLang } from './components/Layout/Layout';
 import './Architecture.css';
 import BlockchainOverlay from "./BlockchainOverlay";
 
+function useHexLayout() {
+    const HEX_BASE = 170;
+    const GAP = 6;
+
+    const calcLayout = useCallback(() => {
+        const w = window.innerWidth;
+        const available = w - 48; // padding
+        // how many full hexes + half offset fit
+        const cols = Math.max(2, Math.floor((available + GAP) / (HEX_BASE + GAP)));
+        const hexW = Math.min(HEX_BASE, Math.floor((available - GAP * (cols - 1)) / (cols + 0.5)));
+        return { cols, hexW };
+    }, []);
+
+    const [layout, setLayout] = useState(calcLayout);
+
+    useEffect(() => {
+        const onResize = () => setLayout(calcLayout());
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, [calcLayout]);
+
+    return layout;
+}
+
 function CardParticles({ color = "79,195,247" }) {
     const canvasRef = useRef(null);
 
@@ -100,9 +124,44 @@ function hexToRgb(hex) {
 export default function DecentralizedGovArchitecture() {
     const { t, isRTL } = useLang();
     const [selected, setSelected] = useState(null);
+    const [panelVisible, setPanelVisible] = useState(false);
+    const [panelOrigin, setPanelOrigin] = useState(null);
     const [hoveredConn, setHoveredConn] = useState(null);
     const [showLayer, setShowLayer] = useState(null);
     const [view, setView] = useState("map");
+    const { cols: hexCols, hexW } = useHexLayout();
+    const svgRef = useRef(null);
+
+    const handleNodeClick = useCallback((sectorId, isSelected) => {
+        if (isSelected) { setSelected(null); setPanelVisible(false); return; }
+        const svg = svgRef.current;
+        if (svg) {
+            const sector = SECTORS.find(s => s.id === sectorId);
+            if (sector) {
+                const pt = svg.createSVGPoint();
+                pt.x = sector.x;
+                pt.y = sector.y;
+                const ctm = svg.getScreenCTM();
+                if (ctm) {
+                    const screenPt = pt.matrixTransform(ctm);
+                    const stage = svg.parentElement;
+                    const rect = stage.getBoundingClientRect();
+                    setPanelOrigin({ x: screenPt.x - rect.left, y: screenPt.y - rect.top });
+                }
+            }
+        }
+        setSelected(sectorId);
+        // Desktop: show immediately. Mobile: delay handled in useEffect.
+        if (window.innerWidth > 900) setPanelVisible(true);
+    }, []);
+
+    // Delay side panel on mobile so connection animation plays first
+    useEffect(() => {
+        if (!selected) { setPanelVisible(false); return; }
+        if (window.innerWidth > 900) return; // desktop handled in click
+        const timer = setTimeout(() => setPanelVisible(true), 120);
+        return () => clearTimeout(timer);
+    }, [selected]);
 
     const selectedSector = useMemo(
         () => SECTORS.find((s) => s.id === selected),
@@ -128,6 +187,22 @@ export default function DecentralizedGovArchitecture() {
     const getSectorPos = useCallback((id) => {
         const s = SECTORS.find((sec) => sec.id === id);
         return s ? { x: s.x, y: s.y } : { x: 50, y: 50 };
+    }, []);
+
+    // Proximity mesh lines — straight lines between nearby nodes
+    const meshLines = useMemo(() => {
+        const lines = [];
+        const threshold = 25;
+        for (let i = 0; i < SECTORS.length; i++) {
+            for (let j = i + 1; j < SECTORS.length; j++) {
+                const a = SECTORS[i], b = SECTORS[j];
+                const dist = Math.hypot(a.x - b.x, a.y - b.y);
+                if (dist < threshold) {
+                    lines.push({ x1: a.x, y1: a.y, x2: b.x, y2: b.y, dist });
+                }
+            }
+        }
+        return lines;
     }, []);
 
     return (
@@ -172,7 +247,8 @@ export default function DecentralizedGovArchitecture() {
                     <div className="map-shell">
                         <div className="map-stage">
                             <svg
-                                viewBox="0 0 100 90"
+                                ref={svgRef}
+                                viewBox="15 8 70 72"
                                 className="arch-map-svg"
                                 preserveAspectRatio="xMidYMid meet"
                                 onMouseDown={e => e.preventDefault()}
@@ -186,6 +262,22 @@ export default function DecentralizedGovArchitecture() {
                                         </feMerge>
                                     </filter>
                                 </defs>
+
+                                {/* Proximity mesh — decentralized network look */}
+                                {meshLines.map((line, i) => (
+                                    <line
+                                        key={`mesh-${i}`}
+                                        className="mesh-line"
+                                        x1={line.x1} y1={line.y1}
+                                        x2={line.x2} y2={line.y2}
+                                        stroke="#4a7faa"
+                                        strokeWidth="0.15"
+                                        opacity={0.15 + 0.25 * (1 - line.dist / 25)}
+                                        style={{
+                                            animation: `meshPulse ${3 + (i % 5)}s ${(i * 0.6).toFixed(1)}s ease-in-out infinite`
+                                        }}
+                                    />
+                                ))}
 
                                 {CONNECTIONS.map((conn, i) => {
                                     const from = getSectorPos(conn.from);
@@ -264,10 +356,10 @@ export default function DecentralizedGovArchitecture() {
                                     const isSelected = selected === sector.id;
                                     const isRelated = relatedIds.has(sector.id);
                                     const dimmed = selected && !isRelated && !isSelected;
-                                    const r = sector.tier === "core" ? 4 : sector.tier === "primary" ? 3.2 : sector.tier === "secondary" ? 2.8 : 2.4;
+                                    const r = sector.tier === "core" ? 4 : sector.tier === "primary" ? 3.4 : 2.8;
 
                                     return (
-                                        <g key={sector.id} className="sector-node" onClick={() => setSelected(isSelected ? null : sector.id)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
+                                        <g key={sector.id} className="sector-node" onClick={() => handleNodeClick(sector.id, isSelected)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
                                             <circle cx={sector.x} cy={sector.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
                                             <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={sector.x} cy={sector.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
                                             {sector.subIcon
@@ -285,14 +377,17 @@ export default function DecentralizedGovArchitecture() {
                                 })}
                             </svg>
 
-                            {selectedSector && (
+                            {panelVisible && selectedSector && (
                                 <div
+                                    key={selected}
                                     className="side-panel"
                                     onMouseDown={e => e.preventDefault()}
                                     style={{
                                         [isRTL ? "left" : "right"]: 12,
                                         border: `1px solid ${selectedSector.border}40`,
-                                        color: selectedSector.border
+                                        color: selectedSector.border,
+                                        "--panel-origin-x": panelOrigin ? `${panelOrigin.x}px` : "50%",
+                                        "--panel-origin-y": panelOrigin ? `${panelOrigin.y}px` : "0",
                                     }}
                                 >
                                     <div className="side-panel-header">
@@ -374,6 +469,17 @@ export default function DecentralizedGovArchitecture() {
                             )}
                         </div>
 
+                        <div className="mobile-tab-bar">
+                            <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
+                                <span className="tab-icon">🗺️</span>
+                                {isRTL ? "نقشه" : "MAP"}
+                            </button>
+                            <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
+                                <span className="tab-icon">⬡</span>
+                                {isRTL ? "لیست" : "LIST"}
+                            </button>
+                        </div>
+
                         <div className="shared-footer">
                             <div className={`shared-footer-title ${!isRTL ? "is-ltr" : ""}`}>
                                 {isRTL ? "لایه‌های زیرساخت مشترک (پایه پروتکل)" : "SHARED INFRASTRUCTURE LAYERS (PROTOCOL FOUNDATION)"}
@@ -395,15 +501,22 @@ export default function DecentralizedGovArchitecture() {
                     </div>
                 ) : (
                     <div className="list-view">
-                        <div className="hex-honeycomb">
+                        <div className="hex-honeycomb" style={{
+                            "--hex-w": `${hexW}px`,
+                            gridTemplateColumns: `repeat(${hexCols}, var(--hex-w))`,
+                        }}>
                             {SECTORS.map((sector, i) => {
-                                const row = Math.floor(i / 5);
+                                const row = Math.floor(i / hexCols);
                                 const isOffsetRow = row % 2 === 1;
+                                const isFirstRow = row === 0;
                                 return (
                                     <div
                                         key={sector.id}
                                         className={`hex-card-wrap${isOffsetRow ? " hex-row-offset" : ""}`}
-                                        style={{ gridRow: row + 1 }}
+                                        style={{
+                                            gridRow: row + 1,
+                                            marginTop: isFirstRow ? 0 : undefined,
+                                        }}
                                         onClick={() => { setSelected(sector.id); setView("map"); }}
                                         onMouseDown={e => e.preventDefault()}
                                     >

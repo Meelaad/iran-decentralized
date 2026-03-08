@@ -11,6 +11,7 @@ export function useLang() {
 
 export default function Layout() {
     const [lang, setLang] = useState("fa");
+    const [mobileNavOpen, setMobileNavOpen] = useState(false);
     const t = useCallback((obj) => (obj ? obj[lang] || obj.en : ""), [lang]);
     const isRTL = lang === "fa";
 
@@ -77,7 +78,36 @@ export default function Layout() {
                                 onClick={() => setLang("en")}
                             >EN</button>
                         </div>
+                        <button
+                            className="hamburger-nav-btn"
+                            onClick={() => setMobileNavOpen(!mobileNavOpen)}
+                            aria-label="Menu"
+                        >
+                            <span className={`hamburger-nav-icon${mobileNavOpen ? " is-open" : ""}`}>
+                                <span /><span /><span />
+                            </span>
+                        </button>
                     </div>
+
+                    {mobileNavOpen && (
+                        <div className="mobile-nav-dropdown">
+                            <NavLink to="/" end className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? "نقشه" : "MAP"}
+                            </NavLink>
+                            <NavLink to="/sectors" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? "بخش‌ها" : "SECTORS"}
+                            </NavLink>
+                            <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? "لایه‌ها" : "LAYERS"}
+                            </NavLink>
+                            <NavLink to="/roadmap" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? "نقشه راه" : "ROADMAP"}
+                            </NavLink>
+                            <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? "درباره" : "ABOUT"}
+                            </NavLink>
+                        </div>
+                    )}
                 </nav>
 
                 <div className="site-layout-content">

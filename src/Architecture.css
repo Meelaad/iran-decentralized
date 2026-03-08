@@ -41,6 +41,11 @@
     50% { filter: brightness(1.3) drop-shadow(0 0 8px rgba(79,195,247,0.6)); }
 }
 
+@keyframes meshPulse {
+    0%, 100% { opacity: 0.15; stroke: #4a7faa; }
+    50% { opacity: 0.4; stroke: #5a9acc; }
+}
+
 @keyframes edgeIdle {
     0%, 75%, 100% { opacity: 0.4; }
     85% { opacity: 1; }
@@ -114,6 +119,14 @@
     align-items: start;
     position: relative;
     z-index: 20;
+}
+
+.app-controls {
+    display: flex;
+    gap: 12px;
+    align-items: stretch;
+    justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .app-header::after {
@@ -194,6 +207,42 @@
 }
 
 /* MAP */
+
+/* Mobile tab bar — hidden on desktop */
+.mobile-tab-bar {
+    display: none;
+    justify-content: center;
+    gap: 2px;
+    padding: 8px 16px;
+    background: linear-gradient(180deg, rgba(8,12,22,0.9), rgba(5,8,18,0.95));
+    border-top: 1px solid rgba(79,195,247,0.1);
+}
+
+.mobile-tab-bar .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 16px;
+    border: 1px solid rgba(98, 114, 138, 0.25);
+    background: rgba(9, 14, 22, 0.6);
+    color: #607080;
+    font-size: 9px;
+    font-family: inherit;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s;
+}
+
+.mobile-tab-bar .tab-btn .tab-icon {
+    font-size: 12px;
+}
+
+.mobile-tab-bar .tab-btn.tab-active {
+    color: #8fe3ff;
+    background: rgba(79,195,247,0.08);
+    border-color: rgba(79,195,247,0.3);
+}
 
 .map-shell {
     display: flex;
@@ -287,11 +336,43 @@ svg path, svg text, svg circle, svg g {
     border-radius: 0;
     padding: 18px 18px 16px;
     overflow-y: auto;
-    animation: fadeIn 0.25s ease;
+    animation: panelReveal 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+    transform-origin: var(--panel-origin-x, 50%) var(--panel-origin-y, 0);
     backdrop-filter: blur(14px);
+    will-change: transform, clip-path, opacity;
     box-shadow:
         0 0 0 1px rgba(21,40,153,0.3),
         0 18px 50px rgba(0,0,0,0.5);
+}
+
+@keyframes panelSlideDown {
+    0% {
+        clip-path: inset(0 0 100% 0);
+        opacity: 0.6;
+    }
+    30% {
+        clip-path: inset(0 0 70% 0);
+        opacity: 1;
+    }
+    65% {
+        clip-path: inset(0 0 70% 0);
+        opacity: 1;
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+        opacity: 1;
+    }
+}
+
+@keyframes panelReveal {
+    0% {
+        opacity: 0.5;
+        transform: scale(0.4);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .side-panel *,
@@ -323,7 +404,7 @@ svg path, svg text, svg circle, svg g {
 }
 
 .side-panel-kicker {
-    font-size: 10px;
+    font-size: clamp(7px, 2vw, 10px);
     font-weight: 700;
     text-transform: uppercase;
 }
@@ -350,12 +431,12 @@ svg path, svg text, svg circle, svg g {
 }
 
 .side-panel-icon {
-    font-size: 23px;
+    font-size: clamp(18px, 5vw, 23px);
     margin-bottom: 4px;
 }
 
 .side-panel-title {
-    font-size: 19px;
+    font-size: clamp(14px, 4vw, 19px);
     font-weight: 700;
     color: #eef5ff;
     margin-bottom: 10px;
@@ -481,11 +562,14 @@ svg path, svg text, svg circle, svg g {
 .hex-honeycomb {
     --hex-w: 170px;
     display: grid;
-    grid-template-columns: repeat(5, var(--hex-w));
+    /* grid-template-columns set dynamically via inline style */
     row-gap: 0;
-    column-gap: 8px;
+    column-gap: 6px;
     justify-content: center;
     padding: 10px 0 60px;
+    transition: all 0.3s ease;
+    /* shift left to visually center the honeycomb (offset rows push right) */
+    transform: translateX(calc(var(--hex-w) / -4));
 }
 
 .hex-card-wrap {
@@ -493,6 +577,7 @@ svg path, svg text, svg circle, svg g {
     margin-top: -28px;
     outline: none;
     -webkit-tap-highlight-color: transparent;
+    transition: transform 0.3s ease, margin 0.3s ease;
 }
 
 .hex-card-wrap:focus,
@@ -502,13 +587,13 @@ svg path, svg text, svg circle, svg g {
     outline: none;
 }
 
-.hex-card-wrap:nth-child(-n+5) {
-    margin-top: 0;
+.hex-card-wrap:nth-child(-n+20) {
+    /* default; first-row margin is handled inline */
 }
 
 /* Offset rows shift right by half a hex width */
 .hex-card-wrap.hex-row-offset {
-    transform: translateX(calc(var(--hex-w) / 2 + 5px));
+    transform: translateX(calc(var(--hex-w) / 2 + 3px));
 }
 
 .list-card.hex-shape {
@@ -590,26 +675,89 @@ svg path, svg text, svg circle, svg g {
 @media (max-width: 900px) {
     .app-header {
         grid-template-columns: 1fr;
+        padding: 10px 14px 8px;
+        gap: 8px;
     }
 
-    .app-controls {
-        justify-content: flex-start;
+    .app-kicker {
+        font-size: 8px;
+    }
+
+    .app-title {
+        /* Dynamic, smaller title on mobile */
+        font-size: clamp(12px, 4.5vw, 14px);
+    }
+
+    .map-shell {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .map-stage {
+        height: calc(100vw * 1.1);
+        max-height: calc(100vh - 100px);
+        flex-shrink: 0;
+    }
+
+    .shared-footer {
+        margin-top: 0;
+    }
+
+    /* Hide controls from header on mobile */
+    .app-header .app-controls {
+        display: none;
+    }
+
+    /* Sticky bottom tab bar for mobile */
+    .mobile-tab-bar {
+        display: flex;
     }
 
     .side-panel {
         width: min(340px, calc(100% - 24px));
+        background:
+            linear-gradient(180deg, rgba(8,12,28,0.75), rgba(5,8,22,0.7));
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        /* Mobile: reveal from node origin then slide down */
+        animation: mobileOriginThenSlide 0.6s cubic-bezier(0.2,0.8,0.2,1) both;
+        transform-origin: var(--panel-origin-x,50%) var(--panel-origin-y,0);
+        will-change: transform, clip-path, opacity;
     }
 
-    .hex-honeycomb {
-        grid-template-columns: repeat(2, 150px);
-        --hex-w: 150px;
+    @keyframes mobileOriginThenSlide {
+        0% {
+            transform: scale(0.6);
+            clip-path: inset(0 0 100% 0);
+            opacity: 0.85;
+        }
+        /* very fast top reveal */
+        10% {
+            transform: scale(0.88);
+            clip-path: inset(0 0 70% 0);
+            opacity: 1;
+        }
+        /* hold the top open so title is visible */
+        50% {
+            transform: scale(0.88);
+            clip-path: inset(0 0 70% 0);
+            opacity: 1;
+        }
+        /* quick slide-down to final */
+        75% {
+            transform: scale(0.98);
+            clip-path: inset(0 0 8% 0);
+            opacity: 1;
+        }
+        100% {
+            transform: scale(1);
+            clip-path: inset(0 0 0 0);
+            opacity: 1;
+        }
     }
 
-    .hex-card-wrap {
-        margin-top: -20px;
-    }
-
-    .hex-card-wrap:nth-child(-n+2) {
-        margin-top: 0;
+    .list-view {
+        padding: 16px 12px 200px;
     }
 }
