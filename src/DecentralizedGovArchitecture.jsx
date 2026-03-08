@@ -1,19 +1,108 @@
 // DecentralizedGovArchitecture.jsx
 
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { SECTORS, CONNECTIONS, SHARED_LAYERS } from './data';
+import { useLang } from './components/Layout/Layout';
 import './Architecture.css';
 import BlockchainOverlay from "./BlockchainOverlay";
 
+function CardParticles({ color = "79,195,247" }) {
+    const canvasRef = useRef(null);
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let animId;
+        const particles = [];
+        const count = 28;
+        const linkDist = 55;
+
+        function resize() {
+            canvas.width = canvas.offsetWidth * devicePixelRatio;
+            canvas.height = canvas.offsetHeight * devicePixelRatio;
+            ctx.scale(devicePixelRatio, devicePixelRatio);
+        }
+        resize();
+
+        const w = () => canvas.offsetWidth;
+        const h = () => canvas.offsetHeight;
+
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * w(),
+                y: Math.random() * h(),
+                vx: (Math.random() - 0.5) * 0.3,
+                vy: (Math.random() - 0.5) * 0.3,
+                r: Math.random() * 1.2 + 0.4,
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w(), h());
+
+            for (const p of particles) {
+                p.x += p.vx;
+                p.y += p.vy;
+                if (p.x < 0 || p.x > w()) p.vx *= -1;
+                if (p.y < 0 || p.y > h()) p.vy *= -1;
+            }
+
+            // Lines
+            for (let i = 0; i < count; i++) {
+                for (let j = i + 1; j < count; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < linkDist) {
+                        const alpha = (1 - dist / linkDist) * 0.25;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(${color},${alpha})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Dots
+            for (const p of particles) {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${color},0.5)`;
+                ctx.fill();
+            }
+
+            animId = requestAnimationFrame(draw);
+        }
+
+        draw();
+
+        const ro = new ResizeObserver(resize);
+        ro.observe(canvas);
+
+        return () => {
+            cancelAnimationFrame(animId);
+            ro.disconnect();
+        };
+    }, [color]);
+
+    return <canvas ref={canvasRef} className="list-card-particles" />;
+}
+
+function hexToRgb(hex) {
+    const h = hex.replace("#", "");
+    return `${parseInt(h.substring(0, 2), 16)},${parseInt(h.substring(2, 4), 16)},${parseInt(h.substring(4, 6), 16)}`;
+}
+
 export default function DecentralizedGovArchitecture() {
-    const [lang, setLang] = useState("fa");
+    const { t, isRTL } = useLang();
     const [selected, setSelected] = useState(null);
     const [hoveredConn, setHoveredConn] = useState(null);
     const [showLayer, setShowLayer] = useState(null);
     const [view, setView] = useState("map");
-
-    const t = useCallback((obj) => obj[lang] || obj.en, [lang]);
-    const isRTL = lang === "fa";
 
     const selectedSector = useMemo(
         () => SECTORS.find((s) => s.id === selected),
@@ -46,9 +135,8 @@ export default function DecentralizedGovArchitecture() {
 
         <div
             className="container"
-            dir={isRTL ? "rtl" : "ltr"}
             style={{
-                fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace"
+                fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif"
                 }}>
                 <div className="blockchain-overlay">
                     <div className="blockchain-aurora" />
@@ -63,7 +151,7 @@ export default function DecentralizedGovArchitecture() {
                         <h1
                             className="app-title"
                             style={{
-                                fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Space Grotesk', sans-serif"
+                                fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif"
                             }}
                         >
                             {isRTL ? "دولت دیجیتال و غیرمتمرکز" : "Decentralized Digital Government"}
@@ -71,17 +159,6 @@ export default function DecentralizedGovArchitecture() {
                     </div>
 
                     <div className="app-controls">
-                        <div className="control-group">
-                            <button
-                                className={`btn-base ${lang === "fa" ? "btn-active" : ""}`}
-                                style={{ fontFamily: "'Vazirmatn', sans-serif" }}
-                                onClick={() => setLang("fa")}>فارسی</button>
-                            <button
-                                className={`btn-base ${lang === "en" ? "btn-active" : ""}`}
-                                style={{ fontFamily: "'IBM Plex Mono', sans-serif" }}
-                                onClick={() => setLang("en")}>EN</button>
-                        </div>
-
                         <div className="control-group">
                             <button className={`btn-base ${view === "map" ? "btn-active" : ""}`}
                                     onClick={() => setView("map")}>{isRTL ? "نقشه" : "MAP"}</button>
@@ -122,21 +199,49 @@ export default function DecentralizedGovArchitecture() {
                                     const dy = to.y - from.y;
                                     const offsetX = -dy * 0.08;
                                     const offsetY = dx * 0.08;
+                                    const pathD = `M ${from.x} ${from.y} Q ${midX + offsetX} ${midY + offsetY} ${to.x} ${to.y}`;
+                                    const idleStyle = !isRelated && !dimmed && !isHovered ? {
+                                        animation: `${i % 2 === 0 ? "edgeLightning" : "edgeIdle"} ${3 + (i % 7)}s ${(i * 0.37 + (i % 3) * 1.1).toFixed(2)}s infinite`
+                                    } : {};
+
+                                    const bits = ["1","0","1","1","0","0","1","0"];
 
                                     return (
                                         <g key={`conn-${i}`}
                                            onMouseEnter={() => setHoveredConn(i)}
                                            onMouseLeave={() => setHoveredConn(null)}
+                                           onMouseDown={e => e.preventDefault()}
                                            style={{ cursor: "default" }}>
                                             <path
-                                                className="conn-line"
-                                                d={`M ${from.x} ${from.y} Q ${midX + offsetX} ${midY + offsetY} ${to.x} ${to.y}`}
-                                                stroke={isRelated ? "#66d9ff" : isHovered ? "#8fa8c0" : "#2f4666"}
+                                                className={`conn-line${isRelated ? " is-active" : ""}`}
+                                                d={pathD}
+                                                stroke={isRelated ? "#66d9ff" : isHovered ? "#8fa8c0" : undefined}
                                                 strokeWidth={isRelated ? 0.25 * conn.strength * 0.4 : isHovered ? 0.2 : 0.08}
                                                 fill="none"
-                                                opacity={dimmed ? 0.08 : isRelated ? 0.95 : 0.68}
-                                                strokeDasharray={conn.strength === 1 ? "0.5 0.3" : "none"}
+                                                opacity={dimmed ? 0.08 : isRelated ? 0.95 : undefined}
+                                                strokeDasharray={!isRelated && conn.strength === 1 ? "0.5 0.3" : isRelated ? undefined : "none"}
+                                                style={idleStyle}
                                             />
+                                            {isRelated && bits.map((bit, b) => (
+                                                <text
+                                                    key={b}
+                                                    fontSize="1.5"
+                                                    fill={bit === "1" ? "#66d9ff" : "#2eb8d4"}
+                                                    textAnchor="middle"
+                                                    dominantBaseline="middle"
+                                                    fontFamily="Inter"
+                                                    fontWeight="700"
+                                                    opacity="0.9"
+                                                >
+                                                    <animateMotion
+                                                        dur={`${1.6 + (b % 3) * 0.4}s`}
+                                                        begin={`${b * 0.22}s`}
+                                                        repeatCount="indefinite"
+                                                        path={pathD}
+                                                    />
+                                                    {bit}
+                                                </text>
+                                            ))}
                                             {(isHovered || isRelated) && (
                                                 <text
                                                     x={midX + offsetX * 0.6}
@@ -145,7 +250,7 @@ export default function DecentralizedGovArchitecture() {
                                                     fill={isRelated ? "#4fc3f7" : "#5a6a7a"}
                                                     textAnchor="middle"
                                                     dominantBaseline="middle"
-                                                    fontFamily={isRTL ? "Vazirmatn" : "IBM Plex Mono"}
+                                                    fontFamily={isRTL ? "Vazirmatn" : "Inter"}
                                                     fontWeight="500"
                                                 >
                                                     {t(conn.label)}
@@ -165,8 +270,14 @@ export default function DecentralizedGovArchitecture() {
                                         <g key={sector.id} className="sector-node" onClick={() => setSelected(isSelected ? null : sector.id)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
                                             <circle cx={sector.x} cy={sector.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
                                             <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={sector.x} cy={sector.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
-                                            <text x={sector.x} y={sector.y + 0.3} fontSize={r * 0.65} textAnchor="middle" dominantBaseline="middle">{sector.icon}</text>
-                                            <text className={`sector-node-label ${isSelected ? "is-selected" : ""}`} x={sector.x} y={sector.y + r + 1.6} fontSize="1.4" textAnchor="middle" fontFamily={isRTL ? "Vazirmatn" : "IBM Plex Mono"} fontWeight={isSelected ? "600" : "400"}>
+                                            {sector.subIcon
+                                                ? <>
+                                                    <text x={sector.x} y={sector.y - r * 0.2} fontSize={r * 0.9} textAnchor="middle" dominantBaseline="middle" opacity={0.75}>{sector.icon}</text>
+                                                    <text x={sector.x} y={sector.y + r * 0.55} fontSize={r * 0.8} textAnchor="middle" dominantBaseline="middle">{sector.subIcon}</text>
+                                                  </>
+                                                : <text x={sector.x} y={sector.y + 0.3} fontSize={r * 1.33} textAnchor="middle" dominantBaseline="middle">{sector.icon}</text>
+                                            }
+                                            <text className={`sector-node-label ${isSelected ? "is-selected" : ""}`} x={sector.x} y={sector.y + r + 1.6} fontSize="1.4" textAnchor="middle" fontFamily={isRTL ? "Vazirmatn" : "Inter"} fontWeight={isSelected ? "600" : "500"}>
                                                 {t(sector.label)}
                                             </text>
                                         </g>
@@ -177,6 +288,7 @@ export default function DecentralizedGovArchitecture() {
                             {selectedSector && (
                                 <div
                                     className="side-panel"
+                                    onMouseDown={e => e.preventDefault()}
                                     style={{
                                         [isRTL ? "left" : "right"]: 12,
                                         border: `1px solid ${selectedSector.border}40`,
@@ -185,20 +297,43 @@ export default function DecentralizedGovArchitecture() {
                                 >
                                     <div className="side-panel-header">
                                         <div className={`side-panel-kicker ${!isRTL ? "is-ltr" : ""}`} style={{ color: selectedSector.border }}>
-                                            {selectedSector.tier.toUpperCase()} {isRTL ? "بخش" : "SECTOR"}
+                                            {t({
+                                                core: { en: "CORE LAYER", fa: "لایه هسته" },
+                                                primary: { en: "PRIMARY SECTOR", fa: "بخش اولیه" },
+                                                secondary: { en: "SECONDARY SECTOR", fa: "بخش ثانویه" },
+                                                tertiary: { en: "SUPPORTING SECTOR", fa: "بخش پشتیبان" },
+                                            }[selectedSector.tier])}
                                         </div>
                                         <button className="side-panel-close" onClick={() => setSelected(null)}>✕</button>
                                     </div>
                                     <div className="side-panel-icon">{selectedSector.icon}</div>
                                     <h2
                                         className="side-panel-title"
-                                        style={{ fontFamily: isRTL ? "Vazirmatn" : "'Space Grotesk', sans-serif" }}
+                                        style={{ fontFamily: isRTL ? "Vazirmatn" : "'Inter', sans-serif" }}
                                     >
                                         {t(selectedSector.label)}
                                     </h2>
                                     <p className="side-panel-desc">
                                         {t(selectedSector.desc)}
                                     </p>
+
+                                    <Link
+                                        to={`/sectors/${selectedSector.id}`}
+                                        style={{
+                                            display: "inline-block",
+                                            fontSize: 11,
+                                            color: "#66d9ff",
+                                            border: "1px solid rgba(79,195,247,0.2)",
+                                            padding: "6px 14px",
+                                            marginBottom: 16,
+                                            textDecoration: "none",
+                                            letterSpacing: "0.06em",
+                                            transition: "background 0.2s, border-color 0.2s",
+                                            background: "rgba(79,195,247,0.04)",
+                                        }}
+                                    >
+                                        {isRTL ? "جزئیات بیشتر ←" : "LEARN MORE →"}
+                                    </Link>
 
                                     <div className={`panel-section-label ${!isRTL ? "is-ltr" : ""}`}>
                                         {isRTL ? "سیستم‌های داخلی" : "INTERNAL SYSTEMS"}
@@ -260,50 +395,49 @@ export default function DecentralizedGovArchitecture() {
                     </div>
                 ) : (
                     <div className="list-view">
-                        {["core", "primary", "secondary", "tertiary"].map((tier) => {
-                            const tierSectors = SECTORS.filter((s) => s.tier === tier);
-                            const tierLabels = {
-                                core: { en: "CORE LAYER", fa: "لایه هسته (اصلی)" },
-                                primary: { en: "PRIMARY SECTORS", fa: "بخش‌های اولیه" },
-                                secondary: { en: "SECONDARY SECTORS", fa: "بخش‌های ثانویه" },
-                                tertiary: { en: "SUPPORTING SECTORS", fa: "بخش‌های پشتیبان" }
-                            };
-                            const tierColors = { core: "#4fc3f7", primary: "#66bb6a", secondary: "#ffa726", tertiary: "#ab47bc" };
-
-                            return (
-                                <div key={tier} className="list-tier">
+                        <div className="hex-honeycomb">
+                            {SECTORS.map((sector, i) => {
+                                const row = Math.floor(i / 5);
+                                const isOffsetRow = row % 2 === 1;
+                                return (
                                     <div
-                                        className={`list-tier-title ${!isRTL ? "is-ltr" : ""}`}
-                                        style={{ color: tierColors[tier], borderBottom: `1px solid ${tierColors[tier]}20` }}
+                                        key={sector.id}
+                                        className={`hex-card-wrap${isOffsetRow ? " hex-row-offset" : ""}`}
+                                        style={{ gridRow: row + 1 }}
+                                        onClick={() => { setSelected(sector.id); setView("map"); }}
+                                        onMouseDown={e => e.preventDefault()}
                                     >
-                                        {t(tierLabels[tier])}
-                                    </div>
-                                    <div className="list-grid">
-                                        {tierSectors.map((sector) => (
-                                            <div
-                                                key={sector.id}
-                                                className="list-card"
-                                                onClick={() => { setSelected(sector.id); setView("map"); }}
-                                                style={{ border: `1px solid ${sector.border}20`, borderLeft: `3px solid ${sector.border}` }}
-                                            >
-                                                <div className="list-card-header">
-                                                    <span className="list-card-icon">{sector.icon}</span>
-                                                    <span
-                                                        className="list-card-title"
-                                                        style={{ fontFamily: isRTL ? "Vazirmatn" : "'Space Grotesk', sans-serif" }}
-                                                    >
-                                                        {t(sector.label)}
-                                                    </span>
-                                                </div>
+                                        <div
+                                            className="list-card hex-shape"
+                                            style={{ "--card-accent": sector.border }}
+                                        >
+                                            <CardParticles color={hexToRgb(sector.border)} />
+                                            <svg className="hex-bottom-edges" viewBox="0 0 200 220" preserveAspectRatio="none">
+                                                <polyline
+                                                    points="0,165 100,220 200,165"
+                                                    fill="none"
+                                                    stroke={sector.border}
+                                                    strokeWidth="4"
+                                                    strokeLinecap="round"
+                                                />
+                                            </svg>
+                                            <div className="hex-card-content">
+                                                <span className="list-card-icon">{sector.icon}</span>
+                                                <span
+                                                    className="list-card-title"
+                                                    style={{ fontFamily: isRTL ? "Vazirmatn" : "'Inter', sans-serif" }}
+                                                >
+                                                    {t(sector.label)}
+                                                </span>
                                                 <p className="list-card-desc">
                                                     {t(sector.desc)}
                                                 </p>
                                             </div>
-                                        ))}
+                                        </div>
                                     </div>
-                                </div>
-                            );
-                        })}
+                                );
+                            })}
+                        </div>
                     </div>
                 )}
             </div>

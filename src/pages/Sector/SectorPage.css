@@ -1,0 +1,249 @@
+/* SectorPage.css — futuristic sector detail page */
+
+.sector-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+}
+
+.sector-page-retro-grid {
+    --grid-cell: 60px;
+    --grid-color: rgba(79, 195, 247, 0.12);
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 120%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    animation: retroGridScroll 4s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+}
+
+.sector-page-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.15), transparent);
+    animation: scanLine 8s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.sector-page-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 48px 32px 64px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Back navigation */
+.sector-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    color: #4a5a6e;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 32px;
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    border: 1px solid rgba(79,195,247,0.08);
+    padding: 6px 14px;
+    background: rgba(79,195,247,0.02);
+}
+
+.sector-back:hover {
+    color: #8fe3ff;
+    border-color: rgba(79,195,247,0.2);
+}
+
+/* Hero section */
+.sector-hero {
+    margin-bottom: 48px;
+    animation: fadeInUp 0.5s ease;
+}
+
+.sector-hero-tier {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+}
+
+.sector-hero-icon {
+    font-size: 56px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.sector-hero-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #eef5ff;
+    line-height: 1.15;
+    margin-bottom: 16px;
+}
+
+.sector-hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #8a97a8;
+    max-width: 680px;
+}
+
+/* Glowing divider */
+.sector-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.3), transparent);
+    margin: 40px 0;
+}
+
+/* Systems grid */
+.sector-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: #4a5a6e;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 20px;
+}
+
+.sector-systems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 12px;
+    margin-bottom: 48px;
+}
+
+.sector-system-card {
+    padding: 16px 18px;
+    background: rgba(10,16,26,0.7);
+    border-left: 3px solid;
+    border-top: 1px solid rgba(79,195,247,0.06);
+    border-right: 1px solid rgba(79,195,247,0.06);
+    border-bottom: 1px solid rgba(79,195,247,0.06);
+    font-size: 13px;
+    color: #a8b8c8;
+    line-height: 1.5;
+    animation: fadeInUp 0.4s ease both;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.sector-system-card:hover {
+    background: rgba(14,22,36,0.85);
+}
+
+/* Connections section */
+.sector-connections {
+    margin-bottom: 48px;
+}
+
+.sector-conn-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(79,195,247,0.06);
+    cursor: pointer;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.sector-conn-row:hover {
+    background: rgba(79,195,247,0.03);
+}
+
+.sector-conn-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #8a97a8;
+}
+
+.sector-conn-icon {
+    font-size: 18px;
+}
+
+.sector-conn-label {
+    font-size: 9px;
+    color: #66d9ff;
+    background: rgba(79,195,247,0.08);
+    padding: 3px 8px;
+    border: 1px solid rgba(79,195,247,0.16);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.sector-conn-arrow {
+    color: #2f4666;
+    font-size: 14px;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.sector-conn-row:hover .sector-conn-arrow {
+    color: #66d9ff;
+    transform: translateX(4px);
+}
+
+/* Content placeholder */
+.sector-content-placeholder {
+    padding: 40px 32px;
+    background: rgba(79,195,247,0.02);
+    border: 1px dashed rgba(79,195,247,0.12);
+    text-align: center;
+    color: #3a4a5e;
+    font-size: 13px;
+    animation: glowPulse 3s ease infinite;
+}
+
+.sector-content-placeholder-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    color: #4a5a6e;
+}
+
+/* Not found */
+.sector-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 60px);
+    text-align: center;
+    color: #4a5a6e;
+}
+
+.sector-not-found h2 {
+    font-size: 24px;
+    color: #8fe3ff;
+    margin-bottom: 12px;
+}
+
+@media (max-width: 700px) {
+    .sector-page-inner {
+        padding: 32px 16px 48px;
+    }
+
+    .sector-hero-title {
+        font-size: 26px;
+    }
+
+    .sector-systems-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -4,10 +4,11 @@ export const SECTORS = [
     {
         id: "citizens",
         label: { en: "Citizens & Diaspora", fa: "شهروندان و دیاسپورا" },
-        icon: "👤",
+        icon: "👥",
+        subIcon: "👤",
         color: "#E8F5E9",
         border: "#2E7D32",
-        x: 50, y: 50,
+        x: 50, y: 45,
         tier: "core",
         contents: [
             { en: "Sovereign Digital Identity (Self-Custodied)", fa: "هویت دیجیتال مستقل (خود-حضانتی)" },
@@ -25,10 +26,10 @@ export const SECTORS = [
     {
         id: "governance",
         label: { en: "Decentralized Federalism", fa: "فدرالیسم غیرمتمرکز" },
-        icon: "🏛",
+        icon: "🌐",
         color: "#E3F2FD",
         border: "#1565C0",
-        x: 50, y: 18,
+        x: 50, y: 28,
         tier: "core",
         contents: [
             { en: "Provincial Shora (Council) DAOs", fa: "سازمان‌های خودمختار (DAO) شوراهای استانی" },
@@ -49,7 +50,7 @@ export const SECTORS = [
         icon: "💰",
         color: "#FFF8E1",
         border: "#F9A825",
-        x: 15, y: 30,
+        x: 35, y: 45,
         tier: "primary",
         contents: [
             { en: "Algorithmic National Currency (Post-Rial CBDC)", fa: "ارز ملی الگوریتمی (جایگزین ریال)" },
@@ -67,10 +68,10 @@ export const SECTORS = [
     {
         id: "resources",
         label: { en: "National Wealth", fa: "ثروت و منابع ملی" },
-        icon: "🌍",
+        icon: "💎",
         color: "#E8F5E9",
         border: "#1B5E20",
-        x: 95, y: 48,
+        x: 65, y: 45,
         tier: "primary",
         contents: [
             { en: "Tokenized Oil, Gas & Mineral Reserves", fa: "ذخایر توکن‌شده نفت، گاز و مواد معدنی" },
@@ -90,7 +91,7 @@ export const SECTORS = [
         icon: "⚡",
         color: "#E8EAF6",
         border: "#283593",
-        x: 5, y: 48,
+        x: 50, y: 62,
         tier: "primary",
         contents: [
             { en: "Censorship-Resistant Mesh Network", fa: "شبکه غیرمتمرکز مقاوم در برابر سانسور" },
@@ -110,7 +111,7 @@ export const SECTORS = [
         icon: "⚖️",
         color: "#FBE9E7",
         border: "#BF360C",
-        x: 35, y: 5,
+        x: 50, y: 17,
         tier: "secondary",
         contents: [
             { en: "Transitional Justice Immutable Ledger", fa: "دفتر کل تغییرناپذیر عدالت انتقالی" },
@@ -127,11 +128,11 @@ export const SECTORS = [
     },
     {
         id: "defense",
-        label: { en: "Defence & Security", fa: "دفاع و امنیت" },
-        icon: "🛡",
+        label: { en: "Defense & Security", fa: "دفاع و امنیت" },
+        icon: "🛡️",
         color: "#ECEFF1",
         border: "#37474F",
-        x: 15, y: 60,
+        x: 33, y: 68,
         tier: "secondary",
         contents: [
             { en: "Cybersecurity Operations Center", fa: "مرکز عملیات امنیت سایبری" },
@@ -151,17 +152,19 @@ export const SECTORS = [
         icon: "🏥",
         color: "#FCE4EC",
         border: "#C62828",
-        x: 85, y: 30,
+        x: 77, y: 36,
         tier: "secondary",
         contents: [
             { en: "Universal Health Record (Patient-Owned)", fa: "پرونده سلامت همگانی (تحت مالکیت بیمار)" },
             { en: "AI Diagnostics & Triage Network", fa: "شبکه تشخیص و تریاژ با هوش مصنوعی" },
             { en: "Decentralized Pharma Supply Chain", fa: "زنجیره تامین دارویی غیرمتمرکز" },
             { en: "Telemedicine & Remote Care Mesh", fa: "شبکه پزشکی از راه دور" },
+            { en: "Post-Conflict Mental Health Network", fa: "شبکه بهداشت روان پس از بحران" },
+            { en: "Community Health Worker DAO", fa: "سازمان بهورزان و مراقبان بهداشتی محلی" },
         ],
         desc: {
-            en: "Citizens own their health records. AI assists diagnostics. Drug supply chains are traced end-to-end on-chain to prevent medical hoarding or black markets.",
-            fa: "شهروندان مالک سوابق پزشکی خود هستند. زنجیره تامین دارو به طور کامل روی شبکه ردیابی می‌شود تا از احتکار پزشکی یا بازارهای سیاه جلوگیری شود."
+            en: "Citizens own their health records. AI assists diagnostics. Drug supply chains are traced end-to-end on-chain. A dedicated post-conflict mental health network addresses trauma through decentralized telemedicine.",
+            fa: "شهروندان مالک سوابق پزشکی خود هستند. زنجیره تامین دارو به طور کامل روی شبکه ردیابی می‌شود. شبکه اختصاصی بهداشت روان پس از بحران، آسیب‌های روحی را از طریق پزشکی از راه دور درمان می‌کند."
         },
     },
     {
@@ -170,7 +173,7 @@ export const SECTORS = [
         icon: "🎓",
         color: "#F3E5F5",
         border: "#7B1FA2",
-        x: 82, y: 60,
+        x: 50, y: 73,
         tier: "tertiary",
         contents: [
             { en: "Credential NFTs (Verifiable Degrees)", fa: "توکن‌های مدارک تحصیلی (قابل تأیید)" },
@@ -189,7 +192,7 @@ export const SECTORS = [
         icon: "🏢",
         color: "#FFF3E0",
         border: "#E65100",
-        x: 70, y: 78,
+        x: 67, y: 68,
         tier: "tertiary",
         contents: [
             { en: "Instant Business Registration (On-Chain)", fa: "ثبت فوری کسب‌وکار (روی شبکه)" },
@@ -208,7 +211,7 @@ export const SECTORS = [
         icon: "🏠",
         color: "#E0F2F1",
         border: "#00695C",
-        x: 30, y: 78,
+        x: 33, y: 22,
         tier: "tertiary",
         contents: [
             { en: "On-Chain Land Registry (Tokenized Titles)", fa: "ثبت اسناد املاک روی شبکه (اسناد توکن‌شده)" },
@@ -226,16 +229,80 @@ export const SECTORS = [
         icon: "🤝",
         color: "#F1F8E9",
         border: "#558B2F",
-        x: 65, y: 5,
+        x: 23, y: 54,
         tier: "tertiary",
         contents: [
             { en: "Benefits Eligibility Engine (AI-Driven)", fa: "موتور تشخیص صلاحیت مزایا (هوش مصنوعی)" },
             { en: "Food Security & Nutrition Tracking", fa: "ردیابی امنیت غذایی و تغذیه" },
             { en: "Community Mutual Aid DAOs", fa: "سازمان‌های همیاری متقابل محلی" },
+            { en: "Pension & Retirement Smart Contracts", fa: "قراردادهای هوشمند بازنشستگی و مستمری" },
+            { en: "Disability Support & Accessibility Fund", fa: "صندوق حمایت از معلولان و دسترسی‌پذیری" },
+            { en: "Refugee & Displaced Persons Integration", fa: "ادغام پناهندگان و آوارگان" },
         ],
         desc: {
-            en: "AI determines benefits eligibility transparently, ensuring aid reaches those who need it without political patronage networks intercepting funds.",
-            fa: "هوش مصنوعی صلاحیت دریافت مزایا را به صورت شفاف تعیین می‌کند و تضمین می‌کند که کمک‌ها بدون دخالت شبکه‌های حمایت سیاسی به نیازمندان برسد."
+            en: "AI determines benefits eligibility transparently, ensuring aid reaches those who need it without political patronage networks intercepting funds. Pensions, disability support, and refugee integration are automated through smart contracts.",
+            fa: "هوش مصنوعی صلاحیت دریافت مزایا را به صورت شفاف تعیین می‌کند و تضمین می‌کند که کمک‌ها بدون دخالت شبکه‌های حمایت سیاسی به نیازمندان برسد. بازنشستگی، حمایت از معلولان و ادغام پناهندگان از طریق قراردادهای هوشمند خودکار می‌شوند."
+        },
+    },
+    {
+        id: "environment",
+        label: { en: "Environment & Climate", fa: "محیط زیست و اقلیم" },
+        icon: "🌱",
+        color: "#E8F5E9",
+        border: "#2E7D32",
+        x: 23, y: 36,
+        tier: "secondary",
+        contents: [
+            { en: "Water Crisis Management Protocol", fa: "پروتکل مدیریت بحران آب" },
+            { en: "Lake Urmia & Wetland Restoration DAO", fa: "سازمان بازسازی دریاچه ارومیه و تالاب‌ها" },
+            { en: "Carbon Credit & Emissions Trading", fa: "تجارت اعتبار کربن و انتشار گازها" },
+            { en: "Desertification Monitoring (Satellite IoT)", fa: "نظارت بر بیابان‌زایی (ماهواره و اینترنت اشیا)" },
+            { en: "Air Quality Real-Time Dashboard", fa: "داشبورد آنی کیفیت هوا" },
+            { en: "Reforestation & Green Belt Smart Contracts", fa: "قراردادهای هوشمند جنگل‌کاری و کمربند سبز" },
+        ],
+        desc: {
+            en: "Iran's environmental emergencies—water scarcity, dust storms, Lake Urmia's decline—are addressed through real-time IoT monitoring, satellite tracking, and community-governed restoration DAOs funded by carbon credit markets.",
+            fa: "بحران‌های زیست‌محیطی ایران—کمبود آب، طوفان‌های گرد و غبار، خشک شدن دریاچه ارومیه—از طریق نظارت آنی اینترنت اشیا، ردیابی ماهواره‌ای و سازمان‌های بازسازی مردم‌محور که با بازار اعتبار کربن تأمین مالی می‌شوند، مدیریت می‌شوند."
+        },
+    },
+    {
+        id: "media",
+        label: { en: "Media & Free Press", fa: "رسانه و مطبوعات آزاد" },
+        icon: "📡",
+        color: "#E1F5FE",
+        border: "#0277BD",
+        x: 67, y: 22,
+        tier: "secondary",
+        contents: [
+            { en: "Decentralized News Verification Protocol", fa: "پروتکل تأیید اخبار غیرمتمرکز" },
+            { en: "Journalist Protection & Anonymity Layer", fa: "لایه حفاظت و ناشناس‌ماندن روزنامه‌نگاران" },
+            { en: "Community-Owned Media DAOs", fa: "سازمان‌های رسانه‌ای متعلق به مردم" },
+            { en: "Anti-Propaganda AI Detection", fa: "تشخیص تبلیغات و اطلاعات غلط با هوش مصنوعی" },
+            { en: "On-Chain Press Freedom Index", fa: "شاخص آزادی مطبوعات ثبت‌شده در شبکه" },
+        ],
+        desc: {
+            en: "A decentralized media ecosystem where news is verified on-chain, journalists are protected by cryptographic anonymity, and community-owned DAOs replace state-controlled outlets. AI detects propaganda in real-time.",
+            fa: "یک اکوسیستم رسانه‌ای غیرمتمرکز که در آن اخبار روی شبکه تأیید می‌شوند، روزنامه‌نگاران با ناشناسی رمزنگاری‌شده حفاظت می‌شوند و سازمان‌های مردم‌محور جایگزین رسانه‌های دولتی می‌شوند."
+        },
+    },
+    {
+        id: "culture",
+        label: { en: "Culture & Heritage", fa: "فرهنگ و میراث" },
+        icon: "🏛️",
+        color: "#FFF8E1",
+        border: "#FF8F00",
+        x: 77, y: 54,
+        tier: "tertiary",
+        contents: [
+            { en: "Tokenized Heritage Sites (Persepolis, Isfahan)", fa: "توکن‌سازی میراث فرهنگی (تخت‌جمشید، اصفهان)" },
+            { en: "Endangered Language Preservation DAO", fa: "سازمان حفظ زبان‌های در خطر انقراض" },
+            { en: "Digital Art & Music NFT Marketplace", fa: "بازار دیجیتال آثار هنری و موسیقی" },
+            { en: "Cultural Festival Funding Protocol", fa: "پروتکل تأمین مالی جشنواره‌های فرهنگی" },
+            { en: "Ethnic Minority Representation Registry", fa: "ثبت نمایندگی اقلیت‌های قومی" },
+        ],
+        desc: {
+            en: "Iran's rich cultural heritage—from Persepolis to Kurdish, Balochi, and Azerbaijani traditions—is preserved through tokenized heritage sites, language preservation DAOs, and digital art marketplaces that empower diverse communities.",
+            fa: "میراث فرهنگی غنی ایران—از تخت‌جمشید تا سنت‌های کردی، بلوچی و آذربایجانی—از طریق توکن‌سازی مکان‌های تاریخی، سازمان‌های حفظ زبان و بازارهای هنر دیجیتال که جوامع متنوع را توانمند می‌سازند، حفظ می‌شود."
         },
     },
 ];
@@ -249,19 +316,33 @@ export const CONNECTIONS = [
     { from: "citizens", to: "education", label: { en: "Credentials", fa: "مدارک تحصیلی" }, strength: 2 },
     { from: "citizens", to: "housing", label: { en: "Title Ownership", fa: "مالکیت اسناد" }, strength: 2 },
     { from: "citizens", to: "business", label: { en: "Registration", fa: "ثبت شرکت" }, strength: 2 },
+    { from: "citizens", to: "culture", label: { en: "Cultural Identity", fa: "هویت فرهنگی" }, strength: 2 },
     { from: "governance", to: "economy", label: { en: "Budget Allocation", fa: "تخصیص بودجه" }, strength: 3 },
     { from: "governance", to: "defense", label: { en: "Civilian Oversight", fa: "نظارت مدنی" }, strength: 3 },
     { from: "governance", to: "justice", label: { en: "Legislation", fa: "قانون‌گذاری" }, strength: 3 },
     { from: "governance", to: "infrastructure", label: { en: "Provincial Works", fa: "پروژه‌های استانی" }, strength: 2 },
+    { from: "governance", to: "media", label: { en: "Press Freedom Law", fa: "قانون آزادی مطبوعات" }, strength: 2 },
+    { from: "governance", to: "environment", label: { en: "Climate Policy", fa: "سیاست اقلیمی" }, strength: 2 },
     { from: "economy", to: "business", label: { en: "Commerce & Tax", fa: "تجارت و مالیات" }, strength: 3 },
     { from: "economy", to: "infrastructure", label: { en: "Funding", fa: "تأمین مالی" }, strength: 2 },
     { from: "economy", to: "social", label: { en: "UBI / Dividend", fa: "سود همگانی" }, strength: 2 },
     { from: "healthcare", to: "social", label: { en: "Care Coordination", fa: "هماهنگی مراقبت" }, strength: 2 },
     { from: "education", to: "business", label: { en: "Innovation Pipeline", fa: "مسیر نوآوری" }, strength: 2 },
+    { from: "education", to: "healthcare", label: { en: "Medical Research", fa: "پژوهش پزشکی" }, strength: 2 },
+    { from: "education", to: "culture", label: { en: "Language & History", fa: "زبان و تاریخ" }, strength: 2 },
     { from: "defense", to: "infrastructure", label: { en: "Grid Protection", fa: "حفاظت شبکه" }, strength: 2 },
+    { from: "defense", to: "justice", label: { en: "Military Courts", fa: "دادگاه‌های نظامی" }, strength: 2 },
     { from: "housing", to: "infrastructure", label: { en: "Utilities", fa: "خدمات شهری" }, strength: 2 },
+    { from: "housing", to: "social", label: { en: "Homeless Services", fa: "خدمات بی‌خانمانان" }, strength: 2 },
     { from: "business", to: "resources", label: { en: "Extraction Licenses", fa: "مجوز استخراج" }, strength: 2 },
     { from: "infrastructure", to: "resources", label: { en: "Water/Energy IoT", fa: "مدیریت آب/انرژی" }, strength: 3 },
+    { from: "environment", to: "resources", label: { en: "Eco Monitoring", fa: "نظارت زیست‌محیطی" }, strength: 3 },
+    { from: "environment", to: "infrastructure", label: { en: "Green Energy", fa: "انرژی سبز" }, strength: 2 },
+    { from: "environment", to: "healthcare", label: { en: "Public Health", fa: "بهداشت عمومی" }, strength: 2 },
+    { from: "media", to: "justice", label: { en: "Transparency Reports", fa: "گزارش‌های شفافیت" }, strength: 2 },
+    { from: "media", to: "infrastructure", label: { en: "Mesh Broadcasting", fa: "پخش شبکه‌ای" }, strength: 2 },
+    { from: "culture", to: "media", label: { en: "Cultural Content", fa: "محتوای فرهنگی" }, strength: 2 },
+    { from: "culture", to: "business", label: { en: "Creative Economy", fa: "اقتصاد خلاق" }, strength: 2 },
 ];
 
 export const SHARED_LAYERS = [

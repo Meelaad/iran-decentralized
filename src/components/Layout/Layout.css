@@ -1,0 +1,134 @@
+/* Layout.css — site-wide navigation */
+
+.site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    height: 60px;
+    background: rgba(2,4,8,0.92);
+    border-bottom: 1px solid rgba(79,195,247,0.06);
+    position: relative;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+.site-nav::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.25) 30%, rgba(79,195,247,0.25) 70%, transparent);
+}
+
+.site-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #8fe3ff;
+    letter-spacing: 0.04em;
+}
+
+.site-nav-logo img {
+    height: 48px;
+    width: auto;
+}
+
+.site-nav-links {
+    display: flex;
+    gap: 4px;
+}
+
+.site-nav-link {
+    padding: 6px 12px;
+    font-size: 11px;
+    color: #5a6a7e;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border: 1px solid transparent;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    font-family: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.site-nav-link:hover {
+    color: #a8c4d8;
+    background: rgba(79,195,247,0.04);
+}
+
+.site-nav-link.is-active {
+    color: #8fe3ff;
+    background: rgba(79,195,247,0.08);
+    border-color: rgba(79,195,247,0.18);
+}
+
+.site-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.site-nav-lang {
+    display: flex;
+    border: 1px solid rgba(98,114,138,0.22);
+}
+
+.site-nav-lang-btn {
+    padding: 4px 10px;
+    font-size: 10px;
+    color: #5a6a7e;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(98,114,138,0.18);
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.15s, background 0.15s;
+}
+
+.site-nav-lang-btn:last-child {
+    border-right: none;
+}
+
+.site-nav-lang-btn:hover {
+    color: #a8c4d8;
+}
+
+.site-nav-lang-btn.is-active {
+    color: #8fe3ff;
+    background: rgba(79,195,247,0.1);
+}
+
+.site-layout-content {
+    min-height: calc(100vh - 60px);
+    position: relative;
+}
+
+@media (max-width: 700px) {
+    .site-nav {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 8px 16px;
+        gap: 8px;
+    }
+
+    .site-nav-links {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+    }
+}
