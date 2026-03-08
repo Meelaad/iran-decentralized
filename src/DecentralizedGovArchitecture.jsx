@@ -98,6 +98,7 @@ export default function DecentralizedGovArchitecture() {
                                 viewBox="0 0 100 90"
                                 className="arch-map-svg"
                                 preserveAspectRatio="xMidYMid meet"
+                                onMouseDown={e => e.preventDefault()}
                             >
                                 <defs>
                                     <filter id="glow">
@@ -161,7 +162,7 @@ export default function DecentralizedGovArchitecture() {
                                     const r = sector.tier === "core" ? 4 : sector.tier === "primary" ? 3.2 : sector.tier === "secondary" ? 2.8 : 2.4;
 
                                     return (
-                                        <g key={sector.id} className="sector-node" onClick={() => setSelected(isSelected ? null : sector.id)} opacity={dimmed ? 0.2 : 1}>
+                                        <g key={sector.id} className="sector-node" onClick={() => setSelected(isSelected ? null : sector.id)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
                                             <circle cx={sector.x} cy={sector.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
                                             <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={sector.x} cy={sector.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
                                             <text x={sector.x} y={sector.y + 0.3} fontSize={r * 0.65} textAnchor="middle" dominantBaseline="middle">{sector.icon}</text>

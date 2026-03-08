@@ -225,10 +225,19 @@
     transition: transform 0.2s ease, filter 0.2s ease;
     transform-origin: center;
     cursor: pointer;
+    outline: none;
     --node-fill: #1b2736;
     --node-fill-selected: #24384f;
     --node-label: #9eb2c8;
     --node-label-selected: #8fe3ff;
+}
+
+.sector-node:focus {
+    outline: none;
+}
+
+svg *:focus {
+    outline: none;
 }
 
 .sector-node:hover {
