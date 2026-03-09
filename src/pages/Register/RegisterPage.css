@@ -554,6 +554,18 @@
     font-family: 'IBM Plex Mono', monospace;
 }
 
+/* ── Desktop overrides ── */
+@media (min-width: 561px) {
+    .reg-footnote {
+        font-size: 13px;
+        color: #3d4f63;
+    }
+
+    .reg-submit-btn {
+        font-size: 14px;
+    }
+}
+
 /* ── Responsive ── */
 @media (max-width: 560px) {
     .reg-inner {
