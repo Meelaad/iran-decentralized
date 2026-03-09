@@ -1,0 +1,235 @@
+/* EntryGate.css */
+
+.gate-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #020408;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transition: opacity 0.7s ease;
+}
+
+.gate-overlay--leaving {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ── Particle canvas ── */
+.gate-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* ── Retro grid ── */
+.gate-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(79, 195, 247, 0.03);
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 120%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    animation: retroGridScroll 6s linear infinite;
+    pointer-events: none;
+    mask-image: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+}
+
+/* ── Scanline ── */
+.gate-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(79,195,247,0.18) 20%,
+        rgba(79,195,247,0.28) 50%,
+        rgba(79,195,247,0.18) 80%,
+        transparent
+    );
+    animation: scanLine 8s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Content ── */
+.gate-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    animation: fadeIn 0.9s ease both;
+}
+
+.gate-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4fc3f7;
+    opacity: 0.5;
+    margin-bottom: 44px;
+}
+
+/* ── Title ── */
+.gate-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.gate-title-en {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(52px, 11vw, 96px);
+    font-weight: 700;
+    color: #eef5ff;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    text-shadow: 0 0 80px rgba(79,195,247,0.1);
+    margin: 0;
+}
+
+.gate-title-fa {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: clamp(20px, 3.5vw, 32px);
+    font-weight: 300;
+    color: #3a4a5e;
+    letter-spacing: 0.01em;
+    line-height: 1;
+    margin: 0;
+}
+
+/* ── Tagline ── */
+.gate-tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(10px, 1.4vw, 12px);
+    color: #2e3e50;
+    letter-spacing: 0.04em;
+    margin-bottom: 56px;
+    max-width: 400px;
+    line-height: 1.8;
+}
+
+/* ── Hex enter button ── */
+.gate-enter-btn {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 116px;
+    height: 116px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    transition: transform 0.25s ease, filter 0.25s ease;
+    padding: 0;
+}
+
+.gate-enter-btn:hover {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 20px rgba(79,195,247,0.3));
+}
+
+.gate-enter-btn:hover .gate-hex-svg polygon {
+    stroke: rgba(79,195,247,0.7);
+    transition: stroke 0.25s ease;
+}
+
+.gate-hex-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    animation: glowPulse 3.5s ease-in-out infinite;
+}
+
+.gate-hex-svg polygon {
+    transition: stroke 0.25s ease;
+}
+
+.gate-enter-label {
+    position: relative;
+    z-index: 1;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #4fc3f7;
+    text-transform: uppercase;
+    pointer-events: none;
+}
+
+/* ── Language toggle ── */
+.gate-lang {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.gate-lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    color: #2e3e50;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.gate-lang-btn:hover {
+    color: #4a6070;
+}
+
+.gate-lang-btn.is-active {
+    color: #4fc3f7;
+}
+
+.gate-lang-sep {
+    color: #1a2530;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Hint ── */
+.gate-hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: #1a2530;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 480px) {
+    .gate-eyebrow {
+        letter-spacing: 2px;
+        margin-bottom: 32px;
+    }
+    .gate-tagline {
+        margin-bottom: 40px;
+    }
+    .gate-enter-btn {
+        width: 100px;
+        height: 100px;
+    }
+}

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { NavLink, Outlet, Link } from "react-router-dom";
-import { LangProvider, useLang } from '../../contexts/LangContext';
+import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import './Layout.css';
 
@@ -120,9 +120,5 @@ function NavContent() {
 }
 
 export default function Layout() {
-    return (
-        <LangProvider>
-            <NavContent />
-        </LangProvider>
-    );
+    return <NavContent />;
 }
