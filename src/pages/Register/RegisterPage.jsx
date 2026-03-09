@@ -57,6 +57,7 @@ const CONTENT = {
         emailDomain:     { en: "Please use a recognised email provider or institutional address.", fa: "لطفاً از یک ارائه‌دهنده ایمیل شناخته‌شده یا آدرس ایمیل دانشگاهی استفاده کنید." },
         otpIncomplete:   { en: "Please enter the full 6-digit code.", fa: "لطفاً کد ۶ رقمی را کامل وارد کنید." },
         generic:         { en: "Something went wrong. Please try again.", fa: "خطایی رخ داد. لطفاً دوباره تلاش کنید." },
+        rateLimit:       { en: "We are currently experiencing a high volume of requests. Please try again in an hour.", fa: "در حال حاضر با حجم بالایی از درخواست‌ها مواجه هستیم. لطفاً یک ساعت دیگر دوباره تلاش کنید." },
     },
 };
 
@@ -323,7 +324,10 @@ export default function RegisterPage() {
             if (supaErr) throw supaErr;
             setStep('verify');
         } catch (err) {
-            setError(err.message || t(CONTENT.errors.generic));
+            const msg = err.message?.toLowerCase() || '';
+            setError(msg.includes('rate limit') || msg.includes('email rate')
+                ? t(CONTENT.errors.rateLimit)
+                : err.message || t(CONTENT.errors.generic));
         } finally {
             setLoading(false);
         }
@@ -367,7 +371,10 @@ export default function RegisterPage() {
             });
             if (supaErr) throw supaErr;
         } catch (err) {
-            setError(err.message || t(CONTENT.errors.generic));
+            const msg = err.message?.toLowerCase() || '';
+            setError(msg.includes('rate limit') || msg.includes('email rate')
+                ? t(CONTENT.errors.rateLimit)
+                : err.message || t(CONTENT.errors.generic));
         } finally {
             setLoading(false);
         }
