@@ -29,7 +29,7 @@ export const SECTORS = [
         icon: "🌐",
         color: "#E3F2FD",
         border: "#1565C0",
-        x: 50, y: 28,
+        x: 50, y: 27,
         tier: "core",
         contents: [
             { en: "Provincial Shora (Council) DAOs", fa: "سازمان‌های خودمختار (DAO) شوراهای استانی" },
@@ -50,7 +50,7 @@ export const SECTORS = [
         icon: "💰",
         color: "#FFF8E1",
         border: "#F9A825",
-        x: 35, y: 45,
+        x: 34, y: 45,
         tier: "primary",
         contents: [
             { en: "Algorithmic National Currency (Post-Rial CBDC)", fa: "ارز ملی الگوریتمی (جایگزین ریال)" },
@@ -71,7 +71,7 @@ export const SECTORS = [
         icon: "💎",
         color: "#E8F5E9",
         border: "#1B5E20",
-        x: 65, y: 45,
+        x: 66, y: 45,
         tier: "primary",
         contents: [
             { en: "Tokenized Oil, Gas & Mineral Reserves", fa: "ذخایر توکن‌شده نفت، گاز و مواد معدنی" },
@@ -91,7 +91,7 @@ export const SECTORS = [
         icon: "⚡",
         color: "#E8EAF6",
         border: "#283593",
-        x: 50, y: 62,
+        x: 50, y: 63,
         tier: "primary",
         contents: [
             { en: "Censorship-Resistant Mesh Network", fa: "شبکه غیرمتمرکز مقاوم در برابر سانسور" },
@@ -111,7 +111,7 @@ export const SECTORS = [
         icon: "⚖️",
         color: "#FBE9E7",
         border: "#BF360C",
-        x: 50, y: 17,
+        x: 50, y: 15,
         tier: "secondary",
         contents: [
             { en: "Transitional Justice Immutable Ledger", fa: "دفتر کل تغییرناپذیر عدالت انتقالی" },
@@ -132,7 +132,7 @@ export const SECTORS = [
         icon: "🛡️",
         color: "#ECEFF1",
         border: "#37474F",
-        x: 33, y: 68,
+        x: 32, y: 70,
         tier: "secondary",
         contents: [
             { en: "Cybersecurity Operations Center", fa: "مرکز عملیات امنیت سایبری" },
@@ -152,7 +152,7 @@ export const SECTORS = [
         icon: "🏥",
         color: "#FCE4EC",
         border: "#C62828",
-        x: 77, y: 36,
+        x: 79, y: 35,
         tier: "secondary",
         contents: [
             { en: "Universal Health Record (Patient-Owned)", fa: "پرونده سلامت همگانی (تحت مالکیت بیمار)" },
@@ -173,7 +173,7 @@ export const SECTORS = [
         icon: "🎓",
         color: "#F3E5F5",
         border: "#7B1FA2",
-        x: 50, y: 73,
+        x: 50, y: 75,
         tier: "tertiary",
         contents: [
             { en: "Credential NFTs (Verifiable Degrees)", fa: "توکن‌های مدارک تحصیلی (قابل تأیید)" },
@@ -192,7 +192,7 @@ export const SECTORS = [
         icon: "🏢",
         color: "#FFF3E0",
         border: "#E65100",
-        x: 67, y: 68,
+        x: 68, y: 70,
         tier: "tertiary",
         contents: [
             { en: "Instant Business Registration (On-Chain)", fa: "ثبت فوری کسب‌وکار (روی شبکه)" },
@@ -211,7 +211,7 @@ export const SECTORS = [
         icon: "🏠",
         color: "#E0F2F1",
         border: "#00695C",
-        x: 33, y: 22,
+        x: 32, y: 20,
         tier: "tertiary",
         contents: [
             { en: "On-Chain Land Registry (Tokenized Titles)", fa: "ثبت اسناد املاک روی شبکه (اسناد توکن‌شده)" },
@@ -229,7 +229,7 @@ export const SECTORS = [
         icon: "🤝",
         color: "#F1F8E9",
         border: "#558B2F",
-        x: 23, y: 54,
+        x: 21, y: 55,
         tier: "tertiary",
         contents: [
             { en: "Benefits Eligibility Engine (AI-Driven)", fa: "موتور تشخیص صلاحیت مزایا (هوش مصنوعی)" },
@@ -250,7 +250,7 @@ export const SECTORS = [
         icon: "🌱",
         color: "#E8F5E9",
         border: "#2E7D32",
-        x: 23, y: 36,
+        x: 21, y: 35,
         tier: "secondary",
         contents: [
             { en: "Water Crisis Management Protocol", fa: "پروتکل مدیریت بحران آب" },
@@ -271,7 +271,7 @@ export const SECTORS = [
         icon: "📡",
         color: "#E1F5FE",
         border: "#0277BD",
-        x: 67, y: 22,
+        x: 68, y: 20,
         tier: "secondary",
         contents: [
             { en: "Decentralized News Verification Protocol", fa: "پروتکل تأیید اخبار غیرمتمرکز" },
@@ -291,7 +291,7 @@ export const SECTORS = [
         icon: "🏛️",
         color: "#FFF8E1",
         border: "#FF8F00",
-        x: 77, y: 54,
+        x: 79, y: 55,
         tier: "tertiary",
         contents: [
             { en: "Tokenized Heritage Sites (Persepolis, Isfahan)", fa: "توکن‌سازی میراث فرهنگی (تخت‌جمشید، اصفهان)" },

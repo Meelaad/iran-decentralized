@@ -44,33 +44,6 @@
     width: auto;
 }
 
-@media (min-width: 701px) {
-    .site-nav {
-        height: 72px;
-    }
-
-    .site-layout-content {
-        min-height: calc(100vh - 72px);
-    }
-
-    .site-nav-logo img {
-        height: 68px;
-    }
-
-    .site-nav-logo {
-        font-size: 16px;
-    }
-
-    .site-nav-link {
-        font-size: 13px;
-    }
-
-    .site-nav-register-btn {
-        font-size: 12px;
-        padding: 7px 16px;
-    }
-}
-
 .site-nav-links {
     display: flex;
     gap: 4px;
@@ -137,24 +110,11 @@
     text-transform: none;
 }
 
-@media (min-width: 701px) {
-    [dir="rtl"] .site-nav-register-btn {
-        font-size: 14px;
-    }
-}
-
 [dir="rtl"] .site-nav-logo {
     font-family: 'Vazirmatn', sans-serif;
     font-weight: 700;
     letter-spacing: 0;
 }
-
-@media (min-width: 701px) {
-    [dir="rtl"] .site-nav-logo {
-        font-size: 19px;
-    }
-}
-
 
 .site-nav-lang {
     display: flex;
@@ -170,7 +130,7 @@
     border-right: 1px solid rgba(98,114,138,0.18);
     cursor: pointer;
     font-family: inherit;
-    transition: color 0.15s, background 0.15s, box-shadow 0.15s;
+    transition: color 0.15s, background 0.15s;
 }
 
 .site-nav-lang-btn:last-child {
@@ -179,23 +139,11 @@
 
 .site-nav-lang-btn:hover {
     color: #a8c4d8;
-    background: rgba(79,195,247,0.04);
 }
 
 .site-nav-lang-btn.is-active {
     color: #8fe3ff;
     background: rgba(79,195,247,0.1);
-}
-
-@media (min-width: 701px) {
-    .site-nav-lang-btn {
-        padding: 5px 13px;
-        font-size: 12px;
-    }
-
-    .site-nav-lang-btn.is-active {
-        box-shadow: inset 0 -2px 0 rgba(79,195,247,0.35), 0 1px 0 rgba(79,195,247,0.08);
-    }
 }
 
 .site-layout-content {
@@ -241,6 +189,49 @@
     display: none;
 }
 
+/* ── Desktop overrides (must come after base rules) ── */
+@media (min-width: 701px) {
+    .site-nav {
+        height: 72px;
+    }
+
+    .site-layout-content {
+        min-height: calc(100vh - 72px);
+    }
+
+    .site-nav-logo img {
+        height: 68px;
+    }
+
+    .site-nav-logo {
+        font-size: 16px;
+    }
+
+    [dir="rtl"] .site-nav-logo {
+        font-size: 19px;
+    }
+
+    .site-nav-link {
+        font-size: clamp(13px, 1.1vw, 16px);
+        padding: 7px 14px;
+    }
+
+    .site-nav-register-btn {
+        font-size: 14px;
+        padding: 8px 18px;
+    }
+
+    [dir="rtl"] .site-nav-register-btn {
+        font-size: 14px;
+    }
+
+    .site-nav-lang-btn {
+        padding: 5px 13px;
+        font-size: 12px;
+    }
+}
+
+/* ── Mobile ── */
 @media (max-width: 700px) {
     .site-nav {
         flex-wrap: wrap;
@@ -288,8 +279,3 @@
     }
 }
 
-@media (max-width: 420px) {
-    .site-nav-logo span {
-        display: none;
-    }
-}

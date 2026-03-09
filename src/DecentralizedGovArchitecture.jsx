@@ -189,10 +189,12 @@ export default function DecentralizedGovArchitecture() {
         return s ? { x: s.x, y: s.y } : { x: 50, y: 50 };
     }, []);
 
+    const svgViewBox = "15 8 70 72";
+
     // Proximity mesh lines — straight lines between nearby nodes
     const meshLines = useMemo(() => {
         const lines = [];
-        const threshold = 25;
+        const threshold = 26;
         for (let i = 0; i < SECTORS.length; i++) {
             for (let j = i + 1; j < SECTORS.length; j++) {
                 const a = SECTORS[i], b = SECTORS[j];
@@ -248,7 +250,7 @@ export default function DecentralizedGovArchitecture() {
                         <div className="map-stage">
                             <svg
                                 ref={svgRef}
-                                viewBox="15 8 70 72"
+                                viewBox={svgViewBox}
                                 className="arch-map-svg"
                                 preserveAspectRatio="xMidYMid meet"
                                 onMouseDown={e => e.preventDefault()}
