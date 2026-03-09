@@ -29,12 +29,12 @@ const CONTENT = {
     btnBack:   { en: "← BACK",                  fa: "← بازگشت" },
     btnResend: { en: "Resend code",              fa: "ارسال مجدد کد" },
     verifyText: {
-        en: "We sent an 8-digit code to",
-        fa: "یک کد ۸ رقمی به این آدرس ارسال شد",
+        en: "We sent a 6-digit code to",
+        fa: "یک کد ۶ رقمی به این آدرس ارسال شد",
     },
     verifyHint: {
-        en: "Enter the 8-digit code from your email. Check spam if you don't see it.",
-        fa: "کد ۸ رقمی را از ایمیل خود وارد کنید. اگر آن را نمی‌بینید پوشه اسپم را بررسی کنید.",
+        en: "Enter the 6-digit code from your email. Check spam if you don't see it.",
+        fa: "کد ۶ رقمی را از ایمیل خود وارد کنید. اگر آن را نمی‌بینید پوشه اسپم را بررسی کنید.",
     },
     otpLabel: { en: "VERIFICATION CODE", fa: "کد تأیید" },
     successTitle:  { en: "Identity Registered",       fa: "هویت ثبت شد" },
@@ -55,7 +55,7 @@ const CONTENT = {
         emailRequired:       { en: "Email address is required.",         fa: "آدرس ایمیل الزامی است." },
         emailInvalid:        { en: "Please use a valid email address.",  fa: "لطفاً یک آدرس ایمیل معتبر وارد کنید." },
         emailDomain:     { en: "Please use a recognised email provider or institutional address.", fa: "لطفاً از یک ارائه‌دهنده ایمیل شناخته‌شده یا آدرس ایمیل دانشگاهی استفاده کنید." },
-        otpIncomplete:   { en: "Please enter the full 8-digit code.", fa: "لطفاً کد ۸ رقمی را کامل وارد کنید." },
+        otpIncomplete:   { en: "Please enter the full 6-digit code.", fa: "لطفاً کد ۶ رقمی را کامل وارد کنید." },
         generic:         { en: "Something went wrong. Please try again.", fa: "خطایی رخ داد. لطفاً دوباره تلاش کنید." },
     },
 };
@@ -145,7 +145,7 @@ function isAllowedDomain(email) {
 
 function OtpInput({ value, onChange, disabled }) {
     const refs = useRef([]);
-    const digits = Array.from({ length: 8 }, (_, i) => value[i] || '');
+    const digits = Array.from({ length: 6 }, (_, i) => value[i] || '');
 
     const updateDigit = useCallback((index, char) => {
         const newDigits = [...digits];
@@ -176,9 +176,9 @@ function OtpInput({ value, onChange, disabled }) {
 
     const handlePaste = (e) => {
         e.preventDefault();
-        const pasted = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 8);
-        onChange(pasted.padEnd(8, '').slice(0, 8).trimEnd());
-        const focusIndex = Math.min(pasted.length, 7);
+        const pasted = e.clipboardData.getData('text').replace(/\D/g, '').slice(0, 6);
+        onChange(pasted.padEnd(6, '').slice(0, 6).trimEnd());
+        const focusIndex = Math.min(pasted.length, 5);
         refs.current[focusIndex]?.focus();
     };
 
@@ -226,6 +226,15 @@ export default function RegisterPage() {
     const monoFont   = { fontFamily: "'IBM Plex Mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
     const labelStyle  = { ...monoFont, textAlign: isRTL ? 'right' : 'left' };
+
+    // Session check
+    const [sessionUser, setSessionUser] = useState(undefined); // undefined = loading, null = none, object = user
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data }) => {
+            setSessionUser(data.session?.user ?? null);
+        });
+    }, []);
 
     // Form state
     const [step, setStep] = useState('form');          // 'form' | 'verify' | 'success'
@@ -324,7 +333,7 @@ export default function RegisterPage() {
 
     async function handleVerifyOtp(e) {
         e.preventDefault();
-        if (otp.replace(/\D/g, '').length < 8) { setError(t(CONTENT.errors.otpIncomplete)); return; }
+        if (otp.replace(/\D/g, '').length < 6) { setError(t(CONTENT.errors.otpIncomplete)); return; }
         setError(null);
         setLoading(true);
         try {
@@ -365,6 +374,48 @@ export default function RegisterPage() {
     }
 
     // ── Render ─────────────────────────────────────────────────────────────
+
+    // Already authenticated — show welcome instead of form
+    if (sessionUser) {
+        const fullNameMeta = sessionUser.user_metadata?.full_name || '';
+        const firstName = fullNameMeta.trim().split(/\s+/)[0] || '';
+        const isPersianName = /[\u0600-\u06FF]/.test(firstName);
+
+        return (
+            <div className="reg-page">
+                <div className="reg-bg-grid" />
+                <div className="reg-scanline" />
+                <div className="reg-inner">
+                    <div className="reg-card" style={{ textAlign: 'center', padding: '48px 32px' }}>
+                        <span className="reg-success-icon">⬡</span>
+                        <h2 className="reg-success-title" style={headingFont}>
+                            {isRTL
+                                ? `${isPersianName ? firstName : ''} خوش آمدید${!isPersianName && firstName ? ` ${firstName}` : ''}`
+                                : `Welcome back${firstName ? `, ${firstName}` : ''}`}
+                        </h2>
+                        <p className="reg-success-body">
+                            {isRTL
+                                ? 'شما قبلاً ثبت‌نام کرده‌اید. هویت دیجیتال شما فعال است.'
+                                : 'You are already registered. Your digital identity is active.'}
+                        </p>
+                        <span className="reg-success-tag" style={monoFont}>
+                            {isRTL ? 'دسترسی تأیید شد' : 'ACCESS GRANTED'}
+                        </span>
+                    </div>
+                    <p className="reg-footnote" style={monoFont}>{t(CONTENT.footnote)}</p>
+                </div>
+            </div>
+        );
+    }
+
+    // Session still loading
+    if (sessionUser === undefined) {
+        return (
+            <div className="reg-page">
+                <div className="reg-bg-grid" />
+            </div>
+        );
+    }
 
     return (
         <div className="reg-page">
@@ -539,7 +590,7 @@ export default function RegisterPage() {
                             <button
                                 type="submit"
                                 className="reg-submit-btn"
-                                disabled={loading || otp.replace(/\D/g, '').length < 8}
+                                disabled={loading || otp.replace(/\D/g, '').length < 6}
                                 style={monoFont}
                             >
                                 {loading && <span className="reg-spinner" />}
