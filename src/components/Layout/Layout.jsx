@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, Link } from "react-router-dom";
 import './Layout.css';
 
 const LangContext = createContext({ lang: "fa", setLang: () => {}, t: (obj) => obj.en, isRTL: true });
@@ -66,6 +66,9 @@ export default function Layout() {
                     </div>
 
                     <div className="site-nav-right">
+                        <Link to="/register" className="site-nav-register-btn">
+                            {isRTL ? "ثبت‌نام" : "REGISTER"}
+                        </Link>
                         <div className="site-nav-lang">
                             <button
                                 className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
@@ -105,6 +108,9 @@ export default function Layout() {
                             </NavLink>
                             <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
                                 {isRTL ? "درباره" : "ABOUT"}
+                            </NavLink>
+                            <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? "ثبت‌نام" : "REGISTER"}
                             </NavLink>
                         </div>
                     )}

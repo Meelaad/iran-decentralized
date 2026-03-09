@@ -7,6 +7,7 @@ import SectorPage from './pages/Sector/SectorPage';
 import LayersPage from './pages/Layers/LayersPage';
 import RoadmapPage from './pages/Roadmap/RoadmapPage';
 import AboutPage from './pages/About/AboutPage';
+import RegisterPage from './pages/Register/RegisterPage';
 import './styles/global.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route path="layers" element={<LayersPage />} />
                 <Route path="roadmap" element={<RoadmapPage />} />
                 <Route path="about" element={<AboutPage />} />
+                <Route path="register" element={<RegisterPage />} />
             </Route>
         </Routes>
     );

@@ -1,0 +1,576 @@
+/* RegisterPage.css */
+
+.reg-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* ── Background grid (reuses global retroGridScroll keyframe) ── */
+.reg-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(79, 195, 247, 0.07);
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 120%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    animation: retroGridScroll 5s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+}
+
+.reg-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.25) 20%, rgba(79,195,247,0.35) 50%, rgba(79,195,247,0.25) 80%, transparent);
+    animation: scanLine 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Form card ── */
+.reg-inner {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.reg-header {
+    margin-bottom: 36px;
+}
+
+.reg-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #4fc3f7;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.reg-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.reg-subtitle {
+    font-size: 13px;
+    color: #5a6a7e;
+    line-height: 1.7;
+}
+
+/* ── Card wrapper ── */
+.reg-card {
+    background: rgba(8, 13, 22, 0.85);
+    border: 1px solid rgba(79, 195, 247, 0.12);
+    padding: 32px;
+    position: relative;
+    animation: fadeInUp 0.4s ease both;
+}
+
+.reg-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(79,195,247,0.03) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* ── Step indicator ── */
+.reg-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 28px;
+}
+
+.reg-step-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3a4a5e;
+    font-family: 'IBM Plex Mono', monospace;
+    transition: color 0.2s;
+}
+
+.reg-step-item.is-active {
+    color: #4fc3f7;
+}
+
+.reg-step-item.is-done {
+    color: #2e7d52;
+}
+
+.reg-step-num {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid currentColor;
+    font-size: 10px;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.reg-step-item.is-active .reg-step-num {
+    background: rgba(79,195,247,0.12);
+}
+
+.reg-step-item.is-done .reg-step-num {
+    background: rgba(46,125,82,0.15);
+}
+
+.reg-step-sep {
+    flex: 1;
+    height: 1px;
+    background: rgba(79,195,247,0.1);
+    margin: 0 10px;
+}
+
+/* ── User type toggle ── */
+.reg-type-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid rgba(79,195,247,0.15);
+    margin-bottom: 24px;
+}
+
+.reg-type-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 16px 12px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #3a4a5e;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    transition: all 0.18s;
+    font-family: 'IBM Plex Mono', monospace;
+    position: relative;
+}
+
+.reg-type-btn + .reg-type-btn {
+    border-left: 1px solid rgba(79,195,247,0.15);
+}
+
+[dir="rtl"] .reg-type-btn + .reg-type-btn {
+    border-left: none;
+    border-right: 1px solid rgba(79,195,247,0.15);
+}
+
+.reg-type-btn.is-active[data-type="citizen"] {
+    background: rgba(46, 125, 50, 0.1);
+    color: #66bb6a;
+    border-bottom: 2px solid #388e3c;
+}
+
+.reg-type-btn.is-active[data-type="diaspora"] {
+    background: rgba(21, 101, 192, 0.12);
+    color: #64b5f6;
+    border-bottom: 2px solid #1565c0;
+}
+
+.reg-type-icon {
+    font-size: 22px;
+    display: block;
+}
+
+/* ── Form fields ── */
+.reg-field {
+    margin-bottom: 18px;
+}
+
+.reg-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a5568;
+    margin-bottom: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: start;
+}
+
+
+
+.reg-input,
+.reg-select {
+    width: 100%;
+    background: #080d14;
+    border: 1px solid rgba(79, 195, 247, 0.15);
+    color: #c8ccd4;
+    font-size: 14px;
+    padding: 12px 14px;
+    transition: border-color 0.18s, box-shadow 0.18s;
+    font-family: inherit;
+    appearance: none;
+    -webkit-appearance: none;
+    caret-color: #4fc3f7;
+}
+
+.reg-input:focus,
+.reg-select:focus {
+    outline: none;
+    border-color: rgba(79, 195, 247, 0.5);
+    box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.06);
+}
+
+.reg-input::placeholder {
+    color: #2a3545;
+}
+
+.reg-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234fc3f7' opacity='0.4' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+}
+
+[dir="rtl"] .reg-select {
+    background-position: left 14px center;
+    padding-right: 14px;
+    padding-left: 36px;
+}
+
+.reg-select option {
+    background: #0a0f18;
+    color: #c8ccd4;
+}
+
+.reg-input--other-country {
+    margin-top: 6px;
+    border-top-color: rgba(79, 195, 247, 0.08);
+}
+
+/* ── Submit button ── */
+.reg-submit-btn {
+    width: 100%;
+    padding: 14px 24px;
+    background: rgba(79, 195, 247, 0.08);
+    border: 1px solid rgba(79, 195, 247, 0.35);
+    color: #4fc3f7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.18s;
+    font-family: 'IBM Plex Mono', monospace;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.reg-submit-btn:hover:not(:disabled) {
+    background: rgba(79, 195, 247, 0.16);
+    border-color: rgba(79, 195, 247, 0.6);
+    box-shadow: 0 0 16px rgba(79, 195, 247, 0.1);
+}
+
+.reg-submit-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.reg-submit-btn .reg-spinner {
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(79,195,247,0.2);
+    border-top-color: #4fc3f7;
+    border-radius: 50%;
+    animation: regSpin 0.7s linear infinite;
+    flex-shrink: 0;
+}
+
+@keyframes regSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Error message ── */
+.reg-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: rgba(183, 28, 28, 0.08);
+    border: 1px solid rgba(183, 28, 28, 0.25);
+    color: #ef9a9a;
+    font-size: 12px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    line-height: 1.6;
+    animation: fadeIn 0.2s ease;
+}
+
+.reg-error-icon {
+    flex-shrink: 0;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.reg-error-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reg-error-list li::before {
+    content: '— ';
+    opacity: 0.5;
+}
+
+/* ── OTP / Verify step ── */
+.reg-verify-info {
+    margin-bottom: 28px;
+}
+
+.reg-verify-text {
+    font-size: 13px;
+    color: #8a9bb0;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.reg-verify-email {
+    font-size: 13px;
+    color: #4fc3f7;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+/* OTP digit boxes */
+.reg-otp-boxes {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+[dir="rtl"] .reg-otp-boxes {
+    flex-direction: row-reverse;
+}
+
+.reg-otp-digit {
+    flex: 1;
+    min-width: 0;
+    height: 54px;
+    background: #080d14;
+    border: 1px solid rgba(79, 195, 247, 0.18);
+    color: #eef5ff;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    caret-color: #4fc3f7;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    padding: 0;
+}
+
+.reg-otp-digit:focus {
+    outline: none;
+    border-color: rgba(79, 195, 247, 0.55);
+    box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.07);
+}
+
+.reg-otp-digit.is-filled {
+    border-color: rgba(79, 195, 247, 0.35);
+    color: #4fc3f7;
+}
+
+.reg-resend-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ── Resend cooldown ── */
+.reg-cooldown {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.reg-cooldown-bar-track {
+    width: 110px;
+    height: 2px;
+    background: rgba(79, 195, 247, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-cooldown-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(79,195,247,0.25), #4fc3f7);
+    transition: width 0.95s linear;
+    box-shadow: 0 0 6px rgba(79, 195, 247, 0.5);
+}
+
+[dir="rtl"] .reg-cooldown-bar-fill {
+    left: auto;
+    right: 0;
+    background: linear-gradient(270deg, rgba(79,195,247,0.25), #4fc3f7);
+}
+
+.reg-cooldown-label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #3a4a5e;
+}
+
+.reg-resend-btn {
+    background: none;
+    border: none;
+    color: #5a6a7e;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s;
+}
+
+.reg-resend-btn:hover:not(:disabled) {
+    color: #4fc3f7;
+}
+
+.reg-resend-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.reg-back-btn {
+    background: none;
+    border: none;
+    color: #3a4a5e;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0;
+    transition: color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.reg-back-btn:hover {
+    color: #4fc3f7;
+}
+
+/* ── Success step ── */
+.reg-success {
+    text-align: center;
+    padding: 16px 0;
+    animation: fadeInUp 0.4s ease both;
+}
+
+.reg-success-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    display: block;
+    animation: glowPulse 2s ease infinite;
+}
+
+.reg-success-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 12px;
+}
+
+.reg-success-body {
+    font-size: 13px;
+    color: #8a9bb0;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.reg-success-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 8px 18px;
+    border: 1px solid rgba(46,125,82,0.4);
+    color: #66bb6a;
+    background: rgba(46,125,82,0.08);
+}
+
+/* ── Bottom note ── */
+.reg-footnote {
+    margin-top: 20px;
+    font-size: 11px;
+    color: #2a3545;
+    text-align: center;
+    line-height: 1.6;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+    .reg-inner {
+        padding: 32px 16px 60px;
+    }
+
+    .reg-card {
+        padding: 24px 16px;
+        overflow: hidden;
+    }
+
+    .reg-otp-boxes {
+        gap: 5px;
+    }
+
+    .reg-otp-digit {
+        height: 44px;
+        font-size: 17px;
+    }
+}
