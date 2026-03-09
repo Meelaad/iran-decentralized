@@ -1,0 +1,172 @@
+/* NotFoundPage.css */
+
+.nf-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Animated node canvas ── */
+.nf-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ── Retro grid ── */
+.nf-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(79, 195, 247, 0.04);
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 120%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    animation: retroGridScroll 5s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+}
+
+/* ── Scanline ── */
+.nf-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.25) 20%, rgba(79,195,247,0.35) 50%, rgba(79,195,247,0.25) 80%, transparent);
+    animation: scanLine 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ── Content ── */
+.nf-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    animation: fadeIn 0.5s ease both;
+}
+
+.nf-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4fc3f7;
+    margin-bottom: 32px;
+    opacity: 0.7;
+}
+
+/* ── 404 display ── */
+.nf-code-block {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 32px;
+}
+
+.nf-four {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(72px, 14vw, 120px);
+    font-weight: 700;
+    color: #c8ccd4;
+    line-height: 1;
+    letter-spacing: -4px;
+    text-shadow: 0 0 40px rgba(79,195,247,0.15);
+}
+
+.nf-zero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nf-hex-svg {
+    width: clamp(64px, 12vw, 106px);
+    height: clamp(64px, 12vw, 106px);
+    filter: drop-shadow(0 0 12px rgba(79,195,247,0.25));
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* ── Text ── */
+.nf-title {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.nf-subtitle {
+    font-size: 12px;
+    color: #4a5a6e;
+    margin-bottom: 28px;
+    letter-spacing: 0.02em;
+}
+
+/* ── Status row ── */
+.nf-status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 36px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #2a3a4e;
+    text-transform: uppercase;
+}
+
+.nf-status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ff4444;
+    box-shadow: 0 0 8px rgba(255,68,68,0.6);
+    animation: glowPulse 1.5s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+/* ── Button ── */
+.nf-home-btn {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4fc3f7;
+    border: 1px solid rgba(79,195,247,0.25);
+    padding: 12px 28px;
+    background: rgba(79,195,247,0.04);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.nf-home-btn:hover {
+    background: rgba(79,195,247,0.1);
+    border-color: rgba(79,195,247,0.5);
+    color: #7fd8ff;
+}
+
+@media (max-width: 480px) {
+    .nf-four {
+        letter-spacing: -2px;
+    }
+}

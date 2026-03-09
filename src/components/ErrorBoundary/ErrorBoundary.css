@@ -1,0 +1,130 @@
+/* ErrorBoundary.css */
+
+.eb-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eb-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(255, 80, 80, 0.04);
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 120%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    animation: retroGridScroll 5s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+}
+
+.eb-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255,80,80,0.2) 20%, rgba(255,80,80,0.3) 50%, rgba(255,80,80,0.2) 80%, transparent);
+    animation: scanLine 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.eb-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.4s ease both;
+}
+
+.eb-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #ff6b6b;
+    opacity: 0.6;
+    margin-bottom: 28px;
+}
+
+.eb-hex {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 28px;
+    filter: drop-shadow(0 0 12px rgba(255,80,80,0.2));
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+.eb-hex svg {
+    width: 100%;
+    height: 100%;
+}
+
+.eb-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.eb-subtitle {
+    font-size: 13px;
+    color: #4a5a6e;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    max-width: 340px;
+}
+
+.eb-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.eb-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #ff6b6b;
+    border: 1px solid rgba(255, 100, 100, 0.25);
+    padding: 11px 24px;
+    background: rgba(255, 80, 80, 0.04);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.eb-btn:hover {
+    background: rgba(255, 80, 80, 0.1);
+    border-color: rgba(255, 100, 100, 0.45);
+}
+
+.eb-btn--secondary {
+    color: #4fc3f7;
+    border-color: rgba(79, 195, 247, 0.25);
+    background: rgba(79, 195, 247, 0.04);
+}
+
+.eb-btn--secondary:hover {
+    background: rgba(79, 195, 247, 0.1);
+    border-color: rgba(79, 195, 247, 0.45);
+}

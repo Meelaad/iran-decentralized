@@ -1,6 +1,6 @@
 import React, { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
-import { useLang } from "../../components/Layout/Layout";
+import { useLang } from '../../contexts/LangContext';
 import { SECTORS, CONNECTIONS } from "../../data";
 import './SectorPage.css';
 

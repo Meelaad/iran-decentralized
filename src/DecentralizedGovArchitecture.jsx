@@ -3,7 +3,7 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SECTORS, CONNECTIONS, SHARED_LAYERS } from './data';
-import { useLang } from './components/Layout/Layout';
+import { useLang } from './contexts/LangContext';
 import './Architecture.css';
 import BlockchainOverlay from "./BlockchainOverlay";
 
@@ -158,10 +158,18 @@ export default function DecentralizedGovArchitecture() {
     // Delay side panel on mobile so connection animation plays first
     useEffect(() => {
         if (!selected) { setPanelVisible(false); return; }
-        if (window.innerWidth > 900) return; // desktop handled in click
+        if (window.innerWidth > 900) return; // desktop handled in click or view-change effect
         const timer = setTimeout(() => setPanelVisible(true), 120);
         return () => clearTimeout(timer);
     }, [selected]);
+
+    // When switching from list → map with a selection, open the panel after map renders
+    useEffect(() => {
+        if (view !== 'map' || !selected) { if (view === 'list') setPanelVisible(false); return; }
+        const timer = setTimeout(() => setPanelVisible(true), 280);
+        return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [view]);
 
     const selectedSector = useMemo(
         () => SECTORS.find((s) => s.id === selected),

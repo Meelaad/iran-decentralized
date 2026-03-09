@@ -8,6 +8,8 @@ import LayersPage from './pages/Layers/LayersPage';
 import RoadmapPage from './pages/Roadmap/RoadmapPage';
 import AboutPage from './pages/About/AboutPage';
 import RegisterPage from './pages/Register/RegisterPage';
+import NotFoundPage from './pages/NotFound/NotFoundPage';
+import ContactPage from './pages/Contact/ContactPage';
 import './styles/global.css';
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
                 <Route path="roadmap" element={<RoadmapPage />} />
                 <Route path="about" element={<AboutPage />} />
                 <Route path="register" element={<RegisterPage />} />
+                <Route path="contact" element={<ContactPage />} />
+                <Route path="*" element={<NotFoundPage />} />
             </Route>
         </Routes>
     );

@@ -1,0 +1,284 @@
+/* ContactPage.css */
+
+.contact-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contact-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(79, 195, 247, 0.07);
+    position: absolute;
+    bottom: -20%;
+    left: -20%;
+    right: -20%;
+    height: 120%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    animation: retroGridScroll 5s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+}
+
+.contact-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.25) 20%, rgba(79,195,247,0.35) 50%, rgba(79,195,247,0.25) 80%, transparent);
+    animation: scanLine 6s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.contact-inner {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-header {
+    margin-bottom: 36px;
+}
+
+.contact-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4fc3f7;
+    margin-bottom: 12px;
+}
+
+.contact-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.contact-subtitle {
+    font-size: 13px;
+    color: #5a6a7e;
+    line-height: 1.7;
+}
+
+/* ── Card ── */
+.contact-card {
+    background: rgba(8, 12, 20, 0.72);
+    border: 1px solid rgba(79, 195, 247, 0.1);
+    padding: 32px 28px;
+}
+
+/* ── Error ── */
+.contact-error {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: rgba(255, 80, 80, 0.06);
+    border: 1px solid rgba(255, 80, 80, 0.2);
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    animation: fadeIn 0.2s ease;
+}
+
+.contact-error-icon {
+    color: #ff6b6b;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.contact-error-list {
+    list-style: none;
+    font-size: 12px;
+    color: #e07070;
+    line-height: 1.7;
+}
+
+/* ── Fields ── */
+.contact-field {
+    margin-bottom: 20px;
+}
+
+.contact-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}
+
+.contact-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a5a6e;
+    margin-bottom: 7px;
+}
+
+.contact-label-row .contact-label {
+    margin-bottom: 0;
+}
+
+.contact-char-count {
+    font-size: 10px;
+    color: #3a4a5e;
+    letter-spacing: 0;
+}
+
+.contact-input,
+.contact-textarea {
+    width: 100%;
+    background: rgba(4, 8, 16, 0.8);
+    border: 1px solid rgba(79, 195, 247, 0.12);
+    color: #c8ccd4;
+    font-size: 13px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+    caret-color: #4fc3f7;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+    border-color: rgba(79, 195, 247, 0.4);
+    box-shadow: 0 0 0 2px rgba(79, 195, 247, 0.06);
+}
+
+.contact-input::placeholder,
+.contact-textarea::placeholder {
+    color: #2a3a4e;
+}
+
+.contact-input:disabled,
+.contact-textarea:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.contact-textarea {
+    resize: vertical;
+    min-height: 130px;
+    line-height: 1.6;
+}
+
+.contact-msg-hint {
+    font-size: 10px;
+    color: #3a5a6e;
+    margin-top: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* ── Submit ── */
+.contact-submit-btn {
+    width: 100%;
+    background: rgba(79, 195, 247, 0.08);
+    border: 1px solid rgba(79, 195, 247, 0.25);
+    color: #4fc3f7;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 13px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.contact-submit-btn:hover:not(:disabled) {
+    background: rgba(79, 195, 247, 0.14);
+    border-color: rgba(79, 195, 247, 0.45);
+}
+
+.contact-submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ── Spinner (reuses same pattern as register) ── */
+.contact-spinner {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border: 2px solid rgba(79, 195, 247, 0.25);
+    border-top-color: #4fc3f7;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Success ── */
+.contact-success {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 32px 16px;
+    gap: 0;
+    animation: fadeIn 0.4s ease;
+}
+
+.contact-success-icon {
+    font-size: 40px;
+    color: #4fc3f7;
+    margin-bottom: 20px;
+    animation: glowPulse 2.5s ease-in-out infinite;
+    display: block;
+}
+
+.contact-success-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 10px;
+}
+
+.contact-success-body {
+    font-size: 13px;
+    color: #5a7a8e;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.contact-success-tag {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #4fc3f7;
+    border: 1px solid rgba(79, 195, 247, 0.25);
+    padding: 5px 14px;
+    text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+    .contact-inner {
+        padding: 32px 16px 48px;
+    }
+
+    .contact-card {
+        padding: 24px 18px;
+    }
+}

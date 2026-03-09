@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { useLang } from '../../components/Layout/Layout';
+import { Link } from 'react-router-dom';
+import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import './RegisterPage.css';
 
@@ -58,23 +59,135 @@ const CONTENT = {
         otpIncomplete:   { en: "Please enter the full 6-digit code.", fa: "لطفاً کد ۶ رقمی را کامل وارد کنید." },
         generic:         { en: "Something went wrong. Please try again.", fa: "خطایی رخ داد. لطفاً دوباره تلاش کنید." },
         rateLimit:       { en: "We are currently experiencing a high volume of requests. Please try again in an hour.", fa: "در حال حاضر با حجم بالایی از درخواست‌ها مواجه هستیم. لطفاً یک ساعت دیگر دوباره تلاش کنید." },
+        otpInvalid:      { en: "The code you entered is incorrect or has expired. Please check and try again, or request a new code.", fa: "کد واردشده اشتباه است یا منقضی شده. لطفاً دوباره بررسی کنید یا کد جدیدی درخواست دهید." },
+        serverError:     { en: "A system error occurred. If this keeps happening, please contact support.", fa: "خطای سیستمی رخ داد. اگر مشکل ادامه دارد، لطفاً با پشتیبانی تماس بگیرید." },
     },
+    contactSupport: { en: "Contact Support", fa: "تماس با پشتیبانی" },
 };
 
 // ── Country list ─────────────────────────────────────────────────────────────
 
+// Estimated Iranian diaspora population per country.
+// Update these values independently without touching the country list order or labels.
+// Sources: UN migration data, Iranian MFA 2021, Wikipedia Iranian diaspora article.
+// Keys must exactly match the `en` value in COUNTRIES below.
+const DIASPORA_ESTIMATES = {
+    "United States":        "1,000,000–1,500,000",
+    "Iraq":                 "500,000–1,000,000+",
+    "Turkey":               "600,000–800,000",
+    "United Arab Emirates": "500,000–600,000",
+    "Kuwait":               "~438,000",
+    "United Kingdom":       "450,000–500,000",
+    "Germany":              "336,000–400,000",
+    "Canada":               "550,000–600,000",
+    "Israel":               "200,000–250,000",
+    "Azerbaijan":           "~248,000",
+    "Bahrain":              "100,000–225,000",
+    "Saudi Arabia":         "110,000–219,000",
+    "Sweden":               "127,000–150,000",
+    "Australia":            "125,000–135,000",
+    "France":               "90,000–118,000",
+    "Netherlands":          "~52,000",
+    "Austria":              "~40,000",
+    "Denmark":              "~32,700",
+    "Italy":                "~30,500",
+    "Qatar":                "~30,000",
+    "Malaysia":             "~30,000",
+    "Norway":               "~20,000",
+    "Switzerland":          "~20,000",
+    "Belgium":              "~20,000",
+    "Russia":               "~30,000",
+    "Spain":                "~20,000",
+    "Georgia":              "~15,000",
+    "Armenia":              "~15,000",
+    "Greece":               "~12,000",
+    "Tajikistan":           "~12,000",
+    "Finland":              "~10,000",
+    "Pakistan":             "~10,000",
+    "India":                "~8,000",
+    "Oman":                 "~7,000",
+    "Brazil":               "~7,000",
+    "Japan":                "~5,000",
+    "Argentina":            "~5,000",
+    "New Zealand":          "~5,000",
+    "Ireland":              "~4,000",
+    "Portugal":             "~4,000",
+    "South Korea":          "~3,000",
+    "Czech Republic":       "~3,000",
+    "Poland":               "~3,000",
+    "Hungary":              "~2,500",
+    "Romania":              "~2,000",
+    "Afghanistan":          "~1,000",
+};
+
+// Translation map — order here does not matter, sorting is derived from DIASPORA_ESTIMATES.
+// Iran is pinned first; Other is pinned last.
 const COUNTRIES = [
-    "Iran",
-    "United States", "Germany", "United Kingdom", "Canada", "Sweden",
-    "France", "Netherlands", "United Arab Emirates", "Turkey", "Australia",
-    "Norway", "Italy", "Denmark", "Switzerland", "Austria", "Belgium",
-    "Spain", "Greece", "Finland", "Japan", "South Korea", "Malaysia",
-    "Georgia", "Armenia", "Azerbaijan", "Russia", "Tajikistan",
-    "Afghanistan", "Pakistan", "India", "Iraq", "Israel",
-    "Qatar", "Kuwait", "Bahrain", "Oman", "Saudi Arabia",
-    "Brazil", "Argentina", "New Zealand", "Ireland", "Portugal",
-    "Czech Republic", "Poland", "Hungary", "Romania",
-    "Other",
+    { en: "Iran",                 fa: "ایران" },          // home country — always first
+    { en: "United States",        fa: "ایالات متحده" },   // ~1,000,000+
+    { en: "United Arab Emirates", fa: "امارات متحده عربی" }, // ~400,000–500,000
+    { en: "Germany",              fa: "آلمان" },           // ~150,000–200,000
+    { en: "Canada",               fa: "کانادا" },          // ~163,000–400,000
+    { en: "Sweden",               fa: "سوئد" },            // ~100,000–200,000
+    { en: "United Kingdom",       fa: "بریتانیا" },        // ~90,000–150,000
+    { en: "Australia",            fa: "استرالیا" },        // ~60,000–140,000
+    { en: "Turkey",               fa: "ترکیه" },           // ~83,000–100,000
+    { en: "Israel",               fa: "اسرائیل" },         // ~100,000 (Iranian-Jewish community)
+    { en: "France",               fa: "فرانسه" },          // ~40,000–70,000
+    { en: "Netherlands",          fa: "هلند" },            // ~40,000–80,000
+    { en: "Norway",               fa: "نروژ" },            // ~40,000–60,000
+    { en: "Azerbaijan",           fa: "آذربایجان" },       // ~30,000–60,000
+    { en: "Austria",              fa: "اتریش" },           // ~30,000–50,000
+    { en: "Denmark",              fa: "دانمارک" },         // ~25,000–40,000
+    { en: "Switzerland",          fa: "سوئیس" },           // ~20,000–40,000
+    { en: "Russia",               fa: "روسیه" },           // ~20,000–50,000
+    { en: "Belgium",              fa: "بلژیک" },           // ~20,000–40,000
+    { en: "Iraq",                 fa: "عراق" },            // ~15,000–30,000
+    { en: "Spain",                fa: "اسپانیا" },         // ~15,000–25,000
+    { en: "Italy",                fa: "ایتالیا" },         // ~10,000–20,000
+    { en: "Georgia",              fa: "گرجستان" },         // ~10,000–20,000
+    { en: "Armenia",              fa: "ارمنستان" },        // ~10,000–20,000
+    { en: "Greece",               fa: "یونان" },           // ~10,000–15,000
+    { en: "Bahrain",              fa: "بحرین" },           // ~10,000–20,000
+    { en: "Tajikistan",           fa: "تاجیکستان" },       // ~10,000–15,000
+    { en: "Malaysia",             fa: "مالزی" },           // ~8,000–15,000
+    { en: "Finland",              fa: "فنلاند" },          // ~5,000–15,000
+    { en: "Pakistan",             fa: "پاکستان" },         // ~5,000–15,000
+    { en: "India",                fa: "هند" },             // ~5,000–10,000
+    { en: "Kuwait",               fa: "کویت" },            // ~5,000–10,000
+    { en: "Qatar",                fa: "قطر" },             // ~5,000–10,000
+    { en: "Saudi Arabia",         fa: "عربستان سعودی" },  // ~5,000–10,000
+    { en: "Oman",                 fa: "عمان" },            // ~5,000–10,000
+    { en: "Japan",                fa: "ژاپن" },            // ~3,000–8,000
+    { en: "Brazil",               fa: "برزیل" },           // ~5,000–10,000
+    { en: "Argentina",            fa: "آرژانتین" },        // ~3,000–8,000
+    { en: "New Zealand",          fa: "نیوزیلند" },        // ~3,000–8,000
+    { en: "South Korea",          fa: "کره جنوبی" },       // ~2,000–5,000
+    { en: "Ireland",              fa: "ایرلند" },          // ~3,000–6,000
+    { en: "Portugal",             fa: "پرتغال" },          // ~3,000–6,000
+    { en: "Czech Republic",       fa: "جمهوری چک" },       // ~2,000–5,000
+    { en: "Poland",               fa: "لهستان" },          // ~2,000–4,000
+    { en: "Hungary",              fa: "مجارستان" },        // ~2,000–4,000
+    { en: "Romania",              fa: "رومانی" },          // ~1,000–3,000
+    { en: "Afghanistan",          fa: "افغانستان" },       // small (not a typical destination)
+    { en: "Other",                fa: "سایر" },            // always last
+];
+
+// Extracts the lower-bound number from estimate strings like "1,000,000–1,500,000", "~438,000", "500,000+"
+function parseEstimate(str) {
+    if (!str) return 0;
+    const match = str.replace(/,/g, '').match(/\d+/);
+    return match ? parseInt(match[0], 10) : 0;
+}
+
+// Sorted at module load time by DIASPORA_ESTIMATES lower bound.
+// Update an estimate value → sort order updates automatically on next build/reload.
+const SORTED_COUNTRIES = [
+    COUNTRIES.find(c => c.en === 'Iran'),
+    ...COUNTRIES
+        .filter(c => c.en !== 'Iran' && c.en !== 'Other')
+        .sort((a, b) => parseEstimate(DIASPORA_ESTIMATES[b.en]) - parseEstimate(DIASPORA_ESTIMATES[a.en])),
+    COUNTRIES.find(c => c.en === 'Other'),
 ];
 
 // ── Validation constants ──────────────────────────────────────────────────────
@@ -246,6 +359,7 @@ export default function RegisterPage() {
     const [otp, setOtp] = useState('');
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [showSupport, setShowSupport] = useState(false);
     const [customCountry, setCustomCountry] = useState('');
     const [cooldown, setCooldown] = useState(0);
     const [resendCount, setResendCount] = useState(0);
@@ -337,8 +451,9 @@ export default function RegisterPage() {
 
     async function handleVerifyOtp(e) {
         e.preventDefault();
-        if (otp.replace(/\D/g, '').length < 6) { setError(t(CONTENT.errors.otpIncomplete)); return; }
+        if (otp.replace(/\D/g, '').length < 6) { setError(t(CONTENT.errors.otpIncomplete)); setShowSupport(false); return; }
         setError(null);
+        setShowSupport(false);
         setLoading(true);
         try {
             const { error: supaErr } = await supabase.auth.verifyOtp({
@@ -349,7 +464,15 @@ export default function RegisterPage() {
             if (supaErr) throw supaErr;
             setStep('success');
         } catch (err) {
-            setError(err.message || t(CONTENT.errors.generic));
+            const msg = err.message?.toLowerCase() || '';
+            const isInvalidToken = msg.includes('token') || msg.includes('otp') || msg.includes('expired') || msg.includes('invalid');
+            if (isInvalidToken) {
+                setError(t(CONTENT.errors.otpInvalid));
+                setShowSupport(false);
+            } else {
+                setError(t(CONTENT.errors.serverError));
+                setShowSupport(true);
+            }
         } finally {
             setLoading(false);
         }
@@ -420,6 +543,17 @@ export default function RegisterPage() {
         return (
             <div className="reg-page">
                 <div className="reg-bg-grid" />
+                <div className="reg-scanline" />
+                <div className="reg-inner">
+                    <div className="reg-header">
+                        <div className="reg-eyebrow" style={monoFont}>{t(CONTENT.eyebrow)}</div>
+                        <h1 className="reg-title" style={headingFont}>{t(CONTENT.title)}</h1>
+                        <p className="reg-subtitle">{t(CONTENT.subtitle)}</p>
+                    </div>
+                    <div className="reg-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 180 }}>
+                        <span className="reg-spinner" style={{ width: 22, height: 22 }} />
+                    </div>
+                </div>
             </div>
         );
     }
@@ -462,11 +596,22 @@ export default function RegisterPage() {
                     {error && (
                         <div className="reg-error" role="alert">
                             <span className="reg-error-icon">⚠</span>
-                            <ul className="reg-error-list">
-                                {(Array.isArray(error) ? error : [error]).map((e, i) => (
-                                    <li key={i}>{e}</li>
-                                ))}
-                            </ul>
+                            <div className="reg-error-body">
+                                <ul className="reg-error-list">
+                                    {(Array.isArray(error) ? error : [error]).map((e, i) => (
+                                        <li key={i}>{e}</li>
+                                    ))}
+                                </ul>
+                                {showSupport && (
+                                    <Link
+                                        to="/contact?subject=Registration+Issue"
+                                        className="reg-support-link"
+                                        style={monoFont}
+                                    >
+                                        {t(CONTENT.contactSupport)} →
+                                    </Link>
+                                )}
+                            </div>
                         </div>
                     )}
 
@@ -519,6 +664,7 @@ export default function RegisterPage() {
                             <div className="reg-field">
                                 <label className="reg-label" style={labelStyle} htmlFor="reg-country">
                                     {t(CONTENT.labelCountry)}
+                                    <span className="reg-label-hint">(Population)</span>
                                 </label>
                                 <select
                                     id="reg-country"
@@ -528,9 +674,14 @@ export default function RegisterPage() {
                                     disabled={loading}
                                 >
                                     <option value="" disabled>{t(CONTENT.selectCountry)}</option>
-                                    {COUNTRIES.map(c => (
-                                        <option key={c} value={c}>{c}</option>
-                                    ))}
+                                    {SORTED_COUNTRIES.map(c => {
+                                        const est = DIASPORA_ESTIMATES[c.en];
+                                        return (
+                                            <option key={c.en} value={c.en}>
+                                                {t(c)}{est ? ` (${est})` : ''}
+                                            </option>
+                                        );
+                                    })}
                                 </select>
                                 {country === 'Other' && (
                                     <input

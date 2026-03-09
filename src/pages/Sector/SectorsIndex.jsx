@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useLang } from "../../components/Layout/Layout";
+import { useLang } from '../../contexts/LangContext';
 import { SECTORS } from "../../data";
 import './SectorsIndex.css';
 

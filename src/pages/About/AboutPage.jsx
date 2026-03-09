@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useLang } from "../../components/Layout/Layout";
+import { useLang } from '../../contexts/LangContext';
 import './AboutPage.css';
 
 function WaveGrid() {

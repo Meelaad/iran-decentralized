@@ -1,5 +1,5 @@
 import React from "react";
-import { useLang } from "../../components/Layout/Layout";
+import { useLang } from '../../contexts/LangContext';
 import { SHARED_LAYERS, SECTORS } from "../../data";
 import './LayersPage.css';
 
