@@ -63,7 +63,7 @@ export default function ProfilePage() {
     async function loadProfile(userId) {
         const [{ data: prof }, { data: inviteCodes }] = await Promise.all([
             supabase.from('profiles').select('*').eq('id', userId).single(),
-            supabase.from('invite_codes').select('code, used_by, used_at').eq('created_by', userId).order('created_at'),
+            supabase.from('invite_codes').select('code, used_by, used_at').eq('owner_id', userId).order('created_at'),
         ]);
         if (prof) {
             setProfile(prof);
