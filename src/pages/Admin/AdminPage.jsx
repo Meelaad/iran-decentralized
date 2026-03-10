@@ -61,7 +61,13 @@ function CopyButton({ code }) {
             onClick={handleCopy}
             title="Copy code"
         >
-            {copied ? '✓' : 'copy'}
+            {copied
+                ? <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><polyline points="2,7 5,10 11,3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                : <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
+                    <rect x="4.5" y="1" width="7" height="8.5" rx="1" stroke="currentColor" strokeWidth="1.2"/>
+                    <rect x="1" y="3.5" width="7" height="8.5" rx="1" stroke="currentColor" strokeWidth="1.2" fill="rgba(2,4,8,0.92)"/>
+                  </svg>
+            }
         </button>
     );
 }
