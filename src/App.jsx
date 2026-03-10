@@ -14,6 +14,8 @@ import AdminPage from './pages/Admin/AdminPage';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import ContactPage from './pages/Contact/ContactPage';
 import PrivacyPage from './pages/Privacy/PrivacyPage';
+import ProfilePage from './pages/Profile/ProfilePage';
+import LoginPage from './pages/Login/LoginPage';
 import './styles/global.css';
 
 function App() {
@@ -32,6 +34,8 @@ function App() {
                         <Route path="admin" element={<AdminPage />} />
                         <Route path="contact" element={<ContactPage />} />
                         <Route path="privacy" element={<PrivacyPage />} />
+                        <Route path="profile" element={<ProfilePage />} />
+                        <Route path="login" element={<LoginPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>

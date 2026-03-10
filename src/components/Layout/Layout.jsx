@@ -12,6 +12,7 @@ function NavContent() {
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
     const [session, setSession] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [profileName, setProfileName] = useState('');
     const navRef = useRef(null);
     const navigate = useNavigate();
 
@@ -31,10 +32,11 @@ function NavContent() {
     async function checkAdmin(userId) {
         const { data } = await supabase
             .from('profiles')
-            .select('is_admin')
+            .select('is_admin, full_name')
             .eq('id', userId)
             .single();
         setIsAdmin(data?.is_admin === true);
+        if (data?.full_name) setProfileName(data.full_name.split(' ')[0]);
     }
 
     async function handleLogout() {
@@ -98,13 +100,23 @@ function NavContent() {
                         </Link>
                     )}
                     {session ? (
-                        <button className="site-nav-logout-btn" onClick={handleLogout}>
-                            {isRTL ? "خروج" : "LOGOUT"}
-                        </button>
+                        <>
+                            <Link to="/profile" className="site-nav-profile-btn">
+                                {profileName || (isRTL ? "پروفایل" : "PROFILE")}
+                            </Link>
+                            <button className="site-nav-logout-btn" onClick={handleLogout}>
+                                {isRTL ? "خروج" : "LOGOUT"}
+                            </button>
+                        </>
                     ) : (
-                        <Link to="/register" className="site-nav-register-btn">
-                            {isRTL ? "ثبت‌نام" : "REGISTER"}
-                        </Link>
+                        <>
+                            <Link to="/login" className="site-nav-login-btn">
+                                {isRTL ? "ورود" : "LOGIN"}
+                            </Link>
+                            <Link to="/register" className="site-nav-register-btn">
+                                {isRTL ? "ثبت‌نام" : "REGISTER"}
+                            </Link>
+                        </>
                     )}
                     <div className="site-nav-lang">
                         <button

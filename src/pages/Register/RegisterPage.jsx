@@ -375,6 +375,7 @@ export default function RegisterPage() {
     const [customCountry, setCustomCountry] = useState('');
     const [cooldown, setCooldown] = useState(0);
     const [resendCount, setResendCount] = useState(0);
+    const [isAdmin, setIsAdmin] = useState(false);
 
     // Start cooldown whenever the verify step is entered
     useEffect(() => {
@@ -443,6 +444,18 @@ export default function RegisterPage() {
         setError(null);
         setLoading(true);
         try {
+            // Check if email is already registered
+            const { data: existingProfile } = await supabase
+                .from('profiles')
+                .select('id')
+                .eq('email', email.trim())
+                .maybeSingle();
+            if (existingProfile) {
+                setStep('already-registered');
+                setLoading(false);
+                return;
+            }
+
             // Validate invite code server-side before sending OTP
             let inviteRes;
             try {
@@ -509,6 +522,11 @@ export default function RegisterPage() {
             // Collect metadata and complete registration (best-effort, non-blocking)
             try {
                 const { data: { session } } = await supabase.auth.getSession();
+                // Check admin status for dashboard redirect
+                if (session) {
+                    const { data: prof } = await supabase.from('profiles').select('is_admin').eq('id', session.user.id).single();
+                    if (prof?.is_admin) setIsAdmin(true);
+                }
                 const metadata = await collectMetadata();
                 await fetch('/api/register-complete', {
                     method: 'POST',
@@ -892,6 +910,32 @@ export default function RegisterPage() {
                             <span className="reg-success-tag" style={monoFont}>
                                 {t(CONTENT.successTag)}
                             </span>
+                            <Link
+                                to={isAdmin ? '/admin' : '/profile'}
+                                className="reg-submit-btn"
+                                style={{ ...monoFont, marginTop: 16, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
+                            >
+                                {isAdmin
+                                    ? (isRTL ? 'پنل مدیریت ←' : 'ADMIN PANEL →')
+                                    : (isRTL ? 'رفتن به داشبورد ←' : 'GO TO DASHBOARD →')}
+                            </Link>
+                        </div>
+                    )}
+
+                    {step === 'already-registered' && (
+                        <div className="reg-success">
+                            <span className="reg-success-icon" style={{ fontSize: 36 }}>👤</span>
+                            <h2 className="reg-success-title" style={headingFont}>
+                                {isRTL ? 'قبلاً ثبت‌نام کرده‌اید' : 'Already Registered'}
+                            </h2>
+                            <p className="reg-success-body">
+                                {isRTL
+                                    ? `حسابی با ایمیل ${email} در ایران‌دائو وجود دارد.`
+                                    : `An account with ${email} already exists on IranDAO.`}
+                            </p>
+                            <Link to="/login" className="reg-submit-btn" style={{ ...monoFont, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}>
+                                {isRTL ? 'ورود به حساب ←' : 'Sign In →'}
+                            </Link>
                         </div>
                     )}
                 </div>
