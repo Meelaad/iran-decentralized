@@ -27,6 +27,7 @@ height: 60px;
     display: flex;
     align-items: center;
     gap: 20px;
+    min-width: 0;
 }
 
 .site-nav-logo {
@@ -42,6 +43,7 @@ height: 60px;
 .site-nav-logo img {
     height: 48px;
     width: auto;
+    flex-shrink: 0;
 }
 
 .site-nav-links {
@@ -359,11 +361,29 @@ height: 60px;
         min-width: 0;
     }
 
+    .site-nav-logo {
+        min-width: 0;
+    }
+
+    .site-nav-logo img {
+        height: 36px;
+        flex-shrink: 0;
+    }
+
     .site-nav-right {
         flex-shrink: 0;
     }
 
     .site-nav-links {
+        display: none;
+    }
+
+    /* Hide auth buttons on mobile — they live in the hamburger dropdown */
+    .site-nav-login-btn,
+    .site-nav-register-btn,
+    .site-nav-profile-btn,
+    .site-nav-logout-btn,
+    .site-nav-admin-btn {
         display: none;
     }
 
@@ -385,6 +405,20 @@ height: 60px;
         font-size: 12px;
         width: 100%;
         border-bottom: 1px solid rgba(79,195,247,0.06);
+    }
+
+    .mobile-nav-logout {
+        background: none;
+        border: none;
+        border-bottom: 1px solid rgba(79,195,247,0.06);
+        width: 100%;
+        text-align: left;
+        cursor: pointer;
+        color: #ef9a9a;
+    }
+
+    [dir="rtl"] .mobile-nav-logout {
+        text-align: right;
     }
 
     @keyframes navSlideDown {

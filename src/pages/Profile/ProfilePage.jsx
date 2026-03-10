@@ -119,11 +119,17 @@ export default function ProfilePage() {
                 headers: { Authorization: `Bearer ${s.access_token}` },
             });
             const json = await res.json();
-            if (!res.ok) { setGenerateError(json.error || 'Failed to generate code.'); return; }
-            // Refresh codes and remaining count
+            if (!res.ok) {
+                setGenerateError(isRTL
+                    ? 'ساخت کد ناموفق بود. لطفاً دوباره تلاش کنید.'
+                    : 'Failed to generate code. Please try again.');
+                return;
+            }
             await loadProfile(session.user.id);
         } catch {
-            setGenerateError('Something went wrong. Try again.');
+            setGenerateError(isRTL
+                ? 'خطایی رخ داد. لطفاً دوباره تلاش کنید.'
+                : 'Something went wrong. Please try again.');
         } finally {
             setGenerating(false);
         }
