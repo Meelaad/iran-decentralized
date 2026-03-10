@@ -45,6 +45,27 @@ function TreeNode({ node, depth }) {
 
 // ── User row ──────────────────────────────────────────────────────────────────
 
+function CopyButton({ code }) {
+    const [copied, setCopied] = useState(false);
+
+    function handleCopy() {
+        navigator.clipboard.writeText(code).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+        });
+    }
+
+    return (
+        <button
+            className={`admin-copy-btn${copied ? ' is-copied' : ''}`}
+            onClick={handleCopy}
+            title="Copy code"
+        >
+            {copied ? '✓' : 'copy'}
+        </button>
+    );
+}
+
 function UserRow({ user, nameMap, onGenerateCodes, onSetInvites }) {
     const [expanded, setExpanded] = useState(false);
     const [inviteInput, setInviteInput] = useState(String(user.invite_codes_remaining ?? 0));
@@ -124,8 +145,11 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites }) {
                         <div className="admin-codes-row">
                             {user.invite_codes?.length === 0 && <span style={{ color: '#3a4a5e', fontSize: 11 }}>No codes generated yet.</span>}
                             {unusedCodes.map(c => (
-                                <span key={c.id} className="admin-code-chip admin-code-chip--unused" title="Unused">
-                                    {c.code}
+                                <span key={c.id} className="admin-code-chip-wrap">
+                                    <span className="admin-code-chip admin-code-chip--unused">
+                                        {c.code}
+                                    </span>
+                                    <CopyButton code={c.code} />
                                 </span>
                             ))}
                             {usedCodes.map(c => (
