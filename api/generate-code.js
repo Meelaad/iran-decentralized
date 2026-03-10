@@ -55,7 +55,7 @@ export default async function handler(req, res) {
 
     const { error: insertError } = await supabase
         .from('invite_codes')
-        .insert({ code, created_by: user.id, owner_id: user.id });
+        .insert({ code, owner_id: user.id });
 
     if (insertError) {
         return res.status(500).json({ error: 'Failed to save code.' });
