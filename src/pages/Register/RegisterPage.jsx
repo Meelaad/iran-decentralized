@@ -356,8 +356,13 @@ export default function RegisterPage() {
     const [sessionUser, setSessionUser] = useState(undefined); // undefined = loading, null = none, object = user
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
-            setSessionUser(data.session?.user ?? null);
+        supabase.auth.getSession().then(async ({ data }) => {
+            const user = data.session?.user ?? null;
+            setSessionUser(user);
+            if (user) {
+                const { data: prof } = await supabase.from('profiles').select('is_admin').eq('id', user.id).single();
+                if (prof?.is_admin) setIsAdmin(true);
+            }
         });
     }, []);
 
@@ -611,6 +616,15 @@ export default function RegisterPage() {
                         <span className="reg-success-tag" style={monoFont}>
                             {isRTL ? 'دسترسی تأیید شد' : 'ACCESS GRANTED'}
                         </span>
+                        <Link
+                            to={isAdmin ? '/admin' : '/profile'}
+                            className="reg-submit-btn"
+                            style={{ ...monoFont, marginTop: 20, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
+                        >
+                            {isAdmin
+                                ? (isRTL ? 'پنل مدیریت ←' : 'ADMIN PANEL →')
+                                : (isRTL ? 'رفتن به داشبورد ←' : 'GO TO DASHBOARD →')}
+                        </Link>
                     </div>
                     <p className="reg-footnote" style={monoFont}>{t(CONTENT.footnote)}</p>
                 </div>
