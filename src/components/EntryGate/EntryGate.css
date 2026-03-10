@@ -77,8 +77,8 @@
 }
 
 .gate-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
+    font-family: inherit;
+    font-size: clamp(11px, 1.2vw, 15px);
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -119,13 +119,13 @@
 
 /* ── Tagline ── */
 .gate-tagline {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: clamp(10px, 1.4vw, 12px);
-    color: #2e3e50;
-    letter-spacing: 0.04em;
+    font-size: clamp(14px, 1.8vw, 18px);
+    font-weight: 400;
+    color: #4a5a6e;
+    letter-spacing: 0.03em;
     margin-bottom: 56px;
-    max-width: 400px;
-    line-height: 1.8;
+    max-width: 480px;
+    line-height: 1.7;
 }
 
 /* ── Hex enter button ── */
@@ -169,8 +169,8 @@
 .gate-enter-label {
     position: relative;
     z-index: 1;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
+    font-family: inherit;
+    font-size: clamp(12px, 1.2vw, 15px);
     font-weight: 700;
     letter-spacing: 3px;
     color: #4fc3f7;
@@ -190,7 +190,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 11px;
+    font-size: clamp(13px, 1.3vw, 16px);
     font-weight: 600;
     letter-spacing: 1.5px;
     color: #2e3e50;
@@ -208,16 +208,15 @@
 
 .gate-lang-sep {
     color: #1a2530;
-    font-size: 11px;
-    font-family: 'IBM Plex Mono', monospace;
+    font-size: clamp(13px, 1.3vw, 16px);
+    font-family: inherit;
 }
 
 /* ── Hint ── */
 .gate-hint {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 9px;
-    color: #1a2530;
-    letter-spacing: 1px;
+    font-size: clamp(11px, 1.1vw, 13px);
+    color: #2a3a4e;
+    letter-spacing: 0.03em;
 }
 
 @media (max-width: 480px) {

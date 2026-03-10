@@ -1,0 +1,113 @@
+/* PrivacyPage.css */
+
+.priv-page {
+    background: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.priv-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(79, 195, 247, 0.025);
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    pointer-events: none;
+}
+
+.priv-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.15) 30%, rgba(79,195,247,0.2) 50%, rgba(79,195,247,0.15) 70%, transparent);
+    animation: scanLine 10s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.priv-inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 680px;
+    padding: 60px 24px 80px;
+    animation: fadeIn 0.5s ease both;
+}
+
+/* ── Header ── */
+.priv-header {
+    margin-bottom: 40px;
+}
+
+.priv-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #4fc3f7;
+    opacity: 0.5;
+    margin-bottom: 12px;
+}
+
+.priv-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 700;
+    color: #eef5ff;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.priv-date {
+    font-size: 11px;
+    color: #2a3a4e;
+    letter-spacing: 1px;
+}
+
+/* ── Card ── */
+.priv-card {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(79,195,247,0.07);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+/* ── Sections ── */
+.priv-section-heading {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4fc3f7;
+    margin-bottom: 10px;
+    letter-spacing: -0.01em;
+}
+
+.priv-section-body {
+    font-size: 14px;
+    color: #5a6a7e;
+    line-height: 1.8;
+}
+
+.priv-section + .priv-section {
+    border-top: 1px solid rgba(79,195,247,0.05);
+    padding-top: 36px;
+}
+
+@media (min-width: 701px) {
+    .priv-page {
+        min-height: calc(100vh - 72px);
+    }
+}
+
+@media (max-width: 480px) {
+    .priv-card {
+        padding: 24px 20px;
+    }
+}

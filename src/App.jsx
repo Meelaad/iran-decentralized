@@ -10,8 +10,10 @@ import LayersPage from './pages/Layers/LayersPage';
 import RoadmapPage from './pages/Roadmap/RoadmapPage';
 import AboutPage from './pages/About/AboutPage';
 import RegisterPage from './pages/Register/RegisterPage';
+import AdminPage from './pages/Admin/AdminPage';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import ContactPage from './pages/Contact/ContactPage';
+import PrivacyPage from './pages/Privacy/PrivacyPage';
 import './styles/global.css';
 
 function App() {
@@ -27,7 +29,9 @@ function App() {
                         <Route path="roadmap" element={<RoadmapPage />} />
                         <Route path="about" element={<AboutPage />} />
                         <Route path="register" element={<RegisterPage />} />
+                        <Route path="admin" element={<AdminPage />} />
                         <Route path="contact" element={<ContactPage />} />
+                        <Route path="privacy" element={<PrivacyPage />} />
                         <Route path="*" element={<NotFoundPage />} />
                     </Route>
                 </Routes>

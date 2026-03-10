@@ -1,0 +1,380 @@
+/* AdminPage.css */
+
+.admin-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.admin-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+}
+
+/* ── Header ── */
+.admin-header {
+    margin-bottom: 36px;
+}
+
+.admin-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #4fc3f7;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.admin-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #eef5ff;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.admin-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #3a4a5e;
+    letter-spacing: 0.5px;
+}
+
+/* ── Stats bar ── */
+.admin-stats-bar {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.admin-stat-card {
+    background: rgba(8, 13, 22, 0.85);
+    border: 1px solid rgba(79, 195, 247, 0.12);
+    padding: 16px 24px;
+    min-width: 140px;
+    flex: 1;
+}
+
+.admin-stat-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a4a5e;
+    margin-bottom: 8px;
+}
+
+.admin-stat-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: #4fc3f7;
+    line-height: 1;
+}
+
+/* ── Section title ── */
+.admin-section-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #4a5568;
+    margin-bottom: 12px;
+    margin-top: 36px;
+}
+
+/* ── Table wrapper ── */
+.admin-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid rgba(79, 195, 247, 0.1);
+    margin-bottom: 48px;
+}
+
+/* ── Table ── */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    min-width: 900px;
+}
+
+.admin-table th {
+    background: rgba(8, 13, 22, 0.95);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4a5568;
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(79, 195, 247, 0.1);
+    white-space: nowrap;
+}
+
+.admin-table td {
+    padding: 10px 12px;
+    color: #8a9bb0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    vertical-align: middle;
+    font-family: 'IBM Plex Mono', monospace;
+}
+
+.admin-table tr:hover > td {
+    background: rgba(79, 195, 247, 0.02);
+}
+
+.admin-table tr:last-child > td {
+    border-bottom: none;
+}
+
+.admin-td-name {
+    color: #c8ccd4;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.admin-td-email {
+    color: #5a6a7e;
+    font-size: 11px;
+}
+
+.admin-td-mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+}
+
+/* ── Expand row ── */
+.admin-expand-btn {
+    background: none;
+    border: 1px solid rgba(79, 195, 247, 0.15);
+    color: #3a4a5e;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.15s;
+}
+
+.admin-expand-btn:hover {
+    border-color: rgba(79, 195, 247, 0.4);
+    color: #4fc3f7;
+}
+
+.admin-expand-row td {
+    background: rgba(4, 8, 16, 0.8);
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(79, 195, 247, 0.08);
+}
+
+.admin-expand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px 24px;
+    margin-bottom: 16px;
+}
+
+.admin-expand-field {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.admin-expand-key {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3a4a5e;
+}
+
+.admin-expand-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #7a8fa8;
+    word-break: break-all;
+}
+
+.admin-codes-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+/* ── Code chips ── */
+.admin-code-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding: 4px 10px;
+    border: 1px solid;
+}
+
+.admin-code-chip--unused {
+    color: #4fc3f7;
+    border-color: rgba(79, 195, 247, 0.3);
+    background: rgba(79, 195, 247, 0.04);
+}
+
+.admin-code-chip--used {
+    color: #3a4a5e;
+    border-color: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.02);
+    text-decoration: line-through;
+}
+
+/* ── Action buttons ── */
+.admin-actions-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 180px;
+}
+
+.admin-action-btn {
+    background: rgba(79, 195, 247, 0.05);
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    color: #4fc3f7;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.admin-action-btn:hover:not(:disabled) {
+    background: rgba(79, 195, 247, 0.12);
+    border-color: rgba(79, 195, 247, 0.5);
+}
+
+.admin-action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.admin-set-invites-row {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.admin-invites-input {
+    width: 52px;
+    background: #080d14;
+    border: 1px solid rgba(79, 195, 247, 0.2);
+    color: #c8ccd4;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    padding: 5px 8px;
+    text-align: center;
+}
+
+.admin-invites-input:focus {
+    outline: none;
+    border-color: rgba(79, 195, 247, 0.5);
+}
+
+/* ── Invite tree ── */
+.admin-tree {
+    margin-top: 8px;
+}
+
+.admin-tree-node {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: #5a6a7e;
+    padding: 3px 0;
+    white-space: nowrap;
+}
+
+.admin-tree-node--root {
+    color: #4fc3f7;
+}
+
+.admin-tree-name {
+    color: #c8ccd4;
+}
+
+/* ── Access denied ── */
+.admin-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 16px;
+    text-align: center;
+}
+
+.admin-denied-code {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 48px;
+    font-weight: 700;
+    color: rgba(79, 195, 247, 0.2);
+}
+
+.admin-denied-msg {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a4a5e;
+}
+
+/* ── Loading state ── */
+.admin-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.admin-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid rgba(79, 195, 247, 0.15);
+    border-top-color: #4fc3f7;
+    border-radius: 50%;
+    animation: adminSpin 0.7s linear infinite;
+}
+
+@keyframes adminSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .admin-inner {
+        padding: 32px 16px 60px;
+    }
+
+    .admin-stats-bar {
+        gap: 10px;
+    }
+
+    .admin-stat-card {
+        min-width: 100px;
+        padding: 12px 16px;
+    }
+
+    .admin-stat-value {
+        font-size: 22px;
+    }
+}

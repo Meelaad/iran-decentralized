@@ -82,7 +82,7 @@ function GlitchGrid() {
 
 export default function NotFoundPage() {
     const { isRTL } = useLang();
-    const monoFont = { fontFamily: "'IBM Plex Mono', monospace" };
+    const monoFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
 
     return (

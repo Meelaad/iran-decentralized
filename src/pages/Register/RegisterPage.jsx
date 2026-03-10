@@ -2,6 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
+import { collectMetadata } from '../../lib/collectMetadata';
 import './RegisterPage.css';
 
 // ── Bilingual content ────────────────────────────────────────────────────────
@@ -48,7 +49,17 @@ const CONTENT = {
         en: "No passwords stored. No seed phrases. Your email verifies your identity.",
         fa: "هیچ رمز عبوری ذخیره نمی‌شود. بدون عبارت بازیابی. ایمیل شما هویت شما را تأیید می‌کند.",
     },
+    inviteOnly: {
+        en: "Registration is currently by invitation only.",
+        fa: "ثبت‌نام در حال حاضر فقط با دعوت‌نامه امکان‌پذیر است.",
+    },
+    labelInvite:       { en: "INVITE CODE", fa: "کد دعوت" },
+    placeholderInvite: { en: "Enter your 8-character invite code", fa: "کد دعوت ۸ کاراکتری خود را وارد کنید" },
     errors: {
+        inviteRequired: { en: "An invite code is required.", fa: "کد دعوت الزامی است." },
+        inviteInvalid:  { en: "Invalid invite code format. Codes are 8 characters (letters and numbers).", fa: "فرمت کد دعوت نامعتبر است. کدها ۸ کاراکتر هستند." },
+        inviteNotFound: { en: "Invite code not found. Please check and try again.", fa: "کد دعوت یافت نشد. لطفاً دوباره بررسی کنید." },
+        inviteUsed:     { en: "This invite code has already been used.", fa: "این کد دعوت قبلاً استفاده شده است." },
         nameRequired:    { en: "Full name is required.",        fa: "نام کامل الزامی است." },
         nameInvalid:     { en: "Please enter your name correctly.", fa: "لطفاً نام خود را به درستی وارد کنید." },
         countryRequired:     { en: "Please select your country.",      fa: "لطفاً کشور خود را انتخاب کنید." },
@@ -337,8 +348,8 @@ function formatCooldown(seconds) {
 
 export default function RegisterPage() {
     const { t, isRTL } = useLang();
-    const monoFont   = { fontFamily: "'IBM Plex Mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
+    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" };
+    const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
     const labelStyle  = { ...monoFont, textAlign: isRTL ? 'right' : 'left' };
 
     // Session check
@@ -352,6 +363,7 @@ export default function RegisterPage() {
 
     // Form state
     const [step, setStep] = useState('form');          // 'form' | 'verify' | 'success'
+    const [inviteCode, setInviteCode] = useState('');
     const [userType, setUserType] = useState('citizen');
     const [fullName, setFullName] = useState('');
     const [country, setCountry] = useState('');
@@ -381,6 +393,13 @@ export default function RegisterPage() {
 
     function validateForm() {
         const errs = [];
+
+        // Invite code validation
+        if (!inviteCode.trim()) {
+            errs.push(t(CONTENT.errors.inviteRequired));
+        } else if (!/^[A-Z0-9]{8}$/i.test(inviteCode.trim())) {
+            errs.push(t(CONTENT.errors.inviteInvalid));
+        }
 
         const name = fullName.trim();
         if (!name) {
@@ -424,6 +443,29 @@ export default function RegisterPage() {
         setError(null);
         setLoading(true);
         try {
+            // Validate invite code server-side before sending OTP
+            let inviteRes;
+            try {
+                inviteRes = await fetch('/api/validate-invite', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code: inviteCode.trim().toUpperCase() }),
+                });
+            } catch {
+                setError(t(CONTENT.errors.generic));
+                setLoading(false);
+                return;
+            }
+            if (!inviteRes.ok) {
+                let inviteErr = {};
+                try { inviteErr = await inviteRes.json(); } catch { /* ignore parse error */ }
+                if (inviteRes.status === 404) setError(t(CONTENT.errors.inviteNotFound));
+                else if (inviteRes.status === 409) setError(t(CONTENT.errors.inviteUsed));
+                else setError(inviteErr.error || t(CONTENT.errors.generic));
+                setLoading(false);
+                return;
+            }
+
             const { error: supaErr } = await supabase.auth.signInWithOtp({
                 email: email.trim(),
                 options: {
@@ -463,6 +505,26 @@ export default function RegisterPage() {
             });
             if (supaErr) throw supaErr;
             setStep('success');
+
+            // Collect metadata and complete registration (best-effort, non-blocking)
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+                const metadata = await collectMetadata();
+                await fetch('/api/register-complete', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${session?.access_token}`,
+                    },
+                    body: JSON.stringify({
+                        invite_code: inviteCode.trim().toUpperCase(),
+                        full_name: fullName.trim(),
+                        country: country === 'Other' ? customCountry.trim() : country,
+                        user_type: userType,
+                        metadata,
+                    }),
+                });
+            } catch { /* silent — registration succeeded, metadata is best-effort */ }
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
             const isInvalidToken = msg.includes('token') || msg.includes('otp') || msg.includes('expired') || msg.includes('invalid');
@@ -619,8 +681,34 @@ export default function RegisterPage() {
                     {step === 'form' && (
                         <form onSubmit={handleSendOtp} noValidate dir={isRTL ? "rtl" : "ltr"}>
 
+                            {/* Invite-only notice */}
+                            <div className="reg-invite-notice" style={monoFont}>
+                                <span className="reg-invite-notice-icon">⬡</span>
+                                {t(CONTENT.inviteOnly)}
+                            </div>
+
+                            {/* Invite code field */}
+                            <div className="reg-field">
+                                <label className="reg-label" style={labelStyle} htmlFor="reg-invite">
+                                    {t(CONTENT.labelInvite)}
+                                </label>
+                                <input
+                                    id="reg-invite"
+                                    className="reg-input reg-input--mono"
+                                    type="text"
+                                    placeholder={t(CONTENT.placeholderInvite)}
+                                    value={inviteCode}
+                                    onChange={e => setInviteCode(e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 8))}
+                                    disabled={loading}
+                                    dir="ltr"
+                                    maxLength={8}
+                                    autoComplete="off"
+                                    spellCheck={false}
+                                />
+                            </div>
+
                             {/* User type toggle */}
-                            <div className="reg-type-toggle" role="group" aria-label={isRTL ? "نوع کاربر" : "User type"}>
+                            <div className="reg-type-toggle" role="group" aria-label={isRTL ? "نوع کاربر" : "User type"} style={monoFont}>
                                 <button
                                     type="button"
                                     className={`reg-type-btn${userType === 'citizen' ? ' is-active' : ''}`}
@@ -664,7 +752,6 @@ export default function RegisterPage() {
                             <div className="reg-field">
                                 <label className="reg-label" style={labelStyle} htmlFor="reg-country">
                                     {t(CONTENT.labelCountry)}
-                                    <span className="reg-label-hint">(Population)</span>
                                 </label>
                                 <select
                                     id="reg-country"
@@ -673,7 +760,9 @@ export default function RegisterPage() {
                                     onChange={e => { setCountry(e.target.value); setCustomCountry(''); }}
                                     disabled={loading}
                                 >
-                                    <option value="" disabled>{t(CONTENT.selectCountry)}</option>
+                                    <option value="" disabled>
+                                        {t(CONTENT.selectCountry)}{isRTL ? ' (جمعیت)' : ' (Population)'}
+                                    </option>
                                     {SORTED_COUNTRIES.map(c => {
                                         const est = DIASPORA_ESTIMATES[c.en];
                                         return (

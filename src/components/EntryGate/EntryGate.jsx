@@ -97,7 +97,7 @@ export default function EntryGate({ children }) {
                     <div className="gate-bg-grid" />
                     <div className="gate-scanline" />
 
-                    <div className="gate-inner" dir={isRTL ? 'rtl' : 'ltr'}>
+                    <div className="gate-inner" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" }}>
                         <div className="gate-eyebrow">
                             {isRTL ? 'در حال راه‌اندازی شبکه' : 'INITIALIZING NETWORK'}
                         </div>
@@ -107,7 +107,7 @@ export default function EntryGate({ children }) {
                             <h2 className="gate-title-fa">ایران دائو</h2>
                         </div>
 
-                        <p className="gate-tagline">
+                        <p className="gate-tagline" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'IBM Plex Mono', monospace" }}>
                             {isRTL
                                 ? 'معماری غیرمتمرکز برای حاکمیت آینده ایران'
                                 : 'Decentralized architecture for the future governance of Iran'}
@@ -141,7 +141,7 @@ export default function EntryGate({ children }) {
                             >EN</button>
                         </div>
 
-                        <div className="gate-hint">
+                        <div className="gate-hint" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'IBM Plex Mono', monospace" }}>
                             {isRTL
                                 ? 'پلتفرم غیرمتمرکز دولت مجازی و سازماندهی سیاسی'
                                 : 'Decentralized Virtual Government and Political Organization Platform'}

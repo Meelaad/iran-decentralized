@@ -114,6 +114,11 @@ function NavContent() {
                 <ErrorBoundary>
                     <Outlet />
                 </ErrorBoundary>
+                <footer className="site-footer">
+                    <Link to="/privacy" className="site-footer-link" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                        {isRTL ? 'سیاست حریم خصوصی' : 'Privacy Policy'}
+                    </Link>
+                </footer>
             </div>
         </div>
     );

@@ -84,7 +84,7 @@
 }
 
 .nf-four {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: inherit;
     font-size: clamp(72px, 14vw, 120px);
     font-weight: 700;
     color: #c8ccd4;

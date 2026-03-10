@@ -52,7 +52,7 @@
 }
 
 .eb-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: inherit;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 4px;
@@ -99,7 +99,7 @@
 }
 
 .eb-btn {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: inherit;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2px;
