@@ -21,6 +21,8 @@ const CONTENT = {
     inviteHint:   { en: 'Share these codes to invite new members. Each code can only be used once.', fa: 'این کدها را برای دعوت اعضای جدید به اشتراک بگذارید. هر کد فقط یک بار قابل استفاده است.' },
     codeUnused:   { en: 'Available',          fa: 'موجود' },
     codeUsed:     { en: 'Used',               fa: 'استفاده شده' },
+    generateBtn:  { en: 'GENERATE CODE',      fa: 'ساخت کد' },
+    noQuota:      { en: 'No invite slots remaining.', fa: 'سهمیه دعوت تمام شده است.' },
     votingSection:{ en: 'GOVERNANCE VOTING',  fa: 'رأی‌گیری حاکمیتی' },
     votingComingSoon: { en: 'Voting is not yet active. Once governance proposals are live, you will be able to cast your vote here.', fa: 'رأی‌گیری هنوز فعال نشده است. پس از راه‌اندازی پیشنهادهای حاکمیتی، می‌توانید اینجا رأی دهید.' },
     noSession:    { en: 'You are not logged in.', fa: 'شما وارد نشده‌اید.' },
@@ -47,6 +49,8 @@ export default function ProfilePage() {
     const [saved, setSaved] = useState(false);
     const [saveError, setSaveError] = useState('');
     const [copiedCode, setCopiedCode] = useState('');
+    const [generating, setGenerating] = useState(false);
+    const [generateError, setGenerateError] = useState('');
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => {
@@ -82,7 +86,19 @@ export default function ProfilePage() {
             .update({ title: title || null, pronouns: pronouns || null, city: city.trim() || null, bio: bio.trim() || null })
             .eq('id', session.user.id);
         setSaving(false);
-        if (error) { setSaveError(error.message); return; }
+        if (error) {
+            const msg = error.message?.toLowerCase() || '';
+            if (msg.includes('schema cache') || msg.includes('could not find')) {
+                setSaveError(isRTL
+                    ? 'خطای پیکربندی پایگاه داده. لطفاً با پشتیبانی تماس بگیرید.'
+                    : 'A database configuration error occurred. Please contact support.');
+            } else {
+                setSaveError(isRTL
+                    ? 'ذخیره‌سازی ناموفق بود. لطفاً دوباره تلاش کنید.'
+                    : 'Failed to save. Please try again.');
+            }
+            return;
+        }
         setSaved(true);
         setTimeout(() => setSaved(false), 2500);
     }
@@ -91,6 +107,26 @@ export default function ProfilePage() {
         navigator.clipboard.writeText(code);
         setCopiedCode(code);
         setTimeout(() => setCopiedCode(''), 1500);
+    }
+
+    async function handleGenerate() {
+        setGenerating(true);
+        setGenerateError('');
+        try {
+            const { data: { session: s } } = await supabase.auth.getSession();
+            const res = await fetch('/api/generate-code', {
+                method: 'POST',
+                headers: { Authorization: `Bearer ${s.access_token}` },
+            });
+            const json = await res.json();
+            if (!res.ok) { setGenerateError(json.error || 'Failed to generate code.'); return; }
+            // Refresh codes and remaining count
+            await loadProfile(session.user.id);
+        } catch {
+            setGenerateError('Something went wrong. Try again.');
+        } finally {
+            setGenerating(false);
+        }
     }
 
     if (loading) return (
@@ -194,28 +230,42 @@ export default function ProfilePage() {
                         <div className="prof-card">
                             <div className="prof-section-title" style={monoFont}>{t(CONTENT.inviteSection)}</div>
                             <p className="prof-hint" style={monoFont}>{t(CONTENT.inviteHint)}</p>
-                            {codes.length === 0 ? (
-                                <div className="prof-no-codes" style={monoFont}>—</div>
-                            ) : (
-                                <div className="prof-codes-list">
-                                    {unusedCodes.map(c => (
-                                        <button
-                                            key={c.code}
-                                            className="prof-code-chip prof-code-chip--unused"
-                                            onClick={() => copyCode(c.code)}
-                                            title={isRTL ? 'کلیک کنید تا کپی شود' : 'Click to copy'}
-                                            style={monoFont}
-                                        >
-                                            {copiedCode === c.code ? t(CONTENT.copied) : c.code}
-                                        </button>
-                                    ))}
-                                    {usedCodes.map(c => (
-                                        <span key={c.code} className="prof-code-chip prof-code-chip--used" style={monoFont}>
-                                            {c.code}
-                                        </span>
-                                    ))}
+                            <div className="prof-codes-list">
+                                {unusedCodes.map(c => (
+                                    <button
+                                        key={c.code}
+                                        className="prof-code-chip prof-code-chip--unused"
+                                        onClick={() => copyCode(c.code)}
+                                        title={isRTL ? 'کلیک کنید تا کپی شود' : 'Click to copy'}
+                                        style={monoFont}
+                                    >
+                                        {copiedCode === c.code ? t(CONTENT.copied) : c.code}
+                                    </button>
+                                ))}
+                                {usedCodes.map(c => (
+                                    <span key={c.code} className="prof-code-chip prof-code-chip--used" style={monoFont}>
+                                        {c.code}
+                                    </span>
+                                ))}
+                            </div>
+                            {profile?.invite_codes_remaining > 0 ? (
+                                <div className="prof-generate-row">
+                                    <button
+                                        className="prof-generate-btn"
+                                        onClick={handleGenerate}
+                                        disabled={generating}
+                                        style={monoFont}
+                                    >
+                                        {generating ? '...' : t(CONTENT.generateBtn)}
+                                    </button>
+                                    <span className="prof-remaining" style={monoFont}>
+                                        {profile.invite_codes_remaining} {isRTL ? 'باقی‌مانده' : 'remaining'}
+                                    </span>
                                 </div>
+                            ) : (
+                                <div className="prof-no-codes" style={monoFont}>{t(CONTENT.noQuota)}</div>
                             )}
+                            {generateError && <div className="prof-error" style={monoFont}>{generateError}</div>}
                         </div>
 
                         {/* ── Voting Placeholder ── */}

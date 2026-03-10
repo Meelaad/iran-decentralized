@@ -302,6 +302,42 @@
     letter-spacing: 1px;
 }
 
+.prof-generate-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.prof-generate-btn {
+    padding: 6px 14px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4fc3f7;
+    border: 1px solid rgba(79, 195, 247, 0.35);
+    background: rgba(79, 195, 247, 0.06);
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.prof-generate-btn:hover:not(:disabled) {
+    background: rgba(79, 195, 247, 0.14);
+    border-color: rgba(79, 195, 247, 0.6);
+}
+
+.prof-generate-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.prof-remaining {
+    font-size: 11px;
+    color: #3a4a5e;
+    letter-spacing: 0.5px;
+}
+
 .prof-codes-list {
     display: flex;
     flex-wrap: wrap;

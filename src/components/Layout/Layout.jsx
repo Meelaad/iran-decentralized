@@ -158,9 +158,19 @@ function NavContent() {
                         <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
                             {isRTL ? "درباره" : "ABOUT"}
                         </NavLink>
-                        <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {isRTL ? "ثبت‌نام" : "REGISTER"}
-                        </NavLink>
+                        {session ? (
+                            <button
+                                className="site-nav-link site-nav-logout-btn"
+                                style={{ width: '100%', textAlign: isRTL ? 'right' : 'left', border: 'none', borderBottom: '1px solid rgba(79,195,247,0.06)', padding: '10px 12px' }}
+                                onClick={() => { setMobileNavOpen(false); handleLogout(); }}
+                            >
+                                {isRTL ? 'خروج' : 'LOGOUT'}
+                            </button>
+                        ) : (
+                            <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                {isRTL ? 'ثبت‌نام' : 'REGISTER'}
+                            </NavLink>
+                        )}
                     </div>
                 )}
             </nav>

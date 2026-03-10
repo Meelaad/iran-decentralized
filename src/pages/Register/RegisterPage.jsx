@@ -499,9 +499,14 @@ export default function RegisterPage() {
             setStep('verify');
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
-            setError(msg.includes('rate limit') || msg.includes('email rate')
-                ? t(CONTENT.errors.rateLimit)
-                : err.message || t(CONTENT.errors.generic));
+            if (msg.includes('rate limit') || msg.includes('email rate')) {
+                setError(t(CONTENT.errors.rateLimit));
+            } else if (msg.includes('database error') || msg.includes('saving new user')) {
+                setError(t(CONTENT.errors.serverError));
+                setShowSupport(true);
+            } else {
+                setError(t(CONTENT.errors.generic));
+            }
         } finally {
             setLoading(false);
         }
