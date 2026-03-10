@@ -72,7 +72,7 @@ function CopyButton({ code }) {
     );
 }
 
-function UserRow({ user, nameMap, onGenerateCodes, onSetInvites }) {
+function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode }) {
     const [expanded, setExpanded] = useState(false);
     const [inviteInput, setInviteInput] = useState(String(user.invite_codes_remaining ?? 0));
     const [working, setWorking] = useState(false);
@@ -156,6 +156,16 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites }) {
                                         {c.code}
                                     </span>
                                     <CopyButton code={c.code} />
+                                    <button
+                                        className="admin-delete-code-btn"
+                                        title="Remove code"
+                                        onClick={() => onDeleteCode(c.id)}
+                                    >
+                                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
+                                            <line x1="1" y1="1" x2="10" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                                            <line x1="10" y1="1" x2="1" y2="10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                                        </svg>
+                                    </button>
                                 </span>
                             ))}
                             {usedCodes.map(c => (
@@ -264,6 +274,18 @@ export default function AdminPage() {
                 Authorization: `Bearer ${token}`,
             },
             body: JSON.stringify({ user_id: userId, count }),
+        });
+        await fetchUsers(token);
+    }
+
+    async function handleDeleteCode(codeId) {
+        await fetch('/api/admin/delete-code', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ code_id: codeId }),
         });
         await fetchUsers(token);
     }
@@ -377,6 +399,7 @@ export default function AdminPage() {
                                     nameMap={nameMap}
                                     onGenerateCodes={handleGenerateCodes}
                                     onSetInvites={handleSetInvites}
+                                    onDeleteCode={handleDeleteCode}
                                 />
                             ))}
                         </tbody>
