@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { NavLink, Outlet, Link } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
+import { supabase } from '../../lib/supabase';
 import './Layout.css';
 
 export { useLang };
@@ -9,7 +10,38 @@ export { useLang };
 function NavContent() {
     const { lang, setLang, isRTL } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+    const [session, setSession] = useState(null);
+    const [isAdmin, setIsAdmin] = useState(false);
     const navRef = useRef(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data }) => {
+            setSession(data.session);
+            if (data.session) checkAdmin(data.session.user.id);
+        });
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+            setSession(session);
+            if (session) checkAdmin(session.user.id);
+            else setIsAdmin(false);
+        });
+        return () => subscription.unsubscribe();
+    }, []);
+
+    async function checkAdmin(userId) {
+        const { data } = await supabase
+            .from('profiles')
+            .select('is_admin')
+            .eq('id', userId)
+            .single();
+        setIsAdmin(data?.is_admin === true);
+    }
+
+    async function handleLogout() {
+        await supabase.auth.signOut();
+        setIsAdmin(false);
+        navigate('/');
+    }
 
     useEffect(() => {
         if (!mobileNavOpen) return;
@@ -60,9 +92,20 @@ function NavContent() {
                 </div>
 
                 <div className="site-nav-right">
-                    <Link to="/register" className="site-nav-register-btn">
-                        {isRTL ? "ثبت‌نام" : "REGISTER"}
-                    </Link>
+                    {isAdmin && (
+                        <Link to="/admin" className="site-nav-admin-btn">
+                            {isRTL ? "پنل مدیریت" : "ADMIN"}
+                        </Link>
+                    )}
+                    {session ? (
+                        <button className="site-nav-logout-btn" onClick={handleLogout}>
+                            {isRTL ? "خروج" : "LOGOUT"}
+                        </button>
+                    ) : (
+                        <Link to="/register" className="site-nav-register-btn">
+                            {isRTL ? "ثبت‌نام" : "REGISTER"}
+                        </Link>
+                    )}
                     <div className="site-nav-lang">
                         <button
                             className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
