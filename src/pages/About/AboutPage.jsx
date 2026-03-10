@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import './AboutPage.css';
 
@@ -228,6 +229,27 @@ export default function AboutPage() {
                                 : "The system is built on Layer 1 & 2 blockchain networks, smart contracts, cryptographic voting protocols, and decentralized identity systems."
                             }
                         </p>
+                    </div>
+                </div>
+
+                <div className="about-section">
+                    <div className="about-section-title">
+                        {isRTL ? "تماس با ما" : "CONTACT"}
+                    </div>
+                    <div className="about-section-body">
+                        <p>
+                            {isRTL
+                                ? "سوال دارید یا می‌خواهید مشارکت کنید؟ با ما تماس بگیرید."
+                                : "Have questions or want to get involved? We'd love to hear from you."
+                            }
+                        </p>
+                        <Link
+                            to="/contact"
+                            className="about-contact-btn"
+                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                        >
+                            {isRTL ? "ارسال پیام ←" : "Get in Touch →"}
+                        </Link>
                     </div>
                 </div>
             </div>
