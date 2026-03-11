@@ -1,9 +1,9 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { LangProvider } from './contexts/LangContext';
 import Layout from './components/Layout/Layout';
 import EntryGate from './components/EntryGate/EntryGate';
-import DecentralizedGovArchitecture from './DecentralizedGovArchitecture';
+import BlueprintViewer from './BlueprintViewer';
 import SectorsIndex from './pages/Sector/SectorsIndex';
 import SectorPage from './pages/Sector/SectorPage';
 import LayersPage from './pages/Layers/LayersPage';
@@ -24,8 +24,11 @@ function App() {
             <EntryGate>
                 <Routes>
                     <Route element={<Layout />}>
-                        <Route index element={<DecentralizedGovArchitecture />} />
-                        <Route path="sectors" element={<SectorsIndex />} />
+                        <Route index element={<Navigate to="/blueprint/decentralized" replace />} />
+                        <Route path="blueprint/:blueprintId" element={<BlueprintViewer />} />
+                        <Route path="blueprint/:blueprintId/sectors" element={<SectorsIndex />} />
+                        <Route path="blueprint/:blueprintId/sectors/:sectorId" element={<SectorPage />} />
+                        <Route path="sectors" element={<Navigate to="/blueprint/decentralized/sectors" replace />} />
                         <Route path="sectors/:sectorId" element={<SectorPage />} />
                         <Route path="layers" element={<LayersPage />} />
                         <Route path="roadmap" element={<RoadmapPage />} />

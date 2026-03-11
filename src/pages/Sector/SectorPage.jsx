@@ -1,32 +1,37 @@
 import React, { useMemo } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
-import { SECTORS, CONNECTIONS } from "../../data";
+import { BLUEPRINTS, SECTORS, CONNECTIONS } from "../../data";
 import './SectorPage.css';
 
 export default function SectorPage() {
-    const { sectorId } = useParams();
+    const { sectorId, blueprintId } = useParams();
     const { t, isRTL } = useLang();
 
-    const sector = useMemo(() => SECTORS.find(s => s.id === sectorId), [sectorId]);
+    const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
+    const activeConnections = (blueprintId && BLUEPRINTS[blueprintId]?.connections) || CONNECTIONS;
+    const mapLink = blueprintId ? `/blueprint/${blueprintId}` : '/blueprint/decentralized';
+    const sectorBase = blueprintId ? `/blueprint/${blueprintId}/sectors` : '/sectors';
+
+    const sector = useMemo(() => activeSectors.find(s => s.id === sectorId), [sectorId, activeSectors]);
 
     const connections = useMemo(() => {
         if (!sector) return [];
-        return CONNECTIONS
+        return activeConnections
             .filter(c => c.from === sector.id || c.to === sector.id)
             .map(c => {
                 const otherId = c.from === sector.id ? c.to : c.from;
-                const other = SECTORS.find(s => s.id === otherId);
+                const other = activeSectors.find(s => s.id === otherId);
                 return { ...c, other };
             });
-    }, [sector]);
+    }, [sector, activeConnections, activeSectors]);
 
     if (!sector) {
         return (
             <div className="sector-not-found">
                 <h2>404</h2>
                 <p>{isRTL ? "بخش مورد نظر یافت نشد" : "Sector not found"}</p>
-                <Link to="/" className="sector-back" style={{ marginTop: 24 }}>
+                <Link to={mapLink} className="sector-back" style={{ marginTop: 24 }}>
                     ← {isRTL ? "بازگشت به نقشه" : "BACK TO MAP"}
                 </Link>
             </div>
@@ -46,7 +51,7 @@ export default function SectorPage() {
             <div className="sector-page-scanline" />
 
             <div className="sector-page-inner">
-                <Link to="/" className="sector-back">
+                <Link to={mapLink} className="sector-back">
                     ← {isRTL ? "بازگشت به نقشه" : "BACK TO MAP"}
                 </Link>
 
@@ -93,7 +98,7 @@ export default function SectorPage() {
                             {connections.map((conn, i) => (
                                 <Link
                                     key={i}
-                                    to={`/sectors/${conn.other?.id}`}
+                                    to={`${sectorBase}/${conn.other?.id}`}
                                     className="sector-conn-row"
                                 >
                                     <div className="sector-conn-left">

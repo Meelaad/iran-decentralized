@@ -1,4 +1,6 @@
 // data.js
+// Legacy flat exports kept for backward compat (SectorsIndex, SectorPage use these directly).
+// New code should import BLUEPRINTS instead.
 
 export const SECTORS = [
     {
@@ -372,3 +374,297 @@ export const SHARED_LAYERS = [
         desc: { en: "Standardized protocols connecting all provincial DAOs and civic applications.", fa: "پروتکل‌های استاندارد که تمام نهادهای استانی و برنامه‌های مدنی را به هم متصل می‌کند." }
     },
 ];
+
+// ── Blueprint dictionary ──────────────────────────────────────────────────────
+
+const CM_SECTORS = [
+    {
+        id: "crown", label: { en: "Crown & Head of State", fa: "تاج و رئیس کشور" },
+        icon: "👑", color: "#FFF8E1", border: "#F9A825",
+        x: 50, y: 22, tier: "core",
+        contents: [
+            { en: "Constitutional Monarchy Charter", fa: "منشور پادشاهی مشروطه" },
+            { en: "Royal Assent & Ceremonial Powers", fa: "تأیید سلطنتی و اختیارات تشریفاتی" },
+            { en: "State Representation & Diplomacy", fa: "نمایندگی دولت و دیپلماسی" },
+            { en: "National Unity & Continuity Role", fa: "نقش وحدت و تداوم ملی" },
+        ],
+        desc: { en: "A constitutional monarch serves as ceremonial head of state, providing national unity and continuity while executive power rests with elected officials, strictly bounded by a written constitution.", fa: "پادشاه مشروطه به عنوان رئیس تشریفاتی دولت عمل می‌کند و وحدت ملی را فراهم می‌کند، در حالی که قدرت اجرایی با مقامات منتخب است و توسط قانون اساسی محدود می‌شود." },
+    },
+    {
+        id: "parliament", label: { en: "Parliament", fa: "پارلمان" },
+        icon: "🏛️", color: "#E3F2FD", border: "#1565C0",
+        x: 34, y: 38, tier: "core",
+        contents: [
+            { en: "Bicameral Legislature (Upper & Lower House)", fa: "قوه مقننه دو مجلسی (مجلس اعیان و عوام)" },
+            { en: "Legislation & Budget Approval", fa: "قانون‌گذاری و تصویب بودجه" },
+            { en: "Vote of No Confidence", fa: "رأی عدم اعتماد" },
+            { en: "Parliamentary Select Committees", fa: "کمیته‌های تخصصی پارلمانی" },
+            { en: "Opposition Rights & Debate", fa: "حقوق اپوزیسیون و مناظره" },
+        ],
+        desc: { en: "A bicameral parliament holds supreme legislative authority, passing laws, approving the national budget, and holding the government accountable through debate, committees, and confidence votes.", fa: "پارلمان دو مجلسی دارای بالاترین اقتدار قانونگذاری است و قوانین را تصویب کرده، بودجه ملی را تأیید می‌کند و دولت را از طریق مناظره، کمیته‌ها و رأی اعتماد مسئول نگه می‌دارد." },
+    },
+    {
+        id: "primeMinister", label: { en: "Prime Minister & Cabinet", fa: "نخست‌وزیر و کابینه" },
+        icon: "🎖️", color: "#E8EAF6", border: "#283593",
+        x: 66, y: 38, tier: "core",
+        contents: [
+            { en: "Executive Government Leadership", fa: "رهبری دولت اجرایی" },
+            { en: "Cabinet Portfolio Management", fa: "مدیریت پرتفولیوی کابینه" },
+            { en: "Policy Implementation", fa: "اجرای سیاست‌ها" },
+            { en: "Parliamentary Accountability", fa: "پاسخگویی به پارلمان" },
+        ],
+        desc: { en: "The Prime Minister, commanding a parliamentary majority, leads the executive branch. The Cabinet is collectively responsible to Parliament and can be removed by a vote of no confidence.", fa: "نخست‌وزیر با داشتن اکثریت پارلمانی، شاخه اجرایی را رهبری می‌کند. کابینه به طور جمعی در برابر پارلمان مسئول است و می‌تواند با رأی عدم اعتماد برکنار شود." },
+    },
+    {
+        id: "cmTreasury", label: { en: "Treasury & Finance", fa: "خزانه‌داری و مالیه" },
+        icon: "💰", color: "#FFF3E0", border: "#E65100",
+        x: 27, y: 55, tier: "primary",
+        contents: [
+            { en: "National Budget & Fiscal Policy", fa: "بودجه ملی و سیاست مالی" },
+            { en: "Taxation & Revenue Collection", fa: "مالیات و جمع‌آوری درآمد" },
+            { en: "Public Debt Management", fa: "مدیریت بدهی عمومی" },
+            { en: "Central Bank Oversight", fa: "نظارت بر بانک مرکزی" },
+        ],
+        desc: { en: "The Treasury manages national finances, sets fiscal policy, and oversees the central bank, balancing economic growth with public investment and sustainable debt levels.", fa: "خزانه‌داری امور مالی ملی را مدیریت می‌کند، سیاست مالی را تعیین می‌کند و بر بانک مرکزی نظارت می‌کند و رشد اقتصادی را با سرمایه‌گذاری عمومی و سطح بدهی پایدار متعادل می‌کند." },
+    },
+    {
+        id: "cmJustice", label: { en: "Constitutional Court", fa: "دادگاه قانون اساسی" },
+        icon: "⚖️", color: "#FBE9E7", border: "#BF360C",
+        x: 50, y: 55, tier: "primary",
+        contents: [
+            { en: "Judicial Review of Legislation", fa: "بازنگری قضایی قوانین" },
+            { en: "Rights Protection & Civil Liberties", fa: "حمایت از حقوق و آزادی‌های مدنی" },
+            { en: "Constitutional Interpretation", fa: "تفسیر قانون اساسی" },
+            { en: "Electoral Dispute Resolution", fa: "حل اختلافات انتخاباتی" },
+        ],
+        desc: { en: "An independent constitutional court reviews legislation for compliance with the constitution, protects civil liberties, and adjudicates disputes between branches of government and electoral challenges.", fa: "دادگاه قانون اساسی مستقل، قوانین را از نظر تطابق با قانون اساسی بررسی می‌کند، آزادی‌های مدنی را حفظ می‌کند و اختلافات بین قوا و چالش‌های انتخاباتی را حل و فصل می‌کند." },
+    },
+    {
+        id: "cmCivilService", label: { en: "Civil Service", fa: "خدمات کشوری" },
+        icon: "🗂️", color: "#E8F5E9", border: "#2E7D32",
+        x: 73, y: 55, tier: "primary",
+        contents: [
+            { en: "Apolitical Professional Bureaucracy", fa: "بوروکراسی حرفه‌ای غیرسیاسی" },
+            { en: "Policy Advice & Implementation", fa: "مشاوره سیاستی و اجرا" },
+            { en: "Public Service Delivery", fa: "ارائه خدمات عمومی" },
+            { en: "Merit-Based Civil Service Exam", fa: "آزمون خدمات کشوری مبتنی بر شایستگی" },
+        ],
+        desc: { en: "A professional, politically neutral civil service implements policy regardless of which party is in power, ensuring continuity of government services and providing expert advice to ministers.", fa: "خدمات کشوری حرفه‌ای و سیاسی بی‌طرف، سیاست‌ها را صرف نظر از اینکه کدام حزب در قدرت است اجرا می‌کند و تداوم خدمات دولتی را تضمین می‌کند." },
+    },
+    {
+        id: "cmDefense", label: { en: "Defense & Security", fa: "دفاع و امنیت" },
+        icon: "🛡️", color: "#ECEFF1", border: "#37474F",
+        x: 27, y: 72, tier: "secondary",
+        contents: [
+            { en: "Armed Forces (Civilian Command)", fa: "نیروهای مسلح (فرمان مدنی)" },
+            { en: "Intelligence Services (Oversight Board)", fa: "سرویس‌های اطلاعاتی (هیئت نظارت)" },
+            { en: "Parliamentary Defense Committee", fa: "کمیته دفاع پارلمانی" },
+            { en: "National Security Council", fa: "شورای امنیت ملی" },
+        ],
+        desc: { en: "Armed forces operate under strict civilian command through the Prime Minister and Parliament. An independent oversight board and parliamentary committee ensure accountability and prevent abuse.", fa: "نیروهای مسلح تحت فرمان مدنی سخت از طریق نخست‌وزیر و پارلمان عمل می‌کنند. یک هیئت نظارت مستقل و کمیته پارلمانی پاسخگویی را تضمین می‌کنند." },
+    },
+    {
+        id: "cmMedia", label: { en: "Free Press & Media", fa: "مطبوعات آزاد و رسانه" },
+        icon: "📡", color: "#E1F5FE", border: "#0277BD",
+        x: 73, y: 72, tier: "secondary",
+        contents: [
+            { en: "Public Broadcasting Independence", fa: "استقلال رادیو و تلویزیون عمومی" },
+            { en: "Press Freedom Charter", fa: "منشور آزادی مطبوعات" },
+            { en: "Independent Media Regulator", fa: "تنظیم‌کننده مستقل رسانه" },
+            { en: "Anti-Monopoly Media Rules", fa: "قوانین ضد انحصار رسانه" },
+        ],
+        desc: { en: "An independent public broadcaster and robust press freedom laws ensure citizens receive balanced information. An independent regulator prevents monopolization and protects editorial independence.", fa: "یک پخش‌کننده عمومی مستقل و قوانین قوی آزادی مطبوعات تضمین می‌کند که شهروندان اطلاعات متوازن دریافت کنند. یک تنظیم‌کننده مستقل از انحصار جلوگیری می‌کند." },
+    },
+    {
+        id: "cmLocal", label: { en: "Local Government", fa: "حکومت محلی" },
+        icon: "🏘️", color: "#F3E5F5", border: "#7B1FA2",
+        x: 50, y: 72, tier: "secondary",
+        contents: [
+            { en: "Elected Regional Councils", fa: "شوراهای منطقه‌ای منتخب" },
+            { en: "Devolved Powers & Local Budget", fa: "اختیارات تفویض‌شده و بودجه محلی" },
+            { en: "Municipal Services Delivery", fa: "ارائه خدمات شهری" },
+            { en: "Community Consultation Rights", fa: "حقوق مشاوره اجتماعی" },
+        ],
+        desc: { en: "Elected local and regional councils hold devolved powers over planning, social care, and local services, bringing governance closer to citizens and enabling regional self-determination within the constitutional framework.", fa: "شوراهای محلی و منطقه‌ای منتخب دارای اختیارات تفویض‌شده در برنامه‌ریزی، مراقبت اجتماعی و خدمات محلی هستند و حاکمیت را به شهروندان نزدیک‌تر می‌کنند." },
+    },
+];
+
+const CM_CONNECTIONS = [
+    { from: "crown", to: "parliament", label: { en: "Royal Assent", fa: "تأیید سلطنتی" }, strength: 2 },
+    { from: "parliament", to: "primeMinister", label: { en: "Confidence Vote", fa: "رأی اعتماد" }, strength: 3 },
+    { from: "primeMinister", to: "cmTreasury", label: { en: "Fiscal Direction", fa: "راهنمایی مالی" }, strength: 3 },
+    { from: "primeMinister", to: "cmDefense", label: { en: "Civilian Command", fa: "فرمان مدنی" }, strength: 3 },
+    { from: "primeMinister", to: "cmCivilService", label: { en: "Policy Delivery", fa: "اجرای سیاست" }, strength: 2 },
+    { from: "parliament", to: "cmJustice", label: { en: "Legislative Review", fa: "بازنگری تقنینی" }, strength: 3 },
+    { from: "cmJustice", to: "primeMinister", label: { en: "Constitutional Check", fa: "نظارت قانون اساسی" }, strength: 2 },
+    { from: "cmTreasury", to: "cmLocal", label: { en: "Grant Funding", fa: "کمک مالی دولتی" }, strength: 2 },
+    { from: "cmMedia", to: "parliament", label: { en: "Transparency", fa: "شفافیت" }, strength: 2 },
+    { from: "cmLocal", to: "cmCivilService", label: { en: "Service Coordination", fa: "هماهنگی خدمات" }, strength: 2 },
+];
+
+const CM_SHARED_LAYERS = [
+    { name: { en: "Constitutional Rule of Law", fa: "حاکمیت قانون اساسی" }, icon: "📜", desc: { en: "A supreme written constitution that binds all branches, protects fundamental rights, and cannot be changed without a supermajority.", fa: "قانون اساسی مکتوب عالی که تمام شاخه‌ها را متعهد می‌کند، حقوق اساسی را حفظ کرده و بدون اکثریت مطلق قابل تغییر نیست." } },
+    { name: { en: "Parliamentary Sovereignty", fa: "حاکمیت پارلمانی" }, icon: "🗳️", desc: { en: "Ultimate legislative authority vests in an elected parliament, with all executive power derived from and accountable to it.", fa: "اقتدار تقنینی نهایی در پارلمان منتخب قرار دارد و تمام قدرت اجرایی از آن منبعث و در برابر آن پاسخگو است." } },
+    { name: { en: "Independent Judiciary", fa: "قوه قضاییه مستقل" }, icon: "⚖️", desc: { en: "Courts operate free from political interference, guaranteeing equal access to justice and protecting individuals from arbitrary state action.", fa: "دادگاه‌ها بدون دخالت سیاسی فعالیت می‌کنند و دسترسی برابر به عدالت را تضمین می‌کنند." } },
+    { name: { en: "Free & Fair Elections", fa: "انتخابات آزاد و عادلانه" }, icon: "🗳️", desc: { en: "Universal suffrage with independent electoral commissions, proportional representation, and robust anti-corruption safeguards.", fa: "حق رأی همگانی با کمیسیون‌های انتخاباتی مستقل، نمایندگی متناسب و حفاظ‌های قوی ضد فساد." } },
+];
+
+const SL_SECTORS = [
+    {
+        id: "slCitizens", label: { en: "Citizens & Electorate", fa: "شهروندان و رأی‌دهندگان" },
+        icon: "👥", color: "#E8F5E9", border: "#2E7D32",
+        x: 50, y: 20, tier: "core",
+        contents: [
+            { en: "Universal Suffrage & Voting Rights", fa: "حق رأی همگانی" },
+            { en: "Civil Rights & Freedoms Charter", fa: "منشور حقوق و آزادی‌های مدنی" },
+            { en: "Citizen Initiative & Referendum", fa: "ابتکار شهروندی و رفراندوم" },
+            { en: "Digital Civic Participation Platform", fa: "پلتفرم مشارکت مدنی دیجیتال" },
+            { en: "Anti-Discrimination Protections", fa: "حمایت‌های ضد تبعیض" },
+        ],
+        desc: { en: "Sovereign citizens are the ultimate source of political power. Universal suffrage, direct democracy mechanisms, and strong civil liberties protections form the bedrock of the secular democratic republic.", fa: "شهروندان مستقل منبع نهایی قدرت سیاسی هستند. حق رأی همگانی، مکانیزم‌های دموکراسی مستقیم و حمایت قوی از آزادی‌های مدنی، پایه جمهوری دموکراتیک سکولار را تشکیل می‌دهند." },
+    },
+    {
+        id: "slPresident", label: { en: "Presidency", fa: "ریاست جمهوری" },
+        icon: "🏛️", color: "#E3F2FD", border: "#1565C0",
+        x: 33, y: 37, tier: "core",
+        contents: [
+            { en: "Directly Elected Head of State", fa: "رئیس کشور با انتخاب مستقیم" },
+            { en: "Executive Authority & Cabinet Formation", fa: "اقتدار اجرایی و تشکیل کابینه" },
+            { en: "Foreign Policy & Treaty Ratification", fa: "سیاست خارجی و تصویب معاهدات" },
+            { en: "Emergency Powers (Parliamentary Oversight)", fa: "اختیارات اضطراری (با نظارت پارلمان)" },
+            { en: "Term Limits (2 × 4-year terms)", fa: "محدودیت دوره تصدی (۲ × ۴ سال)" },
+        ],
+        desc: { en: "A directly elected president serves as both head of state and government, commanding the executive branch with a clear term limit, subject to impeachment by parliament and constitutional court review.", fa: "رئیس‌جمهور با انتخاب مستقیم هم به عنوان رئیس کشور و هم رئیس دولت عمل می‌کند، با محدودیت دوره تصدی مشخص و مشروط به استیضاح توسط پارلمان." },
+    },
+    {
+        id: "slParliament", label: { en: "National Assembly", fa: "مجلس ملی" },
+        icon: "🗳️", color: "#E8EAF6", border: "#283593",
+        x: 67, y: 37, tier: "core",
+        contents: [
+            { en: "Proportional Representation Elections", fa: "انتخابات با نمایندگی متناسب" },
+            { en: "Legislative Authority & Oversight", fa: "اقتدار تقنینی و نظارت" },
+            { en: "Budget Approval & Audit", fa: "تصویب بودجه و حسابرسی" },
+            { en: "Presidential Impeachment Process", fa: "فرآیند استیضاح رئیس‌جمهور" },
+            { en: "Parliamentary Questions & Committees", fa: "سوالات پارلمانی و کمیته‌ها" },
+        ],
+        desc: { en: "A unicameral assembly elected by proportional representation holds legislative power, approves budgets, oversees the executive, and can initiate impeachment proceedings against the president.", fa: "مجلس یک‌مجلسی با انتخاب نمایندگی متناسب دارای قدرت قانونگذاری است، بودجه‌ها را تصویب می‌کند، بر قوه مجریه نظارت می‌کند و می‌تواند روند استیضاح رئیس‌جمهور را آغاز کند." },
+    },
+    {
+        id: "slCourt", label: { en: "Constitutional Court", fa: "دادگاه قانون اساسی" },
+        icon: "⚖️", color: "#FBE9E7", border: "#BF360C",
+        x: 22, y: 55, tier: "primary",
+        contents: [
+            { en: "Judicial Review & Rights Enforcement", fa: "بازنگری قضایی و اجرای حقوق" },
+            { en: "Secularism & Church-State Separation", fa: "سکولاریسم و جدایی دین از دولت" },
+            { en: "Individual Rights Adjudication", fa: "دادرسی حقوق فردی" },
+            { en: "Anti-Corruption Prosecution", fa: "تعقیب قضایی فساد" },
+        ],
+        desc: { en: "An independent constitutional court enforces secularism, reviews laws for rights compliance, and prosecutes corruption. Judicial appointments require supermajority parliamentary confirmation to prevent political capture.", fa: "دادگاه قانون اساسی مستقل، سکولاریسم را اجرا می‌کند، قوانین را از نظر رعایت حقوق بررسی کرده و فساد را تعقیب قضایی می‌کند." },
+    },
+    {
+        id: "slFinance", label: { en: "Ministry of Finance", fa: "وزارت دارایی" },
+        icon: "💰", color: "#FFF8E1", border: "#F9A825",
+        x: 50, y: 55, tier: "primary",
+        contents: [
+            { en: "Progressive Taxation System", fa: "سیستم مالیات تصاعدی" },
+            { en: "National Budget & Fiscal Discipline", fa: "بودجه ملی و انضباط مالی" },
+            { en: "Sovereign Wealth Fund", fa: "صندوق ثروت ملی" },
+            { en: "Independent Audit Court", fa: "دیوان محاسبات مستقل" },
+        ],
+        desc: { en: "A transparent, independently audited finance ministry implements progressive taxation, manages the national budget, and oversees a sovereign wealth fund that distributes resource revenues equitably.", fa: "وزارت دارایی شفاف و مستقل با نظارت حسابرسی، مالیات تصاعدی را اجرا می‌کند، بودجه ملی را مدیریت می‌کند و بر صندوق ثروت ملی نظارت می‌کند." },
+    },
+    {
+        id: "slCivilSociety", label: { en: "Civil Society & NGOs", fa: "جامعه مدنی و سازمان‌های غیردولتی" },
+        icon: "🤝", color: "#F1F8E9", border: "#558B2F",
+        x: 78, y: 55, tier: "primary",
+        contents: [
+            { en: "Free Association & Assembly Rights", fa: "حقوق آزادی اجتماعات و تجمع" },
+            { en: "NGO Registration & Independence", fa: "ثبت و استقلال سازمان‌های غیردولتی" },
+            { en: "Watchdog & Accountability Groups", fa: "گروه‌های نظارتی و پاسخگویی" },
+            { en: "Trade Unions & Labor Rights", fa: "اتحادیه‌های کارگری و حقوق کار" },
+        ],
+        desc: { en: "A vibrant civil society with protected rights to organize, advocate, and hold power accountable acts as the fourth pillar of democracy, checking both government and corporate power.", fa: "جامعه مدنی پویا با حقوق محافظت‌شده برای سازماندهی، حمایت و پاسخگویی نگه داشتن قدرت، به عنوان رکن چهارم دموکراسی عمل می‌کند." },
+    },
+    {
+        id: "slDefense", label: { en: "Defense Forces", fa: "نیروهای دفاعی" },
+        icon: "🛡️", color: "#ECEFF1", border: "#37474F",
+        x: 28, y: 72, tier: "secondary",
+        contents: [
+            { en: "Civilian Supremacy Over Military", fa: "برتری مدنی بر نظامی" },
+            { en: "Parliamentary Defense Oversight", fa: "نظارت پارلمانی بر دفاع" },
+            { en: "Transparent Defense Budget", fa: "بودجه دفاعی شفاف" },
+            { en: "Professional Volunteer Armed Forces", fa: "نیروهای مسلح حرفه‌ای داوطلب" },
+        ],
+        desc: { en: "Defense forces operate under absolute civilian control with fully transparent budgets, parliamentary oversight, and a professional volunteer structure — preventing the emergence of any praetorianism.", fa: "نیروهای دفاعی تحت کنترل مطلق مدنی با بودجه کاملاً شفاف، نظارت پارلمانی و ساختار داوطلبانه حرفه‌ای فعالیت می‌کنند." },
+    },
+    {
+        id: "slMedia", label: { en: "Free Media & Press", fa: "رسانه و مطبوعات آزاد" },
+        icon: "📡", color: "#E1F5FE", border: "#0277BD",
+        x: 50, y: 72, tier: "secondary",
+        contents: [
+            { en: "Press Freedom Constitutional Guarantee", fa: "تضمین قانون اساسی آزادی مطبوعات" },
+            { en: "Pluralistic Media Ownership Rules", fa: "قوانین مالکیت رسانه‌ای چندگانه" },
+            { en: "Public Broadcaster Independence", fa: "استقلال رادیو و تلویزیون عمومی" },
+            { en: "Journalist Protection Law", fa: "قانون حمایت از روزنامه‌نگاران" },
+        ],
+        desc: { en: "Constitutional press freedom guarantees, anti-monopoly media rules, and a publicly funded but editorially independent broadcaster create an information ecosystem that sustains democratic accountability.", fa: "تضمین‌های قانون اساسی آزادی مطبوعات، قوانین ضد انحصار رسانه‌ای و یک رادیو و تلویزیون عمومی مستقل، یک اکوسیستم اطلاعاتی ایجاد می‌کند که پاسخگویی دموکراتیک را حفظ می‌کند." },
+    },
+    {
+        id: "slRegions", label: { en: "Regional Government", fa: "دولت منطقه‌ای" },
+        icon: "🗺️", color: "#E0F2F1", border: "#00695C",
+        x: 72, y: 72, tier: "secondary",
+        contents: [
+            { en: "Elected Regional Governors", fa: "استانداران منتخب منطقه‌ای" },
+            { en: "Fiscal Autonomy & Local Taxation", fa: "خودمختاری مالی و مالیات محلی" },
+            { en: "Regional Language & Cultural Rights", fa: "حقوق زبانی و فرهنگی منطقه‌ای" },
+            { en: "Regional Development Councils", fa: "شوراهای توسعه منطقه‌ای" },
+        ],
+        desc: { en: "Elected regional governments hold meaningful fiscal and legislative autonomy, protecting linguistic and cultural minorities while coordinating with the national government on cross-regional issues.", fa: "دولت‌های منطقه‌ای منتخب دارای خودمختاری مالی و قانونگذاری معنادار هستند و از اقلیت‌های زبانی و فرهنگی حمایت می‌کنند." },
+    },
+];
+
+const SL_CONNECTIONS = [
+    { from: "slCitizens", to: "slPresident", label: { en: "Direct Election", fa: "انتخاب مستقیم" }, strength: 3 },
+    { from: "slCitizens", to: "slParliament", label: { en: "Direct Election", fa: "انتخاب مستقیم" }, strength: 3 },
+    { from: "slPresident", to: "slFinance", label: { en: "Budget Authority", fa: "اقتدار بودجه" }, strength: 3 },
+    { from: "slPresident", to: "slDefense", label: { en: "Commander-in-Chief", fa: "فرمانده کل" }, strength: 3 },
+    { from: "slParliament", to: "slCourt", label: { en: "Appointment Confirmation", fa: "تأیید انتصاب" }, strength: 2 },
+    { from: "slCourt", to: "slPresident", label: { en: "Constitutional Check", fa: "نظارت قانون اساسی" }, strength: 3 },
+    { from: "slCourt", to: "slParliament", label: { en: "Judicial Review", fa: "بازنگری قضایی" }, strength: 2 },
+    { from: "slCivilSociety", to: "slParliament", label: { en: "Advocacy & Pressure", fa: "حمایت و فشار" }, strength: 2 },
+    { from: "slFinance", to: "slRegions", label: { en: "Fiscal Transfers", fa: "انتقال مالی" }, strength: 2 },
+    { from: "slMedia", to: "slParliament", label: { en: "Accountability", fa: "پاسخگویی" }, strength: 2 },
+    { from: "slMedia", to: "slCivilSociety", label: { en: "Public Discourse", fa: "گفتمان عمومی" }, strength: 2 },
+    { from: "slRegions", to: "slCivilSociety", label: { en: "Local Organizing", fa: "سازماندهی محلی" }, strength: 1 },
+];
+
+const SL_SHARED_LAYERS = [
+    { name: { en: "Strict Secularism", fa: "سکولاریسم سخت" }, icon: "🔭", desc: { en: "Complete separation of religion and state: no religious body may influence law, and all citizens are equal regardless of faith, with full freedom of belief and practice.", fa: "جدایی کامل دین از دولت: هیچ نهاد دینی نمی‌تواند بر قانون تأثیر بگذارد و تمام شهروندان صرف نظر از اعتقادشان برابر هستند." } },
+    { name: { en: "Constitutional Rights Charter", fa: "منشور حقوق قانون اساسی" }, icon: "📜", desc: { en: "A comprehensive bill of rights entrenched in the constitution guarantees civil, political, economic, and social rights enforceable in court.", fa: "یک منشور جامع حقوق در قانون اساسی، حقوق مدنی، سیاسی، اقتصادی و اجتماعی قابل اجرا در دادگاه را تضمین می‌کند." } },
+    { name: { en: "Separation of Powers", fa: "تفکیک قوا" }, icon: "⚖️", desc: { en: "Legislative, executive, and judicial branches are strictly separated with mutual checks and balances preventing any concentration of power.", fa: "قوای مقننه، مجریه و قضاییه به طور کامل از هم جدا هستند و با بررسی و توازن متقابل از تمرکز قدرت جلوگیری می‌کنند." } },
+    { name: { en: "Open Government & Transparency", fa: "دولت باز و شفافیت" }, icon: "🔍", desc: { en: "Freedom of information laws, mandatory asset declarations for officials, open budget data, and whistleblower protection create radical governmental transparency.", fa: "قوانین آزادی اطلاعات، اعلام اجباری دارایی مقامات، داده‌های بودجه باز و حمایت از افشاگران، شفافیت رادیکال دولتی ایجاد می‌کند." } },
+];
+
+export const BLUEPRINTS = {
+    decentralized: {
+        id: "decentralized",
+        name: { en: "Decentralized Digital Government", fa: "دولت دیجیتال و غیرمتمرکز" },
+        sectors: SECTORS,
+        connections: CONNECTIONS,
+        sharedLayers: SHARED_LAYERS,
+    },
+    constMonarchy: {
+        id: "constMonarchy",
+        name: { en: "Constitutional Monarchy", fa: "پادشاهی مشروطه" },
+        sectors: CM_SECTORS,
+        connections: CM_CONNECTIONS,
+        sharedLayers: CM_SHARED_LAYERS,
+    },
+    secularLiberal: {
+        id: "secularLiberal",
+        name: { en: "Secular Democratic Republic", fa: "جمهوری دموکراتیک سکولار" },
+        sectors: SL_SECTORS,
+        connections: SL_CONNECTIONS,
+        sharedLayers: SL_SHARED_LAYERS,
+    },
+};

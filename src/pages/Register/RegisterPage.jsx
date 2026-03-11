@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { collectMetadata } from '../../lib/collectMetadata';
+import { BLUEPRINTS } from '../../data';
 import './RegisterPage.css';
 
 // ── Bilingual content ────────────────────────────────────────────────────────
@@ -20,6 +21,7 @@ const CONTENT = {
     ],
     typeCitizen:   { en: "Citizen",   fa: "شهروند داخلی" },
     typeDiaspora:  { en: "Diaspora",  fa: "دیاسپورا" },
+    labelBlueprint: { en: "PREFERRED GOVERNANCE MODEL", fa: "مدل حاکمیتی مورد نظر" },
     labelName:     { en: "FULL NAME", fa: "نام و نام خانوادگی" },
     labelCountry:  { en: "COUNTRY",   fa: "کشور" },
     labelEmail:    { en: "EMAIL",      fa: "ایمیل" },
@@ -370,6 +372,7 @@ export default function RegisterPage() {
     const [step, setStep] = useState('form');          // 'form' | 'verify' | 'success'
     const [inviteCode, setInviteCode] = useState('');
     const [userType, setUserType] = useState('citizen');
+    const [preferredBlueprint, setPreferredBlueprint] = useState('decentralized');
     const [fullName, setFullName] = useState('');
     const [country, setCountry] = useState('');
     const [email, setEmail] = useState('');
@@ -492,6 +495,7 @@ export default function RegisterPage() {
                         full_name: fullName.trim(),
                         country: country === 'Other' ? customCountry.trim() : country,
                         user_type: userType,
+                        preferred_blueprint: preferredBlueprint,
                     },
                 },
             });
@@ -549,6 +553,7 @@ export default function RegisterPage() {
                         full_name: fullName.trim(),
                         country: country === 'Other' ? customCountry.trim() : country,
                         user_type: userType,
+                        preferred_blueprint: preferredBlueprint,
                         metadata,
                     }),
                 });
@@ -764,6 +769,27 @@ export default function RegisterPage() {
                                     <span className="reg-type-icon">🌍</span>
                                     {t(CONTENT.typeDiaspora)}
                                 </button>
+                            </div>
+
+                            {/* Preferred blueprint */}
+                            <div className="reg-field">
+                                <label className="reg-label" style={labelStyle}>
+                                    {t(CONTENT.labelBlueprint)}
+                                </label>
+                                <div className="reg-blueprint-group">
+                                    {Object.values(BLUEPRINTS).map(bp => (
+                                        <button
+                                            key={bp.id}
+                                            type="button"
+                                            className={`reg-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`}
+                                            onClick={() => setPreferredBlueprint(bp.id)}
+                                            disabled={loading}
+                                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                        >
+                                            {t(bp.name)}
+                                        </button>
+                                    ))}
+                                </div>
                             </div>
 
                             {/* Full name */}

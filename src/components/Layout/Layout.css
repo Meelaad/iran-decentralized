@@ -237,6 +237,91 @@ height: 60px;
     background: rgba(79,195,247,0.1);
 }
 
+/* Blueprint selector */
+.site-nav-blueprint {
+    position: relative;
+}
+
+.site-nav-blueprint-btn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #5a6a7e;
+    background: transparent;
+    border: 1px solid rgba(98,114,138,0.22);
+    cursor: pointer;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.site-nav-blueprint-btn:hover,
+.site-nav-blueprint-btn.is-active {
+    color: #8fe3ff;
+    border-color: rgba(79,195,247,0.35);
+}
+
+.site-nav-blueprint-caret {
+    font-size: 7px;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.site-nav-blueprint-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 220px;
+    background: rgba(4,8,16,0.97);
+    border: 1px solid rgba(79,195,247,0.15);
+    backdrop-filter: blur(16px);
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-nav-blueprint-option {
+    padding: 10px 14px;
+    font-size: 11px;
+    text-align: left;
+    color: #667384;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(79,195,247,0.06);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    transition: color 0.15s, background 0.15s;
+}
+
+.site-nav-blueprint-option:last-child {
+    border-bottom: none;
+}
+
+.site-nav-blueprint-option:hover {
+    color: #c8e6f7;
+    background: rgba(79,195,247,0.06);
+}
+
+.site-nav-blueprint-option.is-active {
+    color: #4fc3f7;
+    background: rgba(79,195,247,0.08);
+}
+
+[dir="rtl"] .site-nav-blueprint-dropdown {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .site-nav-blueprint-option {
+    text-align: right;
+}
+
 .site-layout-content {
     min-height: calc(100vh - 60px);
     position: relative;

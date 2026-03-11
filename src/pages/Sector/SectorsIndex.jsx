@@ -1,7 +1,7 @@
 import React, { useRef, useCallback, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
-import { SECTORS } from "../../data";
+import { BLUEPRINTS, SECTORS } from "../../data";
 import './SectorsIndex.css';
 
 const TIERS = [
@@ -135,10 +135,10 @@ function hexToRgb(hex) {
     return `rgb(${r},${g},${b})`;
 }
 
-function HexCard({ sector, isRTL, t, delay }) {
+function HexCard({ sector, isRTL, t, delay, sectorBase }) {
     return (
         <Link
-            to={`/sectors/${sector.id}`}
+            to={`${sectorBase}/${sector.id}`}
             className="sectors-card"
             style={{ borderLeftColor: sector.border, animationDelay: `${delay}s` }}
         >
@@ -160,6 +160,9 @@ function HexCard({ sector, isRTL, t, delay }) {
 
 export default function SectorsIndex() {
     const { t, isRTL } = useLang();
+    const { blueprintId } = useParams();
+    const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
+    const sectorBase = blueprintId ? `/blueprint/${blueprintId}/sectors` : '/sectors';
 
     return (
         <div className="sectors-index">
@@ -179,7 +182,7 @@ export default function SectorsIndex() {
                 </p>
 
                 {TIERS.map(tier => {
-                    const sectors = SECTORS.filter(s => s.tier === tier.key);
+                    const sectors = activeSectors.filter(s => s.tier === tier.key);
                     if (sectors.length === 0) return null;
 
                     return (
@@ -198,6 +201,7 @@ export default function SectorsIndex() {
                                         isRTL={isRTL}
                                         t={t}
                                         delay={i * 0.06}
+                                        sectorBase={sectorBase}
                                     />
                                 ))}
                             </div>

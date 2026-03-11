@@ -1,20 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, Outlet, Link, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, Link, useNavigate, useMatch } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import { supabase } from '../../lib/supabase';
+import { BLUEPRINTS } from '../../data';
 import './Layout.css';
 
 export { useLang };
 
 function NavContent() {
-    const { lang, setLang, isRTL } = useLang();
+    const { lang, setLang, isRTL, t } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+    const [blueprintOpen, setBlueprintOpen] = useState(false);
     const [session, setSession] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [profileName, setProfileName] = useState('');
     const navRef = useRef(null);
+    const blueprintRef = useRef(null);
     const navigate = useNavigate();
+    const blueprintMatch = useMatch('/blueprint/:blueprintId');
+    const activeBlueprintId = blueprintMatch?.params?.blueprintId || null;
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => {
@@ -60,6 +65,17 @@ function NavContent() {
         };
     }, [mobileNavOpen]);
 
+    useEffect(() => {
+        if (!blueprintOpen) return;
+        function handleOutsideClick(e) {
+            if (blueprintRef.current && !blueprintRef.current.contains(e.target)) {
+                setBlueprintOpen(false);
+            }
+        }
+        document.addEventListener('mousedown', handleOutsideClick);
+        return () => document.removeEventListener('mousedown', handleOutsideClick);
+    }, [blueprintOpen]);
+
     return (
         <div
             dir={isRTL ? "rtl" : "ltr"}
@@ -75,10 +91,10 @@ function NavContent() {
                     </NavLink>
 
                     <div className="site-nav-links">
-                        <NavLink to="/" end className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
+                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
                             {isRTL ? "نقشه" : "MAP"}
                         </NavLink>
-                        <NavLink to="/sectors" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
+                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}/sectors`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
                             {isRTL ? "بخش‌ها" : "SECTORS"}
                         </NavLink>
                         <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
@@ -118,6 +134,31 @@ function NavContent() {
                             </Link>
                         </>
                     )}
+                    <div className="site-nav-blueprint" ref={blueprintRef}>
+                        <button
+                            className={`site-nav-blueprint-btn${activeBlueprintId ? " is-active" : ""}`}
+                            onClick={() => setBlueprintOpen(o => !o)}
+                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                        >
+                            {activeBlueprintId ? t(BLUEPRINTS[activeBlueprintId]?.name) : (isRTL ? "طرح‌ها" : "BLUEPRINTS")}
+                            <span className="site-nav-blueprint-caret">{blueprintOpen ? "▲" : "▼"}</span>
+                        </button>
+                        {blueprintOpen && (
+                            <div className="site-nav-blueprint-dropdown">
+                                {Object.values(BLUEPRINTS).map(bp => (
+                                    <button
+                                        key={bp.id}
+                                        className={`site-nav-blueprint-option${activeBlueprintId === bp.id ? " is-active" : ""}`}
+                                        style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                        onClick={() => { navigate(`/blueprint/${bp.id}`); setBlueprintOpen(false); }}
+                                    >
+                                        {t(bp.name)}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+
                     <div className="site-nav-lang">
                         <button
                             className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
@@ -143,10 +184,10 @@ function NavContent() {
 
                 {mobileNavOpen && (
                     <div className="mobile-nav-dropdown">
-                        <NavLink to="/" end className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
                             {isRTL ? "نقشه" : "MAP"}
                         </NavLink>
-                        <NavLink to="/sectors" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}/sectors`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
                             {isRTL ? "بخش‌ها" : "SECTORS"}
                         </NavLink>
                         <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
