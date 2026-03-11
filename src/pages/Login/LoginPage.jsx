@@ -73,23 +73,14 @@ export default function LoginPage() {
         setError(null);
         setLoading(true);
         try {
-            // Check if email has a profile
-            const { data: prof } = await supabase
-                .from('profiles')
-                .select('id')
-                .eq('email', mail)
-                .maybeSingle();
-            if (!prof) {
-                setError(t(CONTENT.errors.notRegistered));
-                setLoading(false);
-                return;
-            }
-            const { error: supaErr } = await supabase.auth.signInWithOtp({ email: mail });
+            const { error: supaErr } = await supabase.auth.signInWithOtp({ email: mail, options: { shouldCreateUser: false } });
             if (supaErr) throw supaErr;
             setStep('verify');
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
-            setError(msg.includes('rate') ? t(CONTENT.errors.rateLimit) : t(CONTENT.errors.generic));
+            if (msg.includes('rate')) setError(t(CONTENT.errors.rateLimit));
+            else if (msg.includes('not found') || msg.includes('no user') || msg.includes('signups not allowed')) setError(t(CONTENT.errors.notRegistered));
+            else setError(t(CONTENT.errors.generic));
         } finally {
             setLoading(false);
         }

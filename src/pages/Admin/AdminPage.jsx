@@ -244,27 +244,36 @@ export default function AdminPage() {
     const [blueprintSeedMsg, setBlueprintSeedMsg] = useState('');
 
     const fetchUsers = useCallback(async (bearerToken) => {
-        const res = await fetch('/api/admin/users', {
-            headers: { Authorization: `Bearer ${bearerToken}` },
-        });
-        if (res.status === 401 || res.status === 403) {
+        try {
+            const res = await fetch('/api/admin/users', {
+                headers: { Authorization: `Bearer ${bearerToken}` },
+            });
+            if (res.status === 401 || res.status === 403) {
+                setStatus('denied');
+                return;
+            }
+            if (!res.ok) {
+                setStatus('denied');
+                return;
+            }
+            const data = await res.json();
+            setUsers(data);
+            setStatus('ok');
+        } catch (error) {
+            console.error('Failed to fetch users:', error);
             setStatus('denied');
-            return;
         }
-        if (!res.ok) {
-            setStatus('denied');
-            return;
-        }
-        const data = await res.json();
-        setUsers(data);
-        setStatus('ok');
     }, []);
 
     const fetchDbBlueprints = useCallback(async (bearerToken) => {
-        const res = await fetch('/api/blueprints', {
-            headers: { Authorization: `Bearer ${bearerToken}` },
-        });
-        if (res.ok) setDbBlueprints(await res.json());
+        try {
+            const res = await fetch('/api/blueprints', {
+                headers: { Authorization: `Bearer ${bearerToken}` },
+            });
+            if (res.ok) setDbBlueprints(await res.json());
+        } catch (error) {
+            console.error('Failed to fetch blueprints:', error);
+        }
     }, []);
 
     async function handleSeedBlueprints() {
@@ -294,7 +303,7 @@ export default function AdminPage() {
             fetchUsers(session.access_token);
             fetchDbBlueprints(session.access_token);
         });
-    }, [fetchUsers]);
+    }, [fetchUsers, fetchDbBlueprints]);
 
     async function handleGenerateCodes(userId, count) {
         await fetch('/api/admin/generate-codes', {

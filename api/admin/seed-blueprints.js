@@ -3,7 +3,7 @@
 // Call once from admin UI with the serialized BLUEPRINTS from data.js.
 
 import { createClient } from '@supabase/supabase-js';
-import { verifyAdmin } from './_auth.js';
+import { requireAdmin } from './_auth.js';
 
 const supabase = createClient(
     process.env.SUPABASE_URL,
@@ -13,8 +13,8 @@ const supabase = createClient(
 export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).end();
 
-    const adminError = await verifyAdmin(req, supabase);
-    if (adminError) return res.status(adminError.status).json({ error: adminError.message });
+    const admin = await requireAdmin(req, res);
+    if (!admin) return;
 
     const { blueprints } = req.body || {};
     if (!Array.isArray(blueprints) || blueprints.length === 0) {

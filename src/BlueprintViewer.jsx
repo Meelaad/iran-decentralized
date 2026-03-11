@@ -541,17 +541,6 @@ export default function BlueprintViewer() {
                         )}
                     </div>
 
-                    <div className="mobile-tab-bar">
-                        <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
-                            <span className="tab-icon">🗺️</span>
-                            {tKey('blueprint.map')}
-                        </button>
-                        <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
-                            <span className="tab-icon">⬡</span>
-                            {tKey('blueprint.list')}
-                        </button>
-                    </div>
-
                     <div className="shared-footer">
                         <div className={`shared-footer-title ${!isRTL ? "is-ltr" : ""}`}>
                             {tKey('blueprint.sharedLayers')}
@@ -615,6 +604,17 @@ export default function BlueprintViewer() {
                     </div>
                 </div>
             )}
+
+            <div className="mobile-tab-bar">
+                <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
+                    <span className="tab-icon">🗺️</span>
+                    {tKey('blueprint.map')}
+                </button>
+                <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
+                    <span className="tab-icon">⬡</span>
+                    {tKey('blueprint.list')}
+                </button>
+            </div>
         </div>
     );
 }

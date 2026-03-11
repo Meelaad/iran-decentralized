@@ -140,7 +140,33 @@ function NavContent() {
                             </Link>
                         </>
                     )}
-                    <div className="site-nav-blueprint" ref={blueprintRef}>
+
+                    <div className="site-nav-lang">
+                        <button
+                            className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
+                            style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                            onClick={() => setLang("fa")}
+                        >فارسی</button>
+                        <button
+                            className={`site-nav-lang-btn ${lang === "en" ? "is-active" : ""}`}
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                            onClick={() => setLang("en")}
+                        >EN</button>
+                    </div>
+                    <button
+                        className="hamburger-nav-btn"
+                        onClick={() => setMobileNavOpen(!mobileNavOpen)}
+                        aria-label="Menu"
+                    >
+                        <span className={`hamburger-nav-icon${mobileNavOpen ? " is-open" : ""}`}>
+                            <span /><span /><span />
+                        </span>
+                    </button>
+                </div>
+
+                {/* Subrow: blueprint selector + username chip — second row on mobile, inline on desktop */}
+                <div className="site-nav-subrow" ref={blueprintRef}>
+                    <div className="site-nav-blueprint">
                         <button
                             className={`site-nav-blueprint-btn${activeBlueprintId ? " is-active" : ""}`}
                             onClick={() => setBlueprintOpen(o => !o)}
@@ -164,28 +190,11 @@ function NavContent() {
                             </div>
                         )}
                     </div>
-
-                    <div className="site-nav-lang">
-                        <button
-                            className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
-                            style={{ fontFamily: "'Vazirmatn', sans-serif" }}
-                            onClick={() => setLang("fa")}
-                        >فارسی</button>
-                        <button
-                            className={`site-nav-lang-btn ${lang === "en" ? "is-active" : ""}`}
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                            onClick={() => setLang("en")}
-                        >EN</button>
-                    </div>
-                    <button
-                        className="hamburger-nav-btn"
-                        onClick={() => setMobileNavOpen(!mobileNavOpen)}
-                        aria-label="Menu"
-                    >
-                        <span className={`hamburger-nav-icon${mobileNavOpen ? " is-open" : ""}`}>
-                            <span /><span /><span />
-                        </span>
-                    </button>
+                    {session && profileName && (
+                        <Link to="/profile" className="site-nav-subrow-user" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" }}>
+                            {profileName}
+                        </Link>
+                    )}
                 </div>
 
                 {mobileNavOpen && (
