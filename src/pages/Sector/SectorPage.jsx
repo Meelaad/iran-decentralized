@@ -6,7 +6,7 @@ import './SectorPage.css';
 
 export default function SectorPage() {
     const { sectorId, blueprintId } = useParams();
-    const { t, isRTL } = useLang();
+    const { t, tKey, isRTL } = useLang();
 
     const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
     const activeConnections = (blueprintId && BLUEPRINTS[blueprintId]?.connections) || CONNECTIONS;
@@ -30,20 +30,13 @@ export default function SectorPage() {
         return (
             <div className="sector-not-found">
                 <h2>404</h2>
-                <p>{isRTL ? "بخش مورد نظر یافت نشد" : "Sector not found"}</p>
+                <p>{tKey('sector.notFound')}</p>
                 <Link to={mapLink} className="sector-back" style={{ marginTop: 24 }}>
-                    ← {isRTL ? "بازگشت به نقشه" : "BACK TO MAP"}
+                    ← {tKey('common.backToMap')}
                 </Link>
             </div>
         );
     }
-
-    const tierLabels = {
-        core: { en: "CORE LAYER", fa: "لایه هسته" },
-        primary: { en: "PRIMARY SECTOR", fa: "بخش اولیه" },
-        secondary: { en: "SECONDARY SECTOR", fa: "بخش ثانویه" },
-        tertiary: { en: "SUPPORTING SECTOR", fa: "بخش پشتیبان" },
-    };
 
     return (
         <div className="sector-page">
@@ -52,12 +45,12 @@ export default function SectorPage() {
 
             <div className="sector-page-inner">
                 <Link to={mapLink} className="sector-back">
-                    ← {isRTL ? "بازگشت به نقشه" : "BACK TO MAP"}
+                    ← {tKey('common.backToMap')}
                 </Link>
 
                 <div className="sector-hero">
                     <div className="sector-hero-tier" style={{ color: sector.border }}>
-                        {t(tierLabels[sector.tier])}
+                        {tKey(`blueprint.tiers.${sector.tier}`)}
                     </div>
                     <span className="sector-hero-icon">{sector.icon}</span>
                     <h1
@@ -72,7 +65,7 @@ export default function SectorPage() {
                 <div className="sector-divider" />
 
                 <div className="sector-section-title">
-                    {isRTL ? "سیستم‌های داخلی" : "INTERNAL SYSTEMS"}
+                    {tKey('blueprint.internalSystems')}
                 </div>
                 <div className="sector-systems-grid">
                     {sector.contents.map((item, i) => (
@@ -92,7 +85,7 @@ export default function SectorPage() {
                 {connections.length > 0 && (
                     <>
                         <div className="sector-section-title">
-                            {isRTL ? `ارتباطات (${connections.length})` : `CONNECTIONS (${connections.length})`}
+                            {tKey('blueprint.connections', { count: connections.length })}
                         </div>
                         <div className="sector-connections">
                             {connections.map((conn, i) => (
@@ -119,12 +112,9 @@ export default function SectorPage() {
 
                 <div className="sector-content-placeholder">
                     <div className="sector-content-placeholder-title">
-                        {isRTL ? "محتوای تفصیلی" : "DETAILED CONTENT"}
+                        {tKey('sector.detailedContent')}
                     </div>
-                    {isRTL
-                        ? "محتوای تفصیلی این بخش به زودی اضافه خواهد شد..."
-                        : "Detailed content for this sector coming soon..."
-                    }
+                    {tKey('sector.comingSoon')}
                 </div>
             </div>
         </div>

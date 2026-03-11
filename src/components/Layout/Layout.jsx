@@ -86,7 +86,7 @@ function NavContent() {
                     <NavLink to="/" className="site-nav-logo">
                         <img src="/logo.svg" alt="logo" />
                         <span style={{ fontFamily: "'Inter', sans-serif" }}>
-                            {isRTL ? "ایران دائو" : "IranDAO"}
+                            {tKey('brand.name')}
                         </span>
                     </NavLink>
 
@@ -242,7 +242,7 @@ function NavContent() {
                 </ErrorBoundary>
                 <footer className="site-footer">
                     <Link to="/privacy" className="site-footer-link" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
-                        {isRTL ? 'سیاست حریم خصوصی' : 'Privacy Policy'}
+                        {tKey('common.privacyPolicy')}
                     </Link>
                 </footer>
             </div>

@@ -19,7 +19,7 @@
     "kicker": "IRAN FUTURE ARCHITECTURE OVERVIEW v1.0",
     "sharedLayers": "SHARED INFRASTRUCTURE LAYERS (PROTOCOL FOUNDATION)",
     "internalSystems": "INTERNAL SYSTEMS",
-    "connections": "CONNECTIONS",
+    "connections": "CONNECTIONS ({{count}})",
     "learnMore": "LEARN MORE →",
     "tiers": {
       "core": "CORE LAYER",
@@ -54,9 +54,24 @@
   "register": {
     "preferredBlueprint": "PREFERRED GOVERNANCE MODEL"
   },
+  "sector": {
+    "notFound": "Sector not found",
+    "detailedContent": "DETAILED CONTENT",
+    "comingSoon": "Detailed content for this sector coming soon..."
+  },
+  "entryGate": {
+    "initializing": "INITIALIZING NETWORK",
+    "tagline": "Decentralized architecture for the future governance of Iran",
+    "enter": "ENTER",
+    "hint": "Decentralized Virtual Government and Political Organization Platform"
+  },
+  "brand": {
+    "name": "IranDAO"
+  },
   "common": {
     "backToMap": "BACK TO MAP",
     "citizen": "Citizen",
-    "diaspora": "Diaspora"
+    "diaspora": "Diaspora",
+    "privacyPolicy": "Privacy Policy"
   }
 }

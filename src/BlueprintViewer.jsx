@@ -171,7 +171,7 @@ function hexToRgb(hex) {
 
 export default function BlueprintViewer() {
     const { blueprintId } = useParams();
-    const { t, isRTL } = useLang();
+    const { t, tKey, isRTL } = useLang();
     const [selected, setSelected] = useState(null);
     const [panelVisible, setPanelVisible] = useState(false);
     const [panelOrigin, setPanelOrigin] = useState(null);
@@ -285,7 +285,7 @@ export default function BlueprintViewer() {
             <div className="app-header">
                 <div>
                     <div className={`app-kicker ${!isRTL ? "is-ltr" : ""}`}>
-                        {isRTL ? "ساختار حاکمیت آینده ایران نسخه ۱.۰" : "IRAN FUTURE ARCHITECTURE OVERVIEW v1.0"}
+                        {tKey('blueprint.kicker')}
                     </div>
                     <h1
                         className="app-title"
@@ -298,9 +298,9 @@ export default function BlueprintViewer() {
                 <div className="app-controls">
                     <div className="control-group">
                         <button className={`btn-base ${view === "map" ? "btn-active" : ""}`}
-                                onClick={() => setView("map")}>{isRTL ? "نقشه" : "MAP"}</button>
+                                onClick={() => setView("map")}>{tKey('blueprint.map')}</button>
                         <button className={`btn-base ${view === "list" ? "btn-active" : ""}`}
-                                onClick={() => setView("list")}>{isRTL ? "لیست" : "LIST"}</button>
+                                onClick={() => setView("list")}>{tKey('blueprint.list')}</button>
                     </div>
                 </div>
             </div>
@@ -484,11 +484,11 @@ export default function BlueprintViewer() {
                                         background: "rgba(79,195,247,0.04)",
                                     }}
                                 >
-                                    {isRTL ? "جزئیات بیشتر ←" : "LEARN MORE →"}
+                                    {tKey('blueprint.learnMore')}
                                 </Link>
 
                                 <div className={`panel-section-label ${!isRTL ? "is-ltr" : ""}`}>
-                                    {isRTL ? "سیستم‌های داخلی" : "INTERNAL SYSTEMS"}
+                                    {tKey('blueprint.internalSystems')}
                                 </div>
                                 {selectedSector.contents.map((item, i) => (
                                     <div
@@ -506,7 +506,7 @@ export default function BlueprintViewer() {
                                 {relatedConnections.length > 0 && (
                                     <>
                                         <div className={`panel-section-label with-top-margin ${!isRTL ? "is-ltr" : ""}`}>
-                                            {isRTL ? `ارتباطات (${relatedConnections.length})` : `CONNECTIONS (${relatedConnections.length})`}
+                                            {tKey('blueprint.connections', { count: relatedConnections.length })}
                                         </div>
                                         {relatedConnections.map((conn, i) => {
                                             const other = conn.from === selected ? conn.to : conn.from;
@@ -527,17 +527,17 @@ export default function BlueprintViewer() {
                     <div className="mobile-tab-bar">
                         <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
                             <span className="tab-icon">🗺️</span>
-                            {isRTL ? "نقشه" : "MAP"}
+                            {tKey('blueprint.map')}
                         </button>
                         <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
                             <span className="tab-icon">⬡</span>
-                            {isRTL ? "لیست" : "LIST"}
+                            {tKey('blueprint.list')}
                         </button>
                     </div>
 
                     <div className="shared-footer">
                         <div className={`shared-footer-title ${!isRTL ? "is-ltr" : ""}`}>
-                            {isRTL ? "لایه‌های زیرساخت مشترک (پایه پروتکل)" : "SHARED INFRASTRUCTURE LAYERS (PROTOCOL FOUNDATION)"}
+                            {tKey('blueprint.sharedLayers')}
                         </div>
                         <div className="shared-chip-row">
                             {sharedLayers.map((layer, i) => (

@@ -78,7 +78,7 @@ export default function EntryGate({ children }) {
     // Read localStorage synchronously so there is no flash on return visits
     const [visible, setVisible] = useState(() => !localStorage.getItem(STORAGE_KEY));
     const [leaving, setLeaving] = useState(false);
-    const { lang, setLang, isRTL } = useLang();
+    const { lang, setLang, tKey, isRTL } = useLang();
 
     function enter() {
         localStorage.setItem(STORAGE_KEY, '1');
@@ -99,7 +99,7 @@ export default function EntryGate({ children }) {
 
                     <div className="gate-inner" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" }}>
                         <div className="gate-eyebrow">
-                            {isRTL ? 'در حال راه‌اندازی شبکه' : 'INITIALIZING NETWORK'}
+                            {tKey('entryGate.initializing')}
                         </div>
 
                         <div className="gate-title-block">
@@ -108,9 +108,7 @@ export default function EntryGate({ children }) {
                         </div>
 
                         <p className="gate-tagline" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'IBM Plex Mono', monospace" }}>
-                            {isRTL
-                                ? 'معماری غیرمتمرکز برای حاکمیت آینده ایران'
-                                : 'Decentralized architecture for the future governance of Iran'}
+                            {tKey('entryGate.tagline')}
                         </p>
 
                         <button className="gate-enter-btn" onClick={enter}>
@@ -123,7 +121,7 @@ export default function EntryGate({ children }) {
                                 />
                             </svg>
                             <span className="gate-enter-label">
-                                {isRTL ? 'ورود' : 'ENTER'}
+                                {tKey('entryGate.enter')}
                             </span>
                         </button>
 
@@ -142,9 +140,7 @@ export default function EntryGate({ children }) {
                         </div>
 
                         <div className="gate-hint" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'IBM Plex Mono', monospace" }}>
-                            {isRTL
-                                ? 'پلتفرم غیرمتمرکز دولت مجازی و سازماندهی سیاسی'
-                                : 'Decentralized Virtual Government and Political Organization Platform'}
+                            {tKey('entryGate.hint')}
                         </div>
                     </div>
                 </div>

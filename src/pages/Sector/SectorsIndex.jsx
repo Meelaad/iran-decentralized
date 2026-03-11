@@ -159,7 +159,7 @@ function HexCard({ sector, isRTL, t, delay, sectorBase }) {
 }
 
 export default function SectorsIndex() {
-    const { t, isRTL } = useLang();
+    const { t, tKey, isRTL } = useLang();
     const { blueprintId } = useParams();
     const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
     const sectorBase = blueprintId ? `/blueprint/${blueprintId}/sectors` : '/sectors';
@@ -172,13 +172,10 @@ export default function SectorsIndex() {
                     className="sectors-index-title"
                     style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
                 >
-                    {isRTL ? "تمام بخش‌ها" : "All Sectors"}
+                    {tKey('sectors.title')}
                 </h1>
                 <p className="sectors-index-sub">
-                    {isRTL
-                        ? "بخش‌های سیستم حاکمیت غیرمتمرکز — روی هر بخش کلیک کنید"
-                        : "Decentralized governance architecture sectors — click to explore"
-                    }
+                    {tKey('sectors.subtitle')}
                 </p>
 
                 {TIERS.map(tier => {
