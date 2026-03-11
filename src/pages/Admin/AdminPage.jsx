@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { supabase } from '../../lib/supabase';
 import { useLang } from '../../contexts/LangContext';
+import { BLUEPRINTS } from '../../data';
 import './AdminPage.css';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -238,6 +239,9 @@ export default function AdminPage() {
     const [users, setUsers]     = useState([]);
     const [myEmail, setMyEmail] = useState('');
     const [token, setToken]     = useState('');
+    const [dbBlueprints, setDbBlueprints]         = useState([]);
+    const [blueprintSeeding, setBlueprintSeeding] = useState(false);
+    const [blueprintSeedMsg, setBlueprintSeedMsg] = useState('');
 
     const fetchUsers = useCallback(async (bearerToken) => {
         const res = await fetch('/api/admin/users', {
@@ -256,6 +260,31 @@ export default function AdminPage() {
         setStatus('ok');
     }, []);
 
+    const fetchDbBlueprints = useCallback(async (bearerToken) => {
+        const res = await fetch('/api/blueprints', {
+            headers: { Authorization: `Bearer ${bearerToken}` },
+        });
+        if (res.ok) setDbBlueprints(await res.json());
+    }, []);
+
+    async function handleSeedBlueprints() {
+        setBlueprintSeeding(true);
+        setBlueprintSeedMsg('');
+        const blueprints = Object.values(BLUEPRINTS);
+        const res = await fetch('/api/admin/seed-blueprints', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ blueprints }),
+        });
+        const json = await res.json();
+        setBlueprintSeeding(false);
+        setBlueprintSeedMsg(res.ok ? `✓ Seeded ${json.seeded} blueprints` : `Error: ${json.error}`);
+        if (res.ok) fetchDbBlueprints(token);
+    }
+
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => {
             const session = data.session;
@@ -263,6 +292,7 @@ export default function AdminPage() {
             setMyEmail(session.user.email || '');
             setToken(session.access_token);
             fetchUsers(session.access_token);
+            fetchDbBlueprints(session.access_token);
         });
     }, [fetchUsers]);
 
@@ -417,6 +447,67 @@ export default function AdminPage() {
                     {treeRoots.map(node => (
                         <TreeNode key={node.id} node={node} depth={0} />
                     ))}
+                </div>
+
+                {/* Blueprints */}
+                <div className="admin-section-title" style={{ marginTop: 40 }}>Blueprints</div>
+                <div className="admin-blueprints-bar">
+                    <button
+                        className="admin-action-btn"
+                        onClick={handleSeedBlueprints}
+                        disabled={blueprintSeeding}
+                        style={monoFont}
+                    >
+                        {blueprintSeeding ? '...' : '↑ Sync official blueprints from data.js'}
+                    </button>
+                    {blueprintSeedMsg && (
+                        <span className="admin-seed-msg" style={monoFont}>{blueprintSeedMsg}</span>
+                    )}
+                </div>
+                <div className="admin-table-wrap">
+                    <table className="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name (EN)</th>
+                                <th>Official</th>
+                                <th>Sectors</th>
+                                <th>Connections</th>
+                                <th>Force Layout</th>
+                                <th>Owner</th>
+                                <th>Forked From</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {dbBlueprints.length === 0 && (
+                                <tr>
+                                    <td colSpan={8} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                        No blueprints in DB. Click "Sync" to seed official blueprints.
+                                    </td>
+                                </tr>
+                            )}
+                            {dbBlueprints.map(bp => (
+                                <tr key={bp.id}>
+                                    <td className="admin-td-mono" style={{ fontSize: 11 }}>{bp.id}</td>
+                                    <td>{bp.name?.en || '—'}</td>
+                                    <td style={{ color: bp.isOfficial ? '#4fc3f7' : '#3a4a5e' }}>
+                                        {bp.isOfficial ? '✓' : 'fork'}
+                                    </td>
+                                    <td>{bp.sectors?.length ?? 0}</td>
+                                    <td>{bp.connections?.length ?? 0}</td>
+                                    <td style={{ color: bp.useForceLayout ? '#66bb6a' : '#3a4a5e' }}>
+                                        {bp.useForceLayout ? 'yes' : 'no'}
+                                    </td>
+                                    <td style={{ color: '#3a4a5e', fontSize: 10 }}>
+                                        {bp.ownerId ? bp.ownerId.slice(0, 8) + '…' : '—'}
+                                    </td>
+                                    <td style={{ color: '#3a4a5e', fontSize: 10 }}>
+                                        {bp.forkedFrom || '—'}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
 
             </div>

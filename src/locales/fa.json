@@ -5,6 +5,7 @@
     "layers": "لایه‌ها",
     "roadmap": "نقشه راه",
     "compare": "مقایسه",
+    "vote": "رأی‌گیری",
     "about": "درباره",
     "blueprints": "طرح‌ها",
     "login": "ورود",
@@ -50,6 +51,50 @@
     "strong": "قوی",
     "medium": "متوسط",
     "weak": "ضعیف"
+  },
+  "myBlueprints": {
+    "kicker": "کارگاه طرح‌ها",
+    "title": "طرح‌های من",
+    "subtitle": "طرح‌های رسمی را فورک کنید و سفارشی کنید تا چشم‌انداز خود را بسازید.",
+    "myForks": "فورک‌های من",
+    "forkOfficial": "فورک از طرح رسمی",
+    "forkedFrom": "فورک از",
+    "sectors": "بخش",
+    "connections": "ارتباط",
+    "fork": "فورک این طرح ←",
+    "edit": "ویرایش",
+    "limitReached": "به حداکثر فورک رسیدید (۱۰ عدد).",
+    "loginPrompt": "برای دسترسی به کارگاه طرح‌ها باید وارد شوید."
+  },
+  "editor": {
+    "kicker": "ویرایشگر طرح",
+    "save": "ذخیره",
+    "saved": "ذخیره شد ✓",
+    "preview": "پیش‌نمایش",
+    "notFound": "طرح یافت نشد.",
+    "nameen": "نام (انگلیسی)",
+    "namefa": "نام (فارسی)",
+    "visibility": "دسترسی",
+    "private": "خصوصی",
+    "public": "عمومی",
+    "addSector": "افزودن بخش",
+    "addConnection": "افزودن ارتباط",
+    "noSectors": "بخشی وجود ندارد. روی افزودن بخش کلیک کنید.",
+    "noConnections": "ارتباطی وجود ندارد.",
+    "tab": {
+      "meta": "اطلاعات",
+      "sectors": "بخش‌ها",
+      "connections": "ارتباطات"
+    }
+  },
+  "vote": {
+    "kicker": "حمایت زنده از طرح‌ها",
+    "title": "رأی‌گیری حاکمیتی",
+    "totalVotes": "رأی کل",
+    "votes": "رأی",
+    "yourVote": "رأی شما",
+    "changeVote": "به‌روزرسانی رأی ←",
+    "loginPrompt": "برای رأی دادن وارد شوید ←"
   },
   "register": {
     "preferredBlueprint": "مدل حاکمیتی مورد نظر"

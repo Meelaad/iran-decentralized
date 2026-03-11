@@ -430,3 +430,16 @@
         font-size: 22px;
     }
 }
+
+.admin-blueprints-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.admin-seed-msg {
+    font-size: 11px;
+    color: #4fc3f7;
+    letter-spacing: 0.06em;
+}

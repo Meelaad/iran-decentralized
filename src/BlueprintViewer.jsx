@@ -180,10 +180,27 @@ export default function BlueprintViewer() {
     const [view, setView] = useState("map");
     const { cols: hexCols, hexW } = useHexLayout();
     const svgRef = useRef(null);
+    const [dbBlueprint, setDbBlueprint] = useState(null);
+    const [dbLoading, setDbLoading] = useState(false);
 
     const activeBlueprintId = blueprintId || 'decentralized';
-    const activeBlueprint = BLUEPRINTS[activeBlueprintId];
+    const localBlueprint = BLUEPRINTS[activeBlueprintId];
 
+    // If not found locally, fetch from DB (user forks / new official blueprints)
+    useEffect(() => {
+        if (localBlueprint || !activeBlueprintId) return;
+        setDbLoading(true);
+        setDbBlueprint(null);
+        const token = null; // anon fetch is fine for public blueprints
+        fetch(`/api/blueprints?id=${encodeURIComponent(activeBlueprintId)}`)
+            .then(r => r.ok ? r.json() : null)
+            .then(data => { setDbBlueprint(data); setDbLoading(false); })
+            .catch(() => setDbLoading(false));
+    }, [activeBlueprintId, localBlueprint]);
+
+    const activeBlueprint = localBlueprint || dbBlueprint;
+
+    if (!localBlueprint && dbLoading) return <div className="blueprint-loading" />;
     if (!activeBlueprint) return <Navigate to="/blueprint/decentralized" replace />;
 
     const { sectors, connections, sharedLayers } = activeBlueprint;

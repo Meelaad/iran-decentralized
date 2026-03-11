@@ -5,6 +5,7 @@
     "layers": "LAYERS",
     "roadmap": "ROADMAP",
     "compare": "COMPARE",
+    "vote": "VOTE",
     "about": "ABOUT",
     "blueprints": "BLUEPRINTS",
     "login": "LOGIN",
@@ -50,6 +51,50 @@
     "strong": "Strong",
     "medium": "Medium",
     "weak": "Weak"
+  },
+  "myBlueprints": {
+    "kicker": "BLUEPRINT WORKSHOP",
+    "title": "My Blueprints",
+    "subtitle": "Fork official blueprints and customize them to build your vision.",
+    "myForks": "MY FORKS",
+    "forkOfficial": "FORK AN OFFICIAL BLUEPRINT",
+    "forkedFrom": "Forked from",
+    "sectors": "sectors",
+    "connections": "connections",
+    "fork": "FORK THIS BLUEPRINT →",
+    "edit": "EDIT",
+    "limitReached": "Fork limit reached (10 max).",
+    "loginPrompt": "You must be logged in to access the Blueprint Workshop."
+  },
+  "editor": {
+    "kicker": "BLUEPRINT EDITOR",
+    "save": "SAVE",
+    "saved": "Saved ✓",
+    "preview": "PREVIEW",
+    "notFound": "Blueprint not found.",
+    "nameen": "NAME (English)",
+    "namefa": "NAME (Farsi)",
+    "visibility": "VISIBILITY",
+    "private": "PRIVATE",
+    "public": "PUBLIC",
+    "addSector": "Add Sector",
+    "addConnection": "Add Connection",
+    "noSectors": "No sectors yet. Click Add Sector.",
+    "noConnections": "No connections yet.",
+    "tab": {
+      "meta": "INFO",
+      "sectors": "SECTORS",
+      "connections": "CONNECTIONS"
+    }
+  },
+  "vote": {
+    "kicker": "LIVE BLUEPRINT SUPPORT",
+    "title": "Governance Vote",
+    "totalVotes": "total votes",
+    "votes": "votes",
+    "yourVote": "YOUR VOTE",
+    "changeVote": "Update your vote →",
+    "loginPrompt": "Login to cast your blueprint vote →"
   },
   "register": {
     "preferredBlueprint": "PREFERRED GOVERNANCE MODEL"

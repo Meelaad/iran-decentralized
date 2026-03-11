@@ -106,6 +106,9 @@ function NavContent() {
                         <NavLink to="/compare" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
                             {tKey('nav.compare')}
                         </NavLink>
+                        <NavLink to="/vote" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
+                            {tKey('nav.vote')}
+                        </NavLink>
                         <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
                             {tKey('nav.about')}
                         </NavLink>
@@ -201,6 +204,9 @@ function NavContent() {
                         </NavLink>
                         <NavLink to="/compare" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
                             {tKey('nav.compare')}
+                        </NavLink>
+                        <NavLink to="/vote" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                            {tKey('nav.vote')}
                         </NavLink>
                         <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
                             {tKey('nav.about')}

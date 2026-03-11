@@ -441,3 +441,46 @@
         padding: 32px 16px 60px;
     }
 }
+
+/* ── Blueprint Vote ── */
+.prof-blueprint-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.prof-blueprint-btn {
+    background: rgba(9,13,19,0.8);
+    border: 1px solid rgba(91,103,120,0.3);
+    color: #8899aa;
+    padding: 10px 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.prof-blueprint-btn:hover:not(:disabled) {
+    border-color: rgba(79,195,247,0.4);
+    color: #cdd9e5;
+}
+
+.prof-blueprint-btn.is-active {
+    border-color: #4fc3f7;
+    color: #4fc3f7;
+    background: rgba(79,195,247,0.07);
+}
+
+.prof-blueprint-btn:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.prof-vote-saved {
+    margin-top: 10px;
+    font-size: 11px;
+    color: #4fc3f7;
+    letter-spacing: 0.08em;
+}

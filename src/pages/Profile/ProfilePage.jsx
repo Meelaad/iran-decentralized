@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
+import { BLUEPRINTS } from '../../data';
 import './ProfilePage.css';
 
 const TITLES = ['', 'Mr', 'Ms', 'Dr', 'Prof', 'Eng', 'Haj', 'Hajj'];
@@ -23,8 +24,9 @@ const CONTENT = {
     codeUsed:     { en: 'Used',               fa: 'استفاده شده' },
     generateBtn:  { en: 'GENERATE CODE',      fa: 'ساخت کد' },
     noQuota:      { en: 'No invite slots remaining.', fa: 'سهمیه دعوت تمام شده است.' },
-    votingSection:{ en: 'GOVERNANCE VOTING',  fa: 'رأی‌گیری حاکمیتی' },
-    votingComingSoon: { en: 'Voting is not yet active. Once governance proposals are live, you will be able to cast your vote here.', fa: 'رأی‌گیری هنوز فعال نشده است. پس از راه‌اندازی پیشنهادهای حاکمیتی، می‌توانید اینجا رأی دهید.' },
+    votingSection:{ en: 'BLUEPRINT VOTE',     fa: 'رأی به طرح حاکمیتی' },
+    voteHint:     { en: 'Select your preferred governance blueprint. You can change this at any time.', fa: 'طرح حاکمیتی مورد نظر خود را انتخاب کنید. می‌توانید هر زمان تغییر دهید.' },
+    voteSaved:    { en: 'Vote saved',          fa: 'رأی ذخیره شد' },
     noSession:    { en: 'You are not logged in.', fa: 'شما وارد نشده‌اید.' },
     copied:       { en: 'Copied!',            fa: 'کپی شد!' },
 };
@@ -51,6 +53,9 @@ export default function ProfilePage() {
     const [copiedCode, setCopiedCode] = useState('');
     const [generating, setGenerating] = useState(false);
     const [generateError, setGenerateError] = useState('');
+    const [preferredBlueprint, setPreferredBlueprint] = useState('decentralized');
+    const [voteSaving, setVoteSaving] = useState(false);
+    const [voteSaved, setVoteSaved] = useState(false);
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => {
@@ -71,6 +76,7 @@ export default function ProfilePage() {
             setPronouns(prof.pronouns || '');
             setCity(prof.city || '');
             setBio(prof.bio || '');
+            setPreferredBlueprint(prof.preferred_blueprint || 'decentralized');
         }
         if (inviteCodes) setCodes(inviteCodes);
         setLoading(false);
@@ -107,6 +113,22 @@ export default function ProfilePage() {
         navigator.clipboard.writeText(code);
         setCopiedCode(code);
         setTimeout(() => setCopiedCode(''), 1500);
+    }
+
+    async function handleVote(blueprintId) {
+        if (blueprintId === preferredBlueprint || voteSaving) return;
+        setVoteSaving(true);
+        setVoteSaved(false);
+        const { error } = await supabase
+            .from('profiles')
+            .update({ preferred_blueprint: blueprintId })
+            .eq('id', session.user.id);
+        setVoteSaving(false);
+        if (!error) {
+            setPreferredBlueprint(blueprintId);
+            setVoteSaved(true);
+            setTimeout(() => setVoteSaved(false), 2500);
+        }
     }
 
     async function handleGenerate() {
@@ -274,24 +296,24 @@ export default function ProfilePage() {
                             {generateError && <div className="prof-error" style={monoFont}>{generateError}</div>}
                         </div>
 
-                        {/* ── Voting Placeholder ── */}
-                        <div className="prof-card prof-card--voting">
+                        {/* ── Blueprint Vote ── */}
+                        <div className="prof-card">
                             <div className="prof-section-title" style={monoFont}>{t(CONTENT.votingSection)}</div>
-                            <div className="prof-voting-soon">
-                                <div className="prof-voting-icon">🗳️</div>
-                                <p className="prof-hint" style={monoFont}>{t(CONTENT.votingComingSoon)}</p>
-                                <div className="prof-vote-mock" style={monoFont}>
-                                    <div className="prof-vote-proposal">
-                                        <span className="prof-vote-tag">{isRTL ? 'پیشنهاد #۱' : 'Proposal #1'}</span>
-                                        <span className="prof-vote-title-text">{isRTL ? 'ساختار حاکمیت لایه اول' : 'Layer 1 Governance Structure'}</span>
-                                    </div>
-                                    <div className="prof-vote-btns">
-                                        <button className="prof-vote-btn prof-vote-btn--yes" disabled style={monoFont}>{isRTL ? 'موافق' : 'YES'}</button>
-                                        <button className="prof-vote-btn prof-vote-btn--no" disabled style={monoFont}>{isRTL ? 'مخالف' : 'NO'}</button>
-                                        <button className="prof-vote-btn prof-vote-btn--abstain" disabled style={monoFont}>{isRTL ? 'رأی ممتنع' : 'ABSTAIN'}</button>
-                                    </div>
-                                </div>
+                            <p className="prof-hint" style={monoFont}>{t(CONTENT.voteHint)}</p>
+                            <div className="prof-blueprint-options">
+                                {Object.values(BLUEPRINTS).map(bp => (
+                                    <button
+                                        key={bp.id}
+                                        className={`prof-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`}
+                                        onClick={() => handleVote(bp.id)}
+                                        disabled={voteSaving}
+                                        style={monoFont}
+                                    >
+                                        {t(bp.name)}
+                                    </button>
+                                ))}
                             </div>
+                            {voteSaved && <div className="prof-vote-saved" style={monoFont}>{t(CONTENT.voteSaved)}</div>}
                         </div>
                     </div>
                 </div>

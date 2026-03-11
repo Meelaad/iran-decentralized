@@ -1,0 +1,217 @@
+/* MyBlueprintsPage.css */
+
+.myblue-page {
+    background-color: #020408;
+    min-height: calc(100vh - 60px);
+    position: relative;
+    overflow-x: hidden;
+}
+
+.myblue-bg-grid {
+    --grid-cell: 50px;
+    --grid-color: rgba(79,195,247,0.04);
+    position: absolute;
+    inset: -20%;
+    background-image:
+        linear-gradient(var(--grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    background-size: var(--grid-cell) var(--grid-cell);
+    pointer-events: none;
+}
+
+.myblue-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+}
+
+.myblue-loading,
+.myblue-nosession {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 40vh;
+    color: #8899aa;
+    font-size: 13px;
+}
+
+/* ── Header ── */
+
+.myblue-kicker {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: #4fc3f7;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.myblue-title {
+    font-size: clamp(24px, 4vw, 38px);
+    font-weight: 700;
+    color: #cdd9e5;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+}
+
+.myblue-subtitle {
+    font-size: 12px;
+    color: #4a5a6a;
+    letter-spacing: 0.06em;
+    margin: 0 0 48px;
+}
+
+/* ── Sections ── */
+
+.myblue-section {
+    margin-bottom: 48px;
+}
+
+.myblue-section-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: #4a5a6a;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(91,103,120,0.15);
+}
+
+.myblue-error {
+    font-size: 11px;
+    color: #ef5350;
+    margin-bottom: 12px;
+    letter-spacing: 0.06em;
+}
+
+.myblue-limit {
+    font-size: 11px;
+    color: #4a5a6a;
+    margin-top: 12px;
+    letter-spacing: 0.06em;
+}
+
+/* ── Grid & Cards ── */
+
+.myblue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.myblue-card {
+    background: rgba(9,13,19,0.85);
+    border: 1px solid rgba(91,103,120,0.2);
+    padding: 20px;
+    position: relative;
+    transition: border-color 0.2s;
+}
+
+.myblue-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.5;
+}
+
+.myblue-card--official::before {
+    opacity: 0.3;
+}
+
+.myblue-card-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: #cdd9e5;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.myblue-card-source {
+    font-size: 10px;
+    color: #4a5a6a;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+}
+
+.myblue-card-stats {
+    font-size: 11px;
+    color: #4a5a6a;
+    letter-spacing: 0.06em;
+    margin-bottom: 16px;
+}
+
+.myblue-card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.myblue-edit-btn,
+.myblue-view-btn {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    padding: 6px 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+
+.myblue-edit-btn {
+    background: rgba(79,195,247,0.1);
+    border: 1px solid rgba(79,195,247,0.3);
+    color: #4fc3f7;
+}
+
+.myblue-edit-btn:hover {
+    background: rgba(79,195,247,0.18);
+}
+
+.myblue-view-btn {
+    background: transparent;
+    border: 1px solid rgba(91,103,120,0.25);
+    color: #667384;
+}
+
+.myblue-view-btn:hover {
+    color: #cdd9e5;
+    border-color: rgba(91,103,120,0.5);
+}
+
+.myblue-fork-btn {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 7px 14px;
+    background: rgba(79,195,247,0.08);
+    border: 1px solid rgba(79,195,247,0.25);
+    color: #4fc3f7;
+    cursor: pointer;
+    transition: background 0.15s;
+    width: 100%;
+}
+
+.myblue-fork-btn:hover:not(:disabled) {
+    background: rgba(79,195,247,0.16);
+}
+
+.myblue-fork-btn:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.myblue-link {
+    color: #4fc3f7;
+    text-decoration: none;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 640px) {
+    .myblue-inner {
+        padding: 40px 16px 60px;
+    }
+}
