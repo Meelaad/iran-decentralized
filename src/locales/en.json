@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "map": "MAP",
+    "sectors": "SECTORS",
+    "layers": "LAYERS",
+    "roadmap": "ROADMAP",
+    "compare": "COMPARE",
+    "about": "ABOUT",
+    "blueprints": "BLUEPRINTS",
+    "login": "LOGIN",
+    "register": "REGISTER",
+    "profile": "PROFILE",
+    "logout": "LOGOUT",
+    "admin": "ADMIN"
+  },
+  "blueprint": {
+    "map": "MAP",
+    "list": "LIST",
+    "kicker": "IRAN FUTURE ARCHITECTURE OVERVIEW v1.0",
+    "sharedLayers": "SHARED INFRASTRUCTURE LAYERS (PROTOCOL FOUNDATION)",
+    "internalSystems": "INTERNAL SYSTEMS",
+    "connections": "CONNECTIONS",
+    "learnMore": "LEARN MORE →",
+    "tiers": {
+      "core": "CORE LAYER",
+      "primary": "PRIMARY SECTOR",
+      "secondary": "SECONDARY SECTOR",
+      "tertiary": "SUPPORTING SECTOR"
+    }
+  },
+  "sectors": {
+    "title": "All Sectors",
+    "subtitle": "Decentralized governance architecture sectors — click to explore",
+    "tiers": {
+      "core": "CORE LAYER",
+      "primary": "PRIMARY SECTORS",
+      "secondary": "SECONDARY SECTORS",
+      "tertiary": "SUPPORTING SECTORS"
+    }
+  },
+  "compare": {
+    "kicker": "GOVERNANCE BLUEPRINT COMPARISON",
+    "title": "Compare Models",
+    "vs": "vs",
+    "sectors": "Sectors",
+    "connections": "Connections",
+    "sharedLayers": "Shared Layers",
+    "sharedLayersTitle": "SHARED INFRASTRUCTURE LAYERS",
+    "connectionStrength": "CONNECTION STRENGTH DISTRIBUTION",
+    "strong": "Strong",
+    "medium": "Medium",
+    "weak": "Weak"
+  },
+  "register": {
+    "preferredBlueprint": "PREFERRED GOVERNANCE MODEL"
+  },
+  "common": {
+    "backToMap": "BACK TO MAP",
+    "citizen": "Citizen",
+    "diaspora": "Diaspora"
+  }
+}
