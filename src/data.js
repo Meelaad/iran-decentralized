@@ -649,6 +649,7 @@ export const BLUEPRINTS = {
     decentralized: {
         id: "decentralized",
         name: { en: "Decentralized Digital Government", fa: "دولت دیجیتال و غیرمتمرکز" },
+        useForceLayout: false,
         sectors: SECTORS,
         connections: CONNECTIONS,
         sharedLayers: SHARED_LAYERS,
@@ -656,6 +657,7 @@ export const BLUEPRINTS = {
     constMonarchy: {
         id: "constMonarchy",
         name: { en: "Constitutional Monarchy", fa: "پادشاهی مشروطه" },
+        useForceLayout: true,
         sectors: CM_SECTORS,
         connections: CM_CONNECTIONS,
         sharedLayers: CM_SHARED_LAYERS,
@@ -663,6 +665,7 @@ export const BLUEPRINTS = {
     secularLiberal: {
         id: "secularLiberal",
         name: { en: "Secular Democratic Republic", fa: "جمهوری دموکراتیک سکولار" },
+        useForceLayout: true,
         sectors: SL_SECTORS,
         connections: SL_CONNECTIONS,
         sharedLayers: SL_SHARED_LAYERS,

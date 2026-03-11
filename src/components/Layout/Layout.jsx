@@ -9,7 +9,7 @@ import './Layout.css';
 export { useLang };
 
 function NavContent() {
-    const { lang, setLang, isRTL, t } = useLang();
+    const { lang, setLang, isRTL, t, tKey } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
     const [blueprintOpen, setBlueprintOpen] = useState(false);
     const [session, setSession] = useState(null);
@@ -92,19 +92,22 @@ function NavContent() {
 
                     <div className="site-nav-links">
                         <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {isRTL ? "نقشه" : "MAP"}
+                            {tKey('nav.map')}
                         </NavLink>
                         <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}/sectors`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {isRTL ? "بخش‌ها" : "SECTORS"}
+                            {tKey('nav.sectors')}
                         </NavLink>
                         <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {isRTL ? "لایه‌ها" : "LAYERS"}
+                            {tKey('nav.layers')}
                         </NavLink>
                         <NavLink to="/roadmap" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {isRTL ? "نقشه راه" : "ROADMAP"}
+                            {tKey('nav.roadmap')}
+                        </NavLink>
+                        <NavLink to="/compare" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
+                            {tKey('nav.compare')}
                         </NavLink>
                         <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {isRTL ? "درباره" : "ABOUT"}
+                            {tKey('nav.about')}
                         </NavLink>
                     </div>
                 </div>
@@ -112,25 +115,25 @@ function NavContent() {
                 <div className="site-nav-right">
                     {isAdmin && (
                         <Link to="/admin" className="site-nav-admin-btn">
-                            {isRTL ? "پنل مدیریت" : "ADMIN"}
+                            {tKey('nav.admin')}
                         </Link>
                     )}
                     {session ? (
                         <>
                             <Link to="/profile" className="site-nav-profile-btn">
-                                {profileName || (isRTL ? "پروفایل" : "PROFILE")}
+                                {profileName || tKey('nav.profile')}
                             </Link>
                             <button className="site-nav-logout-btn" onClick={handleLogout}>
-                                {isRTL ? "خروج" : "LOGOUT"}
+                                {tKey('nav.logout')}
                             </button>
                         </>
                     ) : (
                         <>
                             <Link to="/login" className="site-nav-login-btn">
-                                {isRTL ? "ورود" : "LOGIN"}
+                                {tKey('nav.login')}
                             </Link>
                             <Link to="/register" className="site-nav-register-btn">
-                                {isRTL ? "ثبت‌نام" : "REGISTER"}
+                                {tKey('nav.register')}
                             </Link>
                         </>
                     )}
@@ -140,7 +143,7 @@ function NavContent() {
                             onClick={() => setBlueprintOpen(o => !o)}
                             style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
                         >
-                            {activeBlueprintId ? t(BLUEPRINTS[activeBlueprintId]?.name) : (isRTL ? "طرح‌ها" : "BLUEPRINTS")}
+                            {activeBlueprintId ? t(BLUEPRINTS[activeBlueprintId]?.name) : tKey('nav.blueprints')}
                             <span className="site-nav-blueprint-caret">{blueprintOpen ? "▲" : "▼"}</span>
                         </button>
                         {blueprintOpen && (
@@ -185,44 +188,47 @@ function NavContent() {
                 {mobileNavOpen && (
                     <div className="mobile-nav-dropdown">
                         <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {isRTL ? "نقشه" : "MAP"}
+                            {tKey('nav.map')}
                         </NavLink>
                         <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}/sectors`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {isRTL ? "بخش‌ها" : "SECTORS"}
+                            {tKey('nav.sectors')}
                         </NavLink>
                         <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {isRTL ? "لایه‌ها" : "LAYERS"}
+                            {tKey('nav.layers')}
                         </NavLink>
                         <NavLink to="/roadmap" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {isRTL ? "نقشه راه" : "ROADMAP"}
+                            {tKey('nav.roadmap')}
+                        </NavLink>
+                        <NavLink to="/compare" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                            {tKey('nav.compare')}
                         </NavLink>
                         <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {isRTL ? "درباره" : "ABOUT"}
+                            {tKey('nav.about')}
                         </NavLink>
                         {session ? (
                             <>
                                 {isAdmin && (
                                     <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                                        {isRTL ? "پنل مدیریت" : "ADMIN"}
+                                        {tKey('nav.admin')}
                                     </NavLink>
                                 )}
                                 <NavLink to="/profile" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                                    {profileName || (isRTL ? "پروفایل" : "PROFILE")}
+                                    {profileName || tKey('nav.profile')}
                                 </NavLink>
                                 <button
                                     className="site-nav-link mobile-nav-logout"
                                     onClick={() => { setMobileNavOpen(false); handleLogout(); }}
                                 >
-                                    {isRTL ? 'خروج' : 'LOGOUT'}
+                                    {tKey('nav.logout')}
                                 </button>
                             </>
                         ) : (
                             <>
                                 <NavLink to="/login" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                                    {isRTL ? 'ورود' : 'LOGIN'}
+                                    {tKey('nav.login')}
                                 </NavLink>
                                 <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                                    {isRTL ? 'ثبت‌نام' : 'REGISTER'}
+                                    {tKey('nav.register')}
                                 </NavLink>
                             </>
                         )}

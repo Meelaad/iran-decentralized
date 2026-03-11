@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
+import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, forceX, forceY } from 'd3-force';
 import { BLUEPRINTS } from './data';
 import { useLang } from './contexts/LangContext';
 import './Architecture.css';
@@ -116,6 +117,53 @@ function CardParticles({ color = "79,195,247" }) {
     return <canvas ref={canvasRef} className="list-card-particles" />;
 }
 
+function useForceLayout(sectors, connections, enabled) {
+    const [positions, setPositions] = useState(() =>
+        Object.fromEntries(sectors.map(s => [s.id, { x: s.x, y: s.y }]))
+    );
+
+    useEffect(() => {
+        if (!enabled) {
+            setPositions(Object.fromEntries(sectors.map(s => [s.id, { x: s.x, y: s.y }])));
+            return;
+        }
+
+        const nodes = sectors.map(s => ({
+            id: s.id,
+            x: s.x,
+            y: s.y,
+            r: s.tier === 'core' ? 4.5 : s.tier === 'primary' ? 3.9 : 3.3,
+        }));
+
+        const links = connections
+            .filter(c => nodes.find(n => n.id === c.from) && nodes.find(n => n.id === c.to))
+            .map(c => ({ source: c.from, target: c.to, strength: c.strength }));
+
+        const sim = forceSimulation(nodes)
+            .force('link', forceLink(links).id(d => d.id).distance(18).strength(d => d.strength * 0.06))
+            .force('charge', forceManyBody().strength(-130))
+            .force('center', forceCenter(50, 44))
+            .force('collide', forceCollide(d => d.r + 2.5))
+            .force('x', forceX(50).strength(0.02))
+            .force('y', forceY(44).strength(0.02))
+            .stop();
+
+        for (let i = 0; i < 300; i++) sim.tick();
+
+        const result = {};
+        for (const node of nodes) {
+            result[node.id] = {
+                x: Math.max(19, Math.min(81, node.x)),
+                y: Math.max(13, Math.min(75, node.y)),
+            };
+        }
+        setPositions(result);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [sectors, connections, enabled]);
+
+    return positions;
+}
+
 function hexToRgb(hex) {
     const h = hex.replace("#", "");
     return `${parseInt(h.substring(0, 2), 16)},${parseInt(h.substring(2, 4), 16)},${parseInt(h.substring(4, 6), 16)}`;
@@ -140,15 +188,17 @@ export default function BlueprintViewer() {
 
     const { sectors, connections, sharedLayers } = activeBlueprint;
 
+    const positions = useForceLayout(sectors, connections, activeBlueprint.useForceLayout);
+
     const handleNodeClick = useCallback((sectorId, isSelected) => {
         if (isSelected) { setSelected(null); setPanelVisible(false); return; }
         const svg = svgRef.current;
         if (svg) {
-            const sector = sectors.find(s => s.id === sectorId);
-            if (sector) {
+            const pos = positions[sectorId];
+            if (pos) {
                 const pt = svg.createSVGPoint();
-                pt.x = sector.x;
-                pt.y = sector.y;
+                pt.x = pos.x;
+                pt.y = pos.y;
                 const ctm = svg.getScreenCTM();
                 if (ctm) {
                     const screenPt = pt.matrixTransform(ctm);
@@ -161,7 +211,7 @@ export default function BlueprintViewer() {
         setSelected(sectorId);
         if (window.innerWidth > 900) setPanelVisible(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [sectors]);
+    }, [sectors, positions]);
 
     useEffect(() => {
         if (!selected) { setPanelVisible(false); return; }
@@ -201,9 +251,8 @@ export default function BlueprintViewer() {
     }, [relatedConnections]);
 
     const getSectorPos = useCallback((id) => {
-        const s = sectors.find((sec) => sec.id === id);
-        return s ? { x: s.x, y: s.y } : { x: 50, y: 50 };
-    }, [sectors]);
+        return positions[id] ?? { x: 50, y: 50 };
+    }, [positions]);
 
     const svgViewBox = "15 8 70 72";
 
@@ -212,7 +261,8 @@ export default function BlueprintViewer() {
         const threshold = 26;
         for (let i = 0; i < sectors.length; i++) {
             for (let j = i + 1; j < sectors.length; j++) {
-                const a = sectors[i], b = sectors[j];
+                const a = positions[sectors[i].id] ?? sectors[i];
+                const b = positions[sectors[j].id] ?? sectors[j];
                 const dist = Math.hypot(a.x - b.x, a.y - b.y);
                 if (dist < threshold) {
                     lines.push({ x1: a.x, y1: a.y, x2: b.x, y2: b.y, dist });
@@ -220,7 +270,7 @@ export default function BlueprintViewer() {
             }
         }
         return lines;
-    }, [sectors]);
+    }, [sectors, positions]);
 
     return (
         <div
@@ -365,19 +415,20 @@ export default function BlueprintViewer() {
                                 const isRelated = relatedIds.has(sector.id);
                                 const dimmed = selected && !isRelated && !isSelected;
                                 const r = sector.tier === "core" ? 4 : sector.tier === "primary" ? 3.4 : 2.8;
+                                const pos = positions[sector.id] ?? sector;
 
                                 return (
                                     <g key={sector.id} className="sector-node" onClick={() => handleNodeClick(sector.id, isSelected)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
-                                        <circle cx={sector.x} cy={sector.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
-                                        <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={sector.x} cy={sector.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
+                                        <circle cx={pos.x} cy={pos.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
+                                        <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={pos.x} cy={pos.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
                                         {sector.subIcon
                                             ? <>
-                                                <text x={sector.x} y={sector.y - r * 0.2} fontSize={r * 0.9} textAnchor="middle" dominantBaseline="middle" opacity={0.75}>{sector.icon}</text>
-                                                <text x={sector.x} y={sector.y + r * 0.55} fontSize={r * 0.8} textAnchor="middle" dominantBaseline="middle">{sector.subIcon}</text>
+                                                <text x={pos.x} y={pos.y - r * 0.2} fontSize={r * 0.9} textAnchor="middle" dominantBaseline="middle" opacity={0.75}>{sector.icon}</text>
+                                                <text x={pos.x} y={pos.y + r * 0.55} fontSize={r * 0.8} textAnchor="middle" dominantBaseline="middle">{sector.subIcon}</text>
                                               </>
-                                            : <text x={sector.x} y={sector.y + 0.3} fontSize={r * 1.33} textAnchor="middle" dominantBaseline="middle">{sector.icon}</text>
+                                            : <text x={pos.x} y={pos.y + 0.3} fontSize={r * 1.33} textAnchor="middle" dominantBaseline="middle">{sector.icon}</text>
                                         }
-                                        <text className={`sector-node-label ${isSelected ? "is-selected" : ""}`} x={sector.x} y={sector.y + r + 1.6} fontSize="1.4" textAnchor="middle" fontFamily={isRTL ? "Vazirmatn" : "Inter"} fontWeight={isSelected ? "600" : "500"}>
+                                        <text className={`sector-node-label ${isSelected ? "is-selected" : ""}`} x={pos.x} y={pos.y + r + 1.6} fontSize="1.4" textAnchor="middle" fontFamily={isRTL ? "Vazirmatn" : "Inter"} fontWeight={isSelected ? "600" : "500"}>
                                             {t(sector.label)}
                                         </text>
                                     </g>

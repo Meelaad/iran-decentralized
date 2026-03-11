@@ -16,6 +16,7 @@ import ContactPage from './pages/Contact/ContactPage';
 import PrivacyPage from './pages/Privacy/PrivacyPage';
 import ProfilePage from './pages/Profile/ProfilePage';
 import LoginPage from './pages/Login/LoginPage';
+import ComparePage from './pages/Compare/ComparePage';
 import './styles/global.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                         <Route path="sectors/:sectorId" element={<SectorPage />} />
                         <Route path="layers" element={<LayersPage />} />
                         <Route path="roadmap" element={<RoadmapPage />} />
+                        <Route path="compare" element={<ComparePage />} />
                         <Route path="about" element={<AboutPage />} />
                         <Route path="register" element={<RegisterPage />} />
                         <Route path="admin" element={<AdminPage />} />
