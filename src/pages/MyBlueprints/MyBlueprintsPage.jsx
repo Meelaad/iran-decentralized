@@ -6,9 +6,12 @@ import { BLUEPRINTS } from '../../data';
 import './MyBlueprintsPage.css';
 
 const BLUEPRINT_COLORS = {
-    decentralized:  '#4fc3f7',
-    constMonarchy:  '#ffa726',
-    secularLiberal: '#66bb6a',
+    decentralized:      '#4fc3f7',
+    constMonarchy:      '#ffa726',
+    secularLiberal:     '#66bb6a',
+    federalDemocratic:  '#26c6da',
+    democraticSocialist:'#ef5350',
+    absoluteMonarchy:   '#ffd54f',
 };
 
 function getAccentColor(bp) {

@@ -18,10 +18,16 @@
     "map": "MAP",
     "list": "LIST",
     "kicker": "IRAN FUTURE ARCHITECTURE OVERVIEW v1.0",
+    "hero": "Decentralized Virtual Government & Political Organization Platform",
+    "heroSub": "Explore governance blueprints for Iran's future — choose a model to visualize its architecture",
     "sharedLayers": "SHARED INFRASTRUCTURE LAYERS (PROTOCOL FOUNDATION)",
     "internalSystems": "INTERNAL SYSTEMS",
     "connections": "CONNECTIONS ({{count}})",
     "learnMore": "LEARN MORE →",
+    "editLayout": "EDIT LAYOUT",
+    "saveLayout": "SAVE LAYOUT",
+    "cancelEdit": "CANCEL",
+    "editMode": "EDIT MODE",
     "tiers": {
       "core": "CORE LAYER",
       "primary": "PRIMARY SECTOR",
@@ -94,10 +100,24 @@
     "votes": "votes",
     "yourVote": "YOUR VOTE",
     "changeVote": "Update your vote →",
-    "loginPrompt": "Login to cast your blueprint vote →"
+    "loginPrompt": "Login to cast your blueprint vote →",
+    "ageGateKicker": "AGE VERIFICATION",
+    "ageGateTitle": "Voting Age Requirement",
+    "ageGateWarning": "Before accessing the governance vote, please indicate your accurate date of birth. You will be required to verify this information in the future. Any attempt to provide false information or interfere with the integrity of this system constitutes a violation that may result in your account and digital footprint being excluded from the platform and its future services.",
+    "ageGateDateLabel": "DATE OF BIRTH",
+    "ageGateSubmit": "CONFIRM & ENTER",
+    "ageTooYoungTitle": "Voting Age Not Reached",
+    "ageTooYoung": "Governance voting requires age 18 or older. You may still explore all blueprints and register your presence on the platform."
   },
   "register": {
-    "preferredBlueprint": "PREFERRED GOVERNANCE MODEL"
+    "preferredBlueprint": "PREFERRED GOVERNANCE MODEL",
+    "chooseTitle": "Choose Your Governance Model",
+    "chooseSubtitle": "This registers your vote and personalizes your experience. You can change it anytime.",
+    "chooseConfirm": "SELECT THIS MODEL →",
+    "birthYear": "BIRTH YEAR",
+    "birthYearPlaceholder": "e.g. 1995",
+    "tooYoungTitle": "Age Requirement Not Met",
+    "tooYoung": "Registration requires age 13 or older. If you are younger, a parent, guardian, or caretaker can register on the platform and note your presence in their profile — adding you to the count of Iranians represented here."
   },
   "sector": {
     "notFound": "Sector not found",

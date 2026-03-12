@@ -369,7 +369,9 @@ export default function RegisterPage() {
     }, []);
 
     // Form state
-    const [step, setStep] = useState('form');          // 'form' | 'verify' | 'success'
+    const [step, setStep] = useState('form');          // 'form' | 'verify' | 'choose-blueprint' | 'success'
+    const [birthYear, setBirthYear] = useState('');
+    const [showCaretakerMsg, setShowCaretakerMsg] = useState(false);
     const [inviteCode, setInviteCode] = useState('');
     const [userType, setUserType] = useState('citizen');
     const [preferredBlueprint, setPreferredBlueprint] = useState('decentralized');
@@ -447,6 +449,20 @@ export default function RegisterPage() {
 
     async function handleSendOtp(e) {
         e.preventDefault();
+        // Age check before other validation
+        const currentYear = new Date().getFullYear();
+        const yearNum = parseInt(birthYear, 10);
+        if (!birthYear || isNaN(yearNum) || yearNum < 1900 || yearNum > currentYear) {
+            setError(isRTL ? 'لطفاً سال تولد معتبر وارد کنید.' : 'Please enter a valid birth year.');
+            setShowCaretakerMsg(false);
+            return;
+        }
+        if (currentYear - yearNum < 13) {
+            setShowCaretakerMsg(true);
+            setError(null);
+            return;
+        }
+        setShowCaretakerMsg(false);
         const errs = validateForm();
         if (errs.length) { setError(errs); return; }
         setError(null);
@@ -531,33 +547,17 @@ export default function RegisterPage() {
                 type: 'email',
             });
             if (supaErr) throw supaErr;
-            setStep('success');
 
-            // Collect metadata and complete registration (best-effort, non-blocking)
+            // Check admin status for dashboard redirect (best-effort)
             try {
                 const { data: { session } } = await supabase.auth.getSession();
-                // Check admin status for dashboard redirect
                 if (session) {
                     const { data: prof } = await supabase.from('profiles').select('is_admin').eq('id', session.user.id).single();
                     if (prof?.is_admin) setIsAdmin(true);
                 }
-                const metadata = await collectMetadata();
-                await fetch('/api/register-complete', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${session?.access_token}`,
-                    },
-                    body: JSON.stringify({
-                        invite_code: inviteCode.trim().toUpperCase(),
-                        full_name: fullName.trim(),
-                        country: country === 'Other' ? customCountry.trim() : country,
-                        user_type: userType,
-                        preferred_blueprint: preferredBlueprint,
-                        metadata,
-                    }),
-                });
-            } catch { /* silent — registration succeeded, metadata is best-effort */ }
+            } catch { /* silent */ }
+
+            setStep('choose-blueprint');
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
             const isInvalidToken = msg.includes('token') || msg.includes('otp') || msg.includes('expired') || msg.includes('invalid');
@@ -571,6 +571,34 @@ export default function RegisterPage() {
         } finally {
             setLoading(false);
         }
+    }
+
+    // ── Blueprint selection (post-OTP) ─────────────────────────────────────
+
+    async function handleChooseBlueprint(bpId) {
+        setPreferredBlueprint(bpId);
+        setStep('success');
+        // Complete registration with chosen blueprint (best-effort)
+        try {
+            const { data: { session } } = await supabase.auth.getSession();
+            const metadata = await collectMetadata();
+            await fetch('/api/register-complete', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${session?.access_token}`,
+                },
+                body: JSON.stringify({
+                    invite_code: inviteCode.trim().toUpperCase(),
+                    full_name: fullName.trim(),
+                    country: country === 'Other' ? customCountry.trim() : country,
+                    user_type: userType,
+                    preferred_blueprint: bpId,
+                    birth_year: parseInt(birthYear, 10) || null,
+                    metadata,
+                }),
+            });
+        } catch { /* silent */ }
     }
 
     // ── Resend ─────────────────────────────────────────────────────────────
@@ -677,7 +705,7 @@ export default function RegisterPage() {
                 <div className="reg-card">
 
                     {/* Step indicator */}
-                    {step !== 'success' && (
+                    {step !== 'success' && step !== 'choose-blueprint' && (
                         <div className="reg-steps" aria-hidden="true">
                             {CONTENT.stepLabels.map((label, i) => {
                                 const stepName = i === 0 ? 'form' : 'verify';
@@ -771,26 +799,36 @@ export default function RegisterPage() {
                                 </button>
                             </div>
 
-                            {/* Preferred blueprint */}
+                            {/* Birth year */}
                             <div className="reg-field">
-                                <label className="reg-label" style={labelStyle}>
-                                    {t(CONTENT.labelBlueprint)}
+                                <label className="reg-label" style={labelStyle} htmlFor="reg-birth-year">
+                                    {tKey('register.birthYear')}
                                 </label>
-                                <div className="reg-blueprint-group">
-                                    {Object.values(BLUEPRINTS).map(bp => (
-                                        <button
-                                            key={bp.id}
-                                            type="button"
-                                            className={`reg-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`}
-                                            onClick={() => setPreferredBlueprint(bp.id)}
-                                            disabled={loading}
-                                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
-                                        >
-                                            {t(bp.name)}
-                                        </button>
-                                    ))}
-                                </div>
+                                <input
+                                    id="reg-birth-year"
+                                    className="reg-input reg-input--mono"
+                                    type="number"
+                                    placeholder={tKey('register.birthYearPlaceholder')}
+                                    value={birthYear}
+                                    onChange={e => { setBirthYear(e.target.value); setShowCaretakerMsg(false); }}
+                                    min={1900}
+                                    max={new Date().getFullYear()}
+                                    disabled={loading}
+                                    dir="ltr"
+                                />
                             </div>
+
+                            {/* Caretaker message — shown when under 13 */}
+                            {showCaretakerMsg && (
+                                <div className="reg-caretaker-msg">
+                                    <div className="reg-caretaker-title" style={monoFont}>
+                                        {tKey('register.tooYoungTitle')}
+                                    </div>
+                                    <p className="reg-caretaker-body">
+                                        {tKey('register.tooYoung')}
+                                    </p>
+                                </div>
+                            )}
 
                             {/* Full name */}
                             <div className="reg-field">
@@ -944,7 +982,34 @@ export default function RegisterPage() {
                         </form>
                     )}
 
-                    {/* ══ STEP 3: Success ══ */}
+                    {/* ══ STEP 3: Choose blueprint ══ */}
+                    {step === 'choose-blueprint' && (
+                        <div className="reg-choose-blueprint">
+                            <h2 className="reg-choose-title" style={headingFont}>
+                                {tKey('register.chooseTitle')}
+                            </h2>
+                            <p className="reg-choose-subtitle" style={monoFont}>
+                                {tKey('register.chooseSubtitle')}
+                            </p>
+                            <div className="reg-choose-cards">
+                                {Object.values(BLUEPRINTS).map(bp => (
+                                    <button
+                                        key={bp.id}
+                                        className="reg-choose-card"
+                                        onClick={() => handleChooseBlueprint(bp.id)}
+                                        style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                    >
+                                        <span className="reg-choose-card-name">{t(bp.name)}</span>
+                                        <span className="reg-choose-confirm" style={monoFont}>
+                                            {tKey('register.chooseConfirm')}
+                                        </span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* ══ STEP 4: Success ══ */}
                     {step === 'success' && (
                         <div className="reg-success">
                             <span className="reg-success-icon">⬡</span>

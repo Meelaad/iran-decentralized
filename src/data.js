@@ -645,6 +645,402 @@ const SL_SHARED_LAYERS = [
     { name: { en: "Open Government & Transparency", fa: "دولت باز و شفافیت" }, icon: "🔍", desc: { en: "Freedom of information laws, mandatory asset declarations for officials, open budget data, and whistleblower protection create radical governmental transparency.", fa: "قوانین آزادی اطلاعات، اعلام اجباری دارایی مقامات، داده‌های بودجه باز و حمایت از افشاگران، شفافیت رادیکال دولتی ایجاد می‌کند." } },
 ];
 
+// ── Federal Democratic Republic ───────────────────────────────────────────────
+
+const FD_SECTORS = [
+    {
+        id: "fedPresident", label: { en: "Federal President", fa: "رئیس‌جمهور فدرال" },
+        icon: "🏛️", color: "#E3F2FD", border: "#1565C0",
+        x: 50, y: 20, tier: "core",
+        contents: [
+            { en: "Directly Elected Head of State", fa: "رئیس کشور با انتخاب مستقیم" },
+            { en: "Ceremonial & Unifying Role", fa: "نقش تشریفاتی و وحدت‌بخش" },
+            { en: "Federal Treaty Ratification", fa: "تصویب معاهدات فدرال" },
+            { en: "Emergency Coordination Powers", fa: "اختیارات هماهنگی در شرایط اضطراری" },
+        ],
+        desc: { en: "A directly elected federal president serves as head of state, ratifying treaties, coordinating emergencies, and symbolizing national unity across Iran's diverse ethnic regions.", fa: "رئیس‌جمهور فدرال با انتخاب مستقیم، به عنوان رئیس کشور خدمت می‌کند، معاهدات را تصویب می‌کند، شرایط اضطراری را هماهنگ می‌کند و نمادی از وحدت ملی در میان مناطق قومی متنوع ایران است." },
+    },
+    {
+        id: "fedSenate", label: { en: "Senate (States' Chamber)", fa: "مجلس سنا (نمایندگی ایالات)" },
+        icon: "🗳️", color: "#E8EAF6", border: "#283593",
+        x: 30, y: 34, tier: "core",
+        contents: [
+            { en: "Equal State Representation (2 Senators/State)", fa: "نمایندگی برابر ایالات (۲ سناتور هر ایالت)" },
+            { en: "Federal-State Dispute Resolution", fa: "حل اختلافات فدرال-ایالتی" },
+            { en: "Treaty & Ambassador Confirmation", fa: "تأیید معاهدات و سفرا" },
+            { en: "Constitutional Amendment Ratification", fa: "تصویب اصلاحات قانون اساسی" },
+        ],
+        desc: { en: "Each state sends equal representation to the Senate regardless of population, guaranteeing that minority ethnic regions (Kurds, Baluchs, Azeris, Arabs) hold equal legislative weight to Persian-majority provinces.", fa: "هر ایالت صرف نظر از جمعیت، نمایندگی برابر در سنا می‌فرستد تا مناطق قومی اقلیت (کردها، بلوچ‌ها، آذری‌ها، عرب‌ها) وزن قانونگذاری برابر با استان‌های اکثریت فارس داشته باشند." },
+    },
+    {
+        id: "fedAssembly", label: { en: "National Assembly", fa: "مجلس ملی" },
+        icon: "🗣️", color: "#E8F5E9", border: "#2E7D32",
+        x: 70, y: 34, tier: "core",
+        contents: [
+            { en: "Proportional Population Representation", fa: "نمایندگی متناسب با جمعیت" },
+            { en: "National Budget & Legislation", fa: "بودجه ملی و قانون‌گذاری" },
+            { en: "Federal Policy Oversight", fa: "نظارت بر سیاست‌های فدرال" },
+            { en: "Joint Session with Senate", fa: "جلسه مشترک با سنا" },
+        ],
+        desc: { en: "The National Assembly represents citizens by population, passing federal legislation and approving the national budget in joint sessions with the Senate, balancing local equity with national majority will.", fa: "مجلس ملی شهروندان را به تناسب جمعیت نمایندگی می‌کند، قوانین فدرال را تصویب کرده و بودجه ملی را در جلسات مشترک با سنا تأیید می‌کند." },
+    },
+    {
+        id: "fedStates", label: { en: "State Governments", fa: "دولت‌های ایالتی" },
+        icon: "🗺️", color: "#E0F2F1", border: "#00695C",
+        x: 50, y: 48, tier: "core",
+        contents: [
+            { en: "Elected State Governors & Legislatures", fa: "استانداران و مجالس ایالتی منتخب" },
+            { en: "Local Law, Language & Education Policy", fa: "قانون محلی، زبان و سیاست آموزشی" },
+            { en: "State Taxation & Resource Revenue Share", fa: "مالیات ایالتی و سهم درآمد منابع" },
+            { en: "Cultural Preservation Mandate", fa: "مأموریت حفظ فرهنگ" },
+            { en: "State Police & Local Security", fa: "پلیس ایالتی و امنیت محلی" },
+        ],
+        desc: { en: "State governments hold autonomous authority over language policy, education curricula, cultural affairs, and local administration — the core demand of Kurdish, Azerbaijani, Baluchi, and Arab communities — while the federal government handles defense and foreign policy.", fa: "دولت‌های ایالتی دارای اقتدار مستقل در سیاست زبانی، برنامه درسی آموزشی، امور فرهنگی و اداره محلی هستند که خواسته اصلی جوامع کرد، آذربایجانی، بلوچ و عرب است." },
+    },
+    {
+        id: "fedCourt", label: { en: "Federal Supreme Court", fa: "دادگاه عالی فدرال" },
+        icon: "⚖️", color: "#FBE9E7", border: "#BF360C",
+        x: 22, y: 61, tier: "primary",
+        contents: [
+            { en: "Federal-State Jurisdiction Disputes", fa: "اختلافات صلاحیت فدرال-ایالتی" },
+            { en: "Constitutional Rights Enforcement", fa: "اجرای حقوق قانون اساسی" },
+            { en: "Minority Rights Protection", fa: "حمایت از حقوق اقلیت‌ها" },
+            { en: "State Law Constitutionality Review", fa: "بازنگری قانون اساسی قوانین ایالتی" },
+        ],
+        desc: { en: "The Federal Supreme Court adjudicates disputes between states and the federal government, enforces minority rights guarantees, and ensures no state law violates the federal constitutional rights of citizens.", fa: "دادگاه عالی فدرال اختلافات بین ایالات و دولت فدرال را قضاوت می‌کند، تضمین‌های حقوق اقلیت را اجرا می‌کند و اطمینان می‌دهد که هیچ قانون ایالتی حقوق قانون اساسی فدرال شهروندان را نقض نمی‌کند." },
+    },
+    {
+        id: "fedFinance", label: { en: "Federal Treasury", fa: "خزانه‌داری فدرال" },
+        icon: "💰", color: "#FFF3E0", border: "#E65100",
+        x: 50, y: 61, tier: "primary",
+        contents: [
+            { en: "Federal Tax Collection", fa: "جمع‌آوری مالیات فدرال" },
+            { en: "State Equalization Grants", fa: "کمک‌های تعادلی به ایالات" },
+            { en: "National Resource Revenue Distribution", fa: "توزیع درآمد منابع ملی" },
+            { en: "Fiscal Federalism Mechanism", fa: "مکانیزم فدرالیسم مالی" },
+        ],
+        desc: { en: "The Federal Treasury collects federal taxes and redistributes revenues to states through equalization grants, ensuring that oil-poor regions (e.g. Kurdistan) receive fair shares of national resource wealth.", fa: "خزانه‌داری فدرال مالیات‌های فدرال را جمع‌آوری کرده و درآمدها را از طریق کمک‌های تعادلی به ایالات توزیع می‌کند تا مناطق فقیر از نفت (مثلاً کردستان) سهم عادلانه‌ای از ثروت منابع ملی دریافت کنند." },
+    },
+    {
+        id: "fedDefense", label: { en: "Defense & Foreign Affairs", fa: "دفاع و امور خارجی" },
+        icon: "🛡️", color: "#ECEFF1", border: "#37474F",
+        x: 78, y: 61, tier: "primary",
+        contents: [
+            { en: "Federal Armed Forces (Civilian Command)", fa: "نیروهای مسلح فدرال (فرمان مدنی)" },
+            { en: "Foreign Policy & Diplomacy", fa: "سیاست خارجی و دیپلماسی" },
+            { en: "Border Security (Federal Mandate)", fa: "امنیت مرزی (مأموریت فدرال)" },
+            { en: "International Treaties", fa: "معاهدات بین‌المللی" },
+        ],
+        desc: { en: "Defense and foreign policy are exclusively federal domains, preventing fragmentation of military command. States may not maintain independent armed forces, but state police forces handle local security.", fa: "دفاع و سیاست خارجی حوزه‌های انحصاری فدرال هستند و از تکه‌تکه شدن فرماندهی نظامی جلوگیری می‌کنند." },
+    },
+    {
+        id: "fedCulture", label: { en: "Cultural Autonomy Bureau", fa: "دفتر خودمختاری فرهنگی" },
+        icon: "🎭", color: "#FFF8E1", border: "#FF8F00",
+        x: 33, y: 73, tier: "secondary",
+        contents: [
+            { en: "Official Regional Language Recognition", fa: "به رسمیت شناختن زبان‌های منطقه‌ای" },
+            { en: "Ethnic Minority Education Funding", fa: "تأمین مالی آموزش اقلیت‌های قومی" },
+            { en: "Cultural Preservation Grants", fa: "کمک‌های مالی حفظ فرهنگ" },
+            { en: "Diaspora Cultural Connection Program", fa: "برنامه ارتباط فرهنگی دیاسپورا" },
+        ],
+        desc: { en: "The Cultural Autonomy Bureau funds and protects the rights of Kurds, Azerbaijanis, Baluchis, Arabs, and other groups to use their languages in schools, courts, and government — a central demand of CNFI and PDKI.", fa: "دفتر خودمختاری فرهنگی حقوق کردها، آذربایجانی‌ها، بلوچ‌ها، عرب‌ها و سایر گروه‌ها را برای استفاده از زبانشان در مدارس، دادگاه‌ها و دولت تأمین مالی و حمایت می‌کند." },
+    },
+    {
+        id: "fedRights", label: { en: "Civil Rights Commission", fa: "کمیسیون حقوق مدنی" },
+        icon: "✊", color: "#F3E5F5", border: "#7B1FA2",
+        x: 67, y: 73, tier: "secondary",
+        contents: [
+            { en: "Anti-Discrimination Enforcement", fa: "اجرای قوانین ضد تبعیض" },
+            { en: "Minority Rights Monitoring", fa: "نظارت بر حقوق اقلیت‌ها" },
+            { en: "Complaint & Redress Mechanism", fa: "مکانیزم شکایت و جبران خسارت" },
+            { en: "Ethnic Representation Audits", fa: "حسابرسی نمایندگی قومی" },
+        ],
+        desc: { en: "An independent federal commission monitors and enforces civil rights protections, investigates discrimination complaints from ethnic minorities, and audits whether state governments are meeting their constitutional obligations.", fa: "یک کمیسیون فدرال مستقل، حمایت از حقوق مدنی را نظارت و اجرا می‌کند، شکایات تبعیض از اقلیت‌های قومی را بررسی می‌کند." },
+    },
+];
+
+const FD_CONNECTIONS = [
+    { from: "fedPresident", to: "fedSenate", label: { en: "Veto & Assent", fa: "وتو و تأیید" }, strength: 2 },
+    { from: "fedPresident", to: "fedDefense", label: { en: "Commander-in-Chief", fa: "فرمانده کل" }, strength: 3 },
+    { from: "fedSenate", to: "fedAssembly", label: { en: "Joint Legislation", fa: "قانون‌گذاری مشترک" }, strength: 3 },
+    { from: "fedSenate", to: "fedStates", label: { en: "State Representation", fa: "نمایندگی ایالات" }, strength: 3 },
+    { from: "fedAssembly", to: "fedFinance", label: { en: "Budget Approval", fa: "تصویب بودجه" }, strength: 3 },
+    { from: "fedCourt", to: "fedStates", label: { en: "Jurisdictional Review", fa: "بازنگری قضایی" }, strength: 3 },
+    { from: "fedCourt", to: "fedPresident", label: { en: "Constitutional Check", fa: "نظارت قانون اساسی" }, strength: 2 },
+    { from: "fedFinance", to: "fedStates", label: { en: "Equalization Grants", fa: "کمک‌های تعادلی" }, strength: 3 },
+    { from: "fedStates", to: "fedCulture", label: { en: "Cultural Governance", fa: "حاکمیت فرهنگی" }, strength: 3 },
+    { from: "fedStates", to: "fedRights", label: { en: "Rights Implementation", fa: "اجرای حقوق" }, strength: 2 },
+    { from: "fedRights", to: "fedCourt", label: { en: "Rights Complaints", fa: "شکایات حقوقی" }, strength: 2 },
+];
+
+const FD_SHARED_LAYERS = [
+    { name: { en: "Federalism Compact", fa: "میثاق فدرالیسم" }, icon: "🤝", desc: { en: "A binding constitutional compact distributing powers between federal and state governments, with any unspecified powers defaulting to the states.", fa: "یک میثاق قانون اساسی الزام‌آور که قدرت‌ها را بین دولت‌های فدرال و ایالتی توزیع می‌کند، با هر قدرت مشخص‌نشده‌ای که به صورت پیش‌فرض به ایالات تعلق دارد." } },
+    { name: { en: "Minority Language Rights", fa: "حقوق زبانی اقلیت‌ها" }, icon: "🗣️", desc: { en: "Constitutional protection for Kurdish, Azerbaijani, Baluchi, Arabic, and other languages in state education, courts, and official communications.", fa: "حمایت قانون اساسی از زبان‌های کردی، آذربایجانی، بلوچی، عربی و سایر زبان‌ها در آموزش ایالتی، دادگاه‌ها و ارتباطات رسمی." } },
+    { name: { en: "Federal Supremacy Clause", fa: "اصل برتری فدرال" }, icon: "📜", desc: { en: "Federal law is supreme on delegated powers (defense, foreign policy, currency); all other powers belong to states, preventing federal overreach.", fa: "قانون فدرال در اختیارات تفویض‌شده (دفاع، سیاست خارجی، ارز) برتری دارد؛ تمام اختیارات دیگر متعلق به ایالات است." } },
+    { name: { en: "Ethnic Power-Sharing Protocol", fa: "پروتکل تقسیم قدرت قومی" }, icon: "⚖️", desc: { en: "Structured representation guarantees for major ethnic groups in federal institutions, preventing any single ethnicity from dominating national government.", fa: "تضمین‌های نمایندگی ساختاریافته برای گروه‌های قومی اصلی در نهادهای فدرال، که مانع سلطه هر قومیت بر دولت ملی می‌شود." } },
+];
+
+// ── Democratic Socialist Republic ─────────────────────────────────────────────
+
+const DS_SECTORS = [
+    {
+        id: "dsPresident", label: { en: "Elected President", fa: "رئیس‌جمهور منتخب" },
+        icon: "🏛️", color: "#E3F2FD", border: "#1565C0",
+        x: 50, y: 20, tier: "core",
+        contents: [
+            { en: "Directly Elected Head of State & Government", fa: "رئیس کشور و دولت با انتخاب مستقیم" },
+            { en: "National Planning Oversight", fa: "نظارت بر برنامه‌ریزی ملی" },
+            { en: "Foreign Policy & Diplomacy", fa: "سیاست خارجی و دیپلماسی" },
+            { en: "Term Limits (2 × 5-year terms)", fa: "محدودیت دوره تصدی (۲ × ۵ سال)" },
+        ],
+        desc: { en: "A directly elected president heads the government and national planning apparatus, with a two-term limit to prevent personalist rule, subject to recall by the People's Assembly.", fa: "رئیس‌جمهور با انتخاب مستقیم، دولت و دستگاه برنامه‌ریزی ملی را هدایت می‌کند، با محدودیت دو دوره برای جلوگیری از حاکمیت فردگرایانه." },
+    },
+    {
+        id: "dsPeopleAssembly", label: { en: "People's Assembly", fa: "مجلس خلق" },
+        icon: "🗳️", color: "#E8F5E9", border: "#2E7D32",
+        x: 30, y: 34, tier: "core",
+        contents: [
+            { en: "Proportional & Multi-Party Elections", fa: "انتخابات متناسب و چند حزبی" },
+            { en: "Legislative Authority", fa: "اقتدار قانون‌گذاری" },
+            { en: "Presidential Accountability & Recall", fa: "پاسخگویی و عزل رئیس‌جمهور" },
+            { en: "National Budget Approval", fa: "تصویب بودجه ملی" },
+            { en: "Labor & Social Policy Laws", fa: "قوانین کار و سیاست اجتماعی" },
+        ],
+        desc: { en: "The People's Assembly, elected by proportional representation, is the supreme legislative body. It can recall the president, pass labor laws, approve the national budget, and override planning decisions.", fa: "مجلس خلق با انتخاب نمایندگی متناسب، عالی‌ترین نهاد قانونگذاری است. می‌تواند رئیس‌جمهور را عزل کند، قوانین کار را تصویب کند و بودجه ملی را تأیید کند." },
+    },
+    {
+        id: "dsWorkerCouncils", label: { en: "National Workers' Shora", fa: "شورای ملی کارگران" },
+        icon: "✊", color: "#FCE4EC", border: "#C62828",
+        x: 70, y: 34, tier: "core",
+        contents: [
+            { en: "Factory & Workplace Councils (Shoras)", fa: "شوراهای کارخانه و محل کار" },
+            { en: "Collective Bargaining Authority", fa: "اقتدار مذاکره جمعی" },
+            { en: "Co-Determination in State Industry", fa: "مشارکت در تصمیم‌گیری صنایع دولتی" },
+            { en: "Strike & Labor Rights Protection", fa: "حمایت از حق اعتصاب و حقوق کار" },
+            { en: "National Economic Policy Input", fa: "مشارکت در سیاست اقتصادی ملی" },
+        ],
+        desc: { en: "Decentralized worker councils (Shoras) operate at the factory and sectoral level, exercising co-determination rights in state industries and feeding worker demands directly into national economic planning. Rooted in Iran's own Shora tradition from 1979.", fa: "شوراهای کارگری غیرمتمرکز در سطح کارخانه و بخشی فعالیت می‌کنند، حقوق مشارکت در تصمیم‌گیری صنایع دولتی را اعمال می‌کنند و خواسته‌های کارگران را مستقیماً به برنامه‌ریزی اقتصادی ملی منتقل می‌کنند." },
+    },
+    {
+        id: "dsPlanningCouncil", label: { en: "National Planning Council", fa: "شورای برنامه‌ریزی ملی" },
+        icon: "📊", color: "#E8EAF6", border: "#283593",
+        x: 22, y: 49, tier: "primary",
+        contents: [
+            { en: "5-Year Economic Development Plans", fa: "برنامه‌های توسعه اقتصادی پنج‌ساله" },
+            { en: "Strategic Industry Investment Allocation", fa: "تخصیص سرمایه‌گذاری صنایع استراتژیک" },
+            { en: "Worker Council Input Integration", fa: "یکپارچه‌سازی مشارکت شوراهای کارگری" },
+            { en: "Anti-Inequality Metrics & Targets", fa: "معیارها و اهداف ضد نابرابری" },
+        ],
+        desc: { en: "A democratically accountable planning council drafts five-year economic plans, integrating worker council demands, parliamentary mandates, and anti-inequality targets into coherent national investment strategy.", fa: "یک شورای برنامه‌ریزی با پاسخگویی دموکراتیک، برنامه‌های اقتصادی پنج‌ساله را تدوین می‌کند و خواسته‌های شوراهای کارگری، احکام پارلمانی و اهداف ضد نابرابری را در استراتژی سرمایه‌گذاری ملی منسجم یکپارچه می‌کند." },
+    },
+    {
+        id: "dsStateIndustry", label: { en: "Strategic State Industries", fa: "صنایع استراتژیک ملی" },
+        icon: "🏭", color: "#FFF3E0", border: "#E65100",
+        x: 50, y: 49, tier: "primary",
+        contents: [
+            { en: "State-Owned Oil, Gas & Petrochemicals", fa: "نفت، گاز و پتروشیمی ملی" },
+            { en: "Public Banking & Credit System", fa: "بانکداری عمومی و سیستم اعتباری" },
+            { en: "Strategic Manufacturing (Steel, Defense)", fa: "تولید استراتژیک (فولاد، دفاع)" },
+            { en: "Worker-Managed Enterprise Boards", fa: "هیئت‌های مدیریتی کارگری" },
+            { en: "Profit Reinvestment Mandate (No Extraction)", fa: "مأموریت سرمایه‌گذاری مجدد سود" },
+        ],
+        desc: { en: "Core strategic industries remain under public ownership with profits reinvested into social programs rather than extracted as private dividends. Worker representatives hold seats on all enterprise boards.", fa: "صنایع استراتژیک اصلی تحت مالکیت عمومی باقی می‌مانند و سود آن‌ها به جای استخراج به عنوان سود سهام خصوصی، در برنامه‌های اجتماعی سرمایه‌گذاری مجدد می‌شود." },
+    },
+    {
+        id: "dsWelfare", label: { en: "Social Welfare Ministry", fa: "وزارت رفاه اجتماعی" },
+        icon: "🤝", color: "#F1F8E9", border: "#558B2F",
+        x: 78, y: 49, tier: "primary",
+        contents: [
+            { en: "Universal Healthcare (Single-Payer)", fa: "بهداشت همگانی (پرداخت‌کننده واحد)" },
+            { en: "Free Public Education (All Levels)", fa: "آموزش عمومی رایگان (همه سطوح)" },
+            { en: "Universal Housing Right", fa: "حق مسکن همگانی" },
+            { en: "Guaranteed Minimum Income", fa: "درآمد حداقل تضمینی" },
+            { en: "Comprehensive Pension System", fa: "سیستم بازنشستگی جامع" },
+        ],
+        desc: { en: "A comprehensive welfare state guarantees universal healthcare, free education, housing rights, and a minimum income. Funded by progressive taxation and resource revenues, it eliminates absolute poverty as a constitutional commitment.", fa: "یک دولت رفاه جامع، بهداشت همگانی، آموزش رایگان، حقوق مسکن و درآمد حداقل را تضمین می‌کند. با مالیات تصاعدی و درآمدهای منابع تأمین مالی می‌شود." },
+    },
+    {
+        id: "dsLaborRights", label: { en: "Labor Rights Board", fa: "هیئت حقوق کار" },
+        icon: "⚒️", color: "#FFF8E1", border: "#F9A825",
+        x: 30, y: 64, tier: "secondary",
+        contents: [
+            { en: "Minimum Wage Setting & Enforcement", fa: "تعیین و اجرای حداقل دستمزد" },
+            { en: "Maximum Work Hours Regulation", fa: "مقررات حداکثر ساعت کار" },
+            { en: "Union Registration & Protection", fa: "ثبت و حمایت از اتحادیه‌ها" },
+            { en: "Workplace Safety Standards", fa: "استانداردهای ایمنی محل کار" },
+        ],
+        desc: { en: "An independent tripartite board (workers, employers, government) sets and enforces labor standards, ensuring that economic growth translates into worker wellbeing rather than capital concentration.", fa: "یک هیئت سه‌جانبه مستقل (کارگران، کارفرمایان، دولت) استانداردهای کار را تعیین و اجرا می‌کند تا رشد اقتصادی به رفاه کارگران ترجمه شود نه تمرکز سرمایه." },
+    },
+    {
+        id: "dsCoops", label: { en: "Cooperative Economy Sector", fa: "بخش اقتصاد تعاونی" },
+        icon: "🔄", color: "#E8F5E9", border: "#1B5E20",
+        x: 50, y: 64, tier: "secondary",
+        contents: [
+            { en: "Worker & Consumer Cooperatives", fa: "تعاونی‌های کارگری و مصرف‌کننده" },
+            { en: "Agricultural Collective Farms", fa: "مزارع جمعی کشاورزی" },
+            { en: "Cooperative Startup Fund", fa: "صندوق راه‌اندازی تعاونی" },
+            { en: "Co-op Legal Framework & Preferences", fa: "چارچوب قانونی و مزایای تعاونی" },
+        ],
+        desc: { en: "The cooperative sector is actively promoted as an alternative to both state ownership and private capitalism: worker-owned enterprises, consumer cooperatives, and agricultural collectives form the decentralized economic backbone.", fa: "بخش تعاونی به عنوان جایگزینی برای هم مالکیت دولتی و هم سرمایه‌داری خصوصی فعالانه ترویج می‌شود: بنگاه‌های متعلق به کارگران، تعاونی‌های مصرف‌کننده و اجتماعات کشاورزی ستون اقتصادی غیرمتمرکز را تشکیل می‌دهند." },
+    },
+    {
+        id: "dsCourt", label: { en: "Constitutional & Labor Court", fa: "دادگاه قانون اساسی و کار" },
+        icon: "⚖️", color: "#FBE9E7", border: "#BF360C",
+        x: 70, y: 64, tier: "secondary",
+        contents: [
+            { en: "Workers' Rights Adjudication", fa: "دادرسی حقوق کارگران" },
+            { en: "Constitutional Rights Enforcement", fa: "اجرای حقوق قانون اساسی" },
+            { en: "Anti-Corruption Prosecution", fa: "تعقیب قضایی فساد" },
+            { en: "Independent Appointment Process", fa: "فرآیند انتصاب مستقل" },
+        ],
+        desc: { en: "A specialized court handles both constitutional review and labor disputes, with workers having direct standing to bring cases. Judges are appointed by supermajority parliamentary vote to prevent executive capture.", fa: "یک دادگاه تخصصی هم بازنگری قانون اساسی و هم اختلافات کار را رسیدگی می‌کند، با اینکه کارگران حق مستقیم برای طرح پرونده دارند." },
+    },
+];
+
+const DS_CONNECTIONS = [
+    { from: "dsPresident", to: "dsPlanningCouncil", label: { en: "Planning Direction", fa: "راهنمایی برنامه‌ریزی" }, strength: 3 },
+    { from: "dsPeopleAssembly", to: "dsPresident", label: { en: "Accountability & Recall", fa: "پاسخگویی و عزل" }, strength: 3 },
+    { from: "dsPeopleAssembly", to: "dsWorkerCouncils", label: { en: "Co-Legislative Authority", fa: "اقتدار مشترک قانونگذاری" }, strength: 3 },
+    { from: "dsWorkerCouncils", to: "dsPlanningCouncil", label: { en: "Economic Demands", fa: "خواسته‌های اقتصادی" }, strength: 3 },
+    { from: "dsPlanningCouncil", to: "dsStateIndustry", label: { en: "Resource Allocation", fa: "تخصیص منابع" }, strength: 3 },
+    { from: "dsPlanningCouncil", to: "dsWelfare", label: { en: "Social Budget", fa: "بودجه اجتماعی" }, strength: 3 },
+    { from: "dsWorkerCouncils", to: "dsLaborRights", label: { en: "Labor Standards", fa: "استانداردهای کار" }, strength: 2 },
+    { from: "dsCoops", to: "dsWorkerCouncils", label: { en: "Cooperative Voice", fa: "صدای تعاونی" }, strength: 2 },
+    { from: "dsStateIndustry", to: "dsCoops", label: { en: "Support Funding", fa: "حمایت مالی" }, strength: 2 },
+    { from: "dsCourt", to: "dsPresident", label: { en: "Constitutional Check", fa: "نظارت قانون اساسی" }, strength: 2 },
+    { from: "dsCourt", to: "dsLaborRights", label: { en: "Rights Enforcement", fa: "اجرای حقوق" }, strength: 2 },
+];
+
+const DS_SHARED_LAYERS = [
+    { name: { en: "Workers' Ownership Principle", fa: "اصل مالکیت کارگران" }, icon: "✊", desc: { en: "Strategic industries and natural resources are treated as common property, with profits distributed socially rather than privately extracted.", fa: "صنایع استراتژیک و منابع طبیعی به عنوان دارایی مشترک تلقی می‌شوند و سود آن‌ها به صورت اجتماعی توزیع می‌شود نه به صورت خصوصی استخراج می‌شود." } },
+    { name: { en: "Progressive Redistribution", fa: "توزیع مجدد تصاعدی" }, icon: "📊", desc: { en: "A steeply progressive tax system and wealth caps prevent the re-emergence of the concentrated elite class that historically captured the Iranian state.", fa: "یک سیستم مالیاتی شدیداً تصاعدی و محدودیت ثروت از ظهور مجدد طبقه نخبه متمرکزی که تاریخاً دولت ایران را تصرف کرده، جلوگیری می‌کند." } },
+    { name: { en: "Shora (Council) Democracy", fa: "دموکراسی شورایی" }, icon: "🏭", desc: { en: "Democratic participation extends beyond elections into workplaces, neighborhoods, and sectors through a nested council system rooted in Iran's own revolutionary tradition.", fa: "مشارکت دموکراتیک فراتر از انتخابات به محل کار، محله‌ها و بخش‌ها از طریق یک سیستم شورایی تو در تو که ریشه در سنت انقلابی خود ایران دارد، گسترش می‌یابد." } },
+    { name: { en: "Anti-Monopoly & Anti-Oligarchy Law", fa: "قانون ضدانحصار و ضداولیگارشی" }, icon: "🔒", desc: { en: "Strict limits on private capital concentration, mandatory public ownership of utilities, and prohibition on media monopolies prevent wealth from purchasing political power.", fa: "محدودیت‌های سخت بر تمرکز سرمایه خصوصی، مالکیت عمومی اجباری خدمات عمومی و ممنوعیت انحصار رسانه‌ای از خرید قدرت سیاسی توسط ثروت جلوگیری می‌کند." } },
+];
+
+// ── Absolute Monarchy ──────────────────────────────────────────────────────────
+
+const AM_SECTORS = [
+    {
+        id: "amKing", label: { en: "The Monarch", fa: "پادشاه / شاه" },
+        icon: "👑", color: "#FFF8E1", border: "#F9A825",
+        x: 50, y: 19, tier: "core",
+        contents: [
+            { en: "Supreme Executive Authority", fa: "اقتدار اجرایی عالی" },
+            { en: "Legislative Veto & Decree Power", fa: "وتوی قانونگذاری و قدرت فرمان" },
+            { en: "Supreme Commander of Armed Forces", fa: "فرمانده کل نیروهای مسلح" },
+            { en: "Appointment of All Senior Officials", fa: "انتصاب تمام مقامات ارشد" },
+            { en: "Hereditary Succession", fa: "جانشینی موروثی" },
+        ],
+        desc: { en: "The monarch holds absolute and undivided sovereignty — executive, legislative veto, and military command. All political authority flows from and returns to the throne. No election, parliament, or court can override royal decree.", fa: "پادشاه دارای حاکمیت مطلق و تقسیم‌نشده است — اجرایی، وتوی قانونگذاری و فرماندهی نظامی. تمام اقتدار سیاسی از تخت سلطنتی نشأت می‌گیرد. هیچ انتخابات، پارلمان یا دادگاهی نمی‌تواند فرمان سلطنتی را لغو کند." },
+    },
+    {
+        id: "amRoyalCouncil", label: { en: "Royal Advisory Council", fa: "شورای مشاوران سلطنتی" },
+        icon: "🎖️", color: "#E8EAF6", border: "#283593",
+        x: 28, y: 33, tier: "core",
+        contents: [
+            { en: "Appointed (Not Elected) by Monarch", fa: "منتصب (نه منتخب) توسط پادشاه" },
+            { en: "Policy Advisory Role (Non-Binding)", fa: "نقش مشاوره‌ای سیاستی (غیرالزامی)" },
+            { en: "Royal Decree Preparation", fa: "آماده‌سازی فرمان‌های سلطنتی" },
+            { en: "Tribal & Regional Notable Inclusion", fa: "مشارکت سران قبایل و ملاکان منطقه‌ای" },
+        ],
+        desc: { en: "An appointed advisory council assists the monarch in governing but holds no independent authority. Composed of loyalists, technocrats, and regional notables, it advises but cannot bind the king's decisions.", fa: "یک شورای مشاوره‌ای منتصب به پادشاه در حکومت کمک می‌کند اما هیچ اقتداری مستقل ندارد. متشکل از وفاداران، تکنوکرات‌ها و سران منطقه‌ای است، مشاوره می‌دهد اما نمی‌تواند تصمیمات پادشاه را الزامی کند." },
+    },
+    {
+        id: "amMilitary", label: { en: "Supreme Military Command", fa: "فرماندهی عالی نظامی" },
+        icon: "⚔️", color: "#ECEFF1", border: "#37474F",
+        x: 72, y: 33, tier: "core",
+        contents: [
+            { en: "Direct Royal Command of Armed Forces", fa: "فرماندهی مستقیم سلطنتی نیروهای مسلح" },
+            { en: "Royal Guard & Personal Security", fa: "گارد سلطنتی و امنیت شخصی" },
+            { en: "Military Appointments by Royal Decree", fa: "انتصابات نظامی با فرمان سلطنتی" },
+            { en: "Internal Security & Suppression Powers", fa: "امنیت داخلی و اختیارات سرکوب" },
+        ],
+        desc: { en: "The armed forces answer solely to the monarch, who serves as their supreme commander. Military officers are personally appointed and removed by royal decree, ensuring absolute loyalty to the throne over any constitutional or popular mandate.", fa: "نیروهای مسلح فقط به پادشاه پاسخ می‌دهند که فرمانده کل آن‌هاست. افسران نظامی شخصاً با فرمان سلطنتی منصوب و عزل می‌شوند تا وفاداری مطلق به تخت سلطنتی را تضمین کنند." },
+    },
+    {
+        id: "amTreasury", label: { en: "Royal Treasury", fa: "خزانه‌داری شاهی" },
+        icon: "💰", color: "#FFF3E0", border: "#E65100",
+        x: 22, y: 48, tier: "primary",
+        contents: [
+            { en: "Royal Control of National Budget", fa: "کنترل سلطنتی بودجه ملی" },
+            { en: "Oil & Resource Revenues (Crown Property)", fa: "درآمدهای نفت و منابع (ملک سلطنتی)" },
+            { en: "Taxation by Royal Decree", fa: "مالیات با فرمان سلطنتی" },
+            { en: "No Independent Parliamentary Audit", fa: "بدون حسابرسی پارلمانی مستقل" },
+        ],
+        desc: { en: "National finances are treated as an extension of royal wealth. Resource revenues flow to the crown, which redistributes at its discretion. There is no independent audit, and the national budget is not publicly disclosed.", fa: "امور مالی ملی به عنوان امتداد ثروت سلطنتی تلقی می‌شوند. درآمدهای منابع به دربار سرازیر می‌شوند و دربار به صلاحدید خود توزیع می‌کند. حسابرسی مستقلی وجود ندارد و بودجه ملی به صورت عمومی افشا نمی‌شود." },
+    },
+    {
+        id: "amIntelligence", label: { en: "State Security & SAVAK", fa: "امنیت دولتی و ساواک" },
+        icon: "🔍", color: "#FCE4EC", border: "#880E4F",
+        x: 50, y: 48, tier: "primary",
+        contents: [
+            { en: "Political Surveillance & Monitoring", fa: "نظارت و پایش سیاسی" },
+            { en: "Suppression of Dissent & Opposition", fa: "سرکوب مخالفان و اپوزیسیون" },
+            { en: "Reports Directly to Monarch", fa: "گزارش مستقیم به پادشاه" },
+            { en: "No Judicial Oversight", fa: "بدون نظارت قضایی" },
+        ],
+        desc: { en: "A secret police and intelligence apparatus reports directly to the monarch, identifying and neutralizing political threats. Historical precedent (SAVAK under the Shah) shows this apparatus is the backbone of absolute monarchical stability — and its primary instrument of repression.", fa: "یک پلیس مخفی و دستگاه اطلاعاتی مستقیماً به پادشاه گزارش می‌دهند و تهدیدات سیاسی را شناسایی و خنثی می‌کنند. سابقه تاریخی (ساواک در دوره شاه) نشان می‌دهد این دستگاه ستون فقرات ثبات پادشاهی مطلق است." },
+    },
+    {
+        id: "amProvincial", label: { en: "Appointed Governors", fa: "استانداران تعیینی" },
+        icon: "🏛️", color: "#E0F2F1", border: "#00695C",
+        x: 78, y: 48, tier: "primary",
+        contents: [
+            { en: "Appointed Directly by Monarch", fa: "انتصاب مستقیم توسط پادشاه" },
+            { en: "No Local Elections", fa: "بدون انتخابات محلی" },
+            { en: "Tax Collection & Revenue Remittance", fa: "جمع‌آوری مالیات و ارسال درآمد" },
+            { en: "Reporting to Royal Court", fa: "گزارش به دربار شاهی" },
+        ],
+        desc: { en: "Provincial governors are not elected but personally appointed by the monarch. They collect taxes, maintain order, and report to the royal court. Local self-governance and elected councils do not exist under this system.", fa: "استانداران استانی انتخابی نیستند بلکه شخصاً توسط پادشاه منصوب می‌شوند. مالیات جمع‌آوری می‌کنند، نظم را حفظ می‌کنند و به دربار شاهی گزارش می‌دهند." },
+    },
+    {
+        id: "amReligion", label: { en: "Court Religious Authority", fa: "روحانیت درباری" },
+        icon: "☪️", color: "#FFF8E1", border: "#FF8F00",
+        x: 35, y: 63, tier: "secondary",
+        contents: [
+            { en: "Religious Legitimacy for Monarchy", fa: "مشروعیت دینی برای پادشاهی" },
+            { en: "Appointed Court Clerics", fa: "روحانیون درباری منتصب" },
+            { en: "Fatwa Authority (Aligned with Crown)", fa: "اقتدار فتوا (همسو با دربار)" },
+            { en: "Social Control Through Religion", fa: "کنترل اجتماعی از طریق دین" },
+        ],
+        desc: { en: "Court-aligned religious authorities provide theological legitimation for royal rule, declaring the monarch's authority as divinely sanctioned. Independent clerics who challenge royal authority face suppression.", fa: "مقامات دینی همسو با دربار، مشروعیت الهیاتی برای حکومت سلطنتی فراهم می‌کنند و اقتدار پادشاه را به عنوان مقدس اعلام می‌کنند. روحانیان مستقلی که اقتدار سلطنتی را به چالش می‌کشند، با سرکوب روبرو می‌شوند." },
+    },
+    {
+        id: "amMedia", label: { en: "State-Controlled Media", fa: "رسانه دولتی کنترل‌شده" },
+        icon: "📡", color: "#E1F5FE", border: "#0277BD",
+        x: 65, y: 63, tier: "secondary",
+        contents: [
+            { en: "All Media Licensed by Crown", fa: "تمام رسانه‌ها دارای مجوز دربار" },
+            { en: "Censorship Bureau", fa: "اداره سانسور" },
+            { en: "Propaganda & Image Management", fa: "تبلیغات و مدیریت تصویر" },
+            { en: "No Independent Journalism", fa: "بدون روزنامه‌نگاری مستقل" },
+        ],
+        desc: { en: "All media outlets operate under royal license and state censorship. Independent journalism is prohibited. The media apparatus is used to construct a loyal public image of the monarch and suppress reporting on dissent, poverty, or corruption.", fa: "تمام رسانه‌ها تحت مجوز سلطنتی و سانسور دولتی فعالیت می‌کنند. روزنامه‌نگاری مستقل ممنوع است. دستگاه رسانه‌ای برای ساختن تصویر وفادارانه از پادشاه و سرکوب گزارش‌دهی در مورد مخالفت، فقر یا فساد استفاده می‌شود." },
+    },
+];
+
+const AM_CONNECTIONS = [
+    { from: "amKing", to: "amRoyalCouncil", label: { en: "Royal Direction", fa: "هدایت سلطنتی" }, strength: 3 },
+    { from: "amKing", to: "amMilitary", label: { en: "Supreme Command", fa: "فرماندهی عالی" }, strength: 3 },
+    { from: "amKing", to: "amTreasury", label: { en: "Royal Decree", fa: "فرمان سلطنتی" }, strength: 3 },
+    { from: "amKing", to: "amIntelligence", label: { en: "Security Direction", fa: "هدایت امنیتی" }, strength: 3 },
+    { from: "amKing", to: "amProvincial", label: { en: "Personal Appointment", fa: "انتصاب شخصی" }, strength: 3 },
+    { from: "amMilitary", to: "amIntelligence", label: { en: "Joint Suppression", fa: "سرکوب مشترک" }, strength: 2 },
+    { from: "amRoyalCouncil", to: "amTreasury", label: { en: "Policy Advice", fa: "مشاوره سیاستی" }, strength: 1 },
+    { from: "amProvincial", to: "amTreasury", label: { en: "Tax Remittance", fa: "ارسال مالیات" }, strength: 2 },
+    { from: "amReligion", to: "amKing", label: { en: "Divine Legitimacy", fa: "مشروعیت الهی" }, strength: 2 },
+    { from: "amIntelligence", to: "amMedia", label: { en: "Censorship Control", fa: "کنترل سانسور" }, strength: 2 },
+    { from: "amMedia", to: "amReligion", label: { en: "Propaganda Alignment", fa: "همسویی تبلیغاتی" }, strength: 1 },
+];
+
+const AM_SHARED_LAYERS = [
+    { name: { en: "Divine Right of Kings", fa: "حق الهی پادشاهان" }, icon: "✨", desc: { en: "The monarch's authority is declared divinely ordained, placing royal rule beyond secular challenge. Religious institutions confirm and reinforce this legitimacy.", fa: "اقتدار پادشاه از سوی خدا اعلام می‌شود و حکومت سلطنتی را فراتر از چالش دنیوی قرار می‌دهد. نهادهای دینی این مشروعیت را تأیید و تقویت می‌کنند." } },
+    { name: { en: "Absolute Royal Sovereignty", fa: "حاکمیت مطلق سلطنتی" }, icon: "👑", desc: { en: "No constitution, parliament, or court holds authority superior to the monarch. All law originates from and can be overridden by royal decree.", fa: "هیچ قانون اساسی، پارلمان یا دادگاهی دارای اقتداری برتر از پادشاه نیست. تمام قانون از فرمان سلطنتی نشأت می‌گیرد و می‌تواند توسط آن لغو شود." } },
+    { name: { en: "Hereditary Succession Law", fa: "قانون جانشینی موروثی" }, icon: "🏰", desc: { en: "Power transfers within the royal family by hereditary succession rules, not popular vote. The dynasty determines its own succession without democratic input.", fa: "قدرت درون خاندان سلطنتی طبق قوانین جانشینی موروثی منتقل می‌شود، نه رأی مردم. سلسله جانشینی خود را بدون مشارکت دموکراتیک تعیین می‌کند." } },
+    { name: { en: "Centralized Command Economy", fa: "اقتصاد فرمان‌بر متمرکز" }, icon: "💰", desc: { en: "Economic policy is set by royal decree. Strategic resources are crown property. Private enterprise exists only at the monarch's sufferance and can be nationalized or redistributed at will.", fa: "سیاست اقتصادی با فرمان سلطنتی تعیین می‌شود. منابع استراتژیک ملک سلطنتی هستند. بنگاه‌های خصوصی فقط با تحمل پادشاه وجود دارند و می‌توانند به دلخواه ملی یا توزیع مجدد شوند." } },
+];
+
 export const BLUEPRINTS = {
     decentralized: {
         id: "decentralized",
@@ -657,7 +1053,7 @@ export const BLUEPRINTS = {
     constMonarchy: {
         id: "constMonarchy",
         name: { en: "Constitutional Monarchy", fa: "پادشاهی مشروطه" },
-        useForceLayout: true,
+        useForceLayout: false,
         sectors: CM_SECTORS,
         connections: CM_CONNECTIONS,
         sharedLayers: CM_SHARED_LAYERS,
@@ -665,9 +1061,33 @@ export const BLUEPRINTS = {
     secularLiberal: {
         id: "secularLiberal",
         name: { en: "Secular Democratic Republic", fa: "جمهوری دموکراتیک سکولار" },
-        useForceLayout: true,
+        useForceLayout: false,
         sectors: SL_SECTORS,
         connections: SL_CONNECTIONS,
         sharedLayers: SL_SHARED_LAYERS,
+    },
+    federalDemocratic: {
+        id: "federalDemocratic",
+        name: { en: "Federal Democratic Republic", fa: "جمهوری فدرال دموکراتیک" },
+        useForceLayout: false,
+        sectors: FD_SECTORS,
+        connections: FD_CONNECTIONS,
+        sharedLayers: FD_SHARED_LAYERS,
+    },
+    democraticSocialist: {
+        id: "democraticSocialist",
+        name: { en: "Democratic Socialist Republic", fa: "جمهوری سوسیال دموکرات" },
+        useForceLayout: false,
+        sectors: DS_SECTORS,
+        connections: DS_CONNECTIONS,
+        sharedLayers: DS_SHARED_LAYERS,
+    },
+    absoluteMonarchy: {
+        id: "absoluteMonarchy",
+        name: { en: "Absolute Monarchy", fa: "پادشاهی مطلق" },
+        useForceLayout: false,
+        sectors: AM_SECTORS,
+        connections: AM_CONNECTIONS,
+        sharedLayers: AM_SHARED_LAYERS,
     },
 };

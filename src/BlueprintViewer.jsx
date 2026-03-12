@@ -3,8 +3,20 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, forceX, forceY } from 'd3-force';
 import { BLUEPRINTS } from './data';
 import { useLang } from './contexts/LangContext';
+import { supabase } from './lib/supabase';
 import './Architecture.css';
 import BlockchainOverlay from "./BlockchainOverlay";
+
+const GRID_SIZE = 2; // SVG units
+const BOUNDS = { xMin: 19, xMax: 81, yMin: 13, yMax: 75 };
+
+function snap(val, grid) {
+    return Math.round(val / grid) * grid;
+}
+
+function clamp(val, min, max) {
+    return Math.max(min, Math.min(max, val));
+}
 
 function useHexLayout() {
     const HEX_BASE = 170;
@@ -169,6 +181,18 @@ function hexToRgb(hex) {
     return `${parseInt(h.substring(0, 2), 16)},${parseInt(h.substring(2, 4), 16)},${parseInt(h.substring(4, 6), 16)}`;
 }
 
+// Subtle grid lines rendered in edit mode
+function AdminGrid() {
+    const lines = [];
+    for (let x = 20; x <= 80; x += GRID_SIZE) {
+        lines.push(<line key={`gx${x}`} x1={x} y1={13} x2={x} y2={75} stroke="#4fc3f7" strokeWidth="0.08" opacity="0.15" />);
+    }
+    for (let y = 14; y <= 74; y += GRID_SIZE) {
+        lines.push(<line key={`gy${y}`} x1={19} y1={y} x2={81} y2={y} stroke="#4fc3f7" strokeWidth="0.08" opacity="0.15" />);
+    }
+    return <g>{lines}</g>;
+}
+
 export default function BlueprintViewer() {
     const { blueprintId } = useParams();
     const { t, tKey, isRTL } = useLang();
@@ -183,6 +207,13 @@ export default function BlueprintViewer() {
     const [dbBlueprint, setDbBlueprint] = useState(null);
     const [dbLoading, setDbLoading] = useState(false);
 
+    // Admin layout editor state
+    const [isAdmin, setIsAdmin] = useState(false);
+    const [dbLayout, setDbLayout] = useState({});      // loaded from blueprint_layouts table
+    const [editPositions, setEditPositions] = useState(null); // non-null = edit mode active
+    const [dragging, setDragging] = useState(null);    // { sectorId, offsetX, offsetY }
+    const [saving, setSaving] = useState(false);
+
     const activeBlueprintId = blueprintId || 'decentralized';
     const localBlueprint = BLUEPRINTS[activeBlueprintId];
 
@@ -191,12 +222,35 @@ export default function BlueprintViewer() {
         if (localBlueprint || !activeBlueprintId) return;
         setDbLoading(true);
         setDbBlueprint(null);
-        const token = null; // anon fetch is fine for public blueprints
         fetch(`/api/blueprints?id=${encodeURIComponent(activeBlueprintId)}`)
             .then(r => r.ok ? r.json() : null)
             .then(data => { setDbBlueprint(data); setDbLoading(false); })
             .catch(() => setDbLoading(false));
     }, [activeBlueprintId, localBlueprint]);
+
+    // Check admin status + load saved layout for this blueprint
+    useEffect(() => {
+        supabase.auth.getSession().then(async ({ data }) => {
+            const sess = data.session;
+            if (sess) {
+                const { data: prof } = await supabase
+                    .from('profiles')
+                    .select('is_admin')
+                    .eq('id', sess.user.id)
+                    .single();
+                if (prof?.is_admin) setIsAdmin(true);
+            }
+        });
+
+        supabase
+            .from('blueprint_layouts')
+            .select('positions')
+            .eq('blueprint_id', activeBlueprintId)
+            .single()
+            .then(({ data }) => {
+                if (data?.positions) setDbLayout(data.positions);
+            });
+    }, [activeBlueprintId]);
 
     const activeBlueprint = localBlueprint || dbBlueprint;
 
@@ -207,11 +261,96 @@ export default function BlueprintViewer() {
 
     const positions = useForceLayout(sectors, connections, activeBlueprint.useForceLayout);
 
+    // The positions actually used for rendering: edit mode > DB override > computed
+    const renderPositions = useMemo(() => {
+        if (editPositions) return editPositions;
+        return { ...positions, ...dbLayout };
+    }, [editPositions, positions, dbLayout]);
+
+    // --- Admin drag handlers ---
+    function svgPoint(e) {
+        const svg = svgRef.current;
+        if (!svg) return null;
+        const pt = svg.createSVGPoint();
+        pt.x = e.clientX;
+        pt.y = e.clientY;
+        return pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+
+    function handleNodeDragStart(e, sectorId) {
+        if (!editPositions) return;
+        e.stopPropagation();
+        e.preventDefault();
+        const coords = svgPoint(e);
+        if (!coords) return;
+        const pos = editPositions[sectorId] ?? positions[sectorId];
+        setDragging({ sectorId, offsetX: coords.x - pos.x, offsetY: coords.y - pos.y });
+    }
+
+    function handleSVGMouseMove(e) {
+        if (!dragging) return;
+        const coords = svgPoint(e);
+        if (!coords) return;
+        setEditPositions(prev => ({
+            ...prev,
+            [dragging.sectorId]: {
+                x: clamp(coords.x - dragging.offsetX, BOUNDS.xMin, BOUNDS.xMax),
+                y: clamp(coords.y - dragging.offsetY, BOUNDS.yMin, BOUNDS.yMax),
+            },
+        }));
+    }
+
+    function handleSVGMouseUp() {
+        if (!dragging) return;
+        const pos = editPositions[dragging.sectorId];
+        if (pos) {
+            setEditPositions(prev => ({
+                ...prev,
+                [dragging.sectorId]: {
+                    x: clamp(snap(pos.x, GRID_SIZE), BOUNDS.xMin, BOUNDS.xMax),
+                    y: clamp(snap(pos.y, GRID_SIZE), BOUNDS.yMin, BOUNDS.yMax),
+                },
+            }));
+        }
+        setDragging(null);
+    }
+
+    function handleStartEdit() {
+        setEditPositions({ ...positions, ...dbLayout });
+        setSelected(null);
+        setPanelVisible(false);
+    }
+
+    function handleCancelEdit() {
+        setEditPositions(null);
+        setDragging(null);
+    }
+
+    async function handleSaveLayout() {
+        setSaving(true);
+        const { data: { session } } = await supabase.auth.getSession();
+        const res = await fetch('/api/admin/save-blueprint-layout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ blueprintId: activeBlueprintId, positions: editPositions }),
+        });
+        setSaving(false);
+        if (res.ok) {
+            setDbLayout({ ...editPositions });
+            setEditPositions(null);
+        }
+    }
+    // --------------------------
+
     const handleNodeClick = useCallback((sectorId, isSelected) => {
+        if (editPositions) return; // no click-select in edit mode
         if (isSelected) { setSelected(null); setPanelVisible(false); return; }
         const svg = svgRef.current;
         if (svg) {
-            const pos = positions[sectorId];
+            const pos = renderPositions[sectorId];
             if (pos) {
                 const pt = svg.createSVGPoint();
                 pt.x = pos.x;
@@ -228,7 +367,7 @@ export default function BlueprintViewer() {
         setSelected(sectorId);
         if (window.innerWidth > 900) setPanelVisible(true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [sectors, positions]);
+    }, [sectors, renderPositions, editPositions]);
 
     useEffect(() => {
         if (!selected) { setPanelVisible(false); return; }
@@ -249,7 +388,18 @@ export default function BlueprintViewer() {
         setSelected(null);
         setPanelVisible(false);
         setShowLayer(null);
+        setEditPositions(null);
+        setDragging(null);
     }, [activeBlueprintId]);
+
+    // Global mouseup to end drag even if cursor leaves SVG
+    useEffect(() => {
+        if (!dragging) return;
+        const up = () => handleSVGMouseUp();
+        window.addEventListener('mouseup', up);
+        return () => window.removeEventListener('mouseup', up);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [dragging, editPositions]);
 
     const selectedSector = useMemo(
         () => sectors.find((s) => s.id === selected),
@@ -268,8 +418,8 @@ export default function BlueprintViewer() {
     }, [relatedConnections]);
 
     const getSectorPos = useCallback((id) => {
-        return positions[id] ?? { x: 50, y: 50 };
-    }, [positions]);
+        return renderPositions[id] ?? { x: 50, y: 50 };
+    }, [renderPositions]);
 
     const svgViewBox = "15 8 70 72";
 
@@ -278,8 +428,8 @@ export default function BlueprintViewer() {
         const threshold = 26;
         for (let i = 0; i < sectors.length; i++) {
             for (let j = i + 1; j < sectors.length; j++) {
-                const a = positions[sectors[i].id] ?? sectors[i];
-                const b = positions[sectors[j].id] ?? sectors[j];
+                const a = renderPositions[sectors[i].id] ?? sectors[i];
+                const b = renderPositions[sectors[j].id] ?? sectors[j];
                 const dist = Math.hypot(a.x - b.x, a.y - b.y);
                 if (dist < threshold) {
                     lines.push({ x1: a.x, y1: a.y, x2: b.x, y2: b.y, dist });
@@ -287,7 +437,9 @@ export default function BlueprintViewer() {
             }
         }
         return lines;
-    }, [sectors, positions]);
+    }, [sectors, renderPositions]);
+
+    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
 
     return (
         <div
@@ -297,6 +449,15 @@ export default function BlueprintViewer() {
             <div className="blockchain-overlay">
                 <div className="blockchain-aurora" />
                 <BlockchainOverlay />
+            </div>
+
+            <div className="blueprint-hero">
+                <p className="blueprint-hero-title" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                    {tKey('blueprint.hero')}
+                </p>
+                <p className="blueprint-hero-sub" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                    {tKey('blueprint.heroSub')}
+                </p>
             </div>
 
             <div className="app-header">
@@ -319,6 +480,31 @@ export default function BlueprintViewer() {
                         <button className={`btn-base ${view === "list" ? "btn-active" : ""}`}
                                 onClick={() => setView("list")}>{tKey('blueprint.list')}</button>
                     </div>
+
+                    {isAdmin && view === 'map' && (
+                        editPositions ? (
+                            <div className="control-group" style={{ gap: 6 }}>
+                                <span style={{ ...monoFont, fontSize: 10, color: '#ffa726', letterSpacing: '0.08em', alignSelf: 'center' }}>
+                                    {tKey('blueprint.editMode')}
+                                </span>
+                                <button
+                                    className="btn-base btn-active"
+                                    onClick={handleSaveLayout}
+                                    disabled={saving}
+                                    style={{ background: 'rgba(255,167,38,0.12)', borderColor: '#ffa72660' }}
+                                >
+                                    {saving ? '...' : tKey('blueprint.saveLayout')}
+                                </button>
+                                <button className="btn-base" onClick={handleCancelEdit}>
+                                    {tKey('blueprint.cancelEdit')}
+                                </button>
+                            </div>
+                        ) : (
+                            <button className="btn-base" onClick={handleStartEdit} style={monoFont}>
+                                {tKey('blueprint.editLayout')}
+                            </button>
+                        )
+                    )}
                 </div>
             </div>
 
@@ -330,7 +516,10 @@ export default function BlueprintViewer() {
                             viewBox={svgViewBox}
                             className="arch-map-svg"
                             preserveAspectRatio="xMidYMid meet"
-                            onMouseDown={e => e.preventDefault()}
+                            onMouseDown={e => { if (!editPositions) e.preventDefault(); }}
+                            onMouseMove={handleSVGMouseMove}
+                            onMouseUp={handleSVGMouseUp}
+                            style={{ cursor: editPositions ? (dragging ? 'grabbing' : 'default') : undefined }}
                         >
                             <defs>
                                 <filter id="glow">
@@ -341,6 +530,8 @@ export default function BlueprintViewer() {
                                     </feMerge>
                                 </filter>
                             </defs>
+
+                            {editPositions && <AdminGrid />}
 
                             {meshLines.map((line, i) => (
                                 <line
@@ -375,7 +566,7 @@ export default function BlueprintViewer() {
 
                                 return (
                                     <g key={`conn-${i}`}
-                                       onMouseEnter={() => setHoveredConn(i)}
+                                       onMouseEnter={() => !editPositions && setHoveredConn(i)}
                                        onMouseLeave={() => setHoveredConn(null)}
                                        onMouseDown={e => e.preventDefault()}
                                        style={{ cursor: "default" }}>
@@ -409,7 +600,7 @@ export default function BlueprintViewer() {
                                                 {bit}
                                             </text>
                                         ))}
-                                        {(isHovered || isRelated) && (
+                                        {(isHovered || isRelated) && !editPositions && (
                                             <text
                                                 x={midX + offsetX * 0.6}
                                                 y={midY + offsetY * 0.6}
@@ -432,10 +623,32 @@ export default function BlueprintViewer() {
                                 const isRelated = relatedIds.has(sector.id);
                                 const dimmed = selected && !isRelated && !isSelected;
                                 const r = sector.tier === "core" ? 4 : sector.tier === "primary" ? 3.4 : 2.8;
-                                const pos = positions[sector.id] ?? sector;
+                                const pos = getSectorPos(sector.id);
+                                const isDraggingThis = dragging?.sectorId === sector.id;
 
                                 return (
-                                    <g key={sector.id} className="sector-node" onClick={() => handleNodeClick(sector.id, isSelected)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
+                                    <g
+                                        key={sector.id}
+                                        className="sector-node"
+                                        onClick={() => handleNodeClick(sector.id, isSelected)}
+                                        onMouseDown={editPositions ? (e) => handleNodeDragStart(e, sector.id) : e => e.preventDefault()}
+                                        opacity={dimmed ? 0.2 : 1}
+                                        style={{
+                                            outline: 'none',
+                                            cursor: editPositions ? (isDraggingThis ? 'grabbing' : 'grab') : 'pointer',
+                                        }}
+                                    >
+                                        {/* Drag target ring in edit mode */}
+                                        {editPositions && (
+                                            <circle
+                                                cx={pos.x} cy={pos.y} r={r + 2}
+                                                fill="none"
+                                                stroke="#ffa726"
+                                                strokeWidth="0.2"
+                                                opacity={isDraggingThis ? 0.9 : 0.35}
+                                                strokeDasharray="0.6 0.4"
+                                            />
+                                        )}
                                         <circle cx={pos.x} cy={pos.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
                                         <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={pos.x} cy={pos.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
                                         {sector.subIcon
@@ -453,7 +666,7 @@ export default function BlueprintViewer() {
                             })}
                         </svg>
 
-                        {panelVisible && selectedSector && (
+                        {panelVisible && selectedSector && !editPositions && (
                             <div
                                 key={selected}
                                 className="side-panel"
@@ -541,6 +754,17 @@ export default function BlueprintViewer() {
                         )}
                     </div>
 
+                    <div className="mobile-tab-bar">
+                        <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
+                            <span className="tab-icon">🗺️</span>
+                            {tKey('blueprint.map')}
+                        </button>
+                        <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
+                            <span className="tab-icon">⬡</span>
+                            {tKey('blueprint.list')}
+                        </button>
+                    </div>
+
                     <div className="shared-footer">
                         <div className={`shared-footer-title ${!isRTL ? "is-ltr" : ""}`}>
                             {tKey('blueprint.sharedLayers')}
@@ -605,16 +829,6 @@ export default function BlueprintViewer() {
                 </div>
             )}
 
-            <div className="mobile-tab-bar">
-                <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
-                    <span className="tab-icon">🗺️</span>
-                    {tKey('blueprint.map')}
-                </button>
-                <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
-                    <span className="tab-icon">⬡</span>
-                    {tKey('blueprint.list')}
-                </button>
-            </div>
         </div>
     );
 }

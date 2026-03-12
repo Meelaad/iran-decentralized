@@ -3,29 +3,81 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { BLUEPRINTS } from '../../data';
+import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './VotePage.css';
 
 const BLUEPRINT_COLORS = {
-    decentralized:  '#4fc3f7',
-    constMonarchy:  '#ffa726',
-    secularLiberal: '#66bb6a',
+    decentralized:       '#4fc3f7',
+    constMonarchy:       '#ffa726',
+    secularLiberal:      '#66bb6a',
+    federalDemocratic:   '#26c6da',
+    democraticSocialist: '#ef5350',
+    absoluteMonarchy:    '#ffd54f',
 };
+
+function calcAge(dateStr) {
+    const birth = new Date(dateStr);
+    const today = new Date();
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+    return age;
+}
 
 export default function VotePage() {
     const { t, tKey, isRTL } = useLang();
     const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
+    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
 
+    // Age gate: 'loading' | 'gate' | 'too-young' | 'ok'
+    const [ageStatus, setAgeStatus] = useState('loading');
+    const [birthDateInput, setBirthDateInput] = useState('');
+    const [ageError, setAgeError] = useState(null);
+    const [ageSubmitting, setAgeSubmitting] = useState(false);
+
+    // Vote data
     const [votes, setVotes] = useState({});
     const [total, setTotal] = useState(0);
-    const [loading, setLoading] = useState(true);
+    const [votesLoading, setVotesLoading] = useState(true);
     const [userVote, setUserVote] = useState(null);
     const [session, setSession] = useState(null);
 
     useEffect(() => {
+        // Always load public vote counts regardless of age gate
         loadVotes();
-        supabase.auth.getSession().then(({ data }) => {
-            setSession(data.session);
-            if (data.session) loadUserVote(data.session.user.id);
+
+        // Age gate check
+        if (sessionStorage.getItem('irdao_age_ok') === 'true') {
+            setAgeStatus('ok');
+            supabase.auth.getSession().then(({ data }) => {
+                setSession(data.session);
+                if (data.session) loadUserVote(data.session.user.id);
+            });
+            return;
+        }
+
+        supabase.auth.getSession().then(async ({ data }) => {
+            const sess = data.session;
+            setSession(sess);
+            if (sess) {
+                loadUserVote(sess.user.id);
+                // Check if birth_date already stored
+                const { data: prof } = await supabase
+                    .from('profiles')
+                    .select('birth_date')
+                    .eq('id', sess.user.id)
+                    .single();
+                if (prof?.birth_date) {
+                    if (calcAge(prof.birth_date) >= 18) {
+                        sessionStorage.setItem('irdao_age_ok', 'true');
+                        setAgeStatus('ok');
+                    } else {
+                        setAgeStatus('too-young');
+                    }
+                    return;
+                }
+            }
+            setAgeStatus('gate');
         });
     }, []);
 
@@ -41,7 +93,7 @@ export default function VotePage() {
             setVotes(map);
             setTotal(sum);
         }
-        setLoading(false);
+        setVotesLoading(false);
     }
 
     async function loadUserVote(userId) {
@@ -53,6 +105,101 @@ export default function VotePage() {
         if (data) setUserVote(data.preferred_blueprint);
     }
 
+    async function handleAgeSubmit(e) {
+        e.preventDefault();
+        const age = calcAge(birthDateInput);
+        if (isNaN(age) || age < 0) {
+            setAgeError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.');
+            return;
+        }
+        if (age < 18) {
+            setAgeStatus('too-young');
+            // Still save birth_date to DB if logged in
+            if (session) {
+                await supabase.from('profiles').update({ birth_date: birthDateInput }).eq('id', session.user.id);
+            }
+            return;
+        }
+        setAgeSubmitting(true);
+        sessionStorage.setItem('irdao_age_ok', 'true');
+        if (session) {
+            await supabase.from('profiles').update({ birth_date: birthDateInput }).eq('id', session.user.id);
+        }
+        setAgeStatus('ok');
+        setAgeSubmitting(false);
+    }
+
+
+    // ── Age gate ──────────────────────────────────────────────────────────────
+    if (ageStatus === 'loading') {
+        return (
+            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
+                <div className="vote-bg-grid" />
+                <div className="vote-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
+                    <span style={{ color: '#3a4a5e', fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 }}>...</span>
+                </div>
+            </div>
+        );
+    }
+
+    if (ageStatus === 'gate') {
+        return (
+            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
+                <div className="vote-bg-grid" />
+                <div className="vote-scanline" />
+                <div className="vote-inner">
+                    <div className="vote-age-gate">
+                        <div className="vote-age-kicker" style={monoFont}>{tKey('vote.ageGateKicker')}</div>
+                        <h1 className="vote-age-title" style={headingFont}>{tKey('vote.ageGateTitle')}</h1>
+                        <div className="vote-age-warning" style={monoFont}>
+                            {tKey('vote.ageGateWarning')}
+                        </div>
+                        <form className="vote-age-form" onSubmit={handleAgeSubmit}>
+                            <label className="vote-age-label" style={monoFont}>
+                                {tKey('vote.ageGateDateLabel')}
+                            </label>
+                            <BirthDatePicker
+                                onChange={dateStr => { setBirthDateInput(dateStr); setAgeError(null); }}
+                                isRTL={isRTL}
+                            />
+                            {ageError && (
+                                <div className="vote-age-error" style={monoFont}>{ageError}</div>
+                            )}
+                            <button
+                                className="vote-age-submit"
+                                type="submit"
+                                style={monoFont}
+                                disabled={ageSubmitting}
+                            >
+                                {tKey('vote.ageGateSubmit')}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    if (ageStatus === 'too-young') {
+        return (
+            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
+                <div className="vote-bg-grid" />
+                <div className="vote-scanline" />
+                <div className="vote-inner">
+                    <div className="vote-age-gate">
+                        <div className="vote-age-kicker" style={monoFont}>{tKey('vote.ageGateKicker')}</div>
+                        <h1 className="vote-age-title" style={headingFont}>{tKey('vote.ageTooYoungTitle')}</h1>
+                        <p className="vote-age-too-young-body">{tKey('vote.ageTooYoung')}</p>
+                        <Link to="/blueprint/decentralized" className="vote-age-explore-link" style={monoFont}>
+                            {isRTL ? 'کاوش طرح‌ها ←' : 'EXPLORE BLUEPRINTS →'}
+                        </Link>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
+    // ── Normal vote page (ageStatus === 'ok') ──────────────────────────────────
     return (
         <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
             <div className="vote-bg-grid" />
@@ -61,11 +208,11 @@ export default function VotePage() {
             <div className="vote-inner">
                 <div className="vote-header">
                     <div className="vote-kicker" style={monoFont}>{tKey('vote.kicker')}</div>
-                    <h1 className="vote-title" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                    <h1 className="vote-title" style={headingFont}>
                         {tKey('vote.title')}
                     </h1>
                     <div className="vote-total" style={monoFont}>
-                        {loading ? '...' : `${total} ${tKey('vote.totalVotes')}`}
+                        {votesLoading ? '...' : `${total} ${tKey('vote.totalVotes')}`}
                     </div>
                 </div>
 
@@ -83,7 +230,7 @@ export default function VotePage() {
                                 style={{ '--accent': color }}
                             >
                                 <div className="vote-card-top">
-                                    <div className="vote-card-name" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                                    <div className="vote-card-name" style={headingFont}>
                                         {t(bp.name)}
                                     </div>
                                     {isUserVote && (

@@ -21,7 +21,7 @@ export default async function handler(req, res) {
         return res.status(401).json({ error: 'Invalid or expired session.' });
     }
 
-    const { invite_code, full_name, country, user_type, metadata, preferred_blueprint } = req.body || {};
+    const { invite_code, full_name, country, user_type, metadata, preferred_blueprint, birth_year } = req.body || {};
 
     const normalizedCode = String(invite_code || '').trim().toUpperCase();
 
@@ -63,6 +63,11 @@ export default async function handler(req, res) {
 
     // Insert profile
     const VALID_BLUEPRINTS = ['decentralized', 'constMonarchy', 'secularLiberal'];
+    const currentYear = new Date().getFullYear();
+    const parsedBirthYear = parseInt(birth_year, 10);
+    const validBirthYear = !isNaN(parsedBirthYear) && parsedBirthYear >= 1900 && parsedBirthYear <= currentYear
+        ? parsedBirthYear : null;
+
     const { error: profileError } = await supabase
         .from('profiles')
         .insert({
@@ -72,6 +77,7 @@ export default async function handler(req, res) {
             user_type:           String(user_type || 'citizen').trim(),
             invited_by:          codeRow?.owner_id ?? null,
             preferred_blueprint: VALID_BLUEPRINTS.includes(preferred_blueprint) ? preferred_blueprint : 'decentralized',
+            birth_year:          validBirthYear,
         });
 
     if (profileError) {
