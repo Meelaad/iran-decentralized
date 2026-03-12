@@ -108,7 +108,7 @@ export default function VotePage() {
     async function handleAgeSubmit(e) {
         e.preventDefault();
         const age = calcAge(birthDateInput);
-        if (isNaN(age) || age < 0) {
+        if (isNaN(age) || age < 0 || age > 99) {
             setAgeError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.');
             return;
         }

@@ -9,7 +9,8 @@ const MONTHS = Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, '0
 
 const CURRENT_YEAR = new Date().getFullYear();
 const MAX_YEAR     = CURRENT_YEAR - 18;
-const YEARS        = Array.from({ length: MAX_YEAR - 1900 + 1 }, (_, i) => String(1900 + i));
+const MIN_YEAR     = CURRENT_YEAR - 99;
+const YEARS        = Array.from({ length: MAX_YEAR - MIN_YEAR + 1 }, (_, i) => String(MIN_YEAR + i));
 
 const DEFAULT_YEAR_STR   = String(Math.min(MAX_YEAR, CURRENT_YEAR - 28));
 const DEFAULT_YEAR_INDEX = Math.max(0, YEARS.indexOf(DEFAULT_YEAR_STR));
@@ -141,18 +142,26 @@ function SegmentedDateInput({ yearStr, monthStr, dayStr, onYear, onMonth, onDay 
     function distributeDigits(digits) {
         const d = digits.replace(/\D/g, '');
         if (d.length >= 8) {
-            onYear(d.slice(0, 4));
+            onYear(clampYear(d.slice(0, 4)));
             onMonth(clampMonth(d.slice(4, 6)));
             onDay(clampDay(d.slice(6, 8)));
             dayRef.current?.focus();
         } else if (d.length >= 6) {
-            onYear(d.slice(0, 4));
+            onYear(clampYear(d.slice(0, 4)));
             onMonth(clampMonth(d.slice(4, 6)));
             monthRef.current?.focus();
         } else if (d.length >= 4) {
-            onYear(d.slice(0, 4));
+            onYear(clampYear(d.slice(0, 4)));
             monthRef.current?.focus();
         }
+    }
+
+    function clampYear(s) {
+        const n = parseInt(s, 10);
+        if (isNaN(n)) return s;
+        if (n > MAX_YEAR) return String(MAX_YEAR);
+        if (n < MIN_YEAR) return String(MIN_YEAR);
+        return s;
     }
 
     function clampMonth(s) {
@@ -177,7 +186,8 @@ function SegmentedDateInput({ yearStr, monthStr, dayStr, onYear, onMonth, onDay 
     }
 
     function onYearChange(e) {
-        const val = e.target.value.replace(/\D/g, '').slice(0, 4);
+        let val = e.target.value.replace(/\D/g, '').slice(0, 4);
+        if (val.length === 4) val = clampYear(val);
         onYear(val);
         if (val.length === 4) monthRef.current?.focus();
     }
