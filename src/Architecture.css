@@ -244,6 +244,13 @@
     border-top: 1px solid rgba(79,195,247,0.1);
 }
 
+/* List-view variant sits at top, border on bottom */
+.mobile-tab-bar--list {
+    border-top: none;
+    border-bottom: 1px solid rgba(79,195,247,0.1);
+    margin-bottom: 8px;
+}
+
 .mobile-tab-bar .tab-btn {
     display: flex;
     align-items: center;
@@ -738,8 +745,13 @@ svg path, svg text, svg circle, svg g {
         display: none;
     }
 
-    /* Sticky bottom tab bar for mobile */
+    /* Sticky bottom tab bar for mobile (map view) */
     .mobile-tab-bar {
+        display: flex;
+    }
+
+    /* Top tab bar for list view */
+    .mobile-tab-bar--list {
         display: flex;
     }
 

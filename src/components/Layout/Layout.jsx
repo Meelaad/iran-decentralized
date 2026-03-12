@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { NavLink, Outlet, Link, useNavigate, useMatch } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-import { supabase } from '../../lib/supabase';
 import { BLUEPRINTS } from '../../data';
+import { useAuth } from '../../hooks/useAuth';
 import './Layout.css';
 
 export { useLang };
@@ -12,43 +12,13 @@ function NavContent() {
     const { lang, setLang, isRTL, t, tKey } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
     const [blueprintOpen, setBlueprintOpen] = useState(false);
-    const [session, setSession] = useState(null);
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [profileName, setProfileName] = useState('');
+    const { session, isAdmin, profileName, logout } = useAuth();
+
     const navRef = useRef(null);
     const blueprintRef = useRef(null);
     const navigate = useNavigate();
     const blueprintMatch = useMatch('/blueprint/:blueprintId');
     const activeBlueprintId = blueprintMatch?.params?.blueprintId || null;
-
-    useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
-            setSession(data.session);
-            if (data.session) checkAdmin(data.session.user.id);
-        });
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-            setSession(session);
-            if (session) checkAdmin(session.user.id);
-            else setIsAdmin(false);
-        });
-        return () => subscription.unsubscribe();
-    }, []);
-
-    async function checkAdmin(userId) {
-        const { data } = await supabase
-            .from('profiles')
-            .select('is_admin, full_name')
-            .eq('id', userId)
-            .single();
-        setIsAdmin(data?.is_admin === true);
-        if (data?.full_name) setProfileName(data.full_name.split(' ')[0]);
-    }
-
-    async function handleLogout() {
-        await supabase.auth.signOut();
-        setIsAdmin(false);
-        navigate('/');
-    }
 
     useEffect(() => {
         if (!mobileNavOpen) return;
@@ -76,6 +46,23 @@ function NavContent() {
         return () => document.removeEventListener('mousedown', handleOutsideClick);
     }, [blueprintOpen]);
 
+    const handleMobileLinkClick = () => setMobileNavOpen(false);
+
+    const handleMobileLogout = () => {
+        setMobileNavOpen(false);
+        logout();
+    };
+
+    const navLinks = [
+        { to: `/blueprint/${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.map' },
+        { to: `/blueprint/${activeBlueprintId || 'decentralized'}/sectors`, labelKey: 'nav.sectors' },
+        { to: "/layers", labelKey: 'nav.layers' },
+        { to: "/roadmap", labelKey: 'nav.roadmap' },
+        { to: "/compare", labelKey: 'nav.compare' },
+        { to: "/vote", labelKey: 'nav.vote' },
+        { to: "/about", labelKey: 'nav.about' },
+    ];
+
     return (
         <div
             dir={isRTL ? "rtl" : "ltr"}
@@ -91,27 +78,15 @@ function NavContent() {
                     </NavLink>
 
                     <div className="site-nav-links">
-                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.map')}
-                        </NavLink>
-                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}/sectors`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.sectors')}
-                        </NavLink>
-                        <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.layers')}
-                        </NavLink>
-                        <NavLink to="/roadmap" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.roadmap')}
-                        </NavLink>
-                        <NavLink to="/compare" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.compare')}
-                        </NavLink>
-                        <NavLink to="/vote" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.vote')}
-                        </NavLink>
-                        <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}>
-                            {tKey('nav.about')}
-                        </NavLink>
+                        {navLinks.map(link => (
+                            <NavLink
+                                key={link.to}
+                                to={link.to}
+                                className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}
+                            >
+                                {tKey(link.labelKey)}
+                            </NavLink>
+                        ))}
                     </div>
                 </div>
 
@@ -126,7 +101,7 @@ function NavContent() {
                             <Link to="/profile" className="site-nav-profile-btn">
                                 {profileName || tKey('nav.profile')}
                             </Link>
-                            <button className="site-nav-logout-btn" onClick={handleLogout}>
+                            <button className="site-nav-logout-btn" onClick={logout}>
                                 {tKey('nav.logout')}
                             </button>
                         </>
@@ -153,6 +128,11 @@ function NavContent() {
                             onClick={() => setLang("en")}
                         >EN</button>
                     </div>
+                    {session && (
+                        <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" }}>
+                            {profileName || tKey('nav.profile')}
+                        </Link>
+                    )}
                     <button
                         className="hamburger-nav-btn"
                         onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -164,7 +144,7 @@ function NavContent() {
                     </button>
                 </div>
 
-                {/* Subrow: blueprint selector + username chip — second row on mobile, inline on desktop */}
+
                 <div className="site-nav-subrow" ref={blueprintRef}>
                     <div className="site-nav-blueprint">
                         <button
@@ -172,11 +152,16 @@ function NavContent() {
                             onClick={() => setBlueprintOpen(o => !o)}
                             style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
                         >
-                            {activeBlueprintId ? t(BLUEPRINTS[activeBlueprintId]?.name) : tKey('nav.blueprints')}
+                            <span className="site-nav-blueprint-btn-text">
+                                {activeBlueprintId && BLUEPRINTS[activeBlueprintId]
+                                    ? t(BLUEPRINTS[activeBlueprintId].name)
+                                    : tKey('nav.blueprints')}
+                            </span>
                             <span className="site-nav-blueprint-caret">{blueprintOpen ? "▲" : "▼"}</span>
                         </button>
                         {blueprintOpen && (
                             <div className="site-nav-blueprint-dropdown">
+                                <div className="site-nav-blueprint-header">{tKey('nav.blueprints')}</div>
                                 {Object.values(BLUEPRINTS).map(bp => (
                                     <button
                                         key={bp.id}
@@ -190,59 +175,40 @@ function NavContent() {
                             </div>
                         )}
                     </div>
-                    {session && profileName && (
-                        <Link to="/profile" className="site-nav-subrow-user" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" }}>
-                            {profileName}
-                        </Link>
-                    )}
                 </div>
 
                 {mobileNavOpen && (
                     <div className="mobile-nav-dropdown">
-                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.map')}
-                        </NavLink>
-                        <NavLink to={`/blueprint/${activeBlueprintId || 'decentralized'}/sectors`} className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.sectors')}
-                        </NavLink>
-                        <NavLink to="/layers" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.layers')}
-                        </NavLink>
-                        <NavLink to="/roadmap" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.roadmap')}
-                        </NavLink>
-                        <NavLink to="/compare" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.compare')}
-                        </NavLink>
-                        <NavLink to="/vote" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.vote')}
-                        </NavLink>
-                        <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
-                            {tKey('nav.about')}
-                        </NavLink>
+                        {navLinks.map(link => (
+                            <NavLink
+                                key={link.to}
+                                to={link.to}
+                                className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}
+                                onClick={handleMobileLinkClick}
+                            >
+                                {tKey(link.labelKey)}
+                            </NavLink>
+                        ))}
                         {session ? (
                             <>
                                 {isAdmin && (
-                                    <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                    <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
                                         {tKey('nav.admin')}
                                     </NavLink>
                                 )}
-                                <NavLink to="/profile" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                <NavLink to="/profile" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
                                     {profileName || tKey('nav.profile')}
                                 </NavLink>
-                                <button
-                                    className="site-nav-link mobile-nav-logout"
-                                    onClick={() => { setMobileNavOpen(false); handleLogout(); }}
-                                >
+                                <button className="site-nav-link mobile-nav-logout" onClick={handleMobileLogout}>
                                     {tKey('nav.logout')}
                                 </button>
                             </>
                         ) : (
                             <>
-                                <NavLink to="/login" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                <NavLink to="/login" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
                                     {tKey('nav.login')}
                                 </NavLink>
-                                <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={() => setMobileNavOpen(false)}>
+                                <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
                                     {tKey('nav.register')}
                                 </NavLink>
                             </>

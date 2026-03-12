@@ -1,11 +1,9 @@
-/* Layout.css — site-wide navigation */
-
 .site-nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 0 24px;
-height: 60px;
     background: rgba(2,4,8,0.92);
     border-bottom: 1px solid rgba(79,195,247,0.06);
     position: relative;
@@ -84,6 +82,16 @@ height: 60px;
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.site-nav-username-mobile {
+    display: none;
+    font-size: 12px;
+    color: #cbdde8;
+    text-decoration: none;
+    padding: 6px 8px;
+    border: 1px solid rgba(98,114,138,0.12);
+    background: transparent;
 }
 
 .site-nav-login-btn {
@@ -238,13 +246,15 @@ height: 60px;
     background: rgba(79,195,247,0.1);
 }
 
-/* Subrow wrapper — transparent on desktop (display:contents), second row on mobile */
+/* Subrow wrapper — always its own second row */
 .site-nav-subrow {
-    display: contents; /* children become direct nav flex items on desktop */
+    display: flex;
+    width: 100%;
+    padding: 0 0 8px;
 }
 
 .site-nav-subrow-user {
-    display: none; /* hidden on desktop */
+    display: none !important; /* removed UX: username should not appear in subrow */
 }
 
 /* Blueprint selector */
@@ -266,9 +276,13 @@ height: 60px;
     cursor: pointer;
     transition: color 0.15s, border-color 0.15s;
     white-space: nowrap;
+}
+
+.site-nav-blueprint-btn-text {
     max-width: 160px;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .site-nav-blueprint-btn:hover,
@@ -287,13 +301,24 @@ height: 60px;
     position: absolute;
     top: calc(100% + 6px);
     left: 0;
-    min-width: 220px;
     background: rgba(4,8,16,0.97);
     border: 1px solid rgba(79,195,247,0.15);
     backdrop-filter: blur(16px);
     z-index: 200;
     display: flex;
     flex-direction: column;
+}
+
+.site-nav-blueprint-header {
+    padding: 7px 14px 5px;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #3a4a5e;
+    border-bottom: 1px solid rgba(79,195,247,0.1);
+    pointer-events: none;
+    user-select: none;
 }
 
 .site-nav-blueprint-option {
@@ -333,7 +358,7 @@ height: 60px;
 }
 
 .site-layout-content {
-    min-height: calc(100vh - 60px);
+    min-height: calc(100vh - 96px);
     position: relative;
 }
 
@@ -397,15 +422,7 @@ height: 60px;
 }
 
 /* ── Desktop overrides (must come after base rules) ── */
-@media (min-width: 701px) {
-    .site-nav {
-        height: 72px;
-    }
-
-    .site-layout-content {
-        min-height: calc(100vh - 72px);
-    }
-
+@media (min-width: 960px) {
     .site-nav-logo img {
         height: 68px;
     }
@@ -440,13 +457,19 @@ height: 60px;
         padding: 5px 13px;
         font-size: 12px;
     }
+
+    .hamburger-nav-btn {
+        display: none;
+    }
+
+    .site-nav-subrow {
+        padding: 4px 0 8px;
+    }
 }
 
-/* ── Mobile ── */
-@media (max-width: 700px) {
+/* ── Mobile / Tablet (hamburger kicks in) ── */
+@media (max-width: 959px) {
     .site-nav {
-        flex-wrap: wrap;
-        height: auto;
         padding: 8px 16px;
         gap: 0;
     }
@@ -474,7 +497,7 @@ height: 60px;
         display: none;
     }
 
-    /* Hide auth buttons on mobile — they live in the hamburger dropdown */
+    /* Hide auth buttons — they live in the hamburger dropdown */
     .site-nav-login-btn,
     .site-nav-register-btn,
     .site-nav-profile-btn,
@@ -487,35 +510,24 @@ height: 60px;
         display: block;
     }
 
-    /* Blueprint subrow — second row on mobile */
-    .site-nav-subrow {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        gap: 8px;
-        padding: 4px 12px 8px;
-        border-top: 1px solid rgba(79,195,247,0.07);
-    }
-
+    /* Blueprint subrow — button sized to its content */
     .site-nav-subrow .site-nav-blueprint {
-        flex-shrink: 0;
+        position: relative;
     }
 
-    .site-nav-subrow-user {
-        display: block;
-        font-size: 11px;
-        color: #667384;
-        letter-spacing: 0.06em;
-        text-decoration: none;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        flex: 1;
-        min-width: 0;
+    .site-nav-subrow .site-nav-blueprint-btn {
+        padding: 8px 14px;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        border-top: 1px solid rgba(79,195,247,0.1);
+        border-radius: 0;
     }
 
-    .site-nav-subrow-user:hover {
-        color: #cdd9e5;
+    .site-nav-subrow .site-nav-blueprint-dropdown {
+        left: 0;
+        width: max-content;
+        min-width: unset;
     }
 
     .mobile-nav-dropdown {
@@ -525,6 +537,12 @@ height: 60px;
         padding: 8px 0 4px;
         gap: 2px;
         animation: navSlideDown 0.2s ease;
+    }
+
+    /* Show username next to hamburger on small screens */
+    .site-nav-username-mobile {
+        display: block;
+        margin-right: 6px;
     }
 
     .mobile-nav-dropdown .site-nav-link {

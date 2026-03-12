@@ -784,6 +784,16 @@ export default function BlueprintViewer() {
                 </div>
             ) : (
                 <div className="list-view">
+                    <div className="mobile-tab-bar mobile-tab-bar--list">
+                        <button className={`tab-btn${view === "map" ? " tab-active" : ""}`} onClick={() => setView("map")}>
+                            <span className="tab-icon">🗺️</span>
+                            {tKey('blueprint.map')}
+                        </button>
+                        <button className={`tab-btn${view === "list" ? " tab-active" : ""}`} onClick={() => setView("list")}>
+                            <span className="tab-icon">⬡</span>
+                            {tKey('blueprint.list')}
+                        </button>
+                    </div>
                     <div className="hex-honeycomb" style={{
                         "--hex-w": `${hexW}px`,
                         gridTemplateColumns: `repeat(${hexCols}, var(--hex-w))`,
