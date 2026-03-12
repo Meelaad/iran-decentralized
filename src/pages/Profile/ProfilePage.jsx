@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
-import { supabase } from '../../lib/supabase';
+import { useAuth } from '../../hooks/useAuth';
+import { useProfile, useInviteCodes, useUpdateProfile, useCastVote, useGenerateCode } from '../../hooks/useProfile';
 import { BLUEPRINTS } from '../../data';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './ProfilePage.css';
@@ -43,90 +44,75 @@ export default function ProfilePage() {
 
     const memberCardRef = useRef(null);
 
-    const [session, setSession]   = useState(null);
-    const [profile, setProfile]   = useState(null);
-    const [codes,   setCodes]     = useState([]);
-    const [loading, setLoading]   = useState(true);
+    // ── Server state ───────────────────────────────────────────────────────────
+    const { session, authLoading } = useAuth();
+    const userId = session?.user?.id;
 
-    // ── Name editing ──────────────────────────────────────────────────────────
+    const { data: profile, isLoading: profileLoading } = useProfile(userId);
+    const { data: codes = [] } = useInviteCodes(userId);
+
+    // One mutation instance per field group so isPending is independent
+    const nameUpdateMutation     = useUpdateProfile(userId);
+    const birthUpdateMutation    = useUpdateProfile(userId);
+    const additionalInfoMutation = useUpdateProfile(userId);
+    const castVoteMutation       = useCastVote(userId);
+    const generateCodeMutation   = useGenerateCode(userId);
+
+    // ── UI state ──────────────────────────────────────────────────────────────
     const [nameEditing, setNameEditing] = useState(false);
     const [nameValue,   setNameValue]   = useState('');
-    const [nameSaving,  setNameSaving]  = useState(false);
     const [nameError,   setNameError]   = useState('');
 
-    // ── Birthday ──────────────────────────────────────────────────────────────
     const [birthPickerOpen, setBirthPickerOpen] = useState(false);
     const [birthDateDraft,  setBirthDateDraft]  = useState(null);
-    const [birthSaving,     setBirthSaving]     = useState(false);
     const [birthError,      setBirthError]      = useState('');
     const [birthSaved,      setBirthSaved]      = useState(false);
 
-    // ── Additional info ───────────────────────────────────────────────────────
     const [title,     setTitle]     = useState('');
     const [pronouns,  setPronouns]  = useState('');
     const [city,      setCity]      = useState('');
     const [bio,       setBio]       = useState('');
-    const [saving,    setSaving]    = useState(false);
     const [saved,     setSaved]     = useState(false);
     const [saveError, setSaveError] = useState('');
 
-    // ── Invite codes ──────────────────────────────────────────────────────────
-    const [copiedCode,     setCopiedCode]     = useState('');
-    const [generating,     setGenerating]     = useState(false);
-    const [generateError,  setGenerateError]  = useState('');
+    const [copiedCode,    setCopiedCode]    = useState('');
+    const [generateError, setGenerateError] = useState('');
 
-    // ── Vote ──────────────────────────────────────────────────────────────────
     const [preferredBlueprint, setPreferredBlueprint] = useState('');
-    const [voteSaving,  setVoteSaving]  = useState(false);
-    const [voteSaved,   setVoteSaved]   = useState(false);
-    const [voteError,   setVoteError]   = useState('');
+    const [voteSaved,  setVoteSaved]  = useState(false);
+    const [voteError,  setVoteError]  = useState('');
 
+    // Sync form fields from cached profile on initial load
+    /* eslint-disable react-hooks/set-state-in-effect */
     useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
-            if (!data.session) { setLoading(false); return; }
-            setSession(data.session);
-            loadProfile(data.session.user.id);
-        });
-    }, []);
-
-    async function loadProfile(userId) {
-        const [{ data: prof }, { data: inviteCodes }] = await Promise.all([
-            supabase.from('profiles').select('*').eq('id', userId).single(),
-            supabase.from('invite_codes').select('code, used_by, used_at').eq('owner_id', userId).order('created_at'),
-        ]);
-        if (prof) {
-            setProfile(prof);
-            setTitle(prof.title || '');
-            setPronouns(prof.pronouns || '');
-            setCity(prof.city || '');
-            setBio(prof.bio || '');
-            setPreferredBlueprint(prof.preferred_blueprint || '');
-        }
-        if (inviteCodes) setCodes(inviteCodes);
-        setLoading(false);
-    }
+        if (!profile) return;
+        setTitle(profile.title || '');
+        setPronouns(profile.pronouns || '');
+        setCity(profile.city || '');
+        setBio(profile.bio || '');
+        setPreferredBlueprint(profile.preferred_blueprint || '');
+    }, [profile]);
+    /* eslint-enable react-hooks/set-state-in-effect */
 
     // ── Handlers ──────────────────────────────────────────────────────────────
 
-    async function handleNameSave() {
+    function handleNameSave() {
         const trimmed = nameValue.trim();
         if (!trimmed) {
             setNameError(isRTL ? 'نام نمی‌تواند خالی باشد.' : 'Name cannot be empty.');
             return;
         }
-        setNameSaving(true);
         setNameError('');
-        const { error } = await supabase
-            .from('profiles')
-            .update({ full_name: trimmed, name_locked: true })
-            .eq('id', session.user.id);
-        setNameSaving(false);
-        if (error) { setNameError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'); return; }
-        setProfile(p => ({ ...p, full_name: trimmed, name_locked: true }));
-        setNameEditing(false);
+        nameUpdateMutation.mutate(
+            { full_name: trimmed, name_locked: true },
+            {
+                onSuccess: () => setNameEditing(false),
+                onError: () => setNameError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+            }
+        );
     }
 
-    async function handleBirthSave() {
+    function handleBirthSave() {
         if (!birthDateDraft) {
             setBirthError(isRTL ? 'لطفاً تاریخ را انتخاب کنید.' : 'Please select a date.');
             return;
@@ -136,64 +122,49 @@ export default function ProfilePage() {
             setBirthError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.');
             return;
         }
-        setBirthSaving(true);
         setBirthError('');
-        const { error } = await supabase
-            .from('profiles')
-            .update({ birth_date: birthDateDraft })
-            .eq('id', session.user.id);
-        setBirthSaving(false);
-        if (error) { setBirthError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'); return; }
-        setProfile(p => ({ ...p, birth_date: birthDateDraft }));
-        if (age >= 18) sessionStorage.setItem('irdao_age_ok', 'true');
-        setBirthPickerOpen(false);
-        setBirthSaved(true);
-        setTimeout(() => setBirthSaved(false), 3000);
-    }
-
-    async function handleSave(e) {
-        e.preventDefault();
-        setSaving(true); setSaveError(''); setSaved(false);
-        const { error } = await supabase
-            .from('profiles')
-            .update({ title: title || null, pronouns: pronouns || null, city: city.trim() || null, bio: bio.trim() || null })
-            .eq('id', session.user.id);
-        setSaving(false);
-        if (error) { setSaveError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'); return; }
-        setSaved(true);
-        setTimeout(() => setSaved(false), 2500);
-    }
-
-    async function handleVote(blueprintId) {
-        if (blueprintId === preferredBlueprint || voteSaving) return;
-        setVoteSaving(true); setVoteError(''); setVoteSaved(false);
-        try {
-            const { data: { session: s } } = await supabase.auth.getSession();
-            const res = await fetch('/api/cast-vote', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${s.access_token}`,
+        birthUpdateMutation.mutate(
+            { birth_date: birthDateDraft },
+            {
+                onSuccess: () => {
+                    if (age >= 18) sessionStorage.setItem('irdao_age_ok', 'true');
+                    setBirthPickerOpen(false);
+                    setBirthSaved(true);
+                    setTimeout(() => setBirthSaved(false), 3000);
                 },
-                body: JSON.stringify({ blueprintId }),
-            });
-            const json = await res.json();
-            if (!res.ok) {
-                const msg = json.error === 'age_unverified'
+                onError: () => setBirthError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+            }
+        );
+    }
+
+    function handleSave(e) {
+        e.preventDefault();
+        setSaveError(''); setSaved(false);
+        additionalInfoMutation.mutate(
+            { title: title || null, pronouns: pronouns || null, city: city.trim() || null, bio: bio.trim() || null },
+            {
+                onSuccess: () => { setSaved(true); setTimeout(() => setSaved(false), 2500); },
+                onError: () => setSaveError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+            }
+        );
+    }
+
+    function handleVote(blueprintId) {
+        if (blueprintId === preferredBlueprint || castVoteMutation.isPending) return;
+        setVoteError(''); setVoteSaved(false);
+        castVoteMutation.mutate(blueprintId, {
+            onSuccess: () => {
+                setPreferredBlueprint(blueprintId);
+                setVoteSaved(true);
+                setTimeout(() => setVoteSaved(false), 2500);
+            },
+            onError: (err) => {
+                const msg = err?.error === 'age_unverified'
                     ? (isRTL ? 'ابتدا سن خود را تأیید کنید.' : 'Please verify your age first.')
                     : (isRTL ? 'خطا در ثبت رأی.' : 'Failed to cast vote.');
                 setVoteError(msg);
-                return;
-            }
-            setPreferredBlueprint(blueprintId);
-            setProfile(p => ({ ...p, preferred_blueprint: blueprintId }));
-            setVoteSaved(true);
-            setTimeout(() => setVoteSaved(false), 2500);
-        } catch {
-            setVoteError(isRTL ? 'خطایی رخ داد.' : 'Something went wrong.');
-        } finally {
-            setVoteSaving(false);
-        }
+            },
+        });
     }
 
     function copyCode(code) {
@@ -202,27 +173,16 @@ export default function ProfilePage() {
         setTimeout(() => setCopiedCode(''), 1500);
     }
 
-    async function handleGenerate() {
-        setGenerating(true); setGenerateError('');
-        try {
-            const { data: { session: s } } = await supabase.auth.getSession();
-            const res = await fetch('/api/generate-code', {
-                method: 'POST',
-                headers: { Authorization: `Bearer ${s.access_token}` },
-            });
-            if (!res.ok) {
-                setGenerateError(isRTL ? 'ساخت کد ناموفق بود.' : 'Failed to generate code.');
-                return;
-            }
-            await loadProfile(session.user.id);
-        } catch {
-            setGenerateError(isRTL ? 'خطایی رخ داد.' : 'Something went wrong.');
-        } finally {
-            setGenerating(false);
-        }
+    function handleGenerate() {
+        setGenerateError('');
+        generateCodeMutation.mutate(undefined, {
+            onError: () => setGenerateError(isRTL ? 'ساخت کد ناموفق بود.' : 'Failed to generate code.'),
+        });
     }
 
     // ── Loading / no session ───────────────────────────────────────────────────
+    const loading = authLoading || (!!userId && profileLoading);
+
     if (loading) return (
         <div className="prof-page">
             <div className="prof-loading"><span className="prof-spinner" /></div>
@@ -300,8 +260,8 @@ export default function ProfilePage() {
                                         />
                                         {nameError && <div className="prof-inline-error" style={monoFont}>{nameError}</div>}
                                         <div className="prof-inline-btns">
-                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} disabled={nameSaving} style={monoFont}>
-                                                {nameSaving ? '...' : (isRTL ? 'تأیید' : 'CONFIRM')}
+                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} disabled={nameUpdateMutation.isPending} style={monoFont}>
+                                                {nameUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید' : 'CONFIRM')}
                                             </button>
                                             <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={monoFont}>
                                                 {isRTL ? 'انصراف' : 'CANCEL'}
@@ -364,8 +324,8 @@ export default function ProfilePage() {
                                                 />
                                                 {birthError && <div className="prof-inline-error" style={monoFont}>{birthError}</div>}
                                                 <div className="prof-inline-btns">
-                                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={birthSaving || !birthDateDraft} style={monoFont}>
-                                                        {birthSaving ? '...' : (isRTL ? 'تأیید تاریخ' : 'CONFIRM DATE')}
+                                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={birthUpdateMutation.isPending || !birthDateDraft} style={monoFont}>
+                                                        {birthUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید تاریخ' : 'CONFIRM DATE')}
                                                     </button>
                                                     <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={monoFont}>
                                                         {isRTL ? 'انصراف' : 'CANCEL'}
@@ -462,8 +422,8 @@ export default function ProfilePage() {
                                 <div className="prof-char-count" style={monoFont}>{bio.length}/280</div>
                             </div>
                             {saveError && <div className="prof-error" style={monoFont}>{saveError}</div>}
-                            <button type="submit" className="prof-save-btn" disabled={saving} style={monoFont}>
-                                {saving ? '...' : saved ? (isRTL ? 'ذخیره شد' : 'SAVED') : (isRTL ? 'ذخیره تغییرات' : 'SAVE CHANGES')}
+                            <button type="submit" className="prof-save-btn" disabled={additionalInfoMutation.isPending} style={monoFont}>
+                                {additionalInfoMutation.isPending ? '...' : saved ? (isRTL ? 'ذخیره شد' : 'SAVED') : (isRTL ? 'ذخیره تغییرات' : 'SAVE CHANGES')}
                             </button>
                         </form>
                     </div>
@@ -496,8 +456,8 @@ export default function ProfilePage() {
                             </div>
                             {profile?.invite_codes_remaining > 0 ? (
                                 <div className="prof-generate-row">
-                                    <button className="prof-generate-btn" onClick={handleGenerate} disabled={generating} style={monoFont}>
-                                        {generating ? '...' : (isRTL ? 'ساخت کد' : 'GENERATE CODE')}
+                                    <button className="prof-generate-btn" onClick={handleGenerate} disabled={generateCodeMutation.isPending} style={monoFont}>
+                                        {generateCodeMutation.isPending ? '...' : (isRTL ? 'ساخت کد' : 'GENERATE CODE')}
                                     </button>
                                     <span className="prof-remaining" style={monoFont}>
                                         {profile.invite_codes_remaining} {isRTL ? 'باقی‌مانده' : 'remaining'}
@@ -543,7 +503,7 @@ export default function ProfilePage() {
                                             key={bp.id}
                                             className={`prof-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`}
                                             onClick={() => handleVote(bp.id)}
-                                            disabled={voteSaving}
+                                            disabled={castVoteMutation.isPending}
                                             style={{ ...monoFont, '--btn-color': BLUEPRINT_COLORS[bp.id] || '#4fc3f7' }}
                                         >
                                             {t(bp.name)}

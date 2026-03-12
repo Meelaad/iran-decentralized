@@ -3,7 +3,8 @@ import { Link, useParams, Navigate } from "react-router-dom";
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, forceX, forceY } from 'd3-force';
 import { BLUEPRINTS } from './data';
 import { useLang } from './contexts/LangContext';
-import { supabase } from './lib/supabase';
+import { useAuth } from './hooks/useAuth';
+import { useBlueprint, useBlueprintLayout, useSaveBlueprintLayout } from './hooks/useBlueprints';
 import './Architecture.css';
 import BlockchainOverlay from "./BlockchainOverlay";
 
@@ -136,6 +137,7 @@ function useForceLayout(sectors, connections, enabled) {
 
     useEffect(() => {
         if (!enabled) {
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setPositions(Object.fromEntries(sectors.map(s => [s.id, { x: s.x, y: s.y }])));
             return;
         }
@@ -170,7 +172,6 @@ function useForceLayout(sectors, connections, enabled) {
             };
         }
         setPositions(result);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sectors, connections, enabled]);
 
     return positions;
@@ -204,62 +205,27 @@ export default function BlueprintViewer() {
     const [view, setView] = useState("map");
     const { cols: hexCols, hexW } = useHexLayout();
     const svgRef = useRef(null);
-    const [dbBlueprint, setDbBlueprint] = useState(null);
-    const [dbLoading, setDbLoading] = useState(false);
 
     // Admin layout editor state
-    const [isAdmin, setIsAdmin] = useState(false);
-    const [dbLayout, setDbLayout] = useState({});      // loaded from blueprint_layouts table
+    const { isAdmin } = useAuth();
     const [editPositions, setEditPositions] = useState(null); // non-null = edit mode active
     const [dragging, setDragging] = useState(null);    // { sectorId, offsetX, offsetY }
-    const [saving, setSaving] = useState(false);
 
     const activeBlueprintId = blueprintId || 'decentralized';
     const localBlueprint = BLUEPRINTS[activeBlueprintId];
 
-    // If not found locally, fetch from DB (user forks / new official blueprints)
-    useEffect(() => {
-        if (localBlueprint || !activeBlueprintId) return;
-        setDbLoading(true);
-        setDbBlueprint(null);
-        fetch(`/api/blueprints?id=${encodeURIComponent(activeBlueprintId)}`)
-            .then(r => r.ok ? r.json() : null)
-            .then(data => { setDbBlueprint(data); setDbLoading(false); })
-            .catch(() => setDbLoading(false));
-    }, [activeBlueprintId, localBlueprint]);
-
-    // Check admin status + load saved layout for this blueprint
-    useEffect(() => {
-        supabase.auth.getSession().then(async ({ data }) => {
-            const sess = data.session;
-            if (sess) {
-                const { data: prof } = await supabase
-                    .from('profiles')
-                    .select('is_admin')
-                    .eq('id', sess.user.id)
-                    .single();
-                if (prof?.is_admin) setIsAdmin(true);
-            }
-        });
-
-        supabase
-            .from('blueprint_layouts')
-            .select('positions')
-            .eq('blueprint_id', activeBlueprintId)
-            .single()
-            .then(({ data }) => {
-                if (data?.positions) setDbLayout(data.positions);
-            });
-    }, [activeBlueprintId]);
+    const { data: dbBlueprint, isLoading: dbLoading } = useBlueprint(activeBlueprintId, localBlueprint);
+    const { data: dbLayout = {} } = useBlueprintLayout(activeBlueprintId);
+    const { mutate: saveLayout, isPending: saving } = useSaveBlueprintLayout();
 
     const activeBlueprint = localBlueprint || dbBlueprint;
 
-    if (!localBlueprint && dbLoading) return <div className="blueprint-loading" />;
-    if (!activeBlueprint) return <Navigate to="/blueprint/decentralized" replace />;
+    // Stable references so useForceLayout's useEffect doesn't fire every render when blueprint is null
+    const sectors = useMemo(() => activeBlueprint?.sectors ?? [], [activeBlueprint]);
+    const connections = useMemo(() => activeBlueprint?.connections ?? [], [activeBlueprint]);
+    const sharedLayers = useMemo(() => activeBlueprint?.sharedLayers ?? [], [activeBlueprint]);
 
-    const { sectors, connections, sharedLayers } = activeBlueprint;
-
-    const positions = useForceLayout(sectors, connections, activeBlueprint.useForceLayout);
+    const positions = useForceLayout(sectors, connections, activeBlueprint?.useForceLayout);
 
     // The positions actually used for rendering: edit mode > DB override > computed
     const renderPositions = useMemo(() => {
@@ -326,22 +292,11 @@ export default function BlueprintViewer() {
         setDragging(null);
     }
 
-    async function handleSaveLayout() {
-        setSaving(true);
-        const { data: { session } } = await supabase.auth.getSession();
-        const res = await fetch('/api/admin/save-blueprint-layout', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${session.access_token}`,
-            },
-            body: JSON.stringify({ blueprintId: activeBlueprintId, positions: editPositions }),
-        });
-        setSaving(false);
-        if (res.ok) {
-            setDbLayout({ ...editPositions });
-            setEditPositions(null);
-        }
+    function handleSaveLayout() {
+        saveLayout(
+            { blueprintId: activeBlueprintId, positions: editPositions },
+            { onSuccess: () => setEditPositions(null) }
+        );
     }
     // --------------------------
 
@@ -440,6 +395,10 @@ export default function BlueprintViewer() {
     }, [sectors, renderPositions]);
 
     const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
+
+    // Early returns AFTER all hooks (Rules of Hooks compliance)
+    if (!localBlueprint && dbLoading) return <div className="blueprint-loading" />;
+    if (!activeBlueprint) return <Navigate to="/blueprint/decentralized" replace />;
 
     return (
         <div

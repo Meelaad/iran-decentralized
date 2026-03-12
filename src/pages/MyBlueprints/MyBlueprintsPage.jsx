@@ -1,7 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
-import { supabase } from '../../lib/supabase';
+import { useAuth } from '../../hooks/useAuth';
+import { useMyBlueprints, useForkBlueprint } from '../../hooks/useMyBlueprints';
+import { Spinner } from '../../components/ui';
 import { BLUEPRINTS } from '../../data';
 import './MyBlueprintsPage.css';
 
@@ -23,55 +25,27 @@ export default function MyBlueprintsPage() {
     const navigate = useNavigate();
     const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
 
-    const [session, setSession] = useState(null);
-    const [myForks, setMyForks] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [forking, setForking] = useState(null); // blueprintId being forked
+    const { session, authLoading } = useAuth();
+    const userId = session?.user?.id;
+
+    const { data: myForks = [], isLoading: forksLoading } = useMyBlueprints(userId);
+    const forkMutation = useForkBlueprint(userId);
+
     const [forkError, setForkError] = useState('');
 
-    useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
-            if (!data.session) { setLoading(false); return; }
-            setSession(data.session);
-            loadMyForks(data.session.access_token);
-        });
-    }, []);
-
-    async function loadMyForks(token) {
-        const res = await fetch('/api/blueprints', {
-            headers: { Authorization: `Bearer ${token}` },
-        });
-        if (res.ok) {
-            const all = await res.json();
-            setMyForks(all.filter(bp => !bp.isOfficial));
-        }
-        setLoading(false);
-    }
-
     async function handleFork(blueprintId) {
-        setForking(blueprintId);
         setForkError('');
-        const { data: { session: s } } = await supabase.auth.getSession();
-        const res = await fetch('/api/blueprint-fork', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${s.access_token}`,
-            },
-            body: JSON.stringify({ blueprintId }),
+        forkMutation.mutate(blueprintId, {
+            onSuccess: (json) => navigate(`/blueprint-editor/${json.forkId}`),
+            onError: (err) => setForkError(err?.error || 'Fork failed.'),
         });
-        const json = await res.json();
-        setForking(null);
-        if (!res.ok) {
-            setForkError(json.error || 'Fork failed.');
-            return;
-        }
-        navigate(`/blueprint-editor/${json.forkId}`);
     }
+
+    const loading = authLoading || (!!userId && forksLoading);
 
     if (loading) return (
         <div className="myblue-page">
-            <div className="myblue-loading"><span className="prof-spinner" /></div>
+            <div className="myblue-loading"><Spinner size="md" /></div>
         </div>
     );
 
@@ -162,10 +136,10 @@ export default function MyBlueprintsPage() {
                                 <button
                                     className="myblue-fork-btn"
                                     onClick={() => handleFork(bp.id)}
-                                    disabled={forking === bp.id || myForks.length >= 10}
+                                    disabled={forkMutation.isPending || myForks.length >= 10}
                                     style={monoFont}
                                 >
-                                    {forking === bp.id ? '...' : tKey('myBlueprints.fork')}
+                                    {forkMutation.isPending ? '...' : tKey('myBlueprints.fork')}
                                 </button>
                             </div>
                         ))}

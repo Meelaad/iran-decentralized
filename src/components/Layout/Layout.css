@@ -421,7 +421,7 @@
     display: none;
 }
 
-/* ── Desktop overrides (must come after base rules) ── */
+/*  Desktop overrides (must come after base rules)  */
 @media (min-width: 960px) {
     .site-nav-logo img {
         height: 68px;
@@ -467,7 +467,7 @@
     }
 }
 
-/* ── Mobile / Tablet (hamburger kicks in) ── */
+/*Mobile / Tablet (hamburger kicks in) */
 @media (max-width: 959px) {
     .site-nav {
         padding: 8px 16px;
@@ -497,7 +497,7 @@
         display: none;
     }
 
-    /* Hide auth buttons — they live in the hamburger dropdown */
+    /* Hide auth buttons, they live in the hamburger dropdown */
     .site-nav-login-btn,
     .site-nav-register-btn,
     .site-nav-profile-btn,

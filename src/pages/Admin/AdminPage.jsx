@@ -1,6 +1,11 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { supabase } from '../../lib/supabase';
+import React, { useState } from 'react';
 import { useLang } from '../../contexts/LangContext';
+import { useAuth } from '../../hooks/useAuth';
+import {
+    useAdminUsers, useAdminBlueprints,
+    useGenerateCodes, useDeleteCode, useSetInvites, useSeedBlueprints,
+} from '../../hooks/useAdmin';
+import { Spinner } from '../../components/ui';
 import { BLUEPRINTS } from '../../data';
 import './AdminPage.css';
 
@@ -235,110 +240,39 @@ export default function AdminPage() {
     const monoFont   = { fontFamily: "'IBM Plex Mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
 
-    const [status, setStatus]   = useState('loading'); // 'loading' | 'denied' | 'ok'
-    const [users, setUsers]     = useState([]);
-    const [myEmail, setMyEmail] = useState('');
-    const [token, setToken]     = useState('');
-    const [dbBlueprints, setDbBlueprints]         = useState([]);
-    const [blueprintSeeding, setBlueprintSeeding] = useState(false);
+    const { session, authLoading } = useAuth();
+    const myEmail = session?.user?.email || '';
+
+    const { data: users = [], isLoading: usersLoading, isError: usersError } = useAdminUsers();
+    const { data: dbBlueprints = [] } = useAdminBlueprints();
+
+    const generateCodesMutation = useGenerateCodes();
+    const deleteCodeMutation    = useDeleteCode();
+    const setInvitesMutation    = useSetInvites();
+    const seedMutation          = useSeedBlueprints();
+
     const [blueprintSeedMsg, setBlueprintSeedMsg] = useState('');
 
-    const fetchUsers = useCallback(async (bearerToken) => {
-        try {
-            const res = await fetch('/api/admin/users', {
-                headers: { Authorization: `Bearer ${bearerToken}` },
-            });
-            if (res.status === 401 || res.status === 403) {
-                setStatus('denied');
-                return;
-            }
-            if (!res.ok) {
-                setStatus('denied');
-                return;
-            }
-            const data = await res.json();
-            setUsers(data);
-            setStatus('ok');
-        } catch (error) {
-            console.error('Failed to fetch users:', error);
-            setStatus('denied');
-        }
-    }, []);
-
-    const fetchDbBlueprints = useCallback(async (bearerToken) => {
-        try {
-            const res = await fetch('/api/blueprints', {
-                headers: { Authorization: `Bearer ${bearerToken}` },
-            });
-            if (res.ok) setDbBlueprints(await res.json());
-        } catch (error) {
-            console.error('Failed to fetch blueprints:', error);
-        }
-    }, []);
-
-    async function handleSeedBlueprints() {
-        setBlueprintSeeding(true);
-        setBlueprintSeedMsg('');
-        const blueprints = Object.values(BLUEPRINTS);
-        const res = await fetch('/api/admin/seed-blueprints', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ blueprints }),
-        });
-        const json = await res.json();
-        setBlueprintSeeding(false);
-        setBlueprintSeedMsg(res.ok ? `✓ Seeded ${json.seeded} blueprints` : `Error: ${json.error}`);
-        if (res.ok) fetchDbBlueprints(token);
-    }
-
-    useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
-            const session = data.session;
-            if (!session) { setStatus('denied'); return; }
-            setMyEmail(session.user.email || '');
-            setToken(session.access_token);
-            fetchUsers(session.access_token);
-            fetchDbBlueprints(session.access_token);
-        });
-    }, [fetchUsers, fetchDbBlueprints]);
-
     async function handleGenerateCodes(userId, count) {
-        await fetch('/api/admin/generate-codes', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ user_id: userId, count }),
-        });
-        await fetchUsers(token);
+        await generateCodesMutation.mutateAsync({ userId, count });
     }
 
     async function handleDeleteCode(codeId) {
-        await fetch('/api/admin/delete-code', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ code_id: codeId }),
-        });
-        await fetchUsers(token);
+        await deleteCodeMutation.mutateAsync(codeId);
     }
 
     async function handleSetInvites(userId, remaining) {
-        await fetch('/api/admin/update-invites', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${token}`,
-            },
-            body: JSON.stringify({ user_id: userId, remaining }),
-        });
-        await fetchUsers(token);
+        await setInvitesMutation.mutateAsync({ userId, remaining });
+    }
+
+    async function handleSeedBlueprints() {
+        setBlueprintSeedMsg('');
+        try {
+            const json = await seedMutation.mutateAsync(Object.values(BLUEPRINTS));
+            setBlueprintSeedMsg(`✓ Seeded ${json.seeded} blueprints`);
+        } catch (err) {
+            setBlueprintSeedMsg(`Error: ${err.message}`);
+        }
     }
 
     // Derived stats
@@ -357,17 +291,17 @@ export default function AdminPage() {
 
     // ── Render states ──
 
-    if (status === 'loading') {
+    if (authLoading || usersLoading) {
         return (
             <div className="admin-page">
                 <div className="admin-loading">
-                    <div className="admin-spinner" />
+                    <Spinner size="lg" />
                 </div>
             </div>
         );
     }
 
-    if (status === 'denied') {
+    if (!session || usersError) {
         return (
             <div className="admin-page">
                 <div className="admin-inner">
@@ -464,10 +398,10 @@ export default function AdminPage() {
                     <button
                         className="admin-action-btn"
                         onClick={handleSeedBlueprints}
-                        disabled={blueprintSeeding}
+                        disabled={seedMutation.isPending}
                         style={monoFont}
                     >
-                        {blueprintSeeding ? '...' : '↑ Sync official blueprints from data.js'}
+                        {seedMutation.isPending ? '...' : '↑ Sync official blueprints from data.js'}
                     </button>
                     {blueprintSeedMsg && (
                         <span className="admin-seed-msg" style={monoFont}>{blueprintSeedMsg}</span>

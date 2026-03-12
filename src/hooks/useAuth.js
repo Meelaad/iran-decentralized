@@ -6,12 +6,15 @@ export function useAuth() {
     const [session, setSession] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [profileName, setProfileName] = useState('');
+    const [authLoading, setAuthLoading] = useState(true);
     const navigate = useNavigate();
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => {
             setSession(data.session);
+            // eslint-disable-next-line react-hooks/immutability
             if (data.session) checkAdmin(data.session.user.id);
+            setAuthLoading(false);
         });
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session);
@@ -41,5 +44,5 @@ export function useAuth() {
         navigate('/');
     }
 
-    return { session, isAdmin, profileName, logout: handleLogout };
+    return { session, isAdmin, profileName, authLoading, logout: handleLogout };
 }
