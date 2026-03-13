@@ -38,19 +38,19 @@ export const handlers = [
     }),
 
     // Cast vote API
-    http.post('/api/cast-vote', async ({ request }) => {
+    http.post('/api/crypto/vote', async ({ request }) => {
         const body = await request.json();
         if (!body.blueprintId) return HttpResponse.json({ error: 'Invalid blueprint ID.' }, { status: 400 });
         return HttpResponse.json({ ok: true });
     }),
 
     // Generate invite code API
-    http.post('/api/generate-code', () => {
+    http.post('/api/users/generate-code', () => {
         return HttpResponse.json({ ok: true });
     }),
 
     // Validate invite API
-    http.post('/api/validate-invite', async ({ request }) => {
+    http.post('/api/auth/validate-invite', async ({ request }) => {
         const body = await request.json();
         if (body.code === 'VALID123') return HttpResponse.json({ ok: true });
         return HttpResponse.json({ error: 'Invite code not found.' }, { status: 404 });

@@ -24,6 +24,7 @@ import './styles/global.css';
 import StartPage from './pages/Start/StartPage';
 import PreTransPage from './pages/PreTrans/PreTransPage';
 import StartSelection from './pages/Start/StartSelection';
+import TransitionalPage from './pages/Transitional/TransitionalPage';
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                     {/* Standalone pages without the main layout */}
                     <Route path="/" element={<StartPage />} />
                     <Route path="/pre" element={<PreTransPage />} />
+                    <Route path="/trans" element={<TransitionalPage />} />
                     <Route path="/choose" element={<StartSelection />} />
 
                     {/* Main application routes with Layout */}

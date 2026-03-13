@@ -70,6 +70,7 @@ function NavContent() {
         { to: "/compare", labelKey: 'nav.compare' },
         { to: "/vote", labelKey: 'nav.vote' },
         { to: "/about", labelKey: 'nav.about' },
+        { to: "/trans", labelKey: 'nav.transitional' },
     ];
 
     return (

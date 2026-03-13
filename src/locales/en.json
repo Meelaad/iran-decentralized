@@ -12,7 +12,8 @@
     "register": "REGISTER",
     "profile": "PROFILE",
     "logout": "LOGOUT",
-    "admin": "ADMIN"
+    "admin": "ADMIN",
+    "transitional": "BLUEPRINT"
   },
   "blueprint": {
     "map": "MAP",

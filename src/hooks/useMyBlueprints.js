@@ -32,7 +32,7 @@ export function useForkBlueprint(userId) {
     return useMutation({
         mutationFn: async (blueprintId) => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/blueprint-fork', {
+            const res = await fetch('/api/blueprints/fork', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

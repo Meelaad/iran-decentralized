@@ -12,7 +12,8 @@
     "register": "ثبت‌نام",
     "profile": "پروفایل",
     "logout": "خروج",
-    "admin": "پنل مدیریت"
+    "admin": "پنل مدیریت",
+    "transitional": "طرح"
   },
   "blueprint": {
     "map": "نقشه",

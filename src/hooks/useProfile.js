@@ -72,7 +72,7 @@ export function useCastVote(userId) {
     return useMutation({
         mutationFn: async (blueprintId) => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/cast-vote', {
+            const res = await fetch('/api/crypto/vote', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export function useGenerateCode(userId) {
     return useMutation({
         mutationFn: async () => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/generate-code', {
+            const res = await fetch('/api/users/generate-code', {
                 method: 'POST',
                 headers: { Authorization: `Bearer ${session.access_token}` },
             });

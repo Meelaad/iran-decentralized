@@ -1,15 +1,8 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect } from 'vitest';
 
-/**
- * API Integration Tests
- * 
- * These tests validate the server-side logic of critical endpoints.
- * They use MSW handlers defined in src/test/handlers.js
- */
-
-describe('API: /api/cast-vote', () => {
+describe('API: /api/crypto/vote', () => {
     it('accepts valid vote from eligible user', async () => {
-        const res = await fetch('/api/cast-vote', {
+        const res = await fetch('/api/crypto/vote', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ blueprintId: 'decentralized' }),
@@ -21,7 +14,7 @@ describe('API: /api/cast-vote', () => {
     });
 
     it('rejects vote with invalid blueprint ID', async () => {
-        const res = await fetch('/api/cast-vote', {
+        const res = await fetch('/api/crypto/vote', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ blueprintId: '' }),
@@ -33,9 +26,9 @@ describe('API: /api/cast-vote', () => {
     });
 });
 
-describe('API: /api/generate-code', () => {
+describe('API: /api/users/generate-code', () => {
     it('generates invite code for authenticated user', async () => {
-        const res = await fetch('/api/generate-code', {
+        const res = await fetch('/api/users/generate-code', {
             method: 'POST',
             headers: { Authorization: 'Bearer test-token' },
         });
@@ -46,9 +39,9 @@ describe('API: /api/generate-code', () => {
     });
 });
 
-describe('API: /api/validate-invite', () => {
+describe('API: /api/auth/validate-invite', () => {
     it('validates existing invite code', async () => {
-        const res = await fetch('/api/validate-invite', {
+        const res = await fetch('/api/auth/validate-invite', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code: 'VALID123' }),
@@ -60,7 +53,7 @@ describe('API: /api/validate-invite', () => {
     });
 
     it('rejects non-existent invite code', async () => {
-        const res = await fetch('/api/validate-invite', {
+        const res = await fetch('/api/auth/validate-invite', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ code: 'INVALID1' }),

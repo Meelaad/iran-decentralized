@@ -483,7 +483,7 @@ export default function RegisterPage() {
             // Validate invite code server-side before sending OTP
             let inviteRes;
             try {
-                inviteRes = await fetch('/api/validate-invite', {
+                inviteRes = await fetch('/api/auth/validate-invite', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ code: inviteCode.trim().toUpperCase() }),
@@ -582,7 +582,7 @@ export default function RegisterPage() {
         try {
             const { data: { session } } = await supabase.auth.getSession();
             const metadata = await collectMetadata();
-            await fetch('/api/register-complete', {
+            await fetch('/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
