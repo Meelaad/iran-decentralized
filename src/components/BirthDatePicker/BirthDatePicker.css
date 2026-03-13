@@ -43,7 +43,7 @@
 }
 
 .drum-col-label {
-    font-family: var(--drum-font, 'IBM Plex Mono', monospace);
+    font-family: var(--drum-font, 'intelone-mono', monospace);
     font-size: 9px;
     letter-spacing: 0.18em;
     color: rgba(79, 195, 247, 0.4);
@@ -100,7 +100,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--drum-font, 'IBM Plex Mono', monospace);
+    font-family: var(--drum-font, 'intelone-mono', monospace);
     font-size: 19px;
     font-weight: 400;
     color: #2a4a5e;
@@ -248,7 +248,7 @@
     border: none;
     border-bottom: 1px solid rgba(79, 195, 247, 0.22);
     outline: none;
-    font-family: var(--drum-font, 'IBM Plex Mono', monospace);
+    font-family: var(--drum-font, 'intelone-mono', monospace);
     font-size: 16px;
     font-weight: 500;
     color: #4fc3f7;
@@ -278,7 +278,7 @@
 
 /* Label beneath each segment */
 .drum-seg-label {
-    font-family: var(--drum-font, 'IBM Plex Mono', monospace);
+    font-family: var(--drum-font, 'intelone-mono', monospace);
     font-size: 8px;
     letter-spacing: 0.15em;
     color: rgba(79, 195, 247, 0.28);
@@ -289,7 +289,7 @@
 
 /* Separator dots */
 .drum-seg-sep {
-    font-family: var(--drum-font, 'IBM Plex Mono', monospace);
+    font-family: var(--drum-font, 'intelone-mono', monospace);
     font-size: 18px;
     color: rgba(79, 195, 247, 0.3);
     line-height: 1;

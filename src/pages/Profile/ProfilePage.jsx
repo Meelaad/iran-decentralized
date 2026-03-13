@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useProfile, useInviteCodes, useUpdateProfile, useCastVote, useGenerateCode } from '../../hooks/useProfile';
 import { BLUEPRINTS } from '../../data';
+import { calcAge } from '../../lib/utils';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './ProfilePage.css';
 
@@ -19,16 +20,6 @@ const BLUEPRINT_COLORS = {
     absoluteMonarchy:    '#ef9a9a',
 };
 
-function calcAge(dateStr) {
-    if (!dateStr) return null;
-    const birth = new Date(dateStr);
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const m = today.getMonth() - birth.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-    return age;
-}
-
 function formatDate(dateStr) {
     if (!dateStr) return '';
     return new Date(dateStr).toLocaleDateString('en-GB', {
@@ -39,7 +30,7 @@ function formatDate(dateStr) {
 export default function ProfilePage() {
     const { t, isRTL } = useLang();
     const navigate = useNavigate();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
 
     const memberCardRef = useRef(null);

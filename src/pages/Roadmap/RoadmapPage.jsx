@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
+import { BLUEPRINTS } from '../../data';
 import './RoadmapPage.css';
 
-const PHASES = [
+const DECENTRALIZED_PHASES = [
     {
         phase: { en: "Phase 1 — Foundation", fa: "فاز ۱ — بنیاد" },
-        status: "foundation",
         color: "#4fc3f7",
         items: [
             {
@@ -28,7 +29,6 @@ const PHASES = [
     },
     {
         phase: { en: "Phase 2 — Core Services", fa: "فاز ۲ — خدمات هسته‌ای" },
-        status: "core",
         color: "#66bb6a",
         items: [
             {
@@ -55,7 +55,6 @@ const PHASES = [
     },
     {
         phase: { en: "Phase 3 — Expansion", fa: "فاز ۳ — گسترش" },
-        status: "expansion",
         color: "#ffa726",
         items: [
             {
@@ -86,7 +85,6 @@ const PHASES = [
     },
     {
         phase: { en: "Phase 4 — Full Integration", fa: "فاز ۴ — یکپارچه‌سازی کامل" },
-        status: "integration",
         color: "#ab47bc",
         items: [
             {
@@ -117,8 +115,49 @@ const PHASES = [
     },
 ];
 
+const TIER_CONFIG = {
+    core: {
+        phase: { en: "Phase 1 — Foundational Layer", fa: "فاز ۱ — لایه بنیادین" },
+        color: "#4fc3f7",
+    },
+    primary: {
+        phase: { en: "Phase 2 — Core Services", fa: "فاز ۲ — خدمات هسته‌ای" },
+        color: "#66bb6a",
+    },
+    secondary: {
+        phase: { en: "Phase 3 — Expansion", fa: "فاز ۳ — گسترش" },
+        color: "#ffa726",
+    },
+    tertiary: {
+        phase: { en: "Phase 4 — Full Integration", fa: "فاز ۴ — یکپارچه‌سازی کامل" },
+        color: "#ab47bc",
+    },
+};
+
 export default function RoadmapPage() {
     const { t, isRTL } = useLang();
+    const { blueprintId } = useParams();
+    const blueprint = BLUEPRINTS[blueprintId] || BLUEPRINTS.decentralized;
+
+    const phases = React.useMemo(() => {
+        if (blueprint.id === 'decentralized') {
+            return DECENTRALIZED_PHASES;
+        }
+
+        const grouped = { core: [], primary: [], secondary: [], tertiary: [] };
+        for (const sector of blueprint.sectors) {
+            if (grouped[sector.tier]) {
+                grouped[sector.tier].push(sector);
+            }
+        }
+
+        return Object.entries(grouped)
+            .filter(([, sectors]) => sectors.length > 0)
+            .map(([tier, sectors]) => ({
+                ...TIER_CONFIG[tier],
+                items: sectors.map(s => s.label),
+            }));
+    }, [blueprint]);
 
     return (
         <div className="roadmap-page">
@@ -129,18 +168,18 @@ export default function RoadmapPage() {
                     className="roadmap-title"
                     style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
                 >
-                    {isRTL ? "نقشه راه پیاده‌سازی" : "Implementation Roadmap"}
+                    {t({ en: "Implementation Roadmap", fa: "نقشه راه پیاده‌سازی" })}
                 </h1>
                 <p className="roadmap-subtitle">
-                    {isRTL
-                        ? "مسیر گام‌به‌گام به سوی حاکمیت غیرمتمرکز کامل"
-                        : "A phased path toward full decentralized governance"
-                    }
+                    {t({
+                        en: `A phased path for the ${t(blueprint.name)} blueprint.`,
+                        fa: `مسیر گام‌به‌گام برای طرح ${t(blueprint.name)}.`
+                    })}
                 </p>
 
                 <div className="roadmap-timeline">
                     <div className="roadmap-timeline-line" />
-                    {PHASES.map((phase, i) => (
+                    {phases.map((phase, i) => (
                         <div
                             key={i}
                             className="roadmap-phase"

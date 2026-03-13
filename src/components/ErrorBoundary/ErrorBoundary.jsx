@@ -29,7 +29,7 @@ export default class ErrorBoundary extends React.Component {
                                 strokeWidth="1.5"
                             />
                             <text x="40" y="47" textAnchor="middle" fontSize="26" fontWeight="700"
-                                fill="#ff6b6b" fontFamily="IBM Plex Mono, monospace">!</text>
+                                fill="#ff6b6b" fontFamily="intelone-mono, monospace">!</text>
                         </svg>
                     </div>
                     <h1 className="eb-title">Something went wrong</h1>

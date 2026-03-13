@@ -82,7 +82,7 @@ function GlitchGrid() {
 
 export default function NotFoundPage() {
     const { isRTL } = useLang();
-    const monoFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
 
     return (
@@ -107,7 +107,7 @@ export default function NotFoundPage() {
                                 strokeWidth="1.5"
                             />
                             <text x="40" y="47" textAnchor="middle" fontSize="30" fontWeight="700"
-                                fill="#4fc3f7" fontFamily="IBM Plex Mono, monospace">0</text>
+                                fill="#4fc3f7" fontFamily="intelone-mono, monospace">0</text>
                         </svg>
                     </span>
                     <span className="nf-four">4</span>

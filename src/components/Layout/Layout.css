@@ -254,7 +254,7 @@
 }
 
 .site-nav-subrow-user {
-    display: none !important; /* removed UX: username should not appear in subrow */
+    display: none !important; /* kept hidden; mobile username is .site-nav-username-mobile next to hamburger */
 }
 
 /* Blueprint selector */
@@ -265,9 +265,9 @@
 .site-nav-blueprint-btn {
     display: flex;
     align-items: center;
-    gap: 5px;
-    padding: 4px 10px;
-    font-size: 10px;
+    gap: 8px;
+    padding: 6px 12px;
+    font-size: 11px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: #5a6a7e;
@@ -275,14 +275,11 @@
     border: 1px solid rgba(98,114,138,0.22);
     cursor: pointer;
     transition: color 0.15s, border-color 0.15s;
-    white-space: nowrap;
 }
 
 .site-nav-blueprint-btn-text {
-    max-width: 160px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: inline-block;
+    padding-right: 2px;
 }
 
 .site-nav-blueprint-btn:hover,
@@ -307,6 +304,10 @@
     z-index: 200;
     display: flex;
     flex-direction: column;
+    /* allow width to adapt to longest option but cap to viewport */
+    width: max-content;
+    max-width: min(92vw, 480px);
+    overflow: auto;
 }
 
 .site-nav-blueprint-header {
@@ -528,6 +529,7 @@
         left: 0;
         width: max-content;
         min-width: unset;
+        max-width: min(92vw, 480px);
     }
 
     .mobile-nav-dropdown {

@@ -23,7 +23,7 @@ function getAccentColor(bp) {
 export default function MyBlueprintsPage() {
     const { t, tKey, isRTL } = useLang();
     const navigate = useNavigate();
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
 
     const { session, authLoading } = useAuth();
     const userId = session?.user?.id;
@@ -104,7 +104,7 @@ export default function MyBlueprintsPage() {
                                             {tKey('myBlueprints.edit')}
                                         </Link>
                                         <Link
-                                            to={`/blueprint/${bp.id}`}
+                                            to={`/blueprint/gov/${bp.id}`}
                                             className="myblue-view-btn"
                                             style={monoFont}
                                         >

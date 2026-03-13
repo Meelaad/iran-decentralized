@@ -1,5 +1,10 @@
 /* AdminPage.css */
 
+.admin-page, .admin-page * {
+    user-select: text !important;
+    caret-color: #4fc3f7;
+}
+
 .admin-page {
     background-color: #020408;
     min-height: calc(100vh - 60px);
@@ -13,13 +18,13 @@
     padding: 48px 24px 80px;
 }
 
-/* ── Header ── */
+
 .admin-header {
     margin-bottom: 36px;
 }
 
 .admin-eyebrow {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 3px;
@@ -38,13 +43,13 @@
 }
 
 .admin-meta {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 11px;
     color: #3a4a5e;
     letter-spacing: 0.5px;
 }
 
-/* ── Stats bar ── */
+
 .admin-stats-bar {
     display: flex;
     gap: 16px;
@@ -61,7 +66,7 @@
 }
 
 .admin-stat-label {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -71,16 +76,16 @@
 }
 
 .admin-stat-value {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 28px;
     font-weight: 700;
     color: #4fc3f7;
     line-height: 1;
 }
 
-/* ── Section title ── */
+
 .admin-section-title {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -90,7 +95,7 @@
     margin-top: 36px;
 }
 
-/* ── Table wrapper ── */
+
 .admin-table-wrap {
     width: 100%;
     overflow-x: auto;
@@ -98,7 +103,7 @@
     margin-bottom: 48px;
 }
 
-/* ── Table ── */
+
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -108,7 +113,7 @@
 
 .admin-table th {
     background: rgba(8, 13, 22, 0.95);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -125,7 +130,7 @@
     color: #8a9bb0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     vertical-align: middle;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
 }
 
 .admin-table tr:hover > td {
@@ -148,16 +153,16 @@
 }
 
 .admin-td-mono {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 11px;
 }
 
-/* ── Expand row ── */
+
 .admin-expand-btn {
     background: none;
     border: 1px solid rgba(79, 195, 247, 0.15);
     color: #3a4a5e;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 10px;
     letter-spacing: 1px;
     padding: 4px 8px;
@@ -191,7 +196,7 @@
 }
 
 .admin-expand-key {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -200,7 +205,7 @@
 }
 
 .admin-expand-val {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 11px;
     color: #7a8fa8;
     word-break: break-all;
@@ -215,7 +220,7 @@
 
 /* ── Code chips ── */
 .admin-code-chip {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 2px;
@@ -300,7 +305,7 @@
     background: rgba(79, 195, 247, 0.05);
     border: 1px solid rgba(79, 195, 247, 0.2);
     color: #4fc3f7;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
@@ -332,7 +337,7 @@
     background: #080d14;
     border: 1px solid rgba(79, 195, 247, 0.2);
     color: #c8ccd4;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 12px;
     padding: 5px 8px;
     text-align: center;
@@ -349,7 +354,7 @@
 }
 
 .admin-tree-node {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 12px;
     color: #5a6a7e;
     padding: 3px 0;
@@ -376,14 +381,14 @@
 }
 
 .admin-denied-code {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 48px;
     font-weight: 700;
     color: rgba(79, 195, 247, 0.2);
 }
 
 .admin-denied-msg {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;

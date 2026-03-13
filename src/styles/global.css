@@ -1,10 +1,18 @@
 /* global.css — shared across all pages */
 
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Markazi+Text:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Markazi+Text:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap');
 
 @font-face {
     font-family: 'Irancell';
     src: url('/fonts/Irancell_Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'intelone-mono';
+    src: url('/fonts/intelone-mono.regular.otf') format('opentype');
     font-weight: 400;
     font-style: normal;
     font-display: swap;

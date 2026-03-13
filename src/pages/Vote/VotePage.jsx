@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
+import { calcAge } from '../../lib/utils';
 import { BLUEPRINTS } from '../../data';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './VotePage.css';
@@ -15,18 +16,9 @@ const BLUEPRINT_COLORS = {
     absoluteMonarchy:    '#ffd54f',
 };
 
-function calcAge(dateStr) {
-    const birth = new Date(dateStr);
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const m = today.getMonth() - birth.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-    return age;
-}
-
 export default function VotePage() {
     const { t, tKey, isRTL } = useLang();
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
 
     // Age gate: 'loading' | 'gate' | 'too-young' | 'ok'
@@ -136,7 +128,7 @@ export default function VotePage() {
             <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
                 <div className="vote-bg-grid" />
                 <div className="vote-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
-                    <span style={{ color: '#3a4a5e', fontFamily: "'IBM Plex Mono', monospace", fontSize: 12 }}>...</span>
+                    <span style={{ color: '#3a4a5e', fontFamily: "'intelone-mono', monospace", fontSize: 12 }}>...</span>
                 </div>
             </div>
         );
@@ -190,7 +182,7 @@ export default function VotePage() {
                         <div className="vote-age-kicker" style={monoFont}>{tKey('vote.ageGateKicker')}</div>
                         <h1 className="vote-age-title" style={headingFont}>{tKey('vote.ageTooYoungTitle')}</h1>
                         <p className="vote-age-too-young-body">{tKey('vote.ageTooYoung')}</p>
-                        <Link to="/blueprint/decentralized" className="vote-age-explore-link" style={monoFont}>
+                        <Link to="/blueprint/gov/decentralized" className="vote-age-explore-link" style={monoFont}>
                             {isRTL ? 'کاوش طرح‌ها ←' : 'EXPLORE BLUEPRINTS →'}
                         </Link>
                     </div>
@@ -253,7 +245,7 @@ export default function VotePage() {
                                 </div>
 
                                 <Link
-                                    to={`/blueprint/${bp.id}`}
+                                    to={`/blueprint/gov/${bp.id}`}
                                     className="vote-card-link"
                                     style={monoFont}
                                 >

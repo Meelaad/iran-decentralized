@@ -97,7 +97,7 @@ export default function EntryGate({ children }) {
                     <div className="gate-bg-grid" />
                     <div className="gate-scanline" />
 
-                    <div className="gate-inner" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" }}>
+                    <div className="gate-inner" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" }}>
                         <div className="gate-eyebrow">
                             {tKey('entryGate.initializing')}
                         </div>
@@ -107,7 +107,7 @@ export default function EntryGate({ children }) {
                             <h2 className="gate-title-fa">ایران دائو</h2>
                         </div>
 
-                        <p className="gate-tagline" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'IBM Plex Mono', monospace" }}>
+                        <p className="gate-tagline" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'intelone-mono', monospace" }}>
                             {tKey('entryGate.tagline')}
                         </p>
 
@@ -134,12 +134,12 @@ export default function EntryGate({ children }) {
                             <span className="gate-lang-sep">|</span>
                             <button
                                 className={`gate-lang-btn${lang === 'en' ? ' is-active' : ''}`}
-                                style={{ fontFamily: "'IBM Plex Mono', monospace" }}
+                                style={{ fontFamily: "'intelone-mono', monospace" }}
                                 onClick={() => setLang('en')}
                             >EN</button>
                         </div>
 
-                        <div className="gate-hint" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'IBM Plex Mono', monospace" }}>
+                        <div className="gate-hint" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'intelone-mono', monospace" }}>
                             {tKey('entryGate.hint')}
                         </div>
                     </div>

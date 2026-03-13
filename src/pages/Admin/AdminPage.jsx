@@ -222,7 +222,7 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
                                 )}
                             </>
                         ) : (
-                            <div style={{ color: '#3a4a5e', fontFamily: 'IBM Plex Mono, monospace', fontSize: 11, marginTop: 16 }}>
+                            <div style={{ color: '#3a4a5e', fontFamily: 'intelone-mono, monospace', fontSize: 11, marginTop: 16 }}>
                                 No metadata recorded.
                             </div>
                         )}
@@ -237,7 +237,7 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
 
 export default function AdminPage() {
     const { isRTL } = useLang();
-    const monoFont   = { fontFamily: "'IBM Plex Mono', monospace" };
+    const monoFont   = { fontFamily: "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
 
     const { session, authLoading } = useAuth();
@@ -383,7 +383,7 @@ export default function AdminPage() {
                 <div className="admin-section-title">Invite Tree</div>
                 <div className="admin-tree">
                     {treeRoots.length === 0 && (
-                        <div style={{ color: '#3a4a5e', fontFamily: 'IBM Plex Mono, monospace', fontSize: 12 }}>
+                        <div style={{ color: '#3a4a5e', fontFamily: 'intelone-mono, monospace', fontSize: 12 }}>
                             No users yet.
                         </div>
                     )}

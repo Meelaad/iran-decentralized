@@ -162,7 +162,7 @@ export default function SectorsIndex() {
     const { t, tKey, isRTL } = useLang();
     const { blueprintId } = useParams();
     const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
-    const sectorBase = blueprintId ? `/blueprint/${blueprintId}/sectors` : '/sectors';
+    const sectorBase = blueprintId ? `/blueprint/gov/${blueprintId}/sectors` : '/sectors';
 
     return (
         <div className="sectors-index">

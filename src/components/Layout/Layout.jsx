@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, Outlet, Link, useNavigate, useMatch } from "react-router-dom";
+import { NavLink, Outlet, Link, useNavigate, useLocation } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import { BLUEPRINTS } from '../../data';
@@ -17,8 +17,11 @@ function NavContent() {
     const navRef = useRef(null);
     const blueprintRef = useRef(null);
     const navigate = useNavigate();
-    const blueprintMatch = useMatch('/blueprint/:blueprintId');
-    const activeBlueprintId = blueprintMatch?.params?.blueprintId || null;
+    const location = useLocation();
+    
+    const match = location.pathname.match(/\/blueprint\/gov\/([^/]+)(\/.*)?/);
+    const activeBlueprintId = match ? match[1] : null;
+    const subPath = match && match[2] ? match[2] : '';
 
     useEffect(() => {
         if (!mobileNavOpen) return;
@@ -53,11 +56,17 @@ function NavContent() {
         logout();
     };
 
+    const handleBlueprintChange = (newBlueprintId) => {
+        const targetPath = subPath || '';
+        navigate(`/blueprint/gov/${newBlueprintId}${targetPath}`);
+        setBlueprintOpen(false);
+    };
+
     const navLinks = [
-        { to: `/blueprint/${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.map' },
-        { to: `/blueprint/${activeBlueprintId || 'decentralized'}/sectors`, labelKey: 'nav.sectors' },
-        { to: "/layers", labelKey: 'nav.layers' },
-        { to: "/roadmap", labelKey: 'nav.roadmap' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.map' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/sectors`, labelKey: 'nav.sectors' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/layers`, labelKey: 'nav.layers' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/roadmap`, labelKey: 'nav.roadmap' },
         { to: "/compare", labelKey: 'nav.compare' },
         { to: "/vote", labelKey: 'nav.vote' },
         { to: "/about", labelKey: 'nav.about' },
@@ -129,9 +138,11 @@ function NavContent() {
                         >EN</button>
                     </div>
                     {session && (
-                        <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" }}>
-                            {profileName || tKey('nav.profile')}
-                        </Link>
+                        <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
+                            <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" }}>
+                                {profileName || tKey('nav.profile')}
+                            </Link>
+                        </div>
                     )}
                     <button
                         className="hamburger-nav-btn"
@@ -167,7 +178,7 @@ function NavContent() {
                                         key={bp.id}
                                         className={`site-nav-blueprint-option${activeBlueprintId === bp.id ? " is-active" : ""}`}
                                         style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
-                                        onClick={() => { navigate(`/blueprint/${bp.id}`); setBlueprintOpen(false); }}
+                                        onClick={() => handleBlueprintChange(bp.id)}
                                     >
                                         {t(bp.name)}
                                     </button>

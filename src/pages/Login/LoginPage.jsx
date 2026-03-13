@@ -36,7 +36,7 @@ function getCooldown(resendCount) {
 export default function LoginPage() {
     const { t, isRTL } = useLang();
     const navigate = useNavigate();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
 
     const [step, setStep] = useState('form');

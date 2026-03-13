@@ -1,6 +1,7 @@
-import React from "react";
+import React from 'react';
+import { useParams } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
-import { SHARED_LAYERS, SECTORS } from "../../data";
+import { BLUEPRINTS, SECTORS } from '../../data';
 import './LayersPage.css';
 
 const LAYER_DETAILS = [
@@ -43,6 +44,9 @@ const LAYER_DETAILS = [
 
 export default function LayersPage() {
     const { t, isRTL } = useLang();
+    const { blueprintId } = useParams();
+    const blueprint = BLUEPRINTS[blueprintId] || BLUEPRINTS.decentralized;
+    const sharedLayers = blueprint.sharedLayers || [];
 
     return (
         <div className="layers-page">
@@ -53,19 +57,19 @@ export default function LayersPage() {
                     className="layers-title"
                     style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
                 >
-                    {isRTL ? "لایه‌های زیرساخت مشترک" : "Shared Infrastructure Layers"}
+                    {t({ en: "Shared Infrastructure Layers", fa: "لایه‌های زیرساخت مشترک" })}
                 </h1>
                 <p className="layers-subtitle">
-                    {isRTL
-                        ? "لایه‌های بنیادینی که تمام بخش‌های حاکمیت غیرمتمرکز را به هم پیوند می‌دهند"
-                        : "Foundational layers connecting all decentralized governance sectors"
-                    }
+                    {t({
+                        en: `Foundational principles of the ${t(blueprint.name)} blueprint.`,
+                        fa: `اصول بنیادین طرح ${t(blueprint.name)}.`
+                    })}
                 </p>
 
                 <div className="layers-stack">
-                    {SHARED_LAYERS.map((layer, i) => {
+                    {sharedLayers.map((layer, i) => {
                         const details = LAYER_DETAILS[i];
-                        const connectedSectors = details.sectors
+                        const connectedSectors = details?.sectors
                             .map(id => SECTORS.find(s => s.id === id))
                             .filter(Boolean);
 
@@ -88,33 +92,37 @@ export default function LayersPage() {
                                     </div>
                                     <p className="layer-card-desc">{t(layer.desc)}</p>
 
-                                    <div className="layer-card-features">
-                                        <div className="layer-features-label">
-                                            {isRTL ? "قابلیت‌های کلیدی" : "KEY CAPABILITIES"}
-                                        </div>
-                                        <ul className="layer-features-list">
-                                            {(isRTL ? details.features.fa : details.features.en).map((f, j) => (
-                                                <li key={j}>{f}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
+                                    {blueprint.id === 'decentralized' && details && (
+                                        <>
+                                            <div className="layer-card-features">
+                                                <div className="layer-features-label">
+                                                    {isRTL ? "قابلیت‌های کلیدی" : "KEY CAPABILITIES"}
+                                                </div>
+                                                <ul className="layer-features-list">
+                                                    {(isRTL ? details.features.fa : details.features.en).map((f, j) => (
+                                                        <li key={j}>{f}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
 
-                                    <div className="layer-card-sectors">
-                                        <div className="layer-sectors-label">
-                                            {isRTL ? "بخش‌های متصل" : "CONNECTED SECTORS"}
-                                        </div>
-                                        <div className="layer-sector-chips">
-                                            {connectedSectors.map(s => (
-                                                <span
-                                                    key={s.id}
-                                                    className="layer-sector-chip"
-                                                    style={{ borderColor: s.border, color: s.border }}
-                                                >
-                                                    {s.icon} {t(s.label)}
-                                                </span>
-                                            ))}
-                                        </div>
-                                    </div>
+                                            <div className="layer-card-sectors">
+                                                <div className="layer-sectors-label">
+                                                    {isRTL ? "بخش‌های متصل" : "CONNECTED SECTORS"}
+                                                </div>
+                                                <div className="layer-sector-chips">
+                                                    {connectedSectors.map(s => (
+                                                        <span
+                                                            key={s.id}
+                                                            className="layer-sector-chip"
+                                                            style={{ borderColor: s.border, color: s.border }}
+                                                        >
+                                                            {s.icon} {t(s.label)}
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </>
+                                    )}
                                 </div>
                             </div>
                         );

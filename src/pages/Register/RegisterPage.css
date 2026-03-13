@@ -454,7 +454,7 @@
 .reg-verify-email {
     font-size: 13px;
     color: #4fc3f7;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     letter-spacing: 0.5px;
 }
 
@@ -479,7 +479,7 @@
     font-size: 22px;
     font-weight: 700;
     text-align: center;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     caret-color: #4fc3f7;
     transition: border-color 0.15s, box-shadow 0.15s;
     padding: 0;
@@ -766,7 +766,7 @@
 
 /* Monospace input variant */
 .reg-input--mono {
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'intelone-mono', monospace;
     letter-spacing: 3px;
     text-transform: uppercase;
 }

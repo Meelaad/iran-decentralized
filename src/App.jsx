@@ -21,34 +21,52 @@ import VotePage from './pages/Vote/VotePage';
 import MyBlueprintsPage from './pages/MyBlueprints/MyBlueprintsPage';
 import BlueprintEditorPage from './pages/BlueprintEditor/BlueprintEditorPage';
 import './styles/global.css';
+import StartPage from './pages/Start/StartPage';
+import PreTransPage from './pages/PreTrans/PreTransPage';
+import StartSelection from './pages/Start/StartSelection';
 
 function App() {
     return (
         <LangProvider>
             <EntryGate>
                 <Routes>
-                    <Route element={<Layout />}>
-                        <Route index element={<Navigate to="/blueprint/decentralized" replace />} />
-                        <Route path="blueprint/:blueprintId" element={<BlueprintViewer />} />
-                        <Route path="blueprint/:blueprintId/sectors" element={<SectorsIndex />} />
-                        <Route path="blueprint/:blueprintId/sectors/:sectorId" element={<SectorPage />} />
-                        <Route path="sectors" element={<Navigate to="/blueprint/decentralized/sectors" replace />} />
-                        <Route path="sectors/:sectorId" element={<SectorPage />} />
-                        <Route path="layers" element={<LayersPage />} />
-                        <Route path="roadmap" element={<RoadmapPage />} />
+                    {/* Standalone pages without the main layout */}
+                    <Route path="/" element={<StartPage />} />
+                    <Route path="/pre" element={<PreTransPage />} />
+                    <Route path="/choose" element={<StartSelection />} />
+
+                    {/* Main application routes with Layout */}
+                    <Route path="/" element={<Layout />}>
+                        <Route path="blueprint/gov/:blueprintId" element={<BlueprintViewer />} />
+                        <Route path="blueprint/gov/:blueprintId/sectors" element={<SectorsIndex />} />
+                        <Route path="blueprint/gov/:blueprintId/sectors/:sectorId" element={<SectorPage />} />
+                        <Route path="blueprint/gov/:blueprintId/layers" element={<LayersPage />} />
+                        <Route path="blueprint/gov/:blueprintId/roadmap" element={<RoadmapPage />} />
+                        
+                        {/* Global pages that use the main layout */}
                         <Route path="compare" element={<ComparePage />} />
                         <Route path="vote" element={<VotePage />} />
+                        <Route path="about" element={<AboutPage />} />
+                        
+                        {/* Functional pages */}
                         <Route path="my-blueprints" element={<MyBlueprintsPage />} />
                         <Route path="blueprint-editor/:blueprintId" element={<BlueprintEditorPage />} />
-                        <Route path="about" element={<AboutPage />} />
                         <Route path="register" element={<RegisterPage />} />
                         <Route path="admin" element={<AdminPage />} />
                         <Route path="contact" element={<ContactPage />} />
                         <Route path="privacy" element={<PrivacyPage />} />
                         <Route path="profile" element={<ProfilePage />} />
                         <Route path="login" element={<LoginPage />} />
-                        <Route path="*" element={<NotFoundPage />} />
                     </Route>
+
+                    {/* Redirects for convenience and legacy paths */}
+                    <Route path="/blueprint" element={<Navigate to="/blueprint/gov/decentralized" replace />} />
+                    <Route path="/sectors" element={<Navigate to="/blueprint/gov/decentralized/sectors" replace />} />
+                    <Route path="/layers" element={<Navigate to="/blueprint/gov/decentralized/layers" replace />} />
+                    <Route path="/roadmap" element={<Navigate to="/blueprint/gov/decentralized/roadmap" replace />} />
+
+                    {/* Global fallback */}
+                    <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </EntryGate>
         </LangProvider>

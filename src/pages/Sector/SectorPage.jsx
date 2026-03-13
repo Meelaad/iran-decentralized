@@ -10,8 +10,8 @@ export default function SectorPage() {
 
     const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
     const activeConnections = (blueprintId && BLUEPRINTS[blueprintId]?.connections) || CONNECTIONS;
-    const mapLink = blueprintId ? `/blueprint/${blueprintId}` : '/blueprint/decentralized';
-    const sectorBase = blueprintId ? `/blueprint/${blueprintId}/sectors` : '/sectors';
+    const mapLink = blueprintId ? `/blueprint/gov/${blueprintId}` : '/blueprint/gov/decentralized';
+    const sectorBase = blueprintId ? `/blueprint/gov/${blueprintId}/sectors` : '/sectors';
 
     const sector = useMemo(() => activeSectors.find(s => s.id === sectorId), [sectorId, activeSectors]);
 

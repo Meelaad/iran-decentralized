@@ -12,7 +12,7 @@ export default function BlueprintEditorPage() {
     const { blueprintId } = useParams();
     const { t, tKey, isRTL } = useLang();
     const navigate = useNavigate();
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
 
     const [loading, setLoading] = useState(true);
     const [blueprint, setBlueprint] = useState(null);
@@ -160,7 +160,7 @@ export default function BlueprintEditorPage() {
                             )}
                         </div>
                         <div className="editor-actions">
-                            <Link to={`/blueprint/${blueprintId}`} className="editor-preview-btn" style={monoFont}>
+                            <Link to={`/blueprint/gov/${blueprintId}`} className="editor-preview-btn" style={monoFont}>
                                 {tKey('editor.preview')}
                             </Link>
                             <button

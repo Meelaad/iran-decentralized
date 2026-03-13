@@ -394,11 +394,11 @@ export default function BlueprintViewer() {
         return lines;
     }, [sectors, renderPositions]);
 
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
 
     // Early returns AFTER all hooks (Rules of Hooks compliance)
     if (!localBlueprint && dbLoading) return <div className="blueprint-loading" />;
-    if (!activeBlueprint) return <Navigate to="/blueprint/decentralized" replace />;
+    if (!activeBlueprint) return <Navigate to="/blueprint/gov/decentralized" replace />;
 
     return (
         <div
@@ -659,7 +659,7 @@ export default function BlueprintViewer() {
                                 <p className="side-panel-desc">{t(selectedSector.desc)}</p>
 
                                 <Link
-                                    to={`/blueprint/${activeBlueprintId}/sectors/${selectedSector.id}`}
+                                    to={`/blueprint/gov/${activeBlueprintId}/sectors/${selectedSector.id}`}
                                     style={{
                                         display: "inline-block",
                                         fontSize: 11,

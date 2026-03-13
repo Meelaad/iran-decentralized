@@ -51,7 +51,7 @@ const MSG_MAX = 2000;
 export default function ContactPage() {
     const { t, isRTL } = useLang();
     const [searchParams] = useSearchParams();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'IBM Plex Mono', monospace" };
+    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
     const labelStyle  = { ...monoFont, textAlign: isRTL ? 'right' : 'left' };
 
