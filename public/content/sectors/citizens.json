@@ -1,0 +1,44 @@
+{
+  "id": "citizens",
+  "label": {
+    "en": "Citizens & Diaspora",
+    "fa": "شهروندان و دیاسپورا"
+  },
+  "desc": {
+    "en": "Sovereign digital identity enabling voting, transfers and civic participation without central gatekeepers.",
+    "fa": "هویت دیجیتال مستقل که رأیگیری، انتقالات و مشارکت مدنی را بدون دروازهبانان مرکزی امکانپذیر میسازد."
+  },
+  "contents": [
+    {
+      "en": "Sovereign Digital Identity (Self-Custodied)",
+      "fa": "هویت دیجیتال مستقل (خودنگهداری)"
+    },
+    {
+      "en": "Universal Digital Wallet",
+      "fa": "کیف پول دیجیتال جهانی"
+    },
+    {
+      "en": "Borderless Voting Rights",
+      "fa": "حقوق رأیگیری بدون مرز"
+    },
+    {
+      "en": "Diaspora Participation Protocols",
+      "fa": "پروتکلهای مشارکت دیاسپورا"
+    }
+  ],
+  "relatedBlueprints": ["decentralized", "federalDemocratic"],
+  "keyFeatures": {
+    "en": [
+      "Zero-knowledge proof identity verification",
+      "Portable credentials across services",
+      "Privacy-preserving voting",
+      "Multi-signature family accounts"
+    ],
+    "fa": [
+      "تأیید هویت با اثبات دانش صفر",
+      "اعتبارنامههای قابل حمل در سرویسها",
+      "رأیگیری حفظ حریم خصوصی",
+      "حسابهای خانوادگی چندامضایی"
+    ]
+  }
+}

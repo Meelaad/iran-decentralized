@@ -1,0 +1,72 @@
+{
+  "id": "decentralized",
+  "name": {
+    "en": "Decentralized Digital Government",
+    "fa": "حکومت دیجیتال غیرمتمرکز"
+  },
+  "summary": {
+    "en": "A blueprint prioritizing sovereign digital identity, provincial DAOs, and transparent budget flows.",
+    "fa": "طرحی با اولویت هویت دیجیتال مستقل، داوهای استانی و جریان بودجه شفاف."
+  },
+  "description": {
+    "en": "The Decentralized Digital Government blueprint reimagines governance through distributed autonomous organizations (DAOs), blockchain-based transparency, and citizen sovereignty. Key principles include: self-sovereign identity for all citizens, provincial governance through DAOs with delegated voting, transparent budget allocation on public ledgers, and sector-specific smart contracts for accountability. This model reduces central authority while maintaining coordination through shared infrastructure layers.",
+    "fa": "طرح حکومت دیجیتال غیرمتمرکز، حاکمیت را از طریق سازمان‌های خودمختار توزیع‌شده، شفافیت مبتنی بر بلاکچین و حاکمیت شهروندی بازتعریف می‌کند."
+  },
+  "sectors": [
+    {
+      "id": "citizens",
+      "excerpt": {
+        "en": "Sovereign digital identity enabling borderless participation and self-custody of credentials.",
+        "fa": "هویت دیجیتال مستقل که مشارکت بدون مرز و نگهداری خودمختار اعتبارنامه‌ها را امکان‌پذیر می‌سازد."
+      }
+    },
+    {
+      "id": "governance",
+      "excerpt": {
+        "en": "Provincial Shoras as DAOs with delegated voting and transparent decision-making.",
+        "fa": "شوراهای استانی به عنوان داو با رأی‌گیری تفویضی و تصمیم‌گیری شفاف."
+      }
+    },
+    {
+      "id": "economy",
+      "excerpt": {
+        "en": "Digital currency with programmable fiscal policy and automated tax collection.",
+        "fa": "ارز دیجیتال با سیاست مالی قابل برنامه‌ریزی و جمع‌آوری خودکار مالیات."
+      }
+    }
+  ],
+  "roadmap": [
+    {
+      "phase": "0-6 months",
+      "title": "Foundation",
+      "items": [
+        "Identity pilot program (1000 users)",
+        "DAO registration standard",
+        "Budget transparency dashboard MVP"
+      ]
+    },
+    {
+      "phase": "6-18 months",
+      "title": "Provincial Pilots",
+      "items": [
+        "3 provincial DAO pilots",
+        "Smart contract templates for common governance tasks",
+        "Mobile wallet integration"
+      ]
+    },
+    {
+      "phase": "18-36 months",
+      "title": "National Scale",
+      "items": [
+        "All provinces on DAO infrastructure",
+        "Cross-provincial coordination protocols",
+        "Integration with legacy systems"
+      ]
+    }
+  ],
+  "metadata": {
+    "authors": ["IranDAO Community"],
+    "updated": "2025-01-XX",
+    "version": "1.0"
+  }
+}

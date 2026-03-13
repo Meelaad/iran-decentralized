@@ -1,0 +1,44 @@
+{
+  "id": "economy",
+  "label": {
+    "en": "Economy & Finance",
+    "fa": "اقتصاد و مالیه"
+  },
+  "desc": {
+    "en": "Digital currency with programmable fiscal policy, automated tax collection, and transparent budget allocation.",
+    "fa": "ارز دیجیتال با سیاست مالی قابل برنامهریزی، جمعآوری خودکار مالیات و تخصیص بودجه شفاف."
+  },
+  "contents": [
+    {
+      "en": "Central Bank Digital Currency (CBDC)",
+      "fa": "ارز دیجیتال بانک مرکزی"
+    },
+    {
+      "en": "Automated Tax Collection",
+      "fa": "جمعآوری خودکار مالیات"
+    },
+    {
+      "en": "Transparent Budget Ledger",
+      "fa": "دفتر کل بودجه شفاف"
+    },
+    {
+      "en": "Programmable Fiscal Policy",
+      "fa": "سیاست مالی قابل برنامهریزی"
+    }
+  ],
+  "relatedBlueprints": ["decentralized", "secularLiberal"],
+  "keyFeatures": {
+    "en": [
+      "Real-time budget tracking by citizens",
+      "Smart contract-based subsidies",
+      "Automated progressive taxation",
+      "Cross-border remittance without intermediaries"
+    ],
+    "fa": [
+      "ردیابی بودجه بلادرنگ توسط شهروندان",
+      "یارانههای مبتنی بر قرارداد هوشمند",
+      "مالیات پیشرونده خودکار",
+      "حواله ارزی بدون واسطه"
+    ]
+  }
+}

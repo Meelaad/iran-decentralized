@@ -9,7 +9,10 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "generate:manifest": "node scripts/generate-manifest.js",
+    "validate:manifest": "node scripts/validate-manifest.js",
+    "ci:manifest-check": "node scripts/generate-manifest.js --check"
   },
   "dependencies": {
     "@posthog/react": "^1.8.2",
@@ -40,5 +43,6 @@
     "supabase": "^2.77.0",
     "vite": "^7.3.1",
     "vitest": "^4.0.18"
-  }
+  },
+
 }

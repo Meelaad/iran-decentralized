@@ -1,0 +1,44 @@
+{
+  "id": "governance",
+  "label": {
+    "en": "Governance & Legislation",
+    "fa": "حاکمیت و قانونگذاری"
+  },
+  "desc": {
+    "en": "Decentralized decision-making through provincial DAOs, delegated voting, and transparent legislative processes.",
+    "fa": "تصمیمگیری غیرمتمرکز از طریق داوهای استانی، رأیگیری تفویضی و فرآیندهای قانونگذاری شفاف."
+  },
+  "contents": [
+    {
+      "en": "Provincial Shoras as DAOs",
+      "fa": "شوراهای استانی به عنوان داو"
+    },
+    {
+      "en": "Delegated Voting Mechanisms",
+      "fa": "مکانیزمهای رأیگیری تفویضی"
+    },
+    {
+      "en": "Smart Contract Legislation",
+      "fa": "قانونگذاری قرارداد هوشمند"
+    },
+    {
+      "en": "Transparent Decision Records",
+      "fa": "سوابق تصمیمگیری شفاف"
+    }
+  ],
+  "relatedBlueprints": ["decentralized", "democraticSocialist"],
+  "keyFeatures": {
+    "en": [
+      "On-chain voting with cryptographic verification",
+      "Quadratic voting for fair representation",
+      "Proposal submission by any citizen",
+      "Automatic execution of approved policies"
+    ],
+    "fa": [
+      "رأیگیری زنجیرهای با تأیید رمزنگاری",
+      "رأیگیری درجه دوم برای نمایندگی عادلانه",
+      "ارسال پیشنهاد توسط هر شهروند",
+      "اجرای خودکار سیاستهای تأییدشده"
+    ]
+  }
+}
