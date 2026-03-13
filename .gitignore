@@ -30,3 +30,7 @@ dist-ssr
 
 .vercel
 .env*.local
+
+# Generated manifest inspection copies (canonical is site-manifest.json)
+site-manifest.generated.json
+site-manifest.temp.json

@@ -1,19 +1,30 @@
 // scripts/generate-manifest.js
-// ESM (project package.json type: "module")
-// Usage:
-//   node scripts/generate-manifest.js         -> writes site-manifest.json
-//   node scripts/generate-manifest.js --check -> compares generated vs committed and exits non-zero on difference
+// ESM — matches package.json "type": "module"
+//
+//   node scripts/generate-manifest.js           → writes site-manifest.generated.json only (safe; never touches canonical)
+//   node scripts/generate-manifest.js --update  → also overwrites site-manifest.json (canonical)
+//   node scripts/generate-manifest.js --check   → structural comparison vs canonical; exit 2 on mismatch
+//
+// Structural check compares: blueprintIds, sectorIds, and per-route (path, redirectTo, dynamicParams, requiresAuth).
+// Descriptive fields (id, summary, pageLayout, keyComponents, etc.) are canonical-only and ignored by --check.
+// To merge generator mechanical fields into canonical without losing descriptive metadata, run merge-manifest.js.
 
 import fs from 'fs/promises';
 import path from 'path';
+import { pathToFileURL } from 'url';
 
-const root = process.cwd();
-const appPath = path.join(root, 'src', 'App.jsx');
-const dataPath = path.join(root, 'src', 'data.js');
-const outPath = path.join(root, 'site-manifest.generated.json'); // temp output
+const root          = process.cwd();
+const appPath       = path.join(root, 'src', 'App.jsx');
+const dataPath      = path.join(root, 'src', 'data.js');
+const generatedPath = path.join(root, 'site-manifest.generated.json');
 const committedPath = path.join(root, 'site-manifest.json');
 
-function uniq(arr) { return Array.from(new Set(arr)); }
+// ── Helpers ───────────────────────────────────────────────────────────────────
+
+async function readFileSafe(p) {
+    try { return await fs.readFile(p, 'utf8'); } catch { return null; }
+}
+
 function detectParams(pathStr) {
     const re = /:([A-Za-z0-9_]+)/g;
     const out = [];
@@ -22,143 +33,210 @@ function detectParams(pathStr) {
     return out;
 }
 
-async function readFileSafe(p) {
-    try {
-        return await fs.readFile(p, 'utf8');
-    } catch (e) {
-        return null;
-    }
+// Normalize route paths: ensure leading slash, except wildcard "*"
+function normalizePath(p) {
+    if (!p || p === '*') return p;
+    return p.startsWith('/') ? p : '/' + p;
 }
 
-function extractRoutesFromApp(appSource) {
-    // Very simple JSX regex-based extractor:
-    // Finds <Route path="/..." element={<Comp .../>} ... />
-    const routes = [];
-    const routeRe = /<Route\s+[^>]*path\s*=\s*["']([^"']+)["'][^>]*element\s*=\s*\{\s*<([A-Za-z0-9_]+)[^>]*\/?>/g;
-    let m;
-    while ((m = routeRe.exec(appSource))) {
-        const pathStr = m[1];
-        const comp = m[2];
-        routes.push({ path: pathStr, componentName: comp, dynamicParams: detectParams(pathStr) });
-    }
+// ── Import map ────────────────────────────────────────────────────────────────
+// Maps component names → import specifiers (e.g. BlueprintViewer → './BlueprintViewer')
 
-    // Capture simple redirects like: <Route path="/blueprint" element={<Navigate to="/blueprint/gov/decentralized" replace />} />
-    const navRe = /<Route\s+[^>]*path\s*=\s*["']([^"']+)["'][^>]*element\s*=\s*\{\s*<Navigate[^>]*to\s*=\s*["']([^"']+)["'][^>]*\/?>/g;
-    while ((m = navRe.exec(appSource))) {
-        const pathStr = m[1];
-        const to = m[2];
-        routes.push({ path: pathStr, componentName: 'Navigate', redirectTo: to, dynamicParams: detectParams(pathStr) });
-    }
-
-    return uniq(routes.map(r => JSON.stringify(r))).map(s => JSON.parse(s));
-}
-
-function extractImportMap(appSource) {
-    // Map component names to file import specifiers (best-effort)
+function extractImportMap(src) {
     const map = {};
-    const importRe = /import\s+([A-Za-z0-9_{},\s*]+)\s+from\s+['"](.+?)['"]/g;
+    const re = /import\s+([A-Za-z0-9_{},\s*]+)\s+from\s+['"](.+?)['"]/g;
     let m;
-    while ((m = importRe.exec(appSource))) {
+    while ((m = re.exec(src))) {
         const names = m[1].trim();
-        const spec = m[2];
-        // names could be: Component, {X as Y, Z}, * as alias
-        // We only map simple default imports and single-names
-        const simpleNameMatch = names.match(/^([A-Za-z0-9_]+)$/);
-        if (simpleNameMatch) {
-            map[simpleNameMatch[1]] = spec;
-        } else {
-            // try to capture named imports { A, B }
-            const named = names.match(/\{([^}]+)\}/);
-            if (named) {
-                const parts = named[1].split(',').map(p => p.trim().split(/\s+as\s+/)[0].trim());
-                for (const p of parts) map[p] = spec;
+        const spec  = m[2];
+        const simple = names.match(/^([A-Za-z0-9_]+)$/);
+        if (simple) { map[simple[1]] = spec; continue; }
+        const named = names.match(/\{([^}]+)\}/);
+        if (named) {
+            for (const part of named[1].split(',')) {
+                const name = part.trim().split(/\s+as\s+/)[0].trim();
+                if (name) map[name] = spec;
             }
         }
     }
     return map;
 }
 
-function extractBlueprintIdsFromData(dataSource) {
-    // Naive regex to find "export const BLUEPRINTS = { <keys> }"
-    if (!dataSource) return [];
-    const start = dataSource.indexOf('export const BLUEPRINTS');
-    if (start === -1) return [];
-    const after = dataSource.slice(start);
-    const braceIndex = after.indexOf('{');
-    if (braceIndex === -1) return [];
-    let depth = 0;
-    let endIndex = -1;
-    for (let i = braceIndex; i < after.length; i++) {
-        if (after[i] === '{') depth++;
-        if (after[i] === '}') {
-            depth--;
-            if (depth === 0) { endIndex = i; break; }
-        }
+// ── Route extraction ──────────────────────────────────────────────────────────
+// Two passes:
+//   1. Navigate redirects (navRe) — captures redirectTo destination
+//   2. Regular component routes (routeRe) — skips Navigate to avoid duplicates
+
+function extractRoutes(src) {
+    const routes = [];
+    let m;
+
+    // Pass 1: <Navigate to="..." /> redirects
+    const navRe = /<Route\s[^>]*path\s*=\s*["']([^"']+)["'][^>]*element\s*=\s*\{\s*<Navigate[^>]*to\s*=\s*["']([^"']+)["'][^>]*\/>/g;
+    while ((m = navRe.exec(src))) {
+        routes.push({
+            path:          normalizePath(m[1]),
+            componentName: 'Navigate',
+            redirectTo:    m[2],
+            dynamicParams: detectParams(m[1]),
+        });
     }
-    if (endIndex === -1) return [];
-    const body = after.slice(braceIndex + 1, endIndex);
-    const keys = Array.from(body.matchAll(/([A-Za-z0-9_]+)\s*:/g)).map(m => m[1]);
-    return uniq(keys);
+
+    // Pass 2: regular component routes — skip Navigate (already captured) to prevent doubles
+    const routeRe = /<Route\s[^>]*path\s*=\s*["']([^"']+)["'][^>]*element\s*=\s*\{\s*<([A-Za-z0-9_]+)[^>]*\/>/g;
+    while ((m = routeRe.exec(src))) {
+        if (m[2] === 'Navigate') continue;
+        routes.push({
+            path:          normalizePath(m[1]),
+            componentName: m[2],
+            redirectTo:    null,
+            dynamicParams: detectParams(m[1]),
+        });
+    }
+
+    // Deduplicate by exact JSON equality
+    const seen = new Set();
+    return routes.filter(r => {
+        const key = JSON.stringify(r);
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+    });
 }
 
-async function main() {
-    const appSrc = await readFileSafe(appPath);
-    const dataSrc = await readFileSafe(dataPath);
+// ── Route metadata ────────────────────────────────────────────────────────────
+// suggestedContentFiles use content/ prefix to match canonical format
 
-    const routes = appSrc ? extractRoutesFromApp(appSrc) : [];
-    const importMap = appSrc ? extractImportMap(appSrc) : {};
-    const blueprintIds = extractBlueprintIdsFromData(dataSrc);
+const CONTENT_FILE_RULES = [
+    {
+        test:  p => p === '/blueprint/gov/:blueprintId',
+        files: ['content/blueprints/{blueprintId}.json'],
+    },
+    {
+        test:  p => p === '/blueprint/gov/:blueprintId/sectors/:sectorId',
+        files: ['content/sectors/{sectorId}.json'],
+    },
+    {
+        test:  p => p === '/about',
+        files: ['content/pages/about.en.md', 'content/pages/about.fa.md'],
+    },
+];
+
+const AUTH_REQUIRED = new Set([
+    '/profile',
+    '/admin',
+    '/my-blueprints',
+    '/blueprint-editor/:blueprintId',
+]);
+
+function routeMeta(normalizedPath) {
+    const meta = {};
+    const cf = CONTENT_FILE_RULES.find(r => r.test(normalizedPath));
+    if (cf) meta.suggestedContentFiles = cf.files;
+    if (AUTH_REQUIRED.has(normalizedPath)) meta.requiresAuth = true;
+    return meta;
+}
+
+// ── Data extraction ───────────────────────────────────────────────────────────
+
+async function getDataExports() {
+    try {
+        const mod = await import(pathToFileURL(dataPath).href);
+        const blueprintIds = mod.BLUEPRINTS ? Object.keys(mod.BLUEPRINTS) : [];
+        const sectorIds    = mod.SECTORS    ? mod.SECTORS.map(s => s.id).filter(Boolean) : [];
+        return { blueprintIds, sectorIds };
+    } catch (err) {
+        console.warn('[generate-manifest] Could not import src/data.js:', err.message);
+        return { blueprintIds: [], sectorIds: [] };
+    }
+}
+
+// ── Structural snapshot for --check ──────────────────────────────────────────
+// Compares only generator-authoritative fields; ignores descriptive metadata.
+
+function structuralSnapshot(manifest) {
+    const sectorIds = manifest.sectorIds || manifest.coreSectorIds_from_SECTORS || [];
+    return {
+        blueprintIds: [...(manifest.blueprintIds || [])].sort(),
+        sectorIds:    [...sectorIds].sort(),
+        routes: (manifest.routes || [])
+            .map(r => ({
+                path:          normalizePath(r.path),
+                redirectTo:    r.redirectTo    ?? null,
+                dynamicParams: [...(r.dynamicParams || [])].sort(),
+                requiresAuth:  r.requiresAuth  ?? false,
+            }))
+            .sort((a, b) => a.path.localeCompare(b.path)),
+    };
+}
+
+// ── Main ──────────────────────────────────────────────────────────────────────
+
+async function main() {
+    const args       = process.argv.slice(2);
+    const checkMode  = args.includes('--check');
+    const updateMode = args.includes('--update');
+
+    const appSrc = await readFileSafe(appPath);
+    if (!appSrc) { console.error('[generate-manifest] Cannot read src/App.jsx'); process.exit(2); }
+
+    const importMap                   = extractImportMap(appSrc);
+    const rawRoutes                   = extractRoutes(appSrc);
+    const { blueprintIds, sectorIds } = await getDataExports();
+
+    const routes = rawRoutes.map(r => ({
+        path:          r.path,
+        component:     importMap[r.componentName] ?? null,
+        componentName: r.componentName,
+        redirectTo:    r.redirectTo ?? null,
+        dynamicParams: r.dynamicParams,
+        ...routeMeta(r.path),
+    }));
 
     const manifest = {
         generatedAt: new Date().toISOString(),
-        source: 'generator',
-        routes: routes.map(r => ({
-            path: r.path,
-            component: importMap[r.componentName] || r.componentName || null,
-            componentName: r.componentName || null,
-            redirectTo: r.redirectTo || null,
-            dynamicParams: r.dynamicParams || []
-        })),
-        blueprintIds: blueprintIds,
+        source:      'generator',
+        blueprintIds,
+        sectorIds,
+        routes,
     };
 
     const outJson = JSON.stringify(manifest, null, 2);
-    await fs.writeFile(outPath, outJson, 'utf8');
-    console.log('Generated manifest ->', outPath);
 
-    const args = process.argv.slice(2);
-    if (args.includes('--check')) {
-        // compare generated to committed
-        let committed = null;
-        try {
-            committed = await fs.readFile(committedPath, 'utf8');
-        } catch (e) {
-            console.error('Committed manifest not found at', committedPath);
-            console.error('Run without --check to overwrite site-manifest.json with generated manifest.');
+    // Always write inspection copy (never canonical)
+    await fs.writeFile(generatedPath, outJson, 'utf8');
+    console.log('[generate-manifest] Wrote', path.relative(root, generatedPath));
+    console.log(`  blueprintIds (${blueprintIds.length}): ${blueprintIds.join(', ')}`);
+    console.log(`  sectorIds    (${sectorIds.length}): ${sectorIds.join(', ')}`);
+    console.log(`  routes       (${routes.length})`);
+
+    if (checkMode) {
+        const committed = await readFileSafe(committedPath);
+        if (!committed) {
+            console.error('[generate-manifest] Committed manifest not found:', committedPath);
+            console.error('Run  node scripts/merge-manifest.js  to initialise it from generated output.');
             process.exit(2);
         }
-        // normalize whitespace and compare
-        const normA = JSON.stringify(JSON.parse(outJson));
-        const normB = JSON.stringify(JSON.parse(committed));
-        if (normA !== normB) {
-            console.error('Manifest mismatch: generated manifest differs from committed site-manifest.json');
-            console.error('Write generated file to', outPath, 'then inspect difference vs', committedPath);
+        const genSnap  = JSON.stringify(structuralSnapshot(manifest),              null, 2);
+        const canSnap  = JSON.stringify(structuralSnapshot(JSON.parse(committed)), null, 2);
+        if (genSnap !== canSnap) {
+            console.error('[generate-manifest] STRUCTURAL MISMATCH vs site-manifest.json:');
+            console.error('  Routes, blueprintIds or sectorIds in App.jsx/data.js differ from canonical.');
+            console.error('  Run  node scripts/merge-manifest.js  to sync mechanical fields, then commit.');
             process.exit(2);
-        } else {
-            console.log('Manifest check OK: generated manifest matches committed site-manifest.json');
-            process.exit(0);
         }
+        console.log('[generate-manifest] Structural check OK — canonical manifest is up to date.');
+        process.exit(0);
+    }
+
+    if (updateMode) {
+        await fs.writeFile(committedPath, outJson, 'utf8');
+        console.log('[generate-manifest] --update: overwrote', path.relative(root, committedPath));
+        console.log('  WARNING: all descriptive metadata (id, summary, pageLayout, etc.) was replaced.');
+        console.log('  Use  node scripts/merge-manifest.js  instead to preserve descriptive fields.');
     } else {
-        // Default: write to committed path (overwrite)
-        try {
-            await fs.writeFile(committedPath, outJson, 'utf8');
-            console.log('Wrote site-manifest.json to repo root.');
-            process.exit(0);
-        } catch (e) {
-            console.error('Failed to write site-manifest.json:', e.message);
-            process.exit(2);
-        }
+        console.log('[generate-manifest] Canonical site-manifest.json NOT changed (use --update to overwrite or merge-manifest.js to merge).');
     }
 }
 
-main().catch(err => { console.error(err); process.exit(2); });
+main().catch(err => { console.error('[generate-manifest]', err); process.exit(2); });
