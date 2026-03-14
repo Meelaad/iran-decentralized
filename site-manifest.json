@@ -254,6 +254,72 @@
       "suggestedContentFiles": ["content/pages/privacy.en.md"]
     },
     {
+      "id": "transition-arena-layout",
+      "path": "/transition",
+      "component": "src/components/TransitionArena/TransitionArenaLayout.jsx",
+      "layout": "Layout",
+      "summary": "Layout for the Transition Arena, providing sub-navigation.",
+      "pageLayout": "tabs for Main Stage, Incubator, Amendment Floor, Shadow Cabinet",
+      "keyComponents": ["TransitionArenaLayout"],
+      "primaryDataSources": [],
+      "suggestedContentFiles": []
+    },
+    {
+      "id": "transition-main-stage",
+      "path": "/transition/main-stage",
+      "component": "src/pages/TransitionArena/MainStagePage.jsx",
+      "layout": "TransitionArenaLayout",
+      "summary": "Displays active, real-world transitional plans for endorsement.",
+      "pageLayout": "list of plans with endorsement buttons",
+      "keyComponents": ["MainStagePage"],
+      "primaryDataSources": [],
+      "suggestedContentFiles": []
+    },
+    {
+      "id": "transition-incubator",
+      "path": "/transition/incubator",
+      "component": "src/pages/TransitionArena/IncubatorPage.jsx",
+      "layout": "TransitionArenaLayout",
+      "summary": "Staging area for user-generated grassroots plans.",
+      "pageLayout": "list of plans with signature progress bars",
+      "keyComponents": ["IncubatorPage"],
+      "primaryDataSources": [],
+      "suggestedContentFiles": []
+    },
+    {
+      "id": "transition-amendment-floor",
+      "path": "/transition/amendment-floor",
+      "component": "src/pages/TransitionArena/AmendmentFloorPage.jsx",
+      "layout": "TransitionArenaLayout",
+      "summary": "Users can propose and vote on line-item edits to specific clauses within an active plan.",
+      "pageLayout": "list of clauses with proposal and voting UI",
+      "keyComponents": ["AmendmentFloorPage"],
+      "primaryDataSources": [],
+      "suggestedContentFiles": []
+    },
+    {
+      "id": "transition-shadow-cabinet",
+      "path": "/transition/shadow-cabinet",
+      "component": "src/pages/TransitionArena/ShadowCabinetPage.jsx",
+      "layout": "TransitionArenaLayout",
+      "summary": "Users nominate and use ranked-choice voting to elect experts to lead specific transitional sectors.",
+      "pageLayout": "list of sectors with nomination and voting UI",
+      "keyComponents": ["ShadowCabinetPage"],
+      "primaryDataSources": [],
+      "suggestedContentFiles": []
+    },
+    {
+      "id": "destination",
+      "path": "/destination",
+      "component": "src/pages/Destination/DestinationPage.jsx",
+      "layout": "Layout",
+      "summary": "Allows users to view and vote on permanent macro-systems.",
+      "pageLayout": "list of macro-systems with voting UI and interactive government trees",
+      "keyComponents": ["DestinationPage", "reactflow"],
+      "primaryDataSources": [],
+      "suggestedContentFiles": []
+    },
+    {
       "id": "redirect_blueprint",
       "path": "/blueprint",
       "component": "redirect",

@@ -8,6 +8,34 @@ import './Layout.css';
 
 export { useLang };
 
+function DevLinks() {
+    const [isOpen, setIsOpen] = useState(false);
+    const links = [
+        { to: "/transition/main-stage", label: "Main Stage" },
+        { to: "/transition/incubator", label: "Incubator" },
+        { to: "/transition/amendment-floor", label: "Amendment Floor" },
+        { to: "/transition/shadow-cabinet", label: "Shadow Cabinet" },
+        { to: "/destination", label: "Destination" },
+    ];
+
+    return (
+        <div className={`dev-links-widget ${isOpen ? 'is-open' : ''}`}>
+            <button className="dev-links-toggle" onClick={() => setIsOpen(!isOpen)}>
+                Dev
+            </button>
+            {isOpen && (
+                <div className="dev-links-list">
+                    {links.map(link => (
+                        <NavLink key={link.to} to={link.to} className="dev-link">
+                            {link.label}
+                        </NavLink>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
 function NavContent() {
     const { lang, setLang, isRTL, t, tKey } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
@@ -239,6 +267,7 @@ function NavContent() {
                     </Link>
                 </footer>
             </div>
+            <DevLinks />
         </div>
     );
 }

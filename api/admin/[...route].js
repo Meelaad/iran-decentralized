@@ -1,10 +1,14 @@
 import { requireAdmin } from '../../../lib/admin/_auth.js';
 import { getUsers, generateCodes, deleteCode, updateInvites, seedBlueprints, saveBlueprintLayout } from '../../../lib/admin/operations.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
+    setSecurityHeaders(res);
     const path = req.url.split('/api/admin/')[1]?.split('?')[0] || '';
 
     try {
+        rateLimit(req, 'api');
+        validateRequestSize(req, 500 * 1024);
         await requireAdmin(req);
     } catch (error) {
         const status = error.status || 401;
@@ -60,9 +64,11 @@ export default async function handler(req, res) {
                 return res.status(404).json({ error: 'Endpoint not found in Admin domain' });
         }
     } catch (error) {
-        console.error(`Admin Domain Error [${path}]:`, error);
         const status = error.status || 500;
         const message = error.error || 'Internal Server Error';
+        if (status === 500) {
+            console.error(`Admin Domain Error [${path}]:`, message);
+        }
         return res.status(status).json({ error: message });
     }
 }
