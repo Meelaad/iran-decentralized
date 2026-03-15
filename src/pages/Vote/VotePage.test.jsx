@@ -3,14 +3,12 @@ import { render, screen, waitFor } from '@testing-library/react';
 import { createWrapper } from '../../test/wrapper';
 import VotePage from './VotePage';
 
-// Mock supabase client
-const mockSupabase = {
-    auth: {
-        getSession: vi.fn(),
-    },
+// Use vi.hoisted so mockSupabase is available inside the hoisted vi.mock factory
+const mockSupabase = vi.hoisted(() => ({
+    auth: { getSession: vi.fn() },
     from: vi.fn(),
     rpc: vi.fn(),
-};
+}));
 
 vi.mock('../../lib/supabase', () => ({
     supabase: mockSupabase,
@@ -40,7 +38,7 @@ describe('VotePage', () => {
         render(<VotePage />, { wrapper: createWrapper() });
 
         await waitFor(() => {
-            expect(screen.getByText(/verify your age/i)).toBeInTheDocument();
+            expect(screen.getByText(/voting age requirement/i)).toBeInTheDocument();
         });
     });
 
@@ -90,7 +88,7 @@ describe('VotePage', () => {
         render(<VotePage />, { wrapper: createWrapper() });
 
         await waitFor(() => {
-            expect(screen.getByText(/not yet eligible/i)).toBeInTheDocument();
+            expect(screen.getByText(/voting age not reached/i)).toBeInTheDocument();
         });
     });
 });

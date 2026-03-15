@@ -151,23 +151,28 @@ async function getDataExports() {
     }
 }
 
-// ── Structural snapshot for --check ──────────────────────────────────────────
-// Compares only generator-authoritative fields; ignores descriptive metadata.
+// ── Structural check helpers ──────────────────────────────────────────────────
+// --check is ONE-DIRECTIONAL:
+//   Every route the generator finds must exist in canonical with matching mechanical fields.
+//   Extra canonical-only routes (documented history, removed routes) are allowed.
+//   blueprintIds and sectorIds must match exactly (they are authoritative from data.js).
 
-function structuralSnapshot(manifest) {
-    const sectorIds = manifest.sectorIds || manifest.coreSectorIds_from_SECTORS || [];
-    return {
-        blueprintIds: [...(manifest.blueprintIds || [])].sort(),
-        sectorIds:    [...sectorIds].sort(),
-        routes: (manifest.routes || [])
-            .map(r => ({
-                path:          normalizePath(r.path),
-                redirectTo:    r.redirectTo    ?? null,
-                dynamicParams: [...(r.dynamicParams || [])].sort(),
-                requiresAuth:  r.requiresAuth  ?? false,
-            }))
-            .sort((a, b) => a.path.localeCompare(b.path)),
-    };
+function routeKey(r) {
+    return JSON.stringify({
+        path:          normalizePath(r.path),
+        redirectTo:    r.redirectTo    ?? null,
+        dynamicParams: [...(r.dynamicParams || [])].sort(),
+        requiresAuth:  r.requiresAuth  ?? false,
+    });
+}
+
+function buildCanonicalRouteIndex(manifest) {
+    const index = new Map();
+    for (const r of (manifest.routes || [])) {
+        if (!r?.path) continue;
+        index.set(normalizePath(r.path), r);
+    }
+    return index;
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────────
@@ -217,12 +222,38 @@ async function main() {
             console.error('Run  node scripts/merge-manifest.js  to initialise it from generated output.');
             process.exit(2);
         }
-        const genSnap  = JSON.stringify(structuralSnapshot(manifest),              null, 2);
-        const canSnap  = JSON.stringify(structuralSnapshot(JSON.parse(committed)), null, 2);
-        if (genSnap !== canSnap) {
+        const canon       = JSON.parse(committed);
+        const canonIndex  = buildCanonicalRouteIndex(canon);
+        const failures    = [];
+
+        // blueprintIds + sectorIds must match exactly
+        const genBpIds  = [...blueprintIds].sort().join(',');
+        const canBpIds  = [...(canon.blueprintIds || [])].sort().join(',');
+        if (genBpIds !== canBpIds) failures.push(`blueprintIds mismatch: generated [${genBpIds}] vs canonical [${canBpIds}]`);
+
+        const genSIds  = [...sectorIds].sort().join(',');
+        const canSIds  = [...(canon.sectorIds || canon.coreSectorIds_from_SECTORS || [])].sort().join(',');
+        if (genSIds !== canSIds) failures.push(`sectorIds mismatch: generated [${genSIds}] vs canonical [${canSIds}]`);
+
+        // Every generated route must exist in canonical with matching mechanical fields
+        for (const r of routes) {
+            const np = normalizePath(r.path);
+            if (!canonIndex.has(np)) {
+                failures.push(`Route not in canonical: ${np}  →  run  npm run merge:manifest`);
+                continue;
+            }
+            const cr = canonIndex.get(np);
+            const genKey = routeKey(r);
+            const canKey = routeKey(cr);
+            if (genKey !== canKey) {
+                failures.push(`Route mechanical fields differ: ${np}\n    generated: ${genKey}\n    canonical: ${canKey}`);
+            }
+        }
+
+        if (failures.length > 0) {
             console.error('[generate-manifest] STRUCTURAL MISMATCH vs site-manifest.json:');
-            console.error('  Routes, blueprintIds or sectorIds in App.jsx/data.js differ from canonical.');
-            console.error('  Run  node scripts/merge-manifest.js  to sync mechanical fields, then commit.');
+            for (const f of failures) console.error('  ✗', f);
+            console.error('\nRun  npm run merge:manifest  to sync, then commit.');
             process.exit(2);
         }
         console.log('[generate-manifest] Structural check OK — canonical manifest is up to date.');

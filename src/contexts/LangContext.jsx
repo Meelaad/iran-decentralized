@@ -14,8 +14,8 @@ export function useLang() {
     return useContext(LangContext);
 }
 
-export function LangProvider({ children }) {
-    const [lang, setLangState] = useState('fa');
+export function LangProvider({ children, initialLang = 'fa' }) {
+    const [lang, setLangState] = useState(initialLang);
     const { t: tI18n } = useTranslation();
 
     // t() handles both data objects {en, fa} and i18next string keys

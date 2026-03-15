@@ -95,10 +95,11 @@ function NavContent() {
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/sectors`, labelKey: 'nav.sectors' },
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/layers`, labelKey: 'nav.layers' },
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/roadmap`, labelKey: 'nav.roadmap' },
-        { to: "/compare", labelKey: 'nav.compare' },
+        { to: `/compare?a=${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.compare' },
         { to: "/vote", labelKey: 'nav.vote' },
         { to: "/about", labelKey: 'nav.about' },
-        { to: "/trans", labelKey: 'nav.transitional' },
+        { to: "/arena", labelKey: 'nav.arena' },
+        { to: "/transitional", labelKey: 'nav.transitional' },
     ];
 
     return (

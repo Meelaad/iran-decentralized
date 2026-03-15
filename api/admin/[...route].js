@@ -60,6 +60,48 @@ export default async function handler(req, res) {
                 await saveBlueprintLayout(req.body);
                 return res.status(200).json({ ok: true });
 
+            case 'verification/approve':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const body = req.body || {};
+                    const { user_id, type } = body;
+                    if (!user_id || !type) return res.status(400).json({ error: 'user_id and type required' });
+                    // Map approval types to event_type and delta
+                    const mapping = {
+                        photo: { event: 'photo_verified', delta: 1 },
+                        id: { event: 'id_verified', delta: 3 },
+                        phone: { event: 'phone_verified', delta: 2 },
+                        institutional_email: { event: 'institutional_email_verified', delta: 2 },
+                    };
+                    const m = mapping[type];
+                    if (!m) return res.status(400).json({ error: 'unknown verification type' });
+
+                    const { createClient } = await import('@supabase/supabase-js');
+                    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+
+                    await supabase.from('civic_score_events').insert({ user_id, event_type: m.event, score_delta: m.delta, metadata: { approved_by: req.headers['x-user-id'] || null } });
+
+                    // increment civic_score
+                    const { data: profile } = await supabase.from('profiles').select('civic_score').eq('id', user_id).maybeSingle();
+                    const newScore = (profile?.civic_score || 0) + m.delta;
+                    await supabase.from('profiles').update({ civic_score: newScore }).eq('id', user_id);
+
+                    return res.status(200).json({ ok: true, event: m.event, newScore });
+                }
+
+            case 'leaderboard/snapshot':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { takeLeaderboardSnapshot } = await import('../../lib/admin/leaderboard.js');
+                    const out = await takeLeaderboardSnapshot();
+                    if (!out) return res.status(500).json({ error: 'snapshot_failed' });
+                    return res.status(200).json({ ok: true, inserted: out.inserted || out.inserted });
+                }
+
             default:
                 return res.status(404).json({ error: 'Endpoint not found in Admin domain' });
         }

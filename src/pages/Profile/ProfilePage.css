@@ -789,6 +789,24 @@
     text-align: right;
 }
 
+/* ── Verify card ─────────────────────────────────────────────────────────── */
+.prof-card--verify {
+    border-color: rgba(124,114,232,0.2);
+}
+.prof-card--verify:hover {
+    border-color: rgba(124,114,232,0.4);
+}
+.prof-verify-link {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    color: #7c72e8;
+    text-decoration: none;
+    transition: color 0.15s;
+}
+.prof-verify-link:hover { color: #a89cf7; }
+
 /* ── Mobile ──────────────────────────────────────────────────────────────── */
 
 @media (max-width: 500px) {

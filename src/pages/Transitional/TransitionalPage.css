@@ -877,3 +877,33 @@
     padding: 4px 10px;
   }
 }
+
+.tp-nav-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 48px 0 16px;
+}
+.tp-nav-btn {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: opacity 0.15s, transform 0.15s;
+}
+.tp-nav-btn:hover { opacity: 0.85; transform: translateY(-2px); }
+.tp-nav-btn--primary {
+    background: rgba(79,195,247,0.12);
+    border: 1px solid rgba(79,195,247,0.5);
+    color: #4fc3f7;
+}
+.tp-nav-btn--secondary {
+    background: rgba(124,114,232,0.1);
+    border: 1px solid rgba(124,114,232,0.4);
+    color: #7c72e8;
+}

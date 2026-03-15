@@ -19,11 +19,11 @@ describe('ProfilePage', () => {
         render(<ProfilePage />, { wrapper: createWrapper() });
 
         await waitFor(() => {
-            expect(screen.getByText('Test User')).toBeInTheDocument();
+            expect(screen.getAllByText('Test User').length).toBeGreaterThan(0);
         });
 
-        expect(screen.getByText(/Citizen/i)).toBeInTheDocument();
-        expect(screen.getByText(/Iran/i)).toBeInTheDocument();
+        expect(screen.getAllByText(/Citizen/i).length).toBeGreaterThan(0);
+        expect(screen.getAllByText(/Iran/i).length).toBeGreaterThan(0);
     });
 
     it('displays invite codes section', async () => {

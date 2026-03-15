@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useLang } from "../../contexts/LangContext";
 import "./TransitionalPage.css";
 
@@ -2005,6 +2006,16 @@ export default function TransitionalPage() {
         </div>
 
         <p className="tp-source">{d.source}</p>
+
+        {/* ── Navigation CTA ─────────────────────────────────── */}
+        <div className="tp-nav-cta" dir={dir} style={{ fontFamily: ff }}>
+          <Link to="/transition/main-stage" className="tp-nav-btn tp-nav-btn--primary">
+            {isRTL ? '→ ورود به صحنه انتقالی' : 'Enter Transition Arena →'}
+          </Link>
+          <Link to="/destination" className="tp-nav-btn tp-nav-btn--secondary">
+            {isRTL ? '→ قانون اساسی دائمی (مرحله دوم)' : 'Phase II: Permanent Constitution →'}
+          </Link>
+        </div>
 
       </div>
     </div>

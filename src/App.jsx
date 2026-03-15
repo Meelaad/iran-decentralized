@@ -24,6 +24,9 @@ import './styles/global.css';
 import StartPage from './pages/Start/StartPage';
 import PreTransPage from './pages/PreTrans/PreTransPage';
 import StartSelection from './pages/Start/StartSelection';
+import ArenaPage from './pages/Arena/ArenaPage';
+import PlanPage from './pages/Arena/PlanPage';
+import VerifyPage from './pages/Verify/VerifyPage';
 import TransitionalPage from './pages/Transitional/TransitionalPage';
 import MainStagePage from './pages/TransitionArena/MainStagePage';
 import IncubatorPage from './pages/TransitionArena/IncubatorPage';
@@ -40,7 +43,6 @@ function App() {
                     {/* Standalone pages without the main layout */}
                     <Route path="/" element={<StartPage />} />
                     <Route path="/pre" element={<PreTransPage />} />
-                    <Route path="/trans" element={<TransitionalPage />} />
                     <Route path="/choose" element={<StartSelection />} />
 
                     {/* Main application routes with Layout */}
@@ -55,6 +57,9 @@ function App() {
                         <Route path="compare" element={<ComparePage />} />
                         <Route path="vote" element={<VotePage />} />
                         <Route path="about" element={<AboutPage />} />
+                        <Route path="arena" element={<ArenaPage />} />
+                        <Route path="arena/:slug" element={<PlanPage />} />
+                        <Route path="verify" element={<VerifyPage />} />
                         
                         {/* Functional pages */}
                         <Route path="my-blueprints" element={<MyBlueprintsPage />} />

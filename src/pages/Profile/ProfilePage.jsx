@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useProfile, useInviteCodes, useUpdateProfile, useCastVote, useGenerateCode } from '../../hooks/useProfile';
@@ -7,6 +7,7 @@ import { BLUEPRINTS } from '../../data';
 import { calcAge } from '../../lib/utils';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './ProfilePage.css';
+import BadgesShelf from '../../components/Achievements/BadgesShelf';
 
 const TITLES   = ['', 'Mr', 'Ms', 'Dr', 'Prof', 'Eng', 'Haj', 'Hajj'];
 const PRONOUNS = ['', 'He/Him', 'She/Her', 'They/Them', 'Other'];
@@ -221,6 +222,9 @@ export default function ProfilePage() {
                         {profile?.country && <span>{profile.country}</span>}
                         {joinedDate && <span className="prof-meta-sep">·</span>}
                         {joinedDate && <span>{isRTL ? `عضو از ${joinedDate}` : `Member since ${joinedDate}`}</span>}
+                    </div>
+                    <div style={{ marginTop: 12 }}>
+                        <BadgesShelf userId={userId} />
                     </div>
                 </div>
 
@@ -460,6 +464,19 @@ export default function ProfilePage() {
                                 </div>
                             )}
                             {generateError && <div className="prof-error" style={monoFont}>{generateError}</div>}
+                        </div>
+
+                        {/* ── Verify Identity ── */}
+                        <div className="prof-card prof-card--verify">
+                            <div className="prof-section-title" style={monoFont}>{isRTL ? 'تأیید هویت' : 'VERIFY IDENTITY'}</div>
+                            <p className="prof-hint" style={monoFont}>
+                                {isRTL
+                                    ? 'هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید.'
+                                    : 'Verify your identity to increase your civic score and vote weight.'}
+                            </p>
+                            <Link to="/verify" className="prof-verify-link" style={monoFont}>
+                                {isRTL ? 'رفتن به صفحه تأیید ←' : 'GO TO VERIFICATION →'}
+                            </Link>
                         </div>
 
                         {/* ── Blueprint Vote ── */}

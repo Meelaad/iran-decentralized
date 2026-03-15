@@ -3,16 +3,25 @@
   "langNote": "UI supports English and Persian (fa) via i18n. Content files here are English-only, but many runtime data objects in src/data.js include bilingual fields; keep id keys consistent.",
   "routes": [
     {
-      "id": "start",
+      "id": "layout-root",
       "path": "/",
-      "component": "src/pages/Start/StartPage.jsx",
-      "layout": "standalone",
-      "navVisible": false,
-      "summary": "Minimal landing page with a single CTA button that navigates to '/choose'.",
-      "pageLayout": "single centered area with CTA button",
-      "keyComponents": ["useLang (LangContext)"],
-      "primaryDataSources": [],
-      "suggestedContentFiles": ["content/pages/start.en.md"]
+      "component": "src/components/Layout/Layout.jsx",
+      "layout": "layout-wrapper",
+      "navVisible": true,
+      "summary": "Main site layout providing top navigation, blueprint selector and footer. Nested routes render in the Outlet.",
+      "pageLayout": "nav (logo, nav links, blueprint selector, auth actions) + content outlet + footer",
+      "keyComponents": [
+        "NavLink, Link",
+        "Blueprint picker (BLUEPRINTS)",
+        "useAuth",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "src/data.js (BLUEPRINTS)"
+      ],
+      "suggestedContentFiles": [],
+      "componentName": "Layout",
+      "dynamicParams": []
     },
     {
       "id": "start-choose",
@@ -22,9 +31,19 @@
       "navVisible": false,
       "summary": "Selection grid listing the transitional option and all blueprints (from BLUEPRINTS).",
       "pageLayout": "title + responsive grid of tiles linking to blueprint pages or /pre",
-      "keyComponents": ["BLUEPRINTS (src/data.js)", "useLang"],
-      "primaryDataSources": ["src/data.js (BLUEPRINTS)"],
-      "suggestedContentFiles": ["content/pages/choose.en.md", "content/blueprints/{blueprintId}.json"]
+      "keyComponents": [
+        "BLUEPRINTS (src/data.js)",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "src/data.js (BLUEPRINTS)"
+      ],
+      "suggestedContentFiles": [
+        "content/pages/choose.en.md",
+        "content/blueprints/{blueprintId}.json"
+      ],
+      "componentName": "StartSelection",
+      "dynamicParams": []
     },
     {
       "id": "preTrans",
@@ -34,9 +53,15 @@
       "navVisible": false,
       "summary": "Pre-transitional landing describing temporary policies and pre-transition steps.",
       "pageLayout": "hero + explanatory sections; CTA to blueprint exploration",
-      "keyComponents": ["useLang"],
+      "keyComponents": [
+        "useLang"
+      ],
       "primaryDataSources": [],
-      "suggestedContentFiles": ["content/pages/pretrans.en.md"]
+      "suggestedContentFiles": [
+        "content/pages/pretrans.en.md"
+      ],
+      "componentName": "PreTransPage",
+      "dynamicParams": []
     },
     {
       "id": "transitional",
@@ -46,9 +71,13 @@
       "navVisible": false,
       "summary": "Transitional flow page describing temporary governance measures and steps.",
       "pageLayout": "hero + steps/timeline",
-      "keyComponents": ["useLang"],
+      "keyComponents": [
+        "useLang"
+      ],
       "primaryDataSources": [],
-      "suggestedContentFiles": ["content/pages/transitional.en.md"]
+      "suggestedContentFiles": [
+        "content/pages/transitional.en.md"
+      ]
     },
     {
       "id": "layout-root",
@@ -58,8 +87,15 @@
       "navVisible": true,
       "summary": "Main site layout providing top navigation, blueprint selector and footer. Nested routes render in the Outlet.",
       "pageLayout": "nav (logo, nav links, blueprint selector, auth actions) + content outlet + footer",
-      "keyComponents": ["NavLink, Link", "Blueprint picker (BLUEPRINTS)", "useAuth", "useLang"],
-      "primaryDataSources": ["src/data.js (BLUEPRINTS)"],
+      "keyComponents": [
+        "NavLink, Link",
+        "Blueprint picker (BLUEPRINTS)",
+        "useAuth",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "src/data.js (BLUEPRINTS)"
+      ],
       "suggestedContentFiles": []
     },
     {
@@ -81,8 +117,14 @@
         "src/data.js (BLUEPRINTS: sectors, connections, sharedLayers)",
         "DB via hooks (blueprint content & saved layout)"
       ],
-      "dynamicParams": ["blueprintId"],
-      "suggestedContentFiles": ["content/blueprints/{blueprintId}.json", "content/sectors/{sectorId}.json"]
+      "dynamicParams": [
+        "blueprintId"
+      ],
+      "suggestedContentFiles": [
+        "content/blueprints/{blueprintId}.json",
+        "content/sectors/{sectorId}.json"
+      ],
+      "componentName": "BlueprintViewer"
     },
     {
       "id": "blueprint-sectors-index",
@@ -91,10 +133,20 @@
       "layout": "Layout",
       "summary": "Index of sectors for the active blueprint with cards (icon, title, short description).",
       "pageLayout": "honeycomb/hex grid or card list; each card links to sector detail",
-      "keyComponents": ["SectorsIndex", "useLang"],
-      "primaryDataSources": ["src/data.js (sectors)"],
-      "dynamicParams": ["blueprintId"],
-      "suggestedContentFiles": ["content/sectors/{sectorId}.json"]
+      "keyComponents": [
+        "SectorsIndex",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "src/data.js (sectors)"
+      ],
+      "dynamicParams": [
+        "blueprintId"
+      ],
+      "suggestedContentFiles": [
+        "content/sectors/{sectorId}.json"
+      ],
+      "componentName": "SectorsIndex"
     },
     {
       "id": "blueprint-sector-page",
@@ -103,10 +155,22 @@
       "layout": "Layout",
       "summary": "Detailed sector page with long description, internal systems list and related connections.",
       "pageLayout": "heading + description + bullets + related connections + resource links",
-      "keyComponents": ["SectorPage", "Link to blueprint viewer"],
-      "primaryDataSources": ["src/data.js (sector data)", "content/sectors/{sectorId}.json"],
-      "dynamicParams": ["blueprintId", "sectorId"],
-      "suggestedContentFiles": ["content/sectors/{sectorId}.json"]
+      "keyComponents": [
+        "SectorPage",
+        "Link to blueprint viewer"
+      ],
+      "primaryDataSources": [
+        "src/data.js (sector data)",
+        "content/sectors/{sectorId}.json"
+      ],
+      "dynamicParams": [
+        "blueprintId",
+        "sectorId"
+      ],
+      "suggestedContentFiles": [
+        "content/sectors/{sectorId}.json"
+      ],
+      "componentName": "SectorPage"
     },
     {
       "id": "blueprint-layers",
@@ -115,10 +179,20 @@
       "layout": "Layout",
       "summary": "Shared infrastructure and cross-cutting layers (e.g., ledger, privacy, data mesh).",
       "pageLayout": "chips/cards for layers with expand-to-read details",
-      "keyComponents": ["LayersPage", "SHARED_LAYERS"],
-      "primaryDataSources": ["src/data.js (sharedLayers)"],
-      "dynamicParams": ["blueprintId"],
-      "suggestedContentFiles": ["content/blueprints/{blueprintId}.json"]
+      "keyComponents": [
+        "LayersPage",
+        "SHARED_LAYERS"
+      ],
+      "primaryDataSources": [
+        "src/data.js (sharedLayers)"
+      ],
+      "dynamicParams": [
+        "blueprintId"
+      ],
+      "suggestedContentFiles": [
+        "content/blueprints/{blueprintId}.json"
+      ],
+      "componentName": "LayersPage"
     },
     {
       "id": "blueprint-roadmap",
@@ -127,10 +201,19 @@
       "layout": "Layout",
       "summary": "Roadmap containing phases, milestones and KPIs for implementing the blueprint.",
       "pageLayout": "timeline/phase blocks with tasks & KPIs",
-      "keyComponents": ["RoadmapPage"],
-      "primaryDataSources": ["content/blueprints/{blueprintId}.json"],
-      "dynamicParams": ["blueprintId"],
-      "suggestedContentFiles": ["content/blueprints/{blueprintId}.json"]
+      "keyComponents": [
+        "RoadmapPage"
+      ],
+      "primaryDataSources": [
+        "content/blueprints/{blueprintId}.json"
+      ],
+      "dynamicParams": [
+        "blueprintId"
+      ],
+      "suggestedContentFiles": [
+        "content/blueprints/{blueprintId}.json"
+      ],
+      "componentName": "RoadmapPage"
     },
     {
       "id": "compare",
@@ -139,9 +222,19 @@
       "layout": "Layout",
       "summary": "Compare multiple blueprints side-by-side by sector, features and roadmap.",
       "pageLayout": "multi-column matrix view",
-      "keyComponents": ["ComparePage", "BLUEPRINTS"],
-      "primaryDataSources": ["src/data.js", "content/blueprints/{id}.json"],
-      "suggestedContentFiles": ["content/compare.en.md"]
+      "keyComponents": [
+        "ComparePage",
+        "BLUEPRINTS"
+      ],
+      "primaryDataSources": [
+        "src/data.js",
+        "content/blueprints/{id}.json"
+      ],
+      "suggestedContentFiles": [
+        "content/compare.en.md"
+      ],
+      "componentName": "ComparePage",
+      "dynamicParams": []
     },
     {
       "id": "vote",
@@ -150,9 +243,20 @@
       "layout": "Layout",
       "summary": "Public voting page with an age gate; displays vote counts and lets logged-in users set their preferred blueprint.",
       "pageLayout": "age gate form or message → vote cards with progress bars → CTA to login/profile",
-      "keyComponents": ["BirthDatePicker", "supabase RPC get_blueprint_vote_counts", "age gate logic"],
-      "primaryDataSources": ["supabase (profiles, RPC)", "src/data.js (BLUEPRINTS)"],
-      "suggestedContentFiles": ["content/pages/vote.en.md"]
+      "keyComponents": [
+        "BirthDatePicker",
+        "supabase RPC get_blueprint_vote_counts",
+        "age gate logic"
+      ],
+      "primaryDataSources": [
+        "supabase (profiles, RPC)",
+        "src/data.js (BLUEPRINTS)"
+      ],
+      "suggestedContentFiles": [
+        "content/pages/vote.en.md"
+      ],
+      "componentName": "VotePage",
+      "dynamicParams": []
     },
     {
       "id": "about",
@@ -161,9 +265,15 @@
       "layout": "Layout",
       "summary": "Project overview: mission, vision, team and background. Suitable for long-form narrative content.",
       "pageLayout": "hero + sections (mission, how it works, team, references)",
-      "keyComponents": ["AboutPage"],
+      "keyComponents": [
+        "AboutPage"
+      ],
       "primaryDataSources": [],
-      "suggestedContentFiles": ["content/pages/about.en.md"]
+      "suggestedContentFiles": [
+        "content/pages/about.en.md"
+      ],
+      "componentName": "AboutPage",
+      "dynamicParams": []
     },
     {
       "id": "my-blueprints",
@@ -172,9 +282,16 @@
       "layout": "Layout",
       "summary": "Authenticated user's blueprint library: created, forked, saved blueprints.",
       "pageLayout": "list of blueprint cards with actions (edit, fork, publish)",
-      "keyComponents": ["useMyBlueprints"],
-      "primaryDataSources": ["supabase user blueprints"],
-      "suggestedContentFiles": []
+      "keyComponents": [
+        "useMyBlueprints"
+      ],
+      "primaryDataSources": [
+        "supabase user blueprints"
+      ],
+      "suggestedContentFiles": [],
+      "componentName": "MyBlueprintsPage",
+      "dynamicParams": [],
+      "requiresAuth": true
     },
     {
       "id": "blueprint-editor",
@@ -183,9 +300,19 @@
       "layout": "Layout",
       "summary": "Editor UI for creating or editing blueprints (form + canvas).",
       "pageLayout": "editor canvas + forms for metadata, sectors, connections, layers",
-      "keyComponents": ["BlueprintEditorPage", "useBlueprints"],
-      "primaryDataSources": ["supabase"],
-      "suggestedContentFiles": []
+      "keyComponents": [
+        "BlueprintEditorPage",
+        "useBlueprints"
+      ],
+      "primaryDataSources": [
+        "supabase"
+      ],
+      "suggestedContentFiles": [],
+      "componentName": "BlueprintEditorPage",
+      "dynamicParams": [
+        "blueprintId"
+      ],
+      "requiresAuth": true
     },
     {
       "id": "register",
@@ -194,9 +321,17 @@
       "layout": "Layout",
       "summary": "Registration page (invite-system supported).",
       "pageLayout": "registration form with invite code field",
-      "keyComponents": ["register logic in lib/auth"],
-      "primaryDataSources": ["supabase auth"],
-      "suggestedContentFiles": ["content/pages/register.en.md"]
+      "keyComponents": [
+        "register logic in lib/auth"
+      ],
+      "primaryDataSources": [
+        "supabase auth"
+      ],
+      "suggestedContentFiles": [
+        "content/pages/register.en.md"
+      ],
+      "componentName": "RegisterPage",
+      "dynamicParams": []
     },
     {
       "id": "login",
@@ -205,9 +340,16 @@
       "layout": "Layout",
       "summary": "Login page (email/password and possible magic link flows).",
       "pageLayout": "login form, forgot password, register link",
-      "keyComponents": ["useAuth", "supabase auth"],
-      "primaryDataSources": ["supabase"],
-      "suggestedContentFiles": []
+      "keyComponents": [
+        "useAuth",
+        "supabase auth"
+      ],
+      "primaryDataSources": [
+        "supabase"
+      ],
+      "suggestedContentFiles": [],
+      "componentName": "LoginPage",
+      "dynamicParams": []
     },
     {
       "id": "profile",
@@ -216,9 +358,18 @@
       "layout": "Layout",
       "summary": "User profile (editable): name, birth_date, preferred_blueprint, invite codes.",
       "pageLayout": "profile card + editable fields + invite management",
-      "keyComponents": ["useProfile"],
-      "primaryDataSources": ["supabase profiles"],
-      "suggestedContentFiles": ["content/pages/profile.en.md"]
+      "keyComponents": [
+        "useProfile"
+      ],
+      "primaryDataSources": [
+        "supabase profiles"
+      ],
+      "suggestedContentFiles": [
+        "content/pages/profile.en.md"
+      ],
+      "componentName": "ProfilePage",
+      "dynamicParams": [],
+      "requiresAuth": true
     },
     {
       "id": "admin",
@@ -227,9 +378,18 @@
       "layout": "Layout",
       "summary": "Admin dashboard for administrative operations, user management, and blueprint moderation.",
       "pageLayout": "panels and action lists, tied to API endpoints under api/admin",
-      "keyComponents": ["lib/admin operations", "api/admin endpoints"],
-      "primaryDataSources": ["api endpoints", "supabase"],
-      "suggestedContentFiles": []
+      "keyComponents": [
+        "lib/admin operations",
+        "api/admin endpoints"
+      ],
+      "primaryDataSources": [
+        "api endpoints",
+        "supabase"
+      ],
+      "suggestedContentFiles": [],
+      "componentName": "AdminPage",
+      "dynamicParams": [],
+      "requiresAuth": true
     },
     {
       "id": "contact",
@@ -238,9 +398,15 @@
       "layout": "Layout",
       "summary": "Contact page with form and contact details for press/partners.",
       "pageLayout": "contact form + contact list",
-      "keyComponents": ["ContactPage"],
+      "keyComponents": [
+        "ContactPage"
+      ],
       "primaryDataSources": [],
-      "suggestedContentFiles": ["content/pages/contact.en.md"]
+      "suggestedContentFiles": [
+        "content/pages/contact.en.md"
+      ],
+      "componentName": "ContactPage",
+      "dynamicParams": []
     },
     {
       "id": "privacy",
@@ -249,9 +415,17 @@
       "layout": "Layout",
       "summary": "Privacy policy describing what data is stored (Supabase profiles/auth), age gate behavior and retention.",
       "pageLayout": "legal sections with headings",
-      "keyComponents": ["PrivacyPage"],
-      "primaryDataSources": ["supabase usage details in code (VotePage)"],
-      "suggestedContentFiles": ["content/pages/privacy.en.md"]
+      "keyComponents": [
+        "PrivacyPage"
+      ],
+      "primaryDataSources": [
+        "supabase usage details in code (VotePage)"
+      ],
+      "suggestedContentFiles": [
+        "content/pages/privacy.en.md"
+      ],
+      "componentName": "PrivacyPage",
+      "dynamicParams": []
     },
     {
       "id": "transition-arena-layout",
@@ -260,9 +434,13 @@
       "layout": "Layout",
       "summary": "Layout for the Transition Arena, providing sub-navigation.",
       "pageLayout": "tabs for Main Stage, Incubator, Amendment Floor, Shadow Cabinet",
-      "keyComponents": ["TransitionArenaLayout"],
+      "keyComponents": [
+        "TransitionArenaLayout"
+      ],
       "primaryDataSources": [],
-      "suggestedContentFiles": []
+      "suggestedContentFiles": [],
+      "componentName": "TransitionArenaLayout",
+      "dynamicParams": []
     },
     {
       "id": "transition-main-stage",
@@ -271,7 +449,9 @@
       "layout": "TransitionArenaLayout",
       "summary": "Displays active, real-world transitional plans for endorsement.",
       "pageLayout": "list of plans with endorsement buttons",
-      "keyComponents": ["MainStagePage"],
+      "keyComponents": [
+        "MainStagePage"
+      ],
       "primaryDataSources": [],
       "suggestedContentFiles": []
     },
@@ -282,7 +462,9 @@
       "layout": "TransitionArenaLayout",
       "summary": "Staging area for user-generated grassroots plans.",
       "pageLayout": "list of plans with signature progress bars",
-      "keyComponents": ["IncubatorPage"],
+      "keyComponents": [
+        "IncubatorPage"
+      ],
       "primaryDataSources": [],
       "suggestedContentFiles": []
     },
@@ -293,7 +475,9 @@
       "layout": "TransitionArenaLayout",
       "summary": "Users can propose and vote on line-item edits to specific clauses within an active plan.",
       "pageLayout": "list of clauses with proposal and voting UI",
-      "keyComponents": ["AmendmentFloorPage"],
+      "keyComponents": [
+        "AmendmentFloorPage"
+      ],
       "primaryDataSources": [],
       "suggestedContentFiles": []
     },
@@ -304,7 +488,9 @@
       "layout": "TransitionArenaLayout",
       "summary": "Users nominate and use ranked-choice voting to elect experts to lead specific transitional sectors.",
       "pageLayout": "list of sectors with nomination and voting UI",
-      "keyComponents": ["ShadowCabinetPage"],
+      "keyComponents": [
+        "ShadowCabinetPage"
+      ],
       "primaryDataSources": [],
       "suggestedContentFiles": []
     },
@@ -315,34 +501,47 @@
       "layout": "Layout",
       "summary": "Allows users to view and vote on permanent macro-systems.",
       "pageLayout": "list of macro-systems with voting UI and interactive government trees",
-      "keyComponents": ["DestinationPage", "reactflow"],
+      "keyComponents": [
+        "DestinationPage",
+        "reactflow"
+      ],
       "primaryDataSources": [],
-      "suggestedContentFiles": []
+      "suggestedContentFiles": [],
+      "componentName": "DestinationPage",
+      "dynamicParams": []
     },
     {
       "id": "redirect_blueprint",
       "path": "/blueprint",
       "component": "redirect",
       "redirectTo": "/blueprint/gov/decentralized",
-      "notes": "Legacy convenience redirect"
+      "notes": "Legacy convenience redirect",
+      "componentName": "Navigate",
+      "dynamicParams": []
     },
     {
       "id": "redirect_sectors",
       "path": "/sectors",
       "component": "redirect",
-      "redirectTo": "/blueprint/gov/decentralized/sectors"
+      "redirectTo": "/blueprint/gov/decentralized/sectors",
+      "componentName": "Navigate",
+      "dynamicParams": []
     },
     {
       "id": "redirect_layers",
       "path": "/layers",
       "component": "redirect",
-      "redirectTo": "/blueprint/gov/decentralized/layers"
+      "redirectTo": "/blueprint/gov/decentralized/layers",
+      "componentName": "Navigate",
+      "dynamicParams": []
     },
     {
       "id": "redirect_roadmap",
       "path": "/roadmap",
       "component": "redirect",
-      "redirectTo": "/blueprint/gov/decentralized/roadmap"
+      "redirectTo": "/blueprint/gov/decentralized/roadmap",
+      "componentName": "Navigate",
+      "dynamicParams": []
     },
     {
       "id": "not-found",
@@ -351,8 +550,70 @@
       "layout": "standalone",
       "summary": "404 page for unmatched routes.",
       "pageLayout": "short message with navigation links",
-      "keyComponents": ["NotFoundPage"],
-      "primaryDataSources": []
+      "keyComponents": [
+        "NotFoundPage"
+      ],
+      "primaryDataSources": [],
+      "componentName": "NotFoundPage",
+      "dynamicParams": []
+    },
+    {
+      "path": "/arena",
+      "component": "./pages/Arena/ArenaPage",
+      "componentName": "ArenaPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/arena/:slug",
+      "component": "./pages/Arena/PlanPage",
+      "componentName": "PlanPage",
+      "redirectTo": null,
+      "dynamicParams": [
+        "slug"
+      ],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/verify",
+      "component": "./pages/Verify/VerifyPage",
+      "componentName": "VerifyPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/main-stage",
+      "component": "./pages/TransitionArena/MainStagePage",
+      "componentName": "MainStagePage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/incubator",
+      "component": "./pages/TransitionArena/IncubatorPage",
+      "componentName": "IncubatorPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/amendment-floor",
+      "component": "./pages/TransitionArena/AmendmentFloorPage",
+      "componentName": "AmendmentFloorPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/shadow-cabinet",
+      "component": "./pages/TransitionArena/ShadowCabinetPage",
+      "componentName": "ShadowCabinetPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
     }
   ],
   "blueprintIds": [
@@ -363,7 +624,50 @@
     "democraticSocialist",
     "absoluteMonarchy"
   ],
-  "coreSectorIds_from_SECTORS": [
+  "notes": {
+    "data_authority": "src/data.js is the authoritative runtime dataset for sectors, connections and blueprint geometry and currently contains bilingual fields.",
+    "suggested_content_dir": "content/ at project root (content/pages, content/blueprints, content/sectors, content/images).",
+    "content_schema_examples": {
+      "page_md_frontmatter": {
+        "title": "string",
+        "slug": "string",
+        "lang": "en",
+        "summary": "string",
+        "heroImage": "/content/images/.."
+      },
+      "blueprint_json": {
+        "id": "decentralized",
+        "name": {
+          "en": "..."
+        },
+        "summary": {
+          "en": "..."
+        },
+        "description": {
+          "en": "Long markdown string or array of sections"
+        },
+        "sectors": [
+          {
+            "id": "citizens",
+            "excerpt": {
+              "en": ".."
+            }
+          }
+        ],
+        "roadmap": [
+          {
+            "phase": "0-6 months",
+            "items": [
+              "..."
+            ]
+          }
+        ]
+      }
+    },
+    "localization": "App supports EN + FA via src/locales. You requested English-only content; ensure content files are English and keep bilingual keys in src/data.js intact if present.",
+    "consumption_in_ui": "Blueprint viewer and other pages currently import BLUEPRINTS directly. To scale content editing, implement a content loader that maps content/blueprints/*.json into the runtime model or generate src/data.js from content files at build time."
+  },
+  "sectorIds": [
     "citizens",
     "governance",
     "economy",
@@ -380,27 +684,5 @@
     "media",
     "culture"
   ],
-  "notes": {
-    "data_authority": "src/data.js is the authoritative runtime dataset for sectors, connections and blueprint geometry and currently contains bilingual fields.",
-    "suggested_content_dir": "content/ at project root (content/pages, content/blueprints, content/sectors, content/images).",
-    "content_schema_examples": {
-      "page_md_frontmatter": {
-        "title": "string",
-        "slug": "string",
-        "lang": "en",
-        "summary": "string",
-        "heroImage": "/content/images/.."
-      },
-      "blueprint_json": {
-        "id": "decentralized",
-        "name": {"en":"..."},
-        "summary": {"en":"..."},
-        "description": {"en":"Long markdown string or array of sections"},
-        "sectors": [{"id":"citizens","excerpt":{"en":".."}}],
-        "roadmap": [{"phase":"0-6 months","items":["..."]}]
-      }
-    },
-    "localization": "App supports EN + FA via src/locales. You requested English-only content; ensure content files are English and keep bilingual keys in src/data.js intact if present.",
-    "consumption_in_ui": "Blueprint viewer and other pages currently import BLUEPRINTS directly. To scale content editing, implement a content loader that maps content/blueprints/*.json into the runtime model or generate src/data.js from content files at build time."
-  }
+  "mergedAt": "2026-03-14T19:41:59.094Z"
 }
