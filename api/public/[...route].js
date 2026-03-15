@@ -1,6 +1,6 @@
-import { sendContactEmail } from '../../../lib/public/contact.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
-import { getArenaPlans, getPlanBySlug, endorsePlan, signPlan } from '../../../lib/public/plans.js';
+import { sendContactEmail } from '../../lib/public/contact.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
+import { getArenaPlans, getPlanBySlug, endorsePlan, signPlan } from '../../lib/public/plans.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
 
             if (parts[1] === 'submit') {
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
-                const { submitPlan } = await import('../../../lib/public/submissions.js');
+                const { submitPlan } = await import('../../lib/public/submissions.js');
                 const result = await submitPlan(req);
                 return res.status(result && result.ok ? 200 : 500).json(result);
             }
@@ -53,18 +53,18 @@ export default async function handler(req, res) {
         if (path.startsWith('stats')) {
             const partsStats = path.split('/').filter(Boolean); // ['stats','plans'] or ['stats','geo','<planId>']
             if (partsStats[1] === 'plans' && req.method === 'GET') {
-                const { getPlanStatsLast30 } = await import('../../../lib/public/stats.js');
+                const { getPlanStatsLast30 } = await import('../../lib/public/stats.js');
                 const planId = req.query?.planId || (req.url.split('?')[1] ? new URLSearchParams(req.url.split('?')[1]).get('planId') : null);
                 const out = await getPlanStatsLast30(planId);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
             if (partsStats[1] === 'geo' && req.method === 'GET' && partsStats[2]) {
-                const { getPlanGeoStats } = await import('../../../lib/public/stats.js');
+                const { getPlanGeoStats } = await import('../../lib/public/stats.js');
                 const out = await getPlanGeoStats(partsStats[2]);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
             if (partsStats[1] === 'overview' && req.method === 'GET') {
-                const { getStatsOverview } = await import('../../../lib/public/stats.js');
+                const { getStatsOverview } = await import('../../lib/public/stats.js');
                 const out = await getStatsOverview();
                 return res.status(200).json(out);
             }
@@ -74,19 +74,19 @@ export default async function handler(req, res) {
         if (path.startsWith('amendments')) {
             const partsA = path.split('/').filter(Boolean);
             if (partsA[1] === 'propose' && req.method === 'POST') {
-                const { proposeAmendment } = await import('../../../lib/public/amendments.js');
+                const { proposeAmendment } = await import('../../lib/public/amendments.js');
                 const out = await proposeAmendment(req);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
             if (partsA[1] === 'vote' && req.method === 'POST') {
-                const { voteAmendment } = await import('../../../lib/public/amendments.js');
+                const { voteAmendment } = await import('../../lib/public/amendments.js');
                 const out = await voteAmendment(req);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
             // GET /api/public/amendments?planId=X
             if (partsA.length === 1 && req.method === 'GET') {
                 const planId = new URLSearchParams(req.url.split('?')[1] || '').get('planId');
-                const { listAmendments } = await import('../../../lib/public/amendments.js');
+                const { listAmendments } = await import('../../lib/public/amendments.js');
                 const out = await listAmendments(planId);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
@@ -96,17 +96,17 @@ export default async function handler(req, res) {
         if (path.startsWith('experts')) {
             const partsE = path.split('/').filter(Boolean);
             if (partsE[1] === 'vote' && req.method === 'POST') {
-                const { voteExpert } = await import('../../../lib/public/experts.js');
+                const { voteExpert } = await import('../../lib/public/experts.js');
                 const out = await voteExpert(req);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
             if (partsE[1] === 'nominate' && req.method === 'POST') {
-                const { nominateExpert } = await import('../../../lib/public/experts.js');
+                const { nominateExpert } = await import('../../lib/public/experts.js');
                 const out = await nominateExpert(req);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
             if (partsE[1] === 'qa' && req.method === 'POST') {
-                const { postExpertQA } = await import('../../../lib/public/experts.js');
+                const { postExpertQA } = await import('../../lib/public/experts.js');
                 const out = await postExpertQA(req);
                 return res.status(out && out.ok ? 200 : 400).json(out);
             }
@@ -115,7 +115,7 @@ export default async function handler(req, res) {
         // Civic score endpoint: POST /api/public/civic/score
         if (path.startsWith('civic/score')) {
             if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
-            const { recordScoreEvent } = await import('../../../lib/public/civic.js');
+            const { recordScoreEvent } = await import('../../lib/public/civic.js');
             const result = await recordScoreEvent(req);
             return res.status(200).json(result);
         }

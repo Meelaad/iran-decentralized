@@ -1,6 +1,6 @@
-import { getBlueprints, getBlueprintById } from '../../../lib/blueprints/crud.js';
-import { forkBlueprint } from '../../../lib/blueprints/fork.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
+import { getBlueprints, getBlueprintById } from '../../lib/blueprints/crud.js';
+import { forkBlueprint } from '../../lib/blueprints/fork.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);

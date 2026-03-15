@@ -1,6 +1,6 @@
-import { requireAdmin } from '../../../lib/admin/_auth.js';
-import { getUsers, generateCodes, deleteCode, updateInvites, seedBlueprints, saveBlueprintLayout } from '../../../lib/admin/operations.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
+import { requireAdmin } from '../../lib/admin/_auth.js';
+import { getUsers, generateCodes, deleteCode, updateInvites, seedBlueprints, saveBlueprintLayout } from '../../lib/admin/operations.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);

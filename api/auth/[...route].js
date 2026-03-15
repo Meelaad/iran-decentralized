@@ -1,6 +1,6 @@
-import { validateInviteCode } from '../../../lib/auth/validate-invite.js';
-import { completeRegistration } from '../../../lib/auth/register.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
+import { validateInviteCode } from '../../lib/auth/validate-invite.js';
+import { completeRegistration } from '../../lib/auth/register.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);

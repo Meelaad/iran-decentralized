@@ -1,5 +1,5 @@
-import { generateInviteCode } from '../../../lib/users/invites.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
+import { generateInviteCode } from '../../lib/users/invites.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
             case 'verify/institutional':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
-                    const { getCallerIdFromReq } = await import('../../../lib/public/civic.js');
+                    const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
                     const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
@@ -24,7 +24,7 @@ export default async function handler(req, res) {
                     const isTrusted = trustedDomains.some(d => domain.endsWith(d));
                     if (!isTrusted) return res.status(400).json({ error: 'Domain not accepted for institutional verification' });
                     // Award institutional_email_verified (+2)
-                    const { recordScoreEvent } = await import('../../../lib/public/civic.js');
+                    const { recordScoreEvent } = await import('../../lib/public/civic.js');
                     await recordScoreEvent({ headers: req.headers, on: req.on, url: req.url, method: req.method, // fake minimal req wrapper
                       // create a small stream-like req is tricky; instead call recordScoreEvent via a helper that accepts userId
                     });
@@ -42,7 +42,7 @@ export default async function handler(req, res) {
             case 'verify/photo':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
-                    const { getCallerIdFromReq } = await import('../../../lib/public/civic.js');
+                    const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
                     const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
             case 'verify/id':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
-                    const { getCallerIdFromReq } = await import('../../../lib/public/civic.js');
+                    const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
                     const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
@@ -73,7 +73,7 @@ export default async function handler(req, res) {
             case 'verify/phone':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
-                    const { getCallerIdFromReq } = await import('../../../lib/public/civic.js');
+                    const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
                     const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });

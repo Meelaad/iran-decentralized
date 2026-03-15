@@ -1,5 +1,5 @@
-import { castVote } from '../../../lib/crypto/vote.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../../lib/security/middleware.js';
+import { castVote } from '../../lib/crypto/vote.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
