@@ -35,6 +35,7 @@ import CivilSocietyPage from './pages/CivilSociety/CivilSocietyPage';
 import ITCPage from './pages/ITC/ITCPage';
 import TransitionalPlansPage from './pages/Plans/TransitionalPlansPage';
 import BlueprintsListPage from './pages/Blueprints/BlueprintsListPage';
+import URIPage from './pages/URI/URIPage';
 
 function App() {
     return (
@@ -65,6 +66,7 @@ function App() {
                         <Route path="transitional/plan/mirhosein-mousavi" element={<MousaviPage />} />
                         <Route path="transitional/plan/civil-society" element={<CivilSocietyPage />} />
                         <Route path="transitional/plan/itc" element={<ITCPage />} />
+                        <Route path="transitional/plan/uri" element={<URIPage />} />
                         <Route path="plans" element={<TransitionalPlansPage />} />
                         <Route path="blueprints" element={<BlueprintsListPage />} />
                         <Route path="verify" element={<VerifyPage />} />

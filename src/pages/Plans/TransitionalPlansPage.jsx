@@ -81,6 +81,25 @@ export default function TransitionalPlansPage() {
                             <span className={styles.cardArrow}>→</span>
                         </Link>
 
+                        <Link to="/transitional/plan/uri" className={styles.card} style={{ '--card-accent': '#e8507a' }}>
+                            <div className={styles.cardAccentBar} />
+                            <div className={styles.cardBody}>
+                                <div className={styles.cardTitle}>
+                                    {t({ en: 'URI / Hamgami Coalition', fa: 'ائتلاف URI / همگامی' })}
+                                </div>
+                                <div className={styles.cardMeta}>
+                                    {t({
+                                        en: 'United Republicans of Iran & Hamgami Coalition',
+                                        fa: 'جمهوری‌خواهان متحد ایران و ائتلاف همگامی',
+                                    })}
+                                </div>
+                                <div className={styles.cardTag}>
+                                    {t({ en: 'Secular Republic · Two-Phase Transition', fa: 'جمهوری سکولار · انتقال دو مرحله‌ای' })}
+                                </div>
+                            </div>
+                            <span className={styles.cardArrow}>→</span>
+                        </Link>
+
                         <Link to="/transitional/plan/civil-society" className={styles.card} style={{ '--card-accent': '#ffd166' }}>
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>

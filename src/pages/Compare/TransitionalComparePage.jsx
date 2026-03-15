@@ -53,6 +53,22 @@ const PLANS = [
         link: '/transitional/plan/itc',
     },
     {
+        id: 'uri',
+        name: { en: 'URI / Hamgami Coalition', fa: 'ائتلاف URI / همگامی' },
+        author: { en: 'United Republicans of Iran & Hamgami Coalition', fa: 'جمهوری‌خواهان متحد ایران و ائتلاف همگامی' },
+        type: { en: 'Secular Republic (Laïcité)', fa: 'جمهوری سکولار (لائیسیته)' },
+        duration: { en: 'Two-phase · Est. 2004 / Consolidated 2023', fa: 'دو مرحله‌ای · تأسیس ۲۰۰۴ / تثبیت ۲۰۲۳' },
+        keyPoints: [
+            { en: 'Phase 1: Contain IRGC power grab before democratic opening', fa: 'مرحله ۱: مهار تصاحب قدرت سپاه پیش از گشایش دموکراتیک' },
+            { en: 'Phase 2: Full constitutional assembly and free elections', fa: 'مرحله ۲: مجلس قانون اساسی کامل و انتخابات آزاد' },
+            { en: 'Strict separation of religion and state (Laïcité)', fa: 'جدایی کامل دین از دولت (لائیسیته)' },
+            { en: 'Rejects theocracy, monarchy, and vanguardist sectarianism', fa: 'رد تئوکراسی، پادشاهی و فرقه‌گرایی پیشتازانه' },
+        ],
+        color: '#e8507a',
+        status: { en: 'Active Coalition · Founded 2004', fa: 'ائتلاف فعال · تأسیس ۲۰۰۴' },
+        link: '/transitional/plan/uri',
+    },
+    {
         id: 'civil-society',
         name: { en: 'Iran Civil Society Charter', fa: 'منشور جامعه مدنی ایران' },
         author: { en: 'Civil Society Research & Advocacy Network', fa: 'شبکه پژوهش و حمایت جامعه مدنی' },

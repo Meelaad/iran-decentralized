@@ -191,6 +191,12 @@ export default function ArenaPage() {
                         <div className="arena-featured-meta">{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
                         <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
+                    <Link to="/transitional/plan/uri" className="arena-featured-card" style={{ borderColor: '#e8507a' }}>
+                        <span className="arena-featured-badge" style={{ color: '#e8507a', borderColor: '#e8507a33' }}>{isRTL ? 'ائتلاف فعال' : 'ACTIVE COALITION'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'ائتلاف URI / همگامی' : 'URI / Hamgami Coalition'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'جمهوری‌خواهان متحد ایران · تأسیس ۲۰۰۴' : 'United Republicans of Iran · Founded 2004'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
                     <Link to="/transitional/plan/civil-society" className="arena-featured-card" style={{ borderColor: '#ffd166' }}>
                         <span className="arena-featured-badge" style={{ color: '#ffd166', borderColor: '#ffd16633' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
                         <div className="arena-featured-name">{isRTL ? 'منشور جامعه مدنی ایران' : 'Iran Civil Society Charter'}</div>
