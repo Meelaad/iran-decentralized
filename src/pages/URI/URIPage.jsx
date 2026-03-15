@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useLang } from "../../contexts/LangContext";
 import "./URIPage.css";
 
@@ -874,6 +875,15 @@ export default function URIPage() {
         </div>
 
         <p className="uri-source">{d.source}</p>
+
+        <nav className="uri-footer-nav">
+          <Link to="/plans" className="uri-footer-nav-link">
+            {isRTL ? '← همه طرح‌های انتقالی' : '← All Transitional Plans'}
+          </Link>
+          <Link to="/arena" className="uri-footer-nav-link uri-footer-nav-link--secondary">
+            {isRTL ? 'آرنا — تأیید طرح‌ها ←' : 'Arena — Endorse Plans →'}
+          </Link>
+        </nav>
 
       </div>
     </div>

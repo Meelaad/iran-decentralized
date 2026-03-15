@@ -81,6 +81,25 @@ export default function TransitionalPlansPage() {
                             <span className={styles.cardArrow}>→</span>
                         </Link>
 
+                        <Link to="/transitional/plan/cpfik" className={styles.card} style={{ '--card-accent': '#26d9b2' }}>
+                            <div className={styles.cardAccentBar} />
+                            <div className={styles.cardBody}>
+                                <div className={styles.cardTitle}>
+                                    {t({ en: 'CPFIK — Kurdish Federal Blueprint', fa: 'CPFIK — طرح فدرال کردستان' })}
+                                </div>
+                                <div className={styles.cardMeta}>
+                                    {t({
+                                        en: 'Coalition of Political Forces of Iranian Kurdistan',
+                                        fa: 'ائتلاف نیروهای سیاسی کردستان ایران',
+                                    })}
+                                </div>
+                                <div className={styles.cardTag}>
+                                    {t({ en: 'Federal Liberation · Active Military Operations', fa: 'رهایی فدرال · عملیات نظامی فعال' })}
+                                </div>
+                            </div>
+                            <span className={styles.cardArrow}>→</span>
+                        </Link>
+
                         <Link to="/transitional/plan/uri" className={styles.card} style={{ '--card-accent': '#e8507a' }}>
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>

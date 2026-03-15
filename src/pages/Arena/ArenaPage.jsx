@@ -191,6 +191,12 @@ export default function ArenaPage() {
                         <div className="arena-featured-meta">{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
                         <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
+                    <Link to="/transitional/plan/cpfik" className="arena-featured-card" style={{ borderColor: '#26d9b2' }}>
+                        <span className="arena-featured-badge" style={{ color: '#26d9b2', borderColor: '#26d9b233' }}>{isRTL ? 'عملیات فعال' : 'ACTIVE OPS'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'CPFIK — طرح فدرال کردستان' : 'CPFIK — Kurdish Federal Blueprint'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'ائتلاف نیروهای سیاسی کردستان ایران · ۲۰۲۶' : 'Coalition of Political Forces of Iranian Kurdistan · 2026'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
                     <Link to="/transitional/plan/uri" className="arena-featured-card" style={{ borderColor: '#e8507a' }}>
                         <span className="arena-featured-badge" style={{ color: '#e8507a', borderColor: '#e8507a33' }}>{isRTL ? 'ائتلاف فعال' : 'ACTIVE COALITION'}</span>
                         <div className="arena-featured-name">{isRTL ? 'ائتلاف URI / همگامی' : 'URI / Hamgami Coalition'}</div>

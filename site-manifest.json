@@ -24,6 +24,25 @@
       "dynamicParams": []
     },
     {
+      "id": "start",
+      "path": "/",
+      "component": "src/pages/Start/StartPage.jsx",
+      "layout": "standalone",
+      "navVisible": false,
+      "summary": "Entry landing page with live stats bar (total profiles, active plans, total votes). Zone selector CTAs to /choose and /pre.",
+      "pageLayout": "hero + live stats bar + dual-zone CTA buttons",
+      "keyComponents": [
+        "useLiveStats",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "supabase (profiles count, plans count, votes count)"
+      ],
+      "suggestedContentFiles": [],
+      "componentName": "StartPage",
+      "dynamicParams": []
+    },
+    {
       "id": "start-choose",
       "path": "/choose",
       "component": "src/pages/Start/StartSelection.jsx",
@@ -78,25 +97,6 @@
       "suggestedContentFiles": [
         "content/pages/transitional.en.md"
       ]
-    },
-    {
-      "id": "layout-root",
-      "path": "/",
-      "component": "src/components/Layout/Layout.jsx",
-      "layout": "layout-wrapper",
-      "navVisible": true,
-      "summary": "Main site layout providing top navigation, blueprint selector and footer. Nested routes render in the Outlet.",
-      "pageLayout": "nav (logo, nav links, blueprint selector, auth actions) + content outlet + footer",
-      "keyComponents": [
-        "NavLink, Link",
-        "Blueprint picker (BLUEPRINTS)",
-        "useAuth",
-        "useLang"
-      ],
-      "primaryDataSources": [
-        "src/data.js (BLUEPRINTS)"
-      ],
-      "suggestedContentFiles": []
     },
     {
       "id": "blueprint-viewer",
@@ -558,62 +558,247 @@
       "dynamicParams": []
     },
     {
+      "id": "arena",
       "path": "/arena",
       "component": "./pages/Arena/ArenaPage",
       "componentName": "ArenaPage",
+      "layout": "Layout",
       "redirectTo": null,
       "dynamicParams": [],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "summary": "Transition Arena — lists active and incubating user-generated plans with endorsement and signature buttons. Shows ConsensusMeter and PlanStockGraph. Featured section links to all five reference plan pages.",
+      "pageLayout": "hero + ConsensusMeter + PlanStockGraph + arena plan cards grid + incubator cards + featured reference plans grid + submit CTA (auth only)",
+      "keyComponents": [
+        "useArenaPlans",
+        "useStatsOverview",
+        "useEndorsePlan",
+        "useSignPlan",
+        "PlanStockGraph",
+        "ConsensusMeter",
+        "Skeleton",
+        "EmptyState"
+      ],
+      "primaryDataSources": [
+        "supabase transitional_plans (via /api/public/plans)",
+        "supabase civic_score_events (endorsements, signatures)"
+      ]
     },
     {
+      "id": "arena-plan",
       "path": "/arena/:slug",
       "component": "./pages/Arena/PlanPage",
       "componentName": "PlanPage",
+      "layout": "Layout",
       "redirectTo": null,
       "dynamicParams": [
         "slug"
       ],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "summary": "Detail page for a single user-generated arena plan. Shows full description, endorsement count, signature progress, and action buttons.",
+      "pageLayout": "plan header (name, author, status badge) + description + stats bar + endorse/sign actions + back to /arena",
+      "keyComponents": [
+        "useArenaPlans",
+        "useEndorsePlan",
+        "useSignPlan"
+      ],
+      "primaryDataSources": [
+        "supabase transitional_plans (filtered by slug)"
+      ]
     },
     {
+      "id": "verify",
       "path": "/verify",
       "component": "./pages/Verify/VerifyPage",
       "componentName": "VerifyPage",
+      "layout": "Layout",
       "redirectTo": null,
       "dynamicParams": [],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "summary": "Identity verification submission page. Authenticated users upload photo or ID document to the verification queue for admin review. Approved submissions increment civic score.",
+      "pageLayout": "verification type selector + file upload form + status message",
+      "keyComponents": [
+        "useAuth",
+        "supabase storage upload",
+        "verification_queue insert"
+      ],
+      "primaryDataSources": [
+        "supabase storage (file upload)",
+        "supabase verification_queue"
+      ],
+      "requiresAuth": true
     },
     {
-      "path": "/main-stage",
-      "component": "./pages/TransitionArena/MainStagePage",
-      "componentName": "MainStagePage",
-      "redirectTo": null,
+      "id": "redirect_transitional",
+      "path": "/transitional",
+      "component": "redirect",
+      "componentName": "Navigate",
+      "redirectTo": "/plans",
       "dynamicParams": [],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "notes": "Legacy redirect — /transitional now redirects to /plans"
     },
     {
-      "path": "/incubator",
-      "component": "./pages/TransitionArena/IncubatorPage",
-      "componentName": "IncubatorPage",
+      "id": "compare-transition",
+      "path": "/compare/transition",
+      "component": "./pages/Compare/TransitionalComparePage",
+      "componentName": "TransitionalComparePage",
+      "layout": "standalone",
+      "navVisible": false,
       "redirectTo": null,
       "dynamicParams": [],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "summary": "Side-by-side comparison of two transitional plans chosen from a selector. Compares government type, duration, author, status, and key points. Links to individual plan pages.",
+      "pageLayout": "back link + eyebrow + plan selector buttons (×2) + comparison table (header row + data rows + key points) + footer CTAs to /arena and /compare",
+      "keyComponents": [
+        "PLANS constant (hardcoded in component)",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "PLANS static array (no API)"
+      ]
     },
     {
-      "path": "/amendment-floor",
-      "component": "./pages/TransitionArena/AmendmentFloorPage",
-      "componentName": "AmendmentFloorPage",
+      "id": "plan-nufdi",
+      "path": "/transitional/plan/nufdi",
+      "component": "./pages/Transitional/TransitionalPage",
+      "componentName": "TransitionalPage",
+      "layout": "Layout",
       "redirectTo": null,
       "dynamicParams": [],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "summary": "Reference plan page for NUFDI (National United Front of Democrats of Iran). Covers decentralized federal transition model, provisional government structure, and constitutional assembly pathway.",
+      "pageLayout": "animated canvas hero + bilingual DATA sections (ideology, coalition, transition phases, power structure, policies, conclusion) + footer nav to /plans and /arena",
+      "keyComponents": [
+        "useLang",
+        "bilingual DATA object (en/fa)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
     },
     {
-      "path": "/shadow-cabinet",
-      "component": "./pages/TransitionArena/ShadowCabinetPage",
-      "componentName": "ShadowCabinetPage",
+      "id": "plan-mousavi",
+      "path": "/transitional/plan/mirhosein-mousavi",
+      "component": "./pages/Mousavi/MousaviPage",
+      "componentName": "MousaviPage",
+      "layout": "Layout",
       "redirectTo": null,
       "dynamicParams": [],
-      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+      "summary": "Reference plan page for Mir Hossein Mousavi's 'To Save Iran' manifesto. Covers 3-stage popular sovereignty model, non-violent strategy, and constituent assembly pathway.",
+      "pageLayout": "animated canvas hero + bilingual DATA sections (ideology, three stages, timeline, demands, abdication quote) + footer nav to /plans and /arena",
+      "keyComponents": [
+        "useLang",
+        "bilingual DATA object (en/fa)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
+      "id": "plan-civil-society",
+      "path": "/transitional/plan/civil-society",
+      "component": "./pages/CivilSociety/CivilSocietyPage",
+      "componentName": "CivilSocietyPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Reference plan page for the Iran Civil Society Charter. Covers grassroots organisation, independent media, human rights documentation, and coalition-building frameworks.",
+      "pageLayout": "animated canvas hero + bilingual DATA sections + footer nav to /plans and /arena",
+      "keyComponents": [
+        "useLang",
+        "bilingual DATA object (en/fa)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
+      "id": "plan-itc",
+      "path": "/transitional/plan/itc",
+      "component": "./pages/ITC/ITCPage",
+      "componentName": "ITCPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Reference plan page for the Iran Transition Council (ITC). Covers operational shadow government model, pre-positioned shadow ministries, power vacuum absorption, and structured handover to elected bodies.",
+      "pageLayout": "animated canvas hero + bilingual DATA sections (ideology, coalition, operational model, institutions, policies, synthesis, conclusion) + footer nav to /plans and /arena",
+      "keyComponents": [
+        "useLang",
+        "bilingual DATA object (en/fa)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
+      "id": "plan-uri",
+      "path": "/transitional/plan/uri",
+      "component": "./pages/URI/URIPage",
+      "componentName": "URIPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Reference plan page for URI / Hamgami Coalition. Covers strict Laïcité secular republic model, five-organization coalition, two-phase IRGC-aware transition logic, USRHR power structure blueprint, and geopolitical implications.",
+      "pageLayout": "animated particle canvas hero + bilingual DATA sections (ideology/triple rejection, coalition table, two-phase transition, power structure, institutions, policies, geopolitical, conclusion) + footer nav to /plans and /arena",
+      "keyComponents": [
+        "ParticleGrid (canvas animation)",
+        "useLang",
+        "bilingual DATA object (en/fa)",
+        "Link (footer nav)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
+      "id": "plan-cpfik",
+      "path": "/transitional/plan/cpfik",
+      "component": "./pages/CPFIK/CPFIKPage",
+      "componentName": "CPFIKPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Reference plan page for CPFIK (Coalition of Political Forces of Iranian Kurdistan). Covers the 15-article Charter of Cooperation (Feb 2026), five-faction military coalition, two-phase armed liberation + democratic transition model, and geopolitical implications.",
+      "pageLayout": "animated particle canvas hero + bilingual DATA sections (history timeline, five factions, ideological synthesis, military structure, transition cascade, institutions, policies, strategic assessment, conclusion) + footer nav to /plans and /arena",
+      "keyComponents": [
+        "ParticleGrid (canvas animation)",
+        "useLang",
+        "bilingual DATA object (en/fa)",
+        "Link (footer nav)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
+      "id": "plans",
+      "path": "/plans",
+      "component": "./pages/Plans/TransitionalPlansPage",
+      "componentName": "TransitionalPlansPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Listing page for all five transitional reference plans. Each plan shown as a card with name, author, summary, status badge, and accent color. Links to individual plan pages and to /compare/transition.",
+      "pageLayout": "hero + plan cards grid (one per plan) + compare CTA",
+      "keyComponents": [
+        "PLANS static array (hardcoded in component)",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "static PLANS constant (no API)"
+      ]
+    },
+    {
+      "id": "blueprints-list",
+      "path": "/blueprints",
+      "component": "./pages/Blueprints/BlueprintsListPage",
+      "componentName": "BlueprintsListPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Listing page for all destination governance blueprints. Cards link to /blueprint/gov/:id for each blueprint.",
+      "pageLayout": "hero + blueprint cards grid linking to /blueprint/gov/:id",
+      "keyComponents": [
+        "BLUEPRINTS (src/data.js)",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "src/data.js (BLUEPRINTS)"
+      ]
     }
   ],
   "blueprintIds": [
@@ -684,5 +869,5 @@
     "media",
     "culture"
   ],
-  "mergedAt": "2026-03-14T19:41:59.094Z"
+  "mergedAt": "2026-03-15T19:39:40.717Z"
 }

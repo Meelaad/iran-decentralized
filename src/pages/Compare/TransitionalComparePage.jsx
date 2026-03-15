@@ -53,6 +53,22 @@ const PLANS = [
         link: '/transitional/plan/itc',
     },
     {
+        id: 'cpfik',
+        name: { en: 'CPFIK — Kurdish Federal Blueprint', fa: 'CPFIK — طرح فدرال کردستان' },
+        author: { en: 'Coalition of Political Forces of Iranian Kurdistan', fa: 'ائتلاف نیروهای سیاسی کردستان ایران' },
+        type: { en: 'Federal Liberation State', fa: 'دولت رهایی فدرال' },
+        duration: { en: 'Active military phase · Charter ratified Feb 2026', fa: 'مرحله نظامی فعال · منشور تصویب‌شده فوریه ۲۰۲۶' },
+        keyPoints: [
+            { en: 'Unified command of 8 Kurdish factions via 15-Article Charter', fa: 'فرماندهی متحد ۸ جناح کردی از طریق منشور ۱۵ ماده‌ای' },
+            { en: 'Armed territorial liberation phase combined with democratic transition', fa: 'مرحله رهایی سرزمینی مسلحانه همراه با انتقال دموکراتیک' },
+            { en: 'Federal autonomous region within a democratic Iranian state', fa: 'منطقه خودمختار فدرال در چارچوب دولت دموکراتیک ایران' },
+            { en: 'Only opposition plan engaged in active kinetic conflict (2026)', fa: 'تنها طرح اپوزیسیون درگیر درگیری نظامی فعال (۲۰۲۶)' },
+        ],
+        color: '#26d9b2',
+        status: { en: 'Active Military Operations · Est. 2026', fa: 'عملیات نظامی فعال · تأسیس ۲۰۲۶' },
+        link: '/transitional/plan/cpfik',
+    },
+    {
         id: 'uri',
         name: { en: 'URI / Hamgami Coalition', fa: 'ائتلاف URI / همگامی' },
         author: { en: 'United Republicans of Iran & Hamgami Coalition', fa: 'جمهوری‌خواهان متحد ایران و ائتلاف همگامی' },
