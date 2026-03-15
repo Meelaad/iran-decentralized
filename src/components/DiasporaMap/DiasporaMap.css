@@ -1,0 +1,3 @@
+.diaspora-map-root { position: relative; width: 100%; background: #07101a; border-radius: 8px; overflow: hidden; }
+.diaspora-map-svg { display: block; width: 100%; height: auto; }
+.diaspora-tooltip { position: absolute; background: #0d1f2d; border: 1px solid rgba(79,195,247,0.3); color: #d6e4ed; font-size: 12px; padding: 4px 10px; border-radius: 4px; pointer-events: none; white-space: nowrap; display: none; z-index: 10; }

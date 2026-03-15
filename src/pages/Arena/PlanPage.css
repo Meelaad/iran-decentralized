@@ -1,0 +1,71 @@
+.plan-page { padding: 20px 32px; color: #d6e4ed; max-width: 1100px; margin: 0 auto; }
+
+.plan-header { padding: 16px 20px; border-inline-start: 5px solid #4fc3f7; background: rgba(13,31,45,0.4); border-radius: 8px; margin-bottom: 16px; }
+.plan-official-badge { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #69d98c; background: rgba(105,217,140,0.08); padding: 2px 8px; border-radius: 3px; display: inline-block; margin-bottom: 8px; }
+.plan-title { margin: 0 0 6px; font-size: clamp(18px, 2.5vw, 26px); }
+.plan-summary { color: #9fb9c9; margin: 0 0 8px; line-height: 1.6; }
+.plan-source-link { font-size: 12px; color: #4fc3f7; text-decoration: none; font-weight: 700; }
+.plan-source-link:hover { text-decoration: underline; }
+
+/* Endorse bar */
+.plan-endorse-bar { display: flex; align-items: center; gap: 16px; padding: 12px 16px; background: rgba(79,195,247,0.04); border-radius: 8px; margin-bottom: 12px; }
+.plan-endorse-count { font-size: 14px; color: #9fb9c9; }
+.plan-endorse-count strong { font-size: 22px; color: #d6e4ed; }
+.plan-endorse-btn { background: #4fc3f7; border: none; padding: 8px 18px; border-radius: 6px; color: #020408; font-weight: 700; font-size: 13px; letter-spacing: 1px; cursor: pointer; }
+.plan-endorse-btn:disabled, .plan-endorse-btn.is-endorsed { background: #2a5870; color: #4fc3f7; cursor: default; }
+
+/* Mini stats */
+.plan-mini-stats { display: flex; gap: 20px; font-size: 13px; color: #8aa8bc; margin-bottom: 14px; flex-wrap: wrap; }
+.plan-mini-stats strong { color: #d6e4ed; }
+
+.plan-graph { margin-bottom: 20px; }
+
+/* Tabs */
+.plan-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid rgba(79,195,247,0.1); flex-wrap: wrap; }
+.plan-tab { padding: 8px 14px; background: transparent; border: none; border-bottom: 2px solid transparent; color: #8aa8bc; font-size: 12px; font-weight: 700; letter-spacing: 1px; cursor: pointer; text-transform: uppercase; transition: color .15s; }
+.plan-tab:hover { color: #d6e4ed; }
+.plan-tab.is-active { color: #4fc3f7; border-bottom-color: #4fc3f7; }
+
+.plan-body { padding: 4px 0; }
+
+/* Amendments */
+.plan-propose-row { margin-bottom: 12px; }
+.plan-propose-btn { background: transparent; border: 1px solid #4fc3f7; padding: 7px 14px; border-radius: 6px; color: #4fc3f7; font-weight: 700; font-size: 12px; letter-spacing: 1px; cursor: pointer; }
+.plan-propose-form { background: rgba(13,31,45,0.5); padding: 16px; border-radius: 8px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px; }
+.plan-propose-input, .plan-propose-textarea { background: rgba(255,255,255,0.04); border: 1px solid rgba(79,195,247,0.2); border-radius: 6px; padding: 8px 12px; color: #d6e4ed; font-size: 13px; font-family: inherit; resize: vertical; }
+.plan-propose-actions { display: flex; gap: 8px; }
+.plan-propose-submit { background: #4fc3f7; border: none; padding: 8px 16px; border-radius: 6px; color: #020408; font-weight: 700; cursor: pointer; }
+.plan-propose-cancel { background: transparent; border: 1px solid rgba(79,195,247,0.2); padding: 8px 16px; border-radius: 6px; color: #8aa8bc; cursor: pointer; }
+
+.amendment-card { padding: 14px; border: 1px solid rgba(79,195,247,0.1); border-radius: 8px; margin-bottom: 10px; background: rgba(255,255,255,0.01); }
+.amendment-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 8px; flex-wrap: wrap; }
+.amendment-title { font-weight: 700; font-size: 14px; }
+.amendment-status { font-size: 10px; font-weight: 700; letter-spacing: 1px; padding: 2px 8px; border-radius: 3px; text-transform: uppercase; }
+.amendment-status--open { background: rgba(79,195,247,0.1); color: #4fc3f7; }
+.amendment-status--passed { background: rgba(105,217,140,0.1); color: #69d98c; }
+.amendment-status--rejected { background: rgba(239,83,80,0.1); color: #ef5350; }
+.amendment-body { font-size: 13px; color: #9fb9c9; margin: 0 0 10px; line-height: 1.5; }
+.amendment-votes { display: flex; gap: 12px; font-size: 12px; color: #8aa8bc; align-items: center; flex-wrap: wrap; }
+.amendment-yes { color: #69d98c; }
+.amendment-no { color: #ef5350; }
+.amendment-vote-btns { display: flex; gap: 6px; margin-inline-start: auto; }
+.amend-yes-btn { background: rgba(105,217,140,0.1); border: 1px solid #69d98c; color: #69d98c; padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; cursor: pointer; }
+.amend-no-btn  { background: rgba(239,83,80,0.1);  border: 1px solid #ef5350; color: #ef5350;  padding: 4px 10px; border-radius: 4px; font-size: 11px; font-weight: 700; cursor: pointer; }
+
+/* Demographics */
+.plan-demo-stats { display: flex; gap: 20px; margin-bottom: 16px; }
+.plan-demo-stat { display: flex; flex-direction: column; }
+.demo-label { font-size: 11px; letter-spacing: 1px; color: #8aa8bc; text-transform: uppercase; }
+.plan-country-list { margin-top: 20px; }
+.plan-country-title { font-size: 12px; letter-spacing: 1.5px; color: #4fc3f7; text-transform: uppercase; margin: 0 0 10px; }
+.plan-country-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 12px; }
+.plan-country-code { width: 36px; color: #8aa8bc; font-weight: 700; }
+.plan-country-bar-wrap { flex: 1; height: 6px; background: rgba(79,195,247,0.08); border-radius: 3px; }
+.plan-country-bar { height: 100%; background: #4fc3f7; border-radius: 3px; }
+.plan-country-count { width: 40px; text-align: end; color: #d6e4ed; }
+
+@media (max-width: 600px) {
+    .plan-page { padding: 14px; }
+    .plan-tabs { gap: 0; }
+    .plan-tab { padding: 8px 10px; font-size: 11px; }
+}

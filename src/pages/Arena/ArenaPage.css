@@ -1,0 +1,51 @@
+.arena-page { padding: 28px 32px; color: #d6e4ed; max-width: 1200px; margin: 0 auto; }
+
+/* Hero */
+.arena-hero { margin-bottom: 28px; }
+.arena-hero-kicker { font-size: 11px; letter-spacing: 2px; color: #4fc3f7; text-transform: uppercase; margin: 0 0 8px; }
+.arena-hero-title { font-size: clamp(22px, 3vw, 34px); margin: 0 0 8px; }
+.arena-hero-sub { color: #8aa8bc; margin: 0; max-width: 600px; line-height: 1.6; }
+
+/* Top strip: consensus meter + graph */
+.arena-top { display: flex; gap: 20px; align-items: flex-start; margin-bottom: 28px; flex-wrap: wrap; }
+.arena-graph { flex: 1; min-width: 260px; }
+
+/* Sections */
+.arena-section { margin-bottom: 36px; }
+.arena-section-title { font-size: 13px; font-weight: 700; letter-spacing: 2px; color: #4fc3f7; text-transform: uppercase; margin: 0 0 6px; }
+.arena-section-sub { color: #8aa8bc; font-size: 13px; margin: 0 0 16px; }
+.arena-error { color: #ef5350; }
+
+/* Plan cards grid */
+.arena-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.plan-card { padding: 16px; border: 1px solid rgba(79,195,247,0.15); border-radius: 10px; background: rgba(255,255,255,0.02); border-inline-start-width: 4px; }
+.plan-official-badge { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #69d98c; background: rgba(105,217,140,0.1); padding: 2px 8px; border-radius: 3px; display: inline-block; margin-bottom: 8px; }
+.plan-card-name { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
+.plan-card-summary { color: #9fb9c9; font-size: 13px; margin: 0 0 10px; line-height: 1.5; }
+.plan-card-meta { font-size: 12px; color: #8aa8bc; margin-bottom: 12px; }
+.plan-delta { margin-inline-start: 8px; color: #69d98c; font-weight: 700; }
+.plan-card-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.plan-view-btn { color: #4fc3f7; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 1px; }
+.plan-view-btn:hover { text-decoration: underline; }
+.plan-endorse-btn { background: #4fc3f7; border: none; padding: 7px 12px; border-radius: 6px; color: #020408; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 1px; transition: opacity .15s; }
+.plan-endorse-btn:disabled, .plan-endorse-btn.is-endorsed { opacity: 0.6; cursor: default; background: #2a5870; color: #4fc3f7; }
+
+/* Incubator */
+.arena-incubator { background: rgba(13,31,45,0.4); border-radius: 10px; padding: 20px; }
+.incubator-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 12px; }
+.incubator-card { padding: 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(79,195,247,0.1); border-radius: 8px; }
+.incubator-card-name { margin: 0 0 8px; font-size: 14px; font-weight: 700; }
+.incubator-sig-label { font-size: 12px; color: #8aa8bc; margin: 0 0 6px; }
+.incubator-progress-bar { height: 6px; background: rgba(79,195,247,0.1); border-radius: 3px; margin-bottom: 10px; }
+.incubator-progress-fill { height: 100%; background: #4fc3f7; border-radius: 3px; transition: width .3s; }
+.incubator-sign-btn { background: transparent; border: 1px solid #4fc3f7; padding: 6px 12px; border-radius: 6px; color: #4fc3f7; font-size: 12px; font-weight: 700; cursor: pointer; }
+.incubator-sign-btn:disabled, .incubator-sign-btn.is-signed { opacity: 0.5; cursor: default; }
+
+/* Submit CTA */
+.arena-submit-cta { background: rgba(79,195,247,0.04); border: 1px dashed rgba(79,195,247,0.2); border-radius: 10px; padding: 20px; text-align: center; }
+.arena-submit-btn { display: inline-block; margin-top: 10px; background: #4fc3f7; color: #020408; padding: 10px 22px; border-radius: 8px; font-weight: 700; font-size: 13px; letter-spacing: 1px; text-decoration: none; }
+
+@media (max-width: 600px) {
+    .arena-page { padding: 16px; }
+    .arena-top { flex-direction: column; }
+}

@@ -1,0 +1,25 @@
+.cg-root { position: relative; }
+.cg-label { font-size: 11px; letter-spacing: 1.5px; color: #8aa8bc; text-transform: uppercase; margin: 0 0 8px; }
+.cg-grid { display: flex; gap: 2px; overflow-x: auto; padding-bottom: 4px; }
+.cg-week { display: flex; flex-direction: column; gap: 2px; }
+.cg-cell {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    cursor: default;
+    flex-shrink: 0;
+    transition: opacity .1s;
+}
+.cg-cell:hover { opacity: 0.75; }
+.cg-tooltip {
+    position: absolute;
+    background: #0d1f2d;
+    border: 1px solid rgba(79,195,247,0.3);
+    color: #d6e4ed;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 10;
+}
