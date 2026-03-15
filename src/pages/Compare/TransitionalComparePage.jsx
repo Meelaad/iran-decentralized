@@ -53,6 +53,22 @@ const PLANS = [
         link: '/transitional/plan/itc',
     },
     {
+        id: 'jmi',
+        name: { en: 'Jebhe Melli Iran (JMI)', fa: 'جبهه ملی ایران (JMI)' },
+        author: { en: 'National Front of Iran · Founded 1949 by Dr. Mossadegh', fa: 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق' },
+        type: { en: 'Mosaddeghist Democratic Republic', fa: 'جمهوری دموکراتیک مصدقی' },
+        duration: { en: '5-phase transition · Constituent Assembly → Referendum', fa: 'انتقال ۵ مرحله‌ای · مجلس مؤسسان → همه‌پرسی' },
+        keyPoints: [
+            { en: 'Non-violent civil resistance leading to regime capitulation', fa: 'مقاومت مدنی غیرخشونت‌آمیز تا تسلیم رژیم' },
+            { en: 'Interim Transition Council → free Constituent Assembly elections', fa: 'شورای انتقالی موقت → انتخابات آزاد مجلس مؤسسان' },
+            { en: 'Strict separation of religion and state; secular civil law only', fa: 'جدایی کامل دین از دولت؛ صرفاً قانون مدنی سکولار' },
+            { en: 'Administrative decentralisation only — rejects ethnic federalism', fa: 'صرفاً تمرکززدایی اداری — رد فدرالیسم قومی' },
+        ],
+        color: '#e8c840',
+        status: { en: 'Active Organisation · Est. 1949', fa: 'سازمان فعال · تأسیس ۱۹۴۹' },
+        link: '/transitional/plan/jmi',
+    },
+    {
         id: 'cpfik',
         name: { en: 'CPFIK — Kurdish Federal Blueprint', fa: 'CPFIK — طرح فدرال کردستان' },
         author: { en: 'Coalition of Political Forces of Iranian Kurdistan', fa: 'ائتلاف نیروهای سیاسی کردستان ایران' },

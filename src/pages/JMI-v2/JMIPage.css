@@ -1,0 +1,767 @@
+/* ── JMI Page — National Front of Iran ───────────────────────────────────── */
+/* Prefix: .jmi-   Accent: #38bdf8 (sky blue)                                  */
+
+/* ── Root ───────────────────────────────────────────────────────────────────  */
+.jmi-page {
+  position: relative;
+  min-height: 100vh;
+  background: #020408;
+  color: #d6e4ed;
+  overflow-x: hidden;
+}
+
+.jmi-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.jmi-scanline {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(56, 189, 248, 0.012) 3px,
+    rgba(56, 189, 248, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.jmi-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+  width: 100%;
+}
+
+/* ── Sections ───────────────────────────────────────────────────────────────  */
+.jmi-section {
+  margin-bottom: 72px;
+}
+
+.jmi-mt-sm {
+  margin-top: 16px;
+}
+
+/* ── Section Header ─────────────────────────────────────────────────────────  */
+.jmi-sechead {
+  margin-bottom: 28px;
+}
+
+.jmi-sechead-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 3px 8px;
+  margin-bottom: 10px;
+}
+
+.jmi-sechead-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e8f4fd;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.jmi-sechead-line {
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  opacity: 0.6;
+}
+
+/* ── Body Text ──────────────────────────────────────────────────────────────  */
+.jmi-body-text {
+  font-size: 0.975rem;
+  line-height: 1.78;
+  color: #a8c4d4;
+  max-width: 820px;
+  margin: 0;
+}
+
+/* ── Hero ───────────────────────────────────────────────────────────────────  */
+.jmi-hero {
+  text-align: center;
+  padding: 48px 0 64px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.jmi-hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #38bdf8;
+  margin: 0 0 20px;
+}
+
+.jmi-hero-title {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  color: #e8f4fd;
+  margin: 0 0 10px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 40px rgba(56, 189, 248, 0.25);
+}
+
+.jmi-hero-subtitle {
+  font-size: 0.85rem;
+  color: rgba(56, 189, 248, 0.7);
+  letter-spacing: 0.06em;
+  margin: 0 0 20px;
+}
+
+.jmi-hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: #90b4c8;
+  margin: 0 auto 28px;
+  max-width: 700px;
+}
+
+.jmi-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.jmi-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+/* ── Ideology Pillars ───────────────────────────────────────────────────────  */
+.jmi-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.jmi-pillar {
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 8px;
+  padding: 20px 18px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.jmi-pillar:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  background: rgba(56, 189, 248, 0.07);
+}
+
+.jmi-pillar-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.jmi-pillar-head {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.jmi-pillar-body {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #8aabb8;
+  margin: 0;
+}
+
+/* ── Transition Timeline ────────────────────────────────────────────────────  */
+.jmi-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 28px;
+  position: relative;
+  padding-left: 48px;
+}
+
+.jmi-timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(56, 189, 248, 0.5),
+    rgba(56, 189, 248, 0.08)
+  );
+}
+
+.jmi-phase {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 28px;
+  position: relative;
+}
+
+.jmi-phase:last-child {
+  padding-bottom: 0;
+}
+
+.jmi-phase-marker {
+  position: absolute;
+  left: -48px;
+  top: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.jmi-phase-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.jmi-phase-content {
+  flex: 1;
+  background: rgba(56, 189, 248, 0.03);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.jmi-phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.jmi-phase-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+}
+
+.jmi-phase-name {
+  font-size: 0.96rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.jmi-phase-desc {
+  font-size: 0.86rem;
+  line-height: 1.68;
+  color: #8aabb8;
+  margin: 0;
+}
+
+/* ── Power Grid ─────────────────────────────────────────────────────────────  */
+.jmi-power-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+  align-items: start;
+}
+
+.jmi-power-node {
+  background: rgba(56, 189, 248, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 8px;
+  padding: 18px 16px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.jmi-power-node:hover {
+  border-color: rgba(56, 189, 248, 0.28);
+  background: rgba(56, 189, 248, 0.07);
+}
+
+.jmi-power-node--apex {
+  border-color: rgba(56, 189, 248, 0.35);
+  background: rgba(56, 189, 248, 0.08);
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 4px 16px;
+  align-items: center;
+}
+
+.jmi-power-node--apex .jmi-power-icon {
+  font-size: 2rem;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+
+.jmi-power-node--apex .jmi-power-title {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.jmi-power-node--apex .jmi-power-sub {
+  font-size: 0.72rem;
+}
+
+.jmi-power-node--apex .jmi-power-body {
+  grid-column: 2 / 4;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.jmi-power-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.jmi-power-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #d6e4ed;
+  margin: 0 0 4px;
+}
+
+.jmi-power-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.jmi-power-body {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #8aabb8;
+  margin: 0;
+}
+
+/* ── Institutional Targets ──────────────────────────────────────────────────  */
+.jmi-targets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.jmi-target {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 18px 16px;
+  transition: background 0.2s;
+}
+
+.jmi-target:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.jmi-target-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.jmi-target-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #d6e4ed;
+  margin: 0;
+  flex: 1;
+  min-width: 120px;
+}
+
+.jmi-target-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.jmi-target-policy {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.jmi-target-detail {
+  font-size: 0.82rem;
+  line-height: 1.62;
+  color: #7a9dae;
+  margin: 0;
+}
+
+/* ── Accordion ──────────────────────────────────────────────────────────────  */
+.jmi-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.jmi-acc-item {
+  border: 1px solid rgba(56, 189, 248, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.jmi-acc-item.jmi-acc-open {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.jmi-acc-head {
+  width: 100%;
+  background: rgba(56, 189, 248, 0.04);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.jmi-acc-item.jmi-acc-open .jmi-acc-head,
+.jmi-acc-head:hover {
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.jmi-acc-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.jmi-acc-label {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #d6e4ed;
+  flex: 1;
+}
+
+.jmi-acc-chevron {
+  font-size: 0.6rem;
+  color: var(--c, #38bdf8);
+  flex-shrink: 0;
+}
+
+.jmi-acc-body {
+  padding: 20px 18px 20px 44px;
+  background: rgba(56, 189, 248, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.jmi-acc-point {
+  font-size: 0.875rem;
+  line-height: 1.68;
+  color: #8aabb8;
+}
+
+.jmi-acc-point-head {
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+/* ── Conclusion ─────────────────────────────────────────────────────────────  */
+.jmi-conclusion {
+  text-align: center;
+  padding: 48px 0 16px;
+}
+
+.jmi-conclusion-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(56, 189, 248, 0.7);
+  margin: 0 0 20px;
+}
+
+.jmi-conclusion-quote {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  line-height: 1.75;
+  color: #b0cdd8;
+  font-style: italic;
+  max-width: 840px;
+  margin: 0 auto 28px;
+  border: none;
+  padding: 0;
+}
+
+.jmi-conclusion-line {
+  height: 1px;
+  width: 100%;
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+
+/* ── Footer Nav ─────────────────────────────────────────────────────────────  */
+.jmi-footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(56, 189, 248, 0.12);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.jmi-footer-nav-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(56, 189, 248, 0.8);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.jmi-footer-nav-link:hover {
+  color: #38bdf8;
+}
+
+.jmi-footer-nav-link--secondary {
+  color: rgba(56, 189, 248, 0.5);
+}
+
+.jmi-footer-nav-link--secondary:hover {
+  color: rgba(56, 189, 248, 0.85);
+}
+
+/* ── RTL ─────────────────────────────────────────────────────────────────────  */
+[dir="rtl"] .jmi-sechead-line {
+  background: linear-gradient(270deg, #38bdf8, transparent) !important;
+}
+
+[dir="rtl"] .jmi-timeline {
+  padding-left: 0;
+  padding-right: 48px;
+}
+
+[dir="rtl"] .jmi-timeline::before {
+  left: auto;
+  right: 18px;
+}
+
+[dir="rtl"] .jmi-phase-marker {
+  left: auto;
+  right: -48px;
+}
+
+[dir="rtl"] .jmi-acc-head {
+  text-align: right;
+}
+
+[dir="rtl"] .jmi-acc-body {
+  padding: 20px 44px 20px 18px;
+}
+
+[dir="rtl"] .jmi-target-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .jmi-footer-nav {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .jmi-power-node--apex {
+  grid-template-columns: 1fr 1fr auto;
+}
+
+[dir="rtl"] .jmi-power-node--apex .jmi-power-icon {
+  grid-column: 3;
+  grid-row: 1 / 3;
+}
+
+[dir="rtl"] .jmi-power-node--apex .jmi-power-title {
+  grid-column: 1;
+}
+
+[dir="rtl"] .jmi-power-node--apex .jmi-power-sub {
+  grid-column: 1;
+}
+
+[dir="rtl"] .jmi-power-node--apex .jmi-power-body {
+  grid-column: 1 / 3;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────  */
+@media (max-width: 1100px) {
+  .jmi-power-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .jmi-power-node--apex {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 900px) {
+  .jmi-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jmi-targets {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jmi-power-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jmi-power-node--apex {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .jmi-power-node--apex .jmi-power-icon {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .jmi-inner {
+    padding: 40px 20px 60px;
+  }
+
+  .jmi-sechead-title {
+    font-size: 1.4rem;
+  }
+
+  .jmi-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .jmi-targets {
+    grid-template-columns: 1fr;
+  }
+
+  .jmi-power-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jmi-timeline {
+    padding-left: 40px;
+  }
+
+  [dir="rtl"] .jmi-timeline {
+    padding-left: 0;
+    padding-right: 40px;
+  }
+
+  .jmi-timeline::before {
+    left: 16px;
+  }
+
+  [dir="rtl"] .jmi-timeline::before {
+    left: auto;
+    right: 16px;
+  }
+
+  .jmi-phase-marker {
+    left: -40px;
+    width: 30px;
+    height: 30px;
+  }
+
+  [dir="rtl"] .jmi-phase-marker {
+    left: auto;
+    right: -40px;
+  }
+
+  .jmi-hero {
+    padding: 32px 0 48px;
+  }
+
+  .jmi-footer-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  [dir="rtl"] .jmi-footer-nav {
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 560px) {
+  .jmi-hero-badges {
+    gap: 6px;
+  }
+
+  .jmi-badge {
+    font-size: 0.67rem;
+  }
+
+  .jmi-phase-header {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .jmi-target-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  [dir="rtl"] .jmi-target-header {
+    flex-direction: column;
+  }
+
+  .jmi-acc-body {
+    padding: 16px 14px 16px 36px;
+  }
+
+  [dir="rtl"] .jmi-acc-body {
+    padding: 16px 36px 16px 14px;
+  }
+}

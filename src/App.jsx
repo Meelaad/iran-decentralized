@@ -37,6 +37,9 @@ import TransitionalPlansPage from './pages/Plans/TransitionalPlansPage';
 import BlueprintsListPage from './pages/Blueprints/BlueprintsListPage';
 import URIPage from './pages/URI/URIPage';
 import CPFIKPage from './pages/CPFIK/CPFIKPage';
+import JMIPage from './pages/JMI/JMIPage';
+import JMIPage2 from './pages/JMI-v2/JMIPage';
+import AdminDraftGuard from './components/AdminDraftGuard/AdminDraftGuard';
 
 function App() {
     return (
@@ -69,6 +72,8 @@ function App() {
                         <Route path="transitional/plan/itc" element={<ITCPage />} />
                         <Route path="transitional/plan/uri" element={<URIPage />} />
                         <Route path="transitional/plan/cpfik" element={<CPFIKPage />} />
+                        <Route path="transitional/plan/jmi" element={<JMIPage />} />
+                        <Route path="transitional/plan/jmi-v2" element={<AdminDraftGuard slug="transitional/plan/jmi-v2"><JMIPage2 /></AdminDraftGuard>} />
                         <Route path="plans" element={<TransitionalPlansPage />} />
                         <Route path="blueprints" element={<BlueprintsListPage />} />
                         <Route path="verify" element={<VerifyPage />} />

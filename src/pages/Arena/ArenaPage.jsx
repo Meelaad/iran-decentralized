@@ -191,6 +191,12 @@ export default function ArenaPage() {
                         <div className="arena-featured-meta">{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
                         <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
+                    <Link to="/transitional/plan/jmi" className="arena-featured-card" style={{ borderColor: '#e8c840' }}>
+                        <span className="arena-featured-badge" style={{ color: '#e8c840', borderColor: '#e8c84033' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'جبهه ملی ایران (JMI)' : 'Jebhe Melli Iran (JMI)'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق' : 'National Front of Iran · Founded 1949 by Dr. Mossadegh'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
                     <Link to="/transitional/plan/cpfik" className="arena-featured-card" style={{ borderColor: '#26d9b2' }}>
                         <span className="arena-featured-badge" style={{ color: '#26d9b2', borderColor: '#26d9b233' }}>{isRTL ? 'عملیات فعال' : 'ACTIVE OPS'}</span>
                         <div className="arena-featured-name">{isRTL ? 'CPFIK — طرح فدرال کردستان' : 'CPFIK — Kurdish Federal Blueprint'}</div>

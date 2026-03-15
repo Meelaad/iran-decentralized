@@ -745,6 +745,25 @@
       ]
     },
     {
+      "id": "plan-jmi",
+      "path": "/transitional/plan/jmi",
+      "component": "./pages/JMI/JMIPage",
+      "componentName": "JMIPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Reference plan page for Jebhe Melli Iran (JMI — National Front of Iran). Covers secular constitutional monarchy rejection, Mossadegh-era liberal democratic legacy, transition council model, and rule-of-law framework.",
+      "pageLayout": "animated canvas hero + bilingual DATA sections + footer nav to /plans and /arena",
+      "keyComponents": [
+        "useLang",
+        "bilingual DATA object (en/fa)",
+        "Link (footer nav)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
       "id": "plan-cpfik",
       "path": "/transitional/plan/cpfik",
       "component": "./pages/CPFIK/CPFIKPage",

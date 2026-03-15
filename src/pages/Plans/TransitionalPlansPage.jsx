@@ -81,6 +81,25 @@ export default function TransitionalPlansPage() {
                             <span className={styles.cardArrow}>→</span>
                         </Link>
 
+                        <Link to="/transitional/plan/jmi" className={styles.card} style={{ '--card-accent': '#e8c840' }}>
+                            <div className={styles.cardAccentBar} />
+                            <div className={styles.cardBody}>
+                                <div className={styles.cardTitle}>
+                                    {t({ en: 'Jebhe Melli Iran (JMI)', fa: 'جبهه ملی ایران (JMI)' })}
+                                </div>
+                                <div className={styles.cardMeta}>
+                                    {t({
+                                        en: 'National Front of Iran · Founded 1949 by Dr. Mossadegh',
+                                        fa: 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق',
+                                    })}
+                                </div>
+                                <div className={styles.cardTag}>
+                                    {t({ en: 'Mosaddeghist Democratic Republic', fa: 'جمهوری دموکراتیک مصدقی' })}
+                                </div>
+                            </div>
+                            <span className={styles.cardArrow}>→</span>
+                        </Link>
+
                         <Link to="/transitional/plan/cpfik" className={styles.card} style={{ '--card-accent': '#26d9b2' }}>
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
