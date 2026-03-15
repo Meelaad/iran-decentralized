@@ -168,6 +168,44 @@ export default function ArenaPage() {
                 </section>
             )}
 
+            {/* Featured reference plans */}
+            <section className="arena-section arena-featured">
+                <h2 className="arena-section-title">{isRTL ? 'طرح‌های مرجع' : 'REFERENCE PLANS'}</h2>
+                <p className="arena-section-sub">{isRTL ? 'طرح‌های مستند و تحلیل‌شده برای دوران انتقال' : 'Documented and analysed transitional frameworks'}</p>
+                <div className="arena-featured-grid">
+                    <Link to="/transitional/plan/mirhosein-mousavi" className="arena-featured-card" style={{ borderColor: '#69d98c' }}>
+                        <span className="arena-featured-badge" style={{ color: '#69d98c', borderColor: '#69d98c33' }}>{isRTL ? 'طرح فعال' : 'ACTIVE PLAN'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'موسوی — «برای نجات ایران»' : 'Mousavi — "To Save Iran"'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'میر حسین موسوی · فوریه ۲۰۲۳' : 'Mir Hossein Mousavi · Feb 2023'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده تحلیل کامل ←' : 'VIEW FULL ANALYSIS →'}</div>
+                    </Link>
+                    <Link to="/transitional/plan/nufdi" className="arena-featured-card" style={{ borderColor: '#7c72e8' }}>
+                        <span className="arena-featured-badge" style={{ color: '#7c72e8', borderColor: '#7c72e833' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'طرح NUFDI' : 'NUFDI Blueprint'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'جبهه ملی متحد دموکرات‌های ایران' : 'National United Front of Democrats of Iran'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
+                    <Link to="/transitional/plan/itc" className="arena-featured-card" style={{ borderColor: '#ff9a42' }}>
+                        <span className="arena-featured-badge" style={{ color: '#ff9a42', borderColor: '#ff9a4233' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'شورای انتقال ایران (ITC)' : 'Iran Transition Council (ITC)'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
+                    <Link to="/transitional/plan/civil-society" className="arena-featured-card" style={{ borderColor: '#ffd166' }}>
+                        <span className="arena-featured-badge" style={{ color: '#ffd166', borderColor: '#ffd16633' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'منشور جامعه مدنی ایران' : 'Iran Civil Society Charter'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'شبکه پژوهش و حمایت جامعه مدنی' : 'Civil Society Research & Advocacy Network'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
+                    <Link to="/compare/transition" className="arena-featured-card" style={{ borderColor: '#4fc3f7' }}>
+                        <span className="arena-featured-badge" style={{ color: '#4fc3f7', borderColor: '#4fc3f733' }}>{isRTL ? 'مقایسه' : 'COMPARE'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'مقایسه طرح‌های انتقالی' : 'Compare All Plans'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'مقایسه جانبی طرح‌های پیشنهادی' : 'Side-by-side comparison of suggested frameworks'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مقایسه ←' : 'COMPARE →'}</div>
+                    </Link>
+                </div>
+            </section>
+
             {/* Submit plan CTA — shown only to logged-in users */}
             {session && (
                 <section className="arena-section arena-submit-cta">

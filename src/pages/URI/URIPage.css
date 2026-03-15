@@ -1,0 +1,204 @@
+/* ─────────────────────────────────────────────────────────────
+   URIPage.css — United Republicans of Iran / Hamgami Coalition
+   Dark cyberpunk · rose-red accent palette
+───────────────────────────────────────────────────────────── */
+
+.uri-page *, .uri-page *::before, .uri-page *::after { box-sizing: border-box; }
+
+.uri-page {
+  position: relative; min-height: 100vh;
+  background: #020408; color: #d6e4ed; overflow-x: hidden;
+}
+
+.uri-bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+.uri-scanline {
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(
+    0deg, transparent, transparent 3px,
+    rgba(232,80,122,0.012) 3px, rgba(232,80,122,0.012) 4px
+  );
+  pointer-events: none; z-index: 1;
+}
+
+.uri-inner {
+  position: relative; z-index: 2; max-width: 1280px;
+  margin: 0 auto; padding: 56px 32px 80px; width: 100%;
+}
+
+/* ── Hero ── */
+.uri-hero {
+  text-align: center; margin-bottom: 52px;
+  padding-bottom: 40px; border-bottom: 1px solid rgba(232,80,122,0.12);
+}
+.uri-hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #e8507a; margin-bottom: 14px; opacity: 0.7; }
+.uri-hero-title { font-size: clamp(24px, 3.5vw, 38px); font-weight: 700; letter-spacing: -0.02em; color: #e8f4fb; margin: 0 0 16px; line-height: 1.15; }
+.uri-hero-desc { font-size: 13.5px; color: #8aa8bc; max-width: 900px; margin: 0 auto 24px; line-height: 1.7; }
+.uri-hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
+.uri-badge { font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 12px; border-radius: 20px; border: 1px solid; text-transform: uppercase; white-space: nowrap; }
+
+/* ── Section header ── */
+.uri-sechead { margin-bottom: 22px; }
+.uri-sechead-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; display: block; }
+.uri-sechead-title { font-size: clamp(17px, 2.2vw, 24px); font-weight: 700; color: #e8f4fb; margin: 0 0 10px; letter-spacing: -0.015em; line-height: 1.25; }
+.uri-sechead-intro { font-size: 13px; color: #7a9db5; line-height: 1.7; max-width: 980px; margin: 0; }
+
+/* ── Divider ── */
+.uri-divider { border: none; border-top: 1px solid rgba(232,80,122,0.09); margin: 42px 0; width: 100%; }
+
+/* ── Accordion ── */
+.uri-acc { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.015); width: 100%; margin-bottom: 5px; }
+.uri-acc:last-child { margin-bottom: 0; }
+.uri-acc:hover { border-color: rgba(255,255,255,0.11); }
+.uri-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: #d6e4ed; }
+.uri-acc-btn:hover { background: rgba(232,80,122,0.04); }
+.uri-acc-title { flex: 1; font-size: 12px; font-weight: 600; color: #c8dce8; line-height: 1.4; text-align: left; }
+[dir="rtl"] .uri-acc-title { text-align: right; }
+.uri-acc-subtitle { font-size: 10px; color: #6a8a9e; line-height: 1.3; margin-top: 2px; display: block; }
+.uri-acc-caret { font-size: 9px; color: var(--c,#e8507a); opacity: 0.7; flex-shrink: 0; margin-top: 3px; padding-inline-start: 6px; line-height: 1.4; }
+.uri-acc-body { padding: 4px 13px 11px; border-top: 1px solid rgba(255,255,255,0.05); }
+
+/* ── Bullets ── */
+.uri-bullets { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.uri-bullet-item { display: flex; align-items: flex-start; gap: 8px; font-size: 11.5px; color: #8aa8bc; line-height: 1.5; text-align: left; }
+[dir="rtl"] .uri-bullet-item { text-align: right; }
+.uri-bullet-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5.5px; opacity: 0.8; }
+
+/* ── Rejection pills ── */
+.uri-rejections { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+.uri-rejection { font-size: 11.5px; font-weight: 600; padding: 6px 14px; border-radius: 6px; border: 1px solid; letter-spacing: 0.02em; }
+
+/* ── Laïcité note ── */
+.uri-laitecite-note {
+  border: 1px solid; border-radius: 8px; padding: 12px 16px;
+  margin-bottom: 16px; display: flex; gap: 10px;
+  align-items: baseline; flex-wrap: wrap;
+  background: rgba(232,80,122,0.04);
+}
+.uri-laitecite-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; flex-shrink: 0; white-space: nowrap; }
+.uri-laitecite-note > span:last-child { font-size: 12px; color: #8aa8bc; line-height: 1.6; }
+
+/* ── Trigger note ── */
+.uri-trigger-note {
+  border: 1px solid; border-radius: 8px; padding: 12px 16px;
+  margin-bottom: 14px; display: flex; gap: 10px;
+  align-items: baseline; flex-wrap: wrap;
+  background: rgba(255,213,102,0.04);
+}
+.uri-trigger-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; flex-shrink: 0; white-space: nowrap; }
+.uri-trigger-note > span:last-child { font-size: 12px; color: #8aa8bc; line-height: 1.6; }
+
+/* ── Ideology grid ── */
+.uri-ideo-grid { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
+
+/* ── Coalition table ── */
+.uri-coalition-table { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; }
+.uri-coalition-head {
+  display: grid; grid-template-columns: 1.5fr 1fr 2fr;
+  padding: 9px 14px; background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  font-size: 9px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: #6a8a9e; gap: 14px;
+}
+.uri-coalition-row {
+  display: grid; grid-template-columns: 1.5fr 1fr 2fr;
+  gap: 14px; padding: 11px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  align-items: start;
+}
+.uri-coalition-row:last-child { border-bottom: none; }
+.uri-coalition-org { font-size: 12px; font-weight: 700; line-height: 1.4; }
+.uri-coalition-ideology { font-size: 11px; color: #6a8a9e; line-height: 1.5; }
+.uri-coalition-contrib { font-size: 11.5px; color: #8aa8bc; line-height: 1.55; }
+
+/* ── Phases ── */
+.uri-phases { display: flex; flex-direction: column; gap: 8px; }
+.uri-phase-block { border: 1.5px solid color-mix(in srgb, var(--pb) 28%, transparent); border-radius: 12px; overflow: hidden; background: color-mix(in srgb, var(--pb) 4%, transparent); }
+@supports not (color: color-mix(in srgb, red 50%, blue)) {
+  .uri-phase-block { border-color: rgba(232,80,122,0.25); background: rgba(232,80,122,0.04); }
+}
+.uri-phase-block-head { display: grid; grid-template-columns: auto 1fr auto; gap: 14px; align-items: center; padding: 14px 18px; cursor: pointer; }
+.uri-phase-block-head:hover { background: rgba(255,255,255,0.02); }
+.uri-phase-block-n { font-size: 11px; font-weight: 800; letter-spacing: 0.1em; color: var(--pb); opacity: 0.6; flex-shrink: 0; }
+.uri-phase-block-info { display: flex; flex-direction: column; gap: 2px; }
+.uri-phase-block-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pb); opacity: 0.7; }
+.uri-phase-block-title { font-size: 14px; font-weight: 700; color: var(--pb); line-height: 1.3; }
+.uri-phase-block-trigger { font-size: 10.5px; color: #6a8a9e; margin-top: 2px; }
+.uri-phase-block-caret { font-size: 9px; color: var(--pb); opacity: 0.6; flex-shrink: 0; }
+.uri-phase-block-body { padding: 4px 18px 14px; border-top: 1px solid rgba(255,255,255,0.06); }
+.uri-phase-analysis {
+  font-size: 11px; color: #5a6e7a; line-height: 1.6; margin-top: 10px;
+  padding: 8px 12px; background: rgba(255,255,255,0.02);
+  border-radius: 6px; border-inline-start: 2px solid rgba(255,255,255,0.08);
+  font-style: italic;
+}
+.uri-phase-analysis-tag { font-size: 8px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #ff9a42; display: block; margin-bottom: 4px; font-style: normal; opacity: 0.8; }
+
+/* ── Power nodes ── */
+.uri-power-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; margin-top: 14px; align-items: start; }
+.uri-power-node { border: 1px solid; border-radius: 10px; padding: 14px; background: rgba(255,255,255,0.02); min-width: 0; }
+.uri-power-icon { font-size: 20px; margin-bottom: 8px; line-height: 1; }
+.uri-power-title { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; line-height: 1.3; }
+.uri-power-role { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #5a7a8e; margin-bottom: 5px; }
+.uri-power-sub { font-size: 11px; color: #6a8a9e; margin-bottom: 10px; line-height: 1.4; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px; }
+
+/* ── Institution cards ── */
+.uri-inst-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; align-items: start; }
+.uri-inst-card { border: 1px solid; border-radius: 10px; padding: 14px; background: rgba(255,255,255,0.02); min-width: 0; }
+.uri-inst-head { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; }
+.uri-inst-icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; line-height: 1; }
+.uri-inst-title { font-size: 13px; font-weight: 700; color: #c8dce8; line-height: 1.3; margin-bottom: 4px; }
+.uri-inst-status { font-size: 9px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px; border: 1px solid; }
+.uri-inst-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #5a7a8e; margin-bottom: 4px; margin-top: 10px; }
+.uri-inst-causal-label { margin-top: 10px; }
+.uri-inst-text { font-size: 11.5px; color: #8aa8bc; line-height: 1.55; }
+.uri-inst-note { font-size: 10.5px; color: #5a6e7a; line-height: 1.5; margin-top: 10px; padding: 7px 10px; background: rgba(255,255,255,0.02); border-radius: 6px; border-inline-start: 2px solid rgba(255,255,255,0.08); font-style: italic; }
+.uri-inst-note-tag { font-size: 8px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: #ff9a42; display: block; margin-bottom: 4px; font-style: normal; opacity: 0.8; }
+
+/* ── Policy cards ── */
+.uri-pol-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; align-items: start; }
+.uri-pol-card { border: 1px solid; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.02); min-width: 0; }
+.uri-pol-icon { font-size: 20px; margin-bottom: 8px; line-height: 1; }
+.uri-pol-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
+
+/* ── Geo cards ── */
+.uri-geo-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+.uri-geo-card { border: 1px solid; border-radius: 10px; padding: 18px; background: rgba(255,255,255,0.02); min-width: 0; }
+.uri-geo-n { font-size: 26px; font-weight: 800; opacity: 0.22; line-height: 1; margin-bottom: 7px; font-variant-numeric: tabular-nums; }
+.uri-geo-title { font-size: 13.5px; font-weight: 700; color: #c8dce8; margin-bottom: 10px; line-height: 1.3; }
+.uri-geo-body { font-size: 12px; color: #7a9db5; line-height: 1.7; }
+
+/* ── Conclusion ── */
+.uri-conclusion {
+  margin: 24px 0; padding: 20px 24px;
+  border: 1px dashed rgba(232,80,122,0.25); border-radius: 10px;
+  background: rgba(232,80,122,0.04);
+  font-size: 13px; color: #d6e4ed; line-height: 1.75;
+  display: flex; gap: 14px; align-items: flex-start; font-style: italic;
+}
+.uri-conclusion-mark { font-size: 28px; opacity: 0.3; flex-shrink: 0; margin-top: -4px; line-height: 1; font-style: normal; }
+
+/* ── Source ── */
+.uri-source { text-align: center; font-size: 11px; color: #3a5468; margin-top: 44px; padding-top: 18px; border-top: 1px solid rgba(232,80,122,0.07); letter-spacing: 0.04em; }
+
+/* ── RTL ── */
+[dir="rtl"] .uri-hero-title, [dir="rtl"] .uri-sechead-title { letter-spacing: 0; }
+[dir="rtl"] .uri-coalition-head, [dir="rtl"] .uri-coalition-row { direction: rtl; }
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .uri-geo-grid { grid-template-columns: 1fr; }
+  .uri-pol-grid { grid-template-columns: 1fr; }
+  .uri-power-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 720px) {
+  .uri-coalition-head, .uri-coalition-row { grid-template-columns: 1fr; }
+  .uri-coalition-head span:not(:first-child) { display: none; }
+  .uri-inst-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .uri-inner { padding: 28px 14px 56px; }
+  .uri-hero-badges { gap: 6px; }
+  .uri-badge { font-size: 10px; padding: 4px 10px; }
+  .uri-rejections { gap: 7px; }
+}

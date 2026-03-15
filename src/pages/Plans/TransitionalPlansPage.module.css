@@ -1,0 +1,195 @@
+.root {
+    min-height: 100vh;
+    background: #07101a;
+    padding: 48px 24px 80px;
+}
+
+.inner {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7c72e8;
+    margin-bottom: 12px;
+    font-family: 'intelone-mono', monospace;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #e8e4ff;
+    margin: 0 0 12px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 15px;
+    color: #6a7a8e;
+    margin: 0 0 48px;
+    line-height: 1.6;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.sectionLabel {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3a4a5e;
+    margin-bottom: 12px;
+    font-family: 'intelone-mono', monospace;
+}
+
+.cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    text-decoration: none;
+    transition: background 0.18s, border-color 0.18s;
+    overflow: hidden;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--card-accent, #7c72e8);
+}
+
+.cardAccentBar {
+    width: 4px;
+    align-self: stretch;
+    background: var(--card-accent, #7c72e8);
+    flex-shrink: 0;
+}
+
+.cardBody {
+    flex: 1;
+    padding: 16px 20px;
+    min-width: 0;
+}
+
+.cardTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #c8d8e8;
+    margin-bottom: 4px;
+}
+
+.cardMeta {
+    font-size: 12px;
+    color: #5a6a7e;
+    margin-bottom: 6px;
+}
+
+.cardTag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--card-accent, #7c72e8);
+    opacity: 0.8;
+    font-family: 'intelone-mono', monospace;
+}
+
+.cardArrow {
+    padding: 0 20px;
+    color: #3a4a5e;
+    font-size: 16px;
+    flex-shrink: 0;
+    transition: color 0.18s;
+}
+
+.card:hover .cardArrow {
+    color: var(--card-accent, #7c72e8);
+}
+
+.arenaCard {
+    display: flex;
+    align-items: center;
+    background: rgba(79, 195, 247, 0.04);
+    border: 1px solid rgba(79, 195, 247, 0.15);
+    text-decoration: none;
+    transition: background 0.18s, border-color 0.18s;
+    padding: 20px 20px 20px 24px;
+}
+
+.arenaCard:hover {
+    background: rgba(79, 195, 247, 0.08);
+    border-color: rgba(79, 195, 247, 0.4);
+}
+
+.arenaCardBody {
+    flex: 1;
+}
+
+.arenaCardTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4fc3f7;
+    margin-bottom: 4px;
+}
+
+.arenaCardDesc {
+    font-size: 13px;
+    color: #5a6a7e;
+    line-height: 1.5;
+}
+
+.arenaCard .cardArrow {
+    color: rgba(79, 195, 247, 0.4);
+    padding: 0;
+    padding-left: 20px;
+    transition: color 0.18s;
+}
+
+.arenaCard:hover .cardArrow {
+    color: #4fc3f7;
+}
+
+.footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footerLink {
+    font-size: 12px;
+    color: #4a5a6e;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: color 0.18s;
+}
+
+.footerLink:hover {
+    color: #7c72e8;
+}
+
+[dir="rtl"] .title,
+[dir="rtl"] .subtitle,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .sectionLabel {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+[dir="rtl"] .cardTitle,
+[dir="rtl"] .cardMeta,
+[dir="rtl"] .arenaCardTitle,
+[dir="rtl"] .arenaCardDesc {
+    font-family: 'Vazirmatn', sans-serif;
+}
+
+[dir="rtl"] .cardArrow {
+    transform: scaleX(-1);
+}

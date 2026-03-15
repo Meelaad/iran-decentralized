@@ -15,7 +15,9 @@
     "admin": "ADMIN",
     "transitional": "BLUEPRINT",
     "arena": "ARENA",
-    "destination": "DESTINATION"
+    "destination": "DESTINATION",
+    "plans": "PLANS",
+    "comparePlans": "COMPARE PLANS"
   },
   "blueprint": {
     "map": "MAP",

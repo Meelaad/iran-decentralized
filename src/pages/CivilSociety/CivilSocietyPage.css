@@ -1,0 +1,584 @@
+/* ─────────────────────────────────────────────────────────────
+   CivilSocietyPage.css — Joint Charter of Minimum Demands
+   Dark cyberpunk · amber/orange accent palette
+───────────────────────────────────────────────────────────── */
+
+.cs-page *, .cs-page *::before, .cs-page *::after {
+  box-sizing: border-box;
+}
+
+.cs-page {
+  position: relative;
+  min-height: 100vh;
+  background: #020408;
+  color: #d6e4ed;
+  overflow-x: hidden;
+}
+
+.cs-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cs-scanline {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(255, 154, 66, 0.012) 3px,
+    rgba(255, 154, 66, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cs-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+  width: 100%;
+}
+
+/* ── Hero ── */
+.cs-hero {
+  text-align: center;
+  margin-bottom: 52px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 154, 66, 0.12);
+}
+
+.cs-hero-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #ff9a42;
+  margin-bottom: 14px;
+  opacity: 0.7;
+}
+
+.cs-hero-title {
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #e8f4fb;
+  margin: 0 0 16px;
+  line-height: 1.15;
+}
+
+.cs-hero-desc {
+  font-size: 13.5px;
+  color: #8aa8bc;
+  max-width: 900px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+
+.cs-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.cs-badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ── Section header ── */
+.cs-sechead { margin-bottom: 22px; }
+
+.cs-sechead-eyebrow {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.cs-sechead-title {
+  font-size: clamp(17px, 2.2vw, 24px);
+  font-weight: 700;
+  color: #e8f4fb;
+  margin: 0 0 10px;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.cs-sechead-intro {
+  font-size: 13px;
+  color: #7a9db5;
+  line-height: 1.7;
+  max-width: 980px;
+  margin: 0;
+}
+
+/* ── Divider ── */
+.cs-divider {
+  border: none;
+  border-top: 1px solid rgba(255, 154, 66, 0.09);
+  margin: 42px 0;
+  width: 100%;
+}
+
+/* ── Utility ── */
+.cs-seg-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: block;
+}
+
+/* ── Accordion ── */
+.cs-acc {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.015);
+  width: 100%;
+  margin-bottom: 5px;
+}
+.cs-acc:last-child { margin-bottom: 0; }
+.cs-acc:hover { border-color: rgba(255, 255, 255, 0.11); }
+
+.cs-acc-btn {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 13px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #d6e4ed;
+}
+.cs-acc-btn:hover { background: rgba(255, 154, 66, 0.04); }
+
+.cs-acc-title {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #c8dce8;
+  line-height: 1.4;
+  text-align: left;
+}
+[dir="rtl"] .cs-acc-title { text-align: right; }
+
+.cs-acc-subtitle {
+  font-size: 10px;
+  color: #6a8a9e;
+  line-height: 1.3;
+  margin-top: 2px;
+  display: block;
+  text-align: left;
+}
+[dir="rtl"] .cs-acc-subtitle { text-align: right; }
+
+.cs-acc-caret {
+  font-size: 9px;
+  color: var(--c, #ff9a42);
+  opacity: 0.7;
+  flex-shrink: 0;
+  margin-top: 3px;
+  padding-inline-start: 6px;
+  line-height: 1.4;
+}
+
+.cs-acc-body {
+  padding: 4px 13px 11px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ── Bullets ── */
+.cs-bullets {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cs-bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #8aa8bc;
+  line-height: 1.5;
+  text-align: left;
+}
+[dir="rtl"] .cs-bullet-item { text-align: right; }
+
+.cs-bullet-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5.5px;
+  opacity: 0.8;
+}
+
+/* ── Banner ── */
+.cs-banner {
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 11px 16px;
+  margin: 14px 0;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.cs-banner-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+.cs-banner-text { font-size: 12px; color: #8aa8bc; line-height: 1.6; }
+
+/* ── Three pillars ── */
+.cs-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.cs-pillar {
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 18px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  min-width: 0;
+}
+
+.cs-pillar-icon { font-size: 22px; margin-bottom: 10px; line-height: 1; }
+
+.cs-pillar-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.cs-pillar-sub {
+  font-size: 11px;
+  color: #6a8a9e;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+/* ── Org cards ── */
+.cs-org-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+  align-items: start;
+}
+
+.cs-org-card {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.02);
+  min-width: 0;
+}
+
+.cs-org-domain {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+
+.cs-org-orgs {
+  font-size: 11.5px;
+  color: #c8dce8;
+  font-weight: 500;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.cs-org-fn {
+  font-size: 11px;
+  color: #7a9db5;
+  line-height: 1.55;
+}
+
+/* ── Phase blocks ── */
+.cs-phase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.cs-phase-block {
+  border: 1.5px solid color-mix(in srgb, var(--pb) 28%, transparent);
+  border-radius: 12px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--pb) 4%, transparent);
+  min-width: 0;
+}
+
+@supports not (color: color-mix(in srgb, red 50%, blue)) {
+  .cs-phase-block { border-color: rgba(255,154,66,0.22); background: rgba(255,154,66,0.04); }
+}
+
+.cs-phase-num {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--pb);
+  opacity: 0.22;
+  line-height: 1;
+  margin-bottom: 3px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-phase-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pb);
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.cs-phase-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--pb);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+/* ── Economy section ── */
+.cs-econ-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+
+.cs-econ-table {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cs-econ-table-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 0;
+  padding: 9px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6a8a9e;
+}
+
+.cs-econ-table-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr;
+  gap: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+.cs-econ-table-row:last-child { border-bottom: none; }
+
+.cs-econ-sector,
+.cs-econ-regime,
+.cs-econ-charter {
+  padding: 10px 14px;
+  font-size: 11.5px;
+  line-height: 1.55;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.04);
+}
+.cs-econ-charter { border-inline-end: none; }
+.cs-econ-sector { color: #c8dce8; font-weight: 600; font-size: 11px; }
+.cs-econ-regime { color: rgba(239, 83, 80, 0.75); }
+.cs-econ-charter { color: rgba(105, 217, 140, 0.85); }
+
+/* ── Stage 2 ── */
+.cs-s2-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ── Foreign policy ── */
+.cs-fp-wrap {
+  padding: 16px 20px;
+  background: rgba(79, 195, 247, 0.04);
+  border: 1px solid rgba(79, 195, 247, 0.15);
+  border-radius: 10px;
+}
+
+/* ── 12 Articles ── */
+.cs-articles-wrap {
+  padding: 20px;
+  background: rgba(255, 154, 66, 0.04);
+  border: 1px solid rgba(255, 154, 66, 0.18);
+  border-radius: 12px;
+}
+
+.cs-article-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.cs-article-item {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px 13px;
+  background: rgba(255, 154, 66, 0.05);
+  border: 1px solid rgba(255, 154, 66, 0.12);
+  border-radius: 8px;
+  min-width: 0;
+}
+
+.cs-article-n {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  min-width: 22px;
+  font-variant-numeric: tabular-nums;
+}
+
+.cs-article-text {
+  font-size: 11.5px;
+  color: #c8dce8;
+  line-height: 1.55;
+}
+
+/* ── Strategic assessment ── */
+.cs-strat-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: block;
+}
+
+.cs-strat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.cs-strat-card {
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cs-strat-title {
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+/* ── Conclusion quote ── */
+.cs-conclusion {
+  margin: 24px 0;
+  padding: 20px 24px;
+  border: 1px dashed rgba(255, 154, 66, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 154, 66, 0.04);
+  font-size: 13px;
+  color: #d6e4ed;
+  line-height: 1.75;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  font-style: italic;
+}
+
+.cs-conclusion-mark {
+  font-size: 28px;
+  color: #ff9a42;
+  opacity: 0.3;
+  flex-shrink: 0;
+  margin-top: -4px;
+  line-height: 1;
+  font-style: normal;
+}
+
+/* ── Source ── */
+.cs-source {
+  text-align: center;
+  font-size: 11px;
+  color: #3a5468;
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 154, 66, 0.07);
+  letter-spacing: 0.04em;
+}
+
+/* ── RTL ── */
+[dir="rtl"] .cs-hero-title,
+[dir="rtl"] .cs-sechead-title { letter-spacing: 0; }
+
+[dir="rtl"] .cs-econ-table-head,
+[dir="rtl"] .cs-econ-table-row { direction: rtl; }
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .cs-pillars { grid-template-columns: 1fr; }
+  .cs-phase-grid { grid-template-columns: 1fr; }
+  .cs-strat-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .cs-econ-table-head,
+  .cs-econ-table-row { grid-template-columns: 1fr; }
+  .cs-econ-table-head span:first-child { display: none; }
+  .cs-econ-sector { border-inline-end: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .cs-econ-regime { border-inline-end: none; }
+  .cs-article-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .cs-inner { padding: 28px 14px 56px; }
+  .cs-hero-badges { gap: 6px; }
+  .cs-badge { font-size: 10px; padding: 4px 10px; }
+  .cs-org-grid { grid-template-columns: 1fr; }
+}

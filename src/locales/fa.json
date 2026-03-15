@@ -15,7 +15,9 @@
     "admin": "پنل مدیریت",
     "transitional": "طرح",
     "arena": "آرنا",
-    "destination": "مقصد"
+    "destination": "مقصد",
+    "plans": "طرح‌ها",
+    "comparePlans": "مقایسه طرح‌ها"
   },
   "blueprint": {
     "map": "نقشه",

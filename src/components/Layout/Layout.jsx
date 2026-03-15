@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import { NavLink, Outlet, Link, useNavigate, useLocation } from "react-router-dom";
+import { NavLink, Outlet, Link, useLocation } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
-import { BLUEPRINTS } from '../../data';
 import { useAuth } from '../../hooks/useAuth';
 import './Layout.css';
 
@@ -39,17 +38,13 @@ function DevLinks() {
 function NavContent() {
     const { lang, setLang, isRTL, t, tKey } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
-    const [blueprintOpen, setBlueprintOpen] = useState(false);
     const { session, isAdmin, profileName, logout } = useAuth();
 
     const navRef = useRef(null);
-    const blueprintRef = useRef(null);
-    const navigate = useNavigate();
     const location = useLocation();
-    
+
     const match = location.pathname.match(/\/blueprint\/gov\/([^/]+)(\/.*)?/);
     const activeBlueprintId = match ? match[1] : null;
-    const subPath = match && match[2] ? match[2] : '';
 
     useEffect(() => {
         if (!mobileNavOpen) return;
@@ -66,17 +61,6 @@ function NavContent() {
         };
     }, [mobileNavOpen]);
 
-    useEffect(() => {
-        if (!blueprintOpen) return;
-        function handleOutsideClick(e) {
-            if (blueprintRef.current && !blueprintRef.current.contains(e.target)) {
-                setBlueprintOpen(false);
-            }
-        }
-        document.addEventListener('mousedown', handleOutsideClick);
-        return () => document.removeEventListener('mousedown', handleOutsideClick);
-    }, [blueprintOpen]);
-
     const handleMobileLinkClick = () => setMobileNavOpen(false);
 
     const handleMobileLogout = () => {
@@ -84,27 +68,29 @@ function NavContent() {
         logout();
     };
 
-    const handleBlueprintChange = (newBlueprintId) => {
-        const targetPath = subPath || '';
-        navigate(`/blueprint/gov/${newBlueprintId}${targetPath}`);
-        setBlueprintOpen(false);
-    };
+    const isTransitionZone = /^\/(arena|transitional|plans|compare\/transition|pre)/.test(location.pathname);
 
-    const navLinks = [
-        // Pre-collapse zone
-        { to: "/arena",       labelKey: 'nav.arena' },
-        { to: "/transitional", labelKey: 'nav.transitional' },
-        // Post-collapse zone
-        { to: "/destination", labelKey: 'nav.destination' },
-        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.map' },
-        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/sectors`, labelKey: 'nav.sectors' },
-        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/layers`, labelKey: 'nav.layers' },
-        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/roadmap`, labelKey: 'nav.roadmap' },
-        // Tools
-        { to: `/compare?a=${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.compare' },
-        { to: "/vote",        labelKey: 'nav.vote' },
-        { to: "/about",       labelKey: 'nav.about' },
+    const transitionNavLinks = [
+        { to: '/arena',              labelKey: 'nav.arena' },
+        { to: '/plans',              labelKey: 'nav.plans' },
+        { to: '/compare/transition', labelKey: 'nav.comparePlans' },
+        { to: '/vote',               labelKey: 'nav.vote' },
+        { to: '/about',              labelKey: 'nav.about' },
     ];
+
+    const destinationNavLinks = [
+        { to: '/destination',                                                      labelKey: 'nav.destination' },
+        { to: '/blueprints',                                                       labelKey: 'nav.blueprints' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}`,            labelKey: 'nav.map' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/sectors`,    labelKey: 'nav.sectors' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/layers`,     labelKey: 'nav.layers' },
+        { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/roadmap`,    labelKey: 'nav.roadmap' },
+        { to: '/compare',                                                          labelKey: 'nav.compare' },
+        { to: '/vote',                                                             labelKey: 'nav.vote' },
+        { to: '/about',                                                            labelKey: 'nav.about' },
+    ];
+
+    const navLinks = isTransitionZone ? transitionNavLinks : destinationNavLinks;
 
     return (
         <div
@@ -189,38 +175,6 @@ function NavContent() {
                     </button>
                 </div>
 
-
-                <div className="site-nav-subrow" ref={blueprintRef}>
-                    <div className="site-nav-blueprint">
-                        <button
-                            className={`site-nav-blueprint-btn${activeBlueprintId ? " is-active" : ""}`}
-                            onClick={() => setBlueprintOpen(o => !o)}
-                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
-                        >
-                            <span className="site-nav-blueprint-btn-text">
-                                {activeBlueprintId && BLUEPRINTS[activeBlueprintId]
-                                    ? t(BLUEPRINTS[activeBlueprintId].name)
-                                    : tKey('nav.blueprints')}
-                            </span>
-                            <span className="site-nav-blueprint-caret">{blueprintOpen ? "▲" : "▼"}</span>
-                        </button>
-                        {blueprintOpen && (
-                            <div className="site-nav-blueprint-dropdown">
-                                <div className="site-nav-blueprint-header">{tKey('nav.blueprints')}</div>
-                                {Object.values(BLUEPRINTS).map(bp => (
-                                    <button
-                                        key={bp.id}
-                                        className={`site-nav-blueprint-option${activeBlueprintId === bp.id ? " is-active" : ""}`}
-                                        style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
-                                        onClick={() => handleBlueprintChange(bp.id)}
-                                    >
-                                        {t(bp.name)}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
 
                 {mobileNavOpen && (
                     <div className="mobile-nav-dropdown">

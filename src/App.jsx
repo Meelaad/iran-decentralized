@@ -30,6 +30,11 @@ import PlanPage from './pages/Arena/PlanPage';
 import VerifyPage from './pages/Verify/VerifyPage';
 import TransitionalPage from './pages/Transitional/TransitionalPage';
 import DestinationPage from './pages/Destination/DestinationPage';
+import MousaviPage from './pages/Mousavi/MousaviPage';
+import CivilSocietyPage from './pages/CivilSociety/CivilSocietyPage';
+import ITCPage from './pages/ITC/ITCPage';
+import TransitionalPlansPage from './pages/Plans/TransitionalPlansPage';
+import BlueprintsListPage from './pages/Blueprints/BlueprintsListPage';
 
 function App() {
     return (
@@ -56,6 +61,12 @@ function App() {
                         <Route path="about" element={<AboutPage />} />
                         <Route path="arena" element={<ArenaPage />} />
                         <Route path="arena/:slug" element={<PlanPage />} />
+                        <Route path="transitional/plan/nufdi" element={<TransitionalPage />} />
+                        <Route path="transitional/plan/mirhosein-mousavi" element={<MousaviPage />} />
+                        <Route path="transitional/plan/civil-society" element={<CivilSocietyPage />} />
+                        <Route path="transitional/plan/itc" element={<ITCPage />} />
+                        <Route path="plans" element={<TransitionalPlansPage />} />
+                        <Route path="blueprints" element={<BlueprintsListPage />} />
                         <Route path="verify" element={<VerifyPage />} />
                         
                         {/* Functional pages */}
@@ -73,6 +84,7 @@ function App() {
                     </Route>
 
                     {/* Redirects for convenience and legacy paths */}
+                    <Route path="/transitional" element={<Navigate to="/plans" replace />} />
                     <Route path="/blueprint" element={<Navigate to="/blueprint/gov/decentralized" replace />} />
                     <Route path="/sectors" element={<Navigate to="/blueprint/gov/decentralized/sectors" replace />} />
                     <Route path="/layers" element={<Navigate to="/blueprint/gov/decentralized/layers" replace />} />

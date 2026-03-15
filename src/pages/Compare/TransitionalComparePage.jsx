@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import './TransitionalComparePage.css';
 
-// Placeholder data — replace with real plan data later
 const PLANS = [
     {
         id: 'nufdi',
@@ -19,36 +18,55 @@ const PLANS = [
         ],
         color: '#7c72e8',
         status: { en: 'Reference Document', fa: 'سند مرجع' },
+        link: '/transitional/plan/nufdi',
     },
     {
-        id: 'mahsa',
-        name: { en: 'Mahsa Charter (Placeholder)', fa: 'منشور مهسا (نمونه)' },
-        author: { en: 'Diaspora Coalition', fa: 'ائتلاف دیاسپورا' },
-        type: { en: 'Secular Liberal', fa: 'سکولار لیبرال' },
-        duration: { en: '12–18 months', fa: '۱۲–۱۸ ماه' },
+        id: 'mousavi',
+        name: { en: 'Mousavi — "To Save Iran"', fa: 'موسوی — «برای نجات ایران»' },
+        author: { en: 'Mir Hossein Mousavi (Green Movement)', fa: 'میر حسین موسوی (جنبش سبز)' },
+        type: { en: '3-Stage Popular Sovereignty', fa: 'حاکمیت مردمی ۳ مرحله‌ای' },
+        duration: { en: 'Until regime capitulation', fa: 'تا تسلیم رژیم' },
         keyPoints: [
-            { en: 'Woman, Life, Freedom as constitutional principle', fa: 'زن، زندگی، آزادی به عنوان اصل قانون اساسی' },
-            { en: 'Immediate free press and assembly rights', fa: 'آزادی فوری مطبوعات و حق تجمع' },
-            { en: 'International oversight of transition', fa: 'نظارت بین‌المللی بر دوران انتقال' },
-            { en: 'Lustration of IRGC and judiciary', fa: 'پاکسازی سپاه و دستگاه قضائی' },
-        ],
-        color: '#4fc3f7',
-        status: { en: 'Placeholder — Edit Later', fa: 'نمونه — بعداً ویرایش شود' },
-    },
-    {
-        id: 'federalist',
-        name: { en: 'Federal Transition Plan (Placeholder)', fa: 'طرح انتقال فدرال (نمونه)' },
-        author: { en: 'Ethnic Minority Alliance', fa: 'اتحاد اقلیت‌های قومی' },
-        type: { en: 'Federal Democratic', fa: 'دموکراتیک فدرال' },
-        duration: { en: '24–36 months', fa: '۲۴–۳۶ ماه' },
-        keyPoints: [
-            { en: 'Ethnic region self-governance from day one', fa: 'خودگردانی مناطق قومی از روز اول' },
-            { en: 'Federal constitution with regional chapters', fa: 'قانون اساسی فدرال با فصل‌های منطقه‌ای' },
-            { en: 'Proportional representation in all bodies', fa: 'نمایندگی متناسب در تمام ارگان‌ها' },
-            { en: 'National referendum on federal structure', fa: 'همه‌پرسی ملی درباره ساختار فدرال' },
+            { en: 'Stage 1: Deconstruction referendum on current constitution', fa: 'مرحله ۱: همه‌پرسی فروپاشی قانون اساسی موجود' },
+            { en: 'Stage 2: Constituent Assembly elected by free vote', fa: 'مرحله ۲: مجلس مؤسسان منتخب از طریق انتخابات آزاد' },
+            { en: 'Stage 3: Ratification referendum on new constitution', fa: 'مرحله ۳: همه‌پرسی تصویب قانون اساسی جدید' },
+            { en: 'Non-violent, rejects foreign military intervention', fa: 'غیرخشونت‌آمیز، مخالف مداخله نظامی خارجی' },
         ],
         color: '#69d98c',
-        status: { en: 'Placeholder — Edit Later', fa: 'نمونه — بعداً ویرایش شود' },
+        status: { en: 'Active Plan (Feb 2023 — Jan 2026+)', fa: 'طرح فعال (فوریه ۲۰۲۳ — ژانویه ۲۰۲۶+)' },
+        link: '/transitional/plan/mirhosein-mousavi',
+    },
+    {
+        id: 'itc',
+        name: { en: 'Iran Transition Council (ITC)', fa: 'شورای انتقال ایران (ITC)' },
+        author: { en: 'Shadow Government & Transitional Planning Unit', fa: 'دولت سایه و واحد برنامه‌ریزی انتقالی' },
+        type: { en: 'Operational Shadow Government', fa: 'دولت سایه عملیاتی' },
+        duration: { en: 'Immediate post-collapse deployment', fa: 'استقرار فوری پس از فروپاشی' },
+        keyPoints: [
+            { en: 'Pre-positioned shadow ministries ready for rapid deployment', fa: 'وزارتخانه‌های سایه آماده برای استقرار سریع' },
+            { en: 'Absorb power vacuum and prevent state collapse', fa: 'جذب خلاء قدرت و جلوگیری از فروپاشی دولت' },
+            { en: 'Logistical coordination of transitional institutions', fa: 'هماهنگی لجستیکی نهادهای انتقالی' },
+            { en: 'Structured handover to democratic elected bodies', fa: 'واگذاری منظم به نهادهای منتخب دموکراتیک' },
+        ],
+        color: '#ff9a42',
+        status: { en: 'Operational Plan · Est. 2019', fa: 'طرح عملیاتی · تأسیس ۲۰۱۹' },
+        link: '/transitional/plan/itc',
+    },
+    {
+        id: 'civil-society',
+        name: { en: 'Iran Civil Society Charter', fa: 'منشور جامعه مدنی ایران' },
+        author: { en: 'Civil Society Research & Advocacy Network', fa: 'شبکه پژوهش و حمایت جامعه مدنی' },
+        type: { en: 'Civil Society Framework', fa: 'چارچوب جامعه مدنی' },
+        duration: { en: 'Ongoing — pre-transition', fa: 'جاری — پیش از انتقال' },
+        keyPoints: [
+            { en: 'Grassroots civil society organisation and capacity-building', fa: 'سازماندهی پایه‌ای جامعه مدنی و ظرفیت‌سازی' },
+            { en: 'Independent media and press freedom framework', fa: 'رسانه مستقل و چارچوب آزادی مطبوعات' },
+            { en: 'Human rights documentation and accountability', fa: 'مستندسازی حقوق بشر و پاسخگویی' },
+            { en: 'Coalition-building across ethnic and political lines', fa: 'ائتلاف‌سازی فراتر از مرزهای قومی و سیاسی' },
+        ],
+        color: '#ffd166',
+        status: { en: 'Reference Document', fa: 'سند مرجع' },
+        link: '/transitional/plan/civil-society',
     },
 ];
 
@@ -111,9 +129,11 @@ export default function TransitionalComparePage() {
                             <div className="tc-cell tc-cell--label" />
                             <div className="tc-cell tc-cell--head" style={{ borderTopColor: planA.color }}>
                                 <div className="tc-plan-name" style={{ color: planA.color }}>{t(planA.name)}</div>
+                                {planA.link && <Link to={planA.link} className="tc-view-link" style={{ color: planA.color }}>{isRTL ? 'مشاهده طرح ←' : 'VIEW PLAN →'}</Link>}
                             </div>
                             <div className="tc-cell tc-cell--head" style={{ borderTopColor: planB.color }}>
                                 <div className="tc-plan-name" style={{ color: planB.color }}>{t(planB.name)}</div>
+                                {planB.link && <Link to={planB.link} className="tc-view-link" style={{ color: planB.color }}>{isRTL ? 'مشاهده طرح ←' : 'VIEW PLAN →'}</Link>}
                             </div>
                         </div>
 

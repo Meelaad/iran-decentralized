@@ -71,7 +71,7 @@ export default function StartSelection() {
                                 </div>
                             </div>
                         </Link>
-                        <Link to="/transitional" className="ss-link ss-link--pre">
+                        <Link to="/transitional/plan/nufdi" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">📜</span>
                             <div>
                                 <div className="ss-link-title">

@@ -49,3 +49,57 @@
     .arena-page { padding: 16px; }
     .arena-top { flex-direction: column; }
 }
+
+/* Featured reference plans */
+.arena-featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.arena-featured-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 20px;
+    background: rgba(13,25,38,0.6);
+    border: 1px solid rgba(79,195,247,0.15);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+}
+.arena-featured-card:hover { background: rgba(13,25,38,0.9); transform: translateY(-2px); }
+
+.arena-featured-badge {
+    font-family: 'intelone-mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    padding: 2px 7px;
+    border: 1px solid;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.arena-featured-name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.arena-featured-meta {
+    font-size: 11px;
+    color: #607c8e;
+}
+
+.arena-featured-cta {
+    font-family: 'intelone-mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: rgba(79,195,247,0.6);
+    margin-top: auto;
+    padding-top: 8px;
+}
+.arena-featured-card:hover .arena-featured-cta { color: #4fc3f7; }
