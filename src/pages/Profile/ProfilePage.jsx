@@ -28,6 +28,15 @@ function formatDate(dateStr) {
     });
 }
 
+function timeRemaining(expiresAt) {
+    if (!expiresAt) return '';
+    const diff = new Date(expiresAt) - Date.now();
+    if (diff <= 0) return 'EXPIRED';
+    const hours = Math.floor(diff / 3600000);
+    const mins = Math.floor((diff % 3600000) / 60000);
+    return `${hours}h ${mins}m`;
+}
+
 export default function ProfilePage() {
     const { t, isRTL } = useLang();
     const navigate = useNavigate();
@@ -443,6 +452,7 @@ export default function ProfilePage() {
                                         style={monoFont}
                                     >
                                         {copiedCode === c.code ? (isRTL ? 'کپی شد!' : 'Copied!') : c.code}
+                                        <span className="prof-code-expiry">{timeRemaining(c.expires_at)}</span>
                                     </button>
                                 ))}
                                 {usedCodes.map(c => (

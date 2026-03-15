@@ -4,6 +4,9 @@ import { useAuth } from '../../hooks/useAuth';
 import {
     useAdminUsers, useAdminBlueprints,
     useGenerateCodes, useDeleteCode, useSetInvites, useSeedBlueprints,
+    useAdminPlans, usePromotePlan, useArchivePlan,
+    useVerificationQueue, useReviewVerification,
+    useAdminCivicLeaderboard,
 } from '../../hooks/useAdmin';
 import { Spinner } from '../../components/ui';
 import { BLUEPRINTS } from '../../data';
@@ -243,13 +246,21 @@ export default function AdminPage() {
     const { session, authLoading } = useAuth();
     const myEmail = session?.user?.email || '';
 
+    const [activeTab, setActiveTab] = useState('users');
+
     const { data: users = [], isLoading: usersLoading, isError: usersError } = useAdminUsers();
     const { data: dbBlueprints = [] } = useAdminBlueprints();
+    const { data: plans = [] } = useAdminPlans();
+    const { data: verificationQueue = [] } = useVerificationQueue();
+    const { data: civicLeaderboard = [] } = useAdminCivicLeaderboard();
 
     const generateCodesMutation = useGenerateCodes();
     const deleteCodeMutation    = useDeleteCode();
     const setInvitesMutation    = useSetInvites();
     const seedMutation          = useSeedBlueprints();
+    const promotePlanMutation   = usePromotePlan();
+    const archivePlanMutation   = useArchivePlan();
+    const reviewVerificationMutation = useReviewVerification();
 
     const [blueprintSeedMsg, setBlueprintSeedMsg] = useState('');
 
@@ -314,6 +325,9 @@ export default function AdminPage() {
         );
     }
 
+    const TIER_COLORS = { LOW: '#5a6a7e', MID: '#4fc3f7', HIGH: '#ffd54f' };
+    const STATUS_COLORS = { incubator: '#ffd54f', arena: '#66bb6a', archived: '#5a6a7e' };
+
     return (
         <div className="admin-page">
             <div className="admin-inner">
@@ -341,117 +355,314 @@ export default function AdminPage() {
                     </div>
                 </div>
 
-                {/* User table */}
-                <div className="admin-section-title">Registered Users</div>
-                <div className="admin-table-wrap">
-                    <table className="admin-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Country</th>
-                                <th>Type</th>
-                                <th>Invited By</th>
-                                <th>Codes Left</th>
-                                <th>Registered</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {users.length === 0 && (
-                                <tr>
-                                    <td colSpan={8} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
-                                        No users registered yet.
-                                    </td>
-                                </tr>
-                            )}
-                            {users.map(user => (
-                                <UserRow
-                                    key={user.id}
-                                    user={user}
-                                    nameMap={nameMap}
-                                    onGenerateCodes={handleGenerateCodes}
-                                    onSetInvites={handleSetInvites}
-                                    onDeleteCode={handleDeleteCode}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-
-                {/* Invite tree */}
-                <div className="admin-section-title">Invite Tree</div>
-                <div className="admin-tree">
-                    {treeRoots.length === 0 && (
-                        <div style={{ color: '#3a4a5e', fontFamily: 'intelone-mono, monospace', fontSize: 12 }}>
-                            No users yet.
-                        </div>
-                    )}
-                    {treeRoots.map(node => (
-                        <TreeNode key={node.id} node={node} depth={0} />
+                {/* Tab bar */}
+                <div className="admin-tab-bar">
+                    {['users', 'blueprints', 'plans', 'verification', 'civic'].map(tab => (
+                        <button
+                            key={tab}
+                            className={`admin-tab-btn${activeTab === tab ? ' admin-tab-btn--active' : ''}`}
+                            onClick={() => setActiveTab(tab)}
+                        >
+                            {tab === 'users' && 'USERS'}
+                            {tab === 'blueprints' && 'BLUEPRINTS'}
+                            {tab === 'plans' && 'PLANS'}
+                            {tab === 'verification' && 'VERIFICATION'}
+                            {tab === 'civic' && 'CIVIC SCORES'}
+                        </button>
                     ))}
                 </div>
 
-                {/* Blueprints */}
-                <div className="admin-section-title" style={{ marginTop: 40 }}>Blueprints</div>
-                <div className="admin-blueprints-bar">
-                    <button
-                        className="admin-action-btn"
-                        onClick={handleSeedBlueprints}
-                        disabled={seedMutation.isPending}
-                        style={monoFont}
-                    >
-                        {seedMutation.isPending ? '...' : '↑ Sync official blueprints from data.js'}
-                    </button>
-                    {blueprintSeedMsg && (
-                        <span className="admin-seed-msg" style={monoFont}>{blueprintSeedMsg}</span>
-                    )}
-                </div>
-                <div className="admin-table-wrap">
-                    <table className="admin-table">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name (EN)</th>
-                                <th>Official</th>
-                                <th>Sectors</th>
-                                <th>Connections</th>
-                                <th>Force Layout</th>
-                                <th>Owner</th>
-                                <th>Forked From</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {dbBlueprints.length === 0 && (
-                                <tr>
-                                    <td colSpan={8} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
-                                        No blueprints in DB. Click "Sync" to seed official blueprints.
-                                    </td>
-                                </tr>
+                {/* ── USERS TAB ── */}
+                {activeTab === 'users' && (
+                    <>
+                        <div className="admin-section-title">Registered Users</div>
+                        <div className="admin-table-wrap">
+                            <table className="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Country</th>
+                                        <th>Type</th>
+                                        <th>Invited By</th>
+                                        <th>Codes Left</th>
+                                        <th>Registered</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {users.length === 0 && (
+                                        <tr>
+                                            <td colSpan={8} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                                No users registered yet.
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {users.map(user => (
+                                        <UserRow
+                                            key={user.id}
+                                            user={user}
+                                            nameMap={nameMap}
+                                            onGenerateCodes={handleGenerateCodes}
+                                            onSetInvites={handleSetInvites}
+                                            onDeleteCode={handleDeleteCode}
+                                        />
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div className="admin-section-title">Invite Tree</div>
+                        <div className="admin-tree">
+                            {treeRoots.length === 0 && (
+                                <div style={{ color: '#3a4a5e', fontFamily: 'intelone-mono, monospace', fontSize: 12 }}>
+                                    No users yet.
+                                </div>
                             )}
-                            {dbBlueprints.map(bp => (
-                                <tr key={bp.id}>
-                                    <td className="admin-td-mono" style={{ fontSize: 11 }}>{bp.id}</td>
-                                    <td>{bp.name?.en || '—'}</td>
-                                    <td style={{ color: bp.isOfficial ? '#4fc3f7' : '#3a4a5e' }}>
-                                        {bp.isOfficial ? '✓' : 'fork'}
-                                    </td>
-                                    <td>{bp.sectors?.length ?? 0}</td>
-                                    <td>{bp.connections?.length ?? 0}</td>
-                                    <td style={{ color: bp.useForceLayout ? '#66bb6a' : '#3a4a5e' }}>
-                                        {bp.useForceLayout ? 'yes' : 'no'}
-                                    </td>
-                                    <td style={{ color: '#3a4a5e', fontSize: 10 }}>
-                                        {bp.ownerId ? bp.ownerId.slice(0, 8) + '…' : '—'}
-                                    </td>
-                                    <td style={{ color: '#3a4a5e', fontSize: 10 }}>
-                                        {bp.forkedFrom || '—'}
-                                    </td>
-                                </tr>
+                            {treeRoots.map(node => (
+                                <TreeNode key={node.id} node={node} depth={0} />
                             ))}
-                        </tbody>
-                    </table>
-                </div>
+                        </div>
+                    </>
+                )}
+
+                {/* ── BLUEPRINTS TAB ── */}
+                {activeTab === 'blueprints' && (
+                    <>
+                        <div className="admin-section-title" style={{ marginTop: 40 }}>Blueprints</div>
+                        <div className="admin-blueprints-bar">
+                            <button
+                                className="admin-action-btn"
+                                onClick={handleSeedBlueprints}
+                                disabled={seedMutation.isPending}
+                                style={monoFont}
+                            >
+                                {seedMutation.isPending ? '...' : '↑ Sync official blueprints from data.js'}
+                            </button>
+                            {blueprintSeedMsg && (
+                                <span className="admin-seed-msg" style={monoFont}>{blueprintSeedMsg}</span>
+                            )}
+                        </div>
+                        <div className="admin-table-wrap">
+                            <table className="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name (EN)</th>
+                                        <th>Official</th>
+                                        <th>Sectors</th>
+                                        <th>Connections</th>
+                                        <th>Force Layout</th>
+                                        <th>Owner</th>
+                                        <th>Forked From</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {dbBlueprints.length === 0 && (
+                                        <tr>
+                                            <td colSpan={8} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                                No blueprints in DB. Click "Sync" to seed official blueprints.
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {dbBlueprints.map(bp => (
+                                        <tr key={bp.id}>
+                                            <td className="admin-td-mono" style={{ fontSize: 11 }}>{bp.id}</td>
+                                            <td>{bp.name?.en || '—'}</td>
+                                            <td style={{ color: bp.isOfficial ? '#4fc3f7' : '#3a4a5e' }}>
+                                                {bp.isOfficial ? '✓' : 'fork'}
+                                            </td>
+                                            <td>{bp.sectors?.length ?? 0}</td>
+                                            <td>{bp.connections?.length ?? 0}</td>
+                                            <td style={{ color: bp.useForceLayout ? '#66bb6a' : '#3a4a5e' }}>
+                                                {bp.useForceLayout ? 'yes' : 'no'}
+                                            </td>
+                                            <td style={{ color: '#3a4a5e', fontSize: 10 }}>
+                                                {bp.ownerId ? bp.ownerId.slice(0, 8) + '…' : '—'}
+                                            </td>
+                                            <td style={{ color: '#3a4a5e', fontSize: 10 }}>
+                                                {bp.forkedFrom || '—'}
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
+
+                {/* ── PLANS TAB ── */}
+                {activeTab === 'plans' && (
+                    <>
+                        <div className="admin-section-title" style={{ marginTop: 40 }}>Transitional Plans</div>
+                        <div className="admin-table-wrap">
+                            <table className="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Status</th>
+                                        <th>Endorsements</th>
+                                        <th>Created</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {plans.length === 0 && (
+                                        <tr>
+                                            <td colSpan={5} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                                No plans found.
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {plans.map(plan => (
+                                        <tr key={plan.id}>
+                                            <td className="admin-td-name">{plan.title || '—'}</td>
+                                            <td>
+                                                <span className="admin-status-badge" style={{ color: STATUS_COLORS[plan.status] ?? '#8a9bb0', borderColor: STATUS_COLORS[plan.status] ?? '#8a9bb0' }}>
+                                                    {plan.status}
+                                                </span>
+                                            </td>
+                                            <td className="admin-td-mono">{plan.endorsement_count ?? 0}</td>
+                                            <td>{formatDate(plan.created_at)}</td>
+                                            <td>
+                                                <div className="admin-actions-cell">
+                                                    {plan.status === 'incubator' && (
+                                                        <button
+                                                            className="admin-action-btn"
+                                                            disabled={promotePlanMutation.isPending}
+                                                            onClick={() => promotePlanMutation.mutate(plan.id)}
+                                                        >
+                                                            Promote
+                                                        </button>
+                                                    )}
+                                                    {plan.status !== 'archived' && (
+                                                        <button
+                                                            className="admin-action-btn admin-action-btn--danger"
+                                                            disabled={archivePlanMutation.isPending}
+                                                            onClick={() => archivePlanMutation.mutate(plan.id)}
+                                                        >
+                                                            Archive
+                                                        </button>
+                                                    )}
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
+
+                {/* ── VERIFICATION TAB ── */}
+                {activeTab === 'verification' && (
+                    <>
+                        <div className="admin-section-title" style={{ marginTop: 40 }}>Verification Queue</div>
+                        <div className="admin-table-wrap">
+                            <table className="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Type</th>
+                                        <th>File</th>
+                                        <th>Submitted</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {verificationQueue.length === 0 && (
+                                        <tr>
+                                            <td colSpan={5} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                                No pending verifications.
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {verificationQueue.map(item => (
+                                        <tr key={item.id}>
+                                            <td>
+                                                <div className="admin-td-name">{item.profiles?.full_name || '—'}</div>
+                                                <div className="admin-td-email">{item.profiles?.email || '—'}</div>
+                                            </td>
+                                            <td>
+                                                <span className="admin-status-badge" style={{ color: '#4fc3f7', borderColor: 'rgba(79,195,247,0.3)' }}>
+                                                    {item.type === 'id_document' ? 'ID' : item.type?.toUpperCase()}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                {item.file_url
+                                                    ? <a href={item.file_url} target="_blank" rel="noopener noreferrer" className="admin-link">VIEW</a>
+                                                    : '—'}
+                                            </td>
+                                            <td>{formatDate(item.created_at)}</td>
+                                            <td>
+                                                <div className="admin-actions-cell">
+                                                    <button
+                                                        className="admin-action-btn"
+                                                        disabled={reviewVerificationMutation.isPending}
+                                                        onClick={() => reviewVerificationMutation.mutate({ queueId: item.id, action: 'approved' })}
+                                                    >
+                                                        Approve
+                                                    </button>
+                                                    <button
+                                                        className="admin-action-btn admin-action-btn--danger"
+                                                        disabled={reviewVerificationMutation.isPending}
+                                                        onClick={() => reviewVerificationMutation.mutate({ queueId: item.id, action: 'rejected' })}
+                                                    >
+                                                        Reject
+                                                    </button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
+
+                {/* ── CIVIC SCORES TAB ── */}
+                {activeTab === 'civic' && (
+                    <>
+                        <div className="admin-section-title" style={{ marginTop: 40 }}>Civic Score Leaderboard</div>
+                        <div className="admin-table-wrap">
+                            <table className="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Civic Score</th>
+                                        <th>Trust Tier</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {civicLeaderboard.length === 0 && (
+                                        <tr>
+                                            <td colSpan={5} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                                No scores recorded yet.
+                                            </td>
+                                        </tr>
+                                    )}
+                                    {civicLeaderboard.map((entry, idx) => (
+                                        <tr key={entry.id}>
+                                            <td className="admin-td-mono" style={{ color: idx < 3 ? '#ffd54f' : '#5a6a7e' }}>
+                                                #{idx + 1}
+                                            </td>
+                                            <td className="admin-td-name">{entry.full_name || '—'}</td>
+                                            <td className="admin-td-email">{entry.email || '—'}</td>
+                                            <td className="admin-td-mono" style={{ color: '#4fc3f7' }}>{entry.civic_score ?? 0}</td>
+                                            <td>
+                                                <span className="admin-status-badge" style={{ color: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e', borderColor: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e' }}>
+                                                    {entry.trust_tier || 'LOW'}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        </div>
+                    </>
+                )}
 
             </div>
         </div>

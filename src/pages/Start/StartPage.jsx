@@ -1,7 +1,26 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
+import { supabase } from '../../lib/supabase';
 import './StartPage.css';
+
+function useLiveStats() {
+    const [stats, setStats] = useState(null);
+    useEffect(() => {
+        Promise.all([
+            supabase.from('profiles').select('*', { count: 'exact', head: true }),
+            supabase.from('transitional_plans').select('*', { count: 'exact', head: true }).eq('status', 'arena'),
+            supabase.from('votes').select('*', { count: 'exact', head: true }),
+        ]).then(([users, plans, votes]) => {
+            setStats({
+                users: users.count ?? 0,
+                plans: plans.count ?? 0,
+                votes: votes.count ?? 0,
+            });
+        }).catch(() => {}); // graceful — stats bar is non-critical
+    }, []);
+    return stats;
+}
 
 // ─── Feature panels data ─────────────────────────────────────────────────────
 const LEFT_FEATURES = [
@@ -93,6 +112,7 @@ function LogoMark() {
 export default function StartPage() {
     const { isRTL } = useLang();
     const navigate = useNavigate();
+    const stats = useLiveStats();
 
     return (
         <div className="sp-root" dir={isRTL ? 'rtl' : 'ltr'}>
@@ -125,6 +145,15 @@ export default function StartPage() {
                     <div className="sp-hint">
                         {isRTL ? 'ورود با کد دعوت' : 'Entry via invite code'}
                     </div>
+                    {stats && (
+                        <div className="sp-stats">
+                            <span>{stats.users.toLocaleString()} {isRTL ? 'ایرانی ثبت‌نام کرده' : 'Iranians registered'}</span>
+                            <span className="sp-stats-dot">·</span>
+                            <span>{stats.plans} {isRTL ? 'طرح فعال' : 'active plans'}</span>
+                            <span className="sp-stats-dot">·</span>
+                            <span>{stats.votes.toLocaleString()} {isRTL ? 'رأی' : 'votes cast'}</span>
+                        </div>
+                    )}
                 </div>
 
                 <FeatureColumn items={RIGHT_FEATURES} reverse={true} />

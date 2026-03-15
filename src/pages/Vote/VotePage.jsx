@@ -34,9 +34,15 @@ export default function VotePage() {
     const [userVote, setUserVote] = useState(null);
     const [session, setSession] = useState(null);
 
+    // Weighted vote toggle
+    const [viewMode, setViewMode] = useState('raw');
+    const [weightedVotes, setWeightedVotes] = useState({});
+    const [weightedTotal, setWeightedTotal] = useState(0);
+
     useEffect(() => {
         // Always load public vote counts regardless of age gate
         loadVotes();
+        loadWeightedVotes();
 
         // Age gate check
         if (sessionStorage.getItem('irdao_age_ok') === 'true') {
@@ -86,6 +92,20 @@ export default function VotePage() {
             setTotal(sum);
         }
         setVotesLoading(false);
+    }
+
+    async function loadWeightedVotes() {
+        const { data } = await supabase.rpc('get_blueprint_vote_counts_weighted');
+        if (data) {
+            const wMap = {};
+            let wTotal = 0;
+            for (const row of data) {
+                wMap[row.blueprint_id] = Number(row.weighted_votes);
+                wTotal += Number(row.weighted_votes);
+            }
+            setWeightedVotes(wMap);
+            setWeightedTotal(wTotal);
+        }
     }
 
     async function loadUserVote(userId) {
@@ -206,12 +226,36 @@ export default function VotePage() {
                     <div className="vote-total" style={monoFont}>
                         {votesLoading ? '...' : `${total} ${tKey('vote.totalVotes')}`}
                     </div>
+                    <div className="vote-view-toggle">
+                        <button
+                            className={`vote-toggle-btn${viewMode === 'raw' ? ' is-active' : ''}`}
+                            onClick={() => setViewMode('raw')}
+                            style={monoFont}
+                        >
+                            {isRTL ? 'رأی خام' : 'RAW VOTES'}
+                        </button>
+                        <button
+                            className={`vote-toggle-btn${viewMode === 'weighted' ? ' is-active' : ''}`}
+                            onClick={() => setViewMode('weighted')}
+                            style={monoFont}
+                        >
+                            {isRTL ? 'رأی وزن‌دار' : 'WEIGHTED VOTES'}
+                        </button>
+                        {viewMode === 'weighted' && (
+                            <span className="vote-weight-info" style={monoFont}>
+                                {isRTL ? 'LOW×1  MID×2  HIGH×3' : 'LOW×1  MID×2  HIGH×3'}
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 <div className="vote-cards">
                     {Object.values(BLUEPRINTS).map(bp => {
-                        const count = votes[bp.id] || 0;
-                        const pct = total > 0 ? (count / total) * 100 : 0;
+                        const displayCount = viewMode === 'weighted'
+                            ? (weightedVotes[bp.id] || 0)
+                            : (votes[bp.id] || 0);
+                        const displayTotal = viewMode === 'weighted' ? weightedTotal : total;
+                        const pct = displayTotal > 0 ? (displayCount / displayTotal) * 100 : 0;
                         const color = BLUEPRINT_COLORS[bp.id] || '#4fc3f7';
                         const isUserVote = userVote === bp.id;
 
@@ -241,7 +285,7 @@ export default function VotePage() {
 
                                 <div className="vote-card-stats" style={monoFont}>
                                     <span className="vote-pct">{Math.round(pct)}%</span>
-                                    <span className="vote-count">{count} {tKey('vote.votes')}</span>
+                                    <span className="vote-count">{displayCount} {tKey('vote.votes')}</span>
                                 </div>
 
                                 <Link

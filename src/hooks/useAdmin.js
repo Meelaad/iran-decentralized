@@ -110,3 +110,91 @@ export function useSeedBlueprints() {
         onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-blueprints'] }),
     });
 }
+
+export function useAdminPlans() {
+    return useQuery({
+        queryKey: ['admin-plans'],
+        staleTime: 30_000,
+        queryFn: async () => {
+            const { data } = await supabase.from('transitional_plans').select('id, title, slug, status, endorsement_count, created_at').order('created_at', { ascending: false });
+            return data ?? [];
+        },
+    });
+}
+
+export function usePromotePlan() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (planId) => {
+            const { data: { session } } = await supabase.auth.getSession();
+            const res = await fetch('/api/admin/plans/promote', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
+                body: JSON.stringify({ planId }),
+            });
+            if (!res.ok) throw new Error('Failed to promote plan');
+        },
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-plans'] }),
+    });
+}
+
+export function useArchivePlan() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (planId) => {
+            const { data: { session } } = await supabase.auth.getSession();
+            const res = await fetch('/api/admin/plans/archive', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
+                body: JSON.stringify({ planId }),
+            });
+            if (!res.ok) throw new Error('Failed to archive plan');
+        },
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-plans'] }),
+    });
+}
+
+export function useVerificationQueue() {
+    return useQuery({
+        queryKey: ['admin-verification-queue'],
+        staleTime: 30_000,
+        queryFn: async () => {
+            const { data: { session } } = await supabase.auth.getSession();
+            const res = await fetch('/api/admin/verification/queue', {
+                headers: { Authorization: `Bearer ${session.access_token}` },
+            });
+            return res.ok ? res.json() : [];
+        },
+    });
+}
+
+export function useReviewVerification() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async ({ queueId, action }) => {
+            const { data: { session } } = await supabase.auth.getSession();
+            const res = await fetch('/api/admin/verification/review', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
+                body: JSON.stringify({ queueId, action }),
+            });
+            if (!res.ok) throw new Error('Review failed');
+        },
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-verification-queue'] }),
+    });
+}
+
+export function useAdminCivicLeaderboard() {
+    return useQuery({
+        queryKey: ['admin-civic-leaderboard'],
+        staleTime: 60_000,
+        queryFn: async () => {
+            const { data } = await supabase
+                .from('profiles')
+                .select('id, email, full_name, civic_score, trust_tier')
+                .order('civic_score', { ascending: false })
+                .limit(50);
+            return data ?? [];
+        },
+    });
+}

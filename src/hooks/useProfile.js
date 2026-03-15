@@ -32,7 +32,7 @@ export function useInviteCodes(userId) {
         queryFn: async () => {
             const { data, error } = await supabase
                 .from('invite_codes')
-                .select('code, used_by, used_at')
+                .select('code, used_by, used_at, expires_at')
                 .eq('owner_id', userId)
                 .order('created_at');
             if (error) throw error;
@@ -86,6 +86,19 @@ export function useCastVote(userId) {
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['profile', userId] });
+            // Fire-and-forget: record vote_cast civic score event
+            supabase.auth.getSession().then(({ data: { session } }) => {
+                if (session) {
+                    fetch('/api/public/civic/score', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            Authorization: `Bearer ${session.access_token}`,
+                        },
+                        body: JSON.stringify({ event_type: 'vote_cast' }),
+                    }).catch(() => {}); // fire-and-forget
+                }
+            });
         },
     });
 }

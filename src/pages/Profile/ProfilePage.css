@@ -815,3 +815,11 @@
         gap: 8px;
     }
 }
+
+.prof-code-expiry {
+    display: block;
+    font-size: 10px;
+    color: #ffd166;
+    opacity: 0.7;
+    margin-top: 2px;
+}

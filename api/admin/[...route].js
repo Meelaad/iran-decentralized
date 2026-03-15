@@ -6,10 +6,12 @@ export default async function handler(req, res) {
     setSecurityHeaders(res);
     const path = req.url.split('/api/admin/')[1]?.split('?')[0] || '';
 
+    let adminUser;
     try {
         rateLimit(req, 'api');
         validateRequestSize(req, 500 * 1024);
-        await requireAdmin(req);
+        const adminResult = await requireAdmin(req);
+        adminUser = adminResult.user;
     } catch (error) {
         const status = error.status || 401;
         const message = error.error || 'Unauthorized';
@@ -100,6 +102,80 @@ export default async function handler(req, res) {
                     const out = await takeLeaderboardSnapshot();
                     if (!out) return res.status(500).json({ error: 'snapshot_failed' });
                     return res.status(200).json({ ok: true, inserted: out.inserted || out.inserted });
+                }
+
+            case 'plans/promote':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { planId } = req.body || {};
+                    if (!planId) return res.status(400).json({ error: 'planId required' });
+                    const { createClient: cc1 } = await import('@supabase/supabase-js');
+                    const supabaseAdmin1 = cc1(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+                    await supabaseAdmin1.from('transitional_plans').update({ status: 'arena' }).eq('id', planId);
+                    return res.status(200).json({ ok: true });
+                }
+
+            case 'plans/archive':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { planId } = req.body || {};
+                    if (!planId) return res.status(400).json({ error: 'planId required' });
+                    const { createClient: cc2 } = await import('@supabase/supabase-js');
+                    const supabaseAdmin2 = cc2(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+                    await supabaseAdmin2.from('transitional_plans').update({ status: 'archived' }).eq('id', planId);
+                    return res.status(200).json({ ok: true });
+                }
+
+            case 'verification/queue':
+                if (req.method !== 'GET') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { createClient: cc3 } = await import('@supabase/supabase-js');
+                    const supabaseAdmin3 = cc3(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+                    const { data: queueData } = await supabaseAdmin3
+                        .from('verification_queue')
+                        .select('id, user_id, type, file_url, status, created_at, profiles!user_id(email, full_name)')
+                        .eq('status', 'pending')
+                        .order('created_at');
+                    return res.status(200).json(queueData ?? []);
+                }
+
+            case 'verification/review':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { queueId, action } = req.body || {};
+                    if (!queueId || !action) return res.status(400).json({ error: 'queueId and action required' });
+                    if (!['approved', 'rejected'].includes(action)) return res.status(400).json({ error: 'action must be approved or rejected' });
+                    const { createClient: cc4 } = await import('@supabase/supabase-js');
+                    const supabaseAdmin4 = cc4(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+                    const { data: queueItem } = await supabaseAdmin4
+                        .from('verification_queue')
+                        .select('user_id, type')
+                        .eq('id', queueId)
+                        .single();
+                    if (!queueItem) return res.status(404).json({ error: 'Not found' });
+                    await supabaseAdmin4
+                        .from('verification_queue')
+                        .update({ status: action, reviewed_by: adminUser?.id ?? null, reviewed_at: new Date().toISOString() })
+                        .eq('id', queueId);
+                    if (action === 'approved') {
+                        const deltaMap = { photo: 1, id_document: 3 };
+                        const delta = deltaMap[queueItem.type] ?? 1;
+                        await supabaseAdmin4.rpc('increment_civic_score', { p_user_id: queueItem.user_id, p_delta: delta });
+                        await supabaseAdmin4.from('civic_score_events').insert({
+                            user_id: queueItem.user_id,
+                            event_type: queueItem.type === 'photo' ? 'photo_verified' : 'id_verified',
+                            score_delta: delta,
+                        });
+                    }
+                    return res.status(200).json({ ok: true });
                 }
 
             default:

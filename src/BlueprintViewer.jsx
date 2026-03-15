@@ -7,6 +7,7 @@ import { useAuth } from './hooks/useAuth';
 import { useBlueprint, useBlueprintLayout, useSaveBlueprintLayout } from './hooks/useBlueprints';
 import './Architecture.css';
 import BlockchainOverlay from "./BlockchainOverlay";
+import GovTree from './components/GovTree/GovTree';
 
 const GRID_SIZE = 2; // SVG units
 const BOUNDS = { xMin: 19, xMax: 81, yMin: 13, yMax: 75 };
@@ -207,7 +208,7 @@ export default function BlueprintViewer() {
     const svgRef = useRef(null);
 
     // Admin layout editor state
-    const { isAdmin } = useAuth();
+    const { isAdmin, session } = useAuth();
     const [editPositions, setEditPositions] = useState(null); // non-null = edit mode active
     const [dragging, setDragging] = useState(null);    // { sectorId, offsetX, offsetY }
 
@@ -438,6 +439,8 @@ export default function BlueprintViewer() {
                                 onClick={() => setView("map")}>{tKey('blueprint.map')}</button>
                         <button className={`btn-base ${view === "list" ? "btn-active" : ""}`}
                                 onClick={() => setView("list")}>{tKey('blueprint.list')}</button>
+                        <button className={`btn-base ${view === "tree" ? "btn-active" : ""}`}
+                                onClick={() => setView("tree")}>TREE</button>
                     </div>
 
                     {isAdmin && view === 'map' && (
@@ -467,7 +470,9 @@ export default function BlueprintViewer() {
                 </div>
             </div>
 
-            {view === "map" ? (
+            {view === "tree" ? (
+                <GovTree blueprint={activeBlueprint} />
+            ) : view === "map" ? (
                 <div className="map-shell">
                     <div className="map-stage">
                         <svg
@@ -796,6 +801,12 @@ export default function BlueprintViewer() {
                         })}
                     </div>
                 </div>
+            )}
+
+            {session && sessionStorage.getItem('irdao_age_ok') === 'true' && (
+                <Link to="/vote" className="bv-vote-fab" title={isRTL ? 'رأی دهید' : 'Cast Your Vote'}>
+                    {isRTL ? '✊ رأی' : '✊ VOTE'}
+                </Link>
             )}
 
         </div>

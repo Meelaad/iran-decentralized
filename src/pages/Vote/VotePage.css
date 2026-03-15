@@ -208,6 +208,37 @@
     text-decoration: underline;
 }
 
+/* ── View toggle ── */
+
+.vote-view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0;
+    flex-wrap: wrap;
+}
+.vote-toggle-btn {
+    background: rgba(13,31,45,0.5);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #607c8e;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.vote-toggle-btn.is-active {
+    border-color: #4fc3f7;
+    color: #4fc3f7;
+    background: rgba(79,195,247,0.08);
+}
+.vote-weight-info {
+    font-size: 10px;
+    color: rgba(79,195,247,0.4);
+    letter-spacing: 0.5px;
+}
+
 /* ── Age gate ── */
 .vote-age-gate {
     max-width: 560px;

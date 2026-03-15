@@ -14,7 +14,8 @@
     "logout": "LOGOUT",
     "admin": "ADMIN",
     "transitional": "BLUEPRINT",
-    "arena": "ARENA"
+    "arena": "ARENA",
+    "destination": "DESTINATION"
   },
   "blueprint": {
     "map": "MAP",

@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { collectMetadata } from '../../lib/collectMetadata';
 import { BLUEPRINTS } from '../../data';
+import { Turnstile } from '@marsidev/react-turnstile';
 import './RegisterPage.css';
 
 // ── Bilingual content ────────────────────────────────────────────────────────
@@ -56,10 +57,10 @@ const CONTENT = {
         fa: "ثبت‌نام در حال حاضر فقط با دعوت‌نامه امکان‌پذیر است.",
     },
     labelInvite:       { en: "INVITE CODE", fa: "کد دعوت" },
-    placeholderInvite: { en: "Enter your 8-character invite code", fa: "کد دعوت ۸ کاراکتری خود را وارد کنید" },
+    placeholderInvite: { en: "Enter your 6–8 character invite code", fa: "کد دعوت ۶ تا ۸ کاراکتری خود را وارد کنید" },
     errors: {
         inviteRequired: { en: "An invite code is required.", fa: "کد دعوت الزامی است." },
-        inviteInvalid:  { en: "Invalid invite code format. Codes are 8 characters (letters and numbers).", fa: "فرمت کد دعوت نامعتبر است. کدها ۸ کاراکتر هستند." },
+        inviteInvalid:  { en: "Invalid invite code format. Codes are 6–8 characters (letters and numbers).", fa: "فرمت کد دعوت نامعتبر است. کدها ۶ تا ۸ کاراکتر هستند." },
         inviteNotFound: { en: "Invite code not found. Please check and try again.", fa: "کد دعوت یافت نشد. لطفاً دوباره بررسی کنید." },
         inviteUsed:     { en: "This invite code has already been used.", fa: "این کد دعوت قبلاً استفاده شده است." },
         nameRequired:    { en: "Full name is required.",        fa: "نام کامل الزامی است." },
@@ -386,6 +387,7 @@ export default function RegisterPage() {
     const [cooldown, setCooldown] = useState(0);
     const [resendCount, setResendCount] = useState(0);
     const [isAdmin, setIsAdmin] = useState(false);
+    const [turnstileToken, setTurnstileToken] = useState('');
 
     // Start cooldown whenever the verify step is entered
     useEffect(() => {
@@ -408,7 +410,7 @@ export default function RegisterPage() {
         // Invite code validation
         if (!inviteCode.trim()) {
             errs.push(t(CONTENT.errors.inviteRequired));
-        } else if (!/^[A-Z0-9]{8}$/i.test(inviteCode.trim())) {
+        } else if (!/^[A-Z0-9]{6,8}$/i.test(inviteCode.trim())) {
             errs.push(t(CONTENT.errors.inviteInvalid));
         }
 
@@ -596,6 +598,7 @@ export default function RegisterPage() {
                     preferred_blueprint: bpId,
                     birth_year: parseInt(birthYear, 10) || null,
                     metadata,
+                    turnstile_token: turnstileToken || undefined,
                 }),
             });
         } catch { /* silent */ }
@@ -907,10 +910,19 @@ export default function RegisterPage() {
                                 />
                             </div>
 
+                            {import.meta.env.VITE_TURNSTILE_SITE_KEY && (
+                                <Turnstile
+                                    siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                                    onSuccess={token => setTurnstileToken(token)}
+                                    onExpire={() => setTurnstileToken('')}
+                                    options={{ theme: 'dark', size: 'flexible' }}
+                                />
+                            )}
+
                             <button
                                 type="submit"
                                 className="reg-submit-btn"
-                                disabled={loading}
+                                disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)}
                                 style={monoFont}
                             >
                                 {loading && <span className="reg-spinner" />}

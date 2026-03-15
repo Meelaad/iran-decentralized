@@ -811,3 +811,26 @@ svg path, svg text, svg circle, svg g {
     min-height: calc(100vh - 60px);
     background: #020408;
 }
+
+/* ── Vote FAB ── */
+.bv-vote-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: rgba(7,16,26,0.9);
+    border: 1px solid rgba(79,195,247,0.5);
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-family: 'intelone-mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: #4fc3f7;
+    text-decoration: none;
+    z-index: 50;
+    transition: box-shadow 0.2s, border-color 0.2s;
+}
+.bv-vote-fab:hover {
+    border-color: #4fc3f7;
+    box-shadow: 0 0 16px rgba(79,195,247,0.2);
+}

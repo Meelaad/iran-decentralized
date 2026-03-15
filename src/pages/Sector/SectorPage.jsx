@@ -1,12 +1,28 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS, SECTORS, CONNECTIONS } from "../../data";
+import { supabase } from '../../lib/supabase';
 import './SectorPage.css';
 
 export default function SectorPage() {
     const { sectorId, blueprintId } = useParams();
     const { t, tKey, isRTL } = useLang();
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (session) {
+                fetch('/api/public/civic/score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${session.access_token}`,
+                    },
+                    body: JSON.stringify({ event_type: 'daily_login' }),
+                }).catch(() => {});
+            }
+        });
+    }, []);
 
     const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
     const activeConnections = (blueprintId && BLUEPRINTS[blueprintId]?.connections) || CONNECTIONS;

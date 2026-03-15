@@ -28,12 +28,7 @@ import ArenaPage from './pages/Arena/ArenaPage';
 import PlanPage from './pages/Arena/PlanPage';
 import VerifyPage from './pages/Verify/VerifyPage';
 import TransitionalPage from './pages/Transitional/TransitionalPage';
-import MainStagePage from './pages/TransitionArena/MainStagePage';
-import IncubatorPage from './pages/TransitionArena/IncubatorPage';
-import AmendmentFloorPage from './pages/TransitionArena/AmendmentFloorPage';
-import ShadowCabinetPage from './pages/TransitionArena/ShadowCabinetPage';
 import DestinationPage from './pages/Destination/DestinationPage';
-import TransitionArenaLayout from './components/TransitionArena/TransitionArenaLayout';
 
 function App() {
     return (
@@ -71,16 +66,7 @@ function App() {
                         <Route path="profile" element={<ProfilePage />} />
                         <Route path="login" element={<LoginPage />} />
 
-                        {/* Phase 1: Transition Arena */}
-                        <Route path="transition" element={<TransitionArenaLayout />}>
-                            <Route index element={<Navigate to="main-stage" replace />} />
-                            <Route path="main-stage" element={<MainStagePage />} />
-                            <Route path="incubator" element={<IncubatorPage />} />
-                            <Route path="amendment-floor" element={<AmendmentFloorPage />} />
-                            <Route path="shadow-cabinet" element={<ShadowCabinetPage />} />
-                        </Route>
-
-                        {/* Phase 2: The Destination */}
+                        {/* Post-collapse: The Destination */}
                         <Route path="destination" element={<DestinationPage />} />
                     </Route>
 

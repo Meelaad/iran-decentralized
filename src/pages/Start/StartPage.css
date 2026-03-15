@@ -327,3 +327,19 @@
         font-size: 12px;
     }
 }
+
+/* Live stats bar */
+.sp-stats {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    font-family: 'intelone-mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+    color: rgba(79,195,247,0.45);
+}
+
+.sp-stats-dot { color: rgba(79,195,247,0.2); }

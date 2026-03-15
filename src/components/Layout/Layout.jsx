@@ -91,15 +91,19 @@ function NavContent() {
     };
 
     const navLinks = [
+        // Pre-collapse zone
+        { to: "/arena",       labelKey: 'nav.arena' },
+        { to: "/transitional", labelKey: 'nav.transitional' },
+        // Post-collapse zone
+        { to: "/destination", labelKey: 'nav.destination' },
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.map' },
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/sectors`, labelKey: 'nav.sectors' },
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/layers`, labelKey: 'nav.layers' },
         { to: `/blueprint/gov/${activeBlueprintId || 'decentralized'}/roadmap`, labelKey: 'nav.roadmap' },
+        // Tools
         { to: `/compare?a=${activeBlueprintId || 'decentralized'}`, labelKey: 'nav.compare' },
-        { to: "/vote", labelKey: 'nav.vote' },
-        { to: "/about", labelKey: 'nav.about' },
-        { to: "/arena", labelKey: 'nav.arena' },
-        { to: "/transitional", labelKey: 'nav.transitional' },
+        { to: "/vote",        labelKey: 'nav.vote' },
+        { to: "/about",       labelKey: 'nav.about' },
     ];
 
     return (

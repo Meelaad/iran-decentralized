@@ -14,7 +14,8 @@
     "logout": "خروج",
     "admin": "پنل مدیریت",
     "transitional": "طرح",
-    "arena": "آرنا"
+    "arena": "آرنا",
+    "destination": "مقصد"
   },
   "blueprint": {
     "map": "نقشه",

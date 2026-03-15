@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
+import { supabase } from '../../lib/supabase';
 import './ComparePage.css';
 
 const TIERS = [
@@ -15,6 +16,21 @@ export default function ComparePage() {
     const { t, isRTL } = useLang();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        supabase.auth.getSession().then(({ data: { session } }) => {
+            if (session) {
+                fetch('/api/public/civic/score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${session.access_token}`,
+                    },
+                    body: JSON.stringify({ event_type: 'daily_login' }),
+                }).catch(() => {});
+            }
+        });
+    }, []);
 
     const blueprintKeys = Object.keys(BLUEPRINTS);
     const [aId, setAId] = useState(searchParams.get('a') || blueprintKeys[0]);
