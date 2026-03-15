@@ -2009,11 +2009,14 @@ export default function TransitionalPage() {
 
         {/* ── Navigation CTA ─────────────────────────────────── */}
         <div className="tp-nav-cta" dir={dir} style={{ fontFamily: ff }}>
-          <Link to="/transition/main-stage" className="tp-nav-btn tp-nav-btn--primary">
-            {isRTL ? '→ ورود به صحنه انتقالی' : 'Enter Transition Arena →'}
+          <Link to="/arena" className="tp-nav-btn tp-nav-btn--primary">
+            {isRTL ? '← بازگشت به آرنا' : 'Enter Transition Arena →'}
           </Link>
           <Link to="/destination" className="tp-nav-btn tp-nav-btn--secondary">
             {isRTL ? '→ قانون اساسی دائمی (مرحله دوم)' : 'Phase II: Permanent Constitution →'}
+          </Link>
+          <Link to="/choose" className="tp-nav-btn tp-nav-btn--secondary">
+            {isRTL ? '← بازگشت به انتخاب مسیر' : '← Back to Choose Your Path'}
           </Link>
         </div>
 

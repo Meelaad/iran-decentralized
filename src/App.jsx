@@ -17,6 +17,7 @@ import PrivacyPage from './pages/Privacy/PrivacyPage';
 import ProfilePage from './pages/Profile/ProfilePage';
 import LoginPage from './pages/Login/LoginPage';
 import ComparePage from './pages/Compare/ComparePage';
+import TransitionalComparePage from './pages/Compare/TransitionalComparePage';
 import VotePage from './pages/Vote/VotePage';
 import MyBlueprintsPage from './pages/MyBlueprints/MyBlueprintsPage';
 import BlueprintEditorPage from './pages/BlueprintEditor/BlueprintEditorPage';
@@ -39,6 +40,7 @@ function App() {
                     <Route path="/" element={<StartPage />} />
                     <Route path="/pre" element={<PreTransPage />} />
                     <Route path="/choose" element={<StartSelection />} />
+                    <Route path="/compare/transition" element={<TransitionalComparePage />} />
 
                     {/* Main application routes with Layout */}
                     <Route path="/" element={<Layout />}>

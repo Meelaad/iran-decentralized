@@ -110,7 +110,7 @@ function LogoMark() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function StartPage() {
-    const { isRTL } = useLang();
+    const { isRTL, lang, setLang } = useLang();
     const navigate = useNavigate();
     const stats = useLiveStats();
 
@@ -119,6 +119,12 @@ export default function StartPage() {
             {/* Scanline + grid bg */}
             <div className="sp-bg-grid" />
             <div className="sp-scanline" />
+
+            {/* Language switcher */}
+            <div className="sp-lang">
+                <button className={`sp-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>فارسی</button>
+                <button className={`sp-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
+            </div>
 
             {/* Three-column layout */}
             <div className="sp-stage">

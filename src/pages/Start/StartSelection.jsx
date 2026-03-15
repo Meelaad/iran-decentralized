@@ -18,7 +18,7 @@ function useLiveVoteCounts() {
 }
 
 export default function StartSelection() {
-    const { isRTL, t } = useLang();
+    const { isRTL, t, lang, setLang } = useLang();
     const votes = useLiveVoteCounts();
 
     const blueprints = Object.values(BLUEPRINTS);
@@ -26,6 +26,12 @@ export default function StartSelection() {
     return (
         <div className="ss-root" dir={isRTL ? 'rtl' : 'ltr'}>
             <div className="ss-bg-grid" />
+
+            {/* Language switcher */}
+            <div className="ss-lang">
+                <button className={`ss-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>فارسی</button>
+                <button className={`ss-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
+            </div>
 
             <header className="ss-header">
                 <div className="ss-eyebrow">IRAN · DAO</div>
@@ -84,6 +90,28 @@ export default function StartSelection() {
                                 </div>
                                 <div className="ss-link-desc">
                                     {isRTL ? 'چهار مرحله انتقال' : 'The four phases of transition'}
+                                </div>
+                            </div>
+                        </Link>
+                        <Link to="/compare/transition" className="ss-link ss-link--pre">
+                            <span className="ss-link-icon">⚖️</span>
+                            <div>
+                                <div className="ss-link-title">
+                                    {isRTL ? 'مقایسه طرح‌های انتقالی' : 'COMPARE PLANS'}
+                                </div>
+                                <div className="ss-link-desc">
+                                    {isRTL ? 'مقایسه طرح‌های پیشنهادی برای دوره انتقال' : 'Compare suggested transitional blueprints'}
+                                </div>
+                            </div>
+                        </Link>
+                        <Link to="/vote" className="ss-link ss-link--pre">
+                            <span className="ss-link-icon">🗳</span>
+                            <div>
+                                <div className="ss-link-title">
+                                    {isRTL ? 'رأی‌گیری' : 'VOTE'}
+                                </div>
+                                <div className="ss-link-desc">
+                                    {isRTL ? 'پلتفرم مستقل رأی‌گیری امن' : 'Independent secure voting platform'}
                                 </div>
                             </div>
                         </Link>
