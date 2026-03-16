@@ -8,7 +8,7 @@ export default async function handler(req, res) {
 
     let adminUser;
     try {
-        rateLimit(req, 'api');
+        rateLimit(req, 'admin');
         validateRequestSize(req, 500 * 1024);
         const adminResult = await requireAdmin(req);
         adminUser = adminResult.user;

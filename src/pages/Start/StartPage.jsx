@@ -83,13 +83,14 @@ const SIM_FRAG = `
 const RENDER_VERT = `
   uniform sampler2D uPosition;
   uniform float uTime;
+  uniform float uIsLight;
   varying vec3 vColor;
   varying float vNormY;
 
   void main() {
     vec3 pos = texture2D(uPosition, position.xy).xyz;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-    gl_PointSize = 1.5;
+    gl_PointSize = uIsLight > 0.5 ? 2.8 : 1.5;
     vColor = normalize(pos) * 0.5 + 0.5;
     vNormY = normalize(pos).y;
   }
@@ -104,9 +105,9 @@ const RENDER_FRAG = `
     vec3 color;
     if (uIsLight > 0.5) {
       // Iran flag: green (top) → white (middle) → red (bottom)
-      vec3 flagGreen = vec3(0.137, 0.624, 0.251);
-      vec3 flagWhite = vec3(1.0,   1.0,   1.0  );
-      vec3 flagRed   = vec3(0.855, 0.063, 0.18 );
+      vec3 flagGreen = vec3(0.28,  0.48,  0.68 );
+      vec3 flagWhite = vec3(0.48,  0.55,  0.70 );
+      vec3 flagRed   = vec3(0.32,  0.42,  0.62 );
       float t = clamp(vNormY * 0.5 + 0.5, 0.0, 1.0);
       if (t > 0.5) {
         color = mix(flagWhite, flagGreen, (t - 0.5) * 2.0);
@@ -216,6 +217,16 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
                 [coords[i], coords[j]] = [coords[j], coords[i]];
             }
 
+            // Find actual text pixel x-bounds so flag stripes span the word, not the full canvas
+            let textMinX = canvas.width, textMaxX = 0;
+            for (const ci of coords) {
+                if (data[ci + 3] <= 0) continue;
+                const x = (ci / 4) % canvas.width;
+                if (x < textMinX) textMinX = x;
+                if (x > textMaxX) textMaxX = x;
+            }
+            const textSpan = textMaxX - textMinX || 1;
+
             const ps = S.particles;
             const mag = (canvas.width + canvas.height) / 2;
             let pi = 0;
@@ -241,22 +252,27 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
                     g: p.startColor.g + (p.targetColor.g - p.startColor.g) * p.colorWeight,
                     b: p.startColor.b + (p.targetColor.b - p.startColor.b) * p.colorWeight,
                 };
-                // Iran flag gradient: green (left) → white (centre) → red (right)
-                const flagT = canvas.width > 0 ? tx / canvas.width : 0;
-                if (flagT <= 0.5) {
-                    const s = flagT * 2;
-                    p.targetColor = {
-                        r: Math.round(0   + (255 - 0)   * s),
-                        g: Math.round(215 + (255 - 215) * s),
-                        b: Math.round(30  + (255 - 30)  * s),
-                    };
+                if (isLight) {
+                    // Light mode: plain dark charcoal
+                    p.targetColor = { r: 30, g: 30, b: 35 };
                 } else {
-                    const s = (flagT - 0.5) * 2;
-                    p.targetColor = {
-                        r: Math.round(255 + (240 - 255) * s),
-                        g: Math.round(255 * (1 - s)),
-                        b: Math.round(255 * (1 - s)),
-                    };
+                    // Dark mode: original gradient across canvas width — unchanged
+                    const flagT = canvas.width > 0 ? tx / canvas.width : 0;
+                    if (flagT <= 0.5) {
+                        const s = flagT * 2;
+                        p.targetColor = {
+                            r: Math.round(0   + (255 - 0)   * s),
+                            g: Math.round(215 + (255 - 215) * s),
+                            b: Math.round(30  + (255 - 30)  * s),
+                        };
+                    } else {
+                        const s = (flagT - 0.5) * 2;
+                        p.targetColor = {
+                            r: Math.round(255 + (240 - 255) * s),
+                            g: Math.round(255 * (1 - s)),
+                            b: Math.round(255 * (1 - s)),
+                        };
+                    }
                 }
                 p.colorWeight = 0;
                 p.target.x = tx; p.target.y = ty;

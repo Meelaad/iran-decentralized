@@ -16,8 +16,7 @@ export default async function handler(req, res) {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
-                    const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
-                    const email = (body.email || '').toLowerCase();
+                    const email = ((req.body || {}).email || '').toLowerCase();
                     if (!email || !email.includes('@')) return res.status(400).json({ error: 'Invalid email' });
                     const domain = email.split('@')[1];
                     const trustedDomains = ['edu', 'ac', 'gov', 'ac.ir', 'edu.ir', 'university.edu'];
@@ -45,8 +44,7 @@ export default async function handler(req, res) {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
-                    const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
-                    const fileUrl = body.fileUrl;
+                    const fileUrl = (req.body || {}).fileUrl;
                     if (!fileUrl) return res.status(400).json({ error: 'fileUrl required' });
                     // Create a pending submission event (no score yet)
                     const { createClient } = await import('@supabase/supabase-js');
@@ -61,8 +59,7 @@ export default async function handler(req, res) {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
-                    const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
-                    const fileUrl = body.fileUrl;
+                    const fileUrl = (req.body || {}).fileUrl;
                     if (!fileUrl) return res.status(400).json({ error: 'fileUrl required' });
                     const { createClient } = await import('@supabase/supabase-js');
                     const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
@@ -76,8 +73,7 @@ export default async function handler(req, res) {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
                     const callerId = await getCallerIdFromReq(req);
                     if (!callerId) return res.status(401).json({ error: 'Unauthorized' });
-                    const body = await new Promise((resolve) => { let d=''; req.on('data',c=>d+=c); req.on('end',()=>{ try{resolve(JSON.parse(d||'{}'))}catch(e){resolve({})}}); req.on('error',()=>resolve({})); });
-                    const phone = body.phone;
+                    const phone = (req.body || {}).phone;
                     if (!phone) return res.status(400).json({ error: 'phone required' });
                     // For now, log phone submission and create a pending event
                     const { createClient } = await import('@supabase/supabase-js');
