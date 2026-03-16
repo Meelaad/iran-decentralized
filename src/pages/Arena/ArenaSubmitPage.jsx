@@ -7,6 +7,10 @@ import './ArenaSubmitPage.css';
 
 const THRESHOLD = 10_000;
 
+const TITLE_REGEX = /^[\u0600-\u06FFa-zA-Z0-9\s\u200c\-.,:()'"/&—–]+$/;
+const MIN_TITLE = 5;
+const MIN_SUMMARY = 50;
+
 export default function ArenaSubmitPage() {
     const { isRTL } = useLang();
     const { session, authLoading } = useAuth();
@@ -29,22 +33,59 @@ export default function ArenaSubmitPage() {
         setForm(f => ({ ...f, [field]: value }));
     }
 
+    function validate() {
+        const title = form.title_en.trim();
+        const summary = form.summary_en.trim();
+        const url = form.full_doc_url.trim();
+
+        if (!title) return isRTL ? 'عنوان انگلیسی الزامی است.' : 'English title is required.';
+        if (title.length < MIN_TITLE) return isRTL ? `عنوان باید حداقل ${MIN_TITLE} کاراکتر داشته باشد.` : `Title must be at least ${MIN_TITLE} characters.`;
+        if (!TITLE_REGEX.test(title)) return isRTL ? 'عنوان انگلیسی شامل کاراکترهای غیرمجاز است.' : 'English title contains invalid characters.';
+
+        if (!summary) return isRTL ? 'خلاصه انگلیسی الزامی است.' : 'English summary is required.';
+        if (summary.length < MIN_SUMMARY) return isRTL ? `خلاصه باید حداقل ${MIN_SUMMARY} کاراکتر داشته باشد.` : `Summary must be at least ${MIN_SUMMARY} characters.`;
+
+        if (url && !url.startsWith('https://')) return isRTL ? 'لینک سند باید با https:// شروع شود.' : 'Document URL must start with https://.';
+
+        return null;
+    }
+
+    function friendlyError(msg, rtl) {
+        if (!msg) return rtl ? 'خطا در ارسال طرح.' : 'Failed to submit plan.';
+        const m = msg.toLowerCase();
+        if (m.includes('civic') || m.includes('score'))
+            return rtl
+                ? 'امتیاز مدنی شما کافی نیست. برای ارسال طرح به حداقل ۴ امتیاز مدنی نیاز دارید.'
+                : 'Insufficient civic score. You need at least 4 civic score points to submit a plan.';
+        if (m.includes('unauthorized') || m.includes('401'))
+            return rtl ? 'لطفاً ابتدا وارد شوید.' : 'Please sign in to submit a plan.';
+        if (m.includes('duplicate') || m.includes('already exists') || m.includes('unique'))
+            return rtl ? 'طرحی با این عنوان قبلاً ارسال شده است.' : 'A plan with this title already exists.';
+        if (m.includes('title') && (m.includes('character') || m.includes('invalid')))
+            return rtl ? 'عنوان انگلیسی نامعتبر است. لطفاً بررسی کنید.' : 'Invalid English title. Please review your input.';
+        if (m.includes('summary') && m.includes('character'))
+            return rtl ? 'خلاصه انگلیسی باید حداقل ۵۰ کاراکتر داشته باشد.' : 'English summary must be at least 50 characters.';
+        if (m.includes('https'))
+            return rtl ? 'لینک سند باید با https:// شروع شود.' : 'Document URL must start with https://.';
+        return rtl ? 'خطا در ارسال طرح. لطفاً دوباره امتحان کنید.' : 'Failed to submit plan. Please try again.';
+    }
+
     async function handleSubmit(e) {
         e.preventDefault();
         setError('');
-        if (!form.title_en.trim()) { setError(isRTL ? 'عنوان انگلیسی الزامی است.' : 'English title is required.'); return; }
-        if (!form.summary_en.trim()) { setError(isRTL ? 'خلاصه انگلیسی الزامی است.' : 'English summary is required.'); return; }
+        const validationError = validate();
+        if (validationError) { setError(validationError); return; }
         try {
-            await submitMutation.mutateAsync(form);
+            await submitMutation.mutateAsync({
+                title_en: form.title_en.trim(),
+                title_fa: form.title_fa.trim() || '',
+                summary_en: form.summary_en.trim(),
+                summary_fa: form.summary_fa.trim() || '',
+                full_doc_url: form.full_doc_url.trim() || '',
+            });
             setSubmitted(true);
         } catch (err) {
-            if (err.message?.includes('civic')) {
-                setError(isRTL
-                    ? 'امتیاز مدنی شما کافی نیست. برای ارسال طرح به حداقل ۴ امتیاز مدنی نیاز دارید.'
-                    : 'Insufficient civic score. You need at least 4 civic score points to submit a plan.');
-            } else {
-                setError(err.message || (isRTL ? 'خطا در ارسال طرح.' : 'Failed to submit plan.'));
-            }
+            setError(friendlyError(err.message, isRTL));
         }
     }
 
@@ -181,7 +222,12 @@ export default function ArenaSubmitPage() {
                             onChange={e => set('summary_en', e.target.value)}
                             maxLength={2000}
                         />
-                        <span className="as-char-count">{form.summary_en.length}/2000</span>
+                        <span className="as-char-count">
+                            {form.summary_en.length}/2000
+                            {form.summary_en.length < MIN_SUMMARY && form.summary_en.length > 0 && (
+                                <span className="as-char-min"> — {isRTL ? `حداقل ${MIN_SUMMARY}` : `min ${MIN_SUMMARY}`}</span>
+                            )}
+                        </span>
                     </div>
 
                     <div className="as-field">

@@ -7,6 +7,8 @@ import { useFBO } from '@react-three/drei';
 import { EffectComposer, Bloom } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import gsap from 'gsap';
+import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
+import { useTheme } from '../../contexts/ThemeContext';
 import './StartPage.css';
 
 // ─── Live stats ────────────────────────────────────────────────────────────────
@@ -80,29 +82,14 @@ const SIM_FRAG = `
 
 const RENDER_VERT = `
   uniform sampler2D uPosition;
-  uniform sampler2D uOriginalPosition;
   uniform float uTime;
   varying vec3 vColor;
 
   void main() {
-    vec3 pos     = texture2D(uPosition,         position.xy).xyz;
-    vec3 origPos = texture2D(uOriginalPosition, position.xy).xyz;
+    vec3 pos = texture2D(uPosition, position.xy).xyz;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     gl_PointSize = 1.5;
-
-    // Colour pinned to ORIGINAL Y so stripes stay spatially correct as particles swirl.
-    // Dividing by 1.5 maps the TorusKnot Y range (~-1.5 to +1.5) to -1..1.
-    // Green never blends with Red — they only blend through White in the centre.
-    vec3 flagGreen = vec3(0.137, 0.624, 0.251); // #239F40
-    vec3 flagWhite = vec3(1.0,   1.0,   1.0  ); // #FFFFFF
-    vec3 flagRed   = vec3(0.855, 0.0,   0.0  ); // #DA0000
-
-    float y = clamp(origPos.y / 1.5, -1.0, 1.0);
-    if (y > 0.0) {
-      vColor = mix(flagWhite, flagGreen, y);
-    } else {
-      vColor = mix(flagWhite, flagRed, -y);
-    }
+    vColor = normalize(pos) * 0.5 + 0.5;
   }
 `;
 
@@ -113,9 +100,171 @@ const RENDER_FRAG = `
   }
 `;
 
+// ─── Particle Text Title ───────────────────────────────────────────────────────
+class Particle {
+    constructor() {
+        this.pos = { x: 0, y: 0 };
+        this.vel = { x: 0, y: 0 };
+        this.acc = { x: 0, y: 0 };
+        this.target = { x: 0, y: 0 };
+        this.closeEnoughTarget = 100;
+        this.maxSpeed = 1.0;
+        this.maxForce = 0.1;
+        this.isKilled = false;
+        this.startColor = { r: 0, g: 0, b: 0 };
+        this.targetColor = { r: 0, g: 0, b: 0 };
+        this.colorWeight = 0;
+        this.colorBlendRate = 0.01;
+    }
+    move() {
+        const dx = this.pos.x - this.target.x;
+        const dy = this.pos.y - this.target.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const prox = dist < this.closeEnoughTarget ? dist / this.closeEnoughTarget : 1;
+        const tx = this.target.x - this.pos.x;
+        const ty = this.target.y - this.pos.y;
+        const m = Math.sqrt(tx * tx + ty * ty) || 1;
+        const nx = (tx / m) * this.maxSpeed * prox;
+        const ny = (ty / m) * this.maxSpeed * prox;
+        const sx = nx - this.vel.x;
+        const sy = ny - this.vel.y;
+        const sm = Math.sqrt(sx * sx + sy * sy) || 1;
+        this.acc.x += (sx / sm) * this.maxForce;
+        this.acc.y += (sy / sm) * this.maxForce;
+        this.vel.x += this.acc.x; this.vel.y += this.acc.y;
+        this.pos.x += this.vel.x; this.pos.y += this.vel.y;
+        this.acc.x = 0; this.acc.y = 0;
+    }
+    draw(ctx) {
+        if (this.colorWeight < 1.0) this.colorWeight = Math.min(this.colorWeight + this.colorBlendRate, 1.0);
+        const r = Math.round(this.startColor.r + (this.targetColor.r - this.startColor.r) * this.colorWeight);
+        const g = Math.round(this.startColor.g + (this.targetColor.g - this.startColor.g) * this.colorWeight);
+        const b = Math.round(this.startColor.b + (this.targetColor.b - this.startColor.b) * this.colorWeight);
+        ctx.fillStyle = `rgb(${r},${g},${b})`;
+        ctx.fillRect(this.pos.x, this.pos.y, 2, 2);
+    }
+    kill(width, height) {
+        if (!this.isKilled) {
+            const angle = Math.random() * Math.PI * 2;
+            const mag = (width + height) / 2;
+            this.target.x = width / 2 + Math.cos(angle) * mag;
+            this.target.y = height / 2 + Math.sin(angle) * mag;
+            this.startColor = {
+                r: this.startColor.r + (this.targetColor.r - this.startColor.r) * this.colorWeight,
+                g: this.startColor.g + (this.targetColor.g - this.startColor.g) * this.colorWeight,
+                b: this.startColor.b + (this.targetColor.b - this.startColor.b) * this.colorWeight,
+            };
+            this.targetColor = { r: 0, g: 0, b: 0 };
+            this.colorWeight = 0;
+            this.isKilled = true;
+        }
+    }
+}
+
+function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) {
+    const canvasRef = useRef(null);
+    const stateRef  = useRef({ particles: [], frame: 0, wordIdx: 0, animId: null });
+
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const S = stateRef.current;
+        S.particles = []; S.frame = 0; S.wordIdx = 0;
+
+        function resize() {
+            const p = canvas.parentElement;
+            if (p) { canvas.width = p.clientWidth; canvas.height = p.clientHeight; }
+        }
+
+        function showWord(word) {
+            const off = document.createElement('canvas');
+            off.width = canvas.width; off.height = canvas.height;
+            const c2 = off.getContext('2d');
+            const fs = Math.min(canvas.width * 0.2, canvas.height * 0.68, 130);
+            c2.fillStyle = 'white';
+            c2.font = `700 ${fs}px ${isRTL ? '"Vazirmatn",sans-serif' : '"Space Grotesk",Arial,sans-serif'}`;
+            c2.textAlign = 'center'; c2.textBaseline = 'middle';
+            if (isRTL) c2.direction = 'rtl';
+            c2.fillText(word, canvas.width / 2, canvas.height / 2);
+
+            const { data } = c2.getImageData(0, 0, canvas.width, canvas.height);
+            const coords = [];
+            for (let i = 0; i < data.length; i += 4 * 4) coords.push(i);
+            for (let i = coords.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [coords[i], coords[j]] = [coords[j], coords[i]];
+            }
+
+            const ps = S.particles;
+            const mag = (canvas.width + canvas.height) / 2;
+            let pi = 0;
+
+            for (const ci of coords) {
+                if (data[ci + 3] <= 0) continue;
+                const tx = (ci / 4) % canvas.width;
+                const ty = Math.floor(ci / 4 / canvas.width);
+                let p;
+                if (pi < ps.length) { p = ps[pi]; p.isKilled = false; pi++; }
+                else {
+                    p = new Particle();
+                    const a = Math.random() * Math.PI * 2;
+                    p.pos.x = canvas.width / 2 + Math.cos(a) * mag;
+                    p.pos.y = canvas.height / 2 + Math.sin(a) * mag;
+                    p.maxSpeed = Math.random() * 6 + 4;
+                    p.maxForce = p.maxSpeed * 0.05;
+                    p.colorBlendRate = Math.random() * 0.0275 + 0.0025;
+                    ps.push(p);
+                }
+                p.startColor = {
+                    r: p.startColor.r + (p.targetColor.r - p.startColor.r) * p.colorWeight,
+                    g: p.startColor.g + (p.targetColor.g - p.startColor.g) * p.colorWeight,
+                    b: p.startColor.b + (p.targetColor.b - p.startColor.b) * p.colorWeight,
+                };
+                p.targetColor = isLight ? { r: 15, g: 23, b: 42 } : { r: 238, g: 245, b: 255 };
+                p.colorWeight = 0;
+                p.target.x = tx; p.target.y = ty;
+            }
+            for (let i = pi; i < ps.length; i++) ps[i].kill(canvas.width, canvas.height);
+        }
+
+        function animate() {
+            const ctx = canvas.getContext('2d');
+            ctx.fillStyle = isLight ? 'rgba(241,245,249,0.2)' : 'rgba(10,10,10,0.15)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            const ps = S.particles;
+            for (let i = ps.length - 1; i >= 0; i--) {
+                ps[i].move(); ps[i].draw(ctx);
+                if (ps[i].isKilled && (ps[i].pos.x < 0 || ps[i].pos.x > canvas.width || ps[i].pos.y < 0 || ps[i].pos.y > canvas.height))
+                    ps.splice(i, 1);
+            }
+            S.frame++;
+            if (words.length > 1 && S.frame % 260 === 0) {
+                S.wordIdx = (S.wordIdx + 1) % words.length;
+                showWord(words[S.wordIdx]);
+            }
+            S.animId = requestAnimationFrame(animate);
+        }
+
+        resize();
+        showWord(words[0]);
+        animate();
+
+        function onResize() { resize(); showWord(words[S.wordIdx]); }
+        window.addEventListener('resize', onResize);
+        return () => { cancelAnimationFrame(S.animId); window.removeEventListener('resize', onResize); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    return (
+        <div className="sp-particle-title">
+            <canvas ref={canvasRef} className="sp-particle-canvas" />
+        </div>
+    );
+}
+
 // ─── 3D Particle Scene ─────────────────────────────────────────────────────────
 function ParticleScene() {
-    const SIZE = 128;
+    const SIZE = 256;
     const { gl } = useThree();
     const pointsRef = useRef(null);
 
@@ -136,9 +285,8 @@ function ParticleScene() {
         vertexShader: RENDER_VERT,
         fragmentShader: RENDER_FRAG,
         uniforms: {
-            uPosition:         { value: null },
-            uOriginalPosition: { value: null },
-            uTime:             { value: 0 },
+            uPosition: { value: null },
+            uTime:     { value: 0 },
         },
     }), []);
 
@@ -219,9 +367,8 @@ function ParticleScene() {
         fbo2.texture = tmp;
 
         // Feed result to render pass
-        renderMat.uniforms.uPosition.value         = fbo1.texture;
-        renderMat.uniforms.uOriginalPosition.value = originalPositionTexture;
-        renderMat.uniforms.uTime.value             = clock.elapsedTime;
+        renderMat.uniforms.uPosition.value = fbo1.texture;
+        renderMat.uniforms.uTime.value     = clock.elapsedTime;
 
         // Slow rotation
         if (pointsRef.current) {
@@ -242,7 +389,7 @@ function ParticleScene() {
                 <primitive object={renderMat} attach="material" />
             </points>
             <EffectComposer>
-                <Bloom intensity={0.4} luminanceThreshold={0.4} luminanceSmoothing={0.7} />
+                <Bloom intensity={0.8} luminanceThreshold={0.05} luminanceSmoothing={0.9} />
             </EffectComposer>
         </>
     );
@@ -273,41 +420,37 @@ function FeatureMarquee({ items, reverse }) {
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function StartPage() {
     const { isRTL, lang, setLang } = useLang();
+    const { theme } = useTheme();
     const navigate = useNavigate();
     const stats    = useLiveStats();
     const heroRef  = useRef(null);
 
-    // GSAP entrance animation
+    // GSAP entrance animation for tagline/CTA
     useEffect(() => {
         if (!heroRef.current) return;
         const ctx = gsap.context(() => {
-            const tl = gsap.timeline();
-            tl.fromTo('.sp-title-word',
-                { y: 70, opacity: 0 },
-                { y: 0, opacity: 1, stagger: 0.12, duration: 1, ease: 'power3.out' }
-            )
-            .fromTo('.sp-tagline',
-                { y: 30, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-                '-=0.5'
-            )
-            .fromTo('.sp-cta',
-                { scale: 0.85, opacity: 0 },
-                { scale: 1, opacity: 1, duration: 0.7, ease: 'elastic.out(1, 0.6)' },
-                '-=0.4'
-            )
-            .fromTo('.sp-hero-sub',
-                { opacity: 0 },
-                { opacity: 1, duration: 0.6 },
-                '-=0.3'
-            );
+            gsap.timeline()
+                .fromTo('.sp-tagline',
+                    { y: 20, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', delay: 0.8 }
+                )
+                .fromTo('.sp-cta',
+                    { scale: 0.85, opacity: 0 },
+                    { scale: 1, opacity: 1, duration: 0.7, ease: 'elastic.out(1, 0.6)' },
+                    '-=0.4'
+                )
+                .fromTo('.sp-hero-sub',
+                    { opacity: 0 },
+                    { opacity: 1, duration: 0.6 },
+                    '-=0.3'
+                );
         }, heroRef);
         return () => ctx.revert();
     }, []);
 
-    const titleWords = isRTL
-        ? ['اتحاد·', 'ایرانیان·', 'آینده']
-        : ['Unite.', 'Build.', 'Lead.'];
+    const particleWords = isRTL
+        ? ['متحد', 'سازنده', 'پیشرو']
+        : ['UNITE', 'BUILD', 'LEAD'];
 
     return (
         <div className="sp-root" dir={isRTL ? 'rtl' : 'ltr'}>
@@ -330,13 +473,7 @@ export default function StartPage() {
             <div className="sp-hero" ref={heroRef}>
                 <div className="sp-eyebrow">IRAN · DAO</div>
 
-                <h1 className="sp-title">
-                    {titleWords.map((word, i) => (
-                        <span key={i} className="sp-title-word-wrap">
-                            <span className="sp-title-word">{word}</span>
-                        </span>
-                    ))}
-                </h1>
+                <ParticleTitle key={`${lang}-${theme}`} words={particleWords} isRTL={isRTL} isLight={theme === 'light'} />
 
                 <p className="sp-tagline">
                     {isRTL
@@ -344,42 +481,35 @@ export default function StartPage() {
                         : 'Unite the diaspora. Build the future.'}
                 </p>
 
-                <button className="sp-cta" onClick={() => navigate('/choose')}>
-                    {isRTL ? 'شروع سفر سیاسی' : 'Begin Your Journey'}
+                <button className="sp-cta" onClick={() => navigate('/access-mode')}>
+                    {isRTL ? 'شروع مسیر' : 'Begin Your Journey'}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                 </button>
 
                 <div className="sp-hero-sub">
-                    <div className="sp-hint">{isRTL ? 'ورود با کد دعوت' : 'Entry via invite code'}</div>
-                    {stats && (
-                        <div className="sp-stats">
-                            <span>{stats.users.toLocaleString()} {isRTL ? 'ایرانی' : 'Iranians'}</span>
-                            <span className="sp-stats-dot">·</span>
-                            <span>{stats.plans} {isRTL ? 'طرح فعال' : 'active plans'}</span>
-                            <span className="sp-stats-dot">·</span>
-                            <span>{stats.votes.toLocaleString()} {isRTL ? 'رأی' : 'votes'}</span>
+                    <div className="sp-hint">{isRTL ? 'ورود درحال حاضر فقط با کد دعوت' : 'Entry via invite code at the moment'}</div>
+                    <div className="sp-bottom-controls">
+                        <ThemeSwitch />
+                        <div className="sp-lang-inline">
+                            <button
+                                className={`sp-lang-btn${lang === 'fa' ? ' is-active' : ''}`}
+                                onClick={() => setLang('fa')}
+                                style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                            >فارسی</button>
+                            <button
+                                className={`sp-lang-btn${lang === 'en' ? ' is-active' : ''}`}
+                                onClick={() => setLang('en')}
+                            >EN</button>
                         </div>
-                    )}
+                    </div>
                 </div>
             </div>
 
             {/* Bottom marquee — RIGHT_FEATURES scrolling right */}
             <FeatureMarquee items={RIGHT_FEATURES} reverse={true} />
 
-            {/* Language switcher */}
-            <div className="sp-lang">
-                <button
-                    className={`sp-lang-btn${lang === 'fa' ? ' is-active' : ''}`}
-                    onClick={() => setLang('fa')}
-                    style={{ fontFamily: "'Vazirmatn', sans-serif" }}
-                >فارسی</button>
-                <button
-                    className={`sp-lang-btn${lang === 'en' ? ' is-active' : ''}`}
-                    onClick={() => setLang('en')}
-                >EN</button>
-            </div>
         </div>
     );
 }

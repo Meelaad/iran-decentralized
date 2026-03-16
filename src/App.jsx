@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { LangProvider } from './contexts/LangContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Layout from './components/Layout/Layout';
 import EntryGate from './components/EntryGate/EntryGate';
 import BlueprintViewer from './BlueprintViewer';
@@ -42,17 +43,22 @@ import JMIPage2 from './pages/JMI-v2/JMIPage';
 import AdminDraftGuard from './components/AdminDraftGuard/AdminDraftGuard';
 import ArenaSubmitPage from './pages/Arena/ArenaSubmitPage';
 import CPILDPage from './pages/CPILD/CPILDPage';
+import GlobalPage from './pages/Global/GlobalPage';
+import ComingSoonPage from './pages/ComingSoon/ComingSoonPage';
+import AccessModePage from './pages/AccessMode/AccessModePage';
 
 function App() {
     return (
+        <ThemeProvider>
         <LangProvider>
             <EntryGate>
                 <Routes>
                     {/* Standalone pages without the main layout */}
                     <Route path="/" element={<StartPage />} />
+                    <Route path="/access-mode" element={<AccessModePage />} />
                     <Route path="/pre" element={<PreTransPage />} />
                     <Route path="/choose" element={<StartSelection />} />
-                    <Route path="/compare/transition" element={<TransitionalComparePage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
 
                     {/* Main application routes with Layout */}
                     <Route path="/" element={<Layout />}>
@@ -64,6 +70,7 @@ function App() {
                         
                         {/* Global pages that use the main layout */}
                         <Route path="compare" element={<ComparePage />} />
+                        <Route path="compare/transition" element={<TransitionalComparePage />} />
                         <Route path="vote" element={<VotePage />} />
                         <Route path="about" element={<AboutPage />} />
                         <Route path="arena" element={<ArenaPage />} />
@@ -76,6 +83,7 @@ function App() {
                         <Route path="transitional/plan/cpfik" element={<CPFIKPage />} />
                         <Route path="transitional/plan/jmi" element={<JMIPage />} />
                         <Route path="transitional/plan/jmi-v2" element={<AdminDraftGuard slug="transitional/plan/jmi-v2"><JMIPage2 /></AdminDraftGuard>} />
+                        <Route path="transitional/plan/civil-society" element={<CivilSocietyPage />} />
                         <Route path="transitional/plan/cpild" element={<CPILDPage />} />
                         <Route path="plans" element={<TransitionalPlansPage />} />
                         <Route path="blueprints" element={<BlueprintsListPage />} />
@@ -88,11 +96,17 @@ function App() {
                         <Route path="admin" element={<AdminPage />} />
                         <Route path="contact" element={<ContactPage />} />
                         <Route path="privacy" element={<PrivacyPage />} />
-                        <Route path="profile" element={<ProfilePage />} />
                         <Route path="login" element={<LoginPage />} />
 
                         {/* Post-collapse: The Destination */}
                         <Route path="destination" element={<DestinationPage />} />
+                        <Route path="global" element={<AdminDraftGuard slug="global"><GlobalPage /></AdminDraftGuard>} />
+
+                        {/* Coming soon — planned features */}
+                        <Route path="transition/main-stage" element={<ComingSoonPage />} />
+                        <Route path="transition/incubator" element={<ComingSoonPage />} />
+                        <Route path="transition/amendment-floor" element={<ComingSoonPage />} />
+                        <Route path="transition/shadow-cabinet" element={<ComingSoonPage />} />
                     </Route>
 
                     {/* Redirects for convenience and legacy paths */}
@@ -107,6 +121,7 @@ function App() {
                 </Routes>
             </EntryGate>
         </LangProvider>
+        </ThemeProvider>
     );
 }
 

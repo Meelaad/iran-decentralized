@@ -43,6 +43,27 @@
       "dynamicParams": []
     },
     {
+      "id": "access-mode",
+      "path": "/access-mode",
+      "component": "./pages/AccessMode/AccessModePage",
+      "componentName": "AccessModePage",
+      "layout": "standalone",
+      "navVisible": false,
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Gateway selection page between Easy Access (simplified UI for older users — under development) and Complete Access (full platform). Inserted between the landing page (/) and /choose. Easy Access shows an inline under-development state; Complete Access navigates to /choose.",
+      "pageLayout": "dark standalone page — eyebrow + two large selection cards side by side (Easy Access left, Complete Access right). Easy Access card flips to under-development state on click. Complete Access navigates to /choose.",
+      "keyComponents": [
+        "AccessModePage",
+        "useLang",
+        "ThemeSwitch",
+        "Link (back to /)"
+      ],
+      "primaryDataSources": [
+        "none (static)"
+      ]
+    },
+    {
       "id": "start-choose",
       "path": "/choose",
       "component": "src/pages/Start/StartSelection.jsx",
@@ -445,54 +466,54 @@
     {
       "id": "transition-main-stage",
       "path": "/transition/main-stage",
-      "component": "src/pages/TransitionArena/MainStagePage.jsx",
-      "layout": "TransitionArenaLayout",
-      "summary": "Displays active, real-world transitional plans for endorsement.",
-      "pageLayout": "list of plans with endorsement buttons",
-      "keyComponents": [
-        "MainStagePage"
-      ],
-      "primaryDataSources": [],
-      "suggestedContentFiles": []
+      "component": "./pages/ComingSoon/ComingSoonPage",
+      "componentName": "ComingSoonPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Coming soon placeholder for the Main Stage — where active transitional plans with 10,000+ signatures are voted on by the public. Served by the shared ComingSoonPage component which reads useLocation().pathname to display section-specific EN/FA content.",
+      "pageLayout": "centered card with section icon, label, description, pulsing status dot, footer nav to /plans and /arena",
+      "keyComponents": ["ComingSoonPage", "useLang"],
+      "primaryDataSources": ["none (static)"]
     },
     {
       "id": "transition-incubator",
       "path": "/transition/incubator",
-      "component": "src/pages/TransitionArena/IncubatorPage.jsx",
-      "layout": "TransitionArenaLayout",
-      "summary": "Staging area for user-generated grassroots plans.",
-      "pageLayout": "list of plans with signature progress bars",
-      "keyComponents": [
-        "IncubatorPage"
-      ],
-      "primaryDataSources": [],
-      "suggestedContentFiles": []
+      "component": "./pages/ComingSoon/ComingSoonPage",
+      "componentName": "ComingSoonPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Coming soon placeholder for the Plan Incubator — grassroots plan submission that needs 10,000 signatures for Main Stage. Shows a direct link to /arena where this feature partially exists today.",
+      "pageLayout": "centered card with section icon, label, description, action CTA to /arena, footer nav",
+      "keyComponents": ["ComingSoonPage", "useLang"],
+      "primaryDataSources": ["none (static)"]
     },
     {
       "id": "transition-amendment-floor",
       "path": "/transition/amendment-floor",
-      "component": "src/pages/TransitionArena/AmendmentFloorPage.jsx",
-      "layout": "TransitionArenaLayout",
-      "summary": "Users can propose and vote on line-item edits to specific clauses within an active plan.",
-      "pageLayout": "list of clauses with proposal and voting UI",
-      "keyComponents": [
-        "AmendmentFloorPage"
-      ],
-      "primaryDataSources": [],
-      "suggestedContentFiles": []
+      "component": "./pages/ComingSoon/ComingSoonPage",
+      "componentName": "ComingSoonPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Coming soon placeholder for the Amendment Floor — real-time line-item edits and voting on active transitional plans.",
+      "pageLayout": "centered card with section icon, label, description, pulsing status dot, footer nav",
+      "keyComponents": ["ComingSoonPage", "useLang"],
+      "primaryDataSources": ["none (static)"]
     },
     {
       "id": "transition-shadow-cabinet",
       "path": "/transition/shadow-cabinet",
-      "component": "src/pages/TransitionArena/ShadowCabinetPage.jsx",
-      "layout": "TransitionArenaLayout",
-      "summary": "Users nominate and use ranked-choice voting to elect experts to lead specific transitional sectors.",
-      "pageLayout": "list of sectors with nomination and voting UI",
-      "keyComponents": [
-        "ShadowCabinetPage"
-      ],
-      "primaryDataSources": [],
-      "suggestedContentFiles": []
+      "component": "./pages/ComingSoon/ComingSoonPage",
+      "componentName": "ComingSoonPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Coming soon placeholder for the Shadow Cabinet — nominate and elect sector experts via ranked-choice voting.",
+      "pageLayout": "centered card with section icon, label, description, pulsing status dot, footer nav",
+      "keyComponents": ["ComingSoonPage", "useLang"],
+      "primaryDataSources": ["none (static)"]
     },
     {
       "id": "destination",
@@ -638,8 +659,8 @@
       "path": "/compare/transition",
       "component": "./pages/Compare/TransitionalComparePage",
       "componentName": "TransitionalComparePage",
-      "layout": "standalone",
-      "navVisible": false,
+      "layout": "Layout",
+      "navVisible": true,
       "redirectTo": null,
       "dynamicParams": [],
       "summary": "Side-by-side comparison of two transitional plans chosen from a selector. Compares government type, duration, author, status, and key points. Links to individual plan pages.",
@@ -775,6 +796,33 @@
       "pageLayout": "animated particle canvas hero + bilingual DATA sections (history timeline, five factions, ideological synthesis, military structure, transition cascade, institutions, policies, strategic assessment, conclusion) + footer nav to /plans and /arena",
       "keyComponents": [
         "ParticleGrid (canvas animation)",
+        "useLang",
+        "bilingual DATA object (en/fa)",
+        "Link (footer nav)"
+      ],
+      "primaryDataSources": [
+        "static bilingual DATA constant (no API)"
+      ]
+    },
+    {
+      "id": "plan-civil-society",
+      "path": "/transitional/plan/civil-society",
+      "component": "./pages/CivilSociety/CivilSocietyPage",
+      "componentName": "CivilSocietyPage",
+      "layout": "Layout",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "summary": "Reference plan page for the Joint Charter of Minimum Demands, authored by 20 independent Iranian civil organizations (trade unions, feminist collectives, student groups) operating inside Iran — February 2023. Covers the 12 foundational articles, intersectional ideology (anti-capitalist, anti-colonial, feminist-socialist nexus), transitional coordinating council, economic restitution (IRGC asset confiscation), and permanent direct democracy with right of recall.",
+      "pageLayout": "animated amber particle canvas hero + bilingual DATA sections (philosophy pillars, signatory orgs, repression accordion, stage-1 phase grid, economy accordions + comparison table, stage-2 accordions, foreign policy, 12 articles grid, strategic assessment) + footer nav to /plans and /arena",
+      "keyComponents": [
+        "ParticleGrid (canvas animation)",
+        "Accordion",
+        "Bullets",
+        "SecHead",
+        "PillarCard",
+        "OrgCard",
+        "PhaseBlock",
+        "ArticleGrid",
         "useLang",
         "bilingual DATA object (en/fa)",
         "Link (footer nav)"

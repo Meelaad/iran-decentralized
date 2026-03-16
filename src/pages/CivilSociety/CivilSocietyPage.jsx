@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useLang } from "../../contexts/LangContext";
 import "./CivilSocietyPage.css";
 
@@ -1000,6 +1001,15 @@ export default function CivilSocietyPage() {
         </div>
 
         <p className="cs-source">{d.source}</p>
+
+        <nav className="cs-footer-nav">
+          <Link to="/plans" className="cs-footer-nav-link">
+            {isRTL ? '← همه طرح‌های انتقالی' : '← All Transitional Plans'}
+          </Link>
+          <Link to="/arena" className="cs-footer-nav-link cs-footer-nav-link--secondary">
+            {isRTL ? 'آرنا — تأیید طرح‌ها ←' : 'Arena — Endorse Plans →'}
+          </Link>
+        </nav>
 
       </div>
     </div>

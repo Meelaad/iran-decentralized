@@ -17,7 +17,8 @@
     "arena": "ARENA",
     "destination": "DESTINATION",
     "plans": "PLANS",
-    "comparePlans": "COMPARE PLANS"
+    "comparePlans": "COMPARE PLANS",
+    "global": "GLOBAL"
   },
   "blueprint": {
     "map": "MAP",

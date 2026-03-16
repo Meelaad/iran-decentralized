@@ -438,8 +438,13 @@
     border-radius: 4px;
     font-family: monospace;
     font-size: 12px;
-    cursor: pointer;
+    cursor: grab;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    user-select: none;
+}
+
+.dev-links-toggle:active {
+    cursor: grabbing;
 }
 
 .dev-links-list {

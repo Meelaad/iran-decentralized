@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link, NavLink } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useProfile, useInviteCodes, useUpdateProfile, useCastVote, useGenerateCode } from '../../hooks/useProfile';
@@ -8,8 +8,67 @@ import { calcAge } from '../../lib/utils';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import ContributionGrid from '../../components/ContributionGrid/ContributionGrid';
 import StatsRow from '../../components/Charts/StatsRow';
-import './ProfilePage.css';
 import BadgesShelf from '../../components/Achievements/BadgesShelf';
+import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
+import './ProfilePage.css';
+import './pd-dashboard.css';
+
+// ── Inline SVG icon set ────────────────────────────────────────────────────
+const I = {
+    Dashboard:    () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/></svg>,
+    Activity:     () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>,
+    Award:        () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>,
+    Users:        () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+    Vote:         () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 12 2 2 4-4"/><path d="M5 7c0-1.1.9-2 2-2h10a2 2 0 0 1 2 2v12H5V7z"/><path d="M22 19H2"/></svg>,
+    Zap:          () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>,
+    List:         () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>,
+    Columns:      () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="18" rx="1"/></svg>,
+    Globe:        () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+    Info:         () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>,
+    Settings:     () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 1.4 13.5M4.93 4.93a10 10 0 0 0-1.4 13.5M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>,
+    Shield:       () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>,
+    HelpCircle:   () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>,
+    Destination:  () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>,
+    ChevronLeft:  () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>,
+    Menu:         () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+    LogOut:       () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>,
+    ChevronDown:  () => <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>,
+    X:            () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
+    PanelLeft:    () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>,
+};
+
+// ── Nav structure ─────────────────────────────────────────────────────────
+const NAV_GROUPS = [
+    {
+        label: { en: 'PROFILE', fa: 'پروفایل' },
+        items: [
+            { id: 'overview',     Icon: I.Dashboard,   en: 'Overview',       fa: 'نمای کلی' },
+            { id: 'achievements', Icon: I.Award,        en: 'Achievements',   fa: 'دستاوردها' },
+            { id: 'invite',       Icon: I.Users,        en: 'Invite Codes',   fa: 'کدهای دعوت', badge: true },
+            { id: 'vote',         Icon: I.Vote,         en: 'Blueprint Vote', fa: 'رأی طرح' },
+        ],
+    },
+    {
+        label: { en: 'NAVIGATE', fa: 'پیمایش' },
+        items: [
+            { id: 'nav-arena',       Icon: I.Zap,         en: 'The Arena',      fa: 'آرنا',        href: '/arena' },
+            { id: 'nav-plans',       Icon: I.List,        en: 'Plans',          fa: 'طرح‌ها',       href: '/plans' },
+            { id: 'nav-compare',     Icon: I.Columns,     en: 'Compare',        fa: 'مقایسه',       href: '/compare' },
+            { id: 'nav-vote',        Icon: I.Vote,        en: 'Vote',           fa: 'رأی‌گیری',    href: '/vote' },
+            { id: 'nav-destination', Icon: I.Destination, en: 'Destination',    fa: 'مقصد',         href: '/destination' },
+            { id: 'nav-global',      Icon: I.Globe,       en: 'Global Map',     fa: 'نقشه جهانی',   href: '/global' },
+            { id: 'nav-about',       Icon: I.Info,        en: 'About',          fa: 'درباره',       href: '/about' },
+        ],
+    },
+    {
+        label: { en: 'ACCOUNT', fa: 'حساب' },
+        items: [
+            { id: 'settings', Icon: I.Settings,   en: 'Account Settings', fa: 'تنظیمات حساب' },
+            { id: 'verify',   Icon: I.Shield,     en: 'Verify Identity',  fa: 'تأیید هویت',   accent: true },
+            { id: 'help',     Icon: I.HelpCircle, en: 'Help',             fa: 'راهنما',        placeholder: true },
+        ],
+    },
+];
 
 const TITLES   = ['', 'Mr', 'Ms', 'Dr', 'Prof', 'Eng', 'Haj', 'Hajj'];
 const PRONOUNS = ['', 'He/Him', 'She/Her', 'They/Them', 'Other'];
@@ -25,30 +84,57 @@ const BLUEPRINT_COLORS = {
 
 function formatDate(dateStr) {
     if (!dateStr) return '';
-    return new Date(dateStr).toLocaleDateString('en-GB', {
-        day: 'numeric', month: 'long', year: 'numeric',
-    });
+    return new Date(dateStr).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 function timeRemaining(expiresAt) {
     if (!expiresAt) return '';
     const diff = new Date(expiresAt) - Date.now();
     if (diff <= 0) return 'EXPIRED';
-    const hours = Math.floor(diff / 3600000);
-    const mins = Math.floor((diff % 3600000) / 60000);
-    return `${hours}h ${mins}m`;
+    return `${Math.floor(diff / 3600000)}h ${Math.floor((diff % 3600000) / 60000)}m`;
+}
+
+function AdditionalInfoForm({ title, setTitle, pronouns, setPronouns, city, setCity, bio, setBio, handleSave, isPending, saved, saveError, isRTL, monoFont }) {
+    return (
+        <form onSubmit={handleSave} className="prof-form">
+            <div className="prof-field">
+                <label className="prof-label" style={monoFont}>{isRTL ? 'عنوان' : 'TITLE'}</label>
+                <select className="prof-select" value={title} onChange={e => setTitle(e.target.value)}>
+                    {TITLES.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
+                </select>
+            </div>
+            <div className="prof-field">
+                <label className="prof-label" style={monoFont}>{isRTL ? 'ضمیر' : 'PRONOUNS'}</label>
+                <select className="prof-select" value={pronouns} onChange={e => setPronouns(e.target.value)}>
+                    {PRONOUNS.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
+                </select>
+            </div>
+            <div className="prof-field">
+                <label className="prof-label" style={monoFont}>{isRTL ? 'شهر' : 'CITY'}</label>
+                <input className="prof-input" type="text" value={city} onChange={e => setCity(e.target.value)} maxLength={80} placeholder={isRTL ? 'شهر شما' : 'Your city'} />
+            </div>
+            <div className="prof-field">
+                <label className="prof-label" style={monoFont}>{isRTL ? 'درباره من' : 'BIO'}</label>
+                <textarea className="prof-textarea" value={bio} onChange={e => setBio(e.target.value)} maxLength={280} rows={4} placeholder={isRTL ? 'اختیاری — درباره خود بنویسید.' : 'Optional — briefly describe your background.'} />
+                <div className="prof-char-count" style={monoFont}>{bio.length}/280</div>
+            </div>
+            {saveError && <div className="prof-error" style={monoFont}>{saveError}</div>}
+            <button type="submit" className="prof-save-btn" disabled={isPending} style={monoFont}>
+                {isPending ? '...' : saved ? (isRTL ? 'ذخیره شد ✓' : 'SAVED ✓') : (isRTL ? 'ذخیره تغییرات' : 'SAVE CHANGES')}
+            </button>
+        </form>
+    );
 }
 
 export default function ProfilePage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, lang, setLang } = useLang();
     const navigate = useNavigate();
     const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
     const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
-
     const memberCardRef = useRef(null);
 
-    // ── Server state ───────────────────────────────────────────────────────────
-    const { session, isAdmin, authLoading } = useAuth();
+    // ── Server state ─────────────────────────────────────────────────────────
+    const { session, isAdmin, authLoading, logout } = useAuth();
     const [searchParams] = useSearchParams();
     const previewId = isAdmin ? searchParams.get('preview') : null;
     const isPreview = !!previewId;
@@ -57,39 +143,39 @@ export default function ProfilePage() {
     const { data: profile, isLoading: profileLoading } = useProfile(userId);
     const { data: codes = [] } = useInviteCodes(userId);
 
-    // One mutation instance per field group so isPending is independent
     const nameUpdateMutation     = useUpdateProfile(userId);
     const birthUpdateMutation    = useUpdateProfile(userId);
     const additionalInfoMutation = useUpdateProfile(userId);
     const castVoteMutation       = useCastVote(userId);
     const generateCodeMutation   = useGenerateCode(userId);
 
-    // ── UI state ──────────────────────────────────────────────────────────────
+    // ── Dashboard state ───────────────────────────────────────────────────────
+    const [activeSection,    setActiveSection]    = useState('overview');
+    const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
+    const [desktopSidebarOpen, setDesktopSidebarOpen] = useState(true);
+    const [userMenuOpen,      setUserMenuOpen]     = useState(false);
+    const userMenuRef = useRef(null);
+
+    // ── Form state ────────────────────────────────────────────────────────────
     const [nameEditing, setNameEditing] = useState(false);
     const [nameValue,   setNameValue]   = useState('');
     const [nameError,   setNameError]   = useState('');
-
     const [birthPickerOpen, setBirthPickerOpen] = useState(false);
     const [birthDateDraft,  setBirthDateDraft]  = useState(null);
     const [birthError,      setBirthError]      = useState('');
     const [birthSaved,      setBirthSaved]      = useState(false);
-
     const [title,     setTitle]     = useState('');
     const [pronouns,  setPronouns]  = useState('');
     const [city,      setCity]      = useState('');
     const [bio,       setBio]       = useState('');
     const [saved,     setSaved]     = useState(false);
     const [saveError, setSaveError] = useState('');
-
     const [copiedCode,    setCopiedCode]    = useState('');
     const [generateError, setGenerateError] = useState('');
-
     const [preferredBlueprint, setPreferredBlueprint] = useState('');
     const [voteSaved,  setVoteSaved]  = useState(false);
     const [voteError,  setVoteError]  = useState('');
 
-    // Sync form fields from cached profile on initial load
-    /* eslint-disable react-hooks/set-state-in-effect */
     useEffect(() => {
         if (!profile) return;
         setTitle(profile.title || '');
@@ -98,59 +184,49 @@ export default function ProfilePage() {
         setBio(profile.bio || '');
         setPreferredBlueprint(profile.preferred_blueprint || '');
     }, [profile]);
-    /* eslint-enable react-hooks/set-state-in-effect */
 
-    // ── Handlers ──────────────────────────────────────────────────────────────
+    // close user menu on outside click
+    useEffect(() => {
+        function handler(e) {
+            if (userMenuRef.current && !userMenuRef.current.contains(e.target)) setUserMenuOpen(false);
+        }
+        document.addEventListener('mousedown', handler);
+        return () => document.removeEventListener('mousedown', handler);
+    }, []);
 
+    // ── Handlers ─────────────────────────────────────────────────────────────
     function handleNameSave() {
         const trimmed = nameValue.trim();
-        if (!trimmed) {
-            setNameError(isRTL ? 'نام نمی‌تواند خالی باشد.' : 'Name cannot be empty.');
-            return;
-        }
+        if (!trimmed) { setNameError(isRTL ? 'نام نمی‌تواند خالی باشد.' : 'Name cannot be empty.'); return; }
         setNameError('');
-        nameUpdateMutation.mutate(
-            { full_name: trimmed, name_locked: true },
-            {
-                onSuccess: () => setNameEditing(false),
-                onError: () => setNameError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
-            }
-        );
+        nameUpdateMutation.mutate({ full_name: trimmed, name_locked: true }, {
+            onSuccess: () => setNameEditing(false),
+            onError:   () => setNameError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+        });
     }
 
     function handleBirthSave() {
-        if (!birthDateDraft) {
-            setBirthError(isRTL ? 'لطفاً تاریخ را انتخاب کنید.' : 'Please select a date.');
-            return;
-        }
+        if (!birthDateDraft) { setBirthError(isRTL ? 'لطفاً تاریخ را انتخاب کنید.' : 'Please select a date.'); return; }
         const age = calcAge(birthDateDraft);
-        if (age === null || age > 99) {
-            setBirthError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.');
-            return;
-        }
+        if (age === null || age > 99) { setBirthError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.'); return; }
         setBirthError('');
-        birthUpdateMutation.mutate(
-            { birth_date: birthDateDraft },
-            {
-                onSuccess: () => {
-                    if (age >= 18) sessionStorage.setItem('irdao_age_ok', 'true');
-                    setBirthPickerOpen(false);
-                    setBirthSaved(true);
-                    setTimeout(() => setBirthSaved(false), 3000);
-                },
-                onError: () => setBirthError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
-            }
-        );
+        birthUpdateMutation.mutate({ birth_date: birthDateDraft }, {
+            onSuccess: () => {
+                if (age >= 18) sessionStorage.setItem('irdao_age_ok', 'true');
+                setBirthPickerOpen(false); setBirthSaved(true);
+                setTimeout(() => setBirthSaved(false), 3000);
+            },
+            onError: () => setBirthError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+        });
     }
 
     function handleSave(e) {
-        e.preventDefault();
-        setSaveError(''); setSaved(false);
+        e.preventDefault(); setSaveError(''); setSaved(false);
         additionalInfoMutation.mutate(
             { title: title || null, pronouns: pronouns || null, city: city.trim() || null, bio: bio.trim() || null },
             {
                 onSuccess: () => { setSaved(true); setTimeout(() => setSaved(false), 2500); },
-                onError: () => setSaveError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+                onError:   () => setSaveError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
             }
         );
     }
@@ -159,430 +235,474 @@ export default function ProfilePage() {
         if (blueprintId === preferredBlueprint || castVoteMutation.isPending) return;
         setVoteError(''); setVoteSaved(false);
         castVoteMutation.mutate(blueprintId, {
-            onSuccess: () => {
-                setPreferredBlueprint(blueprintId);
-                setVoteSaved(true);
-                setTimeout(() => setVoteSaved(false), 2500);
-            },
-            onError: (err) => {
-                const msg = err?.error === 'age_unverified'
-                    ? (isRTL ? 'ابتدا سن خود را تأیید کنید.' : 'Please verify your age first.')
-                    : (isRTL ? 'خطا در ثبت رأی.' : 'Failed to cast vote.');
-                setVoteError(msg);
-            },
+            onSuccess: () => { setPreferredBlueprint(blueprintId); setVoteSaved(true); setTimeout(() => setVoteSaved(false), 2500); },
+            onError: err => setVoteError(err?.error === 'age_unverified'
+                ? (isRTL ? 'ابتدا سن خود را تأیید کنید.' : 'Please verify your age first.')
+                : (isRTL ? 'خطا در ثبت رأی.' : 'Failed to cast vote.')),
         });
     }
 
     function copyCode(code) {
         navigator.clipboard.writeText(code);
-        setCopiedCode(code);
-        setTimeout(() => setCopiedCode(''), 1500);
+        setCopiedCode(code); setTimeout(() => setCopiedCode(''), 1500);
     }
 
     function handleGenerate() {
         setGenerateError('');
-        generateCodeMutation.mutate(undefined, {
-            onError: () => setGenerateError(isRTL ? 'ساخت کد ناموفق بود.' : 'Failed to generate code.'),
-        });
+        generateCodeMutation.mutate(undefined, { onError: () => setGenerateError(isRTL ? 'ساخت کد ناموفق بود.' : 'Failed to generate code.') });
     }
 
-    // ── Loading / no session ───────────────────────────────────────────────────
+    function goSection(id) { setActiveSection(id); setMobileSidebarOpen(false); }
+
+    // ── Loading / auth ────────────────────────────────────────────────────────
     const loading = authLoading || (!!userId && profileLoading);
 
     if (loading) return (
-        <div className="prof-page">
-            <div className="prof-loading"><span className="prof-spinner" /></div>
+        <div className="pd-fullscreen" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <span className="prof-spinner" />
         </div>
     );
 
     if (!session) return (
-        <div className="prof-page">
-            <div className="prof-no-session" style={monoFont}>
-                {isRTL ? 'شما وارد نشده‌اید.' : 'You are not logged in.'}{' '}
-                <button className="prof-link-btn" onClick={() => navigate('/register')} style={monoFont}>
-                    {isRTL ? 'ثبت‌نام' : 'Register →'}
-                </button>
-            </div>
+        <div className="pd-fullscreen" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+            <div style={{ color: '#71717a', fontSize: 13 }}>{isRTL ? 'شما وارد نشده‌اید.' : 'You are not logged in.'}</div>
+            <button className="pd-btn-primary" onClick={() => navigate('/register')} style={monoFont}>
+                {isRTL ? 'ثبت‌نام' : 'Register →'}
+            </button>
+            <button className="pd-btn-ghost" onClick={() => navigate(-1)} style={monoFont}>
+                {isRTL ? '← بازگشت' : '← Back'}
+            </button>
         </div>
     );
 
     // ── Derived ───────────────────────────────────────────────────────────────
-    const joinedDate = profile?.created_at
-        ? new Date(profile.created_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'long' })
-        : '';
-    const unusedCodes    = codes.filter(c => !c.used_by);
-    const usedCodes      = codes.filter(c => c.used_by);
-    const age            = calcAge(profile?.birth_date);
-    const voteEligible   = age !== null && age >= 18 && age <= 99;
-    const currentBp      = preferredBlueprint ? BLUEPRINTS[preferredBlueprint] : null;
-    const currentBpColor = BLUEPRINT_COLORS[preferredBlueprint] || '#4fc3f7';
+    const joinedDate       = profile?.created_at ? new Date(profile.created_at).toLocaleDateString('en-GB', { year: 'numeric', month: 'long' }) : '';
+    const unusedCodes      = codes.filter(c => !c.used_by);
+    const usedCodes        = codes.filter(c => c.used_by);
+    const age              = calcAge(profile?.birth_date);
+    const voteEligible     = age !== null && age >= 18 && age <= 99;
+    const currentBp        = preferredBlueprint ? BLUEPRINTS[preferredBlueprint] : null;
+    const currentBpColor   = BLUEPRINT_COLORS[preferredBlueprint] || '#4fc3f7';
+    const profileComplete  = !!(profile?.title && profile?.pronouns && profile?.city && profile?.bio);
+    const initials         = profile?.full_name ? profile.full_name.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase() : '??';
+    const additionalInfoProps = { title, setTitle, pronouns, setPronouns, city, setCity, bio, setBio, handleSave, isPending: additionalInfoMutation.isPending, saved, saveError, isRTL, monoFont };
+
+    // find active nav label for breadcrumb
+    const activeItem = NAV_GROUPS.flatMap(g => g.items).find(i => i.id === activeSection);
+
+    // ── Sidebar content (shared between desktop + mobile drawer) ─────────────
+    function SidebarContent({ onClose }) {
+        return (
+            <>
+                {/* Logo */}
+                <div className="pd-sidebar-logo">
+                    <img src="/logo.svg" alt="IranDAO" className="pd-sidebar-logo-img" />
+                    <span className="pd-sidebar-logo-text" style={{ fontFamily: "'Inter', sans-serif" }}>IranDAO</span>
+                    {onClose && (
+                        <button className="pd-sidebar-close" onClick={onClose}><I.X /></button>
+                    )}
+                </div>
+
+                {/* Nav groups */}
+                <nav className="pd-sidebar-nav">
+                    {NAV_GROUPS.map(group => (
+                        <div key={group.label.en} className="pd-nav-group">
+                            <div className="pd-nav-group-label">{isRTL ? group.label.fa : group.label.en}</div>
+                            {group.items.map(item => {
+                                if (item.href) {
+                                    return (
+                                        <NavLink
+                                            key={item.id}
+                                            to={item.href}
+                                            className="pd-nav-item pd-nav-item--link"
+                                        >
+                                            <item.Icon />
+                                            <span>{isRTL ? item.fa : item.en}</span>
+                                        </NavLink>
+                                    );
+                                }
+                                return (
+                                    <button
+                                        key={item.id}
+                                        className={`pd-nav-item${activeSection === item.id ? ' is-active' : ''}${item.accent ? ' is-accent' : ''}${item.placeholder ? ' is-placeholder' : ''}`}
+                                        onClick={() => !item.placeholder && goSection(item.id)}
+                                        disabled={item.placeholder}
+                                    >
+                                        <item.Icon />
+                                        <span>{isRTL ? item.fa : item.en}</span>
+                                        {item.badge && unusedCodes.length > 0 && (
+                                            <span className="pd-nav-badge">{unusedCodes.length}</span>
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+                    ))}
+                </nav>
+
+                {/* User card */}
+                <div className="pd-sidebar-user" ref={userMenuRef}>
+                    {userMenuOpen && (
+                        <div className="pd-user-menu">
+                            {isAdmin && (
+                                <Link to="/admin" className="pd-user-menu-item" onClick={() => setUserMenuOpen(false)}>
+                                    {isRTL ? 'پنل مدیریت' : 'Admin Panel'}
+                                </Link>
+                            )}
+                            <button className="pd-user-menu-item pd-user-menu-item--danger" onClick={() => { setUserMenuOpen(false); logout(); }}>
+                                <I.LogOut /> {isRTL ? 'خروج' : 'Log out'}
+                            </button>
+                        </div>
+                    )}
+                    <button className="pd-user-card" onClick={() => setUserMenuOpen(o => !o)}>
+                        <div className="pd-user-avatar">{initials}</div>
+                        <div className="pd-user-details">
+                            <div className="pd-user-name">{profile?.full_name || session?.user?.email?.split('@')[0]}</div>
+                            <div className="pd-user-email">{session?.user?.email}</div>
+                        </div>
+                        <I.ChevronDown />
+                    </button>
+                </div>
+            </>
+        );
+    }
 
     return (
-        <div className="prof-page" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="pd-fullscreen" dir={isRTL ? 'rtl' : 'ltr'}>
+
+            {/* Admin preview banner */}
             {isPreview && (
-                <div className="prof-preview-banner">
+                <div className="pd-preview-bar" style={monoFont}>
                     <span>ADMIN PREVIEW — {profile?.full_name || previewId}</span>
-                    <button className="prof-preview-back" onClick={() => navigate('/admin')}>← Back to Admin</button>
+                    <button onClick={() => navigate('/admin')}>← {isRTL ? 'بازگشت' : 'Back to Admin'}</button>
                 </div>
             )}
-            <div className="prof-bg-grid" />
-            <div className="prof-scanline" />
 
-            <div className="prof-inner">
+            <div className="pd-layout">
 
-                {/* ── Header ── */}
-                <div className="prof-header">
-                    <div className="prof-eyebrow" style={monoFont}>{isRTL ? 'پروفایل عضو' : 'MEMBER PROFILE'}</div>
-                    <h1 className="prof-name" style={headingFont}>{profile?.full_name}</h1>
-                    <div className="prof-meta" style={monoFont}>
-                        <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
-                            {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
-                        </span>
-                        {profile?.country && <span className="prof-meta-sep">·</span>}
-                        {profile?.country && <span>{profile.country}</span>}
-                        {joinedDate && <span className="prof-meta-sep">·</span>}
-                        {joinedDate && <span>{isRTL ? `عضو از ${joinedDate}` : `Member since ${joinedDate}`}</span>}
-                    </div>
-                    <div style={{ marginTop: 12 }}>
-                        <BadgesShelf userId={userId} />
-                    </div>
-                </div>
+                {/* ── Desktop Sidebar ── */}
+                <aside className={`pd-sidebar${desktopSidebarOpen ? '' : ' pd-sidebar--hidden'}`}>
+                    <SidebarContent />
+                </aside>
 
-                {/* ── Stats + Activity Grid ── */}
-                <StatsRow
-                    civicScore={profile?.civic_score}
-                    participationScore={profile?.participation_score}
-                    streakDays={profile?.streak_days}
-                    trustTier={profile?.trust_tier?.toUpperCase()}
-                />
-                <div className="prof-card">
-                    <ContributionGrid grid={profile?.contribution_grid || {}} />
-                </div>
+                {/* ── Mobile drawer + overlay ── */}
+                {mobileSidebarOpen && (
+                    <>
+                        <div className="pd-drawer-overlay" onClick={() => setMobileSidebarOpen(false)} />
+                        <aside className="pd-drawer">
+                            <SidebarContent onClose={() => setMobileSidebarOpen(false)} />
+                        </aside>
+                    </>
+                )}
 
-                {/* ── Member Information ── */}
-                <div className="prof-card prof-card--member-info" ref={memberCardRef}>
-                    <div className="prof-section-title" style={monoFont}>
-                        {isRTL ? 'اطلاعات عضو' : 'MEMBER INFORMATION'}
-                    </div>
+                {/* ── Main ── */}
+                <div className="pd-main">
 
-                    <div className="prof-info-table">
-
-                        {/* Full Name */}
-                        <div className="prof-info-row">
-                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'نام کامل' : 'FULL NAME'}</span>
-                            <div className="prof-info-value-col">
-                                {nameEditing ? (
-                                    <div className="prof-inline-edit">
-                                        <div className="prof-once-warn" style={monoFont}>
-                                            ⚠ {isRTL ? 'این تغییر فقط یک بار مجاز است.' : 'This can only be changed once.'}
-                                        </div>
-                                        <input
-                                            className="prof-input prof-input--sm"
-                                            value={nameValue}
-                                            onChange={e => setNameValue(e.target.value)}
-                                            maxLength={80}
-                                            autoFocus
-                                            style={monoFont}
-                                        />
-                                        {nameError && <div className="prof-inline-error" style={monoFont}>{nameError}</div>}
-                                        <div className="prof-inline-btns">
-                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} disabled={nameUpdateMutation.isPending} style={monoFont}>
-                                                {nameUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید' : 'CONFIRM')}
-                                            </button>
-                                            <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={monoFont}>
-                                                {isRTL ? 'انصراف' : 'CANCEL'}
-                                            </button>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="prof-info-value-row">
-                                        <span className="prof-info-value" style={monoFont}>{profile?.full_name || '—'}</span>
-                                        {!profile?.name_locked ? (
-                                            <button
-                                                className="prof-chip-btn"
-                                                onClick={() => { setNameValue(profile?.full_name || ''); setNameEditing(true); }}
-                                                style={monoFont}
-                                            >
-                                                {isRTL ? 'ویرایش' : 'EDIT'}
-                                            </button>
-                                        ) : (
-                                            <span className="prof-lock-icon" title={isRTL ? 'قابل تغییر نیست' : 'Locked'}>🔒</span>
-                                        )}
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-
-                        {/* Date of Birth */}
-                        <div className="prof-info-row">
-                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'تاریخ تولد' : 'DATE OF BIRTH'}</span>
-                            <div className="prof-info-value-col">
-                                {profile?.birth_date ? (
-                                    <div className="prof-info-value-row">
-                                        <span className="prof-info-value" style={monoFont}>{formatDate(profile.birth_date)}</span>
-                                        <span className="prof-lock-icon" title={isRTL ? 'قابل تغییر نیست' : 'Locked'}>🔒</span>
-                                        {voteEligible && (
-                                            <span className="prof-verified-badge" style={monoFont}>
-                                                {isRTL ? '✓ تأیید شده' : '✓ VERIFIED'}
-                                            </span>
-                                        )}
-                                    </div>
-                                ) : (
+                    {/* Header */}
+                    <header className="pd-header">
+                        <div className="pd-header-left">
+                            {/* Desktop sidebar toggle */}
+                            <button className="pd-sidebar-toggle" onClick={() => setDesktopSidebarOpen(o => !o)} title={desktopSidebarOpen ? 'Collapse sidebar' : 'Expand sidebar'}>
+                                <I.PanelLeft />
+                            </button>
+                            {/* Mobile hamburger */}
+                            <button className="pd-hamburger" onClick={() => setMobileSidebarOpen(true)}>
+                                <I.Menu />
+                            </button>
+                            <div className="pd-breadcrumb">
+                                <span className="pd-breadcrumb-root">{isRTL ? 'پروفایل' : 'Profile'}</span>
+                                {activeItem && (
                                     <>
-                                        <div className="prof-info-value-row">
-                                            <span className="prof-info-value prof-info-value--empty" style={monoFont}>
-                                                {isRTL ? 'تنظیم نشده' : 'Not set'}
-                                            </span>
-                                            {!birthPickerOpen && (
-                                                <button className="prof-chip-btn prof-chip-btn--green" onClick={() => setBirthPickerOpen(true)} style={monoFont}>
-                                                    {isRTL ? 'تأیید سن' : 'VERIFY AGE'}
-                                                </button>
-                                            )}
-                                        </div>
-                                        {birthPickerOpen && (
-                                            <div className="prof-birth-picker-wrap">
-                                                <div className="prof-once-warn" style={monoFont}>
-                                                    ⚠ {isRTL ? 'تاریخ تولد فقط یک بار قابل ثبت است.' : 'Birthday can only be set once.'}
-                                                </div>
-                                                <BirthDatePicker
-                                                    onChange={d => { setBirthDateDraft(d); setBirthError(''); }}
-                                                    isRTL={isRTL}
-                                                />
-                                                {birthError && <div className="prof-inline-error" style={monoFont}>{birthError}</div>}
-                                                <div className="prof-inline-btns">
-                                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={birthUpdateMutation.isPending || !birthDateDraft} style={monoFont}>
-                                                        {birthUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید تاریخ' : 'CONFIRM DATE')}
-                                                    </button>
-                                                    <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={monoFont}>
-                                                        {isRTL ? 'انصراف' : 'CANCEL'}
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        )}
+                                        <span className="pd-breadcrumb-sep">/</span>
+                                        <span className="pd-breadcrumb-page">{isRTL ? activeItem.fa : activeItem.en}</span>
                                     </>
                                 )}
-                                {birthSaved && (
-                                    <div className="prof-inline-success" style={monoFont}>
-                                        {isRTL ? '✓ سن تأیید شد' : '✓ Age verified'}
+                            </div>
+                        </div>
+                        <div className="pd-header-right">
+                            <ThemeSwitch />
+                            {/* Language toggle */}
+                            <div className="pd-lang-toggle">
+                                <button className={`pd-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>FA</button>
+                                <button className={`pd-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
+                            </div>
+                            {/* Nav back button */}
+                            <button className="pd-btn-ghost pd-btn-sm" onClick={() => navigate(-1)} style={monoFont}>
+                                <I.ChevronLeft />
+                                {isRTL ? 'بازگشت' : 'Back'}
+                            </button>
+                        </div>
+                    </header>
+
+                    {/* ── Page content ── */}
+                    <div className="pd-page">
+
+                        {/* ══════════════════ OVERVIEW ══════════════════ */}
+                        {activeSection === 'overview' && (
+                            <div className="pd-section">
+                                {/* Page title */}
+                                <div className="pd-page-header">
+                                    <div className="pd-page-avatar">{initials}</div>
+                                    <div>
+                                        <h1 className="pd-page-title" style={headingFont}>{profile?.full_name}</h1>
+                                        <div className="pd-page-meta" style={monoFont}>
+                                            <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
+                                                {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
+                                            </span>
+                                            {profile?.country && <><span className="pd-dot">·</span><span>{profile.country}</span></>}
+                                            {joinedDate && <><span className="pd-dot">·</span><span>{isRTL ? `عضو از ${joinedDate}` : `Member since ${joinedDate}`}</span></>}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <StatsRow
+                                    civicScore={profile?.civic_score}
+                                    participationScore={profile?.participation_score}
+                                    streakDays={profile?.streak_days}
+                                    trustTier={profile?.trust_tier?.toUpperCase()}
+                                />
+
+                                <div className="pd-card pd-mt">
+                                    <ContributionGrid grid={profile?.contribution_grid || {}} />
+                                </div>
+
+                                <div className="pd-mt">
+                                    <BadgesShelf userId={userId} />
+                                </div>
+
+                                {!profileComplete && (
+                                    <div className="pd-card pd-mt pd-card--warn">
+                                        <div className="pd-card-header">
+                                            <span className="pd-status-dot" />
+                                            <div>
+                                                <div className="pd-card-title" style={monoFont}>{isRTL ? 'پروفایل خود را تکمیل کنید' : 'Complete your profile'}</div>
+                                                <div className="pd-card-sub">{isRTL ? 'عنوان، ضمیر، شهر و بیو را اضافه کنید' : 'Add title, pronouns, city and bio'}</div>
+                                            </div>
+                                        </div>
+                                        <div className="pd-divider" />
+                                        <AdditionalInfoForm {...additionalInfoProps} />
                                     </div>
                                 )}
                             </div>
-                        </div>
+                        )}
 
-                        {/* Email */}
-                        <div className="prof-info-row">
-                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'ایمیل' : 'EMAIL'}</span>
-                            <div className="prof-info-value-col">
-                                <div className="prof-info-value-row">
-                                    <span className="prof-info-value prof-info-value--muted" style={monoFont}>{session?.user?.email || '—'}</span>
-                                    <span className="prof-lock-icon">🔒</span>
-                                </div>
+                        {/* ══════════════════ ACHIEVEMENTS ══════════════════ */}
+                        {activeSection === 'achievements' && (
+                            <div className="pd-section">
+                                <div className="pd-section-heading" style={headingFont}>{isRTL ? 'دستاوردها' : 'Achievements'}</div>
+                                <BadgesShelf userId={userId} />
                             </div>
-                        </div>
+                        )}
 
-                        {/* Country */}
-                        {profile?.country && (
-                            <div className="prof-info-row">
-                                <span className="prof-info-label" style={monoFont}>{isRTL ? 'کشور' : 'COUNTRY'}</span>
-                                <div className="prof-info-value-col">
-                                    <span className="prof-info-value prof-info-value--muted" style={monoFont}>{profile.country}</span>
+                        {/* ══════════════════ INVITE CODES ══════════════════ */}
+                        {activeSection === 'invite' && (
+                            <div className="pd-section">
+                                <div className="pd-section-heading" style={headingFont}>{isRTL ? 'کدهای دعوت' : 'Invite Codes'}</div>
+                                <div className="pd-card">
+                                    <p className="prof-hint" style={monoFont}>
+                                        {isRTL ? 'این کدها را برای دعوت اعضای جدید به اشتراک بگذارید. هر کد فقط یک بار قابل استفاده است.' : 'Share these codes to invite new members. Each code can only be used once.'}
+                                    </p>
+                                    <div className="prof-codes-list">
+                                        {unusedCodes.map(c => (
+                                            <button key={c.code} className="prof-code-chip prof-code-chip--unused" onClick={() => copyCode(c.code)} title={isRTL ? 'کلیک کنید تا کپی شود' : 'Click to copy'} style={monoFont}>
+                                                {copiedCode === c.code ? (isRTL ? 'کپی شد!' : 'Copied!') : c.code}
+                                                <span className="prof-code-expiry">{timeRemaining(c.expires_at)}</span>
+                                            </button>
+                                        ))}
+                                        {usedCodes.map(c => (
+                                            <span key={c.code} className="prof-code-chip prof-code-chip--used" style={monoFont}>{c.code}</span>
+                                        ))}
+                                    </div>
+                                    {profile?.invite_codes_remaining > 0 ? (
+                                        <div className="prof-generate-row">
+                                            <button className="prof-generate-btn" onClick={handleGenerate} disabled={generateCodeMutation.isPending} style={monoFont}>
+                                                {generateCodeMutation.isPending ? '...' : (isRTL ? 'ساخت کد' : 'GENERATE CODE')}
+                                            </button>
+                                            <span className="prof-remaining" style={monoFont}>{profile.invite_codes_remaining} {isRTL ? 'باقی‌مانده' : 'remaining'}</span>
+                                        </div>
+                                    ) : (
+                                        <div className="prof-no-codes" style={monoFont}>{isRTL ? 'سهمیه دعوت تمام شده است.' : 'No invite slots remaining.'}</div>
+                                    )}
+                                    {generateError && <div className="prof-error" style={monoFont}>{generateError}</div>}
                                 </div>
                             </div>
                         )}
 
-                        {/* Account Type */}
-                        <div className="prof-info-row">
-                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'نوع حساب' : 'ACCOUNT TYPE'}</span>
-                            <div className="prof-info-value-col">
-                                <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
-                                    {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
-                                </span>
+                        {/* ══════════════════ BLUEPRINT VOTE ══════════════════ */}
+                        {activeSection === 'vote' && (
+                            <div className="pd-section">
+                                <div className="pd-section-heading" style={headingFont}>{isRTL ? 'رأی به طرح حاکمیتی' : 'Blueprint Vote'}</div>
+                                <div className="pd-card prof-card--vote-wrap">
+                                    <div className={`prof-vote-content${!voteEligible ? ' prof-vote-content--blurred' : ''}`}>
+                                        {currentBp && (
+                                            <div className="prof-current-vote" style={{ '--bp-color': currentBpColor }}>
+                                                <div className="prof-current-vote-label" style={monoFont}>{isRTL ? 'رأی شما' : 'YOUR VOTE'}</div>
+                                                <div className="prof-current-vote-name" style={{ ...headingFont, color: currentBpColor }}>{t(currentBp.name)}</div>
+                                                <div className="prof-current-vote-bar" />
+                                            </div>
+                                        )}
+                                        <p className="prof-hint" style={monoFont}>{isRTL ? 'طرح حاکمیتی مورد نظر خود را انتخاب یا تغییر دهید.' : 'Select or change your preferred governance blueprint.'}</p>
+                                        <div className="prof-blueprint-options">
+                                            {Object.values(BLUEPRINTS).map(bp => (
+                                                <button key={bp.id} className={`prof-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`} onClick={() => handleVote(bp.id)} disabled={castVoteMutation.isPending} style={{ ...monoFont, '--btn-color': BLUEPRINT_COLORS[bp.id] || '#4fc3f7' }}>
+                                                    {t(bp.name)}
+                                                </button>
+                                            ))}
+                                        </div>
+                                        {voteError  && <div className="prof-error"      style={monoFont}>{voteError}</div>}
+                                        {voteSaved  && <div className="prof-vote-saved" style={monoFont}>{isRTL ? 'رأی ذخیره شد' : 'Vote saved'}</div>}
+                                    </div>
+                                    {!voteEligible && (
+                                        <div className="prof-vote-gate">
+                                            <div className="prof-vote-gate-inner">
+                                                <div className="prof-vote-gate-icon">⚿</div>
+                                                <p className="prof-vote-gate-msg" style={monoFont}>{isRTL ? 'تاریخ تولد خود را برای رأی‌دهی تأیید نکرده‌اید.' : 'Please verify your birthday to vote.'}</p>
+                                                <button className="prof-vote-gate-btn" style={monoFont} onClick={() => { goSection('settings'); setTimeout(() => setBirthPickerOpen(true), 200); }}>
+                                                    {isRTL ? '← تأیید سن' : 'VERIFY AGE →'}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
                             </div>
-                        </div>
+                        )}
+
+                        {/* ══════════════════ ACCOUNT SETTINGS ══════════════════ */}
+                        {activeSection === 'settings' && (
+                            <div className="pd-section">
+                                <div className="pd-section-heading" style={headingFont}>{isRTL ? 'تنظیمات حساب' : 'Account Settings'}</div>
+
+                                {/* Member Info */}
+                                <div className="pd-card" ref={memberCardRef}>
+                                    <div className="pd-card-section-title" style={monoFont}>{isRTL ? 'اطلاعات عضو' : 'Member Information'}</div>
+                                    <div className="prof-info-table">
+
+                                        <div className="prof-info-row">
+                                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'نام کامل' : 'FULL NAME'}</span>
+                                            <div className="prof-info-value-col">
+                                                {nameEditing ? (
+                                                    <div className="prof-inline-edit">
+                                                        <div className="prof-once-warn" style={monoFont}>⚠ {isRTL ? 'این تغییر فقط یک بار مجاز است.' : 'This can only be changed once.'}</div>
+                                                        <input className="prof-input prof-input--sm" value={nameValue} onChange={e => setNameValue(e.target.value)} maxLength={80} autoFocus style={monoFont} />
+                                                        {nameError && <div className="prof-inline-error" style={monoFont}>{nameError}</div>}
+                                                        <div className="prof-inline-btns">
+                                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} disabled={nameUpdateMutation.isPending} style={monoFont}>{nameUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید' : 'CONFIRM')}</button>
+                                                            <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={monoFont}>{isRTL ? 'انصراف' : 'CANCEL'}</button>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div className="prof-info-value-row">
+                                                        <span className="prof-info-value" style={monoFont}>{profile?.full_name || '—'}</span>
+                                                        {!profile?.name_locked ? (
+                                                            <button className="prof-chip-btn" onClick={() => { setNameValue(profile?.full_name || ''); setNameEditing(true); }} style={monoFont}>{isRTL ? 'ویرایش' : 'EDIT'}</button>
+                                                        ) : (
+                                                            <span className="prof-lock-icon" title={isRTL ? 'قابل تغییر نیست' : 'Locked'}>🔒</span>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        </div>
+
+                                        <div className="prof-info-row">
+                                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'تاریخ تولد' : 'DATE OF BIRTH'}</span>
+                                            <div className="prof-info-value-col">
+                                                {profile?.birth_date ? (
+                                                    <div className="prof-info-value-row">
+                                                        <span className="prof-info-value" style={monoFont}>{formatDate(profile.birth_date)}</span>
+                                                        <span className="prof-lock-icon" title="Locked">🔒</span>
+                                                        {voteEligible && <span className="prof-verified-badge" style={monoFont}>{isRTL ? '✓ تأیید شده' : '✓ VERIFIED'}</span>}
+                                                    </div>
+                                                ) : (
+                                                    <>
+                                                        <div className="prof-info-value-row">
+                                                            <span className="prof-info-value prof-info-value--empty" style={monoFont}>{isRTL ? 'تنظیم نشده' : 'Not set'}</span>
+                                                            {!birthPickerOpen && <button className="prof-chip-btn prof-chip-btn--green" onClick={() => setBirthPickerOpen(true)} style={monoFont}>{isRTL ? 'تأیید سن' : 'VERIFY AGE'}</button>}
+                                                        </div>
+                                                        {birthPickerOpen && (
+                                                            <div className="prof-birth-picker-wrap">
+                                                                <div className="prof-once-warn" style={monoFont}>⚠ {isRTL ? 'تاریخ تولد فقط یک بار قابل ثبت است.' : 'Birthday can only be set once.'}</div>
+                                                                <BirthDatePicker onChange={d => { setBirthDateDraft(d); setBirthError(''); }} isRTL={isRTL} />
+                                                                {birthError && <div className="prof-inline-error" style={monoFont}>{birthError}</div>}
+                                                                <div className="prof-inline-btns">
+                                                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={birthUpdateMutation.isPending || !birthDateDraft} style={monoFont}>{birthUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید تاریخ' : 'CONFIRM DATE')}</button>
+                                                                    <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={monoFont}>{isRTL ? 'انصراف' : 'CANCEL'}</button>
+                                                                </div>
+                                                            </div>
+                                                        )}
+                                                    </>
+                                                )}
+                                                {birthSaved && <div className="prof-inline-success" style={monoFont}>{isRTL ? '✓ سن تأیید شد' : '✓ Age verified'}</div>}
+                                            </div>
+                                        </div>
+
+                                        <div className="prof-info-row">
+                                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'ایمیل' : 'EMAIL'}</span>
+                                            <div className="prof-info-value-col">
+                                                <div className="prof-info-value-row">
+                                                    <span className="prof-info-value prof-info-value--muted" style={monoFont}>{session?.user?.email || '—'}</span>
+                                                    <span className="prof-lock-icon">🔒</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {profile?.country && (
+                                            <div className="prof-info-row">
+                                                <span className="prof-info-label" style={monoFont}>{isRTL ? 'کشور' : 'COUNTRY'}</span>
+                                                <div className="prof-info-value-col">
+                                                    <span className="prof-info-value prof-info-value--muted" style={monoFont}>{profile.country}</span>
+                                                </div>
+                                            </div>
+                                        )}
+
+                                        <div className="prof-info-row">
+                                            <span className="prof-info-label" style={monoFont}>{isRTL ? 'نوع حساب' : 'ACCOUNT TYPE'}</span>
+                                            <div className="prof-info-value-col">
+                                                <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
+                                                    {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Additional info */}
+                                <div className="pd-card pd-mt">
+                                    <div className="pd-card-section-title" style={monoFont}>{isRTL ? 'اطلاعات تکمیلی' : 'Additional Info'}</div>
+                                    <AdditionalInfoForm {...additionalInfoProps} />
+                                </div>
+
+                                {/* Verify Identity */}
+                                <div className="pd-card pd-mt prof-card--verify">
+                                    <div className="pd-card-section-title" style={monoFont}>{isRTL ? 'تأیید هویت' : 'Verify Identity'}</div>
+                                    <p className="prof-hint" style={monoFont}>{isRTL ? 'هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید.' : 'Verify your identity to increase your civic score and vote weight.'}</p>
+                                    <Link to="/verify" className="prof-verify-link" style={monoFont}>{isRTL ? 'رفتن به صفحه تأیید ←' : 'GO TO VERIFICATION →'}</Link>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* ══════════════════ VERIFY ══════════════════ */}
+                        {activeSection === 'verify' && (
+                            <div className="pd-section">
+                                <div className="pd-section-heading" style={headingFont}>{isRTL ? 'تأیید هویت' : 'Verify Identity'}</div>
+                                <div className="pd-card prof-card--verify">
+                                    <p className="prof-hint" style={monoFont}>{isRTL ? 'هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید.' : 'Verify your identity to increase your civic score and vote weight.'}</p>
+                                    <Link to="/verify" className="prof-verify-link" style={monoFont}>{isRTL ? 'رفتن به صفحه تأیید ←' : 'GO TO VERIFICATION →'}</Link>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* ══════════════════ HELP ══════════════════ */}
+                        {activeSection === 'help' && (
+                            <div className="pd-section">
+                                <div className="pd-card pd-card--placeholder">
+                                    <I.HelpCircle />
+                                    <div style={{ color: '#4a5568', fontSize: 13 }}>{isRTL ? 'بخش راهنما به زودی اضافه می‌شود.' : 'Help section coming soon.'}</div>
+                                </div>
+                            </div>
+                        )}
 
                     </div>
                 </div>
-
-                {/* ── Two-column grid ── */}
-                <div className="prof-grid">
-
-                    {/* ── Additional Info ── */}
-                    <div className="prof-card">
-                        <div className="prof-section-title" style={monoFont}>{isRTL ? 'اطلاعات تکمیلی' : 'ADDITIONAL INFO'}</div>
-                        <form onSubmit={handleSave} className="prof-form">
-                            <div className="prof-field">
-                                <label className="prof-label" style={monoFont}>{isRTL ? 'عنوان' : 'TITLE'}</label>
-                                <select className="prof-select" value={title} onChange={e => setTitle(e.target.value)} style={{ fontFamily: 'inherit' }}>
-                                    {TITLES.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
-                                </select>
-                            </div>
-                            <div className="prof-field">
-                                <label className="prof-label" style={monoFont}>{isRTL ? 'ضمیر' : 'PRONOUNS'}</label>
-                                <select className="prof-select" value={pronouns} onChange={e => setPronouns(e.target.value)} style={{ fontFamily: 'inherit' }}>
-                                    {PRONOUNS.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
-                                </select>
-                            </div>
-                            <div className="prof-field">
-                                <label className="prof-label" style={monoFont}>{isRTL ? 'شهر' : 'CITY'}</label>
-                                <input
-                                    className="prof-input"
-                                    type="text"
-                                    value={city}
-                                    onChange={e => setCity(e.target.value)}
-                                    maxLength={80}
-                                    placeholder={isRTL ? 'شهر شما' : 'Your city'}
-                                    style={{ fontFamily: 'inherit' }}
-                                />
-                            </div>
-                            <div className="prof-field">
-                                <label className="prof-label" style={monoFont}>{isRTL ? 'درباره من' : 'BIO'}</label>
-                                <textarea
-                                    className="prof-textarea"
-                                    value={bio}
-                                    onChange={e => setBio(e.target.value)}
-                                    maxLength={280}
-                                    rows={4}
-                                    placeholder={isRTL ? 'اختیاری — درباره پیشینه یا علاقه‌تان بنویسید.' : 'Optional — briefly describe your background or interest in IranDAO.'}
-                                    style={{ fontFamily: 'inherit' }}
-                                />
-                                <div className="prof-char-count" style={monoFont}>{bio.length}/280</div>
-                            </div>
-                            {saveError && <div className="prof-error" style={monoFont}>{saveError}</div>}
-                            <button type="submit" className="prof-save-btn" disabled={additionalInfoMutation.isPending} style={monoFont}>
-                                {additionalInfoMutation.isPending ? '...' : saved ? (isRTL ? 'ذخیره شد' : 'SAVED') : (isRTL ? 'ذخیره تغییرات' : 'SAVE CHANGES')}
-                            </button>
-                        </form>
-                    </div>
-
-                    <div className="prof-right-col">
-
-                        {/* ── Invite Codes ── */}
-                        <div className="prof-card">
-                            <div className="prof-section-title" style={monoFont}>{isRTL ? 'کدهای دعوت' : 'INVITE CODES'}</div>
-                            <p className="prof-hint" style={monoFont}>
-                                {isRTL
-                                    ? 'این کدها را برای دعوت اعضای جدید به اشتراک بگذارید. هر کد فقط یک بار قابل استفاده است.'
-                                    : 'Share these codes to invite new members. Each code can only be used once.'}
-                            </p>
-                            <div className="prof-codes-list">
-                                {unusedCodes.map(c => (
-                                    <button
-                                        key={c.code}
-                                        className="prof-code-chip prof-code-chip--unused"
-                                        onClick={() => copyCode(c.code)}
-                                        title={isRTL ? 'کلیک کنید تا کپی شود' : 'Click to copy'}
-                                        style={monoFont}
-                                    >
-                                        {copiedCode === c.code ? (isRTL ? 'کپی شد!' : 'Copied!') : c.code}
-                                        <span className="prof-code-expiry">{timeRemaining(c.expires_at)}</span>
-                                    </button>
-                                ))}
-                                {usedCodes.map(c => (
-                                    <span key={c.code} className="prof-code-chip prof-code-chip--used" style={monoFont}>{c.code}</span>
-                                ))}
-                            </div>
-                            {profile?.invite_codes_remaining > 0 ? (
-                                <div className="prof-generate-row">
-                                    <button className="prof-generate-btn" onClick={handleGenerate} disabled={generateCodeMutation.isPending} style={monoFont}>
-                                        {generateCodeMutation.isPending ? '...' : (isRTL ? 'ساخت کد' : 'GENERATE CODE')}
-                                    </button>
-                                    <span className="prof-remaining" style={monoFont}>
-                                        {profile.invite_codes_remaining} {isRTL ? 'باقی‌مانده' : 'remaining'}
-                                    </span>
-                                </div>
-                            ) : (
-                                <div className="prof-no-codes" style={monoFont}>
-                                    {isRTL ? 'سهمیه دعوت تمام شده است.' : 'No invite slots remaining.'}
-                                </div>
-                            )}
-                            {generateError && <div className="prof-error" style={monoFont}>{generateError}</div>}
-                        </div>
-
-                        {/* ── Verify Identity ── */}
-                        <div className="prof-card prof-card--verify">
-                            <div className="prof-section-title" style={monoFont}>{isRTL ? 'تأیید هویت' : 'VERIFY IDENTITY'}</div>
-                            <p className="prof-hint" style={monoFont}>
-                                {isRTL
-                                    ? 'هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید.'
-                                    : 'Verify your identity to increase your civic score and vote weight.'}
-                            </p>
-                            <Link to="/verify" className="prof-verify-link" style={monoFont}>
-                                {isRTL ? 'رفتن به صفحه تأیید ←' : 'GO TO VERIFICATION →'}
-                            </Link>
-                        </div>
-
-                        {/* ── Blueprint Vote ── */}
-                        <div className="prof-card prof-card--vote-wrap">
-                            <div className="prof-section-title" style={monoFont}>{isRTL ? 'رأی به طرح حاکمیتی' : 'BLUEPRINT VOTE'}</div>
-
-                            {/* Content — blurred when not eligible */}
-                            <div className={`prof-vote-content${!voteEligible ? ' prof-vote-content--blurred' : ''}`}>
-
-                                {/* Current vote display */}
-                                {currentBp && (
-                                    <div className="prof-current-vote" style={{ '--bp-color': currentBpColor }}>
-                                        <div className="prof-current-vote-label" style={monoFont}>
-                                            {isRTL ? 'رأی شما' : 'YOUR VOTE'}
-                                        </div>
-                                        <div className="prof-current-vote-name" style={{ ...headingFont, color: currentBpColor }}>
-                                            {t(currentBp.name)}
-                                        </div>
-                                        <div className="prof-current-vote-bar" />
-                                    </div>
-                                )}
-
-                                <p className="prof-hint" style={monoFont}>
-                                    {isRTL
-                                        ? 'طرح حاکمیتی مورد نظر خود را انتخاب یا تغییر دهید.'
-                                        : 'Select or change your preferred governance blueprint.'}
-                                </p>
-
-                                <div className="prof-blueprint-options">
-                                    {Object.values(BLUEPRINTS).map(bp => (
-                                        <button
-                                            key={bp.id}
-                                            className={`prof-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`}
-                                            onClick={() => handleVote(bp.id)}
-                                            disabled={castVoteMutation.isPending}
-                                            style={{ ...monoFont, '--btn-color': BLUEPRINT_COLORS[bp.id] || '#4fc3f7' }}
-                                        >
-                                            {t(bp.name)}
-                                        </button>
-                                    ))}
-                                </div>
-
-                                {voteError && <div className="prof-error" style={monoFont}>{voteError}</div>}
-                                {voteSaved && <div className="prof-vote-saved" style={monoFont}>{isRTL ? 'رأی ذخیره شد' : 'Vote saved'}</div>}
-                            </div>
-
-                            {/* Blur overlay gate */}
-                            {!voteEligible && (
-                                <div className="prof-vote-gate">
-                                    <div className="prof-vote-gate-inner">
-                                        <div className="prof-vote-gate-icon">⚿</div>
-                                        <p className="prof-vote-gate-msg" style={monoFont}>
-                                            {isRTL
-                                                ? 'تاریخ تولد خود را برای رأی‌دهی تأیید نکرده‌اید.'
-                                                : 'You have not verified your birthday for voting yet.'}
-                                        </p>
-                                        <button
-                                            className="prof-vote-gate-btn"
-                                            style={monoFont}
-                                            onClick={() => {
-                                                memberCardRef.current?.scrollIntoView({ behavior: 'smooth' });
-                                                setTimeout(() => setBirthPickerOpen(true), 400);
-                                            }}
-                                        >
-                                            {isRTL ? '← تأیید سن' : 'VERIFY AGE →'}
-                                        </button>
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-
-                    </div>
-                </div>
-
             </div>
         </div>
     );

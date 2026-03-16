@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useLang } from '../../contexts/LangContext';
+import { ThemeSwitch } from '../ThemeSwitch/ThemeSwitch';
 import './EntryGate.css';
 
 const STORAGE_KEY = 'iran-dec-entered';
@@ -155,6 +156,7 @@ export default function EntryGate({ children }) {
                         <GateHex onEnter={enter} isRTL={isRTL} />
 
                         <div className="gate-lang">
+                            <ThemeSwitch />
                             <button
                                 className={`gate-lang-btn${lang === 'fa' ? ' is-active' : ''}`}
                                 style={{ fontFamily: "'Vazirmatn', sans-serif" }}

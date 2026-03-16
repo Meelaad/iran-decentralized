@@ -10,10 +10,9 @@ export function useAuth() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        supabase.auth.getSession().then(({ data }) => {
+        supabase.auth.getSession().then(async ({ data }) => {
             setSession(data.session);
-            // eslint-disable-next-line react-hooks/immutability
-            if (data.session) checkAdmin(data.session.user.id);
+            if (data.session) await checkAdmin(data.session.user.id);
             setAuthLoading(false);
         });
         const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {

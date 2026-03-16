@@ -4,6 +4,10 @@
     padding: 48px 24px 80px;
 }
 
+:global([data-theme="light"]) .root {
+    background: #f1f5f9;
+}
+
 .inner {
     max-width: 680px;
     margin: 0 auto;

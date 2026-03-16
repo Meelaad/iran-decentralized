@@ -582,3 +582,22 @@
   .cs-badge { font-size: 10px; padding: 4px 10px; }
   .cs-org-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Footer Nav ── */
+.cs-footer-nav {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 64px; padding-top: 24px;
+  border-top: 1px solid rgba(255,154,66,0.12);
+  flex-wrap: wrap; gap: 12px;
+}
+.cs-footer-nav-link {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.04em;
+  color: #ff9a42; text-decoration: none;
+  padding: 8px 18px; border: 1px solid rgba(255,154,66,0.3);
+  border-radius: 6px; transition: background 0.18s, color 0.18s;
+}
+.cs-footer-nav-link:hover { background: rgba(255,154,66,0.1); }
+.cs-footer-nav-link--secondary { color: rgba(214,228,237,0.45); border-color: rgba(214,228,237,0.1); }
+.cs-footer-nav-link--secondary:hover { background: rgba(214,228,237,0.05); color: rgba(214,228,237,0.7); }
+
+[dir="rtl"] .cs-footer-nav { flex-direction: row-reverse; }

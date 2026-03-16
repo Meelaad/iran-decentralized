@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import { supabase } from '../../lib/supabase';
+import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import './StartSelection.css';
 
 function useLiveVoteCounts() {
@@ -27,8 +28,9 @@ export default function StartSelection() {
         <div className="ss-root" dir={isRTL ? 'rtl' : 'ltr'}>
             <div className="ss-bg-grid" />
 
-            {/* Language switcher */}
+            {/* Language switcher + theme toggle */}
             <div className="ss-lang">
+                <ThemeSwitch />
                 <button className={`ss-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>فارسی</button>
                 <button className={`ss-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
             </div>
@@ -112,6 +114,17 @@ export default function StartSelection() {
                                 </div>
                                 <div className="ss-link-desc">
                                     {isRTL ? 'پلتفرم مستقل رأی‌گیری امن' : 'Independent secure voting platform'}
+                                </div>
+                            </div>
+                        </Link>
+                        <Link to="/global" className="ss-link ss-link--pre">
+                            <span className="ss-link-icon">🌍</span>
+                            <div>
+                                <div className="ss-link-title">
+                                    {isRTL ? 'نقشه جهانی' : 'GLOBAL MAP'}
+                                </div>
+                                <div className="ss-link-desc">
+                                    {isRTL ? 'توزیع اعضا و فعالیت در سراسر جهان' : 'Member distribution and activity worldwide'}
                                 </div>
                             </div>
                         </Link>

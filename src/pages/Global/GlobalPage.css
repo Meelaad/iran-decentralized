@@ -1,0 +1,234 @@
+.gm-page {
+  min-height: 100vh;
+  background: #0b0b18;
+  color: #ededed;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.gm-bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(232, 80, 122, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232, 80, 122, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.gm-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+
+.gm-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #e8507a;
+  margin-bottom: 8px;
+  font-family: 'intelone-mono', monospace;
+}
+
+.gm-title {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 700;
+  color: #ededed;
+  margin: 0 0 8px;
+}
+
+.gm-subtitle {
+  font-size: 14px;
+  color: #9a9a9a;
+  margin: 0 0 40px;
+}
+
+/* ── Map section ─────────────────────────────────────────────────────────────── */
+
+.gm-map-section {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.gm-map-left {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.gm-map-wrap {
+  flex: 1;
+  min-width: 0;
+  background: #111122;
+  border: 1px solid rgba(232, 80, 122, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Left panel ──────────────────────────────────────────────────────────────── */
+
+.gm-total-block {
+  margin-bottom: 24px;
+}
+
+.gm-total-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.gm-total-value {
+  font-size: 36px;
+  font-weight: 700;
+  font-family: 'intelone-mono', monospace;
+  color: #e8507a;
+  line-height: 1;
+}
+
+.gm-countries-title {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.gm-countries-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.gm-country-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'intelone-mono', monospace;
+  font-size: 13px;
+}
+
+.gm-country-code {
+  font-weight: 600;
+  min-width: 32px;
+}
+
+.gm-country-members {
+  color: #ededed;
+  margin-left: auto;
+}
+
+/* ── SVG marker ──────────────────────────────────────────────────────────────── */
+
+.gm-marker {
+  cursor: pointer;
+}
+
+.gm-marker polygon {
+  transition: fill 0.15s;
+}
+
+.gm-marker:hover polygon {
+  fill: #fff;
+}
+
+/* ── Pulse animation ─────────────────────────────────────────────────────────── */
+
+@keyframes gm-pulse {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.8);
+  }
+}
+
+.gm-pulse {
+  animation: gm-pulse 2s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────────────────────── */
+
+.gm-map-tooltip {
+  position: absolute;
+  background: #0d1117;
+  border: 1px solid rgba(232, 80, 122, 0.3);
+  color: #ededed;
+  font-size: 11px;
+  font-family: 'intelone-mono', monospace;
+  padding: 5px 9px;
+  border-radius: 5px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+  transform: translate(-50%, -120%);
+}
+
+/* ── Stats grid ──────────────────────────────────────────────────────────────── */
+
+.gm-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.gm-stat-card {
+  background: #1a1a2e;
+  border: 1px solid rgba(232, 80, 122, 0.12);
+  border-radius: 10px;
+  padding: 20px 24px;
+}
+
+.gm-stat-card-title {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 8px;
+  font-family: 'intelone-mono', monospace;
+}
+
+.gm-stat-card-value {
+  font-size: 28px;
+  font-weight: 700;
+  font-family: 'intelone-mono', monospace;
+  color: #ededed;
+}
+
+/* ── Data note ───────────────────────────────────────────────────────────────── */
+
+.gm-data-note {
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+  margin-top: 16px;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .gm-map-section {
+    flex-direction: column;
+  }
+
+  .gm-map-left {
+    width: 100%;
+  }
+}

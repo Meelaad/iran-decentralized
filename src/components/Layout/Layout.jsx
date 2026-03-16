@@ -3,12 +3,19 @@ import { NavLink, Outlet, Link, useLocation } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import { useAuth } from '../../hooks/useAuth';
+import { ThemeSwitch } from '../ThemeSwitch/ThemeSwitch';
 import './Layout.css';
 
 export { useLang };
 
 function DevLinks() {
+    const { isAdmin } = useAuth();
     const [isOpen, setIsOpen] = useState(false);
+    const [pos, setPos] = useState({ x: 20, y: 20 }); // distance from bottom-left
+    const dragging = React.useRef(false);
+    const offset   = React.useRef({ x: 0, y: 0 });
+    const widgetRef = React.useRef(null);
+
     const links = [
         { to: "/transition/main-stage", label: "Main Stage" },
         { to: "/transition/incubator", label: "Incubator" },
@@ -17,15 +24,56 @@ function DevLinks() {
         { to: "/destination", label: "Destination" },
     ];
 
+    function onMouseDown(e) {
+        if (e.button !== 0) return;
+        dragging.current = true;
+        const rect = widgetRef.current.getBoundingClientRect();
+        offset.current = {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top,
+        };
+        e.preventDefault();
+    }
+
+    React.useEffect(() => {
+        function onMouseMove(e) {
+            if (!dragging.current) return;
+            const x = e.clientX - offset.current.x;
+            const y = e.clientY - offset.current.y;
+            widgetRef.current.style.left   = `${x}px`;
+            widgetRef.current.style.top    = `${y}px`;
+            widgetRef.current.style.bottom = 'auto';
+            widgetRef.current.style.right  = 'auto';
+        }
+        function onMouseUp() { dragging.current = false; }
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseup', onMouseUp);
+        };
+    }, []);
+
+    if (!isAdmin) return null;
+
     return (
-        <div className={`dev-links-widget ${isOpen ? 'is-open' : ''}`}>
-            <button className="dev-links-toggle" onClick={() => setIsOpen(!isOpen)}>
+        <div
+            ref={widgetRef}
+            className={`dev-links-widget ${isOpen ? 'is-open' : ''}`}
+            style={{ bottom: pos.y, left: pos.x }}
+        >
+            <button
+                className="dev-links-toggle"
+                onMouseDown={onMouseDown}
+                onClick={() => setIsOpen(!isOpen)}
+                style={{ cursor: 'grab' }}
+            >
                 Dev
             </button>
             {isOpen && (
                 <div className="dev-links-list">
                     {links.map(link => (
-                        <NavLink key={link.to} to={link.to} className="dev-link">
+                        <NavLink key={link.to} to={link.to} className="dev-link" onClick={() => setIsOpen(false)}>
                             {link.label}
                         </NavLink>
                     ))}
@@ -74,6 +122,7 @@ function NavContent() {
         { to: '/arena',              labelKey: 'nav.arena' },
         { to: '/plans',              labelKey: 'nav.plans' },
         { to: '/compare/transition', labelKey: 'nav.comparePlans' },
+        { to: '/global',             labelKey: 'nav.global' },
         { to: '/vote',               labelKey: 'nav.vote' },
         { to: '/about',              labelKey: 'nav.about' },
     ];
@@ -144,6 +193,8 @@ function NavContent() {
                             </Link>
                         </>
                     )}
+
+                    <ThemeSwitch />
 
                     <div className="site-nav-lang">
                         <button

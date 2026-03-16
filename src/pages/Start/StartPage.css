@@ -58,6 +58,7 @@
     flex-direction: row;
     gap: 12px;
     width: max-content;
+    will-change: transform;
     animation: marqueeLeft 45s linear infinite;
 }
 
@@ -65,9 +66,12 @@
     animation: marqueeRight 45s linear infinite;
 }
 
-.sp-marquee-track:hover,
-.sp-marquee-track--rev:hover {
-    animation-play-state: paused;
+/* Only pause on devices that truly support hover (prevents stuck-pause on mobile) */
+@media (hover: hover) {
+    .sp-marquee-track:hover,
+    .sp-marquee-track--rev:hover {
+        animation-play-state: paused;
+    }
 }
 
 @keyframes marqueeLeft {
@@ -157,6 +161,22 @@
     text-transform: uppercase;
 }
 
+/* ─── Particle title canvas ───────────────────────────────────────────────────── */
+.sp-particle-title {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: clamp(160px, 22vw, 260px);
+    flex-shrink: 0;
+}
+
+.sp-particle-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #0a0a0a;
+}
+
 /* ─── Title ───────────────────────────────────────────────────────────────────── */
 .sp-title {
     font-family: 'Space Grotesk', 'intelone-mono', sans-serif;
@@ -173,15 +193,17 @@
     text-shadow: 0 0 80px rgba(79, 195, 247, 0.08);
 }
 
-/* Each word is clip-masked so GSAP can slide it in from below */
+/* Word wrapper — NO overflow:hidden so the flying chars are visible in flight */
 .sp-title-word-wrap {
-    display: inline-block;
-    overflow: hidden;
+    display: inline-flex;
     line-height: 1.1;
 }
 
-.sp-title-word {
+/* Individual character (or whole word for RTL) — inline-block required for GSAP */
+.sp-title-char {
     display: inline-block;
+    transform-origin: center center;
+    will-change: transform, opacity;
 }
 
 /* ─── Tagline ─────────────────────────────────────────────────────────────────── */
@@ -237,6 +259,20 @@
     letter-spacing: 2px;
     color: rgba(79, 195, 247, 0.3);
     text-transform: uppercase;
+}
+
+/* ─── Bottom controls: theme switch + lang ───────────────────────────────────── */
+.sp-bottom-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.sp-lang-inline {
+    display: flex;
+    gap: 4px;
+    align-items: center;
 }
 
 /* ─── Stats bar ───────────────────────────────────────────────────────────────── */

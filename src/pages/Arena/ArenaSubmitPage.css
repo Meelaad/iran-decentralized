@@ -107,6 +107,7 @@
     color: rgba(214,228,237,0.3);
     text-align: end;
 }
+.as-char-min { color: #f59e0b; }
 
 .as-field-hint {
     font-size: 11px;
