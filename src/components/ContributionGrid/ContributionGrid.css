@@ -1,25 +1,189 @@
-.cg-root { position: relative; }
-.cg-label { font-size: 11px; letter-spacing: 1.5px; color: #8aa8bc; text-transform: uppercase; margin: 0 0 8px; }
-.cg-grid { display: flex; gap: 2px; overflow-x: auto; padding-bottom: 4px; }
-.cg-week { display: flex; flex-direction: column; gap: 2px; }
+.cg-root {
+    background: #1a1a2e;
+    border: 1px solid rgba(232, 80, 122, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+}
+
+/* Header */
+.cg-header {
+    margin-bottom: 16px;
+}
+
+.cg-title-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.cg-title-icon {
+    width: 16px;
+    height: 16px;
+    color: #e8507a;
+    flex-shrink: 0;
+}
+
+.cg-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ededed;
+    letter-spacing: 0.02em;
+}
+
+.cg-subtitle {
+    font-size: 11px;
+    color: #9a9a9a;
+    margin: 0;
+}
+
+/* Stats row */
+.cg-stats-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.cg-stat-box {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(232, 80, 122, 0.1);
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+
+.cg-stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: 'intelone-mono', monospace;
+    color: #e8507a;
+    line-height: 1;
+}
+
+.cg-stat-label {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Section title */
+.cg-section-title {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8aa8bc;
+    margin: 0 0 12px;
+}
+
+/* Chart layout */
+.cg-chart-area {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+}
+
+/* Day labels column */
+.cg-day-labels {
+    position: relative;
+    width: 28px;
+    flex-shrink: 0;
+    /* offset to align with grid rows — 16px for month label row */
+    margin-top: 16px;
+    height: calc(7 * 13px);
+}
+
+.cg-day-label {
+    position: absolute;
+    right: 0;
+    font-size: 9px;
+    color: #555;
+    line-height: 11px;
+    white-space: nowrap;
+}
+
+/* Scroll wrapper for month labels + grid together */
+.cg-scroll-area {
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+/* Month labels */
+.cg-month-labels {
+    position: relative;
+    height: 16px;
+    min-width: calc(52 * 13px);
+}
+
+.cg-month-label {
+    position: absolute;
+    font-size: 9px;
+    color: #555;
+    white-space: nowrap;
+    top: 0;
+}
+
+/* Grid */
+.cg-grid {
+    display: flex;
+    gap: 2px;
+}
+
+.cg-week {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .cg-cell {
     width: 11px;
     height: 11px;
     border-radius: 2px;
     cursor: default;
     flex-shrink: 0;
-    transition: opacity .1s;
+    transition: opacity 0.1s;
 }
-.cg-cell:hover { opacity: 0.75; }
+
+.cg-cell:hover {
+    opacity: 0.75;
+}
+
+/* Legend */
+.cg-legend {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+.cg-legend-label {
+    font-size: 10px;
+    color: #9a9a9a;
+}
+
+.cg-legend-swatches {
+    display: flex;
+    gap: 2px;
+}
+
+.cg-legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* Portal tooltip — rendered on document.body */
 .cg-tooltip {
-    position: absolute;
-    background: #0d1f2d;
-    border: 1px solid rgba(79,195,247,0.3);
+    background: #0d1117;
+    border: 1px solid rgba(232, 80, 122, 0.35);
     color: #d6e4ed;
     font-size: 11px;
-    padding: 4px 8px;
-    border-radius: 4px;
-    pointer-events: none;
+    padding: 5px 9px;
+    border-radius: 5px;
     white-space: nowrap;
-    z-index: 10;
+    z-index: 9999;
+    pointer-events: none;
 }

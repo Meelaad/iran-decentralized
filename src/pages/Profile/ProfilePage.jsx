@@ -7,6 +7,7 @@ import { BLUEPRINTS } from '../../data';
 import { calcAge } from '../../lib/utils';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import ContributionGrid from '../../components/ContributionGrid/ContributionGrid';
+import StatsRow from '../../components/Charts/StatsRow';
 import './ProfilePage.css';
 import BadgesShelf from '../../components/Achievements/BadgesShelf';
 
@@ -247,7 +248,13 @@ export default function ProfilePage() {
                     </div>
                 </div>
 
-                {/* ── Activity Grid ── */}
+                {/* ── Stats + Activity Grid ── */}
+                <StatsRow
+                    civicScore={profile?.civic_score}
+                    participationScore={profile?.participation_score}
+                    streakDays={profile?.streak_days}
+                    trustTier={profile?.trust_tier?.toUpperCase()}
+                />
                 <div className="prof-card">
                     <ContributionGrid grid={profile?.contribution_grid || {}} />
                 </div>

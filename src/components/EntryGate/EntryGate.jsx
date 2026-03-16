@@ -81,9 +81,9 @@ function GateHex({ onEnter, isRTL }) {
             <svg className="gate-hex-ring" viewBox="0 0 120 120">
                 <defs>
                     <linearGradient id="gateRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#4fc3f7" stopOpacity="0.9" />
-                        <stop offset="50%" stopColor="#7c72e8" stopOpacity="0.5" />
-                        <stop offset="100%" stopColor="#4fc3f7" stopOpacity="0" />
+                        <stop offset="0%"   stopColor="#239F40" stopOpacity="0.95" />
+                        <stop offset="50%"  stopColor="#ffffff" stopOpacity="0.7"  />
+                        <stop offset="100%" stopColor="#DA0000" stopOpacity="0.85" />
                     </linearGradient>
                 </defs>
                 <polygon
@@ -100,7 +100,7 @@ function GateHex({ onEnter, isRTL }) {
                     <polygon
                         points="50,4 96,27 96,73 50,96 4,73 4,27"
                         fill="rgba(7,16,26,0.96)"
-                        stroke="rgba(79,195,247,0.35)"
+                        stroke="rgba(35,159,64,0.4)"
                         strokeWidth="1"
                     />
                 </svg>

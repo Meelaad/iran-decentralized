@@ -1,0 +1,71 @@
+/* ============================================================
+   Charts.css — StatsRow, ActivityBarChart, CivicAreaChart
+   Class prefix: ch-
+   ============================================================ */
+
+/* Stats Row */
+.ch-stats-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.ch-stat-card {
+    flex: 1;
+    min-width: 100px;
+    background: #1a1a2e;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    padding: 14px 18px;
+}
+
+.ch-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: 'intelone-mono', monospace;
+    line-height: 1;
+}
+
+.ch-stat-suffix {
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.7;
+    margin-left: 1px;
+}
+
+.ch-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Chart Card */
+.ch-card {
+    background: #1a1a2e;
+    border: 1px solid rgba(232, 80, 122, 0.15);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.ch-card-title {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8aa8bc;
+    margin: 0 0 16px;
+}
+
+/* Empty state */
+.ch-empty {
+    height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #444;
+    font-family: 'intelone-mono', monospace;
+    letter-spacing: 0.05em;
+}

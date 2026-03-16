@@ -31,7 +31,7 @@ const LEFT_FEATURES = [
     { icon: '🌱', title: { en: 'Plan Incubator', fa: 'پرورشگاه طرح' }, desc: { en: 'New grassroots plans earn a Main Stage spot after 10,000 verified signatures.', fa: 'طرح‌های جدید مردمی پس از ۱۰,۰۰۰ امضای تأیید‌شده به صحنه اصلی می‌رسند.' } },
     { icon: '📈', title: { en: 'Live Consensus', fa: 'اجماع زنده' }, desc: { en: 'Stock-style graphs track daily momentum shifts across all competing plans.', fa: 'نمودارهای سهام‌وار تغییرات روزانه اجماع در تمام طرح‌ها را نشان می‌دهند.' } },
     { icon: '🤝', title: { en: 'Web of Trust', fa: 'شبکه اعتماد' }, desc: { en: 'Join via invite-only codes shared by people you trust — no bots allowed.', fa: 'از طریق کدهای دعوت‌نامه از افراد مورد اعتماد بپیوندید — ربات مجاز نیست.' } },
-    { icon: '🔐', title: { en: 'Privacy First', fa: 'حریم خصوصی اول' }, desc: { en: 'No government ID required. Verify freely with institutional email or passkey.', fa: 'نیازی به شناسه دولتی نیست. با ایمیل دانشگاهی یا کلید تأیید کنید.' } },
+    { icon: '🔐', title: { en: 'Privacy First', fa: 'اولویت با حریم خصوصی' }, desc: { en: 'No government ID required. Verify freely with institutional email or passkey.', fa: 'نیازی به شناسه دولتی نیست. با ایمیل دانشگاهی یا کلید تأیید کنید.' } },
 ];
 
 const RIGHT_FEATURES = [
@@ -80,14 +80,29 @@ const SIM_FRAG = `
 
 const RENDER_VERT = `
   uniform sampler2D uPosition;
+  uniform sampler2D uOriginalPosition;
   uniform float uTime;
   varying vec3 vColor;
 
   void main() {
-    vec3 pos = texture2D(uPosition, position.xy).xyz;
+    vec3 pos     = texture2D(uPosition,         position.xy).xyz;
+    vec3 origPos = texture2D(uOriginalPosition, position.xy).xyz;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     gl_PointSize = 1.5;
-    vColor = normalize(pos) * 0.5 + 0.5;
+
+    // Colour pinned to ORIGINAL Y so stripes stay spatially correct as particles swirl.
+    // Dividing by 1.5 maps the TorusKnot Y range (~-1.5 to +1.5) to -1..1.
+    // Green never blends with Red — they only blend through White in the centre.
+    vec3 flagGreen = vec3(0.137, 0.624, 0.251); // #239F40
+    vec3 flagWhite = vec3(1.0,   1.0,   1.0  ); // #FFFFFF
+    vec3 flagRed   = vec3(0.855, 0.0,   0.0  ); // #DA0000
+
+    float y = clamp(origPos.y / 1.5, -1.0, 1.0);
+    if (y > 0.0) {
+      vColor = mix(flagWhite, flagGreen, y);
+    } else {
+      vColor = mix(flagWhite, flagRed, -y);
+    }
   }
 `;
 
@@ -100,36 +115,32 @@ const RENDER_FRAG = `
 
 // ─── 3D Particle Scene ─────────────────────────────────────────────────────────
 function ParticleScene() {
-    const SIZE = 256;
+    const SIZE = 128;
     const { gl } = useThree();
     const pointsRef = useRef(null);
 
-    // Per-instance shader materials (avoid module-level singletons)
-    const simMat = useRef(null);
-    const renderMat = useRef(null);
-    if (!simMat.current) {
-        simMat.current = new THREE.ShaderMaterial({
-            vertexShader: SIM_VERT,
-            fragmentShader: SIM_FRAG,
-            uniforms: {
-                uCurrentPosition:  { value: null },
-                uOriginalPosition: { value: null },
-                uTime:  { value: 0 },
-                uCurl:  { value: 1.5 },
-                uSpeed: { value: 0.01 },
-            },
-        });
-    }
-    if (!renderMat.current) {
-        renderMat.current = new THREE.ShaderMaterial({
-            vertexShader: RENDER_VERT,
-            fragmentShader: RENDER_FRAG,
-            uniforms: {
-                uPosition: { value: null },
-                uTime:     { value: 0 },
-            },
-        });
-    }
+    // useMemo ensures fresh materials on every mount (avoids HMR stale-ref issue)
+    const simMat = useMemo(() => new THREE.ShaderMaterial({
+        vertexShader: SIM_VERT,
+        fragmentShader: SIM_FRAG,
+        uniforms: {
+            uCurrentPosition:  { value: null },
+            uOriginalPosition: { value: null },
+            uTime:  { value: 0 },
+            uCurl:  { value: 1.5 },
+            uSpeed: { value: 0.01 },
+        },
+    }), []);
+
+    const renderMat = useMemo(() => new THREE.ShaderMaterial({
+        vertexShader: RENDER_VERT,
+        fragmentShader: RENDER_FRAG,
+        uniforms: {
+            uPosition:         { value: null },
+            uOriginalPosition: { value: null },
+            uTime:             { value: 0 },
+        },
+    }), []);
 
     // FBOs for ping-pong simulation
     const fboOpts = { type: THREE.FloatType, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter };
@@ -189,14 +200,14 @@ function ParticleScene() {
         if (!simSceneRef.current) {
             simSceneRef.current  = new THREE.Scene();
             simCameraRef.current = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), simMat.current);
+            const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), simMat);
             simSceneRef.current.add(mesh);
         }
 
         // Run one simulation step
-        simMat.current.uniforms.uCurrentPosition.value  = fbo1.texture;
-        simMat.current.uniforms.uOriginalPosition.value = originalPositionTexture;
-        simMat.current.uniforms.uTime.value = clock.elapsedTime;
+        simMat.uniforms.uCurrentPosition.value  = fbo1.texture;
+        simMat.uniforms.uOriginalPosition.value = originalPositionTexture;
+        simMat.uniforms.uTime.value = clock.elapsedTime;
 
         gl.setRenderTarget(fbo2);
         gl.render(simSceneRef.current, simCameraRef.current);
@@ -208,8 +219,9 @@ function ParticleScene() {
         fbo2.texture = tmp;
 
         // Feed result to render pass
-        renderMat.current.uniforms.uPosition.value = fbo1.texture;
-        renderMat.current.uniforms.uTime.value = clock.elapsedTime;
+        renderMat.uniforms.uPosition.value         = fbo1.texture;
+        renderMat.uniforms.uOriginalPosition.value = originalPositionTexture;
+        renderMat.uniforms.uTime.value             = clock.elapsedTime;
 
         // Slow rotation
         if (pointsRef.current) {
@@ -227,10 +239,10 @@ function ParticleScene() {
                         args={[particlePositions, 3]}
                     />
                 </bufferGeometry>
-                <primitive object={renderMat.current} attach="material" />
+                <primitive object={renderMat} attach="material" />
             </points>
             <EffectComposer>
-                <Bloom intensity={0.8} luminanceThreshold={0.05} luminanceSmoothing={0.9} />
+                <Bloom intensity={0.4} luminanceThreshold={0.4} luminanceSmoothing={0.7} />
             </EffectComposer>
         </>
     );

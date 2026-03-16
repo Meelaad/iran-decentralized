@@ -1,25 +1,24 @@
 /* ─── Root ───────────────────────────────────────────────────────────────────── */
 .sp-root {
     position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    width: 100%;
+    min-height: 100vh;
     background: #0a0a0a;
     display: flex;
     flex-direction: column;
     align-items: stretch;
 }
 
-/* ─── Canvas ─────────────────────────────────────────────────────────────────── */
+/* ─── Canvas — fixed so it stays as BG while page scrolls ───────────────────── */
 .sp-canvas-wrap {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 0;
 }
 
-/* ─── Dark overlay ───────────────────────────────────────────────────────────── */
+/* ─── Dark overlay — also fixed ─────────────────────────────────────────────── */
 .sp-overlay {
-    position: absolute;
+    position: fixed;
     inset: 0;
     z-index: 1;
     background: radial-gradient(
