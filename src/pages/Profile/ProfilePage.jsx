@@ -6,6 +6,7 @@ import { useProfile, useInviteCodes, useUpdateProfile, useCastVote, useGenerateC
 import { BLUEPRINTS } from '../../data';
 import { calcAge } from '../../lib/utils';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
+import ContributionGrid from '../../components/ContributionGrid/ContributionGrid';
 import './ProfilePage.css';
 import BadgesShelf from '../../components/Achievements/BadgesShelf';
 
@@ -244,6 +245,11 @@ export default function ProfilePage() {
                     <div style={{ marginTop: 12 }}>
                         <BadgesShelf userId={userId} />
                     </div>
+                </div>
+
+                {/* ── Activity Grid ── */}
+                <div className="prof-card">
+                    <ContributionGrid grid={profile?.contribution_grid || {}} />
                 </div>
 
                 {/* ── Member Information ── */}
@@ -569,6 +575,7 @@ export default function ProfilePage() {
 
                     </div>
                 </div>
+
             </div>
         </div>
     );

@@ -64,50 +64,6 @@ function FeatureColumn({ items, reverse }) {
     );
 }
 
-// ─── Hex logo with rotating ring + pulse ─────────────────────────────────────
-function LogoMark() {
-    return (
-        <div className="sp-logo-wrap">
-            {/* outer rotating ring */}
-            <svg className="sp-logo-ring" viewBox="0 0 120 120">
-                <defs>
-                    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#4fc3f7" stopOpacity="0.9" />
-                        <stop offset="50%" stopColor="#7c72e8" stopOpacity="0.5" />
-                        <stop offset="100%" stopColor="#4fc3f7" stopOpacity="0" />
-                    </linearGradient>
-                </defs>
-                <polygon
-                    points="60,4 112,32 112,88 60,116 8,88 8,32"
-                    fill="none"
-                    stroke="url(#ringGrad)"
-                    strokeWidth="1.5"
-                />
-            </svg>
-
-            {/* inner hex body */}
-            <div className="sp-logo-hex">
-                <svg viewBox="0 0 100 100" className="sp-logo-hex-svg">
-                    <polygon
-                        points="50,4 96,27 96,73 50,96 4,73 4,27"
-                        fill="rgba(7,16,26,0.96)"
-                        stroke="rgba(79,195,247,0.35)"
-                        strokeWidth="1"
-                    />
-                </svg>
-                <div className="sp-logo-inner">
-                    <span className="sp-logo-en">IranDAO</span>
-                    <span className="sp-logo-fa">ایران دائو</span>
-                </div>
-            </div>
-
-            {/* glow pulse */}
-            <div className="sp-logo-pulse" />
-            <div className="sp-logo-pulse sp-logo-pulse--2" />
-        </div>
-    );
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function StartPage() {
     const { isRTL, lang, setLang } = useLang();
@@ -133,7 +89,6 @@ export default function StartPage() {
                 {/* Centre column */}
                 <div className="sp-center">
                     <div className="sp-eyebrow">IRAN · DAO</div>
-                    <LogoMark />
                     <p className="sp-tagline">
                         {isRTL
                             ? 'اتحاد ایرانیان برای تعیین سرنوشت سیاسی خود'

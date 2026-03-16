@@ -128,54 +128,95 @@
     line-height: 1.7;
 }
 
-/* ── Hex enter button ── */
-.gate-enter-btn {
+/* ── Animated hex enter button ── */
+.gate-hex-btn {
     position: relative;
     background: none;
     border: none;
     cursor: pointer;
-    width: 116px;
-    height: 116px;
+    width: 180px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 24px;
-    transition: transform 0.25s ease, filter 0.25s ease;
     padding: 0;
+    transition: transform 0.25s ease, filter 0.25s ease;
+}
+.gate-hex-btn:hover {
+    transform: scale(1.07);
+    filter: drop-shadow(0 0 24px rgba(79,195,247,0.35));
 }
 
-.gate-enter-btn:hover {
-    transform: scale(1.08);
-    filter: drop-shadow(0 0 20px rgba(79,195,247,0.3));
+/* Rotating outer ring */
+.gate-hex-ring {
+    position: absolute;
+    inset: -14px;
+    width: calc(100% + 28px);
+    height: calc(100% + 28px);
+    animation: gateSpinRing 18s linear infinite;
+    pointer-events: none;
+}
+@keyframes gateSpinRing {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
-.gate-enter-btn:hover .gate-hex-svg polygon {
-    stroke: rgba(79,195,247,0.7);
-    transition: stroke 0.25s ease;
+/* Hex body */
+.gate-hex-body {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
-.gate-hex-svg {
+.gate-hex-body-svg {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
-    animation: glowPulse 3.5s ease-in-out infinite;
 }
-
-.gate-hex-svg polygon {
-    transition: stroke 0.25s ease;
-}
-
-.gate-enter-label {
+.gate-hex-inner {
     position: relative;
     z-index: 1;
-    font-family: inherit;
-    font-size: clamp(12px, 1.2vw, 15px);
-    font-weight: 700;
-    letter-spacing: 3px;
-    color: #4fc3f7;
-    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
     pointer-events: none;
+}
+.gate-hex-enter-en {
+    font-family: 'intelone-mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: #4fc3f7;
+    text-shadow: 0 0 24px rgba(79,195,247,0.6), 0 0 48px rgba(79,195,247,0.25);
+    text-transform: uppercase;
+}
+.gate-hex-enter-fa {
+    font-family: 'Vazirmatn', sans-serif;
+    font-size: 13px;
+    color: rgba(79,195,247,0.6);
+}
+
+/* Pulse halos */
+.gate-hex-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(79,195,247,0.3);
+    animation: gateHexPulse 3s ease-out infinite;
+    pointer-events: none;
+}
+.gate-hex-pulse--2 {
+    animation-delay: 1.5s;
+    border-color: rgba(124,114,232,0.25);
+}
+@keyframes gateHexPulse {
+    0%   { transform: scale(0.8); opacity: 0.8; }
+    100% { transform: scale(1.6); opacity: 0; }
 }
 
 /* ── Language toggle ── */

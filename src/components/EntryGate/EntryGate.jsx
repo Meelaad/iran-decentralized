@@ -74,8 +74,50 @@ function GateParticles() {
     return <canvas ref={canvasRef} className="gate-canvas" />;
 }
 
+function GateHex({ onEnter, isRTL }) {
+    return (
+        <button className="gate-hex-btn" onClick={onEnter} aria-label="Enter">
+            {/* rotating outer ring */}
+            <svg className="gate-hex-ring" viewBox="0 0 120 120">
+                <defs>
+                    <linearGradient id="gateRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#4fc3f7" stopOpacity="0.9" />
+                        <stop offset="50%" stopColor="#7c72e8" stopOpacity="0.5" />
+                        <stop offset="100%" stopColor="#4fc3f7" stopOpacity="0" />
+                    </linearGradient>
+                </defs>
+                <polygon
+                    points="60,4 112,32 112,88 60,116 8,88 8,32"
+                    fill="none"
+                    stroke="url(#gateRingGrad)"
+                    strokeWidth="1.5"
+                />
+            </svg>
+
+            {/* inner hex body */}
+            <div className="gate-hex-body">
+                <svg viewBox="0 0 100 100" className="gate-hex-body-svg">
+                    <polygon
+                        points="50,4 96,27 96,73 50,96 4,73 4,27"
+                        fill="rgba(7,16,26,0.96)"
+                        stroke="rgba(79,195,247,0.35)"
+                        strokeWidth="1"
+                    />
+                </svg>
+                <div className="gate-hex-inner">
+                    <span className="gate-hex-enter-en">ENTER</span>
+                    <span className="gate-hex-enter-fa">ورود</span>
+                </div>
+            </div>
+
+            {/* pulse halos */}
+            <div className="gate-hex-pulse" />
+            <div className="gate-hex-pulse gate-hex-pulse--2" />
+        </button>
+    );
+}
+
 export default function EntryGate({ children }) {
-    // Read localStorage synchronously so there is no flash on return visits
     const [visible, setVisible] = useState(() => !localStorage.getItem(STORAGE_KEY));
     const [leaving, setLeaving] = useState(false);
     const { lang, setLang, tKey, isRTL } = useLang();
@@ -88,7 +130,6 @@ export default function EntryGate({ children }) {
 
     return (
         <>
-            {/* Render app behind the gate so it loads while the user reads */}
             {children}
 
             {visible && (
@@ -111,19 +152,7 @@ export default function EntryGate({ children }) {
                             {tKey('entryGate.tagline')}
                         </p>
 
-                        <button className="gate-enter-btn" onClick={enter}>
-                            <svg viewBox="0 0 64 64" className="gate-hex-svg">
-                                <polygon
-                                    points="32,2 62,17 62,47 32,62 2,47 2,17"
-                                    fill="rgba(10,14,21,0.95)"
-                                    stroke="rgba(79,195,247,0.4)"
-                                    strokeWidth="1"
-                                />
-                            </svg>
-                            <span className="gate-enter-label">
-                                {tKey('entryGate.enter')}
-                            </span>
-                        </button>
+                        <GateHex onEnter={enter} isRTL={isRTL} />
 
                         <div className="gate-lang">
                             <button
