@@ -15,16 +15,16 @@
         box-shadow       0.25s ease;
 }
 
-/* Exceptions: don't slow down interactive animations */
-[data-theme="light"] .ts-surface-glare,
-[data-theme="light"] .ts-inner,
-[data-theme="light"] .ts-rocker,
-[data-theme="light"] .ts-rocker-sides,
-[data-theme="light"] .ts-light,
-[data-theme="light"] .ts-light-inner {
+/* Exception: don't interfere with ThemeSwitch's own spring animations */
+[data-theme="light"] .ts-icon,
+[data-theme="light"] .ts-thumb {
     transition:
-        transform var(--ts-dur, 0.3s) var(--ts-ease, cubic-bezier(0.83,0,0.17,1)),
-        opacity   var(--ts-dur, 0.3s) var(--ts-ease, cubic-bezier(0.83,0,0.17,1));
+        transform var(--ts-dur-spring, 600ms) var(--ts-spring, cubic-bezier(0.34,1.56,0.64,1)),
+        opacity   var(--ts-dur-spring, 600ms) var(--ts-spring, cubic-bezier(0.34,1.56,0.64,1)),
+        left      var(--ts-dur-spring, 600ms) var(--ts-spring, cubic-bezier(0.34,1.56,0.64,1)),
+        color     var(--ts-dur-fast, 250ms)   ease,
+        background var(--ts-dur-fast, 250ms)  ease,
+        box-shadow var(--ts-dur-fast, 250ms)  ease;
 }
 
 /* ── Body + root ── */
@@ -329,19 +329,21 @@
    CONTRIBUTION GRID  (cg-*)
 ══════════════════════════════════════════════════════════════════════════ */
 
-[data-theme="light"] .cg-wrap {
+[data-theme="light"] .cg-root {
     background: #ffffff;
     border-color: rgba(15,23,42,0.08);
 }
 [data-theme="light"] .cg-title { color: #0f172a; }
 [data-theme="light"] .cg-subtitle { color: #94a3b8; }
+[data-theme="light"] .cg-section-title { color: #64748b; }
 [data-theme="light"] .cg-month-label,
 [data-theme="light"] .cg-day-label { color: #94a3b8; }
-[data-theme="light"] .cg-cell--empty { background: rgba(15,23,42,0.05); }
+[data-theme="light"] .cg-cell--empty { background: rgba(15,23,42,0.07); }
 [data-theme="light"] .cg-stat-box { background: rgba(15,23,42,0.04); border-color: rgba(15,23,42,0.07); }
 [data-theme="light"] .cg-stat-value { color: #1e293b; }
 [data-theme="light"] .cg-stat-label { color: #94a3b8; }
 [data-theme="light"] .cg-legend-label { color: #94a3b8; }
+[data-theme="light"] .cg-tooltip { background: #f8fafc; border-color: rgba(15,23,42,0.15); color: #0f172a; }
 
 /* ══════════════════════════════════════════════════════════════════════════
    STATS ROW / CHARTS  (ch-*)
@@ -436,10 +438,10 @@
 
 [data-theme="light"] .sp-root { background: #f1f5f9; }
 [data-theme="light"] .sp-overlay {
-    background: radial-gradient(ellipse at center, rgba(241,245,249,0.5) 0%, rgba(241,245,249,0.88) 100%);
+    background: radial-gradient(ellipse at center, rgba(241,245,249,0.15) 0%, rgba(241,245,249,0.55) 100%);
 }
-[data-theme="light"] .sp-canvas-wrap { opacity: 0.06; }
-[data-theme="light"] .sp-particle-canvas { background: #f1f5f9; }
+[data-theme="light"] .sp-canvas-wrap { opacity: 0.55; }
+[data-theme="light"] .sp-particle-canvas { background: transparent; }
 
 /* Text */
 [data-theme="light"] .sp-eyebrow { color: #0284c7; }

@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { calcAge } from '../../lib/utils';
 import { BLUEPRINTS } from '../../data';
+import { SHOW_VOTE_COUNTS } from '../../config';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './VotePage.css';
 
@@ -223,9 +224,11 @@ export default function VotePage() {
                     <h1 className="vote-title" style={headingFont}>
                         {tKey('vote.title')}
                     </h1>
-                    <div className="vote-total" style={monoFont}>
-                        {votesLoading ? '...' : `${total} ${tKey('vote.totalVotes')}`}
-                    </div>
+                    {SHOW_VOTE_COUNTS && (
+                        <div className="vote-total" style={monoFont}>
+                            {votesLoading ? '...' : `${total} ${tKey('vote.totalVotes')}`}
+                        </div>
+                    )}
                     <div className="vote-view-toggle">
                         <button
                             className={`vote-toggle-btn${viewMode === 'raw' ? ' is-active' : ''}`}
@@ -283,10 +286,12 @@ export default function VotePage() {
                                     />
                                 </div>
 
-                                <div className="vote-card-stats" style={monoFont}>
-                                    <span className="vote-pct">{Math.round(pct)}%</span>
-                                    <span className="vote-count">{displayCount} {tKey('vote.votes')}</span>
-                                </div>
+                                {SHOW_VOTE_COUNTS && (
+                                    <div className="vote-card-stats" style={monoFont}>
+                                        <span className="vote-pct">{Math.round(pct)}%</span>
+                                        <span className="vote-count">{displayCount} {tKey('vote.votes')}</span>
+                                    </div>
+                                )}
 
                                 <Link
                                     to={`/blueprint/gov/${bp.id}`}

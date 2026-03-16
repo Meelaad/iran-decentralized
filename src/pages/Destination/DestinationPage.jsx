@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import { useBlueprintVoteCounts } from '../../hooks/useDestination';
+import { SHOW_VOTE_COUNTS } from '../../config';
 import './DestinationPage.css';
 
 const BP_LIST = Object.values(BLUEPRINTS);
@@ -69,8 +70,12 @@ export default function DestinationPage() {
                       title={`${pct.toFixed(1)}%`}
                     />
                   </div>
-                  {count > 0 ? (
-                    <span className="dest-vote-count">{count.toLocaleString()}</span>
+                  {SHOW_VOTE_COUNTS ? (
+                    count > 0 ? (
+                      <span className="dest-vote-count">{count.toLocaleString()}</span>
+                    ) : (
+                      <span className="dest-vote-zero">—</span>
+                    )
                   ) : (
                     <span className="dest-vote-zero">—</span>
                   )}
@@ -104,14 +109,18 @@ export default function DestinationPage() {
                 <div className="dest-card-name">{t(bp.name)}</div>
 
                 <div className="dest-card-stats">
-                  <span className="dest-card-stat">
-                    {t({ en: 'Votes:', fa: 'آرا:' })}&nbsp;
-                    <span className="dest-card-stat-value">{count.toLocaleString()}</span>
-                  </span>
-                  <span className="dest-card-stat">
-                    {t({ en: 'Share:', fa: 'سهم:' })}&nbsp;
-                    <span className="dest-card-stat-pct">{pct}%</span>
-                  </span>
+                  {SHOW_VOTE_COUNTS && (
+                    <>
+                      <span className="dest-card-stat">
+                        {t({ en: 'Votes:', fa: 'آرا:' })}&nbsp;
+                        <span className="dest-card-stat-value">{count.toLocaleString()}</span>
+                      </span>
+                      <span className="dest-card-stat">
+                        {t({ en: 'Share:', fa: 'سهم:' })}&nbsp;
+                        <span className="dest-card-stat-pct">{pct}%</span>
+                      </span>
+                    </>
+                  )}
                   <span className="dest-card-stat">
                     {t({ en: 'Sectors:', fa: 'بخش‌ها:' })}&nbsp;
                     <span className="dest-card-stat-value">{bp.sectors.length}</span>

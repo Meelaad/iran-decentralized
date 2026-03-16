@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
+import { SHOW_VOTE_COUNTS } from '../../config';
 import {
     usePlan,
     usePlanGeoStats,
@@ -106,10 +107,12 @@ export default function PlanPage() {
 
             {/* Endorsement bar */}
             <section className="plan-endorse-bar">
-                <div className="plan-endorse-count">
-                    <strong>{endorsementCount.toLocaleString()}</strong>
-                    <span> {tKey('plan.endorsements')}</span>
-                </div>
+                {SHOW_VOTE_COUNTS && (
+                    <div className="plan-endorse-count">
+                        <strong>{endorsementCount.toLocaleString()}</strong>
+                        <span> {tKey('plan.endorsements')}</span>
+                    </div>
+                )}
                 {session && (
                     <button
                         className={`plan-endorse-btn ${endorsed ? 'is-endorsed' : ''}`}
@@ -221,8 +224,12 @@ export default function PlanPage() {
                                 </div>
                                 <p className="amendment-body">{a.text || a.body_en}</p>
                                 <div className="amendment-votes">
-                                    <span className="amendment-yes">{tKey('plan.yesVotes')}: {a.yes_votes || 0}</span>
-                                    <span className="amendment-no">{tKey('plan.noVotes')}: {a.no_votes || 0}</span>
+                                    {SHOW_VOTE_COUNTS && (
+                                        <>
+                                            <span className="amendment-yes">{tKey('plan.yesVotes')}: {a.yes_votes || 0}</span>
+                                            <span className="amendment-no">{tKey('plan.noVotes')}: {a.no_votes || 0}</span>
+                                        </>
+                                    )}
                                     {session && (a.status === 'open' || !a.status) && (
                                         <div className="amendment-vote-btns">
                                             <button
@@ -251,12 +258,14 @@ export default function PlanPage() {
             {/* DEMOGRAPHICS */}
             {activeTab === 'demographics' && (
                 <section className="plan-body">
-                    <div className="plan-demo-stats">
-                        <div className="plan-demo-stat">
-                            <span className="demo-label">{tKey('plan.totalEndorsers')}</span>
-                            <strong>{endorsementCount.toLocaleString()}</strong>
+                    {SHOW_VOTE_COUNTS && (
+                        <div className="plan-demo-stats">
+                            <div className="plan-demo-stat">
+                                <span className="demo-label">{tKey('plan.totalEndorsers')}</span>
+                                <strong>{endorsementCount.toLocaleString()}</strong>
+                            </div>
                         </div>
-                    </div>
+                    )}
                     {geoRows.length === 0
                         ? <EmptyState title={tKey('plan.noGeoData')} />
                         : (
@@ -276,7 +285,9 @@ export default function PlanPage() {
                                                         style={{ width: `${Math.round((row.vote_count / geoRows[0].vote_count) * 100)}%` }}
                                                     />
                                                 </div>
-                                                <span className="plan-country-count">{row.vote_count}</span>
+                                                {SHOW_VOTE_COUNTS && (
+                                                    <span className="plan-country-count">{row.vote_count}</span>
+                                                )}
                                             </div>
                                         ))
                                     }

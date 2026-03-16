@@ -84,19 +84,39 @@ const RENDER_VERT = `
   uniform sampler2D uPosition;
   uniform float uTime;
   varying vec3 vColor;
+  varying float vNormY;
 
   void main() {
     vec3 pos = texture2D(uPosition, position.xy).xyz;
     gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
     gl_PointSize = 1.5;
     vColor = normalize(pos) * 0.5 + 0.5;
+    vNormY = normalize(pos).y;
   }
 `;
 
 const RENDER_FRAG = `
+  uniform float uIsLight;
   varying vec3 vColor;
+  varying float vNormY;
+
   void main() {
-    gl_FragColor = vec4(vColor, 1.0);
+    vec3 color;
+    if (uIsLight > 0.5) {
+      // Iran flag: green (top) → white (middle) → red (bottom)
+      vec3 flagGreen = vec3(0.137, 0.624, 0.251);
+      vec3 flagWhite = vec3(1.0,   1.0,   1.0  );
+      vec3 flagRed   = vec3(0.855, 0.063, 0.18 );
+      float t = clamp(vNormY * 0.5 + 0.5, 0.0, 1.0);
+      if (t > 0.5) {
+        color = mix(flagWhite, flagGreen, (t - 0.5) * 2.0);
+      } else {
+        color = mix(flagRed, flagWhite, t * 2.0);
+      }
+    } else {
+      color = vColor;
+    }
+    gl_FragColor = vec4(color, 1.0);
   }
 `;
 
@@ -140,7 +160,8 @@ class Particle {
         const r = Math.round(this.startColor.r + (this.targetColor.r - this.startColor.r) * this.colorWeight);
         const g = Math.round(this.startColor.g + (this.targetColor.g - this.startColor.g) * this.colorWeight);
         const b = Math.round(this.startColor.b + (this.targetColor.b - this.startColor.b) * this.colorWeight);
-        ctx.fillStyle = `rgb(${r},${g},${b})`;
+        const alpha = this.isKilled ? Math.max(0, 1 - this.colorWeight) : this.colorWeight;
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`;
         ctx.fillRect(this.pos.x, this.pos.y, 2, 2);
     }
     kill(width, height) {
@@ -220,7 +241,23 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
                     g: p.startColor.g + (p.targetColor.g - p.startColor.g) * p.colorWeight,
                     b: p.startColor.b + (p.targetColor.b - p.startColor.b) * p.colorWeight,
                 };
-                p.targetColor = isLight ? { r: 15, g: 23, b: 42 } : { r: 238, g: 245, b: 255 };
+                // Iran flag gradient: green (left) → white (centre) → red (right)
+                const flagT = canvas.width > 0 ? tx / canvas.width : 0;
+                if (flagT <= 0.5) {
+                    const s = flagT * 2;
+                    p.targetColor = {
+                        r: Math.round(0   + (255 - 0)   * s),
+                        g: Math.round(215 + (255 - 215) * s),
+                        b: Math.round(30  + (255 - 30)  * s),
+                    };
+                } else {
+                    const s = (flagT - 0.5) * 2;
+                    p.targetColor = {
+                        r: Math.round(255 + (240 - 255) * s),
+                        g: Math.round(255 * (1 - s)),
+                        b: Math.round(255 * (1 - s)),
+                    };
+                }
                 p.colorWeight = 0;
                 p.target.x = tx; p.target.y = ty;
             }
@@ -229,8 +266,7 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
 
         function animate() {
             const ctx = canvas.getContext('2d');
-            ctx.fillStyle = isLight ? 'rgba(241,245,249,0.2)' : 'rgba(10,10,10,0.15)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             const ps = S.particles;
             for (let i = ps.length - 1; i >= 0; i--) {
                 ps[i].move(); ps[i].draw(ctx);
@@ -263,7 +299,7 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
 }
 
 // ─── 3D Particle Scene ─────────────────────────────────────────────────────────
-function ParticleScene() {
+function ParticleScene({ isLight = false }) {
     const SIZE = 256;
     const { gl } = useThree();
     const pointsRef = useRef(null);
@@ -287,8 +323,13 @@ function ParticleScene() {
         uniforms: {
             uPosition: { value: null },
             uTime:     { value: 0 },
+            uIsLight:  { value: 0.0 },
         },
     }), []);
+
+    useEffect(() => {
+        renderMat.uniforms.uIsLight.value = isLight ? 1.0 : 0.0;
+    }, [isLight, renderMat]);
 
     // FBOs for ping-pong simulation
     const fboOpts = { type: THREE.FloatType, minFilter: THREE.NearestFilter, magFilter: THREE.NearestFilter };
@@ -458,7 +499,7 @@ export default function StartPage() {
             <div className="sp-canvas-wrap">
                 <Canvas camera={{ position: [0, 0, 4.5], fov: 60 }}>
                     <Suspense fallback={null}>
-                        <ParticleScene />
+                        <ParticleScene isLight={theme === 'light'} />
                     </Suspense>
                 </Canvas>
             </div>

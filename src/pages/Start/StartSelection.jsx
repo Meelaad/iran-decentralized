@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import { supabase } from '../../lib/supabase';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
+import { SHOW_VOTE_COUNTS } from '../../config';
 import './StartSelection.css';
 
 function useLiveVoteCounts() {
@@ -192,7 +193,7 @@ export default function StartSelection() {
                     </div>
 
                     {/* Live blueprint vote mini-summary */}
-                    {Object.keys(votes).length > 0 && (
+                    {SHOW_VOTE_COUNTS && Object.keys(votes).length > 0 && (
                         <div className="ss-vote-summary">
                             <div className="ss-vote-summary-label">
                                 {isRTL ? 'آمار زنده رأی' : 'LIVE VOTE SNAPSHOT'}

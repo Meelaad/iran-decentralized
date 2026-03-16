@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
+import { SHOW_VOTE_COUNTS } from '../../config';
 import {
     useArenaPlans,
     useStatsOverview,
@@ -102,16 +103,18 @@ export default function ArenaPage() {
                                 <p className="plan-card-summary">
                                     {isRTL ? plan.summary?.fa : plan.summary?.en}
                                 </p>
-                                <div className="plan-card-meta">
-                                    <span>
-                                        {tKey('arena.planEndorsements')}: <strong>{endorsementCount.toLocaleString()}</strong>
-                                        {delta > 0 && (
-                                            <span className="plan-delta">
-                                                {tKey('arena.planDelta', { n: delta.toLocaleString() })}
-                                            </span>
-                                        )}
-                                    </span>
-                                </div>
+                                {SHOW_VOTE_COUNTS && (
+                                    <div className="plan-card-meta">
+                                        <span>
+                                            {tKey('arena.planEndorsements')}: <strong>{endorsementCount.toLocaleString()}</strong>
+                                            {delta > 0 && (
+                                                <span className="plan-delta">
+                                                    {tKey('arena.planDelta', { n: delta.toLocaleString() })}
+                                                </span>
+                                            )}
+                                        </span>
+                                    </div>
+                                )}
                                 <div className="plan-card-actions">
                                     <Link className="plan-view-btn" to={`/arena/${plan.slug}`}>
                                         {tKey('arena.viewPlan')}
@@ -148,11 +151,13 @@ export default function ArenaPage() {
                                     <h3 className="incubator-card-name">
                                         {isRTL ? plan.name?.fa : plan.name?.en || plan.slug}
                                     </h3>
-                                    <p className="incubator-sig-label">
-                                        {tKey('arena.signProgress', { count: count.toLocaleString(), threshold: threshold.toLocaleString() })}
-                                    </p>
+                                    {SHOW_VOTE_COUNTS && (
+                                        <p className="incubator-sig-label">
+                                            {tKey('arena.signProgress', { count: count.toLocaleString(), threshold: threshold.toLocaleString() })}
+                                        </p>
+                                    )}
                                     <div className="incubator-progress-bar">
-                                        <div className="incubator-progress-fill" style={{ width: `${pct}%` }} />
+                                        <div className="incubator-progress-fill" style={{ width: SHOW_VOTE_COUNTS ? `${pct}%` : '0%' }} />
                                     </div>
                                     <button
                                         className={`incubator-sign-btn ${isSigned ? 'is-signed' : ''}`}
