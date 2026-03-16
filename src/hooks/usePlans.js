@@ -116,6 +116,16 @@ export function useSignPlan() {
     });
 }
 
+export function useSubmitPlan() {
+    const qc = useQueryClient();
+    return useMutation({
+        mutationFn: (body) => postJSON('/api/public/plans/submit', body),
+        onSuccess: () => {
+            qc.invalidateQueries({ queryKey: ['arena-plans'] });
+        },
+    });
+}
+
 export function useVoteAmendment() {
     const qc = useQueryClient();
     return useMutation({

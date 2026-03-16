@@ -81,6 +81,25 @@ export default function TransitionalPlansPage() {
                             <span className={styles.cardArrow}>→</span>
                         </Link>
 
+                        <Link to="/transitional/plan/cpild" className={styles.card} style={{ '--card-accent': '#f59e0b' }}>
+                            <div className={styles.cardAccentBar} />
+                            <div className={styles.cardBody}>
+                                <div className={styles.cardTitle}>
+                                    {t({ en: 'Constitutionalist Party of Iran (CPILD)', fa: 'حزب مشروطه ایران (لیبرال دموکرات)' })}
+                                </div>
+                                <div className={styles.cardMeta}>
+                                    {t({
+                                        en: 'Constitutionalist Party of Iran — Liberal Democrat',
+                                        fa: 'حزب مشروطه ایران — لیبرال دموکرات',
+                                    })}
+                                </div>
+                                <div className={styles.cardTag}>
+                                    {t({ en: 'Constitutional Monarchy · Liberal Democracy', fa: 'پادشاهی مشروطه · دموکراسی لیبرال' })}
+                                </div>
+                            </div>
+                            <span className={styles.cardArrow}>→</span>
+                        </Link>
+
                         <Link to="/transitional/plan/jmi" className={styles.card} style={{ '--card-accent': '#e8c840' }}>
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>

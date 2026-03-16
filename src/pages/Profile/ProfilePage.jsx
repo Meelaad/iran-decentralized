@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useProfile, useInviteCodes, useUpdateProfile, useCastVote, useGenerateCode } from '../../hooks/useProfile';
@@ -46,8 +46,11 @@ export default function ProfilePage() {
     const memberCardRef = useRef(null);
 
     // ── Server state ───────────────────────────────────────────────────────────
-    const { session, authLoading } = useAuth();
-    const userId = session?.user?.id;
+    const { session, isAdmin, authLoading } = useAuth();
+    const [searchParams] = useSearchParams();
+    const previewId = isAdmin ? searchParams.get('preview') : null;
+    const isPreview = !!previewId;
+    const userId = previewId || session?.user?.id;
 
     const { data: profile, isLoading: profileLoading } = useProfile(userId);
     const { data: codes = [] } = useInviteCodes(userId);
@@ -214,6 +217,12 @@ export default function ProfilePage() {
 
     return (
         <div className="prof-page" dir={isRTL ? 'rtl' : 'ltr'}>
+            {isPreview && (
+                <div className="prof-preview-banner">
+                    <span>ADMIN PREVIEW — {profile?.full_name || previewId}</span>
+                    <button className="prof-preview-back" onClick={() => navigate('/admin')}>← Back to Admin</button>
+                </div>
+            )}
             <div className="prof-bg-grid" />
             <div className="prof-scanline" />
 

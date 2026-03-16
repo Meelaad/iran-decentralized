@@ -53,6 +53,35 @@
     animation: regSpin 0.7s linear infinite;
 }
 
+.prof-preview-banner {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 20px;
+    background: rgba(255, 152, 0, 0.12);
+    border-bottom: 1px solid rgba(255, 152, 0, 0.35);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ff9800;
+}
+.prof-preview-back {
+    background: none;
+    border: 1px solid rgba(255, 152, 0, 0.4);
+    color: #ff9800;
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+}
+.prof-preview-back:hover { background: rgba(255, 152, 0, 0.1); }
+
 .prof-no-session {
     display: flex;
     align-items: center;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import {
@@ -85,6 +86,7 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
     const [expanded, setExpanded] = useState(false);
     const [inviteInput, setInviteInput] = useState(String(user.invite_codes_remaining ?? 0));
     const [working, setWorking] = useState(false);
+    const navigate = useNavigate();
 
     const unusedCodes = user.invite_codes?.filter(c => !c.used_by) || [];
     const usedCodes   = user.invite_codes?.filter(c => c.used_by)  || [];
@@ -118,6 +120,12 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
                 <td>{formatDate(user.created_at)}</td>
                 <td>
                     <div className="admin-actions-cell">
+                        <button
+                            className="admin-action-btn admin-action-btn--view"
+                            onClick={() => navigate(`/profile?preview=${user.id}`)}
+                        >
+                            View Profile
+                        </button>
                         <button
                             className="admin-action-btn"
                             onClick={handleGenerate}

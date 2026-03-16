@@ -53,6 +53,22 @@ const PLANS = [
         link: '/transitional/plan/itc',
     },
     {
+        id: 'cpild',
+        name: { en: 'Constitutionalist Party of Iran (CPILD)', fa: 'حزب مشروطه ایران (لیبرال دموکرات)' },
+        author: { en: 'Constitutionalist Party of Iran — Liberal Democrat', fa: 'حزب مشروطه ایران — لیبرال دموکرات' },
+        type: { en: 'Constitutional Monarchy · Liberal Democracy', fa: 'پادشاهی مشروطه · دموکراسی لیبرال' },
+        duration: { en: 'Phased transition · Constitutional framework', fa: 'انتقال مرحله‌ای · چارچوب قانون اساسی' },
+        keyPoints: [
+            { en: 'Constitutional monarchy with a parliamentary democratic system', fa: 'پادشاهی مشروطه با نظام دموکراتیک پارلمانی' },
+            { en: 'Liberal democratic values — individual rights and rule of law', fa: 'ارزش‌های دموکراتیک لیبرال — حقوق فردی و حاکمیت قانون' },
+            { en: 'Secular state with separation of religion and government', fa: 'دولت سکولار با جدایی دین از حکومت' },
+            { en: 'Market economy with social safety net', fa: 'اقتصاد بازار با شبکه حمایت اجتماعی' },
+        ],
+        color: '#f59e0b',
+        status: { en: 'Active Party · Liberal Democrat', fa: 'حزب فعال · لیبرال دموکرات' },
+        link: '/transitional/plan/cpild',
+    },
+    {
         id: 'jmi',
         name: { en: 'Jebhe Melli Iran (JMI)', fa: 'جبهه ملی ایران (JMI)' },
         author: { en: 'National Front of Iran · Founded 1949 by Dr. Mossadegh', fa: 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق' },

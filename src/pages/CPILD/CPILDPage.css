@@ -1,0 +1,725 @@
+/* ── CPI-LD Page — Constitutionalist Party of Iran (Liberal Democrat) ─────── */
+/* Prefix: .cpild-   Accent: #d97706 (amber gold)                               */
+
+/* ── Root ─────────────────────────────────────────────────────────────────── */
+.cpild-page {
+  position: relative;
+  min-height: 100vh;
+  background: #020408;
+  color: #d6e4ed;
+  overflow-x: hidden;
+}
+
+.cpild-bg-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cpild-scanline {
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(217, 119, 6, 0.013) 3px,
+    rgba(217, 119, 6, 0.013) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cpild-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 56px 32px 80px;
+  width: 100%;
+}
+
+/* ── Sections ─────────────────────────────────────────────────────────────── */
+.cpild-section {
+  margin-bottom: 72px;
+}
+
+.cpild-mt-sm {
+  margin-top: 16px;
+}
+
+.cpild-mt-md {
+  margin-top: 32px;
+}
+
+/* ── Section Header ───────────────────────────────────────────────────────── */
+.cpild-sechead {
+  margin-bottom: 28px;
+}
+
+.cpild-sechead-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 3px 8px;
+  margin-bottom: 10px;
+}
+
+.cpild-sechead-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #e8f4fd;
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.cpild-sechead-line {
+  height: 2px;
+  width: 100%;
+  border-radius: 1px;
+  opacity: 0.6;
+}
+
+/* ── Body Text ────────────────────────────────────────────────────────────── */
+.cpild-body-text {
+  font-size: 0.975rem;
+  line-height: 1.78;
+  color: #a8c4d4;
+  max-width: 820px;
+  margin: 0;
+}
+
+/* ── Phase Subheadings ────────────────────────────────────────────────────── */
+.cpild-phase-subhead {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 28px 0 14px;
+}
+
+/* ── Hero ─────────────────────────────────────────────────────────────────── */
+.cpild-hero {
+  text-align: center;
+  padding: 48px 0 64px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.cpild-hero-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #d97706;
+  margin: 0 0 20px;
+}
+
+.cpild-hero-title {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  color: #e8f4fd;
+  margin: 0 0 10px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 48px rgba(217, 119, 6, 0.3);
+}
+
+.cpild-hero-subtitle {
+  font-size: 0.85rem;
+  color: rgba(217, 119, 6, 0.65);
+  letter-spacing: 0.06em;
+  margin: 0 0 20px;
+}
+
+.cpild-hero-desc {
+  font-size: 1.05rem;
+  line-height: 1.72;
+  color: #90b4c8;
+  margin: 0 auto 28px;
+  max-width: 720px;
+}
+
+.cpild-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.cpild-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 4px 10px;
+}
+
+/* ── Ideology Pillars ─────────────────────────────────────────────────────── */
+.cpild-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.cpild-pillar {
+  background: rgba(217, 119, 6, 0.04);
+  border: 1px solid rgba(217, 119, 6, 0.12);
+  border-radius: 8px;
+  padding: 20px 18px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.cpild-pillar:hover {
+  border-color: rgba(217, 119, 6, 0.3);
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.cpild-pillar-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cpild-pillar-head {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.cpild-pillar-body {
+  font-size: 0.84rem;
+  line-height: 1.65;
+  color: #8aabb8;
+  margin: 0;
+}
+
+/* ── Transition Timeline ──────────────────────────────────────────────────── */
+.cpild-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 28px;
+  position: relative;
+  padding-left: 48px;
+}
+
+.cpild-timeline::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    180deg,
+    rgba(217, 119, 6, 0.55),
+    rgba(217, 119, 6, 0.06)
+  );
+}
+
+.cpild-phase {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding-bottom: 26px;
+  position: relative;
+}
+
+.cpild-phase:last-child {
+  padding-bottom: 0;
+}
+
+.cpild-phase-marker {
+  position: absolute;
+  left: -48px;
+  top: 4px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cpild-phase-num {
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.cpild-phase-content {
+  flex: 1;
+  background: rgba(217, 119, 6, 0.03);
+  border: 1px solid rgba(217, 119, 6, 0.1);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.cpild-phase-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.cpild-phase-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+}
+
+.cpild-phase-name {
+  font-size: 0.96rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.cpild-phase-desc {
+  font-size: 0.86rem;
+  line-height: 1.68;
+  color: #8aabb8;
+  margin: 0;
+}
+
+/* ── Power Grid ───────────────────────────────────────────────────────────── */
+.cpild-power-grid {
+  display: grid;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.cpild-power-grid--three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.cpild-power-grid--four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.cpild-power-node {
+  background: rgba(217, 119, 6, 0.04);
+  border: 1px solid rgba(217, 119, 6, 0.1);
+  border-radius: 8px;
+  padding: 18px 16px;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.cpild-power-node:hover {
+  border-color: rgba(217, 119, 6, 0.28);
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.cpild-power-node--crown {
+  border-color: rgba(217, 119, 6, 0.35);
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.cpild-power-icon {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cpild-power-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #d6e4ed;
+  margin: 0 0 4px;
+}
+
+.cpild-power-sub {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.cpild-power-body {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: #8aabb8;
+  margin: 0;
+}
+
+/* ── Institutional Targets ────────────────────────────────────────────────── */
+.cpild-targets {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.cpild-target {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 18px 16px;
+  transition: background 0.2s;
+}
+
+.cpild-target:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cpild-target-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.cpild-target-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #d6e4ed;
+  margin: 0;
+  flex: 1;
+  min-width: 120px;
+}
+
+.cpild-target-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 2px 6px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.cpild-target-policy {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+}
+
+.cpild-target-detail {
+  font-size: 0.82rem;
+  line-height: 1.62;
+  color: #7a9dae;
+  margin: 0;
+}
+
+/* ── Accordion ────────────────────────────────────────────────────────────── */
+.cpild-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cpild-acc-item {
+  border: 1px solid rgba(217, 119, 6, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.cpild-acc-item.cpild-acc-open {
+  border-color: rgba(217, 119, 6, 0.32);
+}
+
+.cpild-acc-head {
+  width: 100%;
+  background: rgba(217, 119, 6, 0.04);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.cpild-acc-item.cpild-acc-open .cpild-acc-head,
+.cpild-acc-head:hover {
+  background: rgba(217, 119, 6, 0.09);
+}
+
+.cpild-acc-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.cpild-acc-label {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #d6e4ed;
+  flex: 1;
+}
+
+.cpild-acc-chevron {
+  font-size: 0.6rem;
+  color: var(--c, #d97706);
+  flex-shrink: 0;
+}
+
+.cpild-acc-body {
+  padding: 20px 18px 20px 44px;
+  background: rgba(217, 119, 6, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cpild-acc-point {
+  font-size: 0.875rem;
+  line-height: 1.68;
+  color: #8aabb8;
+}
+
+.cpild-acc-point-head {
+  font-weight: 700;
+  font-size: 0.82rem;
+}
+
+/* ── Conclusion ───────────────────────────────────────────────────────────── */
+.cpild-conclusion {
+  text-align: center;
+  padding: 48px 0 16px;
+}
+
+.cpild-conclusion-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(217, 119, 6, 0.65);
+  margin: 0 0 20px;
+}
+
+.cpild-conclusion-quote {
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+  line-height: 1.75;
+  color: #b0cdd8;
+  font-style: italic;
+  max-width: 860px;
+  margin: 0 auto 28px;
+  border: none;
+  padding: 0;
+}
+
+.cpild-conclusion-line {
+  height: 1px;
+  width: 100%;
+  opacity: 0.5;
+}
+
+/* ── Footer Nav ───────────────────────────────────────────────────────────── */
+.cpild-footer-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 56px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(217, 119, 6, 0.12);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cpild-footer-nav-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(217, 119, 6, 0.8);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: color 0.2s;
+}
+
+.cpild-footer-nav-link:hover {
+  color: #d97706;
+}
+
+.cpild-footer-nav-link--secondary {
+  color: rgba(217, 119, 6, 0.5);
+}
+
+.cpild-footer-nav-link--secondary:hover {
+  color: rgba(217, 119, 6, 0.85);
+}
+
+/* ── RTL ──────────────────────────────────────────────────────────────────── */
+[dir="rtl"] .cpild-sechead-line {
+  background: linear-gradient(270deg, #d97706, transparent) !important;
+}
+
+[dir="rtl"] .cpild-timeline {
+  padding-left: 0;
+  padding-right: 48px;
+}
+
+[dir="rtl"] .cpild-timeline::before {
+  left: auto;
+  right: 18px;
+}
+
+[dir="rtl"] .cpild-phase-marker {
+  left: auto;
+  right: -48px;
+}
+
+[dir="rtl"] .cpild-acc-head {
+  text-align: right;
+}
+
+[dir="rtl"] .cpild-acc-body {
+  padding: 20px 44px 20px 18px;
+}
+
+[dir="rtl"] .cpild-target-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .cpild-footer-nav {
+  flex-direction: row-reverse;
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .cpild-power-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .cpild-pillars {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cpild-targets {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cpild-power-grid--three {
+    grid-template-columns: 1fr;
+  }
+
+  .cpild-power-grid--four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .cpild-inner {
+    padding: 40px 20px 60px;
+  }
+
+  .cpild-sechead-title {
+    font-size: 1.4rem;
+  }
+
+  .cpild-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .cpild-targets {
+    grid-template-columns: 1fr;
+  }
+
+  .cpild-power-grid--four {
+    grid-template-columns: 1fr;
+  }
+
+  .cpild-timeline {
+    padding-left: 40px;
+  }
+
+  [dir="rtl"] .cpild-timeline {
+    padding-left: 0;
+    padding-right: 40px;
+  }
+
+  .cpild-timeline::before {
+    left: 16px;
+  }
+
+  [dir="rtl"] .cpild-timeline::before {
+    left: auto;
+    right: 16px;
+  }
+
+  .cpild-phase-marker {
+    left: -40px;
+    width: 30px;
+    height: 30px;
+  }
+
+  [dir="rtl"] .cpild-phase-marker {
+    left: auto;
+    right: -40px;
+  }
+
+  .cpild-hero {
+    padding: 32px 0 48px;
+  }
+
+  .cpild-footer-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  [dir="rtl"] .cpild-footer-nav {
+    align-items: flex-end;
+  }
+}
+
+@media (max-width: 560px) {
+  .cpild-hero-badges {
+    gap: 6px;
+  }
+
+  .cpild-badge {
+    font-size: 0.67rem;
+  }
+
+  .cpild-phase-header {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cpild-target-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  [dir="rtl"] .cpild-target-header {
+    flex-direction: column;
+  }
+
+  .cpild-acc-body {
+    padding: 16px 14px 16px 36px;
+  }
+
+  [dir="rtl"] .cpild-acc-body {
+    padding: 16px 36px 16px 14px;
+  }
+}

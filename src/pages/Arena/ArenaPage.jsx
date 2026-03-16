@@ -191,6 +191,12 @@ export default function ArenaPage() {
                         <div className="arena-featured-meta">{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
                         <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
+                    <Link to="/transitional/plan/cpild" className="arena-featured-card" style={{ borderColor: '#f59e0b' }}>
+                        <span className="arena-featured-badge" style={{ color: '#f59e0b', borderColor: '#f59e0b33' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name">{isRTL ? 'حزب مشروطه ایران (لیبرال دموکرات)' : 'Constitutionalist Party of Iran (CPILD)'}</div>
+                        <div className="arena-featured-meta">{isRTL ? 'حزب مشروطه ایران — لیبرال دموکرات' : 'Constitutionalist Party of Iran — Liberal Democrat'}</div>
+                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                    </Link>
                     <Link to="/transitional/plan/jmi" className="arena-featured-card" style={{ borderColor: '#e8c840' }}>
                         <span className="arena-featured-badge" style={{ color: '#e8c840', borderColor: '#e8c84033' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
                         <div className="arena-featured-name">{isRTL ? 'جبهه ملی ایران (JMI)' : 'Jebhe Melli Iran (JMI)'}</div>

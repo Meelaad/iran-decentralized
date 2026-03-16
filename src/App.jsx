@@ -40,6 +40,8 @@ import CPFIKPage from './pages/CPFIK/CPFIKPage';
 import JMIPage from './pages/JMI/JMIPage';
 import JMIPage2 from './pages/JMI-v2/JMIPage';
 import AdminDraftGuard from './components/AdminDraftGuard/AdminDraftGuard';
+import ArenaSubmitPage from './pages/Arena/ArenaSubmitPage';
+import CPILDPage from './pages/CPILD/CPILDPage';
 
 function App() {
     return (
@@ -66,14 +68,15 @@ function App() {
                         <Route path="about" element={<AboutPage />} />
                         <Route path="arena" element={<ArenaPage />} />
                         <Route path="arena/:slug" element={<PlanPage />} />
+                        <Route path="arena/submit" element={<ArenaSubmitPage />} />
                         <Route path="transitional/plan/nufdi" element={<TransitionalPage />} />
-                        <Route path="transitional/plan/mirhosein-mousavi" element={<MousaviPage />} />
-                        <Route path="transitional/plan/civil-society" element={<CivilSocietyPage />} />
+                    <Route path="transitional/plan/mirhosein-mousavi" element={<MousaviPage />} />
                         <Route path="transitional/plan/itc" element={<ITCPage />} />
                         <Route path="transitional/plan/uri" element={<URIPage />} />
                         <Route path="transitional/plan/cpfik" element={<CPFIKPage />} />
                         <Route path="transitional/plan/jmi" element={<JMIPage />} />
                         <Route path="transitional/plan/jmi-v2" element={<AdminDraftGuard slug="transitional/plan/jmi-v2"><JMIPage2 /></AdminDraftGuard>} />
+                        <Route path="transitional/plan/cpild" element={<CPILDPage />} />
                         <Route path="plans" element={<TransitionalPlansPage />} />
                         <Route path="blueprints" element={<BlueprintsListPage />} />
                         <Route path="verify" element={<VerifyPage />} />
