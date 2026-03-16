@@ -494,7 +494,7 @@
     }
 
     .site-nav-link {
-        font-size: clamp(11px, 0.85vw, 13px);
+        font-size: clamp(12px, 0.9vw, 14px);
         padding: 7px 14px;
     }
 
@@ -502,8 +502,16 @@
         font-size: clamp(13px, 1.1vw, 15px);
     }
 
-    .site-nav-register-btn {
+    .site-nav-login-btn,
+    .site-nav-logout-btn,
+    .site-nav-profile-btn,
+    .site-nav-admin-btn {
         font-size: clamp(11px, 0.85vw, 13px);
+        padding: 7px 16px;
+    }
+
+    .site-nav-register-btn {
+        font-size: clamp(12px, 0.9vw, 14px);
         padding: 8px 18px;
     }
 
@@ -513,7 +521,23 @@
 
     .site-nav-lang-btn {
         padding: 5px 13px;
-        font-size: 12px;
+        font-size: 13px;
+    }
+
+    .site-nav-blueprint-btn {
+        font-size: clamp(12px, 0.9vw, 14px);
+    }
+
+    .site-nav-blueprint-header {
+        font-size: 11px;
+    }
+
+    .site-nav-blueprint-option {
+        font-size: clamp(12px, 0.9vw, 14px);
+    }
+
+    .site-footer-link {
+        font-size: 13px;
     }
 
     .hamburger-nav-btn {

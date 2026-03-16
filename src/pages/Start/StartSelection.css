@@ -30,7 +30,7 @@
 
 .ss-eyebrow {
     font-family: 'intelone-mono', monospace;
-    font-size: 10px;
+    font-size: clamp(11px, 1vw, 13px);
     letter-spacing: 5px;
     color: rgba(79,195,247,0.45);
     margin-bottom: 12px;
@@ -38,7 +38,7 @@
 
 .ss-title {
     font-family: 'Inter', sans-serif;
-    font-size: 28px;
+    font-size: clamp(26px, 3vw, 36px);
     font-weight: 700;
     color: #fff;
     margin: 0 0 10px;
@@ -46,7 +46,7 @@
 }
 
 .ss-sub {
-    font-size: 13px;
+    font-size: clamp(14px, 1.2vw, 16px);
     color: #607c8e;
     margin: 0;
 }
@@ -81,7 +81,7 @@
 .ss-zone-tag {
     display: inline-block;
     font-family: 'intelone-mono', monospace;
-    font-size: 9px;
+    font-size: clamp(10px, 0.85vw, 12px);
     letter-spacing: 3px;
     padding: 3px 8px;
     border-radius: 3px;
@@ -93,14 +93,14 @@
 
 .ss-zone-title {
     font-family: 'Inter', sans-serif;
-    font-size: 20px;
+    font-size: clamp(18px, 2vw, 24px);
     font-weight: 700;
     color: #fff;
     margin: 0;
 }
 
 .ss-zone-desc {
-    font-size: 12px;
+    font-size: clamp(13px, 1.1vw, 15px);
     color: #607c8e;
     margin: 0;
     line-height: 1.5;
@@ -129,17 +129,20 @@
 [dir="rtl"] .ss-link--pre:hover,
 [dir="rtl"] .ss-link--post:hover { transform: translateX(-3px); }
 
-.ss-link-icon { font-size: 18px; flex-shrink: 0; line-height: 1; }
+.ss-link-icon { font-size: 20px; flex-shrink: 0; line-height: 1; }
 
 .ss-link-title {
     font-family: 'intelone-mono', monospace;
-    font-size: 11px;
+    font-size: clamp(12px, 1vw, 14px);
     letter-spacing: 1px;
     color: #fff;
     margin-bottom: 2px;
 }
 
-.ss-link-desc { font-size: 11px; color: #607c8e; }
+.ss-link-desc {
+    font-size: clamp(12px, 0.95vw, 14px);
+    color: #607c8e;
+}
 
 /* Live vote summary */
 .ss-vote-summary {
@@ -152,7 +155,7 @@
 
 .ss-vote-summary-label {
     font-family: 'intelone-mono', monospace;
-    font-size: 9px;
+    font-size: clamp(10px, 0.85vw, 12px);
     letter-spacing: 3px;
     color: rgba(79,195,247,0.45);
     margin-bottom: 4px;
@@ -162,7 +165,7 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
+    font-size: clamp(12px, 0.95vw, 14px);
 }
 
 .ss-vote-name { color: #9bafc0; width: 120px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -185,7 +188,7 @@
 
 .ss-vote-pct {
     font-family: 'intelone-mono', monospace;
-    font-size: 10px;
+    font-size: clamp(11px, 0.85vw, 13px);
     color: #4fc3f7;
     width: 30px;
     text-align: end;
@@ -200,7 +203,7 @@
 
 .ss-back {
     font-family: 'intelone-mono', monospace;
-    font-size: 11px;
+    font-size: clamp(12px, 0.95vw, 14px);
     letter-spacing: 1px;
     color: rgba(79,195,247,0.45);
     text-decoration: none;
@@ -231,7 +234,7 @@
     border: 1px solid rgba(79,195,247,0.2);
     color: rgba(79,195,247,0.55);
     font-family: 'intelone-mono', monospace;
-    font-size: 10px;
+    font-size: clamp(11px, 0.9vw, 13px);
     letter-spacing: 1px;
     padding: 5px 10px;
     border-radius: 4px;

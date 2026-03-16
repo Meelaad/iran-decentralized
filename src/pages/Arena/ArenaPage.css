@@ -50,6 +50,25 @@
     .arena-top { flex-direction: column; }
 }
 
+@media (min-width: 960px) {
+    .arena-hero-kicker { font-size: 13px; }
+    .arena-hero-sub { font-size: 15px; }
+    .arena-section-title { font-size: 14px; }
+    .arena-section-sub { font-size: 15px; }
+    .plan-official-badge { font-size: 12px; }
+    .plan-card-summary { font-size: 14px; }
+    .plan-card-meta { font-size: 13px; }
+    .plan-view-btn { font-size: 13px; }
+    .plan-endorse-btn { font-size: 13px; }
+    .incubator-sig-label { font-size: 13px; }
+    .incubator-sign-btn { font-size: 13px; }
+    .arena-featured-badge { font-size: 11px; }
+    .arena-featured-name { font-size: 15px; }
+    .arena-featured-meta { font-size: 13px; }
+    .arena-featured-cta { font-size: 12px; }
+    .arena-submit-btn { font-size: 14px; }
+}
+
 /* Featured reference plans */
 .arena-featured-grid {
     display: grid;

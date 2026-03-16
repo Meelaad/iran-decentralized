@@ -117,7 +117,7 @@
 }
 
 .sp-card-title {
-    font-size: 12px;
+    font-size: clamp(12px, 0.9vw, 15px);
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #d6e4ed;
@@ -129,7 +129,7 @@
 }
 
 .sp-card-desc {
-    font-size: 11px;
+    font-size: clamp(11px, 0.85vw, 14px);
     color: #607c8e;
     line-height: 1.5;
     display: -webkit-box;
@@ -155,7 +155,7 @@
 /* ─── Eyebrow ─────────────────────────────────────────────────────────────────── */
 .sp-eyebrow {
     font-family: 'intelone-mono', monospace;
-    font-size: clamp(10px, 1.2vw, 13px);
+    font-size: clamp(11px, 1.2vw, 16px);
     letter-spacing: 5px;
     color: rgba(79, 195, 247, 0.5);
     text-transform: uppercase;
@@ -227,7 +227,7 @@
     border-radius: 9999px;
     padding: 14px 32px;
     font-family: 'intelone-mono', monospace;
-    font-size: clamp(12px, 1.3vw, 15px);
+    font-size: clamp(13px, 1.3vw, 17px);
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -255,7 +255,7 @@
 
 .sp-hint {
     font-family: 'intelone-mono', monospace;
-    font-size: clamp(10px, 1.1vw, 12px);
+    font-size: clamp(11px, 1.1vw, 14px);
     letter-spacing: 2px;
     color: rgba(79, 195, 247, 0.3);
     text-transform: uppercase;
@@ -283,7 +283,7 @@
     justify-content: center;
     flex-wrap: wrap;
     font-family: 'intelone-mono', monospace;
-    font-size: 10px;
+    font-size: clamp(10px, 0.9vw, 13px);
     letter-spacing: 0.5px;
     color: rgba(79, 195, 247, 0.4);
 }
@@ -305,7 +305,7 @@
     border: 1px solid rgba(79, 195, 247, 0.2);
     color: rgba(79, 195, 247, 0.5);
     font-family: 'intelone-mono', monospace;
-    font-size: 10px;
+    font-size: clamp(10px, 0.9vw, 13px);
     letter-spacing: 1px;
     padding: 5px 10px;
     border-radius: 4px;

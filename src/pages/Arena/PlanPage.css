@@ -69,3 +69,19 @@
     .plan-tabs { gap: 0; }
     .plan-tab { padding: 8px 10px; font-size: 11px; }
 }
+
+@media (min-width: 960px) {
+    .plan-official-badge { font-size: 12px; }
+    .plan-source-link { font-size: 13px; }
+    .plan-mini-stats { font-size: 14px; }
+    .plan-tab { font-size: 13px; }
+    .plan-propose-btn { font-size: 13px; }
+    .amendment-title { font-size: 15px; }
+    .amendment-status { font-size: 11px; }
+    .amendment-body { font-size: 14px; }
+    .amendment-votes { font-size: 13px; }
+    .amend-yes-btn, .amend-no-btn { font-size: 13px; }
+    .demo-label { font-size: 12px; }
+    .plan-country-title { font-size: 13px; }
+    .plan-country-row { font-size: 13px; }
+}
