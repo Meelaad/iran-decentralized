@@ -121,3 +121,9 @@
     .cs2-title { font-size: 26px; }
     .cs2-page { padding: 60px 16px; }
 }
+
+@media (min-width: 960px) {
+    .cs2-eyebrow { font-size: 13px; }
+    .cs2-subtitle { font-size: 15px; }
+    .cs2-btn { font-size: 14px; }
+}

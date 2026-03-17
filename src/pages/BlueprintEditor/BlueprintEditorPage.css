@@ -343,3 +343,14 @@
     .editor-header-row { flex-direction: column; }
     .editor-actions { width: 100%; }
 }
+
+@media (min-width: 960px) {
+    .editor-eyebrow { font-size: 12px; }
+    .editor-section-label { font-size: 12px; }
+    .editor-field-label { font-size: 13px; }
+    .editor-char-count { font-size: 12px; }
+    .editor-field-hint { font-size: 12px; }
+    .editor-tab { font-size: 13px; }
+    .editor-save-btn { font-size: 14px; }
+    .editor-cancel-btn { font-size: 13px; }
+}

@@ -190,3 +190,11 @@
         font-size: 10px;
     }
 }
+
+@media (min-width: 960px) {
+    .layer-card-index { font-size: 13px; }
+    .layer-features-label { font-size: 12px; }
+    .layer-sectors-label { font-size: 12px; }
+    .layer-features-list li { font-size: 13px; }
+    .layer-sector-chip { font-size: 12px; }
+}

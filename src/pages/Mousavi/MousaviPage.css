@@ -689,3 +689,24 @@
     padding: 4px 10px;
   }
 }
+
+@media (min-width: 960px) {
+    .mp-hero-eyebrow { font-size: 13px; }
+    .mp-badge { font-size: 12px; }
+    .mp-sechead-eyebrow { font-size: 12px; }
+    .mp-seg-label { font-size: 12px; }
+    .mp-acc-title { font-size: 14px; }
+    .mp-acc-subtitle { font-size: 13px; }
+    .mp-bullet-item { font-size: 13px; }
+    .mp-banner-label { font-size: 12px; }
+    .mp-banner-text { font-size: 14px; }
+    .mp-stage-label { font-size: 12px; }
+    .mp-stage-sub { font-size: 13px; }
+    .mp-timeline-date { font-size: 12px; }
+    .mp-timeline-event { font-size: 13px; }
+    .mp-timeline-action { font-size: 13px; }
+    .mp-vuln-label { font-size: 12px; }
+    .mp-vuln-text { font-size: 13px; }
+    .mp-demand-text { font-size: 13px; }
+    .mp-source { font-size: 13px; }
+}

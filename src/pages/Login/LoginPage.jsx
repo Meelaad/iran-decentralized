@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
+import { Turnstile } from '@marsidev/react-turnstile';
 import '../Register/RegisterPage.css';
 
 const CONTENT = {
@@ -46,7 +47,9 @@ export default function LoginPage() {
     const [error, setError] = useState(null);
     const [cooldown, setCooldown] = useState(0);
     const [resendCount, setResendCount] = useState(0);
+    const [turnstileToken, setTurnstileToken] = useState('');
     const otpRefs = useRef([]);
+    const turnstileRef = useRef(null);
 
     // Redirect if already logged in
     useEffect(() => {
@@ -73,9 +76,11 @@ export default function LoginPage() {
         setError(null);
         setLoading(true);
         try {
-            const { error: supaErr } = await supabase.auth.signInWithOtp({ email: mail, options: { shouldCreateUser: false } });
+            const { error: supaErr } = await supabase.auth.signInWithOtp({ email: mail, options: { shouldCreateUser: false, captchaToken: turnstileToken || undefined } });
             if (supaErr) throw supaErr;
             setStep('verify');
+            setTurnstileToken('');
+            turnstileRef.current?.reset();
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
             if (msg.includes('rate')) setError(t(CONTENT.errors.rateLimit));
@@ -115,7 +120,9 @@ export default function LoginPage() {
         const count = resendCount + 1;
         setResendCount(count);
         setCooldown(getCooldown(count));
-        await supabase.auth.signInWithOtp({ email: email.trim() });
+        await supabase.auth.signInWithOtp({ email: email.trim(), options: { shouldCreateUser: false, captchaToken: turnstileToken || undefined } });
+        setTurnstileToken('');
+        turnstileRef.current?.reset();
     }
 
     function handleOtpInput(i, val) {
@@ -179,11 +186,23 @@ export default function LoginPage() {
                                     dir="ltr"
                                 />
                             </div>
-                            <button type="submit" className="reg-submit-btn" disabled={loading} style={monoFont}>
+                            <button type="submit" className="reg-submit-btn" disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)} style={monoFont}>
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnSend)}
                             </button>
                         </form>
+                    )}
+
+                    {import.meta.env.VITE_TURNSTILE_SITE_KEY && (
+                        <div style={{ display: step === 'form' ? 'block' : 'none' }}>
+                            <Turnstile
+                                ref={turnstileRef}
+                                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                                onSuccess={token => setTurnstileToken(token)}
+                                onExpire={() => setTurnstileToken('')}
+                                options={{ theme: 'dark', size: 'flexible' }}
+                            />
+                        </div>
                     )}
 
                     {step === 'verify' && (

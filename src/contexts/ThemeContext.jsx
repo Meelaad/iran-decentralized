@@ -7,9 +7,11 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState(
-        () => localStorage.getItem('irdao-theme') || 'dark'
-    );
+    const [theme, setTheme] = useState(() => {
+        const saved = localStorage.getItem('irdao-theme');
+        if (saved) return saved;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    });
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);

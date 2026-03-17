@@ -723,3 +723,14 @@
     padding: 16px 36px 16px 14px;
   }
 }
+
+@media (min-width: 960px) {
+    .cpild-eyebrow { font-size: 13px; }
+    .cpild-badge { font-size: 12px; }
+    .cpild-sechead-eyebrow { font-size: 12px; }
+    .cpild-acc-title { font-size: 14px; }
+    .cpild-acc-subtitle { font-size: 13px; }
+    .cpild-bullet-item { font-size: 13px; }
+    .cpild-source { font-size: 13px; }
+    .cpild-seg-label { font-size: 12px; }
+}

@@ -189,3 +189,15 @@
   .itc-badge { font-size: 10px; padding: 4px 10px; }
   .itc-leader-grid { grid-template-columns: 1fr; }
 }
+
+@media (min-width: 960px) {
+    .itc-eyebrow { font-size: 13px; }
+    .itc-badge { font-size: 12px; }
+    .itc-sechead-eyebrow { font-size: 12px; }
+    .itc-acc-title { font-size: 14px; }
+    .itc-acc-subtitle { font-size: 13px; }
+    .itc-bullet-item { font-size: 13px; }
+    .itc-source { font-size: 13px; }
+    .itc-seg-label { font-size: 12px; }
+    .itc-phase-label { font-size: 12px; }
+}

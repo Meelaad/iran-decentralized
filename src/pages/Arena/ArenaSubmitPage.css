@@ -212,6 +212,15 @@
 [dir="rtl"] .as-char-count { text-align: start; }
 [dir="rtl"] .as-form-footer { flex-direction: row-reverse; }
 
+@media (min-width: 960px) {
+    .as-breadcrumb { font-size: 14px; }
+    .as-requirement { font-size: 14px; }
+    .as-section-label { font-size: 13px; }
+    .as-label { font-size: 14px; }
+    .as-char-count { font-size: 12px; }
+    .as-field-hint { font-size: 13px; }
+}
+
 /* Responsive */
 @media (max-width: 560px) {
     .as-inner { padding: 32px 16px 60px; }

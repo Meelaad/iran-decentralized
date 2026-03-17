@@ -388,6 +388,7 @@ export default function RegisterPage() {
     const [resendCount, setResendCount] = useState(0);
     const [isAdmin, setIsAdmin] = useState(false);
     const [turnstileToken, setTurnstileToken] = useState('');
+    const turnstileRef = useRef(null);
 
     // Start cooldown whenever the verify step is entered
     useEffect(() => {
@@ -509,6 +510,7 @@ export default function RegisterPage() {
                 email: email.trim(),
                 options: {
                     shouldCreateUser: true,
+                    captchaToken: turnstileToken || undefined,
                     data: {
                         full_name: fullName.trim(),
                         country: country === 'Other' ? customCountry.trim() : country,
@@ -519,6 +521,8 @@ export default function RegisterPage() {
             });
             if (supaErr) throw supaErr;
             setStep('verify');
+            setTurnstileToken('');
+            turnstileRef.current?.reset();
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
             if (msg.includes('rate limit') || msg.includes('email rate')) {
@@ -616,9 +620,11 @@ export default function RegisterPage() {
         try {
             const { error: supaErr } = await supabase.auth.signInWithOtp({
                 email: email.trim(),
-                options: { shouldCreateUser: true },
+                options: { shouldCreateUser: true, captchaToken: turnstileToken || undefined },
             });
             if (supaErr) throw supaErr;
+            setTurnstileToken('');
+            turnstileRef.current?.reset();
         } catch (err) {
             const msg = err.message?.toLowerCase() || '';
             setError(msg.includes('rate limit') || msg.includes('email rate')
@@ -910,15 +916,6 @@ export default function RegisterPage() {
                                 />
                             </div>
 
-                            {import.meta.env.VITE_TURNSTILE_SITE_KEY && (
-                                <Turnstile
-                                    siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
-                                    onSuccess={token => setTurnstileToken(token)}
-                                    onExpire={() => setTurnstileToken('')}
-                                    options={{ theme: 'dark', size: 'flexible' }}
-                                />
-                            )}
-
                             <button
                                 type="submit"
                                 className="reg-submit-btn"
@@ -929,6 +926,18 @@ export default function RegisterPage() {
                                 {t(CONTENT.btnSend)}
                             </button>
                         </form>
+                    )}
+
+                    {import.meta.env.VITE_TURNSTILE_SITE_KEY && (
+                        <div style={{ display: step === 'form' ? 'block' : 'none' }}>
+                            <Turnstile
+                                ref={turnstileRef}
+                                siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                                onSuccess={token => setTurnstileToken(token)}
+                                onExpire={() => setTurnstileToken('')}
+                                options={{ theme: 'dark', size: 'flexible' }}
+                            />
+                        </div>
                     )}
 
                     {/* ══ STEP 2: OTP verification ══ */}

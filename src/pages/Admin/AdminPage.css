@@ -532,3 +532,24 @@
 .admin-link:hover {
     border-bottom-color: #4fc3f7;
 }
+
+@media (min-width: 960px) {
+    .admin-eyebrow { font-size: 12px; }
+    .admin-meta { font-size: 13px; }
+    .admin-stat-label { font-size: 11px; }
+    .admin-section-title { font-size: 12px; }
+    .admin-table { font-size: 13px; }
+    .admin-table th { font-size: 11px; }
+    .admin-td-email { font-size: 13px; }
+    .admin-td-mono { font-size: 13px; }
+    .admin-expand-btn { font-size: 12px; }
+    .admin-expand-key { font-size: 11px; }
+    .admin-expand-val { font-size: 13px; }
+    .admin-action-btn { font-size: 12px; }
+    .admin-code-chip { font-size: 13px; }
+    .admin-seed-msg { font-size: 13px; }
+    .admin-tab-btn { font-size: 12px; }
+    .admin-status-badge { font-size: 11px; }
+    .admin-link { font-size: 12px; }
+    .admin-denied-msg { font-size: 14px; }
+}

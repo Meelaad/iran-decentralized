@@ -336,3 +336,15 @@
     .compare-stats-bar { flex-wrap: wrap; }
     .compare-stat-block { min-width: 60px; }
 }
+
+@media (min-width: 960px) {
+    .compare-eyebrow { font-size: 12px; }
+    .compare-selector-label { font-size: 13px; }
+    .compare-stat-label { font-size: 12px; }
+    .compare-stat-value { font-size: 14px; }
+    .compare-table th { font-size: 12px; }
+    .compare-table td { font-size: 13px; }
+    .compare-cell-label { font-size: 12px; }
+    .compare-cta { font-size: 13px; }
+    .compare-back { font-size: 13px; }
+}

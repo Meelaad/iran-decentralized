@@ -216,3 +216,15 @@
 .jmi-footer-nav-link:hover { background: rgba(232,200,64,0.07); border-color: rgba(232,200,64,0.55); }
 .jmi-footer-nav-link--secondary { color: #4fc3f7; border-color: rgba(79,195,247,0.3); }
 .jmi-footer-nav-link--secondary:hover { background: rgba(79,195,247,0.07); border-color: rgba(79,195,247,0.55); }
+
+@media (min-width: 960px) {
+    .jmi-eyebrow { font-size: 13px; }
+    .jmi-badge { font-size: 12px; }
+    .jmi-sechead-eyebrow { font-size: 12px; }
+    .jmi-acc-title { font-size: 14px; }
+    .jmi-acc-subtitle { font-size: 13px; }
+    .jmi-bullet-item { font-size: 13px; }
+    .jmi-source { font-size: 13px; }
+    .jmi-seg-label { font-size: 12px; }
+    .jmi-footer-nav-link { font-size: 13px; }
+}

@@ -187,3 +187,10 @@
     z-index: 9999;
     pointer-events: none;
 }
+
+@media (min-width: 960px) {
+    .cg-stat-label { font-size: 11px; }
+    .cg-section-title { font-size: 12px; }
+    .cg-subtitle { font-size: 13px; }
+    .cg-legend-label { font-size: 12px; }
+}

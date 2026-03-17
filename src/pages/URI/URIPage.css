@@ -209,3 +209,15 @@
   .uri-badge { font-size: 10px; padding: 4px 10px; }
   .uri-rejections { gap: 7px; }
 }
+
+@media (min-width: 960px) {
+    .uri-eyebrow { font-size: 13px; }
+    .uri-badge { font-size: 12px; }
+    .uri-sechead-eyebrow { font-size: 12px; }
+    .uri-acc-title { font-size: 14px; }
+    .uri-acc-subtitle { font-size: 13px; }
+    .uri-bullet-item { font-size: 13px; }
+    .uri-source { font-size: 13px; }
+    .uri-seg-label { font-size: 12px; }
+    .uri-phase-label { font-size: 12px; }
+}

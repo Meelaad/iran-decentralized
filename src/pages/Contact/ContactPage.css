@@ -282,3 +282,13 @@
         padding: 24px 18px;
     }
 }
+@media (min-width: 960px) {
+    .contact-eyebrow { font-size: 12px; }
+    .contact-label { font-size: 14px; }
+    .contact-hint { font-size: 13px; }
+    .contact-char-count { font-size: 12px; }
+    .contact-submit-btn { font-size: 14px; }
+    .contact-status { font-size: 13px; }
+    .contact-detail-label { font-size: 12px; }
+    .contact-detail-val { font-size: 14px; }
+}

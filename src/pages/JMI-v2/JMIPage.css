@@ -765,3 +765,14 @@
     padding: 16px 36px 16px 14px;
   }
 }
+
+@media (min-width: 960px) {
+    .jmi-eyebrow { font-size: 13px; }
+    .jmi-badge { font-size: 12px; }
+    .jmi-sechead-eyebrow { font-size: 12px; }
+    .jmi-acc-title { font-size: 14px; }
+    .jmi-acc-subtitle { font-size: 13px; }
+    .jmi-bullet-item { font-size: 13px; }
+    .jmi-source { font-size: 13px; }
+    .jmi-seg-label { font-size: 12px; }
+}

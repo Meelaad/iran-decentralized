@@ -154,3 +154,11 @@
     margin-right: 0;
     margin-left: 16px;
 }
+
+@media (min-width: 960px) {
+    .eyebrow { font-size: 12px; }
+    .cardMeta { font-size: 13px; }
+    .cardTag { font-size: 12px; }
+    .emptyHint { font-size: 13px; }
+    .actionBtn { font-size: 13px; }
+}

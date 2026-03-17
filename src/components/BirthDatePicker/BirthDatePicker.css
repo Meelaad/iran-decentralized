@@ -329,3 +329,8 @@
     .drum-seg-mm   { width: 30px; }
     .drum-seg-dd   { width: 30px; }
 }
+
+@media (min-width: 960px) {
+    .drum-col-label { font-size: 12px; }
+    .drum-seg-label { font-size: 11px; }
+}

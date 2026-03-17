@@ -197,3 +197,8 @@
     background: rgba(79, 195, 247, 0.12);
     border-color: rgba(79, 195, 247, 0.55);
 }
+
+@media (min-width: 960px) {
+    .about-principle-desc { font-size: 13px; }
+    .about-contact-btn { font-size: 14px; }
+}

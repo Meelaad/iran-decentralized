@@ -161,3 +161,12 @@
   background: rgba(79,195,247,0.1);
   border-color: rgba(79,195,247,0.4);
 }
+
+@media (min-width: 960px) {
+    .gov-tree-node { font-size: 13px; }
+    .gov-tree-node-label { font-size: 13px; }
+    .gov-tree-node-tier { font-size: 11px; }
+    .gov-tree-panel-tier { font-size: 12px; }
+    .gov-tree-panel-contents-label { font-size: 12px; }
+    .gov-tree-panel-link { font-size: 13px; }
+}

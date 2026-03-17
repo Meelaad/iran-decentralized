@@ -128,3 +128,8 @@
     background: rgba(79, 195, 247, 0.1);
     border-color: rgba(79, 195, 247, 0.45);
 }
+
+@media (min-width: 960px) {
+    .eb-eyebrow { font-size: 12px; }
+    .eb-btn { font-size: 13px; }
+}

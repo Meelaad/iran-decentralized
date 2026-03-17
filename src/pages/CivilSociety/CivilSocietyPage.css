@@ -601,3 +601,24 @@
 .cs-footer-nav-link--secondary:hover { background: rgba(214,228,237,0.05); color: rgba(214,228,237,0.7); }
 
 [dir="rtl"] .cs-footer-nav { flex-direction: row-reverse; }
+
+@media (min-width: 960px) {
+    .cs-hero-eyebrow { font-size: 13px; }
+    .cs-badge { font-size: 12px; }
+    .cs-sechead-eyebrow { font-size: 12px; }
+    .cs-seg-label { font-size: 12px; }
+    .cs-acc-title { font-size: 14px; }
+    .cs-acc-subtitle { font-size: 13px; }
+    .cs-bullet-item { font-size: 13px; }
+    .cs-banner-label { font-size: 12px; }
+    .cs-banner-text { font-size: 14px; }
+    .cs-pillar-sub { font-size: 13px; }
+    .cs-org-domain { font-size: 13px; }
+    .cs-org-orgs { font-size: 13px; }
+    .cs-org-fn { font-size: 13px; }
+    .cs-phase-label { font-size: 12px; }
+    .cs-econ-table-head { font-size: 12px; }
+    .cs-article-text { font-size: 13px; }
+    .cs-strat-label { font-size: 12px; }
+    .cs-source { font-size: 13px; }
+}

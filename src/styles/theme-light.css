@@ -599,3 +599,74 @@
 
 [data-theme="light"] .tc-root { background: #f1f5f9; }
 [data-theme="light"] .tc-bg-grid { opacity: 0.04; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   ACCESS MODE PAGE  (am-*)
+══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] .am-root { background: #f1f5f9; }
+[data-theme="light"] .am-bg-grid { opacity: 0.04; }
+
+[data-theme="light"] .am-eyebrow { color: rgba(2,132,199,0.6); }
+[data-theme="light"] .am-title { color: #0f172a; }
+[data-theme="light"] .am-subtitle { color: #64748b; }
+
+[data-theme="light"] .am-lang-btn {
+    border-color: rgba(15,23,42,0.12);
+    color: #64748b;
+}
+[data-theme="light"] .am-lang-btn:hover { color: #1e293b; border-color: rgba(15,23,42,0.25); }
+[data-theme="light"] .am-lang-btn.is-active { color: #0284c7; border-color: rgba(2,132,199,0.4); }
+
+[data-theme="light"] .am-card {
+    background: #ffffff;
+    border-color: rgba(15,23,42,0.08);
+}
+[data-theme="light"] .am-card--easy {
+    border-color: rgba(22,163,74,0.2);
+}
+[data-theme="light"] .am-card--easy:hover:not(.am-card--revealed) {
+    border-color: rgba(22,163,74,0.45);
+    background: rgba(22,163,74,0.04);
+}
+[data-theme="light"] .am-card--complete {
+    border-color: rgba(2,132,199,0.2);
+}
+[data-theme="light"] .am-card--complete:hover {
+    border-color: rgba(2,132,199,0.5);
+    background: rgba(2,132,199,0.04);
+}
+[data-theme="light"] .am-card--revealed {
+    border-color: rgba(22,163,74,0.25);
+    background: rgba(22,163,74,0.03);
+}
+
+[data-theme="light"] .am-card-title { color: #0f172a; }
+[data-theme="light"] .am-card-desc { color: #64748b; }
+[data-theme="light"] .am-card-features li { color: #64748b; }
+[data-theme="light"] .am-card-features li::before { color: #cbd5e1; }
+[data-theme="light"] .am-card-cta { color: #0284c7; }
+
+[data-theme="light"] .am-card-badge--easy {
+    color: #16a34a;
+    border-color: rgba(22,163,74,0.3);
+    background: rgba(22,163,74,0.07);
+}
+[data-theme="light"] .am-card-badge--complete {
+    color: #0284c7;
+    border-color: rgba(2,132,199,0.3);
+    background: rgba(2,132,199,0.07);
+}
+
+[data-theme="light"] .am-soon-label { color: #16a34a; }
+[data-theme="light"] .am-soon-text { color: #64748b; }
+[data-theme="light"] .am-soon-pulse { color: #94a3b8; }
+[data-theme="light"] .am-soon-dot { background: #16a34a; }
+[data-theme="light"] .am-soon-back {
+    color: #64748b;
+    border-color: rgba(15,23,42,0.12);
+}
+[data-theme="light"] .am-soon-back:hover { color: #1e293b; border-color: rgba(15,23,42,0.25); }
+
+[data-theme="light"] .am-back { color: #94a3b8; }
+[data-theme="light"] .am-back:hover { color: #475569; }

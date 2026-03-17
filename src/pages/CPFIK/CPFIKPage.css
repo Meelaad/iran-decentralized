@@ -198,3 +198,15 @@
   .cpfik-hero-badges { gap: 6px; }
   .cpfik-badge { font-size: 10px; padding: 4px 10px; }
 }
+
+@media (min-width: 960px) {
+    .cpfik-eyebrow { font-size: 13px; }
+    .cpfik-badge { font-size: 12px; }
+    .cpfik-sechead-eyebrow { font-size: 12px; }
+    .cpfik-acc-title { font-size: 14px; }
+    .cpfik-acc-subtitle { font-size: 13px; }
+    .cpfik-bullet-item { font-size: 13px; }
+    .cpfik-source { font-size: 13px; }
+    .cpfik-seg-label { font-size: 12px; }
+    .cpfik-phase-label { font-size: 12px; }
+}

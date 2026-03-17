@@ -232,3 +232,11 @@
     width: 100%;
   }
 }
+
+@media (min-width: 960px) {
+    .gm-eyebrow { font-size: 13px; }
+    .gm-total-label { font-size: 13px; }
+    .gm-countries-title { font-size: 13px; }
+    .gm-stat-card-title { font-size: 13px; }
+    .gm-data-note { font-size: 13px; }
+}

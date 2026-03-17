@@ -111,3 +111,8 @@
         padding: 24px 20px;
     }
 }
+
+@media (min-width: 960px) {
+    .priv-eyebrow { font-size: 12px; }
+    .priv-date { font-size: 13px; }
+}

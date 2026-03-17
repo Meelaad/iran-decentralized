@@ -211,3 +211,14 @@
     margin-top: 4px;
 }
 .tc-view-link:hover { opacity: 1; }
+
+@media (min-width: 960px) {
+    .tc-back { font-size: 13px; }
+    .tc-eyebrow { font-size: 12px; }
+    .tc-selector-label { font-size: 12px; }
+    .tc-selector-btn { font-size: 14px; }
+    .tc-cell--label { font-size: 12px; }
+    .tc-points li { font-size: 13px; }
+    .tc-cta { font-size: 13px; }
+    .tc-view-link { font-size: 12px; }
+}

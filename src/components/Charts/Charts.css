@@ -69,3 +69,8 @@
     font-family: 'intelone-mono', monospace;
     letter-spacing: 0.05em;
 }
+
+@media (min-width: 960px) {
+    .ch-stat-label { font-size: 12px; }
+    .ch-card-title { font-size: 13px; }
+}

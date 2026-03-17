@@ -117,3 +117,12 @@
 .sct-yes { color: #69d98c; }
 .sct-no  { color: #ef5350; }
 .sct-drawer-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; border: 2px solid #4fc3f7; }
+
+@media (min-width: 960px) {
+    .sct-sector-name { font-size: 13px; }
+    .sct-leading-label { font-size: 11px; }
+    .sct-expert-circle { font-size: 12px; }
+    .sct-drawer-sub { font-size: 13px; }
+    .sct-drawer-expert-title { font-size: 13px; }
+    .sct-drawer-votes { font-size: 13px; }
+}

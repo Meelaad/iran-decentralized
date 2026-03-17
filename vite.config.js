@@ -4,10 +4,13 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    sourcemap: false,
+  },
   server: {
     proxy: {
       '/api': {
-        target: 'https://irdao.tech',
+        target: 'https://irandao.org',
         changeOrigin: true,
       },
     },

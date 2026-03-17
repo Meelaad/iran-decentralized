@@ -170,3 +170,9 @@
         letter-spacing: -2px;
     }
 }
+@media (min-width: 960px) {
+    .nf-eyebrow { font-size: 12px; }
+    .nf-subtitle { font-size: 14px; }
+    .nf-status-row { font-size: 13px; }
+    .nf-home-btn { font-size: 13px; }
+}
