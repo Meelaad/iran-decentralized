@@ -1,7 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Turnstile } from '@marsidev/react-turnstile';
 import { useLang } from '../../contexts/LangContext';
 import './ContactPage.css';
+
+const TURNSTILE_SITEKEY = import.meta.env.VITE_TURNSTILE_SITEKEY || '1x00000000000000000000AA';
 
 const CONTENT = {
     eyebrow:  { en: 'SUPPORT',          fa: 'پشتیبانی' },
@@ -62,6 +65,9 @@ export default function ContactPage() {
     const [loading, setLoading] = useState(false);
     const [error,   setError]   = useState(null);
     const [success, setSuccess] = useState(false);
+    const [captchaToken, setCaptchaToken] = useState(null);
+    const [showCaptcha, setShowCaptcha] = useState(false);
+    const turnstileRef = useRef(null);
 
     // If subject pre-fill changes (unlikely but safe)
     useEffect(() => {
@@ -102,11 +108,7 @@ export default function ContactPage() {
         return errs;
     }
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        const errs = validate();
-        if (errs.length) { setError(errs); return; }
-        setError(null);
+    async function sendEmail(token) {
         setLoading(true);
         try {
             const res = await fetch('/api/public/contact', {
@@ -117,6 +119,7 @@ export default function ContactPage() {
                     email:   email.trim(),
                     subject: subject.trim(),
                     message: message.trim(),
+                    captchaToken: token,
                 }),
             });
             const data = await res.json();
@@ -125,14 +128,28 @@ export default function ContactPage() {
                 setError(msg.includes('too many') || msg.includes('rate')
                     ? t(CONTENT.errors.rateLimit)
                     : t(CONTENT.errors.generic));
+                setShowCaptcha(false);
+                setCaptchaToken(null);
                 return;
             }
             setSuccess(true);
+            setCaptchaToken(null);
+            setShowCaptcha(false);
         } catch {
             setError(t(CONTENT.errors.generic));
+            setShowCaptcha(false);
+            setCaptchaToken(null);
         } finally {
             setLoading(false);
         }
+    }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const errs = validate();
+        if (errs.length) { setError(errs); return; }
+        setError(null);
+        setShowCaptcha(true);
     }
 
     const msgLen = message.length;
@@ -266,10 +283,23 @@ export default function ContactPage() {
                                 )}
                             </div>
 
+                            {showCaptcha && (
+                                <div className="contact-captcha-wrap">
+                                    <Turnstile
+                                        ref={turnstileRef}
+                                        siteKey={TURNSTILE_SITEKEY}
+                                        onSuccess={token => { setCaptchaToken(token); sendEmail(token); }}
+                                        onExpire={() => { setCaptchaToken(null); setShowCaptcha(false); }}
+                                        onError={() => { setCaptchaToken(null); setShowCaptcha(false); }}
+                                        options={{ theme: 'auto', size: 'flexible', language: isRTL ? 'fa' : 'en' }}
+                                    />
+                                </div>
+                            )}
+
                             <button
                                 type="submit"
                                 className="contact-submit-btn"
-                                disabled={loading}
+                                disabled={loading || showCaptcha}
                                 style={monoFont}
                             >
                                 {loading && <span className="contact-spinner" />}

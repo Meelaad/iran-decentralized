@@ -35,6 +35,7 @@
     z-index: 2;
     width: 100%;
     overflow: hidden;
+    direction: ltr;
     padding: 14px 0;
     mask-image: linear-gradient(
         to right,
@@ -56,6 +57,7 @@
 .sp-marquee-track {
     display: flex;
     flex-direction: row;
+    direction: ltr;
     gap: 12px;
     width: max-content;
     will-change: transform;
@@ -152,13 +154,35 @@
     text-align: center;
 }
 
-/* ─── Eyebrow ─────────────────────────────────────────────────────────────────── */
+/* ─── Eyebrow / site title ────────────────────────────────────────────────────── */
 .sp-eyebrow {
-    font-family: 'intelone-mono', monospace;
-    font-size: clamp(11px, 1.2vw, 16px);
-    letter-spacing: 5px;
-    color: rgba(79, 195, 247, 0.5);
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0;
+    direction: ltr;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(22px, 3.2vw, 42px);
+    letter-spacing: -0.01em;
+    line-height: 1;
     text-transform: uppercase;
+    user-select: none;
+}
+
+.sp-eyebrow-iran {
+    color: #ffffff;
+    letter-spacing: 0.06em;
+}
+
+.sp-eyebrow-dao {
+    color: #4fc3f7;
+    letter-spacing: 0.04em;
+    margin-left: 0.18em;
+    text-shadow: 0 0 24px rgba(79, 195, 247, 0.55);
+}
+
+@media (min-width: 960px) {
+    .sp-eyebrow { font-size: clamp(32px, 3.6vw, 52px); }
 }
 
 /* ─── Particle title canvas ───────────────────────────────────────────────────── */
@@ -319,6 +343,20 @@
 .sp-lang-btn:hover {
     border-color: rgba(79, 195, 247, 0.5);
     color: #4fc3f7;
+}
+
+/* ─── Desktop legibility fixes ────────────────────────────────────────────────── */
+@media (min-width: 960px) {
+    .sp-tagline {
+        font-size: 24px;
+        color: rgba(220, 235, 248, 0.92);
+        letter-spacing: 0.04em;
+    }
+    .sp-hint {
+        font-size: 16px;
+        color: rgba(79, 195, 247, 0.72);
+        letter-spacing: 3px;
+    }
 }
 
 /* ─── Responsive ──────────────────────────────────────────────────────────────── */

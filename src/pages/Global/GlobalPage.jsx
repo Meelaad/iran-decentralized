@@ -27,7 +27,7 @@ function StatCard({ title, value }) {
   return (
     <div className="gm-stat-card">
       <div className="gm-stat-card-title">{title}</div>
-      <div className="gm-stat-card-value">{formatNumber(value)}</div>
+      <div className="gm-stat-card-value">{MASK_STATS ? '—' : formatNumber(value)}</div>
     </div>
   );
 }
@@ -72,7 +72,7 @@ function WorldDotMap() {
             y={y - 1.5}
             width={3}
             height={3}
-            fill="rgba(255,255,255,0.12)"
+            className="gm-dot-static"
           />
         );
       }
@@ -146,11 +146,15 @@ function WorldDotMap() {
   );
 }
 
+// ─── TEMPORARY: set to false once membership grows ─────────────────────────────
+const MASK_STATS = true;
+
 // ─── Supabase stats fetch ──────────────────────────────────────────────────────
 function useGlobalStats() {
   const [stats, setStats] = useState(placeholderStats);
 
   useEffect(() => {
+    if (MASK_STATS) return;
     Promise.all([
       supabase.from('profiles').select('*', { count: 'exact', head: true }),
       supabase.from('votes').select('*', { count: 'exact', head: true }),
@@ -208,7 +212,7 @@ export default function GlobalPage() {
                 {t({ en: 'TOTAL MEMBERS', fa: 'کل اعضا' })}
               </div>
               <div className="gm-total-value">
-                {formatNumber(stats.totalMembers)}
+                {MASK_STATS ? '—' : formatNumber(stats.totalMembers)}
               </div>
             </div>
 
@@ -221,10 +225,11 @@ export default function GlobalPage() {
                   <li key={c.code} className="gm-country-row">
                     <span style={{ color: c.color }}>■</span>
                     <span className="gm-country-code" style={{ color: c.color }}>
-                      {c.code}
+                      <span className="gm-country-name-full">{t(c.name)}</span>
+                      <span className="gm-country-name-short">{c.code}</span>
                     </span>
                     <span className="gm-country-members">
-                      {formatNumber(c.members)}
+                      {MASK_STATS ? '—' : formatNumber(c.members)}
                     </span>
                   </li>
                 ))}
@@ -234,6 +239,13 @@ export default function GlobalPage() {
 
           <WorldDotMap />
         </div>
+
+        <p className="gm-under-construction">
+          {t({
+            en: '⚠ Live member data and country distribution are currently under construction — figures will appear once the platform reaches scale.',
+            fa: '⚠ داده‌های زنده اعضا و توزیع کشوری در حال توسعه هستند — ارقام پس از رسیدن پلتفرم به مقیاس کافی نمایش داده خواهند شد.',
+          })}
+        </p>
 
         {/* Stats grid */}
         <div className="gm-stats-grid">

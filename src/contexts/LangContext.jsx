@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useCallback } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect } from 'react';
 import i18n from '../i18n';
 import { useTranslation } from 'react-i18next';
 
@@ -15,8 +15,13 @@ export function useLang() {
 }
 
 export function LangProvider({ children, initialLang = 'fa' }) {
-    const [lang, setLangState] = useState(initialLang);
+    const [lang, setLangState] = useState(() => localStorage.getItem('irdao-lang') || initialLang);
     const { t: tI18n } = useTranslation();
+
+    // Sync i18n to stored language on mount (guards against i18n.js init order issues)
+    useEffect(() => {
+        i18n.changeLanguage(lang);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     // t() handles both data objects {en, fa} and i18next string keys
     const t = useCallback((obj) => {
@@ -31,6 +36,7 @@ export function LangProvider({ children, initialLang = 'fa' }) {
     const setLang = useCallback((newLang) => {
         setLangState(newLang);
         i18n.changeLanguage(newLang);
+        localStorage.setItem('irdao-lang', newLang);
     }, []);
 
     const isRTL = lang === 'fa';

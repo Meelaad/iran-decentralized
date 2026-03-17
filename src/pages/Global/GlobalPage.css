@@ -122,12 +122,25 @@
 
 .gm-country-code {
   font-weight: 600;
-  min-width: 32px;
+}
+
+.gm-country-name-short { display: none; }
+.gm-country-name-full  { display: inline; }
+
+@media (max-width: 480px) {
+  .gm-country-name-full  { display: none; }
+  .gm-country-name-short { display: inline; min-width: 32px; }
 }
 
 .gm-country-members {
   color: #ededed;
   margin-left: auto;
+}
+
+/* ── Static dots ─────────────────────────────────────────────────────────────── */
+
+.gm-dot-static {
+  fill: rgba(255, 255, 255, 0.12);
 }
 
 /* ── SVG marker ──────────────────────────────────────────────────────────────── */
@@ -180,6 +193,19 @@
   transform: translate(-50%, -120%);
 }
 
+/* ── Under construction notice ───────────────────────────────────────────────── */
+
+.gm-under-construction {
+  font-size: 11px;
+  color: rgba(232, 80, 122, 0.55);
+  border: 1px solid rgba(232, 80, 122, 0.15);
+  border-radius: 6px;
+  padding: 8px 14px;
+  margin: 0 0 28px;
+  line-height: 1.6;
+  font-family: 'intelone-mono', monospace;
+}
+
 /* ── Stats grid ──────────────────────────────────────────────────────────────── */
 
 .gm-stats-grid {
@@ -211,6 +237,7 @@
   font-family: 'intelone-mono', monospace;
   color: #ededed;
 }
+
 
 /* ── Data note ───────────────────────────────────────────────────────────────── */
 

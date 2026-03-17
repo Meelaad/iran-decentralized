@@ -834,3 +834,85 @@ svg path, svg text, svg circle, svg g {
     border-color: #4fc3f7;
     box-shadow: 0 0 16px rgba(79,195,247,0.2);
 }
+
+/* ── Blueprint picker (inside viewer, next to map/list/tree tabs) ── */
+.bv-bp-picker {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.bv-bp-picker-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(79,195,247,0.2);
+    background: rgba(79,195,247,0.05);
+    color: #4fc3f7;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 0.15s, background 0.15s;
+    letter-spacing: 0.03em;
+}
+.bv-bp-picker-btn:hover {
+    border-color: rgba(79,195,247,0.45);
+    background: rgba(79,195,247,0.1);
+}
+
+.bv-bp-picker-caret {
+    font-size: 8px;
+    opacity: 0.6;
+}
+
+.bv-bp-picker-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 230px;
+    background: rgba(8,14,26,0.97);
+    border: 1px solid rgba(79,195,247,0.14);
+    border-radius: 8px;
+    padding: 6px;
+    z-index: 300;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.bv-bp-picker-option {
+    width: 100%;
+    text-align: start;
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    color: rgba(214,228,237,0.6);
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s;
+}
+.bv-bp-picker-option:hover {
+    background: rgba(79,195,247,0.08);
+    color: #d6e4ed;
+}
+.bv-bp-picker-option.is-active {
+    background: rgba(79,195,247,0.13);
+    color: #4fc3f7;
+}
+
+.bv-bp-picker-row {
+    padding: 6px 24px 0;
+    display: flex;
+    align-items: center;
+}
+
+.bv-controls-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}

@@ -1,7 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import './TransitionalComparePage.css';
+
+function HexGrid() {
+    const canvasRef = useRef(null);
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        function draw() {
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width  = canvas.offsetWidth  * dpr;
+            canvas.height = canvas.offsetHeight * dpr;
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            const w = canvas.offsetWidth;
+            const h = canvas.offsetHeight;
+            const r = 26;
+            const colDx = r * 1.5;
+            const rowDy = r * Math.sqrt(3);
+
+            ctx.strokeStyle = 'rgba(124,114,232,0.10)';
+            ctx.lineWidth = 1;
+
+            const cols = Math.ceil(w / colDx) + 3;
+            const rows = Math.ceil(h / rowDy) + 3;
+
+            for (let col = -1; col < cols; col++) {
+                for (let row = -1; row < rows; row++) {
+                    const cx = col * colDx;
+                    const cy = row * rowDy + (col % 2 !== 0 ? rowDy / 2 : 0);
+                    ctx.beginPath();
+                    for (let i = 0; i < 6; i++) {
+                        const a = (Math.PI / 3) * i;
+                        const x = cx + r * Math.cos(a);
+                        const y = cy + r * Math.sin(a);
+                        if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                }
+            }
+        }
+
+        draw();
+        window.addEventListener('resize', draw);
+        return () => window.removeEventListener('resize', draw);
+    }, []);
+    return <canvas ref={canvasRef} className="tc-hex-canvas" />;
+}
 
 const PLANS = [
     {
@@ -150,7 +199,7 @@ export default function TransitionalComparePage() {
 
     return (
         <div className="tc-root" dir={isRTL ? 'rtl' : 'ltr'}>
-            <div className="tc-bg-grid" />
+            <HexGrid />
 
             <div className="tc-inner">
                 <div className="tc-header">

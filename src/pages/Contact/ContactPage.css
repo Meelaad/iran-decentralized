@@ -185,6 +185,16 @@
     letter-spacing: 0.5px;
 }
 
+/* ── Captcha ── */
+.contact-captcha-wrap {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.contact-captcha-wrap iframe {
+    border-radius: 0 !important;
+}
+
 /* ── Submit ── */
 .contact-submit-btn {
     width: 100%;

@@ -234,9 +234,58 @@
     background: rgba(79,195,247,0.08);
 }
 .vote-weight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 4px;
+    padding: 10px 14px;
+    background: rgba(79,195,247,0.04);
+    border: 1px solid rgba(79,195,247,0.12);
+    border-radius: 6px;
+}
+
+.vote-weight-info-title {
+    font-size: 11px;
+    color: rgba(79,195,247,0.55);
+    letter-spacing: 0.04em;
+}
+
+.vote-weight-info-tiers {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(79,195,247,0.7);
+}
+
+.vote-weight-tier {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.vote-weight-tier-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1px 6px;
+    border: 1px solid rgba(79,195,247,0.3);
+    border-radius: 4px;
     font-size: 10px;
-    color: rgba(79,195,247,0.4);
-    letter-spacing: 0.5px;
+    color: #4fc3f7;
+    background: rgba(79,195,247,0.08);
+    letter-spacing: 0.02em;
+}
+
+.vote-weight-tier-badge--high {
+    border-color: rgba(79,195,247,0.6);
+    background: rgba(79,195,247,0.14);
+    text-shadow: 0 0 8px rgba(79,195,247,0.5);
+}
+
+.vote-weight-sep {
+    color: rgba(79,195,247,0.25);
 }
 
 /* ── Age gate ── */

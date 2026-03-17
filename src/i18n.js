@@ -7,7 +7,7 @@ i18n
     .use(initReactI18next)
     .init({
         resources: { en: { translation: en }, fa: { translation: fa } },
-        lng: 'fa',
+        lng: localStorage.getItem('irdao-lang') || 'fa',
         fallbackLng: 'en',
         interpolation: { escapeValue: false },
         showSupportNotice: false,

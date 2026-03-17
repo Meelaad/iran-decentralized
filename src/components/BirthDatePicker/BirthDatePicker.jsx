@@ -82,6 +82,16 @@ function DrumColumn({ items, selectedIndex, onSelect, label, itemH }) {
     return (
         <div className="drum-col">
             <div className="drum-col-label">{label}</div>
+            <button
+                type="button"
+                className="drum-arrow drum-arrow--up"
+                onClick={() => onSelect(Math.max(0, selectedIndex - 1))}
+                disabled={selectedIndex === 0}
+                tabIndex={-1}
+            >
+                <span className="drum-arrow-chevron" />
+                <span className="drum-arrow-chevron" />
+            </button>
             <div
                 className="drum-viewport"
                 style={{ height: viewportH }}
@@ -95,14 +105,16 @@ function DrumColumn({ items, selectedIndex, onSelect, label, itemH }) {
                     style={{ transform: `translateY(${translateY}px)` }}
                 >
                     {items.map((item, i) => {
-                        const dist    = Math.abs(i - selectedIndex);
+                        const d       = i - selectedIndex;
+                        const dist    = Math.abs(d);
                         const opacity = dist === 0 ? 1 : dist === 1 ? 0.45 : dist === 2 ? 0.18 : 0.06;
                         const scale   = dist === 0 ? 1 : dist === 1 ? 0.88 : 0.76;
+                        const rotateX = d * 28;
                         return (
                             <div
                                 key={i}
                                 className={`drum-item${dist === 0 ? ' drum-item--selected' : ''}`}
-                                style={{ height: itemH, opacity, transform: `scale(${scale})` }}
+                                style={{ height: itemH, opacity, transform: `perspective(320px) rotateX(${rotateX}deg) scale(${scale})` }}
                                 onClick={() => onSelect(i)}
                             >
                                 {item}
@@ -120,6 +132,16 @@ function DrumColumn({ items, selectedIndex, onSelect, label, itemH }) {
                 <div className="drum-fade-bottom" />
                 <div className="drum-scanline" />
             </div>
+            <button
+                type="button"
+                className="drum-arrow drum-arrow--down"
+                onClick={() => onSelect(Math.min(items.length - 1, selectedIndex + 1))}
+                disabled={selectedIndex === items.length - 1}
+                tabIndex={-1}
+            >
+                <span className="drum-arrow-chevron" />
+                <span className="drum-arrow-chevron" />
+            </button>
         </div>
     );
 }

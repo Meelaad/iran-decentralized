@@ -1,11 +1,11 @@
 export const topCountries = [
-  { code: 'IR', name: 'Iran', members: 0, color: '#e8507a' },
-  { code: 'DE', name: 'Germany', members: 0, color: '#FFCE00' },
-  { code: 'US', name: 'United States', members: 0, color: '#4fc3f7' },
-  { code: 'GB', name: 'United Kingdom', members: 0, color: '#2563eb' },
-  { code: 'CA', name: 'Canada', members: 0, color: '#b91c1c' },
-  { code: 'SE', name: 'Sweden', members: 0, color: '#2563eb' },
-  { code: 'NL', name: 'Netherlands', members: 0, color: '#ea580c' },
+  { code: 'IR', name: { en: 'Iran',          fa: 'ایران' },          members: 0, color: '#e8507a' },
+  { code: 'DE', name: { en: 'Germany',       fa: 'آلمان' },          members: 0, color: '#FFCE00' },
+  { code: 'US', name: { en: 'United States', fa: 'ایالات متحده' },   members: 0, color: '#4fc3f7' },
+  { code: 'GB', name: { en: 'United Kingdom',fa: 'بریتانیا' },        members: 0, color: '#2563eb' },
+  { code: 'CA', name: { en: 'Canada',        fa: 'کانادا' },          members: 0, color: '#b91c1c' },
+  { code: 'SE', name: { en: 'Sweden',        fa: 'سوئد' },           members: 0, color: '#2563eb' },
+  { code: 'NL', name: { en: 'Netherlands',   fa: 'هلند' },           members: 0, color: '#ea580c' },
 ];
 
 export const countryColors = {

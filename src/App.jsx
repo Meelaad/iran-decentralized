@@ -15,6 +15,7 @@ import AdminPage from './pages/Admin/AdminPage';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
 import ContactPage from './pages/Contact/ContactPage';
 import PrivacyPage from './pages/Privacy/PrivacyPage';
+import TermsPage from './pages/Terms/TermsPage';
 import ProfilePage from './pages/Profile/ProfilePage';
 import LoginPage from './pages/Login/LoginPage';
 import ComparePage from './pages/Compare/ComparePage';
@@ -96,6 +97,7 @@ function App() {
                         <Route path="admin" element={<AdminPage />} />
                         <Route path="contact" element={<ContactPage />} />
                         <Route path="privacy" element={<PrivacyPage />} />
+                        <Route path="terms" element={<TermsPage />} />
                         <Route path="login" element={<LoginPage />} />
 
                         {/* Post-collapse: The Destination */}

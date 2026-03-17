@@ -244,12 +244,32 @@ export default function VotePage() {
                         >
                             {isRTL ? 'رأی وزن‌دار' : 'WEIGHTED VOTES'}
                         </button>
-                        {viewMode === 'weighted' && (
-                            <span className="vote-weight-info" style={monoFont}>
-                                {isRTL ? 'LOW×1  MID×2  HIGH×3' : 'LOW×1  MID×2  HIGH×3'}
-                            </span>
-                        )}
                     </div>
+                        {viewMode === 'weighted' && (
+                            <div className="vote-weight-info" style={monoFont}>
+                                <span className="vote-weight-info-title">
+                                    {isRTL
+                                        ? 'آرا بر اساس سطح اعتماد شهروند وزن‌دهی می‌شوند'
+                                        : 'Votes are weighted by citizen trust tier'}
+                                </span>
+                                <span className="vote-weight-info-tiers">
+                                    <span className="vote-weight-tier">
+                                        <span className="vote-weight-tier-badge">×1</span>
+                                        {isRTL ? 'پایین — اعضای جدید' : 'Low — new members'}
+                                    </span>
+                                    <span className="vote-weight-sep">·</span>
+                                    <span className="vote-weight-tier">
+                                        <span className="vote-weight-tier-badge">×2</span>
+                                        {isRTL ? 'متوسط — اعضای تأیید‌شده' : 'Mid — verified members'}
+                                    </span>
+                                    <span className="vote-weight-sep">·</span>
+                                    <span className="vote-weight-tier">
+                                        <span className="vote-weight-tier-badge vote-weight-tier-badge--high">×3</span>
+                                        {isRTL ? 'بالا — اعضای معتمد' : 'High — trusted members'}
+                                    </span>
+                                </span>
+                            </div>
+                        )}
                 </div>
 
                 <div className="vote-cards">

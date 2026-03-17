@@ -528,7 +528,9 @@ export default function StartPage() {
 
             {/* Hero centre */}
             <div className="sp-hero" ref={heroRef}>
-                <div className="sp-eyebrow">IRAN · DAO</div>
+                <div className="sp-eyebrow">
+                    <span className="sp-eyebrow-iran">IRAN</span><span className="sp-eyebrow-dao">DAO</span>
+                </div>
 
                 <ParticleTitle key={`${lang}-${theme}`} words={particleWords} isRTL={isRTL} isLight={theme === 'light'} />
 

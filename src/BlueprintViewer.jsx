@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo, useRef, useEffect } from "react";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { Link, useParams, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { forceSimulation, forceLink, forceManyBody, forceCenter, forceCollide, forceX, forceY } from 'd3-force';
 import { BLUEPRINTS } from './data';
 import { useLang } from './contexts/LangContext';
@@ -198,6 +198,10 @@ function AdminGrid() {
 export default function BlueprintViewer() {
     const { blueprintId } = useParams();
     const { t, tKey, isRTL } = useLang();
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [bpPickerOpen, setBpPickerOpen] = useState(false);
+    const bpPickerRef = useRef(null);
     const [selected, setSelected] = useState(null);
     const [panelVisible, setPanelVisible] = useState(false);
     const [panelOrigin, setPanelOrigin] = useState(null);
@@ -339,6 +343,21 @@ export default function BlueprintViewer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [view]);
 
+    useEffect(() => {
+        if (!bpPickerOpen) return;
+        function handleOutside(e) {
+            if (bpPickerRef.current && !bpPickerRef.current.contains(e.target)) setBpPickerOpen(false);
+        }
+        document.addEventListener('mousedown', handleOutside);
+        return () => document.removeEventListener('mousedown', handleOutside);
+    }, [bpPickerOpen]);
+
+    const handleBlueprintSwitch = (id) => {
+        setBpPickerOpen(false);
+        const subpath = location.pathname.match(/\/blueprint\/gov\/[^/]+(\/.*)?/)?.[1] || '';
+        navigate(`/blueprint/gov/${id}${subpath}`);
+    };
+
     // Reset selection when blueprint changes
     useEffect(() => {
         setSelected(null);
@@ -434,13 +453,40 @@ export default function BlueprintViewer() {
                 </div>
 
                 <div className="app-controls">
-                    <div className="control-group">
-                        <button className={`btn-base ${view === "map" ? "btn-active" : ""}`}
-                                onClick={() => setView("map")}>{tKey('blueprint.map')}</button>
-                        <button className={`btn-base ${view === "list" ? "btn-active" : ""}`}
-                                onClick={() => setView("list")}>{tKey('blueprint.list')}</button>
-                        <button className={`btn-base ${view === "tree" ? "btn-active" : ""}`}
-                                onClick={() => setView("tree")}>TREE</button>
+                    <div className="bv-controls-col">
+                        <div className="control-group">
+                            <button className={`btn-base ${view === "map" ? "btn-active" : ""}`}
+                                    onClick={() => setView("map")}>{tKey('blueprint.map')}</button>
+                            <button className={`btn-base ${view === "list" ? "btn-active" : ""}`}
+                                    onClick={() => setView("list")}>{tKey('blueprint.list')}</button>
+                            <button className={`btn-base ${view === "tree" ? "btn-active" : ""}`}
+                                    onClick={() => setView("tree")}>TREE</button>
+                        </div>
+
+                        <div className="bv-bp-picker" ref={bpPickerRef}>
+                            <button
+                                className="bv-bp-picker-btn"
+                                onClick={() => setBpPickerOpen(o => !o)}
+                                style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                            >
+                                <span>{t(activeBlueprint.name)}</span>
+                                <span className="bv-bp-picker-caret">{bpPickerOpen ? '▲' : '▼'}</span>
+                            </button>
+                            {bpPickerOpen && (
+                                <div className="bv-bp-picker-dropdown">
+                                    {Object.values(BLUEPRINTS).map(bp => (
+                                        <button
+                                            key={bp.id}
+                                            className={`bv-bp-picker-option${blueprintId === bp.id ? ' is-active' : ''}`}
+                                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                            onClick={() => handleBlueprintSwitch(bp.id)}
+                                        >
+                                            {t(bp.name)}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     {isAdmin && view === 'map' && (
