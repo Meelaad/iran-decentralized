@@ -1,0 +1,33 @@
+.brand-mark {
+    display: inline-flex;
+    align-items: baseline;
+    direction: ltr;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.brand-mark--lg { font-size: clamp(18px, 2.56vw, 34px); }
+.brand-mark--sm { font-size: clamp(13px, 1.6vw, 21px); }
+
+@media (min-width: 960px) {
+    .brand-mark--lg { font-size: clamp(26px, 2.88vw, 42px); }
+}
+
+.brand-mark-iran {
+    color: #ffffff;
+    letter-spacing: 0.06em;
+}
+
+.brand-mark-dao {
+    color: #4fc3f7;
+    letter-spacing: 0.04em;
+    margin-left: 0.18em;
+    text-shadow: 0 0 24px rgba(79, 195, 247, 0.55);
+}
+
+[data-theme="light"] .brand-mark-iran { color: #0f172a; }
+[data-theme="light"] .brand-mark-dao { color: #0284c7; text-shadow: 0 0 16px rgba(2, 132, 199, 0.3); }
