@@ -5,8 +5,8 @@
 .jmi-page {
   position: relative;
   min-height: 100vh;
-  background: #020408;
-  color: #d6e4ed;
+  background: #010303;
+  color: #CCE3F0;
   overflow-x: hidden;
 }
 
@@ -350,7 +350,7 @@
 .jmi-power-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #d6e4ed;
+  color: #CCE3F0;
   margin: 0 0 4px;
 }
 
@@ -402,7 +402,7 @@
 .jmi-target-name {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #d6e4ed;
+  color: #CCE3F0;
   margin: 0;
   flex: 1;
   min-width: 120px;
@@ -480,7 +480,7 @@
 .jmi-acc-label {
   font-size: 0.93rem;
   font-weight: 600;
-  color: #d6e4ed;
+  color: #CCE3F0;
   flex: 1;
 }
 

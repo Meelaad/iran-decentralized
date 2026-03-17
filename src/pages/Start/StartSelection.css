@@ -1,21 +1,20 @@
 /* StartSelection.css — dual-zone layout */
 .ss-root {
     min-height: 100vh;
-    background: #07101a;
+    background: #050810;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: 40px 24px 60px;
+    align-items: stretch;
+    padding: 0;
     position: relative;
-    font-family: 'Inter', sans-serif;
 }
 
 .ss-bg-grid {
     position: fixed;
     inset: 0;
     background-image:
-        linear-gradient(rgba(79,195,247,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(79,195,247,0.025) 1px, transparent 1px);
+        linear-gradient(rgba(139,92,246,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139,92,246,0.025) 1px, transparent 1px);
     background-size: 44px 44px;
     pointer-events: none;
     z-index: 0;
@@ -26,18 +25,12 @@
     z-index: 1;
     text-align: center;
     margin-bottom: 48px;
+    align-self: center;
+    padding: 48px 24px 0;
 }
 
-.ss-eyebrow {
-    font-family: 'intelone-mono', monospace;
-    font-size: clamp(11px, 1vw, 13px);
-    letter-spacing: 5px;
-    color: rgba(79,195,247,0.45);
-    margin-bottom: 12px;
-}
 
 .ss-title {
-    font-family: 'Inter', sans-serif;
     font-size: clamp(26px, 3vw, 36px);
     font-weight: 700;
     color: #fff;
@@ -60,6 +53,9 @@
     gap: 24px;
     width: 100%;
     max-width: 960px;
+    align-self: center;
+    padding: 0 24px;
+    box-sizing: border-box;
 }
 
 .ss-zone {
@@ -73,7 +69,7 @@
 }
 
 .ss-zone--pre  { border: 1px solid rgba(124,114,232,0.3); }
-.ss-zone--post { border: 1px solid rgba(79,195,247,0.25); }
+.ss-zone--post { border: 1px solid rgba(139,92,246,0.25); }
 
 /* Zone header */
 .ss-zone-header { display: flex; flex-direction: column; gap: 6px; }
@@ -89,10 +85,9 @@
 }
 
 .ss-zone-tag--pre  { background: rgba(124,114,232,0.15); color: #9c8ef5; border: 1px solid rgba(124,114,232,0.3); }
-.ss-zone-tag--post { background: rgba(79,195,247,0.1);   color: #4fc3f7; border: 1px solid rgba(79,195,247,0.25); }
+.ss-zone-tag--post { background: rgba(139,92,246,0.1);   color: #8B5CF6; border: 1px solid rgba(139,92,246,0.25); }
 
 .ss-zone-title {
-    font-family: 'Inter', sans-serif;
     font-size: clamp(18px, 2vw, 24px);
     font-weight: 700;
     color: #fff;
@@ -120,11 +115,11 @@
     border: 1px solid transparent;
 }
 
-.ss-link--pre  { background: rgba(124,114,232,0.07); color: #d6e4ed; }
-.ss-link--post { background: rgba(79,195,247,0.05);  color: #d6e4ed; }
+.ss-link--pre  { background: rgba(124,114,232,0.07); color: #CCE3F0; }
+.ss-link--post { background: rgba(139,92,246,0.05);  color: #CCE3F0; }
 
 .ss-link--pre:hover  { background: rgba(124,114,232,0.15); border-color: rgba(124,114,232,0.35); transform: translateX(3px); }
-.ss-link--post:hover { background: rgba(79,195,247,0.12);  border-color: rgba(79,195,247,0.3);   transform: translateX(3px); }
+.ss-link--post:hover { background: rgba(139,92,246,0.12);  border-color: rgba(139,92,246,0.3);   transform: translateX(3px); }
 
 [dir="rtl"] .ss-link--pre:hover,
 [dir="rtl"] .ss-link--post:hover { transform: translateX(-3px); }
@@ -146,7 +141,7 @@
 
 /* Live vote summary */
 .ss-vote-summary {
-    border-top: 1px solid rgba(79,195,247,0.1);
+    border-top: 1px solid rgba(139,92,246,0.1);
     padding-top: 16px;
     display: flex;
     flex-direction: column;
@@ -157,7 +152,7 @@
     font-family: 'intelone-mono', monospace;
     font-size: clamp(10px, 0.85vw, 12px);
     letter-spacing: 3px;
-    color: rgba(79,195,247,0.45);
+    color: rgba(139,92,246,0.45);
     margin-bottom: 4px;
 }
 
@@ -173,14 +168,14 @@
 .ss-vote-bar-wrap {
     flex: 1;
     height: 4px;
-    background: rgba(79,195,247,0.08);
+    background: rgba(139,92,246,0.08);
     border-radius: 2px;
     overflow: hidden;
 }
 
 .ss-vote-bar {
     height: 100%;
-    background: rgba(79,195,247,0.5);
+    background: rgba(139,92,246,0.5);
     border-radius: 2px;
     transition: width 0.6s ease;
     min-width: 2px;
@@ -189,7 +184,7 @@
 .ss-vote-pct {
     font-family: 'intelone-mono', monospace;
     font-size: clamp(11px, 0.85vw, 13px);
-    color: #4fc3f7;
+    color: #8B5CF6;
     width: 30px;
     text-align: end;
 }
@@ -199,18 +194,20 @@
     position: relative;
     z-index: 1;
     margin-top: 32px;
+    align-self: center;
+    padding-bottom: 20px;
 }
 
 .ss-back {
     font-family: 'intelone-mono', monospace;
     font-size: clamp(12px, 0.95vw, 14px);
     letter-spacing: 1px;
-    color: rgba(79,195,247,0.45);
+    color: rgba(139,92,246,0.45);
     text-decoration: none;
     transition: color 0.2s;
 }
 
-.ss-back:hover { color: #4fc3f7; }
+.ss-back:hover { color: #8B5CF6; }
 
 /* ── Responsive ──────────────────────────────────────────────────────────── */
 @media (max-width: 700px) {
@@ -225,25 +222,29 @@
     top: 16px;
     inset-inline-end: 20px;
     display: flex;
-    gap: 4px;
+    align-items: center;
+    gap: 8px;
     z-index: 100;
 }
 
 .ss-lang-btn {
-    background: rgba(13,31,45,0.8);
-    border: 1px solid rgba(79,195,247,0.2);
-    color: rgba(79,195,247,0.55);
-    font-family: 'intelone-mono', monospace;
-    font-size: clamp(11px, 0.9vw, 13px);
-    letter-spacing: 1px;
-    padding: 5px 10px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.1);
+    color: rgba(204,227,240,0.4);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    padding: 5px 12px;
     border-radius: 4px;
     cursor: pointer;
-    transition: border-color 0.2s, color 0.2s;
+    transition: color 0.15s, border-color 0.15s;
 }
 
-.ss-lang-btn.is-active,
-.ss-lang-btn:hover {
-    border-color: rgba(79,195,247,0.5);
-    color: #4fc3f7;
-}
+.ss-lang-btn:hover { color: rgba(204,227,240,0.8); border-color: rgba(255,255,255,0.2); }
+.ss-lang-btn.is-active { color: #8B5CF6; border-color: rgba(139,92,246,0.4); }
+
+/* RTL: swap mono elements to Irancell (matches AccessMode monoFont logic) */
+[dir="rtl"] .ss-zone-tag,
+[dir="rtl"] .ss-link-title,
+[dir="rtl"] .ss-vote-summary-label,
+[dir="rtl"] .ss-vote-pct,
+[dir="rtl"] .ss-back { font-family: 'Irancell', sans-serif; }

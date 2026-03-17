@@ -45,7 +45,7 @@ function ParticleGrid() {
             ctx.beginPath();
             ctx.moveTo(nodes[i].x, nodes[i].y);
             ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(79,195,247,${(1 - dist / 190) * 0.09})`;
+            ctx.strokeStyle = `rgba(139,92,246,${(1 - dist / 190) * 0.09})`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
@@ -53,7 +53,7 @@ function ParticleGrid() {
         const p = 0.5 + 0.5 * Math.sin(t + i);
         ctx.beginPath();
         ctx.arc(nodes[i].x, nodes[i].y, 1.4, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(79,195,247,${0.12 + p * 0.16})`;
+        ctx.fillStyle = `rgba(139,92,246,${0.12 + p * 0.16})`;
         ctx.fill();
       }
       animId = requestAnimationFrame(draw);
@@ -72,7 +72,7 @@ function ParticleGrid() {
 ───────────────────────────────────────────────────── */
 function Accordion({ title, subtitle, color, children, defaultOpen = false }) {
   const [open, setOpen] = useState(defaultOpen);
-  const c = color || "#4fc3f7";
+  const c = color || "#8B5CF6";
   return (
     <div className="tp-acc" style={{ "--c": c }}>
       <button className="tp-acc-btn" onClick={() => setOpen(o => !o)}>
@@ -91,7 +91,7 @@ function Bullets({ items, color }) {
     <ul className="tp-bullets">
       {items.map((it, i) => (
         <li key={i} className="tp-bullet-item">
-          <span className="tp-bullet-dot" style={{ background: color || "#4fc3f7" }} />
+          <span className="tp-bullet-dot" style={{ background: color || "#8B5CF6" }} />
           <span>{it}</span>
         </li>
       ))}
@@ -103,7 +103,7 @@ function Bullets({ items, color }) {
 function SecHead({ eyebrow, title, intro, color }) {
   return (
     <div className="tp-sechead">
-      {eyebrow && <div className="tp-sechead-eyebrow" style={{ color: color || "#4fc3f7" }}>{eyebrow}</div>}
+      {eyebrow && <div className="tp-sechead-eyebrow" style={{ color: color || "#8B5CF6" }}>{eyebrow}</div>}
       {title && <h2 className="tp-sechead-title">{title}</h2>}
       {intro && <p className="tp-sechead-intro">{intro}</p>}
     </div>
@@ -275,7 +275,7 @@ const DATA = {
     gov: {
       title: "Transitional Government",
       sub: "Executive branch · Head appointed by Leader (after consulting Mehestan)",
-      color: "#4fc3f7",
+      color: "#8B5CF6",
       sections: [
         {
           title: "Structure set by head of Government",
@@ -588,7 +588,7 @@ const DATA = {
           "Inspired by the Brexit 2020 transition model",
           "Replacement laws drawn from Pahlavi Imperial era or updated modern equivalents",
         ],
-        color: "#4fc3f7",
+        color: "#8B5CF6",
       },
       {
         label: "Part III",
@@ -837,7 +837,7 @@ const DATA = {
     ess: {
       title: "Essential Functions",
       sub: "Continuity of government services — 180-day plan",
-      color: "#4fc3f7",
+      color: "#8B5CF6",
       sections: [
         {
           title: "H-Hour to H+72: Immediate seizure of critical infrastructure",
@@ -1165,7 +1165,7 @@ const DATA = {
     gov: {
       title: "دولت موقت",
       sub: "قوه مجریه · رئیس توسط رهبر (پس از مشورت با مجلس موقت) منصوب می‌شود",
-      color: "#4fc3f7",
+      color: "#8B5CF6",
       sections: [
         {
           title: "ساختار توسط رئیس دولت تعیین می‌شود",
@@ -1475,7 +1475,7 @@ const DATA = {
           "الهام از مدل گذار برگزیت ۲۰۲۰",
           "قوانین جایگزین از دوره پهلوی یا معادل‌های مدرن",
         ],
-        color: "#4fc3f7",
+        color: "#8B5CF6",
       },
       {
         label: "بخش سوم",
@@ -1582,7 +1582,7 @@ const DATA = {
     ess: {
       title: "خدمات اساسی",
       sub: "تداوم خدمات دولتی — برنامه ۱۸۰ روزه",
-      color: "#4fc3f7",
+      color: "#8B5CF6",
       sections: [
         { title: "H تا H+72: تصرف فوری زیرساخت‌های حیاتی", items: ["تأمین انبارهای سوخت و شبکه توزیع", "تأمین ذخایر غله و زنجیره تأمین غذا", "تأمین بنادر اصلی و کریدورهای لجستیک", "تأمین بیمارستان‌ها و زنجیره تأمین دارو", "تأمین تأسیسات تصفیه آب و توزیع", "تأمین مراکز مخابراتی و تبادل اینترنت"] },
         { title: "روزهای ۳–۳۰: تثبیت و تریاژ ملی", items: ["ارزیابی دسترسی ملی به تمام کالاهای ضروری", "وضعیت تداوم خدمات آب‌وبرق و بهداشت", "اجرای اقدامات ضدسودجویی و کنترل قیمت‌ها", "اقدامات اضطراری برای جمعیت‌های آسیب‌پذیر"] },
@@ -1672,12 +1672,12 @@ const DATA = {
    Main page component
 ───────────────────────────────────────────────────── */
 export default function TransitionalPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
-  const GREEN = "#69d98c", CYAN = "#4fc3f7", AMBER = "#ffd166",
+  const GREEN = "#69d98c", CYAN = "#8B5CF6", AMBER = "#ffd166",
     ORANGE = "#ff9a42", RED = "#ef5350", PURPLE = "#ba68c8", VIOLET = "#7c72e8";
 
   return (

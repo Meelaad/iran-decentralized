@@ -5,7 +5,7 @@ import { BLUEPRINTS, SECTORS } from "../../data";
 import './SectorsIndex.css';
 
 const TIERS = [
-    { key: "core", label: { en: "CORE LAYER", fa: "لایه هسته" }, color: "#4fc3f7" },
+    { key: "core", label: { en: "CORE LAYER", fa: "لایه هسته" }, color: "#8B5CF6" },
     { key: "primary", label: { en: "PRIMARY SECTORS", fa: "بخش‌های اولیه" }, color: "#66bb6a" },
     { key: "secondary", label: { en: "SECONDARY SECTORS", fa: "بخش‌های ثانویه" }, color: "#ffa726" },
     { key: "tertiary", label: { en: "SUPPORTING SECTORS", fa: "بخش‌های پشتیبان" }, color: "#ab47bc" },
@@ -86,13 +86,13 @@ function HexBg({ accentColor }) {
                     const alpha = intensity * 0.18;
                     ctx.fillStyle = accentColor
                         ? accentColor.replace(")", `,${alpha})`).replace("rgb(", "rgba(")
-                        : `rgba(79,195,247,${alpha})`;
+                        : `rgba(139,92,246,${alpha})`;
                     ctx.fill();
                     ctx.strokeStyle = accentColor
                         ? accentColor.replace(")", `,${0.15 + intensity * 0.4})`).replace("rgb(", "rgba(")
-                        : `rgba(79,195,247,${0.15 + intensity * 0.4})`;
+                        : `rgba(139,92,246,${0.15 + intensity * 0.4})`;
                 } else {
-                    ctx.strokeStyle = "rgba(79,195,247,0.06)";
+                    ctx.strokeStyle = "rgba(139,92,246,0.06)";
                 }
                 ctx.lineWidth = 0.5;
                 ctx.stroke();
@@ -135,7 +135,7 @@ function hexToRgb(hex) {
     return `rgb(${r},${g},${b})`;
 }
 
-function HexCard({ sector, isRTL, t, delay, sectorBase }) {
+function HexCard({ sector, isRTL, t, delay, sectorBase, headFont }) {
     return (
         <Link
             to={`${sectorBase}/${sector.id}`}
@@ -147,7 +147,7 @@ function HexCard({ sector, isRTL, t, delay, sectorBase }) {
             <div className="sectors-card-body">
                 <div
                     className="sectors-card-title"
-                    style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                    style={{ fontFamily: headFont }}
                 >
                     {t(sector.label)}
                 </div>
@@ -159,7 +159,7 @@ function HexCard({ sector, isRTL, t, delay, sectorBase }) {
 }
 
 export default function SectorsIndex() {
-    const { t, tKey, isRTL } = useLang();
+    const { t, tKey, isRTL, headFont } = useLang();
     const { blueprintId } = useParams();
     const activeSectors = (blueprintId && BLUEPRINTS[blueprintId]?.sectors) || SECTORS;
     const sectorBase = blueprintId ? `/blueprint/gov/${blueprintId}/sectors` : '/sectors';
@@ -170,7 +170,7 @@ export default function SectorsIndex() {
             <div className="sectors-index-inner">
                 <h1
                     className="sectors-index-title"
-                    style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                    style={{ fontFamily: headFont }}
                 >
                     {tKey('sectors.title')}
                 </h1>
@@ -199,6 +199,7 @@ export default function SectorsIndex() {
                                         t={t}
                                         delay={i * 0.06}
                                         sectorBase={sectorBase}
+                                        headFont={headFont}
                                     />
                                 ))}
                             </div>

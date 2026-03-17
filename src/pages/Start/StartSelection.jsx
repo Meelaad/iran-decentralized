@@ -5,6 +5,8 @@ import { BLUEPRINTS } from '../../data';
 import { supabase } from '../../lib/supabase';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import { SHOW_VOTE_COUNTS } from '../../config';
+import { BrandMark } from '../../components/BrandMark/BrandMark';
+import { FeatureSlider, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
 import './StartSelection.css';
 
 function useLiveVoteCounts() {
@@ -24,20 +26,21 @@ export default function StartSelection() {
     const votes = useLiveVoteCounts();
 
     const blueprints = Object.values(BLUEPRINTS);
+    const headFont = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
 
     return (
-        <div className="ss-root" dir={isRTL ? 'rtl' : 'ltr'}>
-            <div className="ss-bg-grid" />
+        <div className="ss-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
+            <div className="ss-bg-grid" style={{ viewTransitionName: 'standalone-bg' }} />
 
             {/* Language switcher + theme toggle */}
-            <div className="ss-lang">
+            <div className="ss-lang" style={{ viewTransitionName: 'standalone-topbar' }}>
                 <ThemeSwitch />
                 <button className={`ss-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>فارسی</button>
                 <button className={`ss-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
             </div>
 
             <header className="ss-header">
-                <div className="ss-eyebrow">IRAN · DAO</div>
+                <BrandMark size="sm" />
                 <h1 className="ss-title">
                     {isRTL ? 'مسیر خود را انتخاب کنید' : 'Choose Your Path'}
                 </h1>
@@ -220,6 +223,8 @@ export default function StartSelection() {
             <div className="ss-footer">
                 <Link to="/" className="ss-back">← {isRTL ? 'بازگشت' : 'Back'}</Link>
             </div>
+
+            <FeatureSlider items={RIGHT_FEATURES} />
         </div>
     );
 }

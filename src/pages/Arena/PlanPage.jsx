@@ -88,7 +88,7 @@ export default function PlanPage() {
 
     return (
         <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'}>
-            <header className="plan-header" style={{ borderColor: plan.coverColor || '#4fc3f7' }}>
+            <header className="plan-header" style={{ borderColor: plan.coverColor || '#8B5CF6' }}>
                 {plan.isOfficial && (
                     <span className="plan-official-badge">{tKey('plan.officialBadge')}</span>
                 )}

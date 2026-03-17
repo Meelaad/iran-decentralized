@@ -6,14 +6,14 @@ import { supabase } from '../../lib/supabase';
 import './ComparePage.css';
 
 const TIERS = [
-    { key: 'core',      label: { en: 'CORE LAYER',        fa: 'لایه هسته' },       color: '#4fc3f7' },
+    { key: 'core',      label: { en: 'CORE LAYER',        fa: 'لایه هسته' },       color: '#8B5CF6' },
     { key: 'primary',   label: { en: 'PRIMARY SECTORS',   fa: 'بخش‌های اولیه' },   color: '#66bb6a' },
     { key: 'secondary', label: { en: 'SECONDARY SECTORS', fa: 'بخش‌های ثانویه' }, color: '#ffa726' },
     { key: 'tertiary',  label: { en: 'SUPPORTING',        fa: 'بخش‌های پشتیبان' }, color: '#ab47bc' },
 ];
 
 export default function ComparePage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
@@ -46,17 +46,15 @@ export default function ComparePage() {
         else setBId(id);
     }
 
-    const fontFamily = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
-
     return (
-        <div className="compare-page" style={{ fontFamily }}>
+        <div className="compare-page" style={{ fontFamily: headFont }}>
             <div className="compare-retro-grid" />
 
             <div className="compare-inner">
                 <div className={`compare-kicker ${!isRTL ? 'is-ltr' : ''}`}>
                     {isRTL ? 'مقایسه طرح‌های حاکمیتی' : 'GOVERNANCE BLUEPRINT COMPARISON'}
                 </div>
-                <h1 className="compare-title" style={{ fontFamily }}>
+                <h1 className="compare-title" style={{ fontFamily: headFont }}>
                     {isRTL ? 'مقایسه مدل‌ها' : 'Compare Models'}
                 </h1>
 
@@ -68,7 +66,7 @@ export default function ComparePage() {
                             className="compare-select"
                             value={aId}
                             onChange={e => handleChange('a', e.target.value)}
-                            style={{ fontFamily }}
+                            style={{ fontFamily: headFont }}
                         >
                             {blueprintKeys.map(k => (
                                 <option key={k} value={k}>{t(BLUEPRINTS[k].name)}</option>
@@ -84,7 +82,7 @@ export default function ComparePage() {
                             className="compare-select"
                             value={bId}
                             onChange={e => handleChange('b', e.target.value)}
-                            style={{ fontFamily }}
+                            style={{ fontFamily: headFont }}
                         >
                             {blueprintKeys.map(k => (
                                 <option key={k} value={k}>{t(BLUEPRINTS[k].name)}</option>
@@ -128,11 +126,11 @@ export default function ComparePage() {
                 <div className="compare-columns">
                     <div className="compare-col-header compare-a-border">
                         <span className="compare-col-badge compare-a-bg">A</span>
-                        <span style={{ fontFamily }}>{t(bpA.name)}</span>
+                        <span style={{ fontFamily: headFont }}>{t(bpA.name)}</span>
                     </div>
                     <div className="compare-col-header compare-b-border">
                         <span className="compare-col-badge compare-b-bg">B</span>
-                        <span style={{ fontFamily }}>{t(bpB.name)}</span>
+                        <span style={{ fontFamily: headFont }}>{t(bpB.name)}</span>
                     </div>
                 </div>
 
@@ -155,7 +153,7 @@ export default function ComparePage() {
                                             <div key={s.id} className="compare-sector-card compare-a-card">
                                                 <span className="compare-sector-icon">{s.icon}</span>
                                                 <div className="compare-sector-body">
-                                                    <div className="compare-sector-name" style={{ fontFamily, color: s.border }}>
+                                                    <div className="compare-sector-name" style={{ fontFamily: headFont, color: s.border }}>
                                                         {t(s.label)}
                                                     </div>
                                                     <div className="compare-sector-tier-badge" style={{ color: tier.color }}>
@@ -176,7 +174,7 @@ export default function ComparePage() {
                                             <div key={s.id} className="compare-sector-card compare-b-card">
                                                 <span className="compare-sector-icon">{s.icon}</span>
                                                 <div className="compare-sector-body">
-                                                    <div className="compare-sector-name" style={{ fontFamily, color: s.border }}>
+                                                    <div className="compare-sector-name" style={{ fontFamily: headFont, color: s.border }}>
                                                         {t(s.label)}
                                                     </div>
                                                     <div className="compare-sector-tier-badge" style={{ color: tier.color }}>
@@ -204,7 +202,7 @@ export default function ComparePage() {
                             {bpA.sharedLayers.map((layer, i) => (
                                 <div key={i} className="compare-layer-chip compare-a-chip">
                                     <span>{layer.icon}</span>
-                                    <span style={{ fontFamily }}>{t(layer.name)}</span>
+                                    <span style={{ fontFamily: headFont }}>{t(layer.name)}</span>
                                 </div>
                             ))}
                         </div>
@@ -213,7 +211,7 @@ export default function ComparePage() {
                             {bpB.sharedLayers.map((layer, i) => (
                                 <div key={i} className="compare-layer-chip compare-b-chip">
                                     <span>{layer.icon}</span>
-                                    <span style={{ fontFamily }}>{t(layer.name)}</span>
+                                    <span style={{ fontFamily: headFont }}>{t(layer.name)}</span>
                                 </div>
                             ))}
                         </div>

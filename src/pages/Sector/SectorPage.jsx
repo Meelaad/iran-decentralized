@@ -7,7 +7,7 @@ import './SectorPage.css';
 
 export default function SectorPage() {
     const { sectorId, blueprintId } = useParams();
-    const { t, tKey, isRTL } = useLang();
+    const { t, tKey, isRTL, headFont } = useLang();
 
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
@@ -71,7 +71,7 @@ export default function SectorPage() {
                     <span className="sector-hero-icon">{sector.icon}</span>
                     <h1
                         className="sector-hero-title"
-                        style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                        style={{ fontFamily: headFont }}
                     >
                         {t(sector.label)}
                     </h1>

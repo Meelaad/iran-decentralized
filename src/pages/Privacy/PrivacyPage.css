@@ -1,7 +1,7 @@
 /* PrivacyPage.css */
 
 .priv-page {
-    background: #020408;
+    background: #010303;
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -11,7 +11,7 @@
 
 .priv-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(79, 195, 247, 0.025);
+    --grid-color: rgba(139, 92, 246, 0.025);
     position: absolute;
     inset: 0;
     background-image:
@@ -26,7 +26,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.15) 30%, rgba(79,195,247,0.2) 50%, rgba(79,195,247,0.15) 70%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.15) 30%, rgba(139,92,246,0.2) 50%, rgba(139,92,246,0.15) 70%, transparent);
     animation: scanLine 10s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -51,7 +51,7 @@
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #4fc3f7;
+    color: #8B5CF6;
     opacity: 0.5;
     margin-bottom: 12px;
 }
@@ -73,7 +73,7 @@
 /* ── Card ── */
 .priv-card {
     background: rgba(255,255,255,0.015);
-    border: 1px solid rgba(79,195,247,0.07);
+    border: 1px solid rgba(139,92,246,0.07);
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -84,7 +84,7 @@
 .priv-section-heading {
     font-size: 14px;
     font-weight: 600;
-    color: #4fc3f7;
+    color: #8B5CF6;
     margin-bottom: 10px;
     letter-spacing: -0.01em;
 }
@@ -96,7 +96,7 @@
 }
 
 .priv-section + .priv-section {
-    border-top: 1px solid rgba(79,195,247,0.05);
+    border-top: 1px solid rgba(139,92,246,0.05);
     padding-top: 36px;
 }
 

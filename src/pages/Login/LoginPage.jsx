@@ -35,10 +35,8 @@ function getCooldown(resendCount) {
 }
 
 export default function LoginPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, monoFont, headFont } = useLang();
     const navigate = useNavigate();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
 
     const [step, setStep] = useState('form');
     const [email, setEmail] = useState('');
@@ -151,8 +149,8 @@ export default function LoginPage() {
             <div className="reg-scanline" />
             <div className="reg-inner">
                 <div className="reg-header">
-                    <div className="reg-eyebrow" style={monoFont}>{t(CONTENT.eyebrow)}</div>
-                    <h1 className="reg-title" style={headingFont}>{t(CONTENT.title)}</h1>
+                    <div className="reg-eyebrow" style={{ fontFamily: monoFont }}>{t(CONTENT.eyebrow)}</div>
+                    <h1 className="reg-title" style={{ fontFamily: headFont }}>{t(CONTENT.title)}</h1>
                     <p className="reg-subtitle">{t(CONTENT.subtitle)}</p>
                 </div>
 
@@ -165,7 +163,7 @@ export default function LoginPage() {
                                     <div className="reg-error-body">
                                         <span>{error}</span>
                                         {typeof error === 'string' && error.includes('register') && (
-                                            <Link to="/register" className="reg-support-link" style={monoFont}>
+                                            <Link to="/register" className="reg-support-link" style={{ fontFamily: monoFont }}>
                                                 {isRTL ? 'ثبت‌نام ←' : 'Register →'}
                                             </Link>
                                         )}
@@ -173,7 +171,7 @@ export default function LoginPage() {
                                 </div>
                             )}
                             <div className="reg-field">
-                                <label className="reg-label" style={{ ...monoFont, textAlign: isRTL ? 'right' : 'left' }}>
+                                <label className="reg-label" style={{ fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' }}>
                                     {t(CONTENT.labelEmail)}
                                 </label>
                                 <input
@@ -186,7 +184,7 @@ export default function LoginPage() {
                                     dir="ltr"
                                 />
                             </div>
-                            <button type="submit" className="reg-submit-btn" disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)} style={monoFont}>
+                            <button type="submit" className="reg-submit-btn" disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)} style={{ fontFamily: monoFont }}>
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnSend)}
                             </button>
@@ -218,7 +216,7 @@ export default function LoginPage() {
                                 </div>
                             )}
                             <div className="reg-field">
-                                <label className="reg-label" style={{ ...monoFont, textAlign: isRTL ? 'right' : 'left' }}>
+                                <label className="reg-label" style={{ fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' }}>
                                     {isRTL ? 'کد تأیید' : 'VERIFICATION CODE'}
                                 </label>
                                 <div className="reg-otp-boxes">
@@ -237,12 +235,12 @@ export default function LoginPage() {
                                     ))}
                                 </div>
                             </div>
-                            <button type="submit" className="reg-submit-btn" disabled={loading} style={monoFont}>
+                            <button type="submit" className="reg-submit-btn" disabled={loading} style={{ fontFamily: monoFont }}>
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnVerify)}
                             </button>
                             <div className="reg-resend-row">
-                                <button type="button" className="reg-back-btn" style={monoFont} onClick={() => { setStep('form'); setOtp(['','','','','','']); setError(null); }}>
+                                <button type="button" className="reg-back-btn" style={{ fontFamily: monoFont }} onClick={() => { setStep('form'); setOtp(['','','','','','']); setError(null); }}>
                                     {t(CONTENT.btnBack)}
                                 </button>
                                 {cooldown > 0 ? (
@@ -250,7 +248,7 @@ export default function LoginPage() {
                                         <div className="reg-cooldown-bar-track">
                                             <div className="reg-cooldown-bar-fill" style={{ width: `${((getCooldown(resendCount) - cooldown) / getCooldown(resendCount)) * 100}%` }} />
                                         </div>
-                                        <span className="reg-cooldown-label" style={monoFont}>{cooldown}s</span>
+                                        <span className="reg-cooldown-label" style={{ fontFamily: monoFont }}>{cooldown}s</span>
                                     </div>
                                 ) : (
                                     <button type="button" className="reg-resend-btn" onClick={handleResend}>{t(CONTENT.btnResend)}</button>
@@ -260,9 +258,9 @@ export default function LoginPage() {
                     )}
                 </div>
 
-                <p className="reg-footnote" style={monoFont}>
+                <p className="reg-footnote" style={{ fontFamily: monoFont }}>
                     {t(CONTENT.noAccount)}{' '}
-                    <Link to="/register" style={{ color: '#4fc3f7', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                    <Link to="/register" style={{ color: '#8B5CF6', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
                         {t(CONTENT.registerLink)}
                     </Link>
                 </p>

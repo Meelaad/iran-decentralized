@@ -92,7 +92,7 @@ export default function ComingSoonPage() {
     const section = SECTIONS[pathname] || DEFAULT;
     const d = section[lang] || section.en;
     const dir = isRTL ? 'rtl' : 'ltr';
-    const monoFont = isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace";
+    const monoFont = isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace";
     const headFont = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
 
     return (

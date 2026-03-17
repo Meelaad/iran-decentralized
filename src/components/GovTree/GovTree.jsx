@@ -33,7 +33,7 @@ function getLayoutedElements(nodes, edges, direction = 'LR') {
 
 function SectorNode({ data, selected }) {
     const { t } = useLang();
-    const borderColor = data.color || 'rgba(79,195,247,0.4)';
+    const borderColor = data.color || 'rgba(139,92,246,0.4)';
     return (
         <div
             className="gov-tree-node"
@@ -44,11 +44,11 @@ function SectorNode({ data, selected }) {
                 boxShadow: selected ? `0 0 0 1px ${borderColor}` : 'none',
             }}
         >
-            <Handle type="target" position={Position.Left} style={{ background: 'rgba(79,195,247,0.4)', border: 'none', width: 6, height: 6 }} />
+            <Handle type="target" position={Position.Left} style={{ background: 'rgba(139,92,246,0.4)', border: 'none', width: 6, height: 6 }} />
             <div className="gov-tree-node-icon">{data.icon}</div>
             <div className="gov-tree-node-label">{t(data.label)}</div>
             <div className="gov-tree-node-tier">{data.tier}</div>
-            <Handle type="source" position={Position.Right} style={{ background: 'rgba(79,195,247,0.4)', border: 'none', width: 6, height: 6 }} />
+            <Handle type="source" position={Position.Right} style={{ background: 'rgba(139,92,246,0.4)', border: 'none', width: 6, height: 6 }} />
         </div>
     );
 }
@@ -82,9 +82,9 @@ export default function GovTree({ blueprint }) {
             animated: (conn.strength || 1) >= 3,
             style: {
                 strokeWidth: conn.strength || 1,
-                stroke: 'rgba(79,195,247,0.4)',
+                stroke: 'rgba(139,92,246,0.4)',
             },
-            labelStyle: { fill: '#4fc3f7', fontSize: 10 },
+            labelStyle: { fill: '#8B5CF6', fontSize: 10 },
             labelBgStyle: { fill: 'rgba(7,16,26,0.8)', fillOpacity: 0.8 },
         }));
 
@@ -116,11 +116,11 @@ export default function GovTree({ blueprint }) {
                 maxZoom={2}
                 style={{ background: '#0a141f' }}
             >
-                <Background color="rgba(79,195,247,0.05)" gap={20} />
-                <Controls style={{ background: 'rgba(13,31,45,0.9)', border: '1px solid rgba(79,195,247,0.2)' }} />
+                <Background color="rgba(139,92,246,0.05)" gap={20} />
+                <Controls style={{ background: 'rgba(13,31,45,0.9)', border: '1px solid rgba(139,92,246,0.2)' }} />
                 <MiniMap
-                    style={{ background: 'rgba(13,31,45,0.9)', border: '1px solid rgba(79,195,247,0.15)' }}
-                    nodeColor={() => 'rgba(79,195,247,0.3)'}
+                    style={{ background: 'rgba(13,31,45,0.9)', border: '1px solid rgba(139,92,246,0.15)' }}
+                    nodeColor={() => 'rgba(139,92,246,0.3)'}
                     maskColor="rgba(7,16,26,0.7)"
                 />
             </ReactFlow>

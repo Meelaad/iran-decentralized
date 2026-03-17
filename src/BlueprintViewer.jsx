@@ -43,7 +43,7 @@ function useHexLayout() {
     return layout;
 }
 
-function CardParticles({ color = "79,195,247" }) {
+function CardParticles({ color = "139,92,246" }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -187,17 +187,17 @@ function hexToRgb(hex) {
 function AdminGrid() {
     const lines = [];
     for (let x = 20; x <= 80; x += GRID_SIZE) {
-        lines.push(<line key={`gx${x}`} x1={x} y1={13} x2={x} y2={75} stroke="#4fc3f7" strokeWidth="0.08" opacity="0.15" />);
+        lines.push(<line key={`gx${x}`} x1={x} y1={13} x2={x} y2={75} stroke="#8B5CF6" strokeWidth="0.08" opacity="0.15" />);
     }
     for (let y = 14; y <= 74; y += GRID_SIZE) {
-        lines.push(<line key={`gy${y}`} x1={19} y1={y} x2={81} y2={y} stroke="#4fc3f7" strokeWidth="0.08" opacity="0.15" />);
+        lines.push(<line key={`gy${y}`} x1={19} y1={y} x2={81} y2={y} stroke="#8B5CF6" strokeWidth="0.08" opacity="0.15" />);
     }
     return <g>{lines}</g>;
 }
 
 export default function BlueprintViewer() {
     const { blueprintId } = useParams();
-    const { t, tKey, isRTL } = useLang();
+    const { t, tKey, isRTL, monoFont, headFont } = useLang();
     const navigate = useNavigate();
     const location = useLocation();
     const [bpPickerOpen, setBpPickerOpen] = useState(false);
@@ -217,6 +217,7 @@ export default function BlueprintViewer() {
     const [dragging, setDragging] = useState(null);    // { sectorId, offsetX, offsetY }
 
     const activeBlueprintId = blueprintId || 'decentralized';
+    const isDecentralized = activeBlueprintId === 'decentralized';
     const localBlueprint = BLUEPRINTS[activeBlueprintId];
 
     const { data: dbBlueprint, isLoading: dbLoading } = useBlueprint(activeBlueprintId, localBlueprint);
@@ -414,8 +415,6 @@ export default function BlueprintViewer() {
         return lines;
     }, [sectors, renderPositions]);
 
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
-
     // Early returns AFTER all hooks (Rules of Hooks compliance)
     if (!localBlueprint && dbLoading) return <div className="blueprint-loading" />;
     if (!activeBlueprint) return <Navigate to="/blueprint/gov/decentralized" replace />;
@@ -423,18 +422,20 @@ export default function BlueprintViewer() {
     return (
         <div
             className="container"
-            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+            style={{ fontFamily: headFont }}
         >
-            <div className="blockchain-overlay">
-                <div className="blockchain-aurora" />
-                <BlockchainOverlay />
-            </div>
+            {isDecentralized && (
+                <div className="blockchain-overlay">
+                    <div className="blockchain-aurora" />
+                    <BlockchainOverlay />
+                </div>
+            )}
 
             <div className="blueprint-hero">
-                <p className="blueprint-hero-title" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                <p className="blueprint-hero-title" style={{ fontFamily: headFont }}>
                     {tKey('blueprint.hero')}
                 </p>
-                <p className="blueprint-hero-sub" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                <p className="blueprint-hero-sub" style={{ fontFamily: headFont }}>
                     {tKey('blueprint.heroSub')}
                 </p>
             </div>
@@ -446,7 +447,7 @@ export default function BlueprintViewer() {
                     </div>
                     <h1
                         className="app-title"
-                        style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                        style={{ fontFamily: headFont }}
                     >
                         {t(activeBlueprint.name)}
                     </h1>
@@ -467,7 +468,7 @@ export default function BlueprintViewer() {
                             <button
                                 className="bv-bp-picker-btn"
                                 onClick={() => setBpPickerOpen(o => !o)}
-                                style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                style={{ fontFamily: headFont }}
                             >
                                 <span>{t(activeBlueprint.name)}</span>
                                 <span className="bv-bp-picker-caret">{bpPickerOpen ? '▲' : '▼'}</span>
@@ -478,7 +479,7 @@ export default function BlueprintViewer() {
                                         <button
                                             key={bp.id}
                                             className={`bv-bp-picker-option${blueprintId === bp.id ? ' is-active' : ''}`}
-                                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                            style={{ fontFamily: headFont }}
                                             onClick={() => handleBlueprintSwitch(bp.id)}
                                         >
                                             {t(bp.name)}
@@ -492,7 +493,7 @@ export default function BlueprintViewer() {
                     {isAdmin && view === 'map' && (
                         editPositions ? (
                             <div className="control-group" style={{ gap: 6 }}>
-                                <span style={{ ...monoFont, fontSize: 10, color: '#ffa726', letterSpacing: '0.08em', alignSelf: 'center' }}>
+                                <span style={{ fontFamily: monoFont, fontSize: 10, color: '#ffa726', letterSpacing: '0.08em', alignSelf: 'center' }}>
                                     {tKey('blueprint.editMode')}
                                 </span>
                                 <button
@@ -508,7 +509,7 @@ export default function BlueprintViewer() {
                                 </button>
                             </div>
                         ) : (
-                            <button className="btn-base" onClick={handleStartEdit} style={monoFont}>
+                            <button className="btn-base" onClick={handleStartEdit} style={{ fontFamily: monoFont }}>
                                 {tKey('blueprint.editLayout')}
                             </button>
                         )
@@ -539,11 +540,16 @@ export default function BlueprintViewer() {
                                         <feMergeNode in="SourceGraphic" />
                                     </feMerge>
                                 </filter>
+                                {!isDecentralized && (
+                                    <marker id="arrow" markerWidth="2.5" markerHeight="2.5" refX="2.2" refY="1.25" orient="auto" markerUnits="userSpaceOnUse">
+                                        <path d="M0,0 L0,2.5 L2.5,1.25 z" fill="#4a7faa" opacity="0.5" />
+                                    </marker>
+                                )}
                             </defs>
 
                             {editPositions && <AdminGrid />}
 
-                            {meshLines.map((line, i) => (
+                            {isDecentralized && meshLines.map((line, i) => (
                                 <line
                                     key={`mesh-${i}`}
                                     className="mesh-line"
@@ -568,11 +574,14 @@ export default function BlueprintViewer() {
                                 const dy = to.y - from.y;
                                 const offsetX = -dy * 0.08;
                                 const offsetY = dx * 0.08;
-                                const pathD = `M ${from.x} ${from.y} Q ${midX + offsetX} ${midY + offsetY} ${to.x} ${to.y}`;
-                                const idleStyle = !isRelated && !dimmed && !isHovered ? {
+                                const pathD = isDecentralized
+                                    ? `M ${from.x} ${from.y} Q ${midX + offsetX} ${midY + offsetY} ${to.x} ${to.y}`
+                                    : `M ${from.x} ${from.y} L ${to.x} ${to.y}`;
+                                const idleStyle = isDecentralized && !isRelated && !dimmed && !isHovered ? {
                                     animation: `${i % 2 === 0 ? "edgeLightning" : "edgeIdle"} ${3 + (i % 7)}s ${(i * 0.37 + (i % 3) * 1.1).toFixed(2)}s infinite`
                                 } : {};
                                 const bits = ["1","0","1","1","0","0","1","0"];
+                                const chars = ["L","A","W","S","T","A","T","E"];
 
                                 return (
                                     <g key={`conn-${i}`}
@@ -589,8 +598,9 @@ export default function BlueprintViewer() {
                                             opacity={dimmed ? 0.08 : isRelated ? 0.95 : undefined}
                                             strokeDasharray={!isRelated && conn.strength === 1 ? "0.5 0.3" : isRelated ? undefined : "none"}
                                             style={idleStyle}
+                                            markerEnd={!isDecentralized ? "url(#arrow)" : undefined}
                                         />
-                                        {isRelated && bits.map((bit, b) => (
+                                        {isDecentralized && isRelated && bits.map((bit, b) => (
                                             <text
                                                 key={b}
                                                 fontSize="1.5"
@@ -610,12 +620,29 @@ export default function BlueprintViewer() {
                                                 {bit}
                                             </text>
                                         ))}
+                                        {!isDecentralized && isRelated && chars.map((_, b) => (
+                                            <g key={b} opacity="0.75">
+                                                <animateMotion
+                                                    dur={`${5 + (b % 4) * 1.2}s`}
+                                                    begin={`${b * 0.7}s`}
+                                                    repeatCount="indefinite"
+                                                    path={pathD}
+                                                />
+                                                {/* envelope body */}
+                                                <rect x="-1.1" y="-0.75" width="2.2" height="1.5" rx="0.12" fill="rgba(15,25,40,0.7)" stroke="#7a9ab8" strokeWidth="0.13" />
+                                                {/* flap V */}
+                                                <path d="M -1.1,-0.75 L 0,0.15 L 1.1,-0.75" fill="none" stroke="#7a9ab8" strokeWidth="0.11" />
+                                                {/* bottom crease lines */}
+                                                <line x1="-1.1" y1="0.75" x2="-0.1" y2="0.05" stroke="#7a9ab8" strokeWidth="0.09" opacity="0.5" />
+                                                <line x1="1.1" y1="0.75" x2="0.1" y2="0.05" stroke="#7a9ab8" strokeWidth="0.09" opacity="0.5" />
+                                            </g>
+                                        ))}
                                         {(isHovered || isRelated) && !editPositions && (
                                             <text
                                                 x={midX + offsetX * 0.6}
                                                 y={midY + offsetY * 0.6}
                                                 fontSize="1.4"
-                                                fill={isRelated ? "#4fc3f7" : "#5a6a7a"}
+                                                fill={isRelated ? "#8B5CF6" : "#5a6a7a"}
                                                 textAnchor="middle"
                                                 dominantBaseline="middle"
                                                 fontFamily={isRTL ? "Vazirmatn" : "Inter"}
@@ -659,8 +686,8 @@ export default function BlueprintViewer() {
                                                 strokeDasharray="0.6 0.4"
                                             />
                                         )}
-                                        <circle cx={pos.x} cy={pos.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
-                                        <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={pos.x} cy={pos.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
+                                        <circle cx={pos.x} cy={pos.y} r={r + 0.5} fill="none" stroke={isSelected ? "#8B5CF6" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
+                                        <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={pos.x} cy={pos.y} r={r} stroke={isSelected ? "#8B5CF6" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
                                         {sector.subIcon
                                             ? <>
                                                 <text x={pos.x} y={pos.y - r * 0.2} fontSize={r * 0.9} textAnchor="middle" dominantBaseline="middle" opacity={0.75}>{sector.icon}</text>
@@ -703,7 +730,7 @@ export default function BlueprintViewer() {
                                 <div className="side-panel-icon">{selectedSector.icon}</div>
                                 <h2
                                     className="side-panel-title"
-                                    style={{ fontFamily: isRTL ? "Vazirmatn" : "'Inter', sans-serif" }}
+                                    style={{ fontFamily: headFont }}
                                 >
                                     {t(selectedSector.label)}
                                 </h2>
@@ -715,13 +742,13 @@ export default function BlueprintViewer() {
                                         display: "inline-block",
                                         fontSize: 11,
                                         color: "#66d9ff",
-                                        border: "1px solid rgba(79,195,247,0.2)",
+                                        border: "1px solid rgba(139,92,246,0.2)",
                                         padding: "6px 14px",
                                         marginBottom: 16,
                                         textDecoration: "none",
                                         letterSpacing: "0.06em",
                                         transition: "background 0.2s, border-color 0.2s",
-                                        background: "rgba(79,195,247,0.04)",
+                                        background: "rgba(139,92,246,0.04)",
                                     }}
                                 >
                                     {tKey('blueprint.learnMore')}
@@ -782,7 +809,7 @@ export default function BlueprintViewer() {
                         <div className="shared-chip-row">
                             {sharedLayers.map((layer, i) => (
                                 <div key={i} className="layer-chip" onClick={() => setShowLayer(showLayer === i ? null : i)}
-                                     style={{ padding: "7px 11px", background: showLayer === i ? "rgba(79,195,247,0.08)" : "rgba(9,13,19,0.72)", border: `1px solid ${showLayer === i ? "#4fc3f740" : "rgba(91,103,120,0.22)"}`, borderRadius: 0, fontSize: 11, color: showLayer === i ? "#7fd8ff" : "#667384", display: "flex", alignItems: "center", gap: 6 }}>
+                                     style={{ padding: "7px 11px", background: showLayer === i ? "rgba(139,92,246,0.08)" : "rgba(9,13,19,0.72)", border: `1px solid ${showLayer === i ? "#8B5CF640" : "rgba(91,103,120,0.22)"}`, borderRadius: 0, fontSize: 11, color: showLayer === i ? "#7fd8ff" : "#667384", display: "flex", alignItems: "center", gap: 6 }}>
                                     <span>{layer.icon}</span> <span>{t(layer.name)}</span>
                                 </div>
                             ))}
@@ -835,7 +862,7 @@ export default function BlueprintViewer() {
                                             <span className="list-card-icon">{sector.icon}</span>
                                             <span
                                                 className="list-card-title"
-                                                style={{ fontFamily: isRTL ? "Vazirmatn" : "'Inter', sans-serif" }}
+                                                style={{ fontFamily: headFont }}
                                             >
                                                 {t(sector.label)}
                                             </span>

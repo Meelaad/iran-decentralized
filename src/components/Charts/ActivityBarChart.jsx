@@ -54,7 +54,7 @@ export default function ActivityBarChart({ data = [] }) {
                                 border: '1px solid rgba(232,80,122,0.3)',
                                 borderRadius: 6,
                                 fontSize: 11,
-                                color: '#d6e4ed',
+                                color: '#CCE3F0',
                             }}
                             labelStyle={{ color: '#8aa8bc' }}
                             itemStyle={{ color: '#e8507a' }}

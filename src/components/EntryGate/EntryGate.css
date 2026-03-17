@@ -4,7 +4,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #020408;
+    background: #010303;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@
 /* ── Retro grid ── */
 .gate-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(79, 195, 247, 0.03);
+    --grid-color: rgba(139, 92, 246, 0.03);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -54,9 +54,9 @@
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(79,195,247,0.18) 20%,
-        rgba(79,195,247,0.28) 50%,
-        rgba(79,195,247,0.18) 80%,
+        rgba(139,92,246,0.18) 20%,
+        rgba(139,92,246,0.28) 50%,
+        rgba(139,92,246,0.18) 80%,
         transparent
     );
     animation: scanLine 8s linear infinite;
@@ -103,7 +103,7 @@
     color: #eef5ff;
     letter-spacing: -0.03em;
     line-height: 1;
-    text-shadow: 0 0 80px rgba(79,195,247,0.1);
+    text-shadow: 0 0 80px rgba(139,92,246,0.1);
     margin: 0;
 }
 
@@ -145,7 +145,7 @@
 }
 .gate-hex-btn:hover {
     transform: scale(1.07);
-    filter: drop-shadow(0 0 24px rgba(79,195,247,0.35));
+    filter: drop-shadow(0 0 24px rgba(139,92,246,0.35));
 }
 
 /* Rotating outer ring */

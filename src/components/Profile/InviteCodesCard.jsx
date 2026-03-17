@@ -22,8 +22,8 @@ export default function InviteCodesCard({ profile, codes, isRTL, monoFont, onGen
 
     return (
         <div className="prof-card">
-            <div className="prof-section-title" style={monoFont}>{isRTL ? 'کدهای دعوت' : 'INVITE CODES'}</div>
-            <p className="prof-hint" style={monoFont}>
+            <div className="prof-section-title" style={{ fontFamily: monoFont }}>{isRTL ? 'کدهای دعوت' : 'INVITE CODES'}</div>
+            <p className="prof-hint" style={{ fontFamily: monoFont }}>
                 {isRTL
                     ? 'این کدها را برای دعوت اعضای جدید به اشتراک بگذارید. هر کد فقط یک بار قابل استفاده است.'
                     : 'Share these codes to invite new members. Each code can only be used once.'}
@@ -35,30 +35,30 @@ export default function InviteCodesCard({ profile, codes, isRTL, monoFont, onGen
                         className="prof-code-chip prof-code-chip--unused"
                         onClick={() => copyCode(c.code)}
                         title={isRTL ? 'کلیک کنید تا کپی شود' : 'Click to copy'}
-                        style={monoFont}
+                        style={{ fontFamily: monoFont }}
                     >
                         {copiedCode === c.code ? (isRTL ? 'کپی شد!' : 'Copied!') : c.code}
                     </button>
                 ))}
                 {usedCodes.map(c => (
-                    <span key={c.code} className="prof-code-chip prof-code-chip--used" style={monoFont}>{c.code}</span>
+                    <span key={c.code} className="prof-code-chip prof-code-chip--used" style={{ fontFamily: monoFont }}>{c.code}</span>
                 ))}
             </div>
             {profile?.invite_codes_remaining > 0 ? (
                 <div className="prof-generate-row">
-                    <button className="prof-generate-btn" onClick={handleGenerate} style={monoFont}>
+                    <button className="prof-generate-btn" onClick={handleGenerate} style={{ fontFamily: monoFont }}>
                         {isRTL ? 'ساخت کد' : 'GENERATE CODE'}
                     </button>
-                    <span className="prof-remaining" style={monoFont}>
+                    <span className="prof-remaining" style={{ fontFamily: monoFont }}>
                         {profile.invite_codes_remaining} {isRTL ? 'باقیمانده' : 'remaining'}
                     </span>
                 </div>
             ) : (
-                <div className="prof-no-codes" style={monoFont}>
+                <div className="prof-no-codes" style={{ fontFamily: monoFont }}>
                     {isRTL ? 'سهمیه دعوت تمام شده است.' : 'No invite slots remaining.'}
                 </div>
             )}
-            {generateError && <div className="prof-error" style={monoFont}>{generateError}</div>}
+            {generateError && <div className="prof-error" style={{ fontFamily: monoFont }}>{generateError}</div>}
         </div>
     );
 }

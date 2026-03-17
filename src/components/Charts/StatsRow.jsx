@@ -4,7 +4,7 @@ import './Charts.css';
 
 const TIER_COLORS = {
     NONE: '#9e9e9e',
-    LOW:  '#4fc3f7',
+    LOW:  '#8B5CF6',
     MID:  '#ffd54f',
     HIGH: '#69d98c',
 };
@@ -17,7 +17,7 @@ export default function StatsRow({ civicScore, participationScore, streakDays, t
     return (
         <div className="ch-stats-row" dir={isRTL ? 'rtl' : 'ltr'}>
             <div className="ch-stat-card">
-                <div className="ch-stat-value" style={{ color: '#4fc3f7' }}>
+                <div className="ch-stat-value" style={{ color: '#8B5CF6' }}>
                     {civicScore ?? '—'}
                 </div>
                 <div className="ch-stat-label">

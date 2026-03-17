@@ -111,7 +111,7 @@ export default function BlockchainOverlay() {
                                 width={CELL}
                                 height={CELL}
                                 fill="none"
-                                stroke="rgba(79,195,247,0.035)"
+                                stroke="rgba(139,92,246,0.035)"
                                 strokeWidth="1"
                             />
 
@@ -123,7 +123,7 @@ export default function BlockchainOverlay() {
                                         width={CELL}
                                         height={CELL}
                                         fill="none"
-                                        stroke="rgba(79,195,247,0.018)"
+                                        stroke="rgba(139,92,246,0.018)"
                                         strokeWidth="1"
                                     />
                                     <line
@@ -131,7 +131,7 @@ export default function BlockchainOverlay() {
                                         y1={cell.y}
                                         x2={cell.x + DEPTH_X}
                                         y2={cell.y + DEPTH_Y}
-                                        stroke="rgba(79,195,247,0.018)"
+                                        stroke="rgba(139,92,246,0.018)"
                                         strokeWidth="1"
                                     />
                                     <line
@@ -139,7 +139,7 @@ export default function BlockchainOverlay() {
                                         y1={cell.y}
                                         x2={cell.x + CELL + DEPTH_X}
                                         y2={cell.y + DEPTH_Y}
-                                        stroke="rgba(79,195,247,0.018)"
+                                        stroke="rgba(139,92,246,0.018)"
                                         strokeWidth="1"
                                     />
                                     <line
@@ -147,7 +147,7 @@ export default function BlockchainOverlay() {
                                         y1={cell.y + CELL}
                                         x2={cell.x + DEPTH_X}
                                         y2={cell.y + CELL + DEPTH_Y}
-                                        stroke="rgba(79,195,247,0.018)"
+                                        stroke="rgba(139,92,246,0.018)"
                                         strokeWidth="1"
                                     />
                                     <line
@@ -155,7 +155,7 @@ export default function BlockchainOverlay() {
                                         y1={cell.y + CELL}
                                         x2={cell.x + CELL + DEPTH_X}
                                         y2={cell.y + CELL + DEPTH_Y}
-                                        stroke="rgba(79,195,247,0.018)"
+                                        stroke="rgba(139,92,246,0.018)"
                                         strokeWidth="1"
                                     />
                                 </>
@@ -163,7 +163,7 @@ export default function BlockchainOverlay() {
 
                             <circle
                                 r="1"
-                                fill="rgba(79,195,247,0.3)"
+                                fill="rgba(139,92,246,0.3)"
                                 filter="url(#overlayGlow)"
                             >
                                 <animateMotion

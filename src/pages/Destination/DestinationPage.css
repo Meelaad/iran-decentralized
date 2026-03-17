@@ -9,14 +9,14 @@
 .dest-hero {
   padding: 4rem 2rem 3rem;
   text-align: center;
-  border-bottom: 1px solid rgba(79, 195, 247, 0.15);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
 }
 
 .dest-hero-eyebrow {
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: #4fc3f7;
+  color: #8B5CF6;
   text-transform: uppercase;
   margin-bottom: 1rem;
 }
@@ -47,7 +47,7 @@
 .dest-section-heading {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #4fc3f7;
+  color: #8B5CF6;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   margin-bottom: 0.4rem;
@@ -92,7 +92,7 @@
 .dest-vote-bar-fill {
   height: 100%;
   border-radius: 4px;
-  background: linear-gradient(90deg, #4fc3f7, #7c72e8);
+  background: linear-gradient(90deg, #8B5CF6, #7c72e8);
   transition: width 0.4s ease;
 }
 
@@ -113,14 +113,14 @@
   display: inline-block;
   margin-top: 0.25rem;
   font-size: 0.82rem;
-  color: #4fc3f7;
+  color: #8B5CF6;
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s;
 }
 
 .dest-vote-link:hover {
-  border-color: #4fc3f7;
+  border-color: #8B5CF6;
 }
 
 /* ── Blueprint cards grid ─────────────────────────────────────────────── */
@@ -133,7 +133,7 @@
 
 .dest-card {
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(79, 195, 247, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.14);
   border-radius: 10px;
   padding: 1.4rem 1.4rem 1.1rem;
   display: flex;
@@ -143,7 +143,7 @@
 }
 
 .dest-card:hover {
-  border-color: rgba(79, 195, 247, 0.35);
+  border-color: rgba(139, 92, 246, 0.35);
   background: rgba(255, 255, 255, 0.06);
 }
 
@@ -175,7 +175,7 @@
 
 .dest-card-stat-pct {
   font-weight: 700;
-  color: #4fc3f7;
+  color: #8B5CF6;
 }
 
 .dest-card-actions {
@@ -197,12 +197,12 @@
 }
 
 .dest-card-action.primary {
-  border-color: #4fc3f7;
-  color: #4fc3f7;
+  border-color: #8B5CF6;
+  color: #8B5CF6;
 }
 
 .dest-card-action.primary:hover {
-  background: #4fc3f7;
+  background: #8B5CF6;
   color: #07101a;
 }
 
@@ -298,7 +298,7 @@
 }
 
 [dir="rtl"] .dest-vote-bar-fill {
-  background: linear-gradient(270deg, #4fc3f7, #7c72e8);
+  background: linear-gradient(270deg, #8B5CF6, #7c72e8);
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────── */

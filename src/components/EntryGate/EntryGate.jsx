@@ -49,7 +49,7 @@ function GateParticles() {
                         ctx.beginPath();
                         ctx.moveTo(nodes[i].x, nodes[i].y);
                         ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = `rgba(79,195,247,${alpha})`;
+                        ctx.strokeStyle = `rgba(139,92,246,${alpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -59,7 +59,7 @@ function GateParticles() {
                 const glow = (Math.sin(n.pulse) + 1) / 2;
                 ctx.beginPath();
                 ctx.arc(n.x, n.y, 1.5 + glow, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(79,195,247,${0.12 + glow * 0.2})`;
+                ctx.fillStyle = `rgba(139,92,246,${0.12 + glow * 0.2})`;
                 ctx.fill();
             }
             animId = requestAnimationFrame(draw);

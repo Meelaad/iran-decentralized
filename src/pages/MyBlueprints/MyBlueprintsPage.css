@@ -1,7 +1,7 @@
 /* MyBlueprintsPage.css */
 
 .myblue-page {
-    background-color: #020408;
+    background-color: #010303;
     min-height: calc(100vh - 60px);
     position: relative;
     overflow-x: hidden;
@@ -9,7 +9,7 @@
 
 .myblue-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(79,195,247,0.04);
+    --grid-color: rgba(139,92,246,0.04);
     position: absolute;
     inset: -20%;
     background-image:
@@ -43,7 +43,7 @@
 .myblue-kicker {
     font-size: 11px;
     letter-spacing: 0.14em;
-    color: #4fc3f7;
+    color: #8B5CF6;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -162,13 +162,13 @@
 }
 
 .myblue-edit-btn {
-    background: rgba(79,195,247,0.1);
-    border: 1px solid rgba(79,195,247,0.3);
-    color: #4fc3f7;
+    background: rgba(139,92,246,0.1);
+    border: 1px solid rgba(139,92,246,0.3);
+    color: #8B5CF6;
 }
 
 .myblue-edit-btn:hover {
-    background: rgba(79,195,247,0.18);
+    background: rgba(139,92,246,0.18);
 }
 
 .myblue-view-btn {
@@ -186,16 +186,16 @@
     font-size: 10px;
     letter-spacing: 0.1em;
     padding: 7px 14px;
-    background: rgba(79,195,247,0.08);
-    border: 1px solid rgba(79,195,247,0.25);
-    color: #4fc3f7;
+    background: rgba(139,92,246,0.08);
+    border: 1px solid rgba(139,92,246,0.25);
+    color: #8B5CF6;
     cursor: pointer;
     transition: background 0.15s;
     width: 100%;
 }
 
 .myblue-fork-btn:hover:not(:disabled) {
-    background: rgba(79,195,247,0.16);
+    background: rgba(139,92,246,0.16);
 }
 
 .myblue-fork-btn:disabled {
@@ -204,7 +204,7 @@
 }
 
 .myblue-link {
-    color: #4fc3f7;
+    color: #8B5CF6;
     text-decoration: none;
 }
 

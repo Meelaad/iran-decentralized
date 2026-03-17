@@ -28,7 +28,7 @@ export default function PlanStockGraph({ plans = [] }) {
               key={p.id}
               type="monotone"
               dataKey={p.id}
-              stroke={p.coverColor || '#4fc3f7'}
+              stroke={p.coverColor || '#8B5CF6'}
               strokeWidth={2}
               dot={false}
               connectNulls

@@ -51,7 +51,7 @@ function GlitchGrid() {
                         ctx.beginPath();
                         ctx.moveTo(nodes[i].x, nodes[i].y);
                         ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.strokeStyle = `rgba(79,195,247,${alpha})`;
+                        ctx.strokeStyle = `rgba(139,92,246,${alpha})`;
                         ctx.lineWidth = 0.5;
                         ctx.stroke();
                     }
@@ -62,7 +62,7 @@ function GlitchGrid() {
                 const glow = (Math.sin(n.pulse) + 1) / 2;
                 ctx.beginPath();
                 ctx.arc(n.x, n.y, 1.5 + glow, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(79,195,247,${0.15 + glow * 0.25})`;
+                ctx.fillStyle = `rgba(139,92,246,${0.15 + glow * 0.25})`;
                 ctx.fill();
             }
 
@@ -81,9 +81,7 @@ function GlitchGrid() {
 }
 
 export default function NotFoundPage() {
-    const { isRTL } = useLang();
-    const monoFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
+    const { isRTL, monoFont, headFont } = useLang();
 
     return (
         <div className="nf-page">
@@ -92,7 +90,7 @@ export default function NotFoundPage() {
             <div className="nf-scanline" />
 
             <div className="nf-inner">
-                <div className="nf-eyebrow" style={monoFont}>
+                <div className="nf-eyebrow" style={{ fontFamily: monoFont }}>
                     {isRTL ? 'خطای سیستم' : 'SYSTEM ERROR'}
                 </div>
 
@@ -103,33 +101,33 @@ export default function NotFoundPage() {
                             <polygon
                                 points="40,2 78,21 78,59 40,78 2,59 2,21"
                                 fill="rgba(10,14,21,0.9)"
-                                stroke="rgba(79,195,247,0.35)"
+                                stroke="rgba(139,92,246,0.35)"
                                 strokeWidth="1.5"
                             />
                             <text x="40" y="47" textAnchor="middle" fontSize="30" fontWeight="700"
-                                fill="#4fc3f7" fontFamily="intelone-mono, monospace">0</text>
+                                fill="#8B5CF6" fontFamily="intelone-mono, monospace">0</text>
                         </svg>
                     </span>
                     <span className="nf-four">4</span>
                 </div>
 
-                <h1 className="nf-title" style={headingFont}>
+                <h1 className="nf-title" style={{ fontFamily: headFont }}>
                     {isRTL ? 'صفحه یافت نشد' : 'Page Not Found'}
                 </h1>
-                <p className="nf-subtitle" style={monoFont}>
+                <p className="nf-subtitle" style={{ fontFamily: monoFont }}>
                     {isRTL
                         ? 'این آدرس در شبکه غیرمتمرکز وجود ندارد.'
                         : 'This address does not exist in the decentralized network.'}
                 </p>
 
-                <div className="nf-status-row" style={monoFont}>
+                <div className="nf-status-row" style={{ fontFamily: monoFont }}>
                     <span className="nf-status-dot" />
                     <span className="nf-status-text">
                         {isRTL ? 'اتصال قطع شد — گره ناشناخته' : 'CONNECTION LOST — UNKNOWN NODE'}
                     </span>
                 </div>
 
-                <Link to="/" className="nf-home-btn" style={monoFont}>
+                <Link to="/" className="nf-home-btn" style={{ fontFamily: monoFont }}>
                     {isRTL ? '← بازگشت به نقشه' : '← RETURN TO MAP'}
                 </Link>
             </div>

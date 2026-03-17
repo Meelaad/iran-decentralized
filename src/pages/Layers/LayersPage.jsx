@@ -43,7 +43,7 @@ const LAYER_DETAILS = [
 ];
 
 export default function LayersPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
     const { blueprintId } = useParams();
     const blueprint = BLUEPRINTS[blueprintId] || BLUEPRINTS.decentralized;
     const sharedLayers = blueprint.sharedLayers || [];
@@ -55,7 +55,7 @@ export default function LayersPage() {
             <div className="layers-inner">
                 <h1
                     className="layers-title"
-                    style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                    style={{ fontFamily: headFont }}
                 >
                     {t({ en: "Shared Infrastructure Layers", fa: "لایه‌های زیرساخت مشترک" })}
                 </h1>
@@ -85,7 +85,7 @@ export default function LayersPage() {
                                         <span className="layer-card-icon">{layer.icon}</span>
                                         <h2
                                             className="layer-card-name"
-                                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                            style={{ fontFamily: headFont }}
                                         >
                                             {t(layer.name)}
                                         </h2>

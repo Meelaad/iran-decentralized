@@ -170,7 +170,7 @@ const DATA = {
       { label: "12 Foundational Articles", c: "#ffd166" },
       { label: "Homegrown — Inside Iran", c: "#69d98c" },
       { label: "Labor + Feminist + Anti-Colonial", c: "#ba68c8" },
-      { label: "Direct Democracy", c: "#4fc3f7" },
+      { label: "Direct Democracy", c: "#8B5CF6" },
     ],
 
     // ── PHILOSOPHY ──
@@ -239,7 +239,7 @@ const DATA = {
         domain: "📚 Public Sector & Education",
         orgs: "Coordinating Council of Iranian Teachers' Trade Associations",
         fn: "Mobilizing nationwide strikes against ideological indoctrination in schools. Demanding fair wages and the release of all imprisoned educators.",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
       },
       {
         domain: "♀️ Feminist & Human Rights",
@@ -518,7 +518,7 @@ const DATA = {
       { label: "۱۲ ماده بنیادی", c: "#ffd166" },
       { label: "خودجوش — داخل ایران", c: "#69d98c" },
       { label: "کارگری + فمینیستی + ضداستعماری", c: "#ba68c8" },
-      { label: "دموکراسی مستقیم", c: "#4fc3f7" },
+      { label: "دموکراسی مستقیم", c: "#8B5CF6" },
     ],
 
     philEyebrow: "بنیاد ایدئولوژیک",
@@ -585,7 +585,7 @@ const DATA = {
         domain: "📚 بخش دولتی و آموزش",
         orgs: "شورای هماهنگی تشکل‌های صنفی فرهنگیان ایران",
         fn: "بسیج اعتصابات سراسری علیه القای آموزش ایدئولوژیک در مدارس. خواستار دستمزد منصفانه و آزادی تمام معلمان زندانی.",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
       },
       {
         domain: "♀️ کلکتیوهای فمینیستی و حقوق بشر",
@@ -841,13 +841,13 @@ const DATA = {
    Main component
 ───────────────────────────────────────────────────── */
 export default function CivilSocietyPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
   const ORANGE = "#ff9a42", AMBER = "#ffd166", GREEN = "#69d98c",
-    CYAN = "#4fc3f7", PURPLE = "#ba68c8", RED = "#ef5350";
+    CYAN = "#8B5CF6", PURPLE = "#ba68c8", RED = "#ef5350";
 
   return (
     <div className="cs-page" dir={dir}>

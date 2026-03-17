@@ -59,17 +59,17 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
 
     return (
         <div className="prof-card prof-card--member-info">
-            <div className="prof-section-title" style={monoFont}>
+            <div className="prof-section-title" style={{ fontFamily: monoFont }}>
                 {isRTL ? 'اطلاعات عضو' : 'MEMBER INFORMATION'}
             </div>
 
             <div className="prof-info-table">
                 <div className="prof-info-row">
-                    <span className="prof-info-label" style={monoFont}>{isRTL ? 'نام کامل' : 'FULL NAME'}</span>
+                    <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'نام کامل' : 'FULL NAME'}</span>
                     <div className="prof-info-value-col">
                         {nameEditing ? (
                             <div className="prof-inline-edit">
-                                <div className="prof-once-warn" style={monoFont}>
+                                <div className="prof-once-warn" style={{ fontFamily: monoFont }}>
                                     ⚠ {isRTL ? 'این تغییر فقط یک بار مجاز است.' : 'This can only be changed once.'}
                                 </div>
                                 <input
@@ -78,26 +78,26 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
                                     onChange={e => setNameValue(e.target.value)}
                                     maxLength={80}
                                     autoFocus
-                                    style={monoFont}
+                                    style={{ fontFamily: monoFont }}
                                 />
-                                {nameError && <div className="prof-inline-error" style={monoFont}>{nameError}</div>}
+                                {nameError && <div className="prof-inline-error" style={{ fontFamily: monoFont }}>{nameError}</div>}
                                 <div className="prof-inline-btns">
-                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} style={monoFont}>
+                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} style={{ fontFamily: monoFont }}>
                                         {isRTL ? 'تأیید' : 'CONFIRM'}
                                     </button>
-                                    <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={monoFont}>
+                                    <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={{ fontFamily: monoFont }}>
                                         {isRTL ? 'انصراف' : 'CANCEL'}
                                     </button>
                                 </div>
                             </div>
                         ) : (
                             <div className="prof-info-value-row">
-                                <span className="prof-info-value" style={monoFont}>{profile?.full_name || '—'}</span>
+                                <span className="prof-info-value" style={{ fontFamily: monoFont }}>{profile?.full_name || '—'}</span>
                                 {!profile?.name_locked ? (
                                     <button
                                         className="prof-chip-btn"
                                         onClick={() => { setNameValue(profile?.full_name || ''); setNameEditing(true); }}
-                                        style={monoFont}
+                                        style={{ fontFamily: monoFont }}
                                     >
                                         {isRTL ? 'ویرایش' : 'EDIT'}
                                     </button>
@@ -110,14 +110,14 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
                 </div>
 
                 <div className="prof-info-row">
-                    <span className="prof-info-label" style={monoFont}>{isRTL ? 'تاریخ تولد' : 'DATE OF BIRTH'}</span>
+                    <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'تاریخ تولد' : 'DATE OF BIRTH'}</span>
                     <div className="prof-info-value-col">
                         {profile?.birth_date ? (
                             <div className="prof-info-value-row">
-                                <span className="prof-info-value" style={monoFont}>{formatDate(profile.birth_date)}</span>
+                                <span className="prof-info-value" style={{ fontFamily: monoFont }}>{formatDate(profile.birth_date)}</span>
                                 <span className="prof-lock-icon" title={isRTL ? 'قابل تغییر نیست' : 'Locked'}>🔒</span>
                                 {voteEligible && (
-                                    <span className="prof-verified-badge" style={monoFont}>
+                                    <span className="prof-verified-badge" style={{ fontFamily: monoFont }}>
                                         {isRTL ? '✓ تأیید شده' : '✓ VERIFIED'}
                                     </span>
                                 )}
@@ -125,30 +125,30 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
                         ) : (
                             <>
                                 <div className="prof-info-value-row">
-                                    <span className="prof-info-value prof-info-value--empty" style={monoFont}>
+                                    <span className="prof-info-value prof-info-value--empty" style={{ fontFamily: monoFont }}>
                                         {isRTL ? 'تنظیم نشده' : 'Not set'}
                                     </span>
                                     {!birthPickerOpen && (
-                                        <button className="prof-chip-btn prof-chip-btn--green" onClick={() => setBirthPickerOpen(true)} style={monoFont}>
+                                        <button className="prof-chip-btn prof-chip-btn--green" onClick={() => setBirthPickerOpen(true)} style={{ fontFamily: monoFont }}>
                                             {isRTL ? 'تأیید سن' : 'VERIFY AGE'}
                                         </button>
                                     )}
                                 </div>
                                 {birthPickerOpen && (
                                     <div className="prof-birth-picker-wrap">
-                                        <div className="prof-once-warn" style={monoFont}>
+                                        <div className="prof-once-warn" style={{ fontFamily: monoFont }}>
                                             ⚠ {isRTL ? 'تاریخ تولد فقط یک بار قابل ثبت است.' : 'Birthday can only be set once.'}
                                         </div>
                                         <BirthDatePicker
                                             onChange={d => { setBirthDateDraft(d); setBirthError(''); }}
                                             isRTL={isRTL}
                                         />
-                                        {birthError && <div className="prof-inline-error" style={monoFont}>{birthError}</div>}
+                                        {birthError && <div className="prof-inline-error" style={{ fontFamily: monoFont }}>{birthError}</div>}
                                         <div className="prof-inline-btns">
-                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={!birthDateDraft} style={monoFont}>
+                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={!birthDateDraft} style={{ fontFamily: monoFont }}>
                                                 {isRTL ? 'تأیید تاریخ' : 'CONFIRM DATE'}
                                             </button>
-                                            <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={monoFont}>
+                                            <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={{ fontFamily: monoFont }}>
                                                 {isRTL ? 'انصراف' : 'CANCEL'}
                                             </button>
                                         </div>
@@ -157,7 +157,7 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
                             </>
                         )}
                         {birthSaved && (
-                            <div className="prof-inline-success" style={monoFont}>
+                            <div className="prof-inline-success" style={{ fontFamily: monoFont }}>
                                 {isRTL ? '✓ سن تأیید شد' : '✓ Age verified'}
                             </div>
                         )}
@@ -165,10 +165,10 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
                 </div>
 
                 <div className="prof-info-row">
-                    <span className="prof-info-label" style={monoFont}>{isRTL ? 'ایمیل' : 'EMAIL'}</span>
+                    <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'ایمیل' : 'EMAIL'}</span>
                     <div className="prof-info-value-col">
                         <div className="prof-info-value-row">
-                            <span className="prof-info-value prof-info-value--muted" style={monoFont}>{session?.user?.email || '—'}</span>
+                            <span className="prof-info-value prof-info-value--muted" style={{ fontFamily: monoFont }}>{session?.user?.email || '—'}</span>
                             <span className="prof-lock-icon">🔒</span>
                         </div>
                     </div>
@@ -176,15 +176,15 @@ export default function MemberInfoCard({ profile, session, isRTL, monoFont, onNa
 
                 {profile?.country && (
                     <div className="prof-info-row">
-                        <span className="prof-info-label" style={monoFont}>{isRTL ? 'کشور' : 'COUNTRY'}</span>
+                        <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'کشور' : 'COUNTRY'}</span>
                         <div className="prof-info-value-col">
-                            <span className="prof-info-value prof-info-value--muted" style={monoFont}>{profile.country}</span>
+                            <span className="prof-info-value prof-info-value--muted" style={{ fontFamily: monoFont }}>{profile.country}</span>
                         </div>
                     </div>
                 )}
 
                 <div className="prof-info-row">
-                    <span className="prof-info-label" style={monoFont}>{isRTL ? 'نوع حساب' : 'ACCOUNT TYPE'}</span>
+                    <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'نوع حساب' : 'ACCOUNT TYPE'}</span>
                     <div className="prof-info-value-col">
                         <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
                             {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}

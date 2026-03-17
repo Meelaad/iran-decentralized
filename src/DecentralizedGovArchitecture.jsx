@@ -31,7 +31,7 @@ function useHexLayout() {
     return layout;
 }
 
-function CardParticles({ color = "79,195,247" }) {
+function CardParticles({ color = "139,92,246" }) {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -122,7 +122,7 @@ function hexToRgb(hex) {
 }
 
 export default function DecentralizedGovArchitecture() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
     const [selected, setSelected] = useState(null);
     const [panelVisible, setPanelVisible] = useState(false);
     const [panelOrigin, setPanelOrigin] = useState(null);
@@ -221,7 +221,7 @@ export default function DecentralizedGovArchitecture() {
         <div
             className="container"
             style={{
-                fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif"
+                fontFamily: headFont
                 }}>
                 <div className="blockchain-overlay">
                     <div className="blockchain-aurora" />
@@ -236,7 +236,7 @@ export default function DecentralizedGovArchitecture() {
                         <h1
                             className="app-title"
                             style={{
-                                fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif"
+                                fontFamily: headFont
                             }}
                         >
                             {isRTL ? "دولت دیجیتال و غیرمتمرکز" : "Decentralized Digital Government"}
@@ -349,7 +349,7 @@ export default function DecentralizedGovArchitecture() {
                                                     x={midX + offsetX * 0.6}
                                                     y={midY + offsetY * 0.6}
                                                     fontSize="1.4"
-                                                    fill={isRelated ? "#4fc3f7" : "#5a6a7a"}
+                                                    fill={isRelated ? "#8B5CF6" : "#5a6a7a"}
                                                     textAnchor="middle"
                                                     dominantBaseline="middle"
                                                     fontFamily={isRTL ? "Vazirmatn" : "Inter"}
@@ -370,8 +370,8 @@ export default function DecentralizedGovArchitecture() {
 
                                     return (
                                         <g key={sector.id} className="sector-node" onClick={() => handleNodeClick(sector.id, isSelected)} onMouseDown={e => e.preventDefault()} opacity={dimmed ? 0.2 : 1} style={{ outline: 'none' }}>
-                                            <circle cx={sector.x} cy={sector.y} r={r + 0.5} fill="none" stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
-                                            <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={sector.x} cy={sector.y} r={r} stroke={isSelected ? "#4fc3f7" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
+                                            <circle cx={sector.x} cy={sector.y} r={r + 0.5} fill="none" stroke={isSelected ? "#8B5CF6" : sector.border} strokeWidth={isSelected ? 0.2 : 0.08} opacity={isSelected ? 0.8 : 0.3} strokeDasharray={isSelected ? "none" : "0.3 0.2"} />
+                                            <circle className={`sector-node-circle ${isSelected ? "is-selected" : ""}`} cx={sector.x} cy={sector.y} r={r} stroke={isSelected ? "#8B5CF6" : sector.border} strokeWidth={isSelected ? 0.18 : 0.1} filter={isSelected ? "url(#glow)" : "none"} />
                                             {sector.subIcon
                                                 ? <>
                                                     <text x={sector.x} y={sector.y - r * 0.2} fontSize={r * 0.9} textAnchor="middle" dominantBaseline="middle" opacity={0.75}>{sector.icon}</text>
@@ -414,7 +414,7 @@ export default function DecentralizedGovArchitecture() {
                                     <div className="side-panel-icon">{selectedSector.icon}</div>
                                     <h2
                                         className="side-panel-title"
-                                        style={{ fontFamily: isRTL ? "Vazirmatn" : "'Inter', sans-serif" }}
+                                        style={{ fontFamily: headFont }}
                                     >
                                         {t(selectedSector.label)}
                                     </h2>
@@ -428,13 +428,13 @@ export default function DecentralizedGovArchitecture() {
                                             display: "inline-block",
                                             fontSize: 11,
                                             color: "#66d9ff",
-                                            border: "1px solid rgba(79,195,247,0.2)",
+                                            border: "1px solid rgba(139,92,246,0.2)",
                                             padding: "6px 14px",
                                             marginBottom: 16,
                                             textDecoration: "none",
                                             letterSpacing: "0.06em",
                                             transition: "background 0.2s, border-color 0.2s",
-                                            background: "rgba(79,195,247,0.04)",
+                                            background: "rgba(139,92,246,0.04)",
                                         }}
                                     >
                                         {isRTL ? "جزئیات بیشتر ←" : "LEARN MORE →"}
@@ -497,7 +497,7 @@ export default function DecentralizedGovArchitecture() {
                             <div className="shared-chip-row">
                                 {SHARED_LAYERS.map((layer, i) => (
                                     <div key={i} className="layer-chip" onClick={() => setShowLayer(showLayer === i ? null : i)}
-                                         style={{ padding: "7px 11px", background: showLayer === i ? "rgba(79,195,247,0.08)" : "rgba(9,13,19,0.72)", border: `1px solid ${showLayer === i ? "#4fc3f740" : "rgba(91,103,120,0.22)"}`, borderRadius: 0, fontSize: 11, color: showLayer === i ? "#7fd8ff" : "#667384", display: "flex", alignItems: "center", gap: 6 }}>
+                                         style={{ padding: "7px 11px", background: showLayer === i ? "rgba(139,92,246,0.08)" : "rgba(9,13,19,0.72)", border: `1px solid ${showLayer === i ? "#8B5CF640" : "rgba(91,103,120,0.22)"}`, borderRadius: 0, fontSize: 11, color: showLayer === i ? "#7fd8ff" : "#667384", display: "flex", alignItems: "center", gap: 6 }}>
                                         <span>{layer.icon}</span> <span>{t(layer.name)}</span>
                                     </div>
                                 ))}
@@ -548,7 +548,7 @@ export default function DecentralizedGovArchitecture() {
                                                 <span className="list-card-icon">{sector.icon}</span>
                                                 <span
                                                     className="list-card-title"
-                                                    style={{ fontFamily: isRTL ? "Vazirmatn" : "'Inter', sans-serif" }}
+                                                    style={{ fontFamily: headFont }}
                                                 >
                                                     {t(sector.label)}
                                                 </span>

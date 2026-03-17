@@ -8,8 +8,8 @@
 .itc-page {
   position: relative;
   min-height: 100vh;
-  background: #020408;
-  color: #d6e4ed;
+  background: #010303;
+  color: #CCE3F0;
   overflow-x: hidden;
 }
 
@@ -71,7 +71,7 @@
 .itc-acc { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.015); width: 100%; margin-bottom: 5px; }
 .itc-acc:last-child { margin-bottom: 0; }
 .itc-acc:hover { border-color: rgba(255,255,255,0.11); }
-.itc-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: #d6e4ed; }
+.itc-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: #CCE3F0; }
 .itc-acc-btn:hover { background: rgba(124,114,232,0.04); }
 .itc-acc-title { flex: 1; font-size: 12px; font-weight: 600; color: #c8dce8; line-height: 1.4; text-align: left; }
 [dir="rtl"] .itc-acc-title { text-align: right; }
@@ -155,7 +155,7 @@
   margin: 24px 0; padding: 20px 24px;
   border: 1px dashed rgba(124,114,232,0.25);
   border-radius: 10px; background: rgba(124,114,232,0.04);
-  font-size: 13px; color: #d6e4ed; line-height: 1.75;
+  font-size: 13px; color: #CCE3F0; line-height: 1.75;
   display: flex; gap: 14px; align-items: flex-start; font-style: italic;
 }
 .itc-conclusion-mark { font-size: 28px; opacity: 0.3; flex-shrink: 0; margin-top: -4px; line-height: 1; font-style: normal; }

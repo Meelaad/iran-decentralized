@@ -11,8 +11,8 @@
 .mp-page {
   position: relative;
   min-height: 100vh;
-  background: #020408;
-  color: #d6e4ed;
+  background: #010303;
+  color: #CCE3F0;
   overflow-x: hidden;
 }
 
@@ -176,7 +176,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #d6e4ed;
+  color: #CCE3F0;
   transition: background 0.15s;
 }
 
@@ -592,7 +592,7 @@
   font-size: 12px;
   color: #c4bdff;
   line-height: 1.4;
-  color: #d6e4ed;
+  color: #CCE3F0;
 }
 
 /* ── Abdication quote ── */
@@ -603,7 +603,7 @@
   border-radius: 10px;
   background: rgba(239, 83, 80, 0.04);
   font-size: 13px;
-  color: #d6e4ed;
+  color: #CCE3F0;
   line-height: 1.75;
   display: flex;
   gap: 14px;

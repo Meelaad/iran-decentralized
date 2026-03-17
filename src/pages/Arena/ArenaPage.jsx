@@ -92,7 +92,7 @@ export default function ArenaPage() {
                             <article
                                 key={plan.id}
                                 className="plan-card"
-                                style={{ borderColor: plan.coverColor || '#4fc3f7' }}
+                                style={{ borderColor: plan.coverColor || '#8B5CF6' }}
                             >
                                 {plan.isOfficial && (
                                     <span className="plan-official-badge">{tKey('plan.officialBadge')}</span>
@@ -226,8 +226,8 @@ export default function ArenaPage() {
                         <div className="arena-featured-meta">{isRTL ? 'شبکه پژوهش و حمایت جامعه مدنی' : 'Civil Society Research & Advocacy Network'}</div>
                         <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
-                    <Link to="/compare/transition" className="arena-featured-card" style={{ borderColor: '#4fc3f7' }}>
-                        <span className="arena-featured-badge" style={{ color: '#4fc3f7', borderColor: '#4fc3f733' }}>{isRTL ? 'مقایسه' : 'COMPARE'}</span>
+                    <Link to="/compare/transition" className="arena-featured-card" style={{ borderColor: '#8B5CF6' }}>
+                        <span className="arena-featured-badge" style={{ color: '#8B5CF6', borderColor: '#8B5CF633' }}>{isRTL ? 'مقایسه' : 'COMPARE'}</span>
                         <div className="arena-featured-name">{isRTL ? 'مقایسه طرح‌های انتقالی' : 'Compare All Plans'}</div>
                         <div className="arena-featured-meta">{isRTL ? 'مقایسه جانبی طرح‌های پیشنهادی' : 'Side-by-side comparison of suggested frameworks'}</div>
                         <div className="arena-featured-cta">{isRTL ? 'مقایسه ←' : 'COMPARE →'}</div>

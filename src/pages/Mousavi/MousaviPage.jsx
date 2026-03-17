@@ -167,7 +167,7 @@ const DATA = {
     heroDesc: "A three-stage operational blueprint for the peaceful, non-violent dismantlement of the Islamic Republic and its replacement with a democratic state anchored in popular sovereignty. Initiated by former Prime Minister Mir Hossein Mousavi on February 4, 2023, updated through the July 2025 post-war statement, and radicalized to a direct demand for capitulation in January 2026.",
     heroBadges: [
       { label: "3-Stage Blueprint", c: "#69d98c" },
-      { label: "Feb 2023 → Jan 2026", c: "#4fc3f7" },
+      { label: "Feb 2023 → Jan 2026", c: "#8B5CF6" },
       { label: "Non-Violent Transition", c: "#ffd166" },
       { label: "Popular Sovereignty", c: "#ba68c8" },
       { label: "Constituent Assembly", c: "#ff9a42" },
@@ -324,7 +324,7 @@ const DATA = {
         icon: "✊",
         title: "Domestic Civil Society",
         sub: "350–400 journalists, activists, academics · February 2023",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "Majority physically reside inside Iran — conferring enormous domestic credibility and personal courage",
           "Explicitly cited intractable corruption, injustice, and brutal suppression in their endorsement",
@@ -421,7 +421,7 @@ const DATA = {
         event: "Immediate coalition formation: 350-400 domestic activists + 112 ex-officials endorse the manifesto.",
         action: "Prince Reza Pahlavi calls for 'maximum participation' and welcomes the secular trajectory.",
         shift: "Unprecedented domestic-diaspora convergence around the three-stage framework.",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
       },
       {
         date: "April 2023",
@@ -524,7 +524,7 @@ const DATA = {
     heroDesc: "یک طرح عملیاتی سه‌مرحله‌ای برای برچیدن مسالمت‌آمیز و بدون خشونت جمهوری اسلامی و جایگزینی آن با یک دولت دموکراتیک مبتنی بر حاکمیت مردمی. آغاز شده توسط نخست‌وزیر سابق میر حسین موسوی در ۴ فوریه ۲۰۲۳، به‌روزرسانی شده در بیانیه پس از جنگ جولای ۲۰۲۵، و تبدیل به درخواست مستقیم برای کناره‌گیری در ژانویه ۲۰۲۶.",
     heroBadges: [
       { label: "طرح ۳ مرحله‌ای", c: "#69d98c" },
-      { label: "فوریه ۲۰۲۳ ← ژانویه ۲۰۲۶", c: "#4fc3f7" },
+      { label: "فوریه ۲۰۲۳ ← ژانویه ۲۰۲۶", c: "#8B5CF6" },
       { label: "گذار غیرخشونت‌آمیز", c: "#ffd166" },
       { label: "حاکمیت مردمی", c: "#ba68c8" },
       { label: "مجلس مؤسسان", c: "#ff9a42" },
@@ -678,7 +678,7 @@ const DATA = {
         icon: "✊",
         title: "جامعه مدنی داخلی",
         sub: "۳۵۰–۴۰۰ روزنامه‌نگار، فعال، دانشگاهی · فوریه ۲۰۲۳",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "اکثریت داخل ایران زندگی می‌کنند — اعتبار داخلی و شجاعت شخصی فوق‌العاده‌ای به آن می‌بخشند",
           "صریحاً فساد لاعلاج، بی‌عدالتی و سرکوب وحشیانه را در تأییدیه خود ذکر کردند",
@@ -769,7 +769,7 @@ const DATA = {
         event: "ائتلاف فوری: ۳۵۰-۴۰۰ فعال داخلی + ۱۱۲ مقام سابق بیانیه را تأیید می‌کنند.",
         action: "شاهزاده رضا پهلوی خواستار 'حداکثر مشارکت' می‌شود.",
         shift: "همگرایی بی‌سابقه داخلی-دیاسپورا حول چارچوب سه‌مرحله‌ای.",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
       },
       {
         date: "آوریل ۲۰۲۳",
@@ -866,12 +866,12 @@ const DATA = {
    Main component
 ───────────────────────────────────────────────────── */
 export default function MousaviPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
-  const GREEN = "#69d98c", CYAN = "#4fc3f7", AMBER = "#ffd166",
+  const GREEN = "#69d98c", CYAN = "#8B5CF6", AMBER = "#ffd166",
     ORANGE = "#ff9a42", RED = "#ef5350", PURPLE = "#ba68c8", VIOLET = "#7c72e8";
 
   return (

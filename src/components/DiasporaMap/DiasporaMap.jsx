@@ -3,11 +3,11 @@ import * as d3geo from 'd3-geo';
 import * as topojson from 'topojson-client';
 import './DiasporaMap.css';
 
-// Color interpolation: 0 votes → dark, max votes → cyan #4fc3f7
+// Color interpolation: 0 votes → dark, max votes → cyan #8B5CF6
 function voteColor(count, max) {
     if (!count || !max) return '#0d1f2d';
     const t = Math.sqrt(count / max); // sqrt for better visual distribution
-    // Interpolate from #0d1f2d to #4fc3f7
+    // Interpolate from #0d1f2d to #8B5CF6
     const r = Math.round(13  + (79  - 13)  * t);
     const g = Math.round(31  + (195 - 31)  * t);
     const b = Math.round(45  + (247 - 45)  * t);

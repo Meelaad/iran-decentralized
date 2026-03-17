@@ -75,7 +75,7 @@ function CopyButton({ code }) {
                 ? <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><polyline points="2,7 5,10 11,3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 : <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
                     <rect x="4.5" y="1" width="7" height="8.5" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-                    <rect x="1" y="3.5" width="7" height="8.5" rx="1" stroke="currentColor" strokeWidth="1.2" fill="rgba(2,4,8,0.92)"/>
+                    <rect x="1" y="3.5" width="7" height="8.5" rx="1" stroke="currentColor" strokeWidth="1.2" fill="rgba(1,3,3,0.92)"/>
                   </svg>
             }
         </button>
@@ -114,7 +114,7 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
                 <td>{user.country || '—'}</td>
                 <td>{user.user_type || '—'}</td>
                 <td>{user.invited_by ? (nameMap[user.invited_by] || user.invited_by.slice(0, 8) + '…') : <span style={{ color: '#3a4a5e' }}>seed</span>}</td>
-                <td className="admin-td-mono" style={{ color: user.invite_codes_remaining === 0 ? '#3a4a5e' : '#4fc3f7' }}>
+                <td className="admin-td-mono" style={{ color: user.invite_codes_remaining === 0 ? '#3a4a5e' : '#8B5CF6' }}>
                     {user.invite_codes_remaining}
                 </td>
                 <td>{formatDate(user.created_at)}</td>
@@ -247,9 +247,7 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AdminPage() {
-    const { isRTL } = useLang();
-    const monoFont   = { fontFamily: "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
+    const { isRTL, monoFont, headFont } = useLang();
 
     const { session, authLoading } = useAuth();
     const myEmail = session?.user?.email || '';
@@ -333,7 +331,7 @@ export default function AdminPage() {
         );
     }
 
-    const TIER_COLORS = { LOW: '#5a6a7e', MID: '#4fc3f7', HIGH: '#ffd54f' };
+    const TIER_COLORS = { LOW: '#5a6a7e', MID: '#8B5CF6', HIGH: '#ffd54f' };
     const STATUS_COLORS = { incubator: '#ffd54f', arena: '#66bb6a', archived: '#5a6a7e' };
 
     return (
@@ -343,8 +341,8 @@ export default function AdminPage() {
                 {/* Header */}
                 <div className="admin-header">
                     <div className="admin-eyebrow">Admin Panel</div>
-                    <h1 className="admin-title" style={headingFont}>IranDAO Admin</h1>
-                    <div className="admin-meta" style={monoFont}>Logged in as: {myEmail}</div>
+                    <h1 className="admin-title" style={{ fontFamily: headFont }}>IranDAO Admin</h1>
+                    <div className="admin-meta" style={{ fontFamily: monoFont }}>Logged in as: {myEmail}</div>
                 </div>
 
                 {/* Stats */}
@@ -443,12 +441,12 @@ export default function AdminPage() {
                                 className="admin-action-btn"
                                 onClick={handleSeedBlueprints}
                                 disabled={seedMutation.isPending}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             >
                                 {seedMutation.isPending ? '...' : '↑ Sync official blueprints from data.js'}
                             </button>
                             {blueprintSeedMsg && (
-                                <span className="admin-seed-msg" style={monoFont}>{blueprintSeedMsg}</span>
+                                <span className="admin-seed-msg" style={{ fontFamily: monoFont }}>{blueprintSeedMsg}</span>
                             )}
                         </div>
                         <div className="admin-table-wrap">
@@ -477,7 +475,7 @@ export default function AdminPage() {
                                         <tr key={bp.id}>
                                             <td className="admin-td-mono" style={{ fontSize: 11 }}>{bp.id}</td>
                                             <td>{bp.name?.en || '—'}</td>
-                                            <td style={{ color: bp.isOfficial ? '#4fc3f7' : '#3a4a5e' }}>
+                                            <td style={{ color: bp.isOfficial ? '#8B5CF6' : '#3a4a5e' }}>
                                                 {bp.isOfficial ? '✓' : 'fork'}
                                             </td>
                                             <td>{bp.sectors?.length ?? 0}</td>
@@ -592,7 +590,7 @@ export default function AdminPage() {
                                                 <div className="admin-td-email">{item.profiles?.email || '—'}</div>
                                             </td>
                                             <td>
-                                                <span className="admin-status-badge" style={{ color: '#4fc3f7', borderColor: 'rgba(79,195,247,0.3)' }}>
+                                                <span className="admin-status-badge" style={{ color: '#8B5CF6', borderColor: 'rgba(139,92,246,0.3)' }}>
                                                     {item.type === 'id_document' ? 'ID' : item.type?.toUpperCase()}
                                                 </span>
                                             </td>
@@ -658,7 +656,7 @@ export default function AdminPage() {
                                             </td>
                                             <td className="admin-td-name">{entry.full_name || '—'}</td>
                                             <td className="admin-td-email">{entry.email || '—'}</td>
-                                            <td className="admin-td-mono" style={{ color: '#4fc3f7' }}>{entry.civic_score ?? 0}</td>
+                                            <td className="admin-td-mono" style={{ color: '#8B5CF6' }}>{entry.civic_score ?? 0}</td>
                                             <td>
                                                 <span className="admin-status-badge" style={{ color: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e', borderColor: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e' }}>
                                                     {entry.trust_tier || 'LOW'}

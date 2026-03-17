@@ -9,6 +9,8 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../contexts/ThemeContext';
+import { BrandMark } from '../../components/BrandMark/BrandMark';
+import { FeatureSlider, LEFT_FEATURES, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
 import './StartPage.css';
 
 // ─── Live stats ────────────────────────────────────────────────────────────────
@@ -25,25 +27,6 @@ function useLiveStats() {
     }, []);
     return stats;
 }
-
-// ─── Feature data ──────────────────────────────────────────────────────────────
-const LEFT_FEATURES = [
-    { icon: '🏛', title: { en: 'Transitional Plans', fa: 'طرح‌های انتقالی' }, desc: { en: 'Endorse real frameworks like the Mahsa Charter already active on the Main Stage.', fa: 'طرح‌های واقعی مانند منشور مهسا را بر روی صحنه اصلی تأیید کنید.' } },
-    { icon: '🗳', title: { en: 'Amendment Floor', fa: 'کف اصلاحات' }, desc: { en: 'Propose and vote on line-item edits to any active plan in real time.', fa: 'پیشنهاد و رأی‌گیری برای تغییرات خط‌به‌خط در طرح‌های فعال.' } },
-    { icon: '🌱', title: { en: 'Plan Incubator', fa: 'پرورشگاه طرح' }, desc: { en: 'New grassroots plans earn a Main Stage spot after 10,000 verified signatures.', fa: 'طرح‌های جدید مردمی پس از ۱۰,۰۰۰ امضای تأیید‌شده به صحنه اصلی می‌رسند.' } },
-    { icon: '📈', title: { en: 'Live Consensus', fa: 'اجماع زنده' }, desc: { en: 'Stock-style graphs track daily momentum shifts across all competing plans.', fa: 'نمودارهای سهام‌وار تغییرات روزانه اجماع در تمام طرح‌ها را نشان می‌دهند.' } },
-    { icon: '🤝', title: { en: 'Web of Trust', fa: 'شبکه اعتماد' }, desc: { en: 'Join via invite-only codes shared by people you trust — no bots allowed.', fa: 'از طریق کدهای دعوت‌نامه از افراد مورد اعتماد بپیوندید — ربات مجاز نیست.' } },
-    { icon: '🔐', title: { en: 'Privacy First', fa: 'اولویت با حریم خصوصی' }, desc: { en: 'No government ID required. Verify freely with institutional email or passkey.', fa: 'نیازی به شناسه دولتی نیست. با ایمیل دانشگاهی یا کلید تأیید کنید.' } },
-];
-
-const RIGHT_FEATURES = [
-    { icon: '⚖️', title: { en: 'Shadow Cabinet', fa: 'کابینه سایه' }, desc: { en: 'Nominate and elect experts into sector roles using ranked-choice voting.', fa: 'کارشناسان را برای نقش‌های بخشی با رأی‌گیری ترجیحی منصوب و انتخاب کنید.' } },
-    { icon: '🌍', title: { en: 'Diaspora Map', fa: 'نقشه دیاسپورا' }, desc: { en: 'See where Iranian voices are concentrated across the globe in real time.', fa: 'ببینید صداهای ایرانی در سراسر جهان کجا متمرکز شده‌اند.' } },
-    { icon: '🏆', title: { en: 'Civic Score', fa: 'امتیاز مدنی' }, desc: { en: '3-tier system: higher score means more weight in governance votes.', fa: 'سیستم ۳ سطحی: امتیاز بالاتر یعنی وزن بیشتر در رأی‌گیری‌های حاکمیتی.' } },
-    { icon: '🗺', title: { en: 'Blueprint Explorer', fa: 'کاوشگر طرح‌ها' }, desc: { en: 'Compare every proposed system of government side-by-side in detail.', fa: 'هر سیستم پیشنهادی حکومت را به طور مفصل در کنار هم مقایسه کنید.' } },
-    { icon: '🔥', title: { en: 'Activity Grid', fa: 'شبکه فعالیت' }, desc: { en: '365-day contribution heatmap on your profile — like GitHub, but for democracy.', fa: 'نقشه حرارتی ۳۶۵ روزه مشارکت در پروفایل شما — مثل گیت‌هاب، برای دموکراسی.' } },
-    { icon: '📜', title: { en: 'Permanent Constitution', fa: 'قانون اساسی دائمی' }, desc: { en: 'Phase 2 destination: a ratified post-collapse constitution built from the ground up.', fa: 'مرحله دوم: قانون اساسی دائمی پس از فروپاشی که از پایه ساخته می‌شود.' } },
-];
 
 // ─── Shaders ───────────────────────────────────────────────────────────────────
 const SIM_VERT = `
@@ -452,28 +435,6 @@ function ParticleScene({ isLight = false }) {
     );
 }
 
-// ─── Horizontal marquee row ────────────────────────────────────────────────────
-function FeatureMarquee({ items, reverse }) {
-    const { t } = useLang();
-    const quadrupled = [...items, ...items, ...items, ...items];
-
-    return (
-        <div className={`sp-marquee${reverse ? ' sp-marquee--rev' : ''}`}>
-            <div className={`sp-marquee-track${reverse ? ' sp-marquee-track--rev' : ''}`}>
-                {quadrupled.map((f, i) => (
-                    <div key={i} className="sp-card">
-                        <span className="sp-card-icon">{f.icon}</span>
-                        <div className="sp-card-body">
-                            <div className="sp-card-title">{t(f.title)}</div>
-                            <div className="sp-card-desc">{t(f.desc)}</div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
-
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function StartPage() {
     const { isRTL, lang, setLang } = useLang();
@@ -523,13 +484,15 @@ export default function StartPage() {
             {/* Dark vignette overlay */}
             <div className="sp-overlay" />
 
-            {/* Top marquee — LEFT_FEATURES scrolling left */}
-            <FeatureMarquee items={LEFT_FEATURES} reverse={false} />
+            {/* Top slider — LEFT_FEATURES */}
+            <FeatureSlider items={LEFT_FEATURES} />
 
             {/* Hero centre */}
             <div className="sp-hero" ref={heroRef}>
-                <div className="sp-eyebrow">
-                    <span className="sp-eyebrow-iran">IRAN</span><span className="sp-eyebrow-dao">DAO</span>
+                {/* Brand + logo pinned to top of hero — doesn't affect flex centering of animation */}
+                <div className="sp-hero-brand">
+                    <BrandMark size="lg" />
+                    <img src="/logo.svg" alt="IranDAO logo" className="sp-hero-logo" />
                 </div>
 
                 <ParticleTitle key={`${lang}-${theme}`} words={particleWords} isRTL={isRTL} isLight={theme === 'light'} />
@@ -566,8 +529,8 @@ export default function StartPage() {
                 </div>
             </div>
 
-            {/* Bottom marquee — RIGHT_FEATURES scrolling right */}
-            <FeatureMarquee items={RIGHT_FEATURES} reverse={true} />
+            {/* Bottom slider — RIGHT_FEATURES */}
+            <FeatureSlider items={RIGHT_FEATURES} />
 
         </div>
     );

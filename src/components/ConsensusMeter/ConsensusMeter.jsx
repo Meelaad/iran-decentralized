@@ -8,7 +8,7 @@ export default function ConsensusMeter({ totalUsers = 0, totalEndorsed = 0, targ
     const displayPct  = Math.round(pct * 100);
     const needed      = Math.max(0, Math.ceil(targetPct * totalUsers - totalEndorsed));
     // Animate fill colour: cyan below target, green at/above target
-    const fillColor   = pct >= targetPct ? '#69d98c' : '#4fc3f7';
+    const fillColor   = pct >= targetPct ? '#69d98c' : '#8B5CF6';
 
     return (
         <div className="cm-root" dir={isRTL ? 'rtl' : 'ltr'}>

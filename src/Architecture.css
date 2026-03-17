@@ -37,8 +37,8 @@
 }
 
 @keyframes breatheGlow {
-    0%, 100% { filter: brightness(1.1) drop-shadow(0 0 2px rgba(79,195,247,0.2)); }
-    50% { filter: brightness(1.3) drop-shadow(0 0 8px rgba(79,195,247,0.6)); }
+    0%, 100% { filter: brightness(1.1) drop-shadow(0 0 2px rgba(139,92,246,0.2)); }
+    50% { filter: brightness(1.3) drop-shadow(0 0 8px rgba(139,92,246,0.6)); }
 }
 
 @keyframes meshPulse {
@@ -73,17 +73,17 @@
 }
 
 .blockchain-overlay {
-    position: fixed;
+    position: absolute;
     inset: 0;
     pointer-events: none;
-    z-index: 999;
+    z-index: 0;
 }
 
 .blockchain-aurora {
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 30%, rgba(79,195,247,0.08), transparent 35%),
+        radial-gradient(circle at 20% 30%, rgba(139,92,246,0.08), transparent 35%),
         radial-gradient(circle at 80% 70%, rgba(171,71,188,0.07), transparent 38%);
     background-size: 140% 140%, 140% 140%;
     background-position: 0% 0%, 100% 100%;
@@ -111,7 +111,7 @@
 .blueprint-hero {
     text-align: center;
     padding: 28px 32px 20px;
-    border-bottom: 1px solid rgba(79,195,247,0.06);
+    border-bottom: 1px solid rgba(139,92,246,0.06);
     background: linear-gradient(180deg, rgba(4,8,20,0.6) 0%, transparent 100%);
 }
 
@@ -162,7 +162,7 @@
     right: 28px;
     bottom: -1px;
     height: 1px;
-    background: linear-gradient(90deg, rgba(79,195,247,0.28), rgba(79,195,247,0.02));
+    background: linear-gradient(90deg, rgba(139,92,246,0.28), rgba(139,92,246,0.02));
 }
 
 .app-kicker {
@@ -221,15 +221,15 @@
 }
 
 .btn-base:hover {
-    background: rgba(79,195,247,0.05);
+    background: rgba(139,92,246,0.05);
     color: #b4c5d8;
 }
 
 .btn-active {
     background:
-        linear-gradient(180deg, rgba(79,195,247,0.14), rgba(79,195,247,0.05));
+        linear-gradient(180deg, rgba(139,92,246,0.14), rgba(139,92,246,0.05));
     color: #8fe3ff;
-    box-shadow: inset 0 -1px 0 rgba(79,195,247,0.5);
+    box-shadow: inset 0 -1px 0 rgba(139,92,246,0.5);
 }
 
 /* MAP */
@@ -241,13 +241,13 @@
     gap: 2px;
     padding: 8px 16px;
     background: linear-gradient(180deg, rgba(8,12,22,0.9), rgba(5,8,18,0.95));
-    border-top: 1px solid rgba(79,195,247,0.1);
+    border-top: 1px solid rgba(139,92,246,0.1);
 }
 
 /* List-view variant sits at top, border on bottom */
 .mobile-tab-bar--list {
     border-top: none;
-    border-bottom: 1px solid rgba(79,195,247,0.1);
+    border-bottom: 1px solid rgba(139,92,246,0.1);
     margin-bottom: 8px;
 }
 
@@ -273,8 +273,8 @@
 
 .mobile-tab-bar .tab-btn.tab-active {
     color: #8fe3ff;
-    background: rgba(79,195,247,0.08);
-    border-color: rgba(79,195,247,0.3);
+    background: rgba(139,92,246,0.08);
+    border-color: rgba(139,92,246,0.3);
 }
 
 .map-shell {
@@ -289,6 +289,7 @@
     flex: 1;
     position: relative;
     min-height: 0;
+    overflow: hidden;
 }
 
 .arch-map-svg {
@@ -525,9 +526,9 @@ svg path, svg text, svg circle, svg g {
 .panel-connection-pill {
     font-size: 9px;
     color: #66d9ff;
-    background: rgba(79,195,247,0.08);
+    background: rgba(139,92,246,0.08);
     padding: 3px 6px;
-    border: 1px solid rgba(79,195,247,0.16);
+    border: 1px solid rgba(139,92,246,0.16);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     white-space: nowrap;
@@ -572,11 +573,11 @@ svg path, svg text, svg circle, svg g {
 .shared-chip-desc {
     margin-top: 10px;
     padding: 11px 13px;
-    background: rgba(79,195,247,0.03);
-    border-left: 2px solid rgba(79,195,247,0.34);
-    border-top: 1px solid rgba(79,195,247,0.08);
-    border-right: 1px solid rgba(79,195,247,0.08);
-    border-bottom: 1px solid rgba(79,195,247,0.08);
+    background: rgba(139,92,246,0.03);
+    border-left: 2px solid rgba(139,92,246,0.34);
+    border-top: 1px solid rgba(139,92,246,0.08);
+    border-right: 1px solid rgba(139,92,246,0.08);
+    border-bottom: 1px solid rgba(139,92,246,0.08);
     border-radius: 0;
     font-size: 12px;
     color: #8a97a8;
@@ -809,7 +810,7 @@ svg path, svg text, svg circle, svg g {
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 60px);
-    background: #020408;
+    background: #010303;
 }
 
 /* ── Vote FAB ── */
@@ -818,21 +819,21 @@ svg path, svg text, svg circle, svg g {
     bottom: 24px;
     right: 24px;
     background: rgba(7,16,26,0.9);
-    border: 1px solid rgba(79,195,247,0.5);
+    border: 1px solid rgba(139,92,246,0.5);
     border-radius: 8px;
     padding: 10px 20px;
     font-family: 'intelone-mono', monospace;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #4fc3f7;
+    color: #8B5CF6;
     text-decoration: none;
     z-index: 50;
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 .bv-vote-fab:hover {
-    border-color: #4fc3f7;
-    box-shadow: 0 0 16px rgba(79,195,247,0.2);
+    border-color: #8B5CF6;
+    box-shadow: 0 0 16px rgba(139,92,246,0.2);
 }
 
 /* ── Blueprint picker (inside viewer, next to map/list/tree tabs) ── */
@@ -848,17 +849,17 @@ svg path, svg text, svg circle, svg g {
     font-size: 12px;
     padding: 5px 10px;
     border-radius: 5px;
-    border: 1px solid rgba(79,195,247,0.2);
-    background: rgba(79,195,247,0.05);
-    color: #4fc3f7;
+    border: 1px solid rgba(139,92,246,0.2);
+    background: rgba(139,92,246,0.05);
+    color: #8B5CF6;
     cursor: pointer;
     white-space: nowrap;
     transition: border-color 0.15s, background 0.15s;
     letter-spacing: 0.03em;
 }
 .bv-bp-picker-btn:hover {
-    border-color: rgba(79,195,247,0.45);
-    background: rgba(79,195,247,0.1);
+    border-color: rgba(139,92,246,0.45);
+    background: rgba(139,92,246,0.1);
 }
 
 .bv-bp-picker-caret {
@@ -872,7 +873,7 @@ svg path, svg text, svg circle, svg g {
     left: 0;
     min-width: 230px;
     background: rgba(8,14,26,0.97);
-    border: 1px solid rgba(79,195,247,0.14);
+    border: 1px solid rgba(139,92,246,0.14);
     border-radius: 8px;
     padding: 6px;
     z-index: 300;
@@ -891,17 +892,17 @@ svg path, svg text, svg circle, svg g {
     border-radius: 5px;
     border: none;
     background: transparent;
-    color: rgba(214,228,237,0.6);
+    color: rgba(204,227,240,0.6);
     cursor: pointer;
     transition: background 0.12s, color 0.12s;
 }
 .bv-bp-picker-option:hover {
-    background: rgba(79,195,247,0.08);
-    color: #d6e4ed;
+    background: rgba(139,92,246,0.08);
+    color: #CCE3F0;
 }
 .bv-bp-picker-option.is-active {
-    background: rgba(79,195,247,0.13);
-    color: #4fc3f7;
+    background: rgba(139,92,246,0.13);
+    color: #8B5CF6;
 }
 
 .bv-bp-picker-row {

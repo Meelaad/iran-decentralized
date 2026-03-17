@@ -37,22 +37,22 @@ export default function AdditionalInfoForm({ profile, isRTL, monoFont, onSave })
 
     return (
         <div className="prof-card">
-            <div className="prof-section-title" style={monoFont}>{isRTL ? 'اطلاعات تکمیلی' : 'ADDITIONAL INFO'}</div>
+            <div className="prof-section-title" style={{ fontFamily: monoFont }}>{isRTL ? 'اطلاعات تکمیلی' : 'ADDITIONAL INFO'}</div>
             <form onSubmit={handleSave} className="prof-form">
                 <div className="prof-field">
-                    <label className="prof-label" style={monoFont}>{isRTL ? 'عنوان' : 'TITLE'}</label>
+                    <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'عنوان' : 'TITLE'}</label>
                     <select className="prof-select" value={title} onChange={e => setTitle(e.target.value)} style={{ fontFamily: 'inherit' }}>
                         {TITLES.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
                     </select>
                 </div>
                 <div className="prof-field">
-                    <label className="prof-label" style={monoFont}>{isRTL ? 'ضمیر' : 'PRONOUNS'}</label>
+                    <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'ضمیر' : 'PRONOUNS'}</label>
                     <select className="prof-select" value={pronouns} onChange={e => setPronouns(e.target.value)} style={{ fontFamily: 'inherit' }}>
                         {PRONOUNS.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
                     </select>
                 </div>
                 <div className="prof-field">
-                    <label className="prof-label" style={monoFont}>{isRTL ? 'شهر' : 'CITY'}</label>
+                    <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'شهر' : 'CITY'}</label>
                     <input
                         className="prof-input"
                         type="text"
@@ -64,7 +64,7 @@ export default function AdditionalInfoForm({ profile, isRTL, monoFont, onSave })
                     />
                 </div>
                 <div className="prof-field">
-                    <label className="prof-label" style={monoFont}>{isRTL ? 'درباره من' : 'BIO'}</label>
+                    <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'درباره من' : 'BIO'}</label>
                     <textarea
                         className="prof-textarea"
                         value={bio}
@@ -74,10 +74,10 @@ export default function AdditionalInfoForm({ profile, isRTL, monoFont, onSave })
                         placeholder={isRTL ? 'اختیاری — درباره پیشینه یا علاقهتان بنویسید.' : 'Optional — briefly describe your background or interest in IranDAO.'}
                         style={{ fontFamily: 'inherit' }}
                     />
-                    <div className="prof-char-count" style={monoFont}>{bio.length}/280</div>
+                    <div className="prof-char-count" style={{ fontFamily: monoFont }}>{bio.length}/280</div>
                 </div>
-                {saveError && <div className="prof-error" style={monoFont}>{saveError}</div>}
-                <button type="submit" className="prof-save-btn" style={monoFont}>
+                {saveError && <div className="prof-error" style={{ fontFamily: monoFont }}>{saveError}</div>}
+                <button type="submit" className="prof-save-btn" style={{ fontFamily: monoFont }}>
                     {saved ? (isRTL ? 'ذخیره شد' : 'SAVED') : (isRTL ? 'ذخیره تغییرات' : 'SAVE CHANGES')}
                 </button>
             </form>

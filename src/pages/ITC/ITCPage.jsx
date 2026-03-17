@@ -179,7 +179,7 @@ const DATA = {
     heroDesc: "The ITC is not an ideological opposition group — it is a meticulously engineered shadow government and logistical planning unit. Launched in September 2019, its architecture is designed to absorb the shock of regime collapse and manage the power vacuum that follows. This is not a utopian manifesto but a cold, calculated schematic for safely decommissioning a hostile theocratic state apparatus while simultaneously standing up a decentralized democratic replacement.",
     heroBadges: [
       { label: "Founded Sept 2019", c: "#7c72e8" },
-      { label: "6-Phase Timeline", c: "#4fc3f7" },
+      { label: "6-Phase Timeline", c: "#8B5CF6" },
       { label: "Ethno-Federalist", c: "#69d98c" },
       { label: "Technocratic Pragmatism", c: "#ffd166" },
       { label: "Shadow Government Design", c: "#ba68c8" },
@@ -268,7 +268,7 @@ const DATA = {
         name: "Mehran Barati",
         role: "Vice Secretary-General",
         domain: "European Diplomacy",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         value: "Prominent Iranian diaspora figure and former student leader operating out of Germany. Acts as a critical diplomatic bridge to European social democratic institutions — the EU is a key target for sanctions removal and international recognition.",
         note: null,
       },
@@ -319,7 +319,7 @@ const DATA = {
       {
         icon: "🌐",
         title: "External Diplomatic Isolation",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "ITC is registered as a foreign principal via AF International LLC (FARA-registered)",
           "Active petitioning of UN Secretary General, WHO, EU High Representative",
@@ -427,7 +427,7 @@ const DATA = {
         phase: "Final Transfer of Power",
         priority: "Dissolution of all interim bodies · Full democratic handover",
         authority: "Elected National Parliament",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "Upon ratification of the new constitution, the Provisional Government DISSOLVES ITSELF",
           "All executive and legislative authority transferred to the newly elected, permanent constitutional government",
@@ -555,7 +555,7 @@ const DATA = {
       {
         icon: "🌍",
         title: "Foreign Policy: Geopolitical Compliance for Economic Lifelines",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "Total reversal of the Islamic Republic's geopolitical posture",
           "Foreign policy formulated purely on national interests, international law, and mutual respect",
@@ -615,7 +615,7 @@ const DATA = {
     heroDesc: "شورای مدیریت گذار یک گروه اپوزیسیون ایدئولوژیک نیست — یک دولت سایه و واحد برنامه‌ریزی لجستیکی به دقت طراحی‌شده است. معماری آن برای جذب شوک فروپاشی رژیم و مدیریت خلاء قدرتی طراحی شده که به دنبال می‌آید. این یک بیانیه آرمانی نیست بلکه یک طرح سرد و محاسبه‌شده برای خاموش کردن ایمن یک دستگاه دولتی تئوکراتیک خصمانه است.",
     heroBadges: [
       { label: "تأسیس سپتامبر ۲۰۱۹", c: "#7c72e8" },
-      { label: "جدول زمانی ۶ مرحله‌ای", c: "#4fc3f7" },
+      { label: "جدول زمانی ۶ مرحله‌ای", c: "#8B5CF6" },
       { label: "فدرالیسم قومی", c: "#69d98c" },
       { label: "عمل‌گرایی تکنوکراتیک", c: "#ffd166" },
       { label: "طراحی دولت سایه", c: "#ba68c8" },
@@ -701,7 +701,7 @@ const DATA = {
         name: "مهران براتی",
         role: "معاون دبیر کل",
         domain: "دیپلماسی اروپایی",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         value: "چهره برجسته دیاسپورای ایرانی و رهبر سابق دانشجویی مستقر در آلمان. به عنوان یک پل دیپلماتیک حیاتی با نهادهای دموکرات اجتماعی اروپایی عمل می‌کند.",
         note: null,
       },
@@ -750,7 +750,7 @@ const DATA = {
       {
         icon: "🌐",
         title: "انزوای دیپلماتیک خارجی",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "شورا به عنوان یک اصل خارجی از طریق AF International LLC ثبت شده است (ثبت FARA)",
           "ارتباط فعال با دبیر کل سازمان ملل، سازمان بهداشت جهانی، نماینده عالی اتحادیه اروپا",
@@ -786,7 +786,7 @@ const DATA = {
         items: ["پس از دستیابی به ثبات پایه، دولت موقت انتخابات ملی آزاد، منصفانه و رقابتی را تسهیل می‌کند", "مجلس فقط برای تهیه پیش‌نویس قانون اساسی دموکراتیک جدید مأموریت دارد — بدون اختیار اجرایی", "تصمیمات بنیادی موکول‌شده از مرحله سوم در اینجا حل‌وفصل می‌شوند: ساختار فدرال، شکل دقیق حکومت دموکراتیک"] },
       { number: "۰۵", phase: "همه‌پرسی قانون اساسی", priority: "تصویب نهایی مردمی قانون اساسی جدید", authority: "رأی‌دهندگان ملی", color: "#69d98c",
         items: ["قانون اساسی تهیه‌شده برای یک رأی ملی نهایی و الزام‌آور به تمام مردم ایران ارائه می‌شود", "هیچ نهاد موقتی نمی‌تواند پارچه بنیادی دولت را به طور دائم تغییر دهد", "بحث عمومی نامحدود قبل از همه‌پرسی در تمام رسانه‌ها", "ناظران بین‌المللی"] },
-      { number: "۰۶", phase: "انتقال نهایی قدرت", priority: "انحلال تمام نهادهای موقت · تحویل کامل دموکراتیک", authority: "پارلمان ملی منتخب", color: "#4fc3f7",
+      { number: "۰۶", phase: "انتقال نهایی قدرت", priority: "انحلال تمام نهادهای موقت · تحویل کامل دموکراتیک", authority: "پارلمان ملی منتخب", color: "#8B5CF6",
         items: ["پس از تصویب قانون اساسی جدید، دولت موقت خود را منحل می‌کند", "تمام اختیارات اجرایی و قانونگذاری به دولت دائمی جدید منتقل می‌شود", "شورا به عنوان یک نهاد حاکم وجود ندارد — همیشه به عنوان ابزاری موقت طراحی شده بود", "گذار کامل است: یک دموکراسی پارلمانی سکولار با اداره فدرالیستی قومی غیرمتمرکز عملیاتی است"] },
     ],
 
@@ -824,7 +824,7 @@ const DATA = {
         items: ["شورا تنها سازمان اپوزیسیون بزرگی است که صراحتاً یک سیستم فدرال قومی پیشنهاد می‌دهد", "قدرت، ثروت و کنترل اداری را به استان‌ها تفویض می‌کند", "حقوق سیاسی، اجتماعی و فرهنگی تمام گروه‌های قومی را به رسمیت می‌شناسد", "آموزش زبان مادری در کنار فارسی رسمی: یک حق قانون اساسی — نه تطبیق فرهنگی"] },
       { icon: "⚖️", title: "عدالت و مجازات: عفو به عنوان ژئوپلیتیک", color: "#ba68c8",
         items: ["رتبه‌های پایین و میانی ارتش/نیروهای امنیتی: عفو کلی — در ازای فرار و کنار کشیدن", "اعضای ارشد رژیم: در متن رسمی مشخص نشده", "رعایت دقیق UDHR شورا اعدام‌های انقلابی خودسرانه را ریاضیاتاً منتفی می‌کند", "درس عراق: بعثی‌زدایی کامل شرایطی ایجاد کرد که داعش را متولد کرد — شورا این را صریحاً معکوس می‌کند"] },
-      { icon: "🌍", title: "سیاست خارجی: رعایت ژئوپلیتیک به عنوان تریاژ اقتصادی", color: "#4fc3f7",
+      { icon: "🌍", title: "سیاست خارجی: رعایت ژئوپلیتیک به عنوان تریاژ اقتصادی", color: "#8B5CF6",
         items: ["چرخش کامل موضع ژئوپلیتیک جمهوری اسلامی", "روابط صلح‌آمیز و دوستانه با تمام همسایگان منطقه، ایالات متحده و اروپا", "توافق صلح اسرائیل و امارات 'یک گام مثبت و سازنده' ارزیابی شده — اشتیاق برای ادغام در معماری امنیتی در حال ظهور خاورمیانه", "پایان فوری به تمام جنگ نیابتی: حزب‌الله، حوثی‌ها، الحشد الشعبی", "سلاح‌های هسته‌ای: در متن رسمی مشخص نشده — اما رفع تحریم‌ها منطقاً رها کردن برنامه هسته‌ای را ضروری می‌کند"] },
     ],
 
@@ -849,12 +849,12 @@ const DATA = {
    Main component
 ───────────────────────────────────────────────────── */
 export default function ITCPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
-  const VIOLET = "#7c72e8", CYAN = "#4fc3f7", GREEN = "#69d98c",
+  const VIOLET = "#7c72e8", CYAN = "#8B5CF6", GREEN = "#69d98c",
     AMBER = "#ffd166", ORANGE = "#ff9a42", RED = "#ef5350", PURPLE = "#ba68c8";
 
   return (

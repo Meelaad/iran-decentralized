@@ -185,7 +185,7 @@ const DATA = {
       { label: "15-Article Charter", c: "#ffd166" },
       { label: "Active Military Operations", c: "#ef5350" },
       { label: "Federalism + Confederalism", c: "#ba68c8" },
-      { label: "5 Constituent Factions", c: "#4fc3f7" },
+      { label: "5 Constituent Factions", c: "#8B5CF6" },
       { label: "Nationalities Question", c: "#ff9a42" },
     ],
 
@@ -196,13 +196,13 @@ const DATA = {
 
     history: [
       { date: "1946", event: "Republic of Mahabad — the first Kurdish state in modern history. Soviet-backed, lasted 11 months before the Imperial Iranian Army crushed it.", significance: "Proved Kurdish self-rule was not theoretical. Hardcoded the federalist aspiration into the PDKI's founding DNA.", color: "#26d9b2" },
-      { date: "1945", event: "Democratic Party of Iranian Kurdistan (PDKI) founded — the oldest surviving Iranian opposition party still in operation.", significance: "The institutional anchor of Kurdish nationalism. Its Socialist International membership legitimizes the federalist model internationally.", color: "#4fc3f7" },
+      { date: "1945", event: "Democratic Party of Iranian Kurdistan (PDKI) founded — the oldest surviving Iranian opposition party still in operation.", significance: "The institutional anchor of Kurdish nationalism. Its Socialist International membership legitimizes the federalist model internationally.", color: "#8B5CF6" },
       { date: "1979", event: "Post-revolution negotiations between Kurdish representatives and Khomeini's government over secular local autonomy collapsed. Khomeini issued a fatwa ordering the armed forces to crush Kurdish resistance.", significance: "Institutionalized permanent insurgency. Ayatollah Khalkhali's 'hanging courts' executed vast numbers of Kurdish civilians — creating generational trauma that drives the movement today.", color: "#ef5350" },
       { date: "1980s–90s", event: "PDKI and Komala engaged in a debilitating intra-Kurdish armed conflict, fracturing the united front for over a decade.", significance: "The civil war between Kurdish factions became the defining lesson — the 15-Article Charter's Article 14 (all factions accept election results) directly addresses this wound.", color: "#ff9a42" },
       { date: "2004", event: "PJAK founded — ideologically linked to Abdullah Öcalan and the PKK. Introduced democratic confederalism as a competing framework to traditional Kurdish nationalism.", significance: "Created the PDKI vs. PJAK ideological tension that the CPFIK charter deliberately bridges without resolving.", color: "#ba68c8" },
       { date: "2017–2018", event: "Cooperation Center of Iranian Kurdistan Political Parties (CCIKP) established during the protest waves — a passive political forum.", significance: "The precursor to the CPFIK. Coordination without unified command.", color: "#ffd166" },
       { date: "Sep 2022", event: "Mahsa (Jina) Amini killed by morality police. She was Kurdish. The 'Woman, Life, Freedom' uprising began — partially rooted in Rojhelat.", significance: "The IRGC responded by launching ballistic missile strikes against PDKI and Komala bases in the KRG. Shared trauma from these strikes forced historic ideological compromises.", color: "#26d9b2" },
-      { date: "Feb 22, 2026", event: "After 8 months of negotiations in the 'Dialogue Center for Cooperation,' the CPFIK is formally ratified. The 15-Article Charter of Cooperation is adopted.", significance: "Transformation from passive forum (CCIKP) to active unified military command structure. Timed to exploit the 2026 regional war and the IRGC command degradation from IDF airstrikes.", color: "#4fc3f7" },
+      { date: "Feb 22, 2026", event: "After 8 months of negotiations in the 'Dialogue Center for Cooperation,' the CPFIK is formally ratified. The 15-Article Charter of Cooperation is adopted.", significance: "Transformation from passive forum (CCIKP) to active unified military command structure. Timed to exploit the 2026 regional war and the IRGC command degradation from IDF airstrikes.", color: "#8B5CF6" },
       { date: "Feb–Mar 2026", event: "Feb 25: Reza Pahlavi explicitly condemns CPFIK as 'separatist,' calls it an absolute red line, urges the Artesh to neutralize Kurdish groups. Feb 28: Direct US-Israel-Iran war erupts. Mar 4: IDF strikes IRGC HQ in Tehran. Mohtadi's Komala faction tactically joins coalition.", significance: "The CPFIK activates its military architecture precisely as the IRGC's command structure is degraded — the timing is operationally optimal.", color: "#ef5350" },
     ],
 
@@ -214,7 +214,7 @@ const DATA = {
     factions: [
       { name: "Democratic Party of Iranian Kurdistan", acronym: "PDKI", ideology: "Democratic Socialism · Traditional Kurdish Nationalism · Federalism", method: "Peshmerga insurgency · Diplomacy · Federal state-building", affiliation: "Founded 1945 · Republic of Mahabad · Socialist International member", milType: "PESHMERGA (Conventional)", color: "#26d9b2" },
       { name: "Kurdistan Free Life Party", acronym: "PJAK", ideology: "Democratic Confederalism · Radical Localism · Anti-nation-state · Öcalan ideology", method: "Guerrilla warfare · Anti-industrial ecological stewardship · Communal councils", affiliation: "Formed 2004 · Ideologically linked to Abdullah Öcalan and the PKK · Rojava model", milType: "GUERRILLA (Asymmetric)", color: "#ba68c8" },
-      { name: "Komala of the Toilers of Kurdistan", acronym: "Komala-KTP", ideology: "Social Democracy · Left-wing Nationalism · Labor Syndicalism", method: "Class struggle · Progressive labor laws · Universal health service · Peshmerga", affiliation: "Split from broader Komala movement · Marxist-Leninist roots → modern social democracy", milType: "PESHMERGA (Conventional)", color: "#4fc3f7" },
+      { name: "Komala of the Toilers of Kurdistan", acronym: "Komala-KTP", ideology: "Social Democracy · Left-wing Nationalism · Labor Syndicalism", method: "Class struggle · Progressive labor laws · Universal health service · Peshmerga", affiliation: "Split from broader Komala movement · Marxist-Leninist roots → modern social democracy", milType: "PESHMERGA (Conventional)", color: "#8B5CF6" },
       { name: "Kurdistan Freedom Party", acronym: "PAK", ideology: "Kurdish Nationalism · Explicit statehood goals · Hardline independence", method: "Militant action · Territorial seizure · Most explicitly separatist of the coalition", affiliation: "Highly active militarily in recent decades · explicit full independence position", milType: "PESHMERGA (Conventional)", color: "#ff9a42" },
       { name: "Organization of Iranian Kurdistan Struggle", acronym: "Khabat", ideology: "Islamic / Nationalist synthesis · Traditionalist", method: "Peshmerga insurgency · Traditionalist command structures", affiliation: "Smaller faction · Religious conservative roots within Kurdish nationalism", milType: "PESHMERGA (Conventional)", color: "#ffd166" },
     ],
@@ -259,7 +259,7 @@ const DATA = {
 
     articleClusters: [
       { articles: "Articles 1, 3, 11", fn: "Strategic Objectives — The End State", directives: "Mandates the struggle for self-determination. Defines the two-phase process: Liberation of Rojhelat (Phase 1) → establishment of a democratic administrative system guaranteeing the rights of all ethnic and religious groups (Phase 2).", color: "#26d9b2" },
-      { articles: "Articles 2, 7", fn: "Macro-Strategy — National Alliances", directives: "Establishes the strategy of aligning with other oppressed Iranian nations (Baloch, Ahwazi Arabs, Azerbaijani Turks, Turkmen). Recognizes self-determination as the mandatory prerequisite for cooperating with any nationwide Iranian opposition forces.", color: "#4fc3f7" },
+      { articles: "Articles 2, 7", fn: "Macro-Strategy — National Alliances", directives: "Establishes the strategy of aligning with other oppressed Iranian nations (Baloch, Ahwazi Arabs, Azerbaijani Turks, Turkmen). Recognizes self-determination as the mandatory prerequisite for cooperating with any nationwide Iranian opposition forces.", color: "#8B5CF6" },
       { articles: "Articles 4, 5, 6", fn: "Internal Conduct — Societal Engineering", directives: "Demands full gender equality and justice. Strictly prohibits internal violence between Kurdish factions. Mandates democratic collective decision-making. Provides absolute support for civil movements inside Iran.", color: "#ffd166" },
       { articles: "Articles 8, 9", fn: "Execution Mechanisms — The Military Organs", directives: "Decrees the formation of the Joint Command Center to unify Peshmerga and guerrilla forces under a single command. Decrees the formation of the Joint Diplomatic Committee for all external relations.", color: "#ff9a42" },
       { articles: "Articles 12, 13, 14", fn: "Governance Handover — The Transition", directives: "Creates the Central Alliance Management Body to administer liberated zones. Mandates this body to organize free and democratic elections. Binds ALL armed factions by Article 14 to honor the democratic ballot results — preventing a return to the 1980s intra-Kurdish civil wars.", color: "#ef5350" },
@@ -343,7 +343,7 @@ const DATA = {
 
     organs: [
       { icon: "🎯", title: "Joint Command Center", color: "#ef5350", items: ["Unifies Peshmerga and Guerrilla forces under a single operational command", "Executes all kinetic and defensive operations", "Coordinates PJAK asymmetric infiltration with Peshmerga territorial control", "Reports to the Central Alliance Management Body"] },
-      { icon: "🌐", title: "Joint Diplomatic Committee", color: "#4fc3f7", items: ["Executes all foreign policy and international engagement", "Coordinates diaspora resources and funding", "Interfaces with CIA, Western democratic institutions, and human rights bodies", "Seeks recognition of CPFIK as a legitimate political authority"] },
+      { icon: "🌐", title: "Joint Diplomatic Committee", color: "#8B5CF6", items: ["Executes all foreign policy and international engagement", "Coordinates diaspora resources and funding", "Interfaces with CIA, Western democratic institutions, and human rights bodies", "Seeks recognition of CPFIK as a legitimate political authority"] },
       { icon: "📡", title: "Joint Political & Media Coordination", color: "#ffd166", items: ["Executes psychological operations and public relations", "Manages internal messaging between factions", "Coordinates external communications with Iranian civil society", "Amplifies the Kurdish cause in international media"] },
     ],
 
@@ -424,7 +424,7 @@ const DATA = {
       { label: "منشور ۱۵ ماده‌ای", c: "#ffd166" },
       { label: "عملیات نظامی فعال", c: "#ef5350" },
       { label: "فدرالیسم + کنفدرالیسم", c: "#ba68c8" },
-      { label: "۵ جناح عضو", c: "#4fc3f7" },
+      { label: "۵ جناح عضو", c: "#8B5CF6" },
       { label: "مسئله ملیت‌ها", c: "#ff9a42" },
     ],
 
@@ -434,12 +434,12 @@ const DATA = {
 
     history: [
       { date: "۱۹۴۶", event: "جمهوری مهاباد — اولین دولت کردی در تاریخ مدرن. با پشتیبانی شوروی، ۱۱ ماه دوام آورد قبل از اینکه ارتش شاهنشاهی آن را سرکوب کند.", significance: "ثابت کرد که خودمدیریتی کردی نظری نیست. آرزوی فدرالیستی را در DNA بنیادگذاری PDKI رمزگذاری کرد.", color: "#26d9b2" },
-      { date: "۱۹۴۵", event: "حزب دموکرات کردستان ایران (PDKI) تأسیس شد — کهن‌ترین حزب اپوزیسیون ایرانی که هنوز فعال است.", significance: "لنگر نهادی ناسیونالیسم کردی. عضویت در سوسیالیست اینترناسیونال مدل فدرالیستی را در سطح بین‌المللی مشروعیت می‌بخشد.", color: "#4fc3f7" },
+      { date: "۱۹۴۵", event: "حزب دموکرات کردستان ایران (PDKI) تأسیس شد — کهن‌ترین حزب اپوزیسیون ایرانی که هنوز فعال است.", significance: "لنگر نهادی ناسیونالیسم کردی. عضویت در سوسیالیست اینترناسیونال مدل فدرالیستی را در سطح بین‌المللی مشروعیت می‌بخشد.", color: "#8B5CF6" },
       { date: "۱۹۷۹", event: "مذاکرات پس از انقلاب بین نمایندگان کردی و دولت خمینی درباره خودمختاری محلی سکولار شکست خورد. خمینی فتوایی برای سرکوب مقاومت کردی صادر کرد.", significance: "شورش دائمی را نهادینه کرد. دادگاه‌های آیت‌الله خلخالی — 'قاضی دار' — تعداد زیادی از غیرنظامیان کرد را اعدام کردند.", color: "#ef5350" },
       { date: "دهه ۶۰–۷۰", event: "PDKI و کومله در یک درگیری مسلحانه داخلی کردی فلج‌کننده درگیر شدند.", significance: "جنگ داخلی بین جناح‌های کردی به درس محوری تبدیل شد — ماده ۱۴ منشور مستقیماً این زخم را هدف می‌گیرد.", color: "#ff9a42" },
       { date: "۲۰۰۴", event: "PJAK تأسیس شد — ایدئولوژیک با عبدالله اوجالان و PKK مرتبط. کنفدرالیسم دموکراتیک را به عنوان یک چارچوب رقیب معرفی کرد.", significance: "تنش ایدئولوژیک PDKI در مقابل PJAK را ایجاد کرد که منشور CPFIK عمداً بدون حل آن را پل می‌زند.", color: "#ba68c8" },
       { date: "سپتامبر ۲۰۲۲", event: "مهسا (ژینا) امینی توسط گشت ارشاد کشته شد. او کرد بود. قیام 'زن، زندگی، آزادی' آغاز شد.", significance: "سپاه با حملات موشکی بالستیک به پایگاه‌های PDKI و کومله در KRG پاسخ داد. این تروما تاریخی به اجبار سازش‌های تاریخی را ممکن ساخت.", color: "#26d9b2" },
-      { date: "۲۲ فوریه ۲۰۲۶", event: "پس از ۸ ماه مذاکره، CPFIK رسماً تصویب شد. منشور همکاری ۱۵ ماده‌ای اتخاذ شد.", significance: "تحول از انجمن همکاری منفعل (CCIKP) به ساختار فرماندهی نظامی یکپارچه فعال.", color: "#4fc3f7" },
+      { date: "۲۲ فوریه ۲۰۲۶", event: "پس از ۸ ماه مذاکره، CPFIK رسماً تصویب شد. منشور همکاری ۱۵ ماده‌ای اتخاذ شد.", significance: "تحول از انجمن همکاری منفعل (CCIKP) به ساختار فرماندهی نظامی یکپارچه فعال.", color: "#8B5CF6" },
       { date: "فوریه–مارس ۲۰۲۶", event: "۲۵ فوریه: رضا پهلوی صراحتاً CPFIK را 'تجزیه‌طلب' می‌نامد. ۲۸ فوریه: جنگ مستقیم ایران-آمریکا-اسرائیل شروع می‌شود. ۴ مارس: IDF مقر سپاه در تهران را بمباران می‌کند. جناح کومله موتادی به ائتلاف می‌پیوندد.", significance: "CPFIK معماری نظامی خود را دقیقاً زمانی فعال می‌کند که ساختار فرماندهی سپاه تضعیف شده — از نظر عملیاتی بهینه.", color: "#ef5350" },
     ],
 
@@ -450,7 +450,7 @@ const DATA = {
     factions: [
       { name: "حزب دموکرات کردستان ایران", acronym: "PDKI", ideology: "سوسیالیسم دموکراتیک · ناسیونالیسم کردی سنتی · فدرالیسم", method: "پیشمرگه · دیپلماسی · ساختارسازی دولت فدرال", affiliation: "تأسیس ۱۹۴۵ · جمهوری مهاباد · عضو سوسیالیست اینترناسیونال", milType: "پیشمرگه (متعارف)", color: "#26d9b2" },
       { name: "حزب آزادی کردستان ایران", acronym: "PJAK", ideology: "کنفدرالیسم دموکراتیک · محلی‌گرایی رادیکال · ضد دولت-ملت · ایدئولوژی اوجالان", method: "جنگ چریکی · مراقبت محیط‌زیستی ضدصنعتی · شوراهای اجتماعی", affiliation: "تأسیس ۲۰۰۴ · ایدئولوژیک با اوجالان و PKK · مدل روژاوا", milType: "چریکی (نامتقارن)", color: "#ba68c8" },
-      { name: "کومله کارگران کردستان", acronym: "Komala-KTP", ideology: "سوشیال دموکراسی · ناسیونالیسم چپگرایانه · سندیکالیسم کارگری", method: "مبارزه طبقاتی · قوانین کار پیشرو · خدمات بهداشتی همگانی · پیشمرگه", affiliation: "انشعاب از جنبش گسترده‌تر کومله · ریشه‌های مارکسیستی-لنینیستی → سوشیال دموکراسی مدرن", milType: "پیشمرگه (متعارف)", color: "#4fc3f7" },
+      { name: "کومله کارگران کردستان", acronym: "Komala-KTP", ideology: "سوشیال دموکراسی · ناسیونالیسم چپگرایانه · سندیکالیسم کارگری", method: "مبارزه طبقاتی · قوانین کار پیشرو · خدمات بهداشتی همگانی · پیشمرگه", affiliation: "انشعاب از جنبش گسترده‌تر کومله · ریشه‌های مارکسیستی-لنینیستی → سوشیال دموکراسی مدرن", milType: "پیشمرگه (متعارف)", color: "#8B5CF6" },
       { name: "حزب آزادی کردستان", acronym: "PAK", ideology: "ناسیونالیسم کردی · اهداف صریح استقلال · جدایی‌طلبی سختگیرانه", method: "اقدام نظامی · تصرف سرزمینی · صریح‌ترین موضع استقلال در ائتلاف", affiliation: "از نظر نظامی در دهه‌های اخیر بسیار فعال · موضع استقلال کامل صریح", milType: "پیشمرگه (متعارف)", color: "#ff9a42" },
       { name: "سازمان مبارزه کردستان ایران", acronym: "Khabat", ideology: "ترکیب اسلامی/ناسیونالیستی · سنت‌گرا", method: "پیشمرگه · ساختارهای فرماندهی سنتی", affiliation: "جناح کوچکتر · ریشه‌های محافظه‌کارانه مذهبی در ناسیونالیسم کردی", milType: "پیشمرگه (متعارف)", color: "#ffd166" },
     ],
@@ -492,7 +492,7 @@ const DATA = {
 
     articleClusters: [
       { articles: "مواد ۱، ۳، ۱۱", fn: "اهداف استراتژیک — وضعیت نهایی", directives: "مبارزه برای حق تعیین سرنوشت را الزامی می‌کند. فرآیند دو مرحله‌ای را تعریف می‌کند: آزادسازی روژهلات (مرحله ۱) → برقراری نظام اداری دموکراتیک (مرحله ۲).", color: "#26d9b2" },
-      { articles: "مواد ۲، ۷", fn: "استراتژی کلان — اتحادهای ملی", directives: "استراتژی همسویی با دیگر ملل ستمدیده ایران (بلوچ، عرب اهوازی، آذربایجانی، ترکمن) را تعیین می‌کند. حق تعیین سرنوشت را پیش‌شرط اجباری همکاری با هر نیروی مخالف سراسری ایران می‌داند.", color: "#4fc3f7" },
+      { articles: "مواد ۲، ۷", fn: "استراتژی کلان — اتحادهای ملی", directives: "استراتژی همسویی با دیگر ملل ستمدیده ایران (بلوچ، عرب اهوازی، آذربایجانی، ترکمن) را تعیین می‌کند. حق تعیین سرنوشت را پیش‌شرط اجباری همکاری با هر نیروی مخالف سراسری ایران می‌داند.", color: "#8B5CF6" },
       { articles: "مواد ۴، ۵، ۶", fn: "رفتار داخلی — مهندسی اجتماعی", directives: "برابری کامل جنسیتی را الزامی می‌کند. خشونت داخلی بین جناح‌های کردی را سختگیرانه ممنوع می‌کند. تصمیم‌گیری دموکراتیک جمعی را الزامی می‌کند.", color: "#ffd166" },
       { articles: "مواد ۸، ۹", fn: "مکانیزم‌های اجرا — ارگان‌های نظامی", directives: "تشکیل مرکز فرماندهی مشترک برای یکپارچه‌سازی پیشمرگه و نیروهای چریکی. تشکیل کمیته دیپلماتیک مشترک برای روابط خارجی.", color: "#ff9a42" },
       { articles: "مواد ۱۲، ۱۳، ۱۴", fn: "تحویل حاکمیت — گذار", directives: "هیئت مدیریت مرکزی ائتلاف را برای اداره مناطق آزادشده ایجاد می‌کند. این هیئت را ملزم به برگزاری انتخابات آزاد و دموکراتیک می‌کند. تمام جناح‌های مسلح را از طریق ماده ۱۴ قانوناً ملزم به پذیرش نتایج رأی‌گیری می‌کند.", color: "#ef5350" },
@@ -553,7 +553,7 @@ const DATA = {
 
     organs: [
       { icon: "🎯", title: "مرکز فرماندهی مشترک", color: "#ef5350", items: ["پیشمرگه و نیروهای چریکی را زیر یک فرماندهی عملیاتی یکپارچه می‌کند", "تمام عملیات نظامی و دفاعی را اجرا می‌کند", "نفوذ نامتقارن PJAK را با کنترل سرزمینی پیشمرگه هماهنگ می‌کند", "به هیئت مدیریت مرکزی ائتلاف گزارش می‌دهد"] },
-      { icon: "🌐", title: "کمیته دیپلماتیک مشترک", color: "#4fc3f7", items: ["تمام سیاست خارجی و تعامل بین‌المللی را اجرا می‌کند", "منابع و بودجه دیاسپورا را هماهنگ می‌کند", "با CIA، نهادهای دموکراتیک غربی و سازمان‌های حقوق بشر ارتباط برقرار می‌کند", "به دنبال شناسایی CPFIK به عنوان یک مرجع سیاسی مشروع است"] },
+      { icon: "🌐", title: "کمیته دیپلماتیک مشترک", color: "#8B5CF6", items: ["تمام سیاست خارجی و تعامل بین‌المللی را اجرا می‌کند", "منابع و بودجه دیاسپورا را هماهنگ می‌کند", "با CIA، نهادهای دموکراتیک غربی و سازمان‌های حقوق بشر ارتباط برقرار می‌کند", "به دنبال شناسایی CPFIK به عنوان یک مرجع سیاسی مشروع است"] },
       { icon: "📡", title: "هماهنگی سیاسی و رسانه‌ای مشترک", color: "#ffd166", items: ["عملیات روانی و روابط عمومی را اجرا می‌کند", "پیام‌رسانی داخلی بین جناح‌ها را مدیریت می‌کند", "با جامعه مدنی ایرانی هماهنگی خارجی دارد", "پرونده کردی را در رسانه‌های بین‌المللی تقویت می‌کند"] },
     ],
 
@@ -603,12 +603,12 @@ const DATA = {
    Main component
 ───────────────────────────────────────────────────── */
 export default function CPFIKPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
-  const TEAL = "#26d9b2", CYAN = "#4fc3f7", AMBER = "#ffd166",
+  const TEAL = "#26d9b2", CYAN = "#8B5CF6", AMBER = "#ffd166",
     ORANGE = "#ff9a42", RED = "#ef5350", PURPLE = "#ba68c8";
 
   return (

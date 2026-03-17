@@ -7,7 +7,7 @@ import './RoadmapPage.css';
 const DECENTRALIZED_PHASES = [
     {
         phase: { en: "Phase 1 — Foundation", fa: "فاز ۱ — بنیاد" },
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
             {
                 en: "Deploy Sovereign Digital Identity (SSI) pilot with diaspora volunteers",
@@ -118,7 +118,7 @@ const DECENTRALIZED_PHASES = [
 const TIER_CONFIG = {
     core: {
         phase: { en: "Phase 1 — Foundational Layer", fa: "فاز ۱ — لایه بنیادین" },
-        color: "#4fc3f7",
+        color: "#8B5CF6",
     },
     primary: {
         phase: { en: "Phase 2 — Core Services", fa: "فاز ۲ — خدمات هسته‌ای" },
@@ -135,7 +135,7 @@ const TIER_CONFIG = {
 };
 
 export default function RoadmapPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
     const { blueprintId } = useParams();
     const blueprint = BLUEPRINTS[blueprintId] || BLUEPRINTS.decentralized;
 
@@ -166,7 +166,7 @@ export default function RoadmapPage() {
             <div className="roadmap-inner">
                 <h1
                     className="roadmap-title"
-                    style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                    style={{ fontFamily: headFont }}
                 >
                     {t({ en: "Implementation Roadmap", fa: "نقشه راه پیاده‌سازی" })}
                 </h1>
@@ -191,7 +191,7 @@ export default function RoadmapPage() {
                                     className="roadmap-phase-title"
                                     style={{
                                         color: phase.color,
-                                        fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif"
+                                        fontFamily: headFont
                                     }}
                                 >
                                     {t(phase.phase)}

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
+import { BrandMark } from '../../components/BrandMark/BrandMark';
+import { FeatureSlider, LEFT_FEATURES, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
 import './AccessModePage.css';
 
 export default function AccessModePage() {
@@ -11,14 +13,14 @@ export default function AccessModePage() {
 
     const dir = isRTL ? 'rtl' : 'ltr';
     const headFont = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
-    const monoFont = isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace";
+    const monoFont = isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace";
 
     return (
         <div className="am-root" dir={dir}>
-            <div className="am-bg-grid" />
+            <div className="am-bg-grid" style={{ viewTransitionName: 'standalone-bg' }} />
 
             {/* Top bar */}
-            <div className="am-topbar">
+            <div className="am-topbar" style={{ viewTransitionName: 'standalone-topbar' }}>
                 <ThemeSwitch />
                 <button
                     className={`am-lang-btn${lang === 'fa' ? ' is-active' : ''}`}
@@ -31,9 +33,11 @@ export default function AccessModePage() {
                 >EN</button>
             </div>
 
+            <FeatureSlider items={LEFT_FEATURES} />
+
             <div className="am-inner">
                 <header className="am-header">
-                    <div className="am-eyebrow" style={{ fontFamily: monoFont }}>IRAN · DAO</div>
+                    <BrandMark size="lg" />
                     <h1 className="am-title" style={{ fontFamily: headFont }}>
                         {isRTL ? 'نحوه دسترسی را انتخاب کنید' : 'Choose Your Access Mode'}
                     </h1>
@@ -105,10 +109,10 @@ export default function AccessModePage() {
                     {/* ── Complete Access ── */}
                     <div
                         className="am-card am-card--complete"
-                        onClick={() => navigate('/choose')}
+                        onClick={() => { if (document.startViewTransition) { document.startViewTransition(() => navigate('/choose')); } else { navigate('/choose'); } }}
                         role="button"
                         tabIndex={0}
-                        onKeyDown={e => e.key === 'Enter' && navigate('/choose')}
+                        onKeyDown={e => { if (e.key === 'Enter') { if (document.startViewTransition) { document.startViewTransition(() => navigate('/choose')); } else { navigate('/choose'); } } }}
                     >
                         <div className="am-card-icon">⚡</div>
                         <div className="am-card-badge am-card-badge--complete" style={{ fontFamily: monoFont }}>
@@ -141,6 +145,8 @@ export default function AccessModePage() {
                     </Link>
                 </div>
             </div>
+
+            <FeatureSlider items={RIGHT_FEATURES} />
         </div>
     );
 }

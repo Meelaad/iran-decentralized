@@ -10,10 +10,8 @@ import BlueprintVoteCard from '../../components/Profile/BlueprintVoteCard';
 import './ProfilePage.css';
 
 export default function ProfilePage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, monoFont, headFont } = useLang();
     const navigate = useNavigate();
-    const monoFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
 
     const memberCardRef = useRef(null);
 
@@ -45,9 +43,9 @@ export default function ProfilePage() {
 
     if (!session) return (
         <div className="prof-page">
-            <div className="prof-no-session" style={monoFont}>
+            <div className="prof-no-session" style={{ fontFamily: monoFont }}>
                 {isRTL ? 'شما وارد نشدهاید.' : 'You are not logged in.'}{' '}
-                <button className="prof-link-btn" onClick={() => navigate('/register')} style={monoFont}>
+                <button className="prof-link-btn" onClick={() => navigate('/register')} style={{ fontFamily: monoFont }}>
                     {isRTL ? 'ثبتنام' : 'Register →'}
                 </button>
             </div>
@@ -79,9 +77,9 @@ export default function ProfilePage() {
 
             <div className="prof-inner">
                 <div className="prof-header">
-                    <div className="prof-eyebrow" style={monoFont}>{isRTL ? 'پروفایل عضو' : 'MEMBER PROFILE'}</div>
-                    <h1 className="prof-name" style={headingFont}>{profile?.full_name}</h1>
-                    <div className="prof-meta" style={monoFont}>
+                    <div className="prof-eyebrow" style={{ fontFamily: monoFont }}>{isRTL ? 'پروفایل عضو' : 'MEMBER PROFILE'}</div>
+                    <h1 className="prof-name" style={{ fontFamily: headFont }}>{profile?.full_name}</h1>
+                    <div className="prof-meta" style={{ fontFamily: monoFont }}>
                         <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
                             {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
                         </span>
@@ -125,7 +123,7 @@ export default function ProfilePage() {
                             preferredBlueprint={preferredBlueprint}
                             isRTL={isRTL}
                             monoFont={monoFont}
-                            headingFont={headingFont}
+                            headFont={headFont}
                             t={t}
                             onVote={handleVote}
                             onScrollToMemberCard={handleScrollToMemberCard}

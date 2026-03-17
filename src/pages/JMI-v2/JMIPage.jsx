@@ -693,10 +693,10 @@ const DATA = {
 
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function JMIPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
   const dir = isRTL ? "rtl" : "ltr";
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const canvasRef = useRef(null);
 
   return (

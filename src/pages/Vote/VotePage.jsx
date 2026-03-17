@@ -9,7 +9,7 @@ import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './VotePage.css';
 
 const BLUEPRINT_COLORS = {
-    decentralized:       '#4fc3f7',
+    decentralized:       '#8B5CF6',
     constMonarchy:       '#ffa726',
     secularLiberal:      '#66bb6a',
     federalDemocratic:   '#26c6da',
@@ -18,9 +18,7 @@ const BLUEPRINT_COLORS = {
 };
 
 export default function VotePage() {
-    const { t, tKey, isRTL } = useLang();
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
+    const { t, tKey, isRTL, monoFont, headFont } = useLang();
 
     // Age gate: 'loading' | 'gate' | 'too-young' | 'ok'
     const [ageStatus, setAgeStatus] = useState('loading');
@@ -162,13 +160,13 @@ export default function VotePage() {
                 <div className="vote-scanline" />
                 <div className="vote-inner">
                     <div className="vote-age-gate">
-                        <div className="vote-age-kicker" style={monoFont}>{tKey('vote.ageGateKicker')}</div>
-                        <h1 className="vote-age-title" style={headingFont}>{tKey('vote.ageGateTitle')}</h1>
-                        <div className="vote-age-warning" style={monoFont}>
+                        <div className="vote-age-kicker" style={{ fontFamily: monoFont }}>{tKey('vote.ageGateKicker')}</div>
+                        <h1 className="vote-age-title" style={{ fontFamily: headFont }}>{tKey('vote.ageGateTitle')}</h1>
+                        <div className="vote-age-warning" style={{ fontFamily: monoFont }}>
                             {tKey('vote.ageGateWarning')}
                         </div>
                         <form className="vote-age-form" onSubmit={handleAgeSubmit}>
-                            <label className="vote-age-label" style={monoFont}>
+                            <label className="vote-age-label" style={{ fontFamily: monoFont }}>
                                 {tKey('vote.ageGateDateLabel')}
                             </label>
                             <BirthDatePicker
@@ -176,12 +174,12 @@ export default function VotePage() {
                                 isRTL={isRTL}
                             />
                             {ageError && (
-                                <div className="vote-age-error" style={monoFont}>{ageError}</div>
+                                <div className="vote-age-error" style={{ fontFamily: monoFont }}>{ageError}</div>
                             )}
                             <button
                                 className="vote-age-submit"
                                 type="submit"
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                                 disabled={ageSubmitting}
                             >
                                 {tKey('vote.ageGateSubmit')}
@@ -200,10 +198,10 @@ export default function VotePage() {
                 <div className="vote-scanline" />
                 <div className="vote-inner">
                     <div className="vote-age-gate">
-                        <div className="vote-age-kicker" style={monoFont}>{tKey('vote.ageGateKicker')}</div>
-                        <h1 className="vote-age-title" style={headingFont}>{tKey('vote.ageTooYoungTitle')}</h1>
+                        <div className="vote-age-kicker" style={{ fontFamily: monoFont }}>{tKey('vote.ageGateKicker')}</div>
+                        <h1 className="vote-age-title" style={{ fontFamily: headFont }}>{tKey('vote.ageTooYoungTitle')}</h1>
                         <p className="vote-age-too-young-body">{tKey('vote.ageTooYoung')}</p>
-                        <Link to="/blueprint/gov/decentralized" className="vote-age-explore-link" style={monoFont}>
+                        <Link to="/blueprint/gov/decentralized" className="vote-age-explore-link" style={{ fontFamily: monoFont }}>
                             {isRTL ? 'کاوش طرح‌ها ←' : 'EXPLORE BLUEPRINTS →'}
                         </Link>
                     </div>
@@ -220,12 +218,12 @@ export default function VotePage() {
 
             <div className="vote-inner">
                 <div className="vote-header">
-                    <div className="vote-kicker" style={monoFont}>{tKey('vote.kicker')}</div>
-                    <h1 className="vote-title" style={headingFont}>
+                    <div className="vote-kicker" style={{ fontFamily: monoFont }}>{tKey('vote.kicker')}</div>
+                    <h1 className="vote-title" style={{ fontFamily: headFont }}>
                         {tKey('vote.title')}
                     </h1>
                     {SHOW_VOTE_COUNTS && (
-                        <div className="vote-total" style={monoFont}>
+                        <div className="vote-total" style={{ fontFamily: monoFont }}>
                             {votesLoading ? '...' : `${total} ${tKey('vote.totalVotes')}`}
                         </div>
                     )}
@@ -233,20 +231,20 @@ export default function VotePage() {
                         <button
                             className={`vote-toggle-btn${viewMode === 'raw' ? ' is-active' : ''}`}
                             onClick={() => setViewMode('raw')}
-                            style={monoFont}
+                            style={{ fontFamily: monoFont }}
                         >
                             {isRTL ? 'رأی خام' : 'RAW VOTES'}
                         </button>
                         <button
                             className={`vote-toggle-btn${viewMode === 'weighted' ? ' is-active' : ''}`}
                             onClick={() => setViewMode('weighted')}
-                            style={monoFont}
+                            style={{ fontFamily: monoFont }}
                         >
                             {isRTL ? 'رأی وزن‌دار' : 'WEIGHTED VOTES'}
                         </button>
                     </div>
                         {viewMode === 'weighted' && (
-                            <div className="vote-weight-info" style={monoFont}>
+                            <div className="vote-weight-info" style={{ fontFamily: monoFont }}>
                                 <span className="vote-weight-info-title">
                                     {isRTL
                                         ? 'آرا بر اساس سطح اعتماد شهروند وزن‌دهی می‌شوند'
@@ -279,7 +277,7 @@ export default function VotePage() {
                             : (votes[bp.id] || 0);
                         const displayTotal = viewMode === 'weighted' ? weightedTotal : total;
                         const pct = displayTotal > 0 ? (displayCount / displayTotal) * 100 : 0;
-                        const color = BLUEPRINT_COLORS[bp.id] || '#4fc3f7';
+                        const color = BLUEPRINT_COLORS[bp.id] || '#8B5CF6';
                         const isUserVote = userVote === bp.id;
 
                         return (
@@ -289,11 +287,11 @@ export default function VotePage() {
                                 style={{ '--accent': color }}
                             >
                                 <div className="vote-card-top">
-                                    <div className="vote-card-name" style={headingFont}>
+                                    <div className="vote-card-name" style={{ fontFamily: headFont }}>
                                         {t(bp.name)}
                                     </div>
                                     {isUserVote && (
-                                        <div className="vote-your-badge" style={monoFont}>
+                                        <div className="vote-your-badge" style={{ fontFamily: monoFont }}>
                                             {tKey('vote.yourVote')}
                                         </div>
                                     )}
@@ -307,7 +305,7 @@ export default function VotePage() {
                                 </div>
 
                                 {SHOW_VOTE_COUNTS && (
-                                    <div className="vote-card-stats" style={monoFont}>
+                                    <div className="vote-card-stats" style={{ fontFamily: monoFont }}>
                                         <span className="vote-pct">{Math.round(pct)}%</span>
                                         <span className="vote-count">{displayCount} {tKey('vote.votes')}</span>
                                     </div>
@@ -316,7 +314,7 @@ export default function VotePage() {
                                 <Link
                                     to={`/blueprint/gov/${bp.id}`}
                                     className="vote-card-link"
-                                    style={monoFont}
+                                    style={{ fontFamily: monoFont }}
                                 >
                                     {tKey('blueprint.learnMore')}
                                 </Link>
@@ -325,7 +323,7 @@ export default function VotePage() {
                     })}
                 </div>
 
-                <div className="vote-cta" style={monoFont}>
+                <div className="vote-cta" style={{ fontFamily: monoFont }}>
                     {session ? (
                         <Link to="/profile" className="vote-cta-link">
                             {tKey('vote.changeVote')}

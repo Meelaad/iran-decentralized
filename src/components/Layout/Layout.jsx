@@ -85,7 +85,7 @@ function DevLinks() {
 }
 
 function NavContent() {
-    const { lang, setLang, isRTL, t, tKey } = useLang();
+    const { lang, setLang, isRTL, t, tKey, monoFont, headFont } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
     const [blueprintOpen, setBlueprintOpen] = useState(false);
     const { session, isAdmin, profileName, logout } = useAuth();
@@ -170,7 +170,7 @@ function NavContent() {
     return (
         <div
             dir={isRTL ? "rtl" : "ltr"}
-            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+            style={{ fontFamily: headFont }}
         >
             <nav className="site-nav" ref={navRef} onMouseDown={e => e.preventDefault()}>
                 <div className="site-nav-left">
@@ -247,7 +247,7 @@ function NavContent() {
                     </div>
                     {session && (
                         <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
-                            <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" }}>
+                            <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: monoFont }}>
                                 {profileName || tKey('nav.profile')}
                             </Link>
                         </div>
@@ -256,10 +256,17 @@ function NavContent() {
                         className="hamburger-nav-btn"
                         onClick={() => setMobileNavOpen(!mobileNavOpen)}
                         aria-label="Menu"
+                        aria-expanded={mobileNavOpen}
                     >
-                        <span className={`hamburger-nav-icon${mobileNavOpen ? " is-open" : ""}`}>
-                            <span /><span /><span />
-                        </span>
+                        {mobileNavOpen ? (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" />
+                            </svg>
+                        ) : (
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z" />
+                            </svg>
+                        )}
                     </button>
                 </div>
 
@@ -332,11 +339,11 @@ function NavContent() {
                     <Outlet />
                 </ErrorBoundary>
                 <footer className="site-footer">
-                    <Link to="/privacy" className="site-footer-link" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                    <Link to="/privacy" className="site-footer-link" style={{ fontFamily: headFont }}>
                         {tKey('common.privacyPolicy')}
                     </Link>
                     <span className="site-footer-sep">·</span>
-                    <Link to="/terms" className="site-footer-link" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                    <Link to="/terms" className="site-footer-link" style={{ fontFamily: headFont }}>
                         {tKey('common.termsOfUse')}
                     </Link>
                 </footer>

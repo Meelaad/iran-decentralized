@@ -52,11 +52,9 @@ const MSG_MIN = 50;
 const MSG_MAX = 2000;
 
 export default function ContactPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, monoFont, headFont } = useLang();
     const [searchParams] = useSearchParams();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
-    const labelStyle  = { ...monoFont, textAlign: isRTL ? 'right' : 'left' };
+    const labelStyle  = { fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' };
 
     const [name,    setName]    = useState('');
     const [email,   setEmail]   = useState('');
@@ -162,8 +160,8 @@ export default function ContactPage() {
 
             <div className="contact-inner">
                 <div className="contact-header">
-                    <div className="contact-eyebrow" style={monoFont}>{t(CONTENT.eyebrow)}</div>
-                    <h1 className="contact-title" style={headingFont}>{t(CONTENT.title)}</h1>
+                    <div className="contact-eyebrow" style={{ fontFamily: monoFont }}>{t(CONTENT.eyebrow)}</div>
+                    <h1 className="contact-title" style={{ fontFamily: headFont }}>{t(CONTENT.title)}</h1>
                     <p className="contact-subtitle">{t(CONTENT.subtitle)}</p>
                 </div>
 
@@ -182,11 +180,11 @@ export default function ContactPage() {
                     {success ? (
                         <div className="contact-success">
                             <span className="contact-success-icon">⬡</span>
-                            <h2 className="contact-success-title" style={headingFont}>
+                            <h2 className="contact-success-title" style={{ fontFamily: headFont }}>
                                 {t(CONTENT.successTitle)}
                             </h2>
                             <p className="contact-success-body">{t(CONTENT.successBody)}</p>
-                            <span className="contact-success-tag" style={monoFont}>
+                            <span className="contact-success-tag" style={{ fontFamily: monoFont }}>
                                 {t(CONTENT.successTag)}
                             </span>
                         </div>
@@ -258,7 +256,7 @@ export default function ContactPage() {
                                     </label>
                                     <span
                                         className="contact-char-count"
-                                        style={{ ...monoFont, color: msgNearLimit ? '#ffa726' : undefined }}
+                                        style={{ fontFamily: monoFont, color: msgNearLimit ? '#ffa726' : undefined }}
                                     >
                                         {msgLen}/{MSG_MAX}
                                     </span>
@@ -275,7 +273,7 @@ export default function ContactPage() {
                                     dir={isRTL ? 'rtl' : 'ltr'}
                                 />
                                 {message.trim().length > 0 && message.trim().length < MSG_MIN && (
-                                    <div className="contact-msg-hint" style={monoFont}>
+                                    <div className="contact-msg-hint" style={{ fontFamily: monoFont }}>
                                         {isRTL
                                             ? `${MSG_MIN - message.trim().length} کاراکتر دیگر لازم است`
                                             : `${MSG_MIN - message.trim().length} more characters needed`}
@@ -300,7 +298,7 @@ export default function ContactPage() {
                                 type="submit"
                                 className="contact-submit-btn"
                                 disabled={loading || showCaptcha}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             >
                                 {loading && <span className="contact-spinner" />}
                                 {t(CONTENT.btnSend)}

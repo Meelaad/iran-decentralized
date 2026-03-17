@@ -32,8 +32,8 @@ export default function CivicAreaChart({ data = [] }) {
                     <AreaChart data={chartData} margin={{ top: 4, right: 4, left: -16, bottom: 0 }}>
                         <defs>
                             <linearGradient id="civicGradient" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#4fc3f7" stopOpacity={0.35} />
-                                <stop offset="95%" stopColor="#4fc3f7" stopOpacity={0} />
+                                <stop offset="5%" stopColor="#8B5CF6" stopOpacity={0.35} />
+                                <stop offset="95%" stopColor="#8B5CF6" stopOpacity={0} />
                             </linearGradient>
                         </defs>
                         <CartesianGrid
@@ -54,25 +54,25 @@ export default function CivicAreaChart({ data = [] }) {
                             tickLine={false}
                         />
                         <Tooltip
-                            cursor={{ stroke: 'rgba(79,195,247,0.2)', strokeWidth: 1 }}
+                            cursor={{ stroke: 'rgba(139,92,246,0.2)', strokeWidth: 1 }}
                             contentStyle={{
                                 background: '#0d1117',
                                 border: '1px solid rgba(232,80,122,0.3)',
                                 borderRadius: 6,
                                 fontSize: 11,
-                                color: '#d6e4ed',
+                                color: '#CCE3F0',
                             }}
                             labelStyle={{ color: '#8aa8bc' }}
-                            itemStyle={{ color: '#4fc3f7' }}
+                            itemStyle={{ color: '#8B5CF6' }}
                         />
                         <Area
                             type="monotone"
                             dataKey="score"
-                            stroke="#4fc3f7"
+                            stroke="#8B5CF6"
                             strokeWidth={2}
                             fill="url(#civicGradient)"
                             dot={false}
-                            activeDot={{ r: 4, fill: '#4fc3f7', strokeWidth: 0 }}
+                            activeDot={{ r: 4, fill: '#8B5CF6', strokeWidth: 0 }}
                         />
                     </AreaChart>
                 </ResponsiveContainer>

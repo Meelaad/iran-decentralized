@@ -61,9 +61,7 @@ const SECTIONS = [
 ];
 
 export default function TermsPage() {
-    const { t, isRTL } = useLang();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" };
+    const { t, isRTL, monoFont, headFont } = useLang();
 
     return (
         <div className="terms-page">
@@ -72,13 +70,13 @@ export default function TermsPage() {
 
             <div className="terms-inner" dir={isRTL ? 'rtl' : 'ltr'}>
                 <div className="terms-header">
-                    <div className="terms-eyebrow" style={monoFont}>
+                    <div className="terms-eyebrow" style={{ fontFamily: monoFont }}>
                         {isRTL ? 'سند قانونی' : 'LEGAL'}
                     </div>
-                    <h1 className="terms-title" style={headingFont}>
+                    <h1 className="terms-title" style={{ fontFamily: headFont }}>
                         {isRTL ? 'شرایط استفاده' : 'Terms of Use'}
                     </h1>
-                    <p className="terms-date" style={monoFont}>
+                    <p className="terms-date" style={{ fontFamily: monoFont }}>
                         {isRTL ? 'آخرین به‌روزرسانی: مارس ۲۰۲۶' : 'Last updated: March 2026'}
                     </p>
                 </div>
@@ -86,7 +84,7 @@ export default function TermsPage() {
                 <div className="terms-card">
                     {SECTIONS.map((s, i) => (
                         <div className="terms-section" key={i}>
-                            <h2 className="terms-section-heading" style={headingFont}>
+                            <h2 className="terms-section-heading" style={{ fontFamily: headFont }}>
                                 {t(s.heading)}
                             </h2>
                             <p className="terms-section-body">

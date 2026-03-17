@@ -350,10 +350,8 @@ function formatCooldown(seconds) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function RegisterPage() {
-    const { t, isRTL, tKey } = useLang();
-    const monoFont    = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace" };
-    const headingFont = { fontFamily: isRTL ? "'Irancell', sans-serif" : "'Inter', sans-serif" };
-    const labelStyle  = { ...monoFont, textAlign: isRTL ? 'right' : 'left' };
+    const { t, isRTL, tKey, monoFont, headFont } = useLang();
+    const labelStyle  = { fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' };
 
     // Session check
     const [sessionUser, setSessionUser] = useState(undefined); // undefined = loading, null = none, object = user
@@ -650,7 +648,7 @@ export default function RegisterPage() {
                 <div className="reg-inner">
                     <div className="reg-card" style={{ textAlign: 'center', padding: '48px 32px' }}>
                         <span className="reg-success-icon">⬡</span>
-                        <h2 className="reg-success-title" style={headingFont}>
+                        <h2 className="reg-success-title" style={{ fontFamily: headFont }}>
                             {isRTL
                                 ? `${isPersianName ? firstName : ''} خوش آمدید${!isPersianName && firstName ? ` ${firstName}` : ''}`
                                 : `Welcome back${firstName ? `, ${firstName}` : ''}`}
@@ -660,20 +658,20 @@ export default function RegisterPage() {
                                 ? 'شما قبلاً ثبت‌نام کرده‌اید. هویت دیجیتال شما فعال است.'
                                 : 'You are already registered. Your digital identity is active.'}
                         </p>
-                        <span className="reg-success-tag" style={monoFont}>
+                        <span className="reg-success-tag" style={{ fontFamily: monoFont }}>
                             {isRTL ? 'دسترسی تأیید شد' : 'ACCESS GRANTED'}
                         </span>
                         <Link
                             to={isAdmin ? '/admin' : '/profile'}
                             className="reg-submit-btn"
-                            style={{ ...monoFont, marginTop: 20, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
+                            style={{ fontFamily: monoFont, marginTop: 20, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
                         >
                             {isAdmin
                                 ? (isRTL ? 'پنل مدیریت ←' : 'ADMIN PANEL →')
                                 : (isRTL ? 'رفتن به داشبورد ←' : 'GO TO DASHBOARD →')}
                         </Link>
                     </div>
-                    <p className="reg-footnote" style={monoFont}>{t(CONTENT.footnote)}</p>
+                    <p className="reg-footnote" style={{ fontFamily: monoFont }}>{t(CONTENT.footnote)}</p>
                 </div>
             </div>
         );
@@ -687,8 +685,8 @@ export default function RegisterPage() {
                 <div className="reg-scanline" />
                 <div className="reg-inner">
                     <div className="reg-header">
-                        <div className="reg-eyebrow" style={monoFont}>{t(CONTENT.eyebrow)}</div>
-                        <h1 className="reg-title" style={headingFont}>{t(CONTENT.title)}</h1>
+                        <div className="reg-eyebrow" style={{ fontFamily: monoFont }}>{t(CONTENT.eyebrow)}</div>
+                        <h1 className="reg-title" style={{ fontFamily: headFont }}>{t(CONTENT.title)}</h1>
                         <p className="reg-subtitle">{t(CONTENT.subtitle)}</p>
                     </div>
                     <div className="reg-card" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 180 }}>
@@ -706,8 +704,8 @@ export default function RegisterPage() {
 
             <div className="reg-inner">
                 <div className="reg-header">
-                    <div className="reg-eyebrow" style={monoFont}>{t(CONTENT.eyebrow)}</div>
-                    <h1 className="reg-title" style={headingFont}>{t(CONTENT.title)}</h1>
+                    <div className="reg-eyebrow" style={{ fontFamily: monoFont }}>{t(CONTENT.eyebrow)}</div>
+                    <h1 className="reg-title" style={{ fontFamily: headFont }}>{t(CONTENT.title)}</h1>
                     <p className="reg-subtitle">{t(CONTENT.subtitle)}</p>
                 </div>
 
@@ -722,7 +720,7 @@ export default function RegisterPage() {
                                 const isDone = (i === 0 && step === 'verify');
                                 return (
                                     <React.Fragment key={i}>
-                                        <div className={`reg-step-item${isActive ? ' is-active' : ''}${isDone ? ' is-done' : ''}`} style={monoFont}>
+                                        <div className={`reg-step-item${isActive ? ' is-active' : ''}${isDone ? ' is-done' : ''}`} style={{ fontFamily: monoFont }}>
                                             <span className="reg-step-num">{isDone ? '✓' : i + 1}</span>
                                             {t(label)}
                                         </div>
@@ -747,7 +745,7 @@ export default function RegisterPage() {
                                     <Link
                                         to="/contact?subject=Registration+Issue"
                                         className="reg-support-link"
-                                        style={monoFont}
+                                        style={{ fontFamily: monoFont }}
                                     >
                                         {t(CONTENT.contactSupport)} →
                                     </Link>
@@ -761,7 +759,7 @@ export default function RegisterPage() {
                         <form onSubmit={handleSendOtp} noValidate dir={isRTL ? "rtl" : "ltr"}>
 
                             {/* Invite-only notice */}
-                            <div className="reg-invite-notice" style={monoFont}>
+                            <div className="reg-invite-notice" style={{ fontFamily: monoFont }}>
                                 <span className="reg-invite-notice-icon">⬡</span>
                                 {t(CONTENT.inviteOnly)}
                             </div>
@@ -787,7 +785,7 @@ export default function RegisterPage() {
                             </div>
 
                             {/* User type toggle */}
-                            <div className="reg-type-toggle" role="group" aria-label={isRTL ? "نوع کاربر" : "User type"} style={monoFont}>
+                            <div className="reg-type-toggle" role="group" aria-label={isRTL ? "نوع کاربر" : "User type"} style={{ fontFamily: monoFont }}>
                                 <button
                                     type="button"
                                     className={`reg-type-btn${userType === 'citizen' ? ' is-active' : ''}`}
@@ -830,7 +828,7 @@ export default function RegisterPage() {
                             {/* Caretaker message — shown when under 13 */}
                             {showCaretakerMsg && (
                                 <div className="reg-caretaker-msg">
-                                    <div className="reg-caretaker-title" style={monoFont}>
+                                    <div className="reg-caretaker-title" style={{ fontFamily: monoFont }}>
                                         {tKey('register.tooYoungTitle')}
                                     </div>
                                     <p className="reg-caretaker-body">
@@ -920,7 +918,7 @@ export default function RegisterPage() {
                                 type="submit"
                                 className="reg-submit-btn"
                                 disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             >
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnSend)}
@@ -960,7 +958,7 @@ export default function RegisterPage() {
                                 type="submit"
                                 className="reg-submit-btn"
                                 disabled={loading || otp.replace(/\D/g, '').length < 6}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             >
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnVerify)}
@@ -972,13 +970,13 @@ export default function RegisterPage() {
                                     className="reg-back-btn"
                                     onClick={() => { setStep('form'); setOtp(''); setError(null); }}
                                     disabled={loading}
-                                    style={monoFont}
+                                    style={{ fontFamily: monoFont }}
                                 >
                                     {t(CONTENT.btnBack)}
                                 </button>
 
                                 {cooldown > 0 ? (
-                                    <div className="reg-cooldown" style={monoFont}>
+                                    <div className="reg-cooldown" style={{ fontFamily: monoFont }}>
                                         <div className="reg-cooldown-bar-track">
                                             <div
                                                 className="reg-cooldown-bar-fill"
@@ -1006,10 +1004,10 @@ export default function RegisterPage() {
                     {/* ══ STEP 3: Choose blueprint ══ */}
                     {step === 'choose-blueprint' && (
                         <div className="reg-choose-blueprint">
-                            <h2 className="reg-choose-title" style={headingFont}>
+                            <h2 className="reg-choose-title" style={{ fontFamily: headFont }}>
                                 {tKey('register.chooseTitle')}
                             </h2>
-                            <p className="reg-choose-subtitle" style={monoFont}>
+                            <p className="reg-choose-subtitle" style={{ fontFamily: monoFont }}>
                                 {tKey('register.chooseSubtitle')}
                             </p>
                             <div className="reg-choose-cards">
@@ -1018,10 +1016,10 @@ export default function RegisterPage() {
                                         key={bp.id}
                                         className="reg-choose-card"
                                         onClick={() => handleChooseBlueprint(bp.id)}
-                                        style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                        style={{ fontFamily: headFont }}
                                     >
                                         <span className="reg-choose-card-name">{t(bp.name)}</span>
-                                        <span className="reg-choose-confirm" style={monoFont}>
+                                        <span className="reg-choose-confirm" style={{ fontFamily: monoFont }}>
                                             {tKey('register.chooseConfirm')}
                                         </span>
                                     </button>
@@ -1034,17 +1032,17 @@ export default function RegisterPage() {
                     {step === 'success' && (
                         <div className="reg-success">
                             <span className="reg-success-icon">⬡</span>
-                            <h2 className="reg-success-title" style={headingFont}>
+                            <h2 className="reg-success-title" style={{ fontFamily: headFont }}>
                                 {t(CONTENT.successTitle)}
                             </h2>
                             <p className="reg-success-body">{t(CONTENT.successBody)}</p>
-                            <span className="reg-success-tag" style={monoFont}>
+                            <span className="reg-success-tag" style={{ fontFamily: monoFont }}>
                                 {t(CONTENT.successTag)}
                             </span>
                             <Link
                                 to={isAdmin ? '/admin' : '/profile'}
                                 className="reg-submit-btn"
-                                style={{ ...monoFont, marginTop: 16, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
+                                style={{ fontFamily: monoFont, marginTop: 16, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
                             >
                                 {isAdmin
                                     ? (isRTL ? 'پنل مدیریت ←' : 'ADMIN PANEL →')
@@ -1056,7 +1054,7 @@ export default function RegisterPage() {
                     {step === 'already-registered' && (
                         <div className="reg-success">
                             <span className="reg-success-icon" style={{ fontSize: 36 }}>👤</span>
-                            <h2 className="reg-success-title" style={headingFont}>
+                            <h2 className="reg-success-title" style={{ fontFamily: headFont }}>
                                 {isRTL ? 'قبلاً ثبت‌نام کرده‌اید' : 'Already Registered'}
                             </h2>
                             <p className="reg-success-body">
@@ -1064,14 +1062,14 @@ export default function RegisterPage() {
                                     ? `حسابی با ایمیل ${email} در ایران‌دائو وجود دارد.`
                                     : `An account with ${email} already exists on IranDAO.`}
                             </p>
-                            <Link to="/login" className="reg-submit-btn" style={{ ...monoFont, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}>
+                            <Link to="/login" className="reg-submit-btn" style={{ fontFamily: monoFont, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}>
                                 {isRTL ? 'ورود به حساب ←' : 'Sign In →'}
                             </Link>
                         </div>
                     )}
                 </div>
 
-                <p className="reg-footnote" style={monoFont}>{t(CONTENT.footnote)}</p>
+                <p className="reg-footnote" style={{ fontFamily: monoFont }}>{t(CONTENT.footnote)}</p>
             </div>
         </div>
     );

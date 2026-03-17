@@ -7,7 +7,9 @@ export default async function handler(req, res) {
     const path = req.url.split('/api/public/')[1]?.split('?')[0] || '';
 
     try {
-        rateLimit(req, 'strict');
+        // Use 'api' tier for public reads; write endpoints (endorse/sign/contact) use 'strict' inline
+        const isWrite = req.method === 'POST';
+        rateLimit(req, isWrite ? 'strict' : 'api');
         validateRequestSize(req, 200 * 1024);
 
         // Plans handling: /api/public/plans, /api/public/plans/:slug, /api/public/plans/endorse, /api/public/plans/sign

@@ -98,7 +98,7 @@ function WaveGrid() {
                     if (brightness > 0.7) {
                         ctx.beginPath();
                         ctx.arc(p00.sx, p00.sy, 1.5 + brightness * 2, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(79,195,247,${(brightness - 0.7) * 0.5 * depth})`;
+                        ctx.fillStyle = `rgba(139,92,246,${(brightness - 0.7) * 0.5 * depth})`;
                         ctx.fill();
                     }
                 }
@@ -152,7 +152,7 @@ const PRINCIPLES = [
 ];
 
 export default function AboutPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
 
     return (
         <div className="about-page">
@@ -161,7 +161,7 @@ export default function AboutPage() {
             <div className="about-inner">
                 <h1
                     className="about-title"
-                    style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                    style={{ fontFamily: headFont }}
                 >
                     {isRTL ? "درباره این پروژه" : "About This Project"}
                 </h1>
@@ -201,14 +201,14 @@ export default function AboutPage() {
                                     <polygon
                                         points="90,2 178,50 178,150 90,198 2,150 2,50"
                                         fill="none"
-                                        stroke="rgba(79,195,247,0.15)"
+                                        stroke="rgba(139,92,246,0.15)"
                                         strokeWidth="1"
                                     />
                                 </svg>
                                 <div className="about-principle-icon">{p.icon}</div>
                                 <div
                                     className="about-principle-title"
-                                    style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                                    style={{ fontFamily: headFont }}
                                 >
                                     {t(p.title)}
                                 </div>
@@ -246,7 +246,7 @@ export default function AboutPage() {
                         <Link
                             to="/contact"
                             className="about-contact-btn"
-                            style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}
+                            style={{ fontFamily: headFont }}
                         >
                             {isRTL ? "ارسال پیام ←" : "Get in Touch →"}
                         </Link>

@@ -6,13 +6,12 @@ import { BLUEPRINTS } from '../../data';
 import './BlueprintEditorPage.css';
 
 const TIER_OPTIONS = ['core', 'primary', 'secondary', 'tertiary'];
-const BORDER_COLORS = ['#4fc3f7', '#66bb6a', '#ffa726', '#ab47bc', '#ef5350', '#26c6da'];
+const BORDER_COLORS = ['#8B5CF6', '#66bb6a', '#ffa726', '#ab47bc', '#ef5350', '#26c6da'];
 
 export default function BlueprintEditorPage() {
     const { blueprintId } = useParams();
-    const { t, tKey, isRTL } = useLang();
+    const { t, tKey, isRTL, monoFont, headFont } = useLang();
     const navigate = useNavigate();
-    const monoFont = { fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace" };
 
     const [loading, setLoading] = useState(true);
     const [blueprint, setBlueprint] = useState(null);
@@ -80,7 +79,7 @@ export default function BlueprintEditorPage() {
             desc: { en: '', fa: '' },
             icon: '⬡',
             tier: 'primary',
-            border: '#4fc3f7',
+            border: '#8B5CF6',
             contents: [],
         }]);
     }
@@ -129,7 +128,7 @@ export default function BlueprintEditorPage() {
 
     if (!blueprint) return (
         <div className="editor-page">
-            <div className="editor-notfound" style={monoFont}>
+            <div className="editor-notfound" style={{ fontFamily: monoFont }}>
                 {tKey('editor.notFound')} <Link to="/my-blueprints" className="editor-link">←</Link>
             </div>
         </div>
@@ -144,40 +143,40 @@ export default function BlueprintEditorPage() {
 
                 {/* Header */}
                 <div className="editor-header">
-                    <Link to="/my-blueprints" className="editor-back" style={monoFont}>
+                    <Link to="/my-blueprints" className="editor-back" style={{ fontFamily: monoFont }}>
                         ← {tKey('myBlueprints.title')}
                     </Link>
                     <div className="editor-header-row">
                         <div>
-                            <div className="editor-kicker" style={monoFont}>{tKey('editor.kicker')}</div>
-                            <h1 className="editor-title" style={{ fontFamily: isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif" }}>
+                            <div className="editor-kicker" style={{ fontFamily: monoFont }}>{tKey('editor.kicker')}</div>
+                            <h1 className="editor-title" style={{ fontFamily: headFont }}>
                                 {nameEn || blueprint.name?.en}
                             </h1>
                             {blueprint.forkedFrom && sourceBlueprint && (
-                                <div className="editor-source" style={monoFont}>
+                                <div className="editor-source" style={{ fontFamily: monoFont }}>
                                     {tKey('myBlueprints.forkedFrom')}: {t(sourceBlueprint.name)}
                                 </div>
                             )}
                         </div>
                         <div className="editor-actions">
-                            <Link to={`/blueprint/gov/${blueprintId}`} className="editor-preview-btn" style={monoFont}>
+                            <Link to={`/blueprint/gov/${blueprintId}`} className="editor-preview-btn" style={{ fontFamily: monoFont }}>
                                 {tKey('editor.preview')}
                             </Link>
                             <button
                                 className="editor-save-btn"
                                 onClick={handleSave}
                                 disabled={saving}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             >
                                 {saving ? '...' : tKey('editor.save')}
                             </button>
                         </div>
                     </div>
-                    {saveMsg && <div className="editor-save-msg" style={monoFont}>{saveMsg}</div>}
+                    {saveMsg && <div className="editor-save-msg" style={{ fontFamily: monoFont }}>{saveMsg}</div>}
                 </div>
 
                 {/* Tabs */}
-                <div className="editor-tabs" style={monoFont}>
+                <div className="editor-tabs" style={{ fontFamily: monoFont }}>
                     {['meta', 'sectors', 'connections'].map(tab => (
                         <button
                             key={tab}
@@ -193,40 +192,40 @@ export default function BlueprintEditorPage() {
                 {activeTab === 'meta' && (
                     <div className="editor-panel">
                         <div className="editor-field">
-                            <label className="editor-label" style={monoFont}>{tKey('editor.nameen')}</label>
+                            <label className="editor-label" style={{ fontFamily: monoFont }}>{tKey('editor.nameen')}</label>
                             <input
                                 className="editor-input"
                                 value={nameEn}
                                 onChange={e => setNameEn(e.target.value)}
                                 maxLength={80}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             />
                         </div>
                         <div className="editor-field">
-                            <label className="editor-label" style={monoFont}>{tKey('editor.namefa')}</label>
+                            <label className="editor-label" style={{ fontFamily: monoFont }}>{tKey('editor.namefa')}</label>
                             <input
                                 className="editor-input"
                                 value={nameFa}
                                 onChange={e => setNameFa(e.target.value)}
                                 maxLength={80}
                                 dir="rtl"
-                                style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                                style={{ fontFamily: headFont }}
                             />
                         </div>
                         <div className="editor-field">
-                            <label className="editor-label" style={monoFont}>{tKey('editor.visibility')}</label>
+                            <label className="editor-label" style={{ fontFamily: monoFont }}>{tKey('editor.visibility')}</label>
                             <div className="editor-toggle-row">
                                 <button
                                     className={`editor-toggle-btn${!isPublic ? ' is-active' : ''}`}
                                     onClick={() => setIsPublic(false)}
-                                    style={monoFont}
+                                    style={{ fontFamily: monoFont }}
                                 >
                                     {tKey('editor.private')}
                                 </button>
                                 <button
                                     className={`editor-toggle-btn${isPublic ? ' is-active' : ''}`}
                                     onClick={() => setIsPublic(true)}
-                                    style={monoFont}
+                                    style={{ fontFamily: monoFont }}
                                 >
                                     {tKey('editor.public')}
                                 </button>
@@ -239,10 +238,10 @@ export default function BlueprintEditorPage() {
                 {activeTab === 'sectors' && (
                     <div className="editor-panel">
                         <div className="editor-panel-toolbar">
-                            <button className="editor-add-btn" onClick={addSector} style={monoFont}>
+                            <button className="editor-add-btn" onClick={addSector} style={{ fontFamily: monoFont }}>
                                 + {tKey('editor.addSector')}
                             </button>
-                            <span className="editor-count" style={monoFont}>{sectors.length} {tKey('myBlueprints.sectors')}</span>
+                            <span className="editor-count" style={{ fontFamily: monoFont }}>{sectors.length} {tKey('myBlueprints.sectors')}</span>
                         </div>
                         <div className="editor-sectors-list">
                             {sectors.map((sector, i) => (
@@ -254,7 +253,7 @@ export default function BlueprintEditorPage() {
                                             value={sector.label?.en || ''}
                                             onChange={e => updateSectorLang(i, 'en', 'label', e.target.value)}
                                             placeholder="Label (EN)"
-                                            style={monoFont}
+                                            style={{ fontFamily: monoFont }}
                                         />
                                         <input
                                             className="editor-input editor-sector-label"
@@ -262,13 +261,13 @@ export default function BlueprintEditorPage() {
                                             onChange={e => updateSectorLang(i, 'fa', 'label', e.target.value)}
                                             placeholder="برچسب (FA)"
                                             dir="rtl"
-                                            style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                                            style={{ fontFamily: headFont }}
                                         />
                                         <select
                                             className="editor-select"
                                             value={sector.tier}
                                             onChange={e => updateSector(i, 'tier', e.target.value)}
-                                            style={monoFont}
+                                            style={{ fontFamily: monoFont }}
                                         >
                                             {TIER_OPTIONS.map(t => <option key={t} value={t}>{t}</option>)}
                                         </select>
@@ -285,7 +284,7 @@ export default function BlueprintEditorPage() {
                                         <button
                                             className="editor-remove-btn"
                                             onClick={() => removeSector(i)}
-                                            style={monoFont}
+                                            style={{ fontFamily: monoFont }}
                                         >
                                             ✕
                                         </button>
@@ -293,7 +292,7 @@ export default function BlueprintEditorPage() {
                                 </div>
                             ))}
                             {sectors.length === 0 && (
-                                <div className="editor-empty" style={monoFont}>{tKey('editor.noSectors')}</div>
+                                <div className="editor-empty" style={{ fontFamily: monoFont }}>{tKey('editor.noSectors')}</div>
                             )}
                         </div>
                     </div>
@@ -307,11 +306,11 @@ export default function BlueprintEditorPage() {
                                 className="editor-add-btn"
                                 onClick={addConnection}
                                 disabled={sectors.length < 2}
-                                style={monoFont}
+                                style={{ fontFamily: monoFont }}
                             >
                                 + {tKey('editor.addConnection')}
                             </button>
-                            <span className="editor-count" style={monoFont}>{connections.length} {tKey('myBlueprints.connections')}</span>
+                            <span className="editor-count" style={{ fontFamily: monoFont }}>{connections.length} {tKey('myBlueprints.connections')}</span>
                         </div>
                         <div className="editor-connections-list">
                             {connections.map((conn, i) => (
@@ -320,7 +319,7 @@ export default function BlueprintEditorPage() {
                                         className="editor-select"
                                         value={conn.from}
                                         onChange={e => updateConnection(i, 'from', e.target.value)}
-                                        style={monoFont}
+                                        style={{ fontFamily: monoFont }}
                                     >
                                         {sectors.map(s => (
                                             <option key={s.id} value={s.id}>{s.label?.en || s.id}</option>
@@ -331,7 +330,7 @@ export default function BlueprintEditorPage() {
                                         className="editor-select"
                                         value={conn.to}
                                         onChange={e => updateConnection(i, 'to', e.target.value)}
-                                        style={monoFont}
+                                        style={{ fontFamily: monoFont }}
                                     >
                                         {sectors.map(s => (
                                             <option key={s.id} value={s.id}>{s.label?.en || s.id}</option>
@@ -341,7 +340,7 @@ export default function BlueprintEditorPage() {
                                         className="editor-select editor-select--strength"
                                         value={conn.strength || 'medium'}
                                         onChange={e => updateConnection(i, 'strength', e.target.value)}
-                                        style={monoFont}
+                                        style={{ fontFamily: monoFont }}
                                     >
                                         <option value="strong">strong</option>
                                         <option value="medium">medium</option>
@@ -350,14 +349,14 @@ export default function BlueprintEditorPage() {
                                     <button
                                         className="editor-remove-btn"
                                         onClick={() => removeConnection(i)}
-                                        style={monoFont}
+                                        style={{ fontFamily: monoFont }}
                                     >
                                         ✕
                                     </button>
                                 </div>
                             ))}
                             {connections.length === 0 && (
-                                <div className="editor-empty" style={monoFont}>{tKey('editor.noConnections')}</div>
+                                <div className="editor-empty" style={{ fontFamily: monoFont }}>{tKey('editor.noConnections')}</div>
                             )}
                         </div>
                     </div>

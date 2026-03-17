@@ -89,7 +89,7 @@
     text-align: start;
     transition: border-color 0.2s, color 0.2s;
 }
-.tc-selector-btn:hover { border-color: rgba(124,114,232,0.4); color: #d6e4ed; }
+.tc-selector-btn:hover { border-color: rgba(124,114,232,0.4); color: #CCE3F0; }
 .tc-selector-btn.is-active { font-weight: 600; background: rgba(124,114,232,0.08); }
 
 /* Comparison table */
@@ -185,11 +185,11 @@
 }
 .tc-cta:hover { background: rgba(124,114,232,0.2); border-color: rgba(124,114,232,0.6); }
 .tc-cta--secondary {
-    background: rgba(79,195,247,0.06);
-    border-color: rgba(79,195,247,0.25);
-    color: #4fc3f7;
+    background: rgba(139,92,246,0.06);
+    border-color: rgba(139,92,246,0.25);
+    color: #8B5CF6;
 }
-.tc-cta--secondary:hover { background: rgba(79,195,247,0.12); border-color: rgba(79,195,247,0.5); }
+.tc-cta--secondary:hover { background: rgba(139,92,246,0.12); border-color: rgba(139,92,246,0.5); }
 
 @media (max-width: 640px) {
     .tc-selectors { grid-template-columns: 1fr; }

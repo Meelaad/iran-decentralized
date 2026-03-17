@@ -7,7 +7,7 @@
 
 .jmi-page {
   position: relative; min-height: 100vh;
-  background: #020408; color: #d6e4ed; overflow-x: hidden;
+  background: #010303; color: #CCE3F0; overflow-x: hidden;
 }
 
 .jmi-bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
@@ -47,7 +47,7 @@
 .jmi-acc { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.015); width: 100%; margin-bottom: 5px; }
 .jmi-acc:last-child { margin-bottom: 0; }
 .jmi-acc:hover { border-color: rgba(255,255,255,0.11); }
-.jmi-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: #d6e4ed; }
+.jmi-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: #CCE3F0; }
 .jmi-acc-btn:hover { background: rgba(232,200,64,0.04); }
 .jmi-acc-title { flex: 1; font-size: 12px; font-weight: 600; color: #c8dce8; line-height: 1.4; text-align: left; }
 [dir="rtl"] .jmi-acc-title { text-align: right; }
@@ -114,7 +114,7 @@
 /* ── Transition council note ── */
 .jmi-transition-note {
   border: 1px solid; border-radius: 8px; padding: 11px 16px;
-  background: rgba(79,195,247,0.04); display: flex; gap: 10px;
+  background: rgba(139,92,246,0.04); display: flex; gap: 10px;
   align-items: baseline; flex-wrap: wrap;
 }
 .jmi-transition-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; white-space: nowrap; }
@@ -174,7 +174,7 @@
   margin: 24px 0; padding: 20px 24px;
   border: 1px dashed rgba(232,200,64,0.22); border-radius: 10px;
   background: rgba(232,200,64,0.04);
-  font-size: 13px; color: #d6e4ed; line-height: 1.75;
+  font-size: 13px; color: #CCE3F0; line-height: 1.75;
   display: flex; gap: 14px; align-items: flex-start; font-style: italic;
 }
 .jmi-conclusion-mark { font-size: 28px; opacity: 0.3; flex-shrink: 0; margin-top: -4px; line-height: 1; font-style: normal; }
@@ -214,8 +214,8 @@
 .jmi-footer-nav { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(232,200,64,0.1); }
 .jmi-footer-nav-link { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #e8c840; border: 1px solid rgba(232,200,64,0.3); border-radius: 6px; padding: 8px 18px; text-decoration: none; transition: background 0.15s, border-color 0.15s; }
 .jmi-footer-nav-link:hover { background: rgba(232,200,64,0.07); border-color: rgba(232,200,64,0.55); }
-.jmi-footer-nav-link--secondary { color: #4fc3f7; border-color: rgba(79,195,247,0.3); }
-.jmi-footer-nav-link--secondary:hover { background: rgba(79,195,247,0.07); border-color: rgba(79,195,247,0.55); }
+.jmi-footer-nav-link--secondary { color: #8B5CF6; border-color: rgba(139,92,246,0.3); }
+.jmi-footer-nav-link--secondary:hover { background: rgba(139,92,246,0.07); border-color: rgba(139,92,246,0.55); }
 
 @media (min-width: 960px) {
     .jmi-eyebrow { font-size: 13px; }

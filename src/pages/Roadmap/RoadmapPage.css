@@ -1,7 +1,7 @@
 /* RoadmapPage.css */
 
 .roadmap-page {
-    background-color: #020408;
+    background-color: #010303;
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -9,7 +9,7 @@
 
 .roadmap-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(79, 195, 247, 0.1);
+    --grid-color: rgba(139, 92, 246, 0.1);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -31,7 +31,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(79,195,247,0.25) 20%, rgba(79,195,247,0.35) 50%, rgba(79,195,247,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -78,7 +78,7 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(to bottom, rgba(79,195,247,0.3), rgba(79,195,247,0.05));
+    background: linear-gradient(to bottom, rgba(139,92,246,0.3), rgba(139,92,246,0.05));
 }
 
 [dir="rtl"] .roadmap-timeline-line {
@@ -104,7 +104,7 @@
     width: 22px;
     height: 22px;
     border: 2px solid;
-    background: #020408;
+    background: #010303;
     z-index: 1;
 }
 

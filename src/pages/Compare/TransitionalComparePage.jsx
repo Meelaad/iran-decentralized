@@ -22,7 +22,7 @@ function HexGrid() {
             const colDx = r * 1.5;
             const rowDy = r * Math.sqrt(3);
 
-            ctx.strokeStyle = 'rgba(124,114,232,0.10)';
+            ctx.strokeStyle = 'rgba(124,114,232,0.03)';
             ctx.lineWidth = 1;
 
             const cols = Math.ceil(w / colDx) + 3;

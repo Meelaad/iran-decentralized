@@ -378,7 +378,7 @@ export default function BirthDatePicker({ onChange, isRTL }) {
         if (val.length === 2) syncDrums(yearStr, monthStr, val);
     }
 
-    const drumFont   = isRTL ? "'Vazirmatn', sans-serif" : "'intelone-mono', monospace";
+    const drumFont   = isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace";
     const dayLabel   = isRTL ? 'روز'  : 'DD';
     const monthLabel = isRTL ? 'ماه'  : 'MM';
     const yearLabel  = isRTL ? 'سال'  : 'YYYY';

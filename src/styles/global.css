@@ -70,9 +70,9 @@
 }
 
 *:focus-visible {
-    outline: 1px solid rgba(79, 195, 247, 0.7);
+    outline: 1px solid rgba(139, 92, 246, 0.7);
     outline-offset: 3px;
-    box-shadow: 0 0 0 3px rgba(79, 195, 247, 0.1), 0 0 12px rgba(79, 195, 247, 0.2);
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1), 0 0 12px rgba(139, 92, 246, 0.2);
 }
 
 * {
@@ -82,11 +82,11 @@
 
 input, textarea {
     user-select: text;
-    caret-color: #4fc3f7;
+    caret-color: #8B5CF6;
 }
 
 body {
-    background: #020408;
+    background: #010303;
     color: #c8ccd4;
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
@@ -142,3 +142,20 @@ svg g {
     0%, 100% { opacity: 0.4; }
     50% { opacity: 1; }
 }
+
+/* ── View Transitions: access-mode ↔ choose ─────────────────────────────── */
+@keyframes vt-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes vt-fade-out { from { opacity: 1; } to { opacity: 0; } }
+
+/* Shared chrome (bg grid + topbar) — freeze in place, no animation */
+::view-transition-old(standalone-bg),
+::view-transition-new(standalone-bg),
+::view-transition-old(standalone-topbar),
+::view-transition-new(standalone-topbar) {
+    animation: none;
+    mix-blend-mode: normal;
+}
+
+/* Content area — simple crossfade */
+::view-transition-old(root) { animation: 220ms ease-out vt-fade-out; }
+::view-transition-new(root) { animation: 280ms ease-in  vt-fade-in; }

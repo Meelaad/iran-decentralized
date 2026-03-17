@@ -190,7 +190,7 @@ const DATA = {
       { label: "1953 Coup Doctrine", c: "#ef5350" },
       { label: "Voice + Pressure Strategy", c: "#69d98c" },
       { label: "Anti-Federalist", c: "#ba68c8" },
-      { label: "Oil Nationalization Legacy", c: "#4fc3f7" },
+      { label: "Oil Nationalization Legacy", c: "#8B5CF6" },
     ],
 
     // ── IDEOLOGY ──
@@ -311,7 +311,7 @@ const DATA = {
     phases: [
       { number: "01", phase: "Civil Resistance (Ongoing)", mechanism: "Street protests (Voice) + Labor/bazaar strikes (Pressure)", objective: "Paralyze the state economy; fracture the elite leadership; encourage defection of the Artesh", color: "#e8c840" },
       { number: "02", phase: "Regime Collapse", mechanism: "Non-violent capitulation of the Velayat-e Faqih system", objective: "Prevent civil war and foreign intervention; secure critical national infrastructure", color: "#69d98c" },
-      { number: "03", phase: "Interim Governance", mechanism: "Formation of a Temporary Transition Council of diverse secular democratic forces", objective: "Manage daily state administration; dismantle IRGC/Basij; preserve order without authoritarian consolidation", color: "#4fc3f7" },
+      { number: "03", phase: "Interim Governance", mechanism: "Formation of a Temporary Transition Council of diverse secular democratic forces", objective: "Manage daily state administration; dismantle IRGC/Basij; preserve order without authoritarian consolidation", color: "#8B5CF6" },
       { number: "04", phase: "Constituent Assembly Elections", mechanism: "Free, fair, and transparent nationwide elections for a Majlis-e Moasesan", objective: "Draft a new secular democratic constitution based on universal human rights", color: "#ff9a42" },
       { number: "05", phase: "Democratic Referendum", mechanism: "National plebiscite on the drafted constitution", objective: "Ratify the constitution; officially inaugurate the Secular Democratic Republic of Iran", color: "#ba68c8" },
     ],
@@ -325,7 +325,7 @@ const DATA = {
 
     powerNodes: [
       { icon: "🗳️", title: "The Electorate", role: "Apex Sovereign Authority", color: "#e8c840", items: ["Ultimate sovereignty rests with the citizens of Iran — exercises through universal suffrage and national referendums", "No supreme leader, no ruling monarch, no unelected guardianship councils — all abolished", "Strict Principle of Alternation of Power: term limits for both parliament and presidency", "No individual, council, or religious body sits above the elected representatives"] },
-      { icon: "🏛️", title: "National Parliament (Majlis)", role: "Legislative Branch — Supreme Law-Making Authority", color: "#4fc3f7", items: ["Directly elected by the Electorate via democratic elections", "Holds supreme legislative authority and oversight over the Executive", "Oversees national budget and all government operations", "Restricted by strict term limits — Alternation of Power principle", "No parallel clerical body, guardian council, or assembly of experts exists in this architecture"] },
+      { icon: "🏛️", title: "National Parliament (Majlis)", role: "Legislative Branch — Supreme Law-Making Authority", color: "#8B5CF6", items: ["Directly elected by the Electorate via democratic elections", "Holds supreme legislative authority and oversight over the Executive", "Oversees national budget and all government operations", "Restricted by strict term limits — Alternation of Power principle", "No parallel clerical body, guardian council, or assembly of experts exists in this architecture"] },
       { icon: "⚙️", title: "President + Cabinet", role: "Executive Branch — Daily State Operations", color: "#69d98c", items: ["President directly elected by the Electorate", "Cabinet appointed by the President and confirmed by Parliament", "Manages: daily state operations, macroeconomic policy, national defense, foreign affairs", "Governance based on meritocracy and specialization — stripped of all religious or ideological filters", "Accountable to Parliament — parliamentary oversight is absolute"] },
       { icon: "⚖️", title: "Independent Judiciary", role: "Judicial Branch — Secular Civil Law Only", color: "#ff9a42", items: ["Completely independent from both Executive and Legislative branches", "Appointments: independent legal professionals based on secular civil law meritocracy — no clergy", "Enforces civil and criminal law based on universal human rights standards", "Strictly separated from all religious jurisprudence — Sharia has no judicial role", "Total abolition of the death penalty and torture constitutionally enshrined"] },
       { icon: "🗺️", title: "Provincial/District/Village Councils", role: "Administrative Decentralization — NOT Federalism", color: "#ba68c8", items: ["Elected directly by local citizens", "Manages: local administrative affairs, regional economic development, infrastructure, cultural preservation", "Strictly subordinate to the national constitution and central parliamentary law", "This is ADMINISTRATIVE decentralization — the central parliament and executive retain ultimate sovereign authority", "Persian remains the sole official national language; regional languages (Kurdish, Balochi, Azerbaijani) protected as cultural heritage", "JMI explicitly and vehemently rejects ethno-linguistic federalism — views it as a precursor to balkanization"] },
@@ -341,7 +341,7 @@ const DATA = {
       { institution: "Artesh (Regular Army)", status: "REFORMED & UTILIZED", statusColor: "#69d98c", action: "Retained as sole national defense force. Rebuilt with new recruitment protocols. Strictly subordinated to a civilian Ministry of Defense. Placed under absolute parliamentary oversight." },
       { institution: "Clerical + Revolutionary Courts", status: "COMPLETELY DISMANTLED", statusColor: "#ef5350", action: "Total eradication of the Special Clerical Court and Islamic Revolutionary Courts. Replaced by a secular, independent civil judiciary based on universal human rights." },
       { institution: "Bonyads (Religious Foundations)", status: "CONFISCATED", statusColor: "#ff9a42", action: "Dismantled as independent tax-exempt monopolies. Assets integrated into the formal, taxable national economy to fund social welfare programs and infrastructure development." },
-      { institution: "Civilian Ministries", status: "PURGED & REFORMED", statusColor: "#4fc3f7", action: "Retained but purged of all ideological appointees and structural corruption. Restructured based on meritocracy, specialization, and independent media/union oversight." },
+      { institution: "Civilian Ministries", status: "PURGED & REFORMED", statusColor: "#8B5CF6", action: "Retained but purged of all ideological appointees and structural corruption. Restructured based on meritocracy, specialization, and independent media/union oversight." },
     ],
 
     // ── KEY POLICIES ──
@@ -394,7 +394,7 @@ const DATA = {
       {
         icon: "🌍",
         title: "Foreign Policy: Independence, Normalization, and Non-Proliferation",
-        color: "#4fc3f7",
+        color: "#8B5CF6",
         items: [
           "Core immutable tenet: strict independence from foreign hegemony — BOTH Western AND Eastern",
           "The 1953 coup makes external interference an absolute red line regardless of direction or intent",
@@ -460,7 +460,7 @@ const DATA = {
       { label: "دکترین کودتای ۱۹۵۳", c: "#ef5350" },
       { label: "استراتژی صدا + فشار", c: "#69d98c" },
       { label: "ضدفدرالیست", c: "#ba68c8" },
-      { label: "میراث ملی شدن نفت", c: "#4fc3f7" },
+      { label: "میراث ملی شدن نفت", c: "#8B5CF6" },
     ],
 
     ideolEyebrow: "مصدقیسم — بنیاد ایدئولوژیک",
@@ -552,7 +552,7 @@ const DATA = {
     phases: [
       { number: "۰۱", phase: "مقاومت مدنی (در جریان)", mechanism: "اعتراضات خیابانی (صدا) + اعتصابات کارگری/بازار (فشار)", objective: "فلج کردن اقتصاد دولتی؛ شکستن رهبری نخبگان؛ تشویق فرار ارتش", color: "#e8c840" },
       { number: "۰۲", phase: "سقوط رژیم", mechanism: "تسلیم غیرخشونت‌آمیز سیستم ولایت فقیه", objective: "جلوگیری از جنگ داخلی و مداخله خارجی؛ تأمین زیرساخت‌های حیاتی ملی", color: "#69d98c" },
-      { number: "۰۳", phase: "حاکمیت موقت", mechanism: "تشکیل شورای موقت گذار از نیروهای دموکراتیک سکولار متنوع", objective: "مدیریت اداره روزانه دولتی؛ برچیدن سپاه/بسیج؛ حفظ نظم بدون تمرکز اقتدارگرایانه", color: "#4fc3f7" },
+      { number: "۰۳", phase: "حاکمیت موقت", mechanism: "تشکیل شورای موقت گذار از نیروهای دموکراتیک سکولار متنوع", objective: "مدیریت اداره روزانه دولتی؛ برچیدن سپاه/بسیج؛ حفظ نظم بدون تمرکز اقتدارگرایانه", color: "#8B5CF6" },
       { number: "۰۴", phase: "انتخابات مجلس مؤسسان", mechanism: "انتخابات ملی آزاد، منصفانه و شفاف برای مجلس مؤسسان", objective: "تهیه یک قانون اساسی دموکراتیک سکولار جدید بر اساس حقوق بشر جهانی", color: "#ff9a42" },
       { number: "۰۵", phase: "همه‌پرسی دموکراتیک", mechanism: "رفراندوم ملی درباره قانون اساسی تهیه‌شده", objective: "تصویب قانون اساسی؛ راه‌اندازی رسمی جمهوری دموکراتیک سکولار ایران", color: "#ba68c8" },
     ],
@@ -565,7 +565,7 @@ const DATA = {
 
     powerNodes: [
       { icon: "🗳️", title: "رأی‌دهندگان", role: "اقتدار حاکمیتی ارشد", color: "#e8c840", items: ["حاکمیت نهایی در شهروندان ایران است — از طریق رأی همگانی و رفراندوم‌های ملی اعمال می‌شود", "هیچ رهبر معظم، پادشاه حاکم یا شوراهای نظارتی غیرمنتخب وجود ندارد — همه لغو شده‌اند", "اصل تناوب قدرت سختگیرانه: محدودیت دوره برای هر دو پارلمان و ریاست‌جمهوری"] },
-      { icon: "🏛️", title: "مجلس ملی", role: "قوه مقننه — اقتدار قانونگذاری عالی", color: "#4fc3f7", items: ["مستقیماً توسط رأی‌دهندگان انتخاب می‌شود", "اقتدار قانونگذاری عالی و نظارت بر قوه مجریه", "نظارت بر بودجه ملی و تمام عملیات دولتی", "هیچ نهاد روحانی موازی، شورای نگهبان یا مجلس خبرگان در این معماری وجود ندارد"] },
+      { icon: "🏛️", title: "مجلس ملی", role: "قوه مقننه — اقتدار قانونگذاری عالی", color: "#8B5CF6", items: ["مستقیماً توسط رأی‌دهندگان انتخاب می‌شود", "اقتدار قانونگذاری عالی و نظارت بر قوه مجریه", "نظارت بر بودجه ملی و تمام عملیات دولتی", "هیچ نهاد روحانی موازی، شورای نگهبان یا مجلس خبرگان در این معماری وجود ندارد"] },
       { icon: "⚙️", title: "رئیس‌جمهور + هیئت دولت", role: "قوه مجریه — عملیات روزانه دولتی", color: "#69d98c", items: ["رئیس‌جمهور مستقیماً توسط رأی‌دهندگان انتخاب می‌شود", "هیئت دولت توسط رئیس‌جمهور منصوب و توسط مجلس تأیید می‌شود", "حاکمیت بر اساس شایسته‌سالاری و تخصص — از تمام فیلترهای مذهبی یا ایدئولوژیک پاک شده", "کاملاً پاسخگو در برابر مجلس"] },
       { icon: "⚖️", title: "قوه قضاییه مستقل", role: "قوه قضاییه — فقط قانون مدنی سکولار", color: "#ff9a42", items: ["کاملاً مستقل از هر دو قوه مجریه و مقننه", "انتصابات: متخصصان حقوقی مستقل بر اساس شایسته‌سالاری قانون مدنی سکولار", "الغای کامل مجازات اعدام؛ ممنوعیت قطعی شکنجه", "کاملاً از فقه مذهبی جدا شده"] },
       { icon: "🗺️", title: "شوراهای استانی/بخشی/روستایی", role: "غیرمتمرکزسازی اداری — نه فدرالیسم", color: "#ba68c8", items: ["مستقیماً توسط شهروندان محلی انتخاب می‌شوند", "مدیریت: امور اداری محلی، توسعه اقتصادی منطقه‌ای، زیرساخت، حفاظت فرهنگی", "تابع قانون اساسی ملی و قانون پارلمانی مرکزی", "این غیرمتمرکزسازی اداری است — پارلمان و مجریه مرکزی اقتدار حاکمیتی نهایی را حفظ می‌کنند", "جبهه ملی صراحتاً و شدیداً فدرالیسم قومی-زبانی را رد می‌کند — آن را پیش‌ساز خطرناک بالکانیزاسیون می‌داند"] },
@@ -580,7 +580,7 @@ const DATA = {
       { institution: "ارتش (نیروهای رسمی)", status: "اصلاح و استفاده", statusColor: "#69d98c", action: "به عنوان تنها نیروی دفاع ملی حفظ می‌شود. با پروتکل‌های جدید جذب نیرو بازسازی می‌شود. به طور سختگیرانه تابع وزارت دفاع غیرنظامی. تحت نظارت مطلق پارلمانی قرار می‌گیرد." },
       { institution: "دادگاه‌های روحانی + انقلابی", status: "کاملاً برچیده شده", statusColor: "#ef5350", action: "ریشه‌کنی کامل دادگاه ویژه روحانیت و دادگاه‌های انقلاب اسلامی. با قوه قضاییه مدنی سکولار و مستقل جایگزین می‌شود." },
       { institution: "بنیادها (بنیادهای مذهبی)", status: "مصادره شده", statusColor: "#ff9a42", action: "به عنوان انحصارهای مستقل معاف از مالیات برچیده می‌شوند. دارایی‌ها در اقتصاد ملی رسمی و مالیات‌دهنده برای برنامه‌های رفاه اجتماعی و توسعه زیرساخت ادغام می‌شوند." },
-      { institution: "وزارتخانه‌های غیرنظامی", status: "پاکسازی و اصلاح", statusColor: "#4fc3f7", action: "حفظ اما پاکسازی تمام منصوبان ایدئولوژیک. بازسازی بر اساس شایسته‌سالاری، تخصص و نظارت مستقل رسانه‌ای/صنفی." },
+      { institution: "وزارتخانه‌های غیرنظامی", status: "پاکسازی و اصلاح", statusColor: "#8B5CF6", action: "حفظ اما پاکسازی تمام منصوبان ایدئولوژیک. بازسازی بر اساس شایسته‌سالاری، تخصص و نظارت مستقل رسانه‌ای/صنفی." },
     ],
 
     polEyebrow: "مواضع سیاستی کلیدی",
@@ -591,7 +591,7 @@ const DATA = {
       { icon: "📊", title: "اقتصاد: از دولت رانتیر به تولید رقابتی", color: "#e8c840", items: ["رد سیستم موجود: اقتصاد فاسد، غیررقابتی، 'رانت‌خوار' تحت سیطره باندهای مافیایی ایدئولوژیک و کنگلومراهای نظامی", "گذار به: اقتصاد رقابتی تولیدمحور با فناوری مدرن، سرمایه‌گذاری خارجی، ادغام با بازار جهانی", "اما: توسط سیاست‌های رفاه اجتماعی قوی متوازن می‌شود — بیمه اجتماعی همگانی، آموزش رایگان، مسکن و بیمه سلامت همگانی", "میراث مصدق — ملی کردن منابع طبیعی محوری: نفت، گاز، معادن زیر کنترل حاکمیتی ایران باقی می‌مانند", "بحران زیست‌محیطی به اولویت امنیت ملی درجه اول ارتقا یافته — خشکسالی، کاهش سطح آب‌های زیرزمینی و آلودگی شدید صراحتاً نام برده شده"] },
       { icon: "🗺️", title: "اقلیت‌ها: غیرمتمرکزسازی اداری در مقابل فدرالیسم", color: "#ba68c8", items: ["جبهه ملی شدیداً میهن‌پرستانه است — حفظ مطلق و غیرقابل مذاکره تمامیت ارضی ایران", "صراحتاً و شدیداً فدرالیسم قومی-زبانی را رد می‌کند — آن را پیشاهنگ خطرناک بالکانیزاسیون می‌داند", "به جای آن: غیرمتمرکزسازی اداری ساختارمند — شوراهای منتخب در سطوح روستا، بخش و استان", "فارسی (فارسی) به عنوان تنها زبان رسمی، آموزشی و مشترک دولتی باقی می‌ماند", "همه زبان‌های منطقه‌ای (کردی، بلوچی، آذری) به عنوان 'میراث فرهنگی' ترویج و حمایت می‌شوند", "این موضع مستقیماً با خواسته‌های فدرالیستی CPFIK تعارض دارد — جبهه ملی را در مسیر تصادم بالقوه با سازمان‌های اقلیت قومی پس از گذار قرار می‌دهد"] },
       { icon: "⚖️", title: "عدالت: عدالت انتقالی بدون انتقام", color: "#69d98c", items: ["صراحتاً پاکسازی کلی، اعدام‌های انقلابی و مجازات سیاسی را رد می‌کند", "بر اساس فرض بی‌گناهی عمل می‌کند", "الغای کامل مجازات اعدام به عنوان مجازات قضایی", "ممنوعیت قطعی شکنجه", "اعضای سابق رژیم از طریق دادگاه‌های سکولار مستقل و منصفانه پیگرد می‌شوند — نه عدالت قضاوت جمعی", "تمرکز بر پاسخگویی فردی برای جرایم قابل اثبات مشخص — نه گناه جمعی بر اساس عضویت سازمانی"] },
-      { icon: "🌍", title: "سیاست خارجی: استقلال، عادی‌سازی و عدم اشاعه", color: "#4fc3f7", items: ["اصل اساسی تغییرناپذیر: استقلال سختگیرانه از هژمونی خارجی — هم غربی و هم شرقی", "کودتای ۱۹۵۳ مداخله خارجی را یک خط قرمز مطلق می‌کند صرف نظر از جهت یا هدف", "اما: از روابط صلح‌آمیز و عادی با تمام کشورهای عضو سازمان ملل دفاع می‌کند", "روابط عادی با ایالات متحده و اسرائیل صراحتاً ذکر شده", "ممنوعیت و نابودی سلاح‌های کشتار جمعی — عدم اشاعه هسته‌ای", "پیشنهاد کنسرسیوم هسته‌ای منطقه‌ای (موسویان) — پیشرفته‌ترین موضع هسته‌ای از هر طرح اپوزیسیون ایرانی"] },
+      { icon: "🌍", title: "سیاست خارجی: استقلال، عادی‌سازی و عدم اشاعه", color: "#8B5CF6", items: ["اصل اساسی تغییرناپذیر: استقلال سختگیرانه از هژمونی خارجی — هم غربی و هم شرقی", "کودتای ۱۹۵۳ مداخله خارجی را یک خط قرمز مطلق می‌کند صرف نظر از جهت یا هدف", "اما: از روابط صلح‌آمیز و عادی با تمام کشورهای عضو سازمان ملل دفاع می‌کند", "روابط عادی با ایالات متحده و اسرائیل صراحتاً ذکر شده", "ممنوعیت و نابودی سلاح‌های کشتار جمعی — عدم اشاعه هسته‌ای", "پیشنهاد کنسرسیوم هسته‌ای منطقه‌ای (موسویان) — پیشرفته‌ترین موضع هسته‌ای از هر طرح اپوزیسیون ایرانی"] },
     ],
 
     assessEyebrow: "ارزیابی استراتژیک",
@@ -637,12 +637,12 @@ const DATA = {
    Main component
 ───────────────────────────────────────────────────── */
 export default function JMIPage() {
-  const { lang, isRTL } = useLang();
+  const { lang, isRTL, headFont } = useLang();
   const d = DATA[lang] || DATA.en;
-  const ff = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
+  const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
-  const GOLD = "#e8c840", CYAN = "#4fc3f7", GREEN = "#69d98c",
+  const GOLD = "#e8c840", CYAN = "#8B5CF6", GREEN = "#69d98c",
     ORANGE = "#ff9a42", RED = "#ef5350", PURPLE = "#ba68c8";
 
   return (
