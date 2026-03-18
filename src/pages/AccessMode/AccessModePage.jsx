@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import { BrandMark } from '../../components/BrandMark/BrandMark';
-import { FeatureSlider, LEFT_FEATURES, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
+import { FeatureSlider, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
 import './AccessModePage.css';
 
 export default function AccessModePage() {
@@ -32,8 +32,6 @@ export default function AccessModePage() {
                     onClick={() => setLang('en')}
                 >EN</button>
             </div>
-
-            <FeatureSlider items={LEFT_FEATURES} />
 
             <div className="am-inner">
                 <header className="am-header">

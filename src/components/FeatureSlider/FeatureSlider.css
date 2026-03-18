@@ -61,18 +61,18 @@
 }
 
 .fs-scard-title {
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: #CCE3F0;
-    font-family: 'intelone-mono', monospace;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .fs-scard-desc {
-    font-size: 12px;
+    font-size: 13px;
     color: #527085;
     line-height: 1.6;
     display: -webkit-box;
@@ -193,4 +193,9 @@
     .fs-slider-btn { width: 28px; height: 28px; }
     .fs-sdot.is-active { width: 16px; }
     .fs-slider { padding: 8px 0 28px; }
+}
+
+@media (min-width: 641px) {
+    .fs-scard-title { font-size: 16px; }
+    .fs-scard-desc  { font-size: 14px; }
 }

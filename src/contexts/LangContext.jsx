@@ -8,7 +8,7 @@ export const LangContext = createContext({
     t: (obj) => obj?.en ?? '',
     tKey: (key) => key,
     isRTL: true,
-    monoFont: "'Irancell', sans-serif",
+    monoFont: "'Geist', sans-serif",
     headFont: "'Vazirmatn', sans-serif",
 });
 
@@ -42,7 +42,7 @@ export function LangProvider({ children, initialLang = 'fa' }) {
     }, []);
 
     const isRTL = lang === 'fa';
-    const monoFont = isRTL ? "'Irancell', sans-serif" : "'intelone-mono', monospace";
+    const monoFont = isRTL ? "'Irancell', sans-serif" : "'Geist', sans-serif";
     const headFont = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
 
     return (

@@ -4,7 +4,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import { useLang } from '../../contexts/LangContext';
 import './ContactPage.css';
 
-const TURNSTILE_SITEKEY = import.meta.env.VITE_TURNSTILE_SITEKEY || '1x00000000000000000000AA';
+const TURNSTILE_SITEKEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || import.meta.env.VITE_TURNSTILE_SITEKEY || '1x00000000000000000000AA';
 
 const CONTENT = {
     eyebrow:  { en: 'SUPPORT',          fa: 'پشتیبانی' },
@@ -287,9 +287,9 @@ export default function ContactPage() {
                                         ref={turnstileRef}
                                         siteKey={TURNSTILE_SITEKEY}
                                         onSuccess={token => { setCaptchaToken(token); sendEmail(token); }}
-                                        onExpire={() => { setCaptchaToken(null); setShowCaptcha(false); }}
-                                        onError={() => { setCaptchaToken(null); setShowCaptcha(false); }}
-                                        options={{ theme: 'auto', size: 'flexible', language: isRTL ? 'fa' : 'en' }}
+                                        onExpire={() => { setCaptchaToken(null); setShowCaptcha(false); setError(t(CONTENT.errors.generic)); }}
+                                        onError={() => { setCaptchaToken(null); setShowCaptcha(false); setError(t(CONTENT.errors.generic)); }}
+                                        options={{ theme: 'auto', size: 'flexible', language: 'auto' }}
                                     />
                                 </div>
                             )}

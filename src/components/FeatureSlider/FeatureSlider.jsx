@@ -31,7 +31,7 @@ function getMetrics() {
 }
 
 export function FeatureSlider({ items }) {
-    const { t } = useLang();
+    const { t, monoFont, headFont } = useLang();
     const total = items.length;
 
     const [metrics, setMetrics] = useState(getMetrics);
@@ -101,8 +101,8 @@ export function FeatureSlider({ items }) {
                             >
                                 <span className="fs-scard-icon">{item.icon}</span>
                                 <div className="fs-scard-body">
-                                    <div className="fs-scard-title">{t(item.title)}</div>
-                                    <div className="fs-scard-desc">{t(item.desc)}</div>
+                                    <div className="fs-scard-title" style={{ fontFamily: monoFont }}>{t(item.title)}</div>
+                                    <div className="fs-scard-desc" style={{ fontFamily: headFont }}>{t(item.desc)}</div>
                                 </div>
                             </div>
                         );

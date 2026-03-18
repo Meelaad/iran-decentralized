@@ -39,23 +39,16 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
-    /* top padding reserves space so centered content doesn't overlap the brand block */
-    padding: 140px 24px 20px;
+    padding: 20px 24px;
     text-align: center;
 }
 
-/* ─── Brand block (IRAN DAO + logo) — pinned to top of hero ──────────────────── */
+/* ─── Brand block (IRAN DAO + logo) — sits in flow, above the animation ─────── */
 .sp-hero-brand {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    pointer-events: none;
-    white-space: nowrap;
 }
 
 .sp-hero-logo {
@@ -71,7 +64,6 @@
 }
 
 @media (max-width: 640px) {
-    .sp-hero { padding-top: 120px; }
     .sp-hero-logo { width: 52px; }
 }
 
@@ -141,10 +133,9 @@
     border: none;
     border-radius: 9999px;
     padding: 14px 32px;
-    font-family: 'intelone-mono', monospace;
     font-size: clamp(13px, 1.3vw, 17px);
-    font-weight: 700;
-    letter-spacing: 1.5px;
+    font-weight: 400;
+    letter-spacing: 2px;
     text-transform: uppercase;
     color: #0a0a0a;
     cursor: pointer;
@@ -169,10 +160,10 @@
 }
 
 .sp-hint {
-    font-family: 'intelone-mono', monospace;
     font-size: clamp(11px, 1.1vw, 14px);
-    letter-spacing: 2px;
-    color: rgba(139, 92, 246, 0.3);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #26DEC2;
     text-transform: uppercase;
 }
 
@@ -245,8 +236,8 @@
     }
     .sp-hint {
         font-size: 16px;
-        color: rgba(139, 92, 246, 0.72);
-        letter-spacing: 3px;
+        color: #26DEC2;
+        letter-spacing: 0.5px;
     }
 }
 

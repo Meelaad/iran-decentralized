@@ -437,7 +437,7 @@ function ParticleScene({ isLight = false }) {
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function StartPage() {
-    const { isRTL, lang, setLang } = useLang();
+    const { isRTL, lang, setLang, monoFont, headFont } = useLang();
     const { theme } = useTheme();
     const navigate = useNavigate();
     const stats    = useLiveStats();
@@ -497,13 +497,13 @@ export default function StartPage() {
 
                 <ParticleTitle key={`${lang}-${theme}`} words={particleWords} isRTL={isRTL} isLight={theme === 'light'} />
 
-                <p className="sp-tagline">
+                <p className="sp-tagline" style={{ fontFamily: headFont }}>
                     {isRTL
                         ? 'اتحاد ایرانیان برای تعیین سرنوشت سیاسی خود'
                         : 'Unite the diaspora. Build the future.'}
                 </p>
 
-                <button className="sp-cta" onClick={() => navigate('/access-mode')}>
+                <button className="sp-cta" style={{ fontFamily: monoFont }} onClick={() => navigate('/access-mode')}>
                     {isRTL ? 'شروع مسیر' : 'Begin Your Journey'}
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                         <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -511,7 +511,7 @@ export default function StartPage() {
                 </button>
 
                 <div className="sp-hero-sub">
-                    <div className="sp-hint">{isRTL ? 'ورود درحال حاضر فقط با کد دعوت' : 'Entry via invite code at the moment'}</div>
+                    <div className="sp-hint" style={{ fontFamily: monoFont }}>{isRTL ? 'ثبت نام درحال حاضر فقط با کد دعوت' : 'Registration via invite code at the moment'}</div>
                     <div className="sp-bottom-controls">
                         <ThemeSwitch />
                         <div className="sp-lang-inline">

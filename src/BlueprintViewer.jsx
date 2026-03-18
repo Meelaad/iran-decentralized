@@ -12,6 +12,35 @@ import GovTree from './components/GovTree/GovTree';
 const GRID_SIZE = 2; // SVG units
 const BOUNDS = { xMin: 19, xMax: 81, yMin: 13, yMax: 75 };
 
+const CONN_BITS = ["1","0","1","1","0","0","1","0"];
+const CONN_CHARS = new Array(8).fill(null);
+
+// React.memo prevents re-render when isRelated/pathD don't change.
+// SMIL animateMotion is used (not CSS offset-path) because offset-path path() coordinates
+// are in CSS pixel space, not SVG user-unit space — they break with a viewBox scaling factor.
+const ConnAnimation = React.memo(function ConnAnimation({ pathD, isRelated, isDecentralized }) {
+    return (
+        <>
+            {isDecentralized ? CONN_BITS.map((bit, b) => (
+                <text key={b} fontSize="1.5" fill={bit === "1" ? "#66d9ff" : "#2eb8d4"}
+                    textAnchor="middle" dominantBaseline="middle"
+                    fontFamily="Inter" fontWeight="700" opacity={isRelated ? "0.9" : "0"}>
+                    <animateMotion dur={`${1.6 + (b % 3) * 0.4}s`} begin={`${b * 0.22}s`} repeatCount="indefinite" path={pathD} />
+                    {bit}
+                </text>
+            )) : CONN_CHARS.map((_, b) => (
+                <g key={b} opacity={isRelated ? "0.75" : "0"}>
+                    <animateMotion dur={`${5 + (b % 4) * 1.2}s`} begin={`${b * 0.7}s`} repeatCount="indefinite" path={pathD} />
+                    <rect x="-1.1" y="-0.75" width="2.2" height="1.5" rx="0.12" fill="rgba(15,25,40,0.7)" stroke="#7a9ab8" strokeWidth="0.13" />
+                    <path d="M -1.1,-0.75 L 0,0.15 L 1.1,-0.75" fill="none" stroke="#7a9ab8" strokeWidth="0.11" />
+                    <line x1="-1.1" y1="0.75" x2="-0.1" y2="0.05" stroke="#7a9ab8" strokeWidth="0.09" opacity="0.5" />
+                    <line x1="1.1" y1="0.75" x2="0.1" y2="0.05" stroke="#7a9ab8" strokeWidth="0.09" opacity="0.5" />
+                </g>
+            ))}
+        </>
+    );
+});
+
 function snap(val, grid) {
     return Math.round(val / grid) * grid;
 }
@@ -195,6 +224,106 @@ function AdminGrid() {
     return <g>{lines}</g>;
 }
 
+// Owns its own `panelVisible` state so closing the panel never re-renders the SVG parent.
+function SidePanelContainer({ selected, selectedSector, relatedConnections, sectors, activeBlueprintId, panelOrigin, view }) {
+    const [panelVisible, setPanelVisible] = useState(false);
+    const { t, tKey, isRTL, headFont } = useLang();
+
+    // Open when mounted (component is keyed by `selected`, so remounts per node)
+    useEffect(() => {
+        if (window.innerWidth > 900) {
+            setPanelVisible(true);
+        } else {
+            const timer = setTimeout(() => setPanelVisible(true), 120);
+            return () => clearTimeout(timer);
+        }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    // Re-open when switching back to map view with a node selected
+    useEffect(() => {
+        if (view === 'list') { setPanelVisible(false); return; }
+        if (view === 'map' && selected) {
+            const timer = setTimeout(() => setPanelVisible(true), 280);
+            return () => clearTimeout(timer);
+        }
+    }, [view]); // eslint-disable-line react-hooks/exhaustive-deps
+
+    const hidden = !panelVisible || !selectedSector;
+
+    return (
+        <div
+            className="side-panel"
+            onClick={e => e.stopPropagation()}
+            onMouseDown={e => e.preventDefault()}
+            style={{
+                [isRTL ? "left" : "right"]: 12,
+                ...(hidden
+                    ? { visibility: 'hidden', pointerEvents: 'none', opacity: 0, animation: 'none' }
+                    : {
+                        border: `1px solid ${selectedSector.border}40`,
+                        color: selectedSector.border,
+                        "--panel-origin-x": panelOrigin ? `${panelOrigin.x}px` : "50%",
+                        "--panel-origin-y": panelOrigin ? `${panelOrigin.y}px` : "0",
+                    }
+                ),
+            }}
+        >
+            <div className="side-panel-header">
+                <div className={`side-panel-kicker ${!isRTL ? "is-ltr" : ""}`} style={{ color: selectedSector.border }}>
+                    {t({
+                        core: { en: "CORE LAYER", fa: "لایه هسته" },
+                        primary: { en: "PRIMARY SECTOR", fa: "بخش اولیه" },
+                        secondary: { en: "SECONDARY SECTOR", fa: "بخش ثانویه" },
+                        tertiary: { en: "SUPPORTING SECTOR", fa: "بخش پشتیبان" },
+                    }[selectedSector.tier])}
+                </div>
+                <button className="side-panel-close" onClick={() => setPanelVisible(false)}>✕</button>
+            </div>
+            <div className="side-panel-icon">{selectedSector.icon}</div>
+            <h2 className="side-panel-title" style={{ fontFamily: headFont }}>{t(selectedSector.label)}</h2>
+            <p className="side-panel-desc">{t(selectedSector.desc)}</p>
+            <Link
+                to={`/blueprint/gov/${activeBlueprintId}/sectors/${selectedSector.id}`}
+                style={{
+                    display: "inline-block", fontSize: 11, color: "#66d9ff",
+                    border: "1px solid rgba(139,92,246,0.2)", padding: "6px 14px",
+                    marginBottom: 16, textDecoration: "none", letterSpacing: "0.06em",
+                    transition: "background 0.2s, border-color 0.2s",
+                    background: "rgba(139,92,246,0.04)",
+                }}
+            >
+                {tKey('blueprint.learnMore')}
+            </Link>
+            <div className={`panel-section-label ${!isRTL ? "is-ltr" : ""}`}>{tKey('blueprint.internalSystems')}</div>
+            {selectedSector.contents.map((item, i) => (
+                <div key={i} className="panel-item" style={{
+                    borderLeft: isRTL ? "none" : `2px solid ${selectedSector.border}30`,
+                    borderRight: isRTL ? `2px solid ${selectedSector.border}30` : "none"
+                }}>
+                    {t(item)}
+                </div>
+            ))}
+            {relatedConnections.length > 0 && (
+                <>
+                    <div className={`panel-section-label with-top-margin ${!isRTL ? "is-ltr" : ""}`}>
+                        {tKey('blueprint.connections', { count: relatedConnections.length })}
+                    </div>
+                    {relatedConnections.map((conn, i) => {
+                        const other = conn.from === selected ? conn.to : conn.from;
+                        const otherSec = sectors.find((s) => s.id === other);
+                        return (
+                            <div key={i} className="panel-connection-row">
+                                <span>{otherSec?.icon} {t(otherSec?.label)}</span>
+                                <span className="panel-connection-pill">{t(conn.label)}</span>
+                            </div>
+                        );
+                    })}
+                </>
+            )}
+        </div>
+    );
+}
+
 export default function BlueprintViewer() {
     const { blueprintId } = useParams();
     const { t, tKey, isRTL, monoFont, headFont } = useLang();
@@ -203,7 +332,7 @@ export default function BlueprintViewer() {
     const [bpPickerOpen, setBpPickerOpen] = useState(false);
     const bpPickerRef = useRef(null);
     const [selected, setSelected] = useState(null);
-    const [panelVisible, setPanelVisible] = useState(false);
+    const [animating, setAnimating] = useState(null);
     const [panelOrigin, setPanelOrigin] = useState(null);
     const [hoveredConn, setHoveredConn] = useState(null);
     const [showLayer, setShowLayer] = useState(null);
@@ -290,7 +419,7 @@ export default function BlueprintViewer() {
     function handleStartEdit() {
         setEditPositions({ ...positions, ...dbLayout });
         setSelected(null);
-        setPanelVisible(false);
+        setAnimating(null);
     }
 
     function handleCancelEdit() {
@@ -308,7 +437,7 @@ export default function BlueprintViewer() {
 
     const handleNodeClick = useCallback((sectorId, isSelected) => {
         if (editPositions) return; // no click-select in edit mode
-        if (isSelected) { setSelected(null); setPanelVisible(false); return; }
+        if (isSelected) { setSelected(null); setAnimating(null); return; }
         const svg = svgRef.current;
         if (svg) {
             const pos = renderPositions[sectorId];
@@ -326,23 +455,9 @@ export default function BlueprintViewer() {
             }
         }
         setSelected(sectorId);
-        if (window.innerWidth > 900) setPanelVisible(true);
+        setAnimating(sectorId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sectors, renderPositions, editPositions]);
-
-    useEffect(() => {
-        if (!selected) { setPanelVisible(false); return; }
-        if (window.innerWidth > 900) return;
-        const timer = setTimeout(() => setPanelVisible(true), 120);
-        return () => clearTimeout(timer);
-    }, [selected]);
-
-    useEffect(() => {
-        if (view !== 'map' || !selected) { if (view === 'list') setPanelVisible(false); return; }
-        const timer = setTimeout(() => setPanelVisible(true), 280);
-        return () => clearTimeout(timer);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [view]);
 
     useEffect(() => {
         if (!bpPickerOpen) return;
@@ -362,7 +477,7 @@ export default function BlueprintViewer() {
     // Reset selection when blueprint changes
     useEffect(() => {
         setSelected(null);
-        setPanelVisible(false);
+        setAnimating(null);
         setShowLayer(null);
         setEditPositions(null);
         setDragging(null);
@@ -424,13 +539,6 @@ export default function BlueprintViewer() {
             className="container"
             style={{ fontFamily: headFont }}
         >
-            {isDecentralized && (
-                <div className="blockchain-overlay">
-                    <div className="blockchain-aurora" />
-                    <BlockchainOverlay />
-                </div>
-            )}
-
             <div className="blueprint-hero">
                 <p className="blueprint-hero-title" style={{ fontFamily: headFont }}>
                     {tKey('blueprint.hero')}
@@ -522,6 +630,12 @@ export default function BlueprintViewer() {
             ) : view === "map" ? (
                 <div className="map-shell">
                     <div className="map-stage">
+                        {isDecentralized && (
+                            <div className="blockchain-overlay">
+                                <div className="blockchain-aurora" />
+                                <BlockchainOverlay />
+                            </div>
+                        )}
                         <svg
                             ref={svgRef}
                             viewBox={svgViewBox}
@@ -530,6 +644,7 @@ export default function BlueprintViewer() {
                             onMouseDown={e => { if (!editPositions) e.preventDefault(); }}
                             onMouseMove={handleSVGMouseMove}
                             onMouseUp={handleSVGMouseUp}
+                            onClick={e => { if (e.target === e.currentTarget) { setSelected(null); setAnimating(null); } }}
                             style={{ cursor: editPositions ? (dragging ? 'grabbing' : 'default') : undefined }}
                         >
                             <defs>
@@ -565,9 +680,9 @@ export default function BlueprintViewer() {
                             {connections.map((conn, i) => {
                                 const from = getSectorPos(conn.from);
                                 const to = getSectorPos(conn.to);
-                                const isRelated = selected && (conn.from === selected || conn.to === selected);
+                                const isRelated = animating && (conn.from === animating || conn.to === animating);
                                 const isHovered = hoveredConn === i;
-                                const dimmed = selected && !isRelated;
+                                const dimmed = animating && !isRelated;
                                 const midX = (from.x + to.x) / 2;
                                 const midY = (from.y + to.y) / 2;
                                 const dx = to.x - from.x;
@@ -580,9 +695,6 @@ export default function BlueprintViewer() {
                                 const idleStyle = isDecentralized && !isRelated && !dimmed && !isHovered ? {
                                     animation: `${i % 2 === 0 ? "edgeLightning" : "edgeIdle"} ${3 + (i % 7)}s ${(i * 0.37 + (i % 3) * 1.1).toFixed(2)}s infinite`
                                 } : {};
-                                const bits = ["1","0","1","1","0","0","1","0"];
-                                const chars = ["L","A","W","S","T","A","T","E"];
-
                                 return (
                                     <g key={`conn-${i}`}
                                        onMouseEnter={() => !editPositions && setHoveredConn(i)}
@@ -600,43 +712,7 @@ export default function BlueprintViewer() {
                                             style={idleStyle}
                                             markerEnd={!isDecentralized ? "url(#arrow)" : undefined}
                                         />
-                                        {isDecentralized && isRelated && bits.map((bit, b) => (
-                                            <text
-                                                key={b}
-                                                fontSize="1.5"
-                                                fill={bit === "1" ? "#66d9ff" : "#2eb8d4"}
-                                                textAnchor="middle"
-                                                dominantBaseline="middle"
-                                                fontFamily="Inter"
-                                                fontWeight="700"
-                                                opacity="0.9"
-                                            >
-                                                <animateMotion
-                                                    dur={`${1.6 + (b % 3) * 0.4}s`}
-                                                    begin={`${b * 0.22}s`}
-                                                    repeatCount="indefinite"
-                                                    path={pathD}
-                                                />
-                                                {bit}
-                                            </text>
-                                        ))}
-                                        {!isDecentralized && isRelated && chars.map((_, b) => (
-                                            <g key={b} opacity="0.75">
-                                                <animateMotion
-                                                    dur={`${5 + (b % 4) * 1.2}s`}
-                                                    begin={`${b * 0.7}s`}
-                                                    repeatCount="indefinite"
-                                                    path={pathD}
-                                                />
-                                                {/* envelope body */}
-                                                <rect x="-1.1" y="-0.75" width="2.2" height="1.5" rx="0.12" fill="rgba(15,25,40,0.7)" stroke="#7a9ab8" strokeWidth="0.13" />
-                                                {/* flap V */}
-                                                <path d="M -1.1,-0.75 L 0,0.15 L 1.1,-0.75" fill="none" stroke="#7a9ab8" strokeWidth="0.11" />
-                                                {/* bottom crease lines */}
-                                                <line x1="-1.1" y1="0.75" x2="-0.1" y2="0.05" stroke="#7a9ab8" strokeWidth="0.09" opacity="0.5" />
-                                                <line x1="1.1" y1="0.75" x2="0.1" y2="0.05" stroke="#7a9ab8" strokeWidth="0.09" opacity="0.5" />
-                                            </g>
-                                        ))}
+                                        <ConnAnimation pathD={pathD} isRelated={isRelated} isDecentralized={isDecentralized} />
                                         {(isHovered || isRelated) && !editPositions && (
                                             <text
                                                 x={midX + offsetX * 0.6}
@@ -703,91 +779,17 @@ export default function BlueprintViewer() {
                             })}
                         </svg>
 
-                        {panelVisible && selectedSector && !editPositions && (
-                            <div
+                        {selectedSector && !editPositions && (
+                            <SidePanelContainer
                                 key={selected}
-                                className="side-panel"
-                                onMouseDown={e => e.preventDefault()}
-                                style={{
-                                    [isRTL ? "left" : "right"]: 12,
-                                    border: `1px solid ${selectedSector.border}40`,
-                                    color: selectedSector.border,
-                                    "--panel-origin-x": panelOrigin ? `${panelOrigin.x}px` : "50%",
-                                    "--panel-origin-y": panelOrigin ? `${panelOrigin.y}px` : "0",
-                                }}
-                            >
-                                <div className="side-panel-header">
-                                    <div className={`side-panel-kicker ${!isRTL ? "is-ltr" : ""}`} style={{ color: selectedSector.border }}>
-                                        {t({
-                                            core: { en: "CORE LAYER", fa: "لایه هسته" },
-                                            primary: { en: "PRIMARY SECTOR", fa: "بخش اولیه" },
-                                            secondary: { en: "SECONDARY SECTOR", fa: "بخش ثانویه" },
-                                            tertiary: { en: "SUPPORTING SECTOR", fa: "بخش پشتیبان" },
-                                        }[selectedSector.tier])}
-                                    </div>
-                                    <button className="side-panel-close" onClick={() => setSelected(null)}>✕</button>
-                                </div>
-                                <div className="side-panel-icon">{selectedSector.icon}</div>
-                                <h2
-                                    className="side-panel-title"
-                                    style={{ fontFamily: headFont }}
-                                >
-                                    {t(selectedSector.label)}
-                                </h2>
-                                <p className="side-panel-desc">{t(selectedSector.desc)}</p>
-
-                                <Link
-                                    to={`/blueprint/gov/${activeBlueprintId}/sectors/${selectedSector.id}`}
-                                    style={{
-                                        display: "inline-block",
-                                        fontSize: 11,
-                                        color: "#66d9ff",
-                                        border: "1px solid rgba(139,92,246,0.2)",
-                                        padding: "6px 14px",
-                                        marginBottom: 16,
-                                        textDecoration: "none",
-                                        letterSpacing: "0.06em",
-                                        transition: "background 0.2s, border-color 0.2s",
-                                        background: "rgba(139,92,246,0.04)",
-                                    }}
-                                >
-                                    {tKey('blueprint.learnMore')}
-                                </Link>
-
-                                <div className={`panel-section-label ${!isRTL ? "is-ltr" : ""}`}>
-                                    {tKey('blueprint.internalSystems')}
-                                </div>
-                                {selectedSector.contents.map((item, i) => (
-                                    <div
-                                        key={i}
-                                        className="panel-item"
-                                        style={{
-                                            borderLeft: isRTL ? "none" : `2px solid ${selectedSector.border}30`,
-                                            borderRight: isRTL ? `2px solid ${selectedSector.border}30` : "none"
-                                        }}
-                                    >
-                                        {t(item)}
-                                    </div>
-                                ))}
-
-                                {relatedConnections.length > 0 && (
-                                    <>
-                                        <div className={`panel-section-label with-top-margin ${!isRTL ? "is-ltr" : ""}`}>
-                                            {tKey('blueprint.connections', { count: relatedConnections.length })}
-                                        </div>
-                                        {relatedConnections.map((conn, i) => {
-                                            const other = conn.from === selected ? conn.to : conn.from;
-                                            const otherSec = sectors.find((s) => s.id === other);
-                                            return (
-                                                <div key={i} className="panel-connection-row">
-                                                    <span>{otherSec?.icon} {t(otherSec?.label)}</span>
-                                                    <span className="panel-connection-pill">{t(conn.label)}</span>
-                                                </div>
-                                            );
-                                        })}
-                                    </>
-                                )}
-                            </div>
+                                selected={selected}
+                                selectedSector={selectedSector}
+                                relatedConnections={relatedConnections}
+                                sectors={sectors}
+                                activeBlueprintId={activeBlueprintId}
+                                panelOrigin={panelOrigin}
+                                view={view}
+                            />
                         )}
                     </div>
 

@@ -22,11 +22,11 @@ function useLiveVoteCounts() {
 }
 
 export default function StartSelection() {
-    const { isRTL, t, lang, setLang } = useLang();
+    const { isRTL, t, lang, setLang, monoFont, headFont } = useLang();
     const votes = useLiveVoteCounts();
+    const [activeStage, setActiveStage] = useState(1);
 
     const blueprints = Object.values(BLUEPRINTS);
-    const headFont = isRTL ? "'Vazirmatn', sans-serif" : "'Inter', sans-serif";
 
     return (
         <div className="ss-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
@@ -35,7 +35,7 @@ export default function StartSelection() {
             {/* Language switcher + theme toggle */}
             <div className="ss-lang" style={{ viewTransitionName: 'standalone-topbar' }}>
                 <ThemeSwitch />
-                <button className={`ss-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>فارسی</button>
+                <button className={`ss-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: headFont }}>فارسی</button>
                 <button className={`ss-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
             </div>
 
@@ -51,11 +51,32 @@ export default function StartSelection() {
                 </p>
             </header>
 
+            {/* ── Mobile stage switcher — pill segmented (hidden on desktop) ── */}
+            <div className="ss-stage-tabs">
+                <div className="ss-pill-track">
+                    <div className={`ss-pill-thumb${activeStage === 1 ? ' left' : ' right'}`} />
+                    <button
+                        className={`ss-pill-btn${activeStage === 1 ? ' is-active' : ''}`}
+                        onClick={() => setActiveStage(1)}
+                        style={{ fontFamily: headFont }}
+                    >
+                        {isRTL ? 'مرحله انتقال' : 'The Transition'}
+                    </button>
+                    <button
+                        className={`ss-pill-btn${activeStage === 2 ? ' is-active' : ''}`}
+                        onClick={() => setActiveStage(2)}
+                        style={{ fontFamily: headFont }}
+                    >
+                        {isRTL ? 'مقصد' : 'The Destination'}
+                    </button>
+                </div>
+            </div>
+
             <div className="ss-zones">
                 {/* ── Zone 1: Pre-Collapse ───────────────────────────────── */}
-                <div className="ss-zone ss-zone--pre">
+                <div className={`ss-zone ss-zone--pre${activeStage !== 1 ? ' ss-zone--inactive' : ''}`}>
                     <div className="ss-zone-header">
-                        <span className="ss-zone-tag ss-zone-tag--pre">STAGE 1</span>
+                        <span className="ss-zone-tag ss-zone-tag--pre" style={{ fontFamily: monoFont }}>STAGE 1</span>
                         <h2 className="ss-zone-title">
                             {isRTL ? 'مرحله انتقال' : 'The Transition'}
                         </h2>
@@ -69,7 +90,7 @@ export default function StartSelection() {
                         <Link to="/arena" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">⚡</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'آرنای انتقال' : 'THE ARENA'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -80,7 +101,7 @@ export default function StartSelection() {
                         <Link to="/transitional/plan/nufdi" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">📜</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'طرح NUFDI' : 'NUFDI BLUEPRINT'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -91,7 +112,7 @@ export default function StartSelection() {
                         <Link to="/pre" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">🗺</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'مرور کلی پیش‌انتقال' : 'PRE-TRANSITION OVERVIEW'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -102,7 +123,7 @@ export default function StartSelection() {
                         <Link to="/compare/transition" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">⚖️</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'مقایسه طرح‌های انتقالی' : 'COMPARE PLANS'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -113,7 +134,7 @@ export default function StartSelection() {
                         <Link to="/vote" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">🗳</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'رأی‌گیری' : 'VOTE'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -124,7 +145,7 @@ export default function StartSelection() {
                         <Link to="/global" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">🌍</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'نقشه جهانی' : 'GLOBAL MAP'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -136,9 +157,9 @@ export default function StartSelection() {
                 </div>
 
                 {/* ── Zone 2: Post-Collapse ──────────────────────────────── */}
-                <div className="ss-zone ss-zone--post">
+                <div className={`ss-zone ss-zone--post${activeStage !== 2 ? ' ss-zone--inactive' : ''}`}>
                     <div className="ss-zone-header">
-                        <span className="ss-zone-tag ss-zone-tag--post">STAGE 2</span>
+                        <span className="ss-zone-tag ss-zone-tag--post" style={{ fontFamily: monoFont }}>STAGE 2</span>
                         <h2 className="ss-zone-title">
                             {isRTL ? 'مقصد' : 'The Destination'}
                         </h2>
@@ -152,7 +173,7 @@ export default function StartSelection() {
                         <Link to="/destination" className="ss-link ss-link--post">
                             <span className="ss-link-icon">🏛</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'مرکز مقصد' : 'DESTINATION HUB'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -163,7 +184,7 @@ export default function StartSelection() {
                         <Link to="/blueprint/gov/decentralized" className="ss-link ss-link--post">
                             <span className="ss-link-icon">🗺</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'نمایش نقشه' : 'MAP VIEW'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -174,7 +195,7 @@ export default function StartSelection() {
                         <Link to="/compare" className="ss-link ss-link--post">
                             <span className="ss-link-icon">⚖️</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'مقایسه طرح‌ها' : 'COMPARE'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -185,7 +206,7 @@ export default function StartSelection() {
                         <Link to="/vote" className="ss-link ss-link--post">
                             <span className="ss-link-icon">🗳</span>
                             <div>
-                                <div className="ss-link-title">
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'رأی دهید' : 'VOTE'}
                                 </div>
                                 <div className="ss-link-desc">
@@ -198,7 +219,7 @@ export default function StartSelection() {
                     {/* Live blueprint vote mini-summary */}
                     {SHOW_VOTE_COUNTS && Object.keys(votes).length > 0 && (
                         <div className="ss-vote-summary">
-                            <div className="ss-vote-summary-label">
+                            <div className="ss-vote-summary-label" style={{ fontFamily: monoFont }}>
                                 {isRTL ? 'آمار زنده رأی' : 'LIVE VOTE SNAPSHOT'}
                             </div>
                             {blueprints.slice(0, 3).map(bp => {
@@ -211,7 +232,7 @@ export default function StartSelection() {
                                         <div className="ss-vote-bar-wrap">
                                             <div className="ss-vote-bar" style={{ width: `${pct}%` }} />
                                         </div>
-                                        <span className="ss-vote-pct">{pct}%</span>
+                                        <span className="ss-vote-pct" style={{ fontFamily: monoFont }}>{pct}%</span>
                                     </div>
                                 );
                             })}
@@ -221,7 +242,7 @@ export default function StartSelection() {
             </div>
 
             <div className="ss-footer">
-                <Link to="/" className="ss-back">← {isRTL ? 'بازگشت' : 'Back'}</Link>
+                <Link to="/" className="ss-back" style={{ fontFamily: monoFont }}>← {isRTL ? 'بازگشت' : 'Back'}</Link>
             </div>
 
             <FeatureSlider items={RIGHT_FEATURES} />
