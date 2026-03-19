@@ -7,7 +7,7 @@ import {
     useGenerateCodes, useDeleteCode, useSetInvites, useSeedBlueprints,
     useAdminPlans, usePromotePlan, useArchivePlan, useSeedPlans,
     useVerificationQueue, useReviewVerification,
-    useAdminCivicLeaderboard,
+    useAdminCivicLeaderboard, useAdjustCivicScore,
     useMapMarkers, useAddMapMarker, useUpdateMapMarker, useDeleteMapMarker,
 } from '../../hooks/useAdmin';
 import { Spinner } from '../../components/ui';
@@ -565,6 +565,11 @@ export default function AdminPage() {
     const { data: plans = [] } = useAdminPlans();
     const { data: verificationQueue = [] } = useVerificationQueue();
     const { data: civicLeaderboard = [] } = useAdminCivicLeaderboard();
+    const adjustCivicMutation = useAdjustCivicScore();
+    const [adjustingId, setAdjustingId] = useState(null);
+    const [adjustDelta, setAdjustDelta] = useState('');
+    const [adjustReason, setAdjustReason] = useState('');
+    const [adjustResult, setAdjustResult] = useState(null); // { userId, newScore }
 
     const generateCodesMutation = useGenerateCodes();
     const deleteCodeMutation    = useDeleteCode();
@@ -973,6 +978,9 @@ export default function AdminPage() {
                 {activeTab === 'civic' && (
                     <>
                         <div className="admin-section-title" style={{ marginTop: 40 }}>Civic Score Leaderboard</div>
+                        <p style={{ fontSize: 12, color: '#3a4a5e', marginBottom: 16, fontFamily: monoFont }}>
+                            Adjust adds/subtracts from the live score and writes an audit event. The user continues to earn/lose points normally afterwards.
+                        </p>
                         <div className="admin-table-wrap">
                             <table className="admin-table">
                                 <thead>
@@ -982,31 +990,116 @@ export default function AdminPage() {
                                         <th>Email</th>
                                         <th>Civic Score</th>
                                         <th>Trust Tier</th>
+                                        <th>Adjust</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {civicLeaderboard.length === 0 && (
                                         <tr>
-                                            <td colSpan={5} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                            <td colSpan={6} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
                                                 No scores recorded yet.
                                             </td>
                                         </tr>
                                     )}
-                                    {civicLeaderboard.map((entry, idx) => (
-                                        <tr key={entry.id}>
-                                            <td className="admin-td-mono" style={{ color: idx < 3 ? '#ffd54f' : '#5a6a7e' }}>
-                                                #{idx + 1}
-                                            </td>
-                                            <td className="admin-td-name">{entry.full_name || '—'}</td>
-                                            <td className="admin-td-email">{entry.email || '—'}</td>
-                                            <td className="admin-td-mono" style={{ color: '#8B5CF6' }}>{entry.civic_score ?? 0}</td>
-                                            <td>
-                                                <span className="admin-status-badge" style={{ color: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e', borderColor: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e' }}>
-                                                    {entry.trust_tier || 'LOW'}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    ))}
+                                    {civicLeaderboard.map((entry, idx) => {
+                                        const isAdjusting = adjustingId === entry.id;
+                                        const justAdjusted = adjustResult?.userId === entry.id;
+                                        const displayScore = justAdjusted ? adjustResult.newScore : (entry.civic_score ?? 0);
+                                        return (
+                                            <React.Fragment key={entry.id}>
+                                                <tr>
+                                                    <td className="admin-td-mono" style={{ color: idx < 3 ? '#ffd54f' : '#5a6a7e' }}>
+                                                        #{idx + 1}
+                                                    </td>
+                                                    <td className="admin-td-name">{entry.full_name || '—'}</td>
+                                                    <td className="admin-td-email">{entry.email || '—'}</td>
+                                                    <td className="admin-td-mono" style={{ color: '#8B5CF6' }}>{displayScore}</td>
+                                                    <td>
+                                                        <span className="admin-status-badge" style={{ color: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e', borderColor: TIER_COLORS[entry.trust_tier] ?? '#5a6a7e' }}>
+                                                            {entry.trust_tier || 'LOW'}
+                                                        </span>
+                                                    </td>
+                                                    <td>
+                                                        <button
+                                                            className="admin-action-btn"
+                                                            style={{ fontSize: 11 }}
+                                                            onClick={() => {
+                                                                if (isAdjusting) {
+                                                                    setAdjustingId(null);
+                                                                    setAdjustDelta('');
+                                                                    setAdjustReason('');
+                                                                } else {
+                                                                    setAdjustingId(entry.id);
+                                                                    setAdjustDelta('');
+                                                                    setAdjustReason('');
+                                                                    setAdjustResult(null);
+                                                                }
+                                                            }}
+                                                        >
+                                                            {isAdjusting ? 'Cancel' : 'Adjust'}
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                {isAdjusting && (
+                                                    <tr className="admin-expand-row">
+                                                        <td colSpan={6}>
+                                                            <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', padding: '4px 0' }}>
+                                                                <span style={{ fontSize: 11, color: '#5a6a7e', fontFamily: monoFont }}>
+                                                                    Current score: <strong style={{ color: '#8B5CF6' }}>{entry.civic_score ?? 0}</strong>
+                                                                </span>
+                                                                <input
+                                                                    type="number"
+                                                                    className="admin-invites-input"
+                                                                    placeholder="delta e.g. +3 or -2"
+                                                                    min={-50}
+                                                                    max={50}
+                                                                    value={adjustDelta}
+                                                                    onChange={e => setAdjustDelta(e.target.value)}
+                                                                    style={{ width: 90 }}
+                                                                />
+                                                                <input
+                                                                    type="text"
+                                                                    className="admin-invites-input"
+                                                                    placeholder="Reason (optional)"
+                                                                    maxLength={500}
+                                                                    value={adjustReason}
+                                                                    onChange={e => setAdjustReason(e.target.value)}
+                                                                    style={{ width: 220 }}
+                                                                />
+                                                                <button
+                                                                    className="admin-action-btn"
+                                                                    style={{ fontSize: 11 }}
+                                                                    disabled={adjustCivicMutation.isPending || !adjustDelta || adjustDelta === '0'}
+                                                                    onClick={async () => {
+                                                                        const d = parseInt(adjustDelta, 10);
+                                                                        if (isNaN(d) || d === 0) return;
+                                                                        try {
+                                                                            const result = await adjustCivicMutation.mutateAsync({
+                                                                                userId: entry.id,
+                                                                                delta: d,
+                                                                                reason: adjustReason.trim() || null,
+                                                                            });
+                                                                            setAdjustResult({ userId: entry.id, newScore: result.newScore });
+                                                                            setAdjustingId(null);
+                                                                            setAdjustDelta('');
+                                                                            setAdjustReason('');
+                                                                        } catch (err) {
+                                                                            alert(`Adjustment failed: ${err.message}`);
+                                                                        }
+                                                                    }}
+                                                                >
+                                                                    {adjustCivicMutation.isPending ? 'Saving…' : 'Apply'}
+                                                                </button>
+                                                                <span style={{ fontSize: 10, color: '#3a4a5e', fontFamily: monoFont }}>
+                                                                    Range: −50 to +50 per call · Score floor: 0 · Audit event written
+                                                                </span>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                )}
+                                            </React.Fragment>
+                                        );
+                                    })}
                                 </tbody>
                             </table>
                         </div>

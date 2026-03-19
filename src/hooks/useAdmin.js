@@ -290,6 +290,28 @@ export function useDeleteMapMarker() {
     });
 }
 
+/** Mutation: admin manual civic score adjustment. Invalidates leaderboard and users. */
+export function useAdjustCivicScore() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async ({ userId, delta, reason }) => {
+            const token = await getToken();
+            const res = await fetch('/api/admin/civic/adjust', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify({ user_id: userId, delta, reason }),
+            });
+            const json = await res.json();
+            if (!res.ok) throw new Error(json.error || 'Adjustment failed');
+            return json;
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['admin-civic-leaderboard'] });
+            queryClient.invalidateQueries({ queryKey: ['admin-users'] });
+        },
+    });
+}
+
 export function useAdminCivicLeaderboard() {
     return useQuery({
         queryKey: ['admin-civic-leaderboard'],

@@ -208,6 +208,69 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true });
                 }
 
+            case 'civic/adjust':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { user_id, delta, reason } = req.body || {};
+
+                    // Validate inputs
+                    if (!user_id) return res.status(400).json({ error: 'user_id required' });
+                    const parsedDelta = parseInt(delta, 10);
+                    if (isNaN(parsedDelta) || parsedDelta === 0)
+                        return res.status(400).json({ error: 'delta must be a non-zero integer' });
+                    if (parsedDelta < -50 || parsedDelta > 50)
+                        return res.status(400).json({ error: 'delta must be between -50 and +50 per adjustment' });
+                    if (reason && typeof reason !== 'string')
+                        return res.status(400).json({ error: 'reason must be a string' });
+                    if (reason && reason.length > 500)
+                        return res.status(400).json({ error: 'reason must be 500 characters or fewer' });
+
+                    const { createClient: ccCivic } = await import('@supabase/supabase-js');
+                    const supabaseCivic = ccCivic(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+
+                    // Read current score
+                    const { data: profile, error: profileErr } = await supabaseCivic
+                        .from('profiles')
+                        .select('civic_score')
+                        .eq('id', user_id)
+                        .maybeSingle();
+                    if (profileErr || !profile) return res.status(404).json({ error: 'User not found' });
+
+                    const previousScore = profile.civic_score ?? 0;
+                    const newScore = Math.max(0, previousScore + parsedDelta);
+
+                    // Insert audit event first — if this fails, we abort before touching the score
+                    const { error: eventErr } = await supabaseCivic.from('civic_score_events').insert({
+                        user_id,
+                        event_type: 'admin_adjustment',
+                        score_delta: parsedDelta,
+                        metadata: {
+                            reason: reason || null,
+                            adjusted_by: adminUser?.id ?? null,
+                            previous_score: previousScore,
+                            new_score: newScore,
+                        },
+                    });
+                    if (eventErr) {
+                        console.error('civic/adjust event insert failed:', eventErr.message);
+                        return res.status(500).json({ error: 'Failed to log adjustment event' });
+                    }
+
+                    // Apply score change (update_trust_tier trigger fires automatically)
+                    const { error: updateErr } = await supabaseCivic
+                        .from('profiles')
+                        .update({ civic_score: newScore })
+                        .eq('id', user_id);
+                    if (updateErr) {
+                        console.error('civic/adjust profile update failed:', updateErr.message);
+                        return res.status(500).json({ error: 'Event logged but profile update failed — check DB' });
+                    }
+
+                    return res.status(200).json({ ok: true, previousScore, newScore, delta: parsedDelta });
+                }
+
             case 'map-markers':
                 if (req.method === 'GET') {
                     const markers = await getMapMarkers();
