@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import { supabase } from '../../lib/supabase';
+import { PageMeta } from '../../components/PageMeta/PageMeta';
 import './ComparePage.css';
 
 const TIERS = [
@@ -48,6 +49,11 @@ export default function ComparePage() {
 
     return (
         <div className="compare-page" style={{ fontFamily: headFont }}>
+            <PageMeta
+                title={isRTL ? 'مقایسه طرح‌های حکومتی' : 'Compare Governance Blueprints'}
+                description={isRTL ? 'مقایسه جانبی مدل‌های حکومتی پیشنهادی برای ایران' : 'Side-by-side comparison of all proposed governance models for Iran\'s future.'}
+                lang={isRTL ? 'fa' : 'en'}
+            />
             <div className="compare-retro-grid" />
 
             <div className="compare-inner">

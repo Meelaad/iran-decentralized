@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import 'posthog-js/dist/posthog-recorder'
 import { PostHogProvider } from '@posthog/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { HelmetProvider } from 'react-helmet-async'
 import App from './App.jsx'
 
 const queryClient = new QueryClient({
@@ -23,12 +24,14 @@ const options = {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <PostHogProvider apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY} options={options}>
-      <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </QueryClientProvider>
-    </PostHogProvider>
+    <HelmetProvider>
+      <PostHogProvider apiKey={import.meta.env.VITE_PUBLIC_POSTHOG_KEY} options={options}>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </QueryClientProvider>
+      </PostHogProvider>
+    </HelmetProvider>
   </StrictMode>,
 )

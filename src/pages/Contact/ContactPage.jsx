@@ -4,7 +4,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import { useLang } from '../../contexts/LangContext';
 import './ContactPage.css';
 
-const TURNSTILE_SITEKEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || import.meta.env.VITE_TURNSTILE_SITEKEY || '1x00000000000000000000AA';
+const TURNSTILE_SITEKEY = import.meta.env.VITE_CONTACT_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
 
 const CONTENT = {
     eyebrow:  { en: 'SUPPORT',          fa: 'پشتیبانی' },

@@ -10,7 +10,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://irandao.org',
+        target: 'https://www.irandao.org',
         changeOrigin: true,
       },
     },

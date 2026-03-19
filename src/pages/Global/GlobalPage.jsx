@@ -1,26 +1,30 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { geoMercator } from 'd3-geo';
+import React, { useEffect, useState } from 'react';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import {
   topCountries,
   countryColors,
-  regionMarkers,
   placeholderStats,
   formatNumber,
 } from '../../data/globalData';
-import dottedMapData from '../../data/dotted-map-data.json';
+import WorldDotMap from '../../components/WorldDotMap/WorldDotMap';
 import './GlobalPage.css';
 
-// ─── Map dimensions ────────────────────────────────────────────────────────────
-const MAP_W = 1000;
-const MAP_H = 560;
+// ─── Public map markers hook (anon SELECT — RLS allows public read) ────────────
+function useMapMarkersPublic() {
+  const [markers, setMarkers] = useState([]);
 
-const projection = geoMercator()
-  .scale(140)
-  .center([15, 25])
-  .rotate([0, 0, 0])
-  .translate([MAP_W / 2, MAP_H / 2]);
+  useEffect(() => {
+    supabase
+      .from('map_markers')
+      .select('*')
+      .order('created_at', { ascending: true })
+      .then(({ data }) => setMarkers(data || []))
+      .catch(() => {});
+  }, []);
+
+  return markers;
+}
 
 // ─── Stat card ─────────────────────────────────────────────────────────────────
 function StatCard({ title, value }) {
@@ -32,116 +36,22 @@ function StatCard({ title, value }) {
   );
 }
 
-// ─── World dot map ─────────────────────────────────────────────────────────────
-function WorldDotMap() {
-  const [tooltip, setTooltip] = useState({ text: '', x: 0, y: 0, show: false });
-  const containerRef = useRef(null);
-
-  const dots = [];
-  const animatedDots = [];
-
-  for (const [code, cities] of Object.entries(dottedMapData)) {
-    const color = countryColors[code];
-    const limit = color ? 8 : 2;
-    const shown = cities.slice(0, Math.max(limit, cities.length));
-
-    shown.forEach((city, idx) => {
-      const projected = projection([city.lon, city.lat]);
-      if (!projected) return;
-      const [x, y] = projected;
-      if (x < 0 || x > MAP_W || y < 0 || y > MAP_H) return;
-
-      if (color && idx < 8) {
-        animatedDots.push(
-          <rect
-            key={`${code}-${idx}-a`}
-            x={x - 1.5}
-            y={y - 1.5}
-            width={3}
-            height={3}
-            fill={color}
-            className="gm-pulse"
-            style={{ animationDelay: `${(idx * 0.25) % 2}s` }}
-          />
-        );
-      } else {
-        dots.push(
-          <rect
-            key={`${code}-${idx}-s`}
-            x={x - 1.5}
-            y={y - 1.5}
-            width={3}
-            height={3}
-            className="gm-dot-static"
-          />
-        );
-      }
-    });
-  }
-
-  function handleMarkerEnter(e, marker) {
-    const rect = containerRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    setTooltip({
-      text: marker.name,
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-      show: true,
-    });
-  }
-
-  function handleMarkerLeave() {
-    setTooltip((prev) => ({ ...prev, show: false }));
-  }
-
+// ─── City detail panel ─────────────────────────────────────────────────────────
+function CityPanel({ city, onClose }) {
+  if (!city) return null;
   return (
-    <div className="gm-map-wrap" ref={containerRef}>
-      <svg
-        viewBox={`0 0 ${MAP_W} ${MAP_H}`}
-        width="100%"
-        height="100%"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        {/* Static background dots */}
-        {dots}
-
-        {/* Colored animated dots for top countries */}
-        {animatedDots}
-
-        {/* Region markers */}
-        {regionMarkers.map((marker) => {
-          const projected = projection(marker.coordinates);
-          if (!projected) return null;
-          const [mx, my] = projected;
-          if (mx < 0 || mx > MAP_W || my < 0 || my > MAP_H) return null;
-          return (
-            <g
-              key={marker.id}
-              transform={`translate(${mx}, ${my})`}
-              className="gm-marker"
-              onMouseEnter={(e) => handleMarkerEnter(e, marker)}
-              onMouseLeave={handleMarkerLeave}
-            >
-              <polygon
-                points="0,-5 -3.5,3 3.5,3"
-                fill="#e8507a"
-                stroke="#0b0b18"
-                strokeWidth="0.8"
-              />
-              <circle cx={0} cy={0} r={7} fill="transparent" />
-            </g>
-          );
-        })}
-      </svg>
-
-      {tooltip.show && (
-        <div
-          className="gm-map-tooltip"
-          style={{ left: tooltip.x, top: tooltip.y }}
-        >
-          {tooltip.text}
+    <div className="gm-city-panel-backdrop" onClick={onClose}>
+      <div className="gm-city-panel" onClick={(e) => e.stopPropagation()}>
+        <button className="gm-city-panel-close" onClick={onClose} aria-label="Close">✕</button>
+        <div className="gm-city-panel-region">{city.region || ''}</div>
+        <h2 className="gm-city-panel-name">{city.label || city.name}</h2>
+        <div className="gm-city-panel-row">
+          <span className="gm-city-panel-label">IRANIAN POPULATION</span>
+          <span className="gm-city-panel-value">{city.pop_estimate ?? city.pop ?? 'Data unavailable'}</span>
         </div>
-      )}
+        <p className="gm-city-panel-note">{city.description || city.note || ''}</p>
+        <p className="gm-city-panel-source">Source: U.S. Census ACS / Statistics Canada / national statistics agencies. Figures reflect diaspora estimates and may not capture undocumented residents.</p>
+      </div>
     </div>
   );
 }
@@ -182,9 +92,12 @@ function useGlobalStats() {
 export default function GlobalPage() {
   const { isRTL, t } = useLang();
   const stats = useGlobalStats();
+  const markers = useMapMarkersPublic();
+  const [selectedCity, setSelectedCity] = useState(null);
 
   return (
     <div className="gm-page" dir={isRTL ? 'rtl' : 'ltr'}>
+      <CityPanel city={selectedCity} onClose={() => setSelectedCity(null)} />
       <div className="gm-bg-grid" />
 
       <div className="gm-inner">
@@ -237,7 +150,10 @@ export default function GlobalPage() {
             </div>
           </div>
 
-          <WorldDotMap />
+          <WorldDotMap
+            markers={markers}
+            onMarkerClick={setSelectedCity}
+          />
         </div>
 
         <p className="gm-under-construction">

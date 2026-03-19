@@ -1,5 +1,5 @@
 import { requireAdmin } from '../../lib/admin/_auth.js';
-import { getUsers, generateCodes, deleteCode, updateInvites, seedBlueprints, saveBlueprintLayout } from '../../lib/admin/operations.js';
+import { getUsers, generateCodes, deleteCode, updateInvites, seedBlueprints, saveBlueprintLayout, getMapMarkers, addMapMarker, updateMapMarker, deleteMapMarker } from '../../lib/admin/operations.js';
 import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
@@ -175,6 +175,31 @@ export default async function handler(req, res) {
                             score_delta: delta,
                         });
                     }
+                    return res.status(200).json({ ok: true });
+                }
+
+            case 'map-markers':
+                if (req.method === 'GET') {
+                    const markers = await getMapMarkers();
+                    return res.status(200).json(markers);
+                }
+                if (req.method === 'POST') {
+                    const data = await addMapMarker({ ...req.body, created_by: adminUser?.id ?? null });
+                    return res.status(201).json(data);
+                }
+                return res.status(405).json({ error: 'Method not allowed.' });
+
+            case 'map-markers/update':
+                if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
+                {
+                    const updated = await updateMapMarker(req.body || {});
+                    return res.status(200).json(updated);
+                }
+
+            case 'map-markers/delete':
+                if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
+                {
+                    await deleteMapMarker((req.body || {}).id);
                     return res.status(200).json({ ok: true });
                 }
 

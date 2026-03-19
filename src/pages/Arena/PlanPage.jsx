@@ -16,6 +16,7 @@ import ShadowCabinetTree from '../../components/ShadowCabinetTree/ShadowCabinetT
 import DiasporaMap from '../../components/DiasporaMap/DiasporaMap';
 import Skeleton from '../../components/ui/Skeleton';
 import EmptyState from '../../components/ui/EmptyState';
+import { PageMeta } from '../../components/PageMeta/PageMeta';
 import './PlanPage.css';
 
 export default function PlanPage() {
@@ -86,8 +87,16 @@ export default function PlanPage() {
         } catch (e) { /* ignore */ }
     }
 
+    const planTitle = isRTL ? plan.name?.fa : plan.name?.en || plan.slug;
+    const planDesc = isRTL ? plan.summary?.fa : plan.summary?.en;
+
     return (
         <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'}>
+            <PageMeta
+                title={planTitle}
+                description={planDesc}
+                lang={isRTL ? 'fa' : 'en'}
+            />
             <header className="plan-header" style={{ borderColor: plan.coverColor || '#8B5CF6' }}>
                 {plan.isOfficial && (
                     <span className="plan-official-badge">{tKey('plan.officialBadge')}</span>

@@ -13,6 +13,7 @@ import PlanStockGraph from '../../components/PlanStockGraph/PlanStockGraph';
 import ConsensusMeter from '../../components/ConsensusMeter/ConsensusMeter';
 import Skeleton from '../../components/ui/Skeleton';
 import EmptyState from '../../components/ui/EmptyState';
+import { PageMeta } from '../../components/PageMeta/PageMeta';
 import './ArenaPage.css';
 
 export default function ArenaPage() {
@@ -50,6 +51,11 @@ export default function ArenaPage() {
 
     return (
         <div className="arena-page" dir={isRTL ? 'rtl' : 'ltr'}>
+            <PageMeta
+                title={isRTL ? 'آرنای انتقال' : 'The Arena'}
+                description={isRTL ? 'طرح‌های انتقالی فعال — تأیید و بحث' : 'Active transitional plans — endorse, debate, and shape Iran\'s future.'}
+                lang={isRTL ? 'fa' : 'en'}
+            />
             <header className="arena-hero">
                 <p className="arena-hero-kicker">{tKey('arena.heroKicker')}</p>
                 <h1 className="arena-hero-title">{tKey('arena.heroTitle')}</h1>

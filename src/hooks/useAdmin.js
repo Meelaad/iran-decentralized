@@ -184,6 +184,80 @@ export function useReviewVerification() {
     });
 }
 
+export function useMapMarkers() {
+    return useQuery({
+        queryKey: ['admin-map-markers'],
+        staleTime: 30_000,
+        queryFn: async () => {
+            const token = await getToken();
+            const res = await fetch('/api/admin/map-markers', {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            if (!res.ok) throw new Error('Failed to load map markers');
+            return res.json();
+        },
+    });
+}
+
+export function useAddMapMarker() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (body) => {
+            const token = await getToken();
+            const res = await fetch('/api/admin/map-markers', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify(body),
+            });
+            if (!res.ok) throw new Error('Failed to add marker');
+            return res.json();
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['admin-map-markers'] });
+            queryClient.invalidateQueries({ queryKey: ['map-markers-public'] });
+        },
+    });
+}
+
+export function useUpdateMapMarker() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (body) => {
+            const token = await getToken();
+            const res = await fetch('/api/admin/map-markers/update', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify(body),
+            });
+            if (!res.ok) throw new Error('Failed to update marker');
+            return res.json();
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['admin-map-markers'] });
+            queryClient.invalidateQueries({ queryKey: ['map-markers-public'] });
+        },
+    });
+}
+
+export function useDeleteMapMarker() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (id) => {
+            const token = await getToken();
+            const res = await fetch('/api/admin/map-markers/delete', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify({ id }),
+            });
+            if (!res.ok) throw new Error('Failed to delete marker');
+        },
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ['admin-map-markers'] });
+            queryClient.invalidateQueries({ queryKey: ['map-markers-public'] });
+        },
+    });
+}
+
 export function useAdminCivicLeaderboard() {
     return useQuery({
         queryKey: ['admin-civic-leaderboard'],

@@ -553,3 +553,251 @@
     .admin-link { font-size: 12px; }
     .admin-denied-msg { font-size: 14px; }
 }
+
+/* ── Map Editor ──────────────────────────────────────────────────────────────── */
+
+.admin-map-editor {
+    margin-top: 32px;
+}
+
+.admin-map-editor-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.admin-map-edit-toggle {
+    font-family: 'intelone-mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 8px 16px;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    background: rgba(139, 92, 246, 0.08);
+    color: #8B5CF6;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.admin-map-edit-toggle.is-on {
+    border-color: #26DEC2;
+    background: rgba(38, 222, 194, 0.12);
+    color: #26DEC2;
+}
+
+.admin-map-editor-hint {
+    font-size: 11px;
+    color: #3a4a5e;
+    flex: 1;
+}
+
+.admin-map-editor-count {
+    font-size: 11px;
+    color: #4a5568;
+}
+
+.admin-map-editor-body {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.admin-map-editor-map {
+    flex: 1;
+    min-width: 0;
+}
+
+.admin-map-editor-panel {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+/* Marker form */
+
+.admin-map-form {
+    background: rgba(8, 13, 22, 0.95);
+    border: 1px solid rgba(38, 222, 194, 0.25);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.admin-map-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #26DEC2;
+}
+
+.admin-map-form-close {
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.35);
+    font-size: 14px;
+    cursor: pointer;
+    padding: 2px 6px;
+    line-height: 1;
+    transition: color 0.15s;
+}
+
+.admin-map-form-close:hover { color: #fff; }
+
+.admin-map-form-coords {
+    font-size: 10px;
+    color: #4a5568;
+    letter-spacing: 0.5px;
+}
+
+.admin-map-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.admin-map-form-field label {
+    font-family: 'intelone-mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #4a5568;
+}
+
+.admin-map-input {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #eef5ff;
+    font-family: 'intelone-mono', monospace;
+    font-size: 11px;
+    padding: 6px 10px;
+    outline: none;
+    transition: border-color 0.15s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-map-input:focus {
+    border-color: rgba(38, 222, 194, 0.4);
+}
+
+.admin-map-textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+.admin-map-type-row {
+    display: flex;
+    gap: 8px;
+}
+
+.admin-map-type-btn {
+    font-family: 'intelone-mono', monospace;
+    font-size: 10px;
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: #4a5568;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.admin-map-type-btn.is-active {
+    border-color: #26DEC2;
+    color: #26DEC2;
+    background: rgba(38, 222, 194, 0.08);
+}
+
+.admin-map-palette {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.admin-map-swatch {
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: transform 0.1s, border-color 0.1s;
+}
+
+.admin-map-swatch.is-active {
+    border-color: #fff;
+    transform: scale(1.2);
+}
+
+.admin-map-form-actions {
+    display: flex;
+    gap: 8px;
+    padding-top: 4px;
+}
+
+/* Marker list */
+
+.admin-map-marker-list {
+    margin-top: 8px;
+}
+
+.admin-map-marker-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    cursor: default;
+    transition: background 0.1s;
+}
+
+.admin-map-marker-row.is-selected {
+    background: rgba(38, 222, 194, 0.06);
+}
+
+.admin-map-marker-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.admin-map-marker-type {
+    font-size: 9px;
+    color: #4a5568;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    min-width: 52px;
+}
+
+.admin-map-marker-label {
+    font-size: 12px;
+    color: #eef5ff;
+    flex: 1;
+}
+
+.admin-map-marker-coords {
+    font-size: 10px;
+    color: #3a4a5e;
+}
+
+.admin-map-marker-region {
+    font-size: 10px;
+    color: #4a5568;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 1px 6px;
+}
+
+@media (max-width: 768px) {
+    .admin-map-editor-body {
+        flex-direction: column;
+    }
+    .admin-map-editor-panel {
+        width: 100%;
+    }
+}

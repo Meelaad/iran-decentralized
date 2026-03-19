@@ -8,9 +8,11 @@ import {
     useAdminPlans, usePromotePlan, useArchivePlan,
     useVerificationQueue, useReviewVerification,
     useAdminCivicLeaderboard,
+    useMapMarkers, useAddMapMarker, useUpdateMapMarker, useDeleteMapMarker,
 } from '../../hooks/useAdmin';
 import { Spinner } from '../../components/ui';
 import { BLUEPRINTS } from '../../data';
+import WorldDotMap from '../../components/WorldDotMap/WorldDotMap';
 import './AdminPage.css';
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
@@ -244,6 +246,264 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
     );
 }
 
+// ── Map Editor ────────────────────────────────────────────────────────────────
+
+const MAP_PALETTE = ['#26DEC2', '#e8507a', '#FFCE00', '#4fc3f7', '#8B5CF6', '#ffffff', '#f59e0b', '#15803d'];
+
+function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, isPending, monoFont }) {
+    const [type, setType] = useState(initial.type || 'triangle');
+    const [color, setColor] = useState(initial.color || '#26DEC2');
+    const [label, setLabel] = useState(initial.label || '');
+    const [region, setRegion] = useState(initial.region || '');
+    const [popEst, setPopEst] = useState(initial.pop_estimate || '');
+    const [desc, setDesc] = useState(initial.description || '');
+
+    const lon = coords ? coords.lon : (initial.lon != null ? Number(initial.lon) : '—');
+    const lat = coords ? coords.lat : (initial.lat != null ? Number(initial.lat) : '—');
+
+    async function handleSave() {
+        await onSave({ type, color, label, region, pop_estimate: popEst, description: desc });
+    }
+
+    return (
+        <div className="admin-map-form">
+            <div className="admin-map-form-header">
+                <span style={{ fontFamily: monoFont }}>{title}</span>
+                <button className="admin-map-form-close" onClick={onClose}>✕</button>
+            </div>
+            <div className="admin-map-form-coords" style={{ fontFamily: monoFont }}>
+                {typeof lon === 'number' ? lon.toFixed(4) : lon}, {typeof lat === 'number' ? lat.toFixed(4) : lat}
+            </div>
+
+            <div className="admin-map-form-field">
+                <label>Type</label>
+                <div className="admin-map-type-row">
+                    {['triangle', 'circle'].map(t => (
+                        <button
+                            key={t}
+                            className={`admin-map-type-btn${type === t ? ' is-active' : ''}`}
+                            onClick={() => setType(t)}
+                        >
+                            {t}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <div className="admin-map-form-field">
+                <label>Color</label>
+                <div className="admin-map-palette">
+                    {MAP_PALETTE.map(c => (
+                        <button
+                            key={c}
+                            className={`admin-map-swatch${color === c ? ' is-active' : ''}`}
+                            style={{ background: c }}
+                            onClick={() => setColor(c)}
+                            title={c}
+                        />
+                    ))}
+                </div>
+            </div>
+
+            <div className="admin-map-form-field">
+                <label>Label</label>
+                <input
+                    className="admin-map-input"
+                    value={label}
+                    onChange={e => setLabel(e.target.value)}
+                    placeholder="City or location name"
+                />
+            </div>
+
+            <div className="admin-map-form-field">
+                <label>Region</label>
+                <input
+                    className="admin-map-input"
+                    value={region}
+                    onChange={e => setRegion(e.target.value)}
+                    placeholder="e.g. North America"
+                />
+            </div>
+
+            <div className="admin-map-form-field">
+                <label>Population Estimate</label>
+                <input
+                    className="admin-map-input"
+                    value={popEst}
+                    onChange={e => setPopEst(e.target.value)}
+                    placeholder="e.g. ~50,000"
+                />
+            </div>
+
+            <div className="admin-map-form-field">
+                <label>Description</label>
+                <textarea
+                    className="admin-map-input admin-map-textarea"
+                    value={desc}
+                    onChange={e => setDesc(e.target.value)}
+                    placeholder="Notes about this diaspora location"
+                    rows={3}
+                />
+            </div>
+
+            <div className="admin-map-form-actions">
+                <button
+                    className="admin-action-btn"
+                    onClick={handleSave}
+                    disabled={isPending || !label}
+                >
+                    {isPending ? '…' : 'Save'}
+                </button>
+                {onDelete && (
+                    <button
+                        className="admin-action-btn admin-action-btn--danger"
+                        onClick={onDelete}
+                        disabled={isPending}
+                    >
+                        Delete
+                    </button>
+                )}
+            </div>
+        </div>
+    );
+}
+
+function MapEditorTab({ monoFont }) {
+    const { data: markers = [], isLoading } = useMapMarkers();
+    const addMarker = useAddMapMarker();
+    const updateMarker = useUpdateMapMarker();
+    const deleteMarker = useDeleteMapMarker();
+
+    const [editMode, setEditMode] = useState(false);
+    const [selectedMarkerId, setSelectedMarkerId] = useState(null);
+    const [addCoords, setAddCoords] = useState(null);     // { lon, lat }
+    const [editMarker, setEditMarker] = useState(null);   // marker object
+
+    function handleMapClick(lon, lat) {
+        if (!editMode) return;
+        setEditMarker(null);
+        setSelectedMarkerId(null);
+        setAddCoords({ lon, lat });
+    }
+
+    function handleMarkerClick(marker) {
+        if (editMode) {
+            setAddCoords(null);
+            setEditMarker(marker);
+            setSelectedMarkerId(marker.id);
+        }
+    }
+
+    function closePanel() {
+        setAddCoords(null);
+        setEditMarker(null);
+        setSelectedMarkerId(null);
+    }
+
+    async function handleAdd(fields) {
+        await addMarker.mutateAsync({ ...fields, lon: addCoords.lon, lat: addCoords.lat });
+        closePanel();
+    }
+
+    async function handleUpdate(fields) {
+        await updateMarker.mutateAsync({ id: editMarker.id, ...fields });
+        closePanel();
+    }
+
+    async function handleDelete() {
+        if (!window.confirm(`Delete marker "${editMarker.label}"?`)) return;
+        await deleteMarker.mutateAsync(editMarker.id);
+        closePanel();
+    }
+
+    const panelOpen = editMode && (addCoords || editMarker);
+
+    return (
+        <div className="admin-map-editor">
+            <div className="admin-map-editor-toolbar">
+                <button
+                    className={`admin-map-edit-toggle${editMode ? ' is-on' : ''}`}
+                    style={{ fontFamily: monoFont }}
+                    onClick={() => { setEditMode(e => !e); closePanel(); }}
+                >
+                    {editMode ? '● EDIT MODE ON' : '○ EDIT MODE OFF'}
+                </button>
+                <span className="admin-map-editor-hint" style={{ fontFamily: monoFont }}>
+                    {editMode
+                        ? 'Click map to place marker · Click existing marker to edit'
+                        : 'Toggle edit mode to add / edit markers'}
+                </span>
+                <span className="admin-map-editor-count" style={{ fontFamily: monoFont }}>
+                    {isLoading ? '…' : `${markers.length} markers`}
+                </span>
+            </div>
+
+            <div className="admin-map-editor-body">
+                <div className="admin-map-editor-map">
+                    <WorldDotMap
+                        markers={markers}
+                        onMarkerClick={handleMarkerClick}
+                        editMode={editMode}
+                        onMapClick={handleMapClick}
+                        selectedMarkerId={selectedMarkerId}
+                    />
+                </div>
+
+                {panelOpen && (
+                    <div className="admin-map-editor-panel">
+                        {addCoords && (
+                            <MarkerForm
+                                title="ADD MARKER"
+                                coords={addCoords}
+                                onSave={handleAdd}
+                                onClose={closePanel}
+                                isPending={addMarker.isPending}
+                                monoFont={monoFont}
+                            />
+                        )}
+                        {editMarker && (
+                            <MarkerForm
+                                title="EDIT MARKER"
+                                initial={editMarker}
+                                onSave={handleUpdate}
+                                onDelete={handleDelete}
+                                onClose={closePanel}
+                                isPending={updateMarker.isPending || deleteMarker.isPending}
+                                monoFont={monoFont}
+                            />
+                        )}
+                    </div>
+                )}
+            </div>
+
+            {/* Read-only marker list */}
+            <div className="admin-map-marker-list">
+                <div className="admin-section-title" style={{ marginTop: 32 }}>All Markers ({markers.length})</div>
+                {markers.length === 0 && !isLoading && (
+                    <div style={{ color: '#3a4a5e', fontFamily: monoFont, fontSize: 12, padding: '16px 0' }}>
+                        No markers yet. Toggle Edit Mode and click the map to add one.
+                    </div>
+                )}
+                {markers.map(m => (
+                    <div
+                        key={m.id}
+                        className={`admin-map-marker-row${selectedMarkerId === m.id ? ' is-selected' : ''}`}
+                        onClick={() => editMode && handleMarkerClick(m)}
+                    >
+                        <span className="admin-map-marker-swatch" style={{ background: m.color }} />
+                        <span className="admin-map-marker-type" style={{ fontFamily: monoFont }}>{m.type}</span>
+                        <span className="admin-map-marker-label">{m.label || '(no label)'}</span>
+                        <span className="admin-map-marker-coords" style={{ fontFamily: monoFont }}>
+                            {Number(m.lon).toFixed(2)}, {Number(m.lat).toFixed(2)}
+                        </span>
+                        {m.region && <span className="admin-map-marker-region">{m.region}</span>}
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function AdminPage() {
@@ -363,7 +623,7 @@ export default function AdminPage() {
 
                 {/* Tab bar */}
                 <div className="admin-tab-bar">
-                    {['users', 'blueprints', 'plans', 'verification', 'civic'].map(tab => (
+                    {['users', 'blueprints', 'plans', 'verification', 'civic', 'map'].map(tab => (
                         <button
                             key={tab}
                             className={`admin-tab-btn${activeTab === tab ? ' admin-tab-btn--active' : ''}`}
@@ -374,6 +634,7 @@ export default function AdminPage() {
                             {tab === 'plans' && 'PLANS'}
                             {tab === 'verification' && 'VERIFICATION'}
                             {tab === 'civic' && 'CIVIC SCORES'}
+                            {tab === 'map' && 'MAP'}
                         </button>
                     ))}
                 </div>
@@ -624,6 +885,11 @@ export default function AdminPage() {
                             </table>
                         </div>
                     </>
+                )}
+
+                {/* ── MAP TAB ── */}
+                {activeTab === 'map' && (
+                    <MapEditorTab monoFont={monoFont} />
                 )}
 
                 {/* ── CIVIC SCORES TAB ── */}

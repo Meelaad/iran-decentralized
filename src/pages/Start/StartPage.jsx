@@ -11,6 +11,7 @@ import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import { useTheme } from '../../contexts/ThemeContext';
 import { BrandMark } from '../../components/BrandMark/BrandMark';
 import { FeatureSlider, LEFT_FEATURES, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
+import { PageMeta } from '../../components/PageMeta/PageMeta';
 import './StartPage.css';
 
 // ─── Live stats ────────────────────────────────────────────────────────────────
@@ -472,6 +473,7 @@ export default function StartPage() {
 
     return (
         <div className="sp-root" dir={isRTL ? 'rtl' : 'ltr'}>
+            <PageMeta lang={isRTL ? 'fa' : 'en'} />
             {/* 3D canvas background */}
             <div className="sp-canvas-wrap">
                 <Canvas camera={{ position: [0, 0, 4.5], fov: 60 }}>

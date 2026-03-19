@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import { useBlueprintVoteCounts } from '../../hooks/useDestination';
 import { SHOW_VOTE_COUNTS } from '../../config';
+import { PageMeta } from '../../components/PageMeta/PageMeta';
 import './DestinationPage.css';
 
 const BP_LIST = Object.values(BLUEPRINTS);
@@ -27,6 +28,11 @@ export default function DestinationPage() {
 
   return (
     <div className="destination-page" dir={isRTL ? 'rtl' : 'ltr'}>
+      <PageMeta
+        title={isRTL ? 'مرکز مقصد' : 'Destination Hub'}
+        description={isRTL ? 'مرور طرح‌های حکومتی و آمار زنده رأی' : 'Compare governance blueprints and track live vote counts for Iran\'s permanent system of government.'}
+        lang={isRTL ? 'fa' : 'en'}
+      />
 
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="dest-hero">
