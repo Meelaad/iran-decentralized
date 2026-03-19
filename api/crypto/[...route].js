@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     const path = req.url.split('/api/crypto/')[1]?.split('?')[0] || '';
 
     try {
-        rateLimit(req, 'api');
+        rateLimit(req, 'strict');
         validateRequestSize(req, 10 * 1024);
 
         switch (path) {
