@@ -12,9 +12,9 @@
 .fs-slider-viewport {
     overflow: hidden;
     width: 100%;
-    /* Desktop: generous fade so adjacent cards fade in gracefully */
-    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
-    mask-image: linear-gradient(to right, transparent 0%, black 12%, black 88%, transparent 100%);
+    /* Desktop: narrow left fade, wider right fade */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 4%, black 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 4%, black 88%, transparent 100%);
 }
 
 .fs-slider-track {

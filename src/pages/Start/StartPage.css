@@ -44,9 +44,9 @@
     text-align: center;
 }
 
-/* Collapsible spacers: center content when there's room, scroll when there isn't */
-.sp-hero::before,
-.sp-hero::after { content: ''; flex: 1; }
+/* Collapsible spacers — ::before is smaller so content sits higher in the hero */
+.sp-hero::before { content: ''; flex: 0.4; }
+.sp-hero::after  { content: ''; flex: 1.6; }
 
 /* ─── Brand block (IRAN DAO + logo) ─────────────────────────────────────────── */
 .sp-hero-brand {
@@ -57,7 +57,7 @@
 }
 
 .sp-hero-logo {
-    width: clamp(20px, 6vmin, 88px);
+    width: clamp(40px, 25vmin, 400px);
     height: auto;
     opacity: 0.88;
     filter: drop-shadow(0 0 12px rgba(79, 195, 247, 0.25));
@@ -73,7 +73,7 @@
     position: relative;
     width: 100%;
     max-width: 900px;
-    height: clamp(60px, 22vmin, 260px);
+    height: clamp(120px, 54vmin, 280px);
     flex-shrink: 0;
 }
 
@@ -132,9 +132,8 @@
     border-radius: 9999px;
     padding: clamp(8px, 1.5vmin, 14px) clamp(16px, 3vmin, 32px);
     font-size: clamp(11px, 1.8vmin, 17px);
-    font-weight: 400;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     color: #0a0a0a;
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
