@@ -134,7 +134,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true, seeded });
                 }
 
-            case 'plans/promote':
+            case 'plans-promote':
                 if (req.method !== 'POST') {
                     return res.status(405).json({ error: 'Method not allowed.' });
                 }
@@ -147,7 +147,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true });
                 }
 
-            case 'plans/archive':
+            case 'plans-archive':
                 if (req.method !== 'POST') {
                     return res.status(405).json({ error: 'Method not allowed.' });
                 }
@@ -160,7 +160,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true });
                 }
 
-            case 'verification/queue':
+            case 'verification-queue':
                 if (req.method !== 'GET') {
                     return res.status(405).json({ error: 'Method not allowed.' });
                 }
@@ -175,7 +175,7 @@ export default async function handler(req, res) {
                     return res.status(200).json(queueData ?? []);
                 }
 
-            case 'verification/review':
+            case 'verification-review':
                 if (req.method !== 'POST') {
                     return res.status(405).json({ error: 'Method not allowed.' });
                 }

@@ -164,7 +164,7 @@ export function useArchivePlan() {
     return useMutation({
         mutationFn: async (planId) => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/admin/plans/archive', {
+            const res = await fetch('/api/admin/plans-archive', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
                 body: JSON.stringify({ planId }),
@@ -181,7 +181,7 @@ export function useVerificationQueue() {
         staleTime: 30_000,
         queryFn: async () => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/admin/verification/queue', {
+            const res = await fetch('/api/admin/verification-queue', {
                 headers: { Authorization: `Bearer ${session.access_token}` },
             });
             return res.ok ? res.json() : [];
@@ -194,7 +194,7 @@ export function useReviewVerification() {
     return useMutation({
         mutationFn: async ({ queueId, action }) => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/admin/verification/review', {
+            const res = await fetch('/api/admin/verification-review', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
                 body: JSON.stringify({ queueId, action }),
