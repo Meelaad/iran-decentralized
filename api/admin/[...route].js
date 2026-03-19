@@ -104,7 +104,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true, inserted: out.inserted || out.inserted });
                 }
 
-            case 'plans/seed':
+            case 'plans-seed':
                 if (req.method !== 'POST') {
                     return res.status(405).json({ error: 'Method not allowed.' });
                 }

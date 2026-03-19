@@ -89,7 +89,7 @@ export function useCastVote(userId) {
             // Fire-and-forget: record vote_cast civic score event
             supabase.auth.getSession().then(({ data: { session } }) => {
                 if (session) {
-                    fetch('/api/public/civic/score', {
+                    fetch('/api/public/civic-score', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',

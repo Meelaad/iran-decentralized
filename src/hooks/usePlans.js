@@ -52,7 +52,7 @@ export function usePlan(slug) {
     return useQuery({
         queryKey: ['plan', slug],
         queryFn: async () => {
-            const res = await fetch(`/api/public/plans/${slug}`);
+            const res = await fetch(`/api/public/plans?slug=${slug}`);
             if (!res.ok) throw new Error('Failed to load plan');
             return res.json();
         },
@@ -64,7 +64,7 @@ export function usePlanStats(planId) {
     return useQuery({
         queryKey: ['plan-stats', planId],
         queryFn: async () => {
-            const res = await fetch(`/api/public/stats/plans?planId=${planId}`);
+            const res = await fetch(`/api/public/stats-plans?planId=${planId}`);
             if (!res.ok) throw new Error('Failed to load stats');
             return res.json();
         },
@@ -77,7 +77,7 @@ export function usePlanGeoStats(planId) {
     return useQuery({
         queryKey: ['plan-geo', planId],
         queryFn: async () => {
-            const res = await fetch(`/api/public/stats/geo/${planId}`);
+            const res = await fetch(`/api/public/stats-geo?planId=${planId}`);
             if (!res.ok) throw new Error('Failed to load geo stats');
             return res.json();
         },
@@ -102,7 +102,7 @@ export function useStatsOverview() {
     return useQuery({
         queryKey: ['stats-overview'],
         queryFn: async () => {
-            const res = await fetch('/api/public/stats/overview');
+            const res = await fetch('/api/public/stats-overview');
             if (!res.ok) return { totalUsers: 0, totalEndorsed: 0 };
             return res.json();
         },
@@ -115,7 +115,7 @@ export function useStatsOverview() {
 export function useEndorsePlan() {
     const qc = useQueryClient();
     return useMutation({
-        mutationFn: ({ planId }) => postJSON('/api/public/plans/endorse', { planId }),
+        mutationFn: ({ planId }) => postJSON('/api/public/plans-endorse', { planId }),
         onSuccess: () => {
             qc.invalidateQueries({ queryKey: ['arena-plans'] });
         },
@@ -125,7 +125,7 @@ export function useEndorsePlan() {
 export function useSignPlan() {
     const qc = useQueryClient();
     return useMutation({
-        mutationFn: ({ planId }) => postJSON('/api/public/plans/sign', { planId }),
+        mutationFn: ({ planId }) => postJSON('/api/public/plans-sign', { planId }),
         onSuccess: () => {
             qc.invalidateQueries({ queryKey: ['arena-plans'] });
         },
@@ -135,7 +135,7 @@ export function useSignPlan() {
 export function useSubmitPlan() {
     const qc = useQueryClient();
     return useMutation({
-        mutationFn: (body) => postJSON('/api/public/plans/submit', body),
+        mutationFn: (body) => postJSON('/api/public/plans-submit', body),
         onSuccess: () => {
             qc.invalidateQueries({ queryKey: ['arena-plans'] });
         },
@@ -146,7 +146,7 @@ export function useVoteAmendment() {
     const qc = useQueryClient();
     return useMutation({
         mutationFn: ({ amendmentId, vote }) =>
-            postJSON('/api/public/amendments/vote', { amendmentId, vote }),
+            postJSON('/api/public/amendments-vote', { amendmentId, vote }),
         onSuccess: (_, vars) => {
             qc.invalidateQueries({ queryKey: ['amendments'] });
         },
@@ -156,7 +156,7 @@ export function useVoteAmendment() {
 export function useProposeAmendment() {
     const qc = useQueryClient();
     return useMutation({
-        mutationFn: (body) => postJSON('/api/public/amendments/propose', body),
+        mutationFn: (body) => postJSON('/api/public/amendments-propose', body),
         onSuccess: () => {
             qc.invalidateQueries({ queryKey: ['amendments'] });
         },

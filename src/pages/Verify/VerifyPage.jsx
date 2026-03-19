@@ -70,7 +70,7 @@ export default function VerifyPage() {
         try {
             const headers = await getAuthHeader();
             if (!headers) { setInstStatus(tKey('verify.loginRequired')); return; }
-            await postJSON('/api/users/verify/institutional', { email: instEmail }, headers);
+            await postJSON('/api/users/verify-institutional', { email: instEmail }, headers);
             setInstStatus('ok');
         } catch (err) {
             const msg = err.message || '';
@@ -86,7 +86,7 @@ export default function VerifyPage() {
             const headers = await getAuthHeader();
             if (!headers) { setPhotoStatus(tKey('verify.loginRequired')); return; }
             const fileUrl = await uploadFile(photoFile, 'verifications', 'photos');
-            await postJSON('/api/users/verify/photo', { fileUrl }, headers);
+            await postJSON('/api/users/verify-photo', { fileUrl }, headers);
             setPhotoStatus('ok');
         } catch (err) {
             setPhotoStatus(err.message);
@@ -101,7 +101,7 @@ export default function VerifyPage() {
             const headers = await getAuthHeader();
             if (!headers) { setIdStatus(tKey('verify.loginRequired')); return; }
             const fileUrl = await uploadFile(idFile, 'verifications', 'ids');
-            await postJSON('/api/users/verify/id', { fileUrl }, headers);
+            await postJSON('/api/users/verify-id', { fileUrl }, headers);
             setIdStatus('ok');
         } catch (err) {
             setIdStatus(err.message);

@@ -12,7 +12,7 @@ export default function SectorPage() {
     useEffect(() => {
         supabase.auth.getSession().then(({ data: { session } }) => {
             if (session) {
-                fetch('/api/public/civic/score', {
+                fetch('/api/public/civic-score', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

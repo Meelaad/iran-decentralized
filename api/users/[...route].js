@@ -10,7 +10,7 @@ export default async function handler(req, res) {
         validateRequestSize(req, 10 * 1024);
 
         switch (path) {
-            case 'verify/institutional':
+            case 'verify-institutional':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true });
                 }
 
-            case 'verify/photo':
+            case 'verify-photo':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
@@ -53,7 +53,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true });
                 }
 
-            case 'verify/id':
+            case 'verify-id':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');
@@ -67,7 +67,7 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true });
                 }
 
-            case 'verify/phone':
+            case 'verify-phone':
                 if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed.' });
                 {
                     const { getCallerIdFromReq } = await import('../../lib/public/civic.js');

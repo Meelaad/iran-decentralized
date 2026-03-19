@@ -130,7 +130,7 @@ export function useSeedPlans() {
     return useMutation({
         mutationFn: async (plans) => {
             const token = await getToken();
-            const res = await fetch('/api/admin/plans/seed', {
+            const res = await fetch('/api/admin/plans-seed', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
                 body: JSON.stringify({ plans }),
@@ -148,7 +148,7 @@ export function usePromotePlan() {
     return useMutation({
         mutationFn: async (planId) => {
             const { data: { session } } = await supabase.auth.getSession();
-            const res = await fetch('/api/admin/plans/promote', {
+            const res = await fetch('/api/admin/plans-promote', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${session.access_token}` },
                 body: JSON.stringify({ planId }),
