@@ -296,12 +296,12 @@ export function useAdjustCivicScore() {
     return useMutation({
         mutationFn: async ({ userId, delta, reason }) => {
             const token = await getToken();
-            const res = await fetch('/api/admin/civic/adjust', {
+            const res = await fetch('/api/admin/civic-adjust', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
                 body: JSON.stringify({ user_id: userId, delta, reason }),
             });
-            const json = await res.json();
+            const json = await res.json().catch(() => { throw new Error('Server returned non-JSON response'); });
             if (!res.ok) throw new Error(json.error || 'Adjustment failed');
             return json;
         },
