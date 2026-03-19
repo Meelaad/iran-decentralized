@@ -21,14 +21,14 @@ export default function PreTransPage() {
         },
         {
             icon: '📜',
-            title: { en: 'Amendment Floor', fa: 'کف اصلاحات' },
+            title: { en: 'Amendment Floor', fa: 'پیشنهاد اصلاحی در صحن' },
             desc: { en: 'Propose and vote on line-item changes to any active plan in real time.', fa: 'تغییرات خط‌به‌خط طرح‌های فعال را پیشنهاد دهید و رأی بدهید.' },
             to: '/transition/amendment-floor',
         },
         {
             icon: '⚖️',
-            title: { en: 'Shadow Cabinet', fa: 'کابینه سایه' },
-            desc: { en: 'Nominate and elect sector experts to a shadow government using ranked-choice voting.', fa: 'کارشناسان بخشی را برای کابینه سایه معرفی و با رأی ترجیحی انتخاب کنید.' },
+            title: { en: 'Shadow Cabinet', fa: 'دولت سایه' },
+            desc: { en: 'Nominate and elect sector experts to a shadow government using ranked-choice voting.', fa: 'کارشناسان بخشی را برای دولت سایه معرفی و با رأی ترجیحی انتخاب کنید.' },
             to: '/transition/shadow-cabinet',
         },
     ];

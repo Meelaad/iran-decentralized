@@ -338,6 +338,15 @@ export default function ProfilePage() {
                     ))}
                 </nav>
 
+                {/* Theme + Language */}
+                <div className="pd-sidebar-prefs">
+                    <ThemeSwitch />
+                    <div className="pd-sidebar-lang">
+                        <button className={`pd-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: "'Vazirmatn', sans-serif" }}>FA</button>
+                        <button className={`pd-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
+                    </div>
+                </div>
+
                 {/* User card */}
                 <div className="pd-sidebar-user" ref={userMenuRef}>
                     {userMenuOpen && (

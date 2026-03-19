@@ -8,6 +8,7 @@ import {
     useStatsOverview,
     useEndorsePlan,
     useSignPlan,
+    useUserEndorsement,
 } from '../../hooks/usePlans';
 import PlanStockGraph from '../../components/PlanStockGraph/PlanStockGraph';
 import ConsensusMeter from '../../components/ConsensusMeter/ConsensusMeter';
@@ -17,23 +18,29 @@ import { PageMeta } from '../../components/PageMeta/PageMeta';
 import './ArenaPage.css';
 
 export default function ArenaPage() {
-    const { tKey, isRTL } = useLang();
+    const { tKey, isRTL, monoFont, headFont } = useLang();
     const { session } = useAuth();
+    const userId = session?.user?.id;
     const { data: plans = [], isLoading, isError } = useArenaPlans();
     const { data: overview = {} } = useStatsOverview();
+    const { data: savedVotePlanId } = useUserEndorsement(userId);
     const endorseMutation = useEndorsePlan();
     const signMutation = useSignPlan();
-    const [endorsedIds, setEndorsedIds] = useState(new Set());
+    const [myVotePlanId, setMyVotePlanId] = useState(undefined);
     const [signedIds, setSignedIds] = useState(new Set());
+
+    // Use DB value until user casts a new vote in this session
+    const currentVotePlanId = myVotePlanId !== undefined ? myVotePlanId : (savedVotePlanId ?? null);
 
     const arenaPlans = plans.filter(p => p.status === 'arena' || !p.status);
     const incubatorPlans = plans.filter(p => p.status === 'incubator');
 
-    async function handleEndorse(planId) {
+    async function handleVote(planId) {
         if (!session) { alert(tKey('arena.loginToEndorse')); return; }
+        if (planId === currentVotePlanId) return; // already voted for this one
         try {
             await endorseMutation.mutateAsync({ planId });
-            setEndorsedIds(prev => new Set([...prev, planId]));
+            setMyVotePlanId(planId);
         } catch (e) {
             alert(e.message || tKey('arena.endorseError'));
         }
@@ -89,19 +96,25 @@ export default function ArenaPage() {
                 {!isLoading && !isError && arenaPlans.length === 0 && (
                     <EmptyState title={tKey('arena.noPlans')} />
                 )}
+                {currentVotePlanId && (
+                    <p className="arena-vote-hint">{tKey('arena.changeVotePlan')}</p>
+                )}
                 <div className="arena-grid">
                     {arenaPlans.map(plan => {
                         const endorsementCount = plan.latestStats?.endorsement_count || 0;
                         const delta = plan.latestStats?.endorsement_delta || 0;
-                        const isEndorsed = endorsedIds.has(plan.id);
+                        const isMyVote = plan.id === currentVotePlanId;
                         return (
                             <article
                                 key={plan.id}
-                                className="plan-card"
+                                className={`plan-card${isMyVote ? ' plan-card--voted' : ''}`}
                                 style={{ borderColor: plan.coverColor || '#8B5CF6' }}
                             >
                                 {plan.isOfficial && (
                                     <span className="plan-official-badge">{tKey('plan.officialBadge')}</span>
+                                )}
+                                {isMyVote && (
+                                    <span className="plan-your-vote-badge">{tKey('arena.voted')}</span>
                                 )}
                                 <h3 className="plan-card-name">
                                     {plan.name?.fa && isRTL ? plan.name.fa : plan.name?.en || plan.slug}
@@ -126,11 +139,11 @@ export default function ArenaPage() {
                                         {tKey('arena.viewPlan')}
                                     </Link>
                                     <button
-                                        className={`plan-endorse-btn ${isEndorsed ? 'is-endorsed' : ''}`}
-                                        onClick={() => handleEndorse(plan.id)}
-                                        disabled={isEndorsed || endorseMutation.isPending}
+                                        className={`plan-vote-btn${isMyVote ? ' is-voted' : ''}`}
+                                        onClick={() => handleVote(plan.id)}
+                                        disabled={isMyVote || endorseMutation.isPending}
                                     >
-                                        {isEndorsed ? tKey('arena.endorsed') : tKey('arena.endorse')}
+                                        {isMyVote ? tKey('arena.voted') : tKey('arena.vote')}
                                     </button>
                                 </div>
                             </article>
@@ -162,9 +175,11 @@ export default function ArenaPage() {
                                             {tKey('arena.signProgress', { count: count.toLocaleString(), threshold: threshold.toLocaleString() })}
                                         </p>
                                     )}
-                                    <div className="incubator-progress-bar">
-                                        <div className="incubator-progress-fill" style={{ width: SHOW_VOTE_COUNTS ? `${pct}%` : '0%' }} />
-                                    </div>
+                                    {SHOW_VOTE_COUNTS && (
+                                        <div className="incubator-progress-bar">
+                                            <div className="incubator-progress-fill" style={{ width: `${pct}%` }} />
+                                        </div>
+                                    )}
                                     <button
                                         className={`incubator-sign-btn ${isSigned ? 'is-signed' : ''}`}
                                         onClick={() => handleSign(plan.id)}
@@ -179,64 +194,68 @@ export default function ArenaPage() {
                 </section>
             )}
 
+            {/* Compare all plans — above reference grid */}
+            <section className="arena-section arena-compare-cta">
+                <Link to="/compare/transition" className="arena-compare-banner">
+                    <span className="arena-compare-banner-label" style={{ fontFamily: monoFont }}>{isRTL ? 'مقایسه' : 'COMPARE'}</span>
+                    <span className="arena-compare-banner-title" style={{ fontFamily: headFont }}>{isRTL ? 'مقایسه طرح‌های انتقالی' : 'Compare All Plans'}</span>
+                    <span className="arena-compare-banner-sub" style={{ fontFamily: headFont }}>{isRTL ? 'مقایسه جانبی طرح‌های پیشنهادی' : 'Side-by-side comparison of suggested frameworks'}</span>
+                    <span className="arena-compare-banner-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مقایسه ←' : 'COMPARE →'}</span>
+                </Link>
+            </section>
+
             {/* Featured reference plans */}
             <section className="arena-section arena-featured">
                 <h2 className="arena-section-title">{isRTL ? 'طرح‌های مرجع' : 'REFERENCE PLANS'}</h2>
-                <p className="arena-section-sub">{isRTL ? 'طرح‌های مستند و تحلیل‌شده برای دوران انتقال' : 'Documented and analysed transitional frameworks'}</p>
+                <p className="arena-section-sub">{isRTL ? 'طرح‌های مستند و تحلیل‌شده برای دوران گذار' : 'Documented and analysed transitional frameworks'}</p>
                 <div className="arena-featured-grid">
                     <Link to="/transitional/plan/mirhosein-mousavi" className="arena-featured-card" style={{ borderColor: '#69d98c' }}>
-                        <span className="arena-featured-badge" style={{ color: '#69d98c', borderColor: '#69d98c33' }}>{isRTL ? 'طرح فعال' : 'ACTIVE PLAN'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'موسوی — «برای نجات ایران»' : 'Mousavi — "To Save Iran"'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'میر حسین موسوی · فوریه ۲۰۲۳' : 'Mir Hossein Mousavi · Feb 2023'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده تحلیل کامل ←' : 'VIEW FULL ANALYSIS →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#69d98c', borderColor: '#69d98c33', fontFamily: monoFont }}>{isRTL ? 'طرح فعال' : 'ACTIVE PLAN'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'موسوی — «برای نجات ایران»' : 'Mousavi — "To Save Iran"'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'میر حسین موسوی · فوریه ۲۰۲۳' : 'Mir Hossein Mousavi · Feb 2023'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده تحلیل کامل ←' : 'VIEW FULL ANALYSIS →'}</div>
                     </Link>
                     <Link to="/transitional/plan/nufdi" className="arena-featured-card" style={{ borderColor: '#7c72e8' }}>
-                        <span className="arena-featured-badge" style={{ color: '#7c72e8', borderColor: '#7c72e833' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'طرح NUFDI' : 'NUFDI Blueprint'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'جبهه ملی متحد دموکرات‌های ایران' : 'National United Front of Democrats of Iran'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#7c72e8', borderColor: '#7c72e833', fontFamily: monoFont }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'طرح NUFDI' : 'NUFDI Blueprint'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'جبهه ملی متحد دموکرات‌های ایران' : 'National United Front of Democrats of Iran'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                     <Link to="/transitional/plan/itc" className="arena-featured-card" style={{ borderColor: '#ff9a42' }}>
-                        <span className="arena-featured-badge" style={{ color: '#ff9a42', borderColor: '#ff9a4233' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'شورای انتقال ایران (ITC)' : 'Iran Transition Council (ITC)'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#ff9a42', borderColor: '#ff9a4233', fontFamily: monoFont }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'شورای انتقال ایران (ITC)' : 'Iran Transition Council (ITC)'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹' : 'Shadow Government & Transitional Planning Unit · 2019'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                     <Link to="/transitional/plan/cpild" className="arena-featured-card" style={{ borderColor: '#f59e0b' }}>
-                        <span className="arena-featured-badge" style={{ color: '#f59e0b', borderColor: '#f59e0b33' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'حزب مشروطه ایران (لیبرال دموکرات)' : 'Constitutionalist Party of Iran (CPILD)'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'حزب مشروطه ایران — لیبرال دموکرات' : 'Constitutionalist Party of Iran — Liberal Democrat'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#f59e0b', borderColor: '#f59e0b33', fontFamily: monoFont }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'حزب مشروطه ایران (لیبرال دموکرات)' : 'Constitutionalist Party of Iran (CPILD)'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'حزب مشروطه ایران — لیبرال دموکرات' : 'Constitutionalist Party of Iran — Liberal Democrat'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                     <Link to="/transitional/plan/jmi" className="arena-featured-card" style={{ borderColor: '#e8c840' }}>
-                        <span className="arena-featured-badge" style={{ color: '#e8c840', borderColor: '#e8c84033' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'جبهه ملی ایران (JMI)' : 'Jebhe Melli Iran (JMI)'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق' : 'National Front of Iran · Founded 1949 by Dr. Mossadegh'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#e8c840', borderColor: '#e8c84033', fontFamily: monoFont }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'جبهه ملی ایران (JMI)' : 'Jebhe Melli Iran (JMI)'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق' : 'National Front of Iran · Founded 1949 by Dr. Mossadegh'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                     <Link to="/transitional/plan/cpfik" className="arena-featured-card" style={{ borderColor: '#26d9b2' }}>
-                        <span className="arena-featured-badge" style={{ color: '#26d9b2', borderColor: '#26d9b233' }}>{isRTL ? 'عملیات فعال' : 'ACTIVE OPS'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'CPFIK — طرح فدرال کردستان' : 'CPFIK — Kurdish Federal Blueprint'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'ائتلاف نیروهای سیاسی کردستان ایران · ۲۰۲۶' : 'Coalition of Political Forces of Iranian Kurdistan · 2026'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#26d9b2', borderColor: '#26d9b233', fontFamily: monoFont }}>{isRTL ? 'عملیات فعال' : 'ACTIVE OPS'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'CPFIK — طرح فدرال کردستان' : 'CPFIK — Kurdish Federal Blueprint'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'ائتلاف نیروهای سیاسی کردستان ایران · ۲۰۲۶' : 'Coalition of Political Forces of Iranian Kurdistan · 2026'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                     <Link to="/transitional/plan/uri" className="arena-featured-card" style={{ borderColor: '#e8507a' }}>
-                        <span className="arena-featured-badge" style={{ color: '#e8507a', borderColor: '#e8507a33' }}>{isRTL ? 'ائتلاف فعال' : 'ACTIVE COALITION'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'ائتلاف URI / همگامی' : 'URI / Hamgami Coalition'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'جمهوری‌خواهان متحد ایران · تأسیس ۲۰۰۴' : 'United Republicans of Iran · Founded 2004'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#e8507a', borderColor: '#e8507a33', fontFamily: monoFont }}>{isRTL ? 'ائتلاف فعال' : 'ACTIVE COALITION'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'ائتلاف URI / همگامی' : 'URI / Hamgami Coalition'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'جمهوری‌خواهان متحد ایران · تأسیس ۲۰۰۴' : 'United Republicans of Iran · Founded 2004'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                     <Link to="/transitional/plan/civil-society" className="arena-featured-card" style={{ borderColor: '#ffd166' }}>
-                        <span className="arena-featured-badge" style={{ color: '#ffd166', borderColor: '#ffd16633' }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'منشور جامعه مدنی ایران' : 'Iran Civil Society Charter'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'شبکه پژوهش و حمایت جامعه مدنی' : 'Civil Society Research & Advocacy Network'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
-                    </Link>
-                    <Link to="/compare/transition" className="arena-featured-card" style={{ borderColor: '#8B5CF6' }}>
-                        <span className="arena-featured-badge" style={{ color: '#8B5CF6', borderColor: '#8B5CF633' }}>{isRTL ? 'مقایسه' : 'COMPARE'}</span>
-                        <div className="arena-featured-name">{isRTL ? 'مقایسه طرح‌های انتقالی' : 'Compare All Plans'}</div>
-                        <div className="arena-featured-meta">{isRTL ? 'مقایسه جانبی طرح‌های پیشنهادی' : 'Side-by-side comparison of suggested frameworks'}</div>
-                        <div className="arena-featured-cta">{isRTL ? 'مقایسه ←' : 'COMPARE →'}</div>
+                        <span className="arena-featured-badge" style={{ color: '#ffd166', borderColor: '#ffd16633', fontFamily: monoFont }}>{isRTL ? 'سند مرجع' : 'REFERENCE DOC'}</span>
+                        <div className="arena-featured-name" style={{ fontFamily: headFont }}>{isRTL ? 'منشور جامعه مدنی ایران' : 'Iran Civil Society Charter'}</div>
+                        <div className="arena-featured-meta" style={{ fontFamily: headFont }}>{isRTL ? 'شبکه پژوهش و حمایت جامعه مدنی' : 'Civil Society Research & Advocacy Network'}</div>
+                        <div className="arena-featured-cta" style={{ fontFamily: monoFont }}>{isRTL ? 'مشاهده سند ←' : 'VIEW DOCUMENT →'}</div>
                     </Link>
                 </div>
             </section>

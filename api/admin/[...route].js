@@ -104,6 +104,36 @@ export default async function handler(req, res) {
                     return res.status(200).json({ ok: true, inserted: out.inserted || out.inserted });
                 }
 
+            case 'plans/seed':
+                if (req.method !== 'POST') {
+                    return res.status(405).json({ error: 'Method not allowed.' });
+                }
+                {
+                    const { plans } = req.body || {};
+                    if (!Array.isArray(plans) || plans.length === 0) {
+                        return res.status(400).json({ error: 'plans array required' });
+                    }
+                    const { createClient: ccS } = await import('@supabase/supabase-js');
+                    const supabaseS = ccS(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_KEY);
+                    let seeded = 0;
+                    for (const p of plans) {
+                        const { error } = await supabaseS
+                            .from('transitional_plans')
+                            .upsert({
+                                slug: p.slug,
+                                name_en: p.name_en,
+                                name_fa: p.name_fa,
+                                summary_en: p.summary_en,
+                                summary_fa: p.summary_fa,
+                                cover_color: p.cover_color || null,
+                                is_official: true,
+                                status: p.status || 'arena',
+                            }, { onConflict: 'slug', ignoreDuplicates: false });
+                        if (!error) seeded++;
+                    }
+                    return res.status(200).json({ ok: true, seeded });
+                }
+
             case 'plans/promote':
                 if (req.method !== 'POST') {
                     return res.status(405).json({ error: 'Method not allowed.' });

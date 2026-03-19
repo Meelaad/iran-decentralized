@@ -20,6 +20,22 @@ async function postJSON(url, body) {
 
 // ── Read hooks ────────────────────────────────────────────────────────────────
 
+export function useUserEndorsement(userId) {
+    return useQuery({
+        queryKey: ['user-endorsement', userId],
+        enabled: !!userId,
+        staleTime: 60_000,
+        queryFn: async () => {
+            const { data } = await supabase
+                .from('plan_endorsements')
+                .select('plan_id')
+                .eq('user_id', userId)
+                .maybeSingle();
+            return data?.plan_id || null;
+        },
+    });
+}
+
 export function useArenaPlans() {
     return useQuery({
         queryKey: ['arena-plans'],

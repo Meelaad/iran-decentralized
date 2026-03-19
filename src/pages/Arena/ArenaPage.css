@@ -29,6 +29,12 @@
 .plan-view-btn:hover { text-decoration: underline; }
 .plan-endorse-btn { background: #8B5CF6; border: none; padding: 7px 12px; border-radius: 6px; color: #010303; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 1px; transition: opacity .15s; }
 .plan-endorse-btn:disabled, .plan-endorse-btn.is-endorsed { opacity: 0.6; cursor: default; background: #2a5870; color: #8B5CF6; }
+.plan-vote-btn { background: #8B5CF6; border: none; padding: 7px 14px; border-radius: 6px; color: #010303; font-size: 12px; font-weight: 700; cursor: pointer; letter-spacing: 1px; transition: background .15s, opacity .15s; }
+.plan-vote-btn:hover:not(:disabled) { background: #7c3aed; }
+.plan-vote-btn.is-voted, .plan-vote-btn:disabled { opacity: 0.65; cursor: default; background: #2a3f52; color: #8B5CF6; }
+.plan-card--voted { box-shadow: 0 0 0 2px rgba(139,92,246,0.35); }
+.plan-your-vote-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; color: #8B5CF6; border: 1px solid rgba(139,92,246,0.4); border-radius: 4px; padding: 2px 7px; margin-bottom: 6px; }
+.arena-vote-hint { font-size: 11px; color: #607c8e; margin: 0 0 12px; letter-spacing: 0.5px; }
 
 /* Incubator */
 .arena-incubator { background: rgba(13,31,45,0.4); border-radius: 10px; padding: 20px; }
@@ -60,6 +66,7 @@
     .plan-card-meta { font-size: 13px; }
     .plan-view-btn { font-size: 13px; }
     .plan-endorse-btn { font-size: 13px; }
+    .plan-vote-btn { font-size: 13px; }
     .incubator-sig-label { font-size: 13px; }
     .incubator-sign-btn { font-size: 13px; }
     .arena-featured-badge { font-size: 11px; }
@@ -67,6 +74,58 @@
     .arena-featured-meta { font-size: 13px; }
     .arena-featured-cta { font-size: 12px; }
     .arena-submit-btn { font-size: 14px; }
+}
+
+/* Compare all plans banner */
+.arena-compare-cta { padding-bottom: 0; }
+
+.arena-compare-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.06);
+    text-decoration: none;
+    transition: background 0.2s, border-color 0.2s;
+    flex-wrap: wrap;
+}
+.arena-compare-banner:hover {
+    background: rgba(139, 92, 246, 0.12);
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+.arena-compare-banner-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #8B5CF6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: rgba(139, 92, 246, 0.1);
+    padding: 3px 8px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
+.arena-compare-banner-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #CCE3F0;
+    flex-shrink: 0;
+}
+
+.arena-compare-banner-sub {
+    font-size: 12px;
+    color: #607c8e;
+    flex: 1;
+}
+
+.arena-compare-banner-cta {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #8B5CF6;
+    margin-inline-start: auto;
+    flex-shrink: 0;
 }
 
 /* Featured reference plans */

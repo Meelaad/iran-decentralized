@@ -1,8 +1,6 @@
 .brand-mark {
     display: inline-flex;
     align-items: baseline;
-    direction: ltr;
-    font-family: 'Inter', sans-serif;
     font-weight: 800;
     letter-spacing: -0.01em;
     line-height: 1;
@@ -10,20 +8,34 @@
     user-select: none;
 }
 
-.brand-mark--lg { font-size: clamp(28px, 9vmin, 104px); }
-.brand-mark--sm { font-size: clamp(13px, 2vmin, 21px); }
+.brand-mark--lg  { font-size: clamp(28px, 9vmin, 104px); }
+.brand-mark--sm  { font-size: clamp(13px, 2vmin, 21px); }
+.brand-mark--nav { font-size: inherit; font-weight: 800; }
 
+/* Dark mode (default) — IRAN=blue, DAO=white */
 .brand-mark-iran {
-    color: #ffffff;
+    color: #4fc3f7;
     letter-spacing: 0.06em;
+    text-shadow: 0 0 20px rgba(79, 195, 247, 0.45);
 }
 
 .brand-mark-dao {
-    color: #4fc3f7;
+    color: #ffffff;
     letter-spacing: 0.04em;
     margin-left: 0.18em;
-    text-shadow: 0 0 24px rgba(79, 195, 247, 0.55);
 }
 
-[data-theme="light"] .brand-mark-iran { color: #0f172a; }
-[data-theme="light"] .brand-mark-dao { color: #0284c7; text-shadow: 0 0 16px rgba(2, 132, 199, 0.3); }
+[dir="rtl"] .brand-mark-dao {
+    margin-left: 0;
+    margin-right: 0.18em;
+}
+
+/* Light mode (reversed) — IRAN=blue(dark), DAO=dark */
+[data-theme="light"] .brand-mark-iran {
+    color: #0284c7;
+    text-shadow: 0 0 14px rgba(2, 132, 199, 0.25);
+}
+
+[data-theme="light"] .brand-mark-dao {
+    color: #0f172a;
+}

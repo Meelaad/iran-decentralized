@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 import { useAuth } from '../../hooks/useAuth';
 import { ThemeSwitch } from '../ThemeSwitch/ThemeSwitch';
+import { BrandMark } from '../BrandMark/BrandMark';
 import { BLUEPRINTS } from '../../data';
 import './Layout.css';
 
@@ -176,9 +177,7 @@ function NavContent() {
                 <div className="site-nav-left">
                     <NavLink to="/" className="site-nav-logo">
                         <img src="/logo.svg" alt="logo" />
-                        <span style={{ fontFamily: "'Inter', sans-serif" }}>
-                            {tKey('brand.name')}
-                        </span>
+                        <BrandMark size="nav" />
                     </NavLink>
 
                     <div className="site-nav-links">
@@ -231,7 +230,9 @@ function NavContent() {
                         </>
                     )}
 
-                    <ThemeSwitch />
+                    <div className="site-nav-theme-desktop">
+                        <ThemeSwitch />
+                    </div>
 
                     <div className="site-nav-lang">
                         <button
@@ -318,6 +319,9 @@ function NavContent() {
                                 </NavLink>
                             </>
                         )}
+                        <div className="mobile-nav-theme">
+                            <ThemeSwitch />
+                        </div>
                         <div className="mobile-nav-lang">
                             <button
                                 className={`mobile-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}

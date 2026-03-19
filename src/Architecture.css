@@ -921,3 +921,20 @@ svg path, svg text, svg circle, svg g {
     align-items: flex-end;
     gap: 6px;
 }
+
+/* Mobile picker — sits in the tab bar, dropdown opens upward */
+@media (max-width: 900px) {
+    .bv-bp-picker--mobile .bv-bp-picker-dropdown {
+        top: auto;
+        bottom: calc(100% + 6px);
+        left: auto;
+        right: 0;
+        min-width: 200px;
+    }
+    .bv-bp-picker--mobile .bv-bp-picker-btn {
+        font-size: 9px;
+        padding: 6px 10px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+    }
+}

@@ -116,9 +116,30 @@ export function useAdminPlans() {
         queryKey: ['admin-plans'],
         staleTime: 30_000,
         queryFn: async () => {
-            const { data } = await supabase.from('transitional_plans').select('id, title, slug, status, endorsement_count, created_at').order('created_at', { ascending: false });
+            const { data } = await supabase
+                .from('transitional_plans')
+                .select('id, slug, name_en, name_fa, status, endorsement_count, is_official, created_at')
+                .order('created_at', { ascending: false });
             return data ?? [];
         },
+    });
+}
+
+export function useSeedPlans() {
+    const queryClient = useQueryClient();
+    return useMutation({
+        mutationFn: async (plans) => {
+            const token = await getToken();
+            const res = await fetch('/api/admin/plans/seed', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+                body: JSON.stringify({ plans }),
+            });
+            const json = await res.json();
+            if (!res.ok) throw new Error(json.error || 'Seed failed');
+            return json;
+        },
+        onSuccess: () => queryClient.invalidateQueries({ queryKey: ['admin-plans'] }),
     });
 }
 

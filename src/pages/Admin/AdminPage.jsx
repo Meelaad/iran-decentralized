@@ -5,13 +5,13 @@ import { useAuth } from '../../hooks/useAuth';
 import {
     useAdminUsers, useAdminBlueprints,
     useGenerateCodes, useDeleteCode, useSetInvites, useSeedBlueprints,
-    useAdminPlans, usePromotePlan, useArchivePlan,
+    useAdminPlans, usePromotePlan, useArchivePlan, useSeedPlans,
     useVerificationQueue, useReviewVerification,
     useAdminCivicLeaderboard,
     useMapMarkers, useAddMapMarker, useUpdateMapMarker, useDeleteMapMarker,
 } from '../../hooks/useAdmin';
 import { Spinner } from '../../components/ui';
-import { BLUEPRINTS } from '../../data';
+import { BLUEPRINTS, OFFICIAL_PLANS } from '../../data';
 import WorldDotMap from '../../components/WorldDotMap/WorldDotMap';
 import './AdminPage.css';
 
@@ -312,6 +312,7 @@ function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, is
                     value={label}
                     onChange={e => setLabel(e.target.value)}
                     placeholder="City or location name"
+                    maxLength={200}
                 />
             </div>
 
@@ -322,6 +323,7 @@ function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, is
                     value={region}
                     onChange={e => setRegion(e.target.value)}
                     placeholder="e.g. North America"
+                    maxLength={100}
                 />
             </div>
 
@@ -332,6 +334,7 @@ function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, is
                     value={popEst}
                     onChange={e => setPopEst(e.target.value)}
                     placeholder="e.g. ~50,000"
+                    maxLength={50}
                 />
             </div>
 
@@ -343,6 +346,7 @@ function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, is
                     onChange={e => setDesc(e.target.value)}
                     placeholder="Notes about this diaspora location"
                     rows={3}
+                    maxLength={2000}
                 />
             </div>
 
@@ -385,6 +389,7 @@ function MapEditorTab({ monoFont }) {
 
     function handleMapClick(lon, lat) {
         if (!editMode) return;
+        console.log('[MapEditor] handleMapClick', lon, lat);
         setEditMarker(null);
         setSelectedMarkerId(null);
         setAddCoords({ lon, lat });
@@ -409,6 +414,7 @@ function MapEditorTab({ monoFont }) {
 
     async function handleAdd(fields) {
         setSaveError(null);
+        console.log('[MapEditor] handleAdd', fields, addCoords);
         try {
             await addMarker.mutateAsync({ ...fields, lon: addCoords.lon, lat: addCoords.lat });
             closePanel();
@@ -473,6 +479,7 @@ function MapEditorTab({ monoFont }) {
                         editMode={editMode}
                         onMapClick={handleMapClick}
                         selectedMarkerId={selectedMarkerId}
+                        previewCoord={addCoords}
                     />
                 </div>
 
@@ -565,9 +572,11 @@ export default function AdminPage() {
     const seedMutation          = useSeedBlueprints();
     const promotePlanMutation   = usePromotePlan();
     const archivePlanMutation   = useArchivePlan();
+    const seedPlansMutation     = useSeedPlans();
     const reviewVerificationMutation = useReviewVerification();
 
     const [blueprintSeedMsg, setBlueprintSeedMsg] = useState('');
+    const [planSeedMsg, setPlanSeedMsg] = useState('');
 
     async function handleGenerateCodes(userId, count) {
         await generateCodesMutation.mutateAsync({ userId, count });
@@ -588,6 +597,16 @@ export default function AdminPage() {
             setBlueprintSeedMsg(`✓ Seeded ${json.seeded} blueprints`);
         } catch (err) {
             setBlueprintSeedMsg(`Error: ${err.message}`);
+        }
+    }
+
+    async function handleSeedPlans() {
+        setPlanSeedMsg('');
+        try {
+            const json = await seedPlansMutation.mutateAsync(OFFICIAL_PLANS);
+            setPlanSeedMsg(`✓ Synced ${json.seeded} official plans`);
+        } catch (err) {
+            setPlanSeedMsg(`Error: ${err.message}`);
         }
     }
 
@@ -801,12 +820,27 @@ export default function AdminPage() {
                 {activeTab === 'plans' && (
                     <>
                         <div className="admin-section-title" style={{ marginTop: 40 }}>Transitional Plans</div>
+                        <div className="admin-blueprints-bar">
+                            <button
+                                className="admin-action-btn"
+                                onClick={handleSeedPlans}
+                                disabled={seedPlansMutation.isPending}
+                                style={{ fontFamily: monoFont }}
+                            >
+                                {seedPlansMutation.isPending ? '...' : '↑ Sync official plans from data.js'}
+                            </button>
+                            {planSeedMsg && (
+                                <span className="admin-seed-msg" style={{ fontFamily: monoFont }}>{planSeedMsg}</span>
+                            )}
+                        </div>
                         <div className="admin-table-wrap">
                             <table className="admin-table">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
+                                        <th>Name (EN)</th>
+                                        <th>Slug</th>
                                         <th>Status</th>
+                                        <th>Official</th>
                                         <th>Endorsements</th>
                                         <th>Created</th>
                                         <th>Actions</th>
@@ -815,18 +849,22 @@ export default function AdminPage() {
                                 <tbody>
                                     {plans.length === 0 && (
                                         <tr>
-                                            <td colSpan={5} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
-                                                No plans found.
+                                            <td colSpan={7} style={{ textAlign: 'center', color: '#3a4a5e', padding: '32px' }}>
+                                                No plans in DB. Click "Sync" to seed official plans.
                                             </td>
                                         </tr>
                                     )}
                                     {plans.map(plan => (
                                         <tr key={plan.id}>
-                                            <td className="admin-td-name">{plan.title || '—'}</td>
+                                            <td className="admin-td-name">{plan.name_en || plan.name_fa || '—'}</td>
+                                            <td className="admin-td-mono" style={{ fontSize: 11 }}>{plan.slug || '—'}</td>
                                             <td>
                                                 <span className="admin-status-badge" style={{ color: STATUS_COLORS[plan.status] ?? '#8a9bb0', borderColor: STATUS_COLORS[plan.status] ?? '#8a9bb0' }}>
                                                     {plan.status}
                                                 </span>
+                                            </td>
+                                            <td style={{ color: plan.is_official ? '#8B5CF6' : '#3a4a5e' }}>
+                                                {plan.is_official ? '✓' : '—'}
                                             </td>
                                             <td className="admin-td-mono">{plan.endorsement_count ?? 0}</td>
                                             <td>{formatDate(plan.created_at)}</td>

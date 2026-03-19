@@ -35,7 +35,7 @@ function unproject(x, y) {
 // editMode: bool — shows crosshair cursor and enables onMapClick
 // onMapClick: (lon, lat) => void
 // selectedMarkerId: id string — highlights a marker
-export default function WorldDotMap({ markers = [], onMarkerClick, editMode = false, onMapClick, selectedMarkerId }) {
+export default function WorldDotMap({ markers = [], onMarkerClick, editMode = false, onMapClick, selectedMarkerId, previewCoord = null }) {
   const [tooltip, setTooltip] = useState({ text: '', x: 0, y: 0, show: false });
   const [hoverCoords, setHoverCoords] = useState(null);
   const containerRef = useRef(null);
@@ -76,12 +76,16 @@ export default function WorldDotMap({ markers = [], onMarkerClick, editMode = fa
   function getSvgCoords(e) {
     const svgEl = svgRef.current;
     if (!svgEl) return null;
-    const ctm = svgEl.getScreenCTM();
-    if (!ctm) return null;
-    const pt = svgEl.createSVGPoint();
-    pt.x = e.clientX;
-    pt.y = e.clientY;
-    return pt.matrixTransform(ctm.inverse());
+    const rect = svgEl.getBoundingClientRect();
+    if (!rect.width || !rect.height) return null;
+    // xMidYMid meet: SVG content is scaled uniformly to fit the viewport
+    const scale = Math.min(rect.width / MAP_W, rect.height / MAP_H);
+    const offsetX = (rect.width - MAP_W * scale) / 2;
+    const offsetY = (rect.height - MAP_H * scale) / 2;
+    return {
+      x: ((e.clientX - rect.left) - offsetX) / scale,
+      y: ((e.clientY - rect.top) - offsetY) / scale,
+    };
   }
 
   function handleSvgMouseMove(e) {
@@ -200,6 +204,20 @@ export default function WorldDotMap({ markers = [], onMarkerClick, editMode = fa
             </g>
           );
         })}
+        {/* Preview pin — shown while add-marker form is open */}
+        {previewCoord && (() => {
+          const [px, py] = project(previewCoord.lon, previewCoord.lat);
+          return (
+            <g transform={`translate(${px}, ${py})`} style={{ pointerEvents: 'none' }}>
+              <circle cx={0} cy={0} r={7} fill="none" stroke="#26DEC2" strokeWidth={1.5} opacity={0.5} />
+              <circle cx={0} cy={0} r={3} fill="#26DEC2" />
+              <line x1={0} y1={-11} x2={0} y2={-7} stroke="#26DEC2" strokeWidth={1.2} />
+              <line x1={0} y1={7}  x2={0} y2={11} stroke="#26DEC2" strokeWidth={1.2} />
+              <line x1={-11} y1={0} x2={-7} y2={0} stroke="#26DEC2" strokeWidth={1.2} />
+              <line x1={7}  y1={0} x2={11} y2={0} stroke="#26DEC2" strokeWidth={1.2} />
+            </g>
+          );
+        })()}
       </svg>
 
       {tooltip.show && (

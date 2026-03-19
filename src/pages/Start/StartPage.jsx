@@ -194,7 +194,8 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
 
             const { data } = c2.getImageData(0, 0, canvas.width, canvas.height);
             const coords = [];
-            for (let i = 0; i < data.length; i += 4 * 4) coords.push(i);
+            const step = canvas.width < 640 ? 4 * 2 : 4 * 4;
+            for (let i = 0; i < data.length; i += step) coords.push(i);
             for (let i = coords.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [coords[i], coords[j]] = [coords[j], coords[i]];
@@ -236,8 +237,23 @@ function ParticleTitle({ words = ['IranDAO'], isRTL = false, isLight = false }) 
                     b: p.startColor.b + (p.targetColor.b - p.startColor.b) * p.colorWeight,
                 };
                 if (isLight) {
-                    // Light mode: plain dark charcoal
-                    p.targetColor = { r: 30, g: 30, b: 35 };
+                    // Light mode: Iranian flag gradient across text width — green → white → red
+                    const flagT = textSpan > 0 ? (tx - textMinX) / textSpan : 0;
+                    if (flagT <= 0.5) {
+                        const s = flagT * 2;
+                        p.targetColor = {
+                            r: Math.round(35  + (255 - 35)  * s),
+                            g: Math.round(159 + (255 - 159) * s),
+                            b: Math.round(64  + (255 - 64)  * s),
+                        };
+                    } else {
+                        const s = (flagT - 0.5) * 2;
+                        p.targetColor = {
+                            r: Math.round(255 + (218 - 255) * s),
+                            g: Math.round(255 * (1 - s)),
+                            b: Math.round(255 * (1 - s)),
+                        };
+                    }
                 } else {
                     // Dark mode: original gradient across canvas width — unchanged
                     const flagT = canvas.width > 0 ? tx / canvas.width : 0;

@@ -187,6 +187,21 @@
 
 [dir="rtl"] .pd-nav-badge { margin-left: 0; margin-right: auto; }
 
+/* Theme + Language in sidebar */
+.pd-sidebar-prefs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    flex-shrink: 0;
+}
+
+.pd-sidebar-lang {
+    display: flex;
+    gap: 2px;
+}
+
 /* User card */
 .pd-sidebar-user {
     flex-shrink: 0;

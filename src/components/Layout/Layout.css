@@ -729,6 +729,18 @@
         margin: 4px 0;
     }
 
+    .site-nav-theme-desktop {
+        display: none;
+    }
+
+    .mobile-nav-theme {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0;
+        border-top: 1px solid rgba(139,92,246,0.08);
+    }
+
     .mobile-nav-lang {
         display: flex;
         border-top: 1px solid rgba(139,92,246,0.08);

@@ -5,6 +5,7 @@ import { supabase } from '../../lib/supabase';
 import { calcAge } from '../../lib/utils';
 import { BLUEPRINTS } from '../../data';
 import { SHOW_VOTE_COUNTS } from '../../config';
+import { useArenaPlans, useUserEndorsement, useEndorsePlan } from '../../hooks/usePlans';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import './VotePage.css';
 
@@ -37,6 +38,25 @@ export default function VotePage() {
     const [viewMode, setViewMode] = useState('raw');
     const [weightedVotes, setWeightedVotes] = useState({});
     const [weightedTotal, setWeightedTotal] = useState(0);
+
+    // Transitional plan vote
+    const { data: arenaPlans = [] } = useArenaPlans();
+    const { data: savedTransVote } = useUserEndorsement(session?.user?.id);
+    const endorseMutation = useEndorsePlan();
+    const [myTransVote, setMyTransVote] = useState(undefined);
+    const currentTransVote = myTransVote !== undefined ? myTransVote : (savedTransVote ?? null);
+    const transPlans = arenaPlans.filter(p => p.status === 'arena' || !p.status);
+
+    async function handleTransVote(planId) {
+        if (!session) return;
+        if (planId === currentTransVote) return;
+        try {
+            await endorseMutation.mutateAsync({ planId });
+            setMyTransVote(planId);
+        } catch (e) {
+            console.error('Trans vote error', e);
+        }
+    }
 
     useEffect(() => {
         // Always load public vote counts regardless of age gate
@@ -332,6 +352,79 @@ export default function VotePage() {
                         <Link to="/login" className="vote-cta-link">
                             {tKey('vote.loginPrompt')}
                         </Link>
+                    )}
+                </div>
+
+                {/* ── Transitional plan vote ─────────────────────────────── */}
+                <div className="vote-divider" />
+                <div className="vote-trans-section">
+                    <div className="vote-trans-kicker" style={{ fontFamily: monoFont }}>
+                        {tKey('vote.transKicker')}
+                    </div>
+                    <h2 className="vote-trans-title" style={{ fontFamily: headFont }}>
+                        {tKey('vote.transTitle')}
+                    </h2>
+                    <p className="vote-trans-sub">{tKey('vote.transSub')}</p>
+
+                    {currentTransVote && (
+                        <p className="vote-trans-hint" style={{ fontFamily: monoFont }}>
+                            {tKey('vote.transChangeVote')}
+                        </p>
+                    )}
+
+                    {transPlans.length === 0 ? (
+                        <p className="vote-trans-empty" style={{ fontFamily: monoFont }}>
+                            {isRTL ? 'هنوز طرحی در گودِ گذار نیست.' : 'No plans in the Arena yet.'}
+                        </p>
+                    ) : (
+                        <div className="vote-trans-cards">
+                            {transPlans.map(plan => {
+                                const isMyVote = plan.id === currentTransVote;
+                                const color = plan.coverColor || '#8B5CF6';
+                                return (
+                                    <div
+                                        key={plan.id}
+                                        className={`vote-trans-card${isMyVote ? ' vote-trans-card--voted' : ''}`}
+                                        style={{ '--accent': color }}
+                                    >
+                                        {isMyVote && (
+                                            <div className="vote-your-badge" style={{ fontFamily: monoFont }}>
+                                                {tKey('vote.yourVote')}
+                                            </div>
+                                        )}
+                                        <div className="vote-trans-card-name" style={{ fontFamily: headFont }}>
+                                            {isRTL ? plan.name?.fa : plan.name?.en || plan.slug}
+                                        </div>
+                                        <p className="vote-trans-card-summary">
+                                            {isRTL ? plan.summary?.fa : plan.summary?.en}
+                                        </p>
+                                        <div className="vote-trans-card-actions">
+                                            <Link
+                                                to={`/arena/${plan.slug}`}
+                                                className="vote-trans-view"
+                                                style={{ fontFamily: monoFont }}
+                                            >
+                                                {tKey('vote.transViewPlan')}
+                                            </Link>
+                                            {ageStatus === 'ok' && session ? (
+                                                <button
+                                                    className={`vote-trans-btn${isMyVote ? ' is-voted' : ''}`}
+                                                    style={{ fontFamily: monoFont }}
+                                                    onClick={() => handleTransVote(plan.id)}
+                                                    disabled={isMyVote || endorseMutation.isPending}
+                                                >
+                                                    {isMyVote ? tKey('arena.voted') : tKey('arena.vote')}
+                                                </button>
+                                            ) : !session ? (
+                                                <Link to="/login" className="vote-trans-login" style={{ fontFamily: monoFont }}>
+                                                    {tKey('vote.transLoginPrompt')}
+                                                </Link>
+                                            ) : null}
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                        </div>
                     )}
                 </div>
             </div>

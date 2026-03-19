@@ -802,6 +802,30 @@ export default function BlueprintViewer() {
                             <span className="tab-icon">⬡</span>
                             {tKey('blueprint.list')}
                         </button>
+                        <div className="bv-bp-picker bv-bp-picker--mobile" ref={bpPickerRef}>
+                            <button
+                                className="bv-bp-picker-btn"
+                                onClick={() => setBpPickerOpen(o => !o)}
+                                style={{ fontFamily: headFont }}
+                            >
+                                <span>{t(activeBlueprint.name)}</span>
+                                <span className="bv-bp-picker-caret">{bpPickerOpen ? '▲' : '▼'}</span>
+                            </button>
+                            {bpPickerOpen && (
+                                <div className="bv-bp-picker-dropdown">
+                                    {Object.values(BLUEPRINTS).map(bp => (
+                                        <button
+                                            key={bp.id}
+                                            className={`bv-bp-picker-option${blueprintId === bp.id ? ' is-active' : ''}`}
+                                            style={{ fontFamily: headFont }}
+                                            onClick={() => handleBlueprintSwitch(bp.id)}
+                                        >
+                                            {t(bp.name)}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
 
                     <div className="shared-footer">
@@ -832,6 +856,30 @@ export default function BlueprintViewer() {
                             <span className="tab-icon">⬡</span>
                             {tKey('blueprint.list')}
                         </button>
+                        <div className="bv-bp-picker bv-bp-picker--mobile" ref={bpPickerRef}>
+                            <button
+                                className="bv-bp-picker-btn"
+                                onClick={() => setBpPickerOpen(o => !o)}
+                                style={{ fontFamily: headFont }}
+                            >
+                                <span>{t(activeBlueprint.name)}</span>
+                                <span className="bv-bp-picker-caret">{bpPickerOpen ? '▲' : '▼'}</span>
+                            </button>
+                            {bpPickerOpen && (
+                                <div className="bv-bp-picker-dropdown">
+                                    {Object.values(BLUEPRINTS).map(bp => (
+                                        <button
+                                            key={bp.id}
+                                            className={`bv-bp-picker-option${blueprintId === bp.id ? ' is-active' : ''}`}
+                                            style={{ fontFamily: headFont }}
+                                            onClick={() => handleBlueprintSwitch(bp.id)}
+                                        >
+                                            {t(bp.name)}
+                                        </button>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className="hex-honeycomb" style={{
                         "--hex-w": `${hexW}px`,

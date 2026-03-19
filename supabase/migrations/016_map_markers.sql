@@ -24,3 +24,7 @@ CREATE POLICY "map_markers_write" ON map_markers
   FOR ALL USING (
     EXISTS (SELECT 1 FROM profiles WHERE id = auth.uid() AND is_admin = true)
   );
+
+-- Role-level grants (RLS alone is not enough without explicit GRANT)
+GRANT SELECT ON map_markers TO anon;
+GRANT SELECT, INSERT, UPDATE, DELETE ON map_markers TO authenticated;

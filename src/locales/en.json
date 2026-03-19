@@ -113,7 +113,13 @@
     "ageGateDateLabel": "DATE OF BIRTH",
     "ageGateSubmit": "CONFIRM & ENTER",
     "ageTooYoungTitle": "Voting Age Not Reached",
-    "ageTooYoung": "Governance voting requires age 18 or older. You may still explore all blueprints and register your presence on the platform."
+    "ageTooYoung": "Governance voting requires age 18 or older. You may still explore all blueprints and register your presence on the platform.",
+    "transKicker": "PHASE ONE — TRANSITION",
+    "transTitle": "Transitional Government Vote",
+    "transSub": "Which plan should lead Iran through the transitional period?",
+    "transLoginPrompt": "Login to vote for a transitional plan →",
+    "transChangeVote": "Click another plan to change your transitional vote",
+    "transViewPlan": "VIEW PLAN →"
   },
   "register": {
     "preferredBlueprint": "PREFERRED GOVERNANCE MODEL",
@@ -163,6 +169,9 @@
     "viewPlan": "VIEW PLAN →",
     "endorse": "ENDORSE",
     "endorsed": "ENDORSED ✓",
+    "vote": "VOTE",
+    "voted": "VOTED ✓",
+    "changeVotePlan": "Click another plan to change your vote",
     "endorseError": "Failed to endorse. Please log in.",
     "planEndorsements": "Endorsements",
     "planSignatures": "Signatures",
