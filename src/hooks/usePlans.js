@@ -13,9 +13,16 @@ async function postJSON(url, body) {
         headers: { 'Content-Type': 'application/json', ...headers },
         body: JSON.stringify(body),
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'Request failed');
-    return data;
+    if (!res.ok) {
+        const err = new Error('Request failed');
+        err.status = res.status;
+        try {
+            const data = await res.json();
+            if (data.error) err.message = data.error;
+        } catch (_) { /* non-JSON body (e.g. HTML rate-limit page) — ignore */ }
+        throw err;
+    }
+    return res.json();
 }
 
 // ── Read hooks ────────────────────────────────────────────────────────────────

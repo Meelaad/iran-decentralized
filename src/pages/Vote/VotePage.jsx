@@ -44,17 +44,25 @@ export default function VotePage() {
     const { data: savedTransVote } = useUserEndorsement(session?.user?.id);
     const endorseMutation = useEndorsePlan();
     const [myTransVote, setMyTransVote] = useState(undefined);
+    const [transVoteError, setTransVoteError] = useState(null);
     const currentTransVote = myTransVote !== undefined ? myTransVote : (savedTransVote ?? null);
     const transPlans = arenaPlans.filter(p => p.status === 'arena' || !p.status);
 
     async function handleTransVote(planId) {
         if (!session) return;
         if (planId === currentTransVote) return;
+        setTransVoteError(null);
         try {
             await endorseMutation.mutateAsync({ planId });
             setMyTransVote(planId);
         } catch (e) {
-            console.error('Trans vote error', e);
+            if (e.status === 429) {
+                setTransVoteError(isRTL
+                    ? 'برای نظم و امنیت و یکپارچگی سیستم نمی‌توانید در مدت خیلی کوتاه چند بار رأی را عوض کنید، محدودیت موقت روی حساب شما ایجاد شد، لطفاً اگر قصد تعویض رأی دارید بعداً دوباره تلاش کنید.'
+                    : 'Security Warning: too many vote changes in a short time. Your account now has a temporary voting limit. If you need to change your current vote, please try again later.');
+            } else {
+                console.error('Trans vote error', e);
+            }
         }
     }
 
@@ -425,6 +433,9 @@ export default function VotePage() {
                                 );
                             })}
                         </div>
+                    )}
+                    {transVoteError && (
+                        <p className="vote-age-error" style={{ fontFamily: monoFont, marginTop: '1rem' }}>{transVoteError}</p>
                     )}
                 </div>
             </div>

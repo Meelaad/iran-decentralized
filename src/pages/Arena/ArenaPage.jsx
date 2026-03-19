@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import { SHOW_VOTE_COUNTS } from '../../config';
+
 import {
     useArenaPlans,
     useStatsOverview,
@@ -35,32 +37,63 @@ export default function ArenaPage() {
     const arenaPlans = plans.filter(p => p.status === 'arena' || !p.status);
     const incubatorPlans = plans.filter(p => p.status === 'incubator');
 
+    const rateLimitMsg = isRTL
+        ? 'برای نظم و امنیت و یکپارچگی سیستم نمی‌توانید در مدت خیلی کوتاه چند بار رأی را عوض کنید، محدودیت موقت روی حساب شما ایجاد شد، لطفاً اگر قصد تعویض رأی دارید بعداً دوباره تلاش کنید.'
+        : 'Security Warning: \n' +
+        'Too many vote changes in a short time. Your account now has a temporary voting limit. If you need to change your current vote, please try again later.';
+
+
     async function handleVote(planId) {
-        if (!session) { alert(tKey('arena.loginToEndorse')); return; }
+        if (!session) {
+            Swal.fire({
+                title: tKey('arena.loginTitle'),
+                text: tKey('arena.loginToEndorse'),
+                icon: 'info',
+                confirmButtonText: tKey('arena.understoodBtn'),
+                confirmButtonColor: '#8B5CF6'
+            });
+            return;
+        }
         if (planId === currentVotePlanId) return; // already voted for this one
         try {
             await endorseMutation.mutateAsync({ planId });
             setMyVotePlanId(planId);
         } catch (e) {
-            alert(e.message || tKey('arena.endorseError'));
+            const isRateLimit = e.status === 429;
+            Swal.fire({
+                title: isRateLimit ? tKey('arena.limitTitle') : tKey('arena.errorTitle'),
+                text: isRateLimit ? rateLimitMsg : (e.message || tKey('arena.endorseError')),
+                icon: isRateLimit ? 'warning' : 'error',
+                confirmButtonText: tKey('arena.closeBtn'),
+                confirmButtonColor: '#8B5CF6'
+            });
         }
     }
 
     async function handleSign(planId) {
-        if (!session) { alert(tKey('arena.loginToEndorse')); return; }
+        if (!session) {
+            Swal.fire({
+                title: tKey('arena.loginTitle'),
+                text: tKey('arena.loginToEndorse'),
+                icon: 'info',
+                confirmButtonText: tKey('arena.understoodBtn'), // Matches JSON
+                confirmButtonColor: '#8B5CF6' // irdao brand color
+            });
+            return;
+        }
         try {
             await signMutation.mutateAsync({ planId });
             setSignedIds(prev => new Set([...prev, planId]));
         } catch (e) {
-            alert(e.message || tKey('arena.endorseError'));
+            alert(e.status === 429 ? rateLimitMsg : (e.message || tKey('arena.endorseError')));
         }
     }
 
     return (
         <div className="arena-page" dir={isRTL ? 'rtl' : 'ltr'}>
             <PageMeta
-                title={isRTL ? 'آرنای انتقال' : 'The Arena'}
-                description={isRTL ? 'طرح‌های انتقالی فعال — تأیید و بحث' : 'Active transitional plans — endorse, debate, and shape Iran\'s future.'}
+                title={isRTL ? 'گودِ گذار' : 'The Arena'}
+                description={isRTL ? 'طرح‌های گذار فعال — تأیید و بحث' : 'Active transitional plans — endorse, debate, and shape Iran\'s future.'}
                 lang={isRTL ? 'fa' : 'en'}
             />
             <header className="arena-hero">

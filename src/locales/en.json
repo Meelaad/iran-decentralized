@@ -185,7 +185,14 @@
     "submitSub": "Mid or High tier members can submit plans for community consideration.",
     "submitCTA": "SUBMIT PLAN →",
     "noPlans": "No plans in the Arena yet.",
-    "loginToEndorse": "Log in to endorse plans."
+    "loginToEndorse": "You must be logged in to endorse a plan.",
+    "loginTitle": "Login Required",
+    "errorTitle": "Error",
+    "limitTitle": "Temporary Limit",
+    "understoodBtn": "Understood",
+    "closeBtn": "Close",
+    "signSuccessTitle": "Signed!",
+    "signSuccessText": "Your signature has been successfully recorded."
   },
   "plan": {
     "overview": "OVERVIEW",
