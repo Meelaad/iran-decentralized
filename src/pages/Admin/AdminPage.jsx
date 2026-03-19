@@ -250,7 +250,7 @@ function UserRow({ user, nameMap, onGenerateCodes, onSetInvites, onDeleteCode })
 
 const MAP_PALETTE = ['#26DEC2', '#e8507a', '#FFCE00', '#4fc3f7', '#8B5CF6', '#ffffff', '#f59e0b', '#15803d'];
 
-function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, isPending, monoFont }) {
+function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, isPending, error, monoFont }) {
     const [type, setType] = useState(initial.type || 'triangle');
     const [color, setColor] = useState(initial.color || '#26DEC2');
     const [label, setLabel] = useState(initial.label || '');
@@ -278,7 +278,7 @@ function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, is
             <div className="admin-map-form-field">
                 <label>Type</label>
                 <div className="admin-map-type-row">
-                    {['triangle', 'circle'].map(t => (
+                    {['triangle', 'circle', 'circle_blink'].map(t => (
                         <button
                             key={t}
                             className={`admin-map-type-btn${type === t ? ' is-active' : ''}`}
@@ -346,11 +346,15 @@ function MarkerForm({ title, initial = {}, coords, onSave, onDelete, onClose, is
                 />
             </div>
 
+            {error && (
+                <div className="admin-map-form-error" style={{ fontFamily: monoFont }}>{error}</div>
+            )}
+
             <div className="admin-map-form-actions">
                 <button
                     className="admin-action-btn"
                     onClick={handleSave}
-                    disabled={isPending || !label}
+                    disabled={isPending}
                 >
                     {isPending ? '…' : 'Save'}
                 </button>
@@ -394,26 +398,49 @@ function MapEditorTab({ monoFont }) {
         }
     }
 
+    const [saveError, setSaveError] = useState(null);
+
     function closePanel() {
         setAddCoords(null);
         setEditMarker(null);
         setSelectedMarkerId(null);
+        setSaveError(null);
     }
 
     async function handleAdd(fields) {
-        await addMarker.mutateAsync({ ...fields, lon: addCoords.lon, lat: addCoords.lat });
-        closePanel();
+        setSaveError(null);
+        try {
+            await addMarker.mutateAsync({ ...fields, lon: addCoords.lon, lat: addCoords.lat });
+            closePanel();
+        } catch (e) {
+            setSaveError(e?.message || 'Failed to save marker');
+        }
     }
 
     async function handleUpdate(fields) {
-        await updateMarker.mutateAsync({ id: editMarker.id, ...fields });
-        closePanel();
+        setSaveError(null);
+        try {
+            await updateMarker.mutateAsync({ id: editMarker.id, ...fields });
+            closePanel();
+        } catch (e) {
+            setSaveError(e?.message || 'Failed to save marker');
+        }
     }
 
     async function handleDelete() {
         if (!window.confirm(`Delete marker "${editMarker.label}"?`)) return;
-        await deleteMarker.mutateAsync(editMarker.id);
-        closePanel();
+        try {
+            await deleteMarker.mutateAsync(editMarker.id);
+            closePanel();
+        } catch (e) {
+            setSaveError(e?.message || 'Failed to delete marker');
+        }
+    }
+
+    async function handleDeleteRow(marker, e) {
+        e.stopPropagation();
+        if (!window.confirm(`Delete marker "${marker.label || marker.type}"?`)) return;
+        await deleteMarker.mutateAsync(marker.id);
     }
 
     const panelOpen = editMode && (addCoords || editMarker);
@@ -458,6 +485,7 @@ function MapEditorTab({ monoFont }) {
                                 onSave={handleAdd}
                                 onClose={closePanel}
                                 isPending={addMarker.isPending}
+                                error={saveError}
                                 monoFont={monoFont}
                             />
                         )}
@@ -469,6 +497,7 @@ function MapEditorTab({ monoFont }) {
                                 onDelete={handleDelete}
                                 onClose={closePanel}
                                 isPending={updateMarker.isPending || deleteMarker.isPending}
+                                error={saveError}
                                 monoFont={monoFont}
                             />
                         )}
@@ -497,6 +526,16 @@ function MapEditorTab({ monoFont }) {
                             {Number(m.lon).toFixed(2)}, {Number(m.lat).toFixed(2)}
                         </span>
                         {m.region && <span className="admin-map-marker-region">{m.region}</span>}
+                        {editMode && (
+                            <button
+                                className="admin-map-marker-del"
+                                onClick={(e) => handleDeleteRow(m, e)}
+                                title="Delete marker"
+                                disabled={deleteMarker.isPending}
+                            >
+                                ✕
+                            </button>
+                        )}
                     </div>
                 ))}
             </div>

@@ -2,7 +2,7 @@
 .sp-root {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    min-height: 100dvh;
     background: #0a0a0a;
     display: flex;
     flex-direction: column;
@@ -34,26 +34,30 @@
     position: relative;
     z-index: 2;
     flex: 1;
-    min-height: 600px;
+    min-height: 74dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 24px;
+    justify-content: flex-start;
+    gap: clamp(6px, 2vmin, 20px);
+    padding: clamp(8px, 2vmin, 20px) 24px;
     text-align: center;
 }
 
-/* ─── Brand block (IRAN DAO + logo) — sits in flow, above the animation ─────── */
+/* Collapsible spacers: center content when there's room, scroll when there isn't */
+.sp-hero::before,
+.sp-hero::after { content: ''; flex: 1; }
+
+/* ─── Brand block (IRAN DAO + logo) ─────────────────────────────────────────── */
 .sp-hero-brand {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: clamp(4px, 1vmin, 10px);
 }
 
 .sp-hero-logo {
-    width: clamp(52px, 7vw, 88px);
+    width: clamp(20px, 6vmin, 88px);
     height: auto;
     opacity: 0.88;
     filter: drop-shadow(0 0 12px rgba(79, 195, 247, 0.25));
@@ -64,17 +68,12 @@
     filter: drop-shadow(0 0 10px rgba(2, 132, 199, 0.2));
 }
 
-@media (max-width: 640px) {
-    .sp-hero-logo { width: 52px; }
-}
-
-
 /* ─── Particle title canvas ───────────────────────────────────────────────────── */
 .sp-particle-title {
     position: relative;
     width: 100%;
     max-width: 900px;
-    height: clamp(160px, 22vw, 260px);
+    height: clamp(60px, 22vmin, 260px);
     flex-shrink: 0;
 }
 
@@ -101,13 +100,11 @@
     text-shadow: 0 0 80px rgba(139, 92, 246, 0.08);
 }
 
-/* Word wrapper — NO overflow:hidden so the flying chars are visible in flight */
 .sp-title-word-wrap {
     display: inline-flex;
     line-height: 1.1;
 }
 
-/* Individual character (or whole word for RTL) — inline-block required for GSAP */
 .sp-title-char {
     display: inline-block;
     transform-origin: center center;
@@ -116,9 +113,9 @@
 
 /* ─── Tagline ─────────────────────────────────────────────────────────────────── */
 .sp-tagline {
-    font-size: clamp(14px, 1.8vw, 18px);
+    font-size: clamp(12px, 2vmin, 22px);
     font-weight: 400;
-    color: rgba(200, 220, 235, 0.65);
+    color: rgba(200, 220, 235, 0.75);
     letter-spacing: 0.02em;
     margin: 0;
     max-width: 480px;
@@ -129,12 +126,12 @@
 .sp-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: clamp(4px, 0.8vmin, 8px);
     background: white;
     border: none;
     border-radius: 9999px;
-    padding: clamp(10px, 1.2vw, 14px) clamp(20px, 2.8vw, 32px);
-    font-size: clamp(13px, 1.3vw, 17px);
+    padding: clamp(8px, 1.5vmin, 14px) clamp(16px, 3vmin, 32px);
+    font-size: clamp(11px, 1.8vmin, 17px);
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -157,11 +154,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: clamp(4px, 1vmin, 10px);
 }
 
 .sp-hint {
-    font-size: clamp(11px, 1.1vw, 14px);
+    font-size: clamp(9px, 1.4vmin, 14px);
     font-weight: 700;
     letter-spacing: 0.5px;
     color: #26DEC2;
@@ -172,8 +169,7 @@
 .sp-bottom-controls {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-top: 4px;
+    gap: clamp(6px, 1.2vmin, 12px);
 }
 
 .sp-lang-inline {
@@ -190,7 +186,7 @@
     justify-content: center;
     flex-wrap: wrap;
     font-family: 'intelone-mono', monospace;
-    font-size: clamp(10px, 0.9vw, 13px);
+    font-size: clamp(10px, 1.2vmin, 13px);
     letter-spacing: 0.5px;
     color: rgba(139, 92, 246, 0.4);
 }
@@ -212,7 +208,7 @@
     border: 1px solid rgba(139, 92, 246, 0.2);
     color: rgba(139, 92, 246, 0.5);
     font-family: 'intelone-mono', monospace;
-    font-size: clamp(10px, 0.9vw, 13px);
+    font-size: clamp(10px, 1.2vmin, 13px);
     letter-spacing: 1px;
     padding: 5px 10px;
     border-radius: 4px;
@@ -228,22 +224,7 @@
     color: #8B5CF6;
 }
 
-/* ─── Desktop legibility fixes ────────────────────────────────────────────────── */
-@media (min-width: 960px) {
-    .sp-tagline {
-        font-size: 24px;
-        color: rgba(220, 235, 248, 0.92);
-        letter-spacing: 0.04em;
-    }
-    .sp-hint {
-        font-size: 16px;
-        color: #26DEC2;
-        letter-spacing: 0.5px;
-    }
-}
-
 /* ─── Responsive ──────────────────────────────────────────────────────────────── */
 @media (max-width: 640px) {
     .sp-title { font-size: clamp(42px, 14vw, 64px); }
 }
-

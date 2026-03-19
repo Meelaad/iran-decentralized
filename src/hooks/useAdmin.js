@@ -189,12 +189,11 @@ export function useMapMarkers() {
         queryKey: ['admin-map-markers'],
         staleTime: 30_000,
         queryFn: async () => {
-            const token = await getToken();
-            const res = await fetch('/api/admin/map-markers', {
-                headers: { Authorization: `Bearer ${token}` },
-            });
-            if (!res.ok) throw new Error('Failed to load map markers');
-            return res.json();
+            const { data } = await supabase
+                .from('map_markers')
+                .select('*')
+                .order('created_at', { ascending: true });
+            return data ?? [];
         },
     });
 }
@@ -202,15 +201,23 @@ export function useMapMarkers() {
 export function useAddMapMarker() {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: async (body) => {
-            const token = await getToken();
-            const res = await fetch('/api/admin/map-markers', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-                body: JSON.stringify(body),
-            });
-            if (!res.ok) throw new Error('Failed to add marker');
-            return res.json();
+        mutationFn: async ({ type, lon, lat, color, label, description, region, pop_estimate }) => {
+            const { data, error } = await supabase
+                .from('map_markers')
+                .insert({
+                    type,
+                    lon: parseFloat(lon),
+                    lat: parseFloat(lat),
+                    color: color || '#26DEC2',
+                    label: label || '',
+                    description: description || null,
+                    region: region || null,
+                    pop_estimate: pop_estimate || null,
+                })
+                .select()
+                .single();
+            if (error) throw new Error(error.message);
+            return data;
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['admin-map-markers'] });
@@ -222,15 +229,24 @@ export function useAddMapMarker() {
 export function useUpdateMapMarker() {
     const queryClient = useQueryClient();
     return useMutation({
-        mutationFn: async (body) => {
-            const token = await getToken();
-            const res = await fetch('/api/admin/map-markers/update', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-                body: JSON.stringify(body),
-            });
-            if (!res.ok) throw new Error('Failed to update marker');
-            return res.json();
+        mutationFn: async ({ id, type, lon, lat, color, label, description, region, pop_estimate }) => {
+            const updates = { updated_at: new Date().toISOString() };
+            if (type !== undefined) updates.type = type;
+            if (lon !== undefined) updates.lon = parseFloat(lon);
+            if (lat !== undefined) updates.lat = parseFloat(lat);
+            if (color !== undefined) updates.color = color;
+            if (label !== undefined) updates.label = label;
+            if (description !== undefined) updates.description = description;
+            if (region !== undefined) updates.region = region;
+            if (pop_estimate !== undefined) updates.pop_estimate = pop_estimate;
+            const { data, error } = await supabase
+                .from('map_markers')
+                .update(updates)
+                .eq('id', id)
+                .select()
+                .single();
+            if (error) throw new Error(error.message);
+            return data;
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['admin-map-markers'] });
@@ -243,13 +259,8 @@ export function useDeleteMapMarker() {
     const queryClient = useQueryClient();
     return useMutation({
         mutationFn: async (id) => {
-            const token = await getToken();
-            const res = await fetch('/api/admin/map-markers/delete', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-                body: JSON.stringify({ id }),
-            });
-            if (!res.ok) throw new Error('Failed to delete marker');
+            const { error } = await supabase.from('map_markers').delete().eq('id', id);
+            if (error) throw new Error(error.message);
         },
         onSuccess: () => {
             queryClient.invalidateQueries({ queryKey: ['admin-map-markers'] });

@@ -76,10 +76,12 @@ export default function WorldDotMap({ markers = [], onMarkerClick, editMode = fa
   function getSvgCoords(e) {
     const svgEl = svgRef.current;
     if (!svgEl) return null;
+    const ctm = svgEl.getScreenCTM();
+    if (!ctm) return null;
     const pt = svgEl.createSVGPoint();
     pt.x = e.clientX;
     pt.y = e.clientY;
-    return pt.matrixTransform(svgEl.getScreenCTM().inverse());
+    return pt.matrixTransform(ctm.inverse());
   }
 
   function handleSvgMouseMove(e) {
@@ -138,6 +140,10 @@ export default function WorldDotMap({ markers = [], onMarkerClick, editMode = fa
         {markers.map((marker) => {
           const [mx, my] = project(Number(marker.lon), Number(marker.lat));
           const isSelected = marker.id === selectedMarkerId;
+          const color = marker.color || '#26DEC2';
+          const strokeColor = isSelected ? '#ffffff' : '#0b0b18';
+          const strokeW = isSelected ? 1.5 : 0.8;
+
           if (marker.type === 'triangle') {
             return (
               <g
@@ -148,16 +154,34 @@ export default function WorldDotMap({ markers = [], onMarkerClick, editMode = fa
                 onMouseLeave={handleMarkerLeave}
                 onClick={(e) => { e.stopPropagation(); onMarkerClick?.(marker); }}
               >
-                <polygon
-                  points="0,-5 -3.5,3 3.5,3"
-                  fill={marker.color || '#26DEC2'}
-                  stroke={isSelected ? '#ffffff' : '#0b0b18'}
-                  strokeWidth={isSelected ? 1.5 : 0.8}
-                />
+                <polygon points="0,-5 -3.5,3 3.5,3" fill={color} stroke={strokeColor} strokeWidth={strokeW} />
                 <circle cx={0} cy={0} r={7} fill="transparent" />
               </g>
             );
           }
+
+          if (marker.type === 'circle_blink') {
+            return (
+              <g
+                key={marker.id}
+                transform={`translate(${mx}, ${my})`}
+                className="wdm-db-marker"
+                onMouseEnter={(e) => handleMarkerEnter(e, marker.label)}
+                onMouseLeave={handleMarkerLeave}
+                onClick={(e) => { e.stopPropagation(); onMarkerClick?.(marker); }}
+              >
+                <circle
+                  cx={0} cy={0} r={isSelected ? 5 : 4}
+                  fill={color} stroke={strokeColor} strokeWidth={strokeW}
+                  className="wdm-db-blink"
+                  style={{ '--blink-color': color }}
+                />
+                <circle cx={0} cy={0} r={9} fill="transparent" />
+              </g>
+            );
+          }
+
+          // type === 'circle' (static)
           return (
             <g
               key={marker.id}
@@ -168,11 +192,8 @@ export default function WorldDotMap({ markers = [], onMarkerClick, editMode = fa
               onClick={(e) => { e.stopPropagation(); onMarkerClick?.(marker); }}
             >
               <circle
-                cx={0} cy={0}
-                r={isSelected ? 5 : 4}
-                fill={marker.color || '#26DEC2'}
-                stroke={isSelected ? '#ffffff' : '#0b0b18'}
-                strokeWidth={isSelected ? 1.5 : 0.8}
+                cx={0} cy={0} r={isSelected ? 5 : 4}
+                fill={color} stroke={strokeColor} strokeWidth={strokeW}
                 className="wdm-db-circle"
               />
               <circle cx={0} cy={0} r={8} fill="transparent" />

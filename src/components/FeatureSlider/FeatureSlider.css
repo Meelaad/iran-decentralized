@@ -3,8 +3,10 @@
     z-index: 2;
     width: 100%;
     direction: ltr;           /* always LTR so card order & translateX math are correct even in RTL mode */
-    padding: 12px 0 36px;
-    flex-shrink: 0;
+    padding: clamp(4px, 1.5vh, 12px) 0 clamp(10px, 3vh, 36px);
+    flex-shrink: 1;
+    max-height: clamp(80px, 26vh, 220px);
+    overflow: hidden;
 }
 
 .fs-slider-viewport {
@@ -19,8 +21,8 @@
     display: flex;
     flex-direction: row;
     direction: ltr;
-    gap: 16px;
-    padding: 14px 0;
+    gap: clamp(8px, 1.5vh, 16px);
+    padding: clamp(6px, 1.5vh, 14px) 0;
     will-change: transform;
     transition: transform 0.55s cubic-bezier(0.32, 0.72, 0, 1);
 }
@@ -31,14 +33,14 @@
     background: rgba(10, 15, 22, 0.68);
     border: 1px solid rgba(139, 92, 246, 0.1);
     border-radius: 14px;
-    padding: 20px 18px;
+    padding: clamp(8px, 2vh, 20px) 18px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: opacity 0.42s ease, transform 0.42s ease, border-color 0.25s;
     cursor: default;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: clamp(4px, 1vh, 10px);
     text-align: start;
 }
 
@@ -48,7 +50,7 @@
 }
 
 .fs-scard-icon {
-    font-size: 26px;
+    font-size: clamp(14px, 3vh, 26px);
     line-height: 1;
     flex-shrink: 0;
 }
@@ -56,12 +58,12 @@
 .fs-scard-body {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: clamp(2px, 0.7vh, 6px);
     min-width: 0;
 }
 
 .fs-scard-title {
-    font-size: 14px;
+    font-size: clamp(10px, 2.2vh, 16px);
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -72,7 +74,7 @@
 }
 
 .fs-scard-desc {
-    font-size: 13px;
+    font-size: clamp(9px, 2vh, 14px);
     color: #527085;
     line-height: 1.6;
     display: -webkit-box;
@@ -90,8 +92,8 @@
     border: 1px solid rgba(139, 92, 246, 0.18);
     color: rgba(139, 92, 246, 0.65);
     border-radius: 50%;
-    width: 34px;
-    height: 34px;
+    width: clamp(22px, 4vh, 34px);
+    height: clamp(22px, 4vh, 34px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,14 +118,14 @@
     align-items: center;
     justify-content: center;
     gap: 5px;
-    margin-top: 14px;
+    margin-top: clamp(6px, 1.5vh, 14px);
     flex-wrap: wrap;
 }
 
 .fs-sdot {
     position: relative;
-    width: 6px;
-    height: 6px;
+    width: clamp(4px, 0.8vh, 6px);
+    height: clamp(4px, 0.8vh, 6px);
     border-radius: 3px;
     background: rgba(139, 92, 246, 0.15);
     border: none;
@@ -135,7 +137,7 @@
 }
 
 .fs-sdot.is-active {
-    width: 22px;
+    width: clamp(14px, 2.5vh, 22px);
     background: rgba(139, 92, 246, 0.2);
 }
 
@@ -190,12 +192,4 @@
         mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
     }
     .fs-scard-desc { -webkit-line-clamp: 2; }
-    .fs-slider-btn { width: 28px; height: 28px; }
-    .fs-sdot.is-active { width: 16px; }
-    .fs-slider { padding: 8px 0 28px; }
-}
-
-@media (min-width: 641px) {
-    .fs-scard-title { font-size: 16px; }
-    .fs-scard-desc  { font-size: 14px; }
 }

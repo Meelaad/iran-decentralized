@@ -71,6 +71,18 @@
   filter: drop-shadow(0 0 4px currentColor);
 }
 
+@keyframes wdm-blink-pulse {
+  0%, 100% { opacity: 0.85; r: 4; }
+  50%       { opacity: 1;    r: 7; }
+}
+
+.wdm-db-blink {
+  animation: wdm-blink-pulse 1.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  filter: drop-shadow(0 0 3px var(--blink-color, #26DEC2));
+}
+
 .wdm-map-tooltip {
   position: absolute;
   background: #0d1117;

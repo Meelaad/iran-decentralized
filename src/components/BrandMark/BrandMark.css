@@ -10,12 +10,8 @@
     user-select: none;
 }
 
-.brand-mark--lg { font-size: clamp(18px, 2.56vw, 34px); }
-.brand-mark--sm { font-size: clamp(13px, 1.6vw, 21px); }
-
-@media (min-width: 960px) {
-    .brand-mark--lg { font-size: clamp(26px, 2.88vw, 42px); }
-}
+.brand-mark--lg { font-size: clamp(18px, 3.5vmin, 42px); }
+.brand-mark--sm { font-size: clamp(13px, 2vmin, 21px); }
 
 .brand-mark-iran {
     color: #ffffff;
