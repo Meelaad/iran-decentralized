@@ -807,6 +807,47 @@
 [dir="rtl"] .tp-hero-title,
 [dir="rtl"] .tp-sechead-title {
   letter-spacing: 0;
+  font-family: 'Irancell', sans-serif;
+}
+
+[dir="rtl"] .tp-hero-eyebrow,
+[dir="rtl"] .tp-hero-desc,
+[dir="rtl"] .tp-badge,
+[dir="rtl"] .tp-sechead-eyebrow,
+[dir="rtl"] .tp-sechead-intro,
+[dir="rtl"] .tp-seg-label,
+[dir="rtl"] .tp-leader-title,
+[dir="rtl"] .tp-leader-sub,
+[dir="rtl"] .tp-leader-note,
+[dir="rtl"] .tp-branches-label,
+[dir="rtl"] .tp-branch-title,
+[dir="rtl"] .tp-branch-sub,
+[dir="rtl"] .tp-acc-title,
+[dir="rtl"] .tp-acc-subtitle,
+[dir="rtl"] .tp-bullet-item,
+[dir="rtl"] .tp-numgrid-text,
+[dir="rtl"] .tp-banner-label,
+[dir="rtl"] .tp-banner-text,
+[dir="rtl"] .tp-principle-text,
+[dir="rtl"] .tp-prose,
+[dir="rtl"] .tp-decree-title,
+[dir="rtl"] .tp-decree-sub,
+[dir="rtl"] .tp-decree-card-label,
+[dir="rtl"] .tp-decree-card-title,
+[dir="rtl"] .tp-track-title,
+[dir="rtl"] .tp-track-sub,
+[dir="rtl"] .tp-s2-source-title,
+[dir="rtl"] .tp-s2-source-sub,
+[dir="rtl"] .tp-s2-arrow-label,
+[dir="rtl"] .tp-s2-node-title,
+[dir="rtl"] .tp-s2-node-sub,
+[dir="rtl"] .tp-s2-const-title,
+[dir="rtl"] .tp-s2-const-sub,
+[dir="rtl"] .tp-s2-branch-title,
+[dir="rtl"] .tp-dissolution,
+[dir="rtl"] .tp-source,
+[dir="rtl"] .tp-nav-btn {
+  font-family: 'Irancell', sans-serif;
 }
 
 [dir="rtl"] .tp-decree-parts {

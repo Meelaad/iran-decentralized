@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
+import CONTENT from '../../locales/pages/about.json';
 import './AboutPage.css';
 
 function WaveGrid() {
@@ -118,41 +119,8 @@ function WaveGrid() {
     return <canvas ref={canvasRef} className="wave-grid-canvas" />;
 }
 
-const PRINCIPLES = [
-    {
-        icon: "🔗",
-        title: { en: "Decentralization", fa: "عدم تمرکز" },
-        desc: { en: "No single point of failure or control in governance systems.", fa: "بدون نقطه شکست یا کنترل واحد در سیستم‌های حاکمیتی." }
-    },
-    {
-        icon: "🔍",
-        title: { en: "Transparency", fa: "شفافیت" },
-        desc: { en: "All decisions and transactions recorded on-chain for public audit.", fa: "تمام تصمیمات و تراکنش‌ها روی زنجیره ثبت می‌شوند." }
-    },
-    {
-        icon: "🗳️",
-        title: { en: "Direct Democracy", fa: "دموکراسی مستقیم" },
-        desc: { en: "Citizens participate directly in governance through secure voting.", fa: "شهروندان مستقیماً در حاکمیت از طریق رأی‌گیری امن مشارکت می‌کنند." }
-    },
-    {
-        icon: "🛡️",
-        title: { en: "Security", fa: "امنیت" },
-        desc: { en: "Cryptographic guarantees protect sovereignty and citizen data.", fa: "تضمین‌های رمزنگاری از حاکمیت و داده‌های شهروندان محافظت می‌کنند." }
-    },
-    {
-        icon: "🌐",
-        title: { en: "Interoperability", fa: "قابلیت همکاری" },
-        desc: { en: "Cross-sector protocols enable seamless coordination.", fa: "پروتکل‌های بین‌بخشی هماهنگی یکپارچه را ممکن می‌سازند." }
-    },
-    {
-        icon: "⚖️",
-        title: { en: "Accountability", fa: "پاسخگویی" },
-        desc: { en: "Smart contracts enforce rules automatically and impartially.", fa: "قراردادهای هوشمند قوانین را خودکار و بی‌طرف اجرا می‌کنند." }
-    },
-];
-
 export default function AboutPage() {
-    const { t, isRTL, headFont } = useLang();
+    const { t, headFont } = useLang();
 
     return (
         <div className="about-page">
@@ -163,35 +131,29 @@ export default function AboutPage() {
                     className="about-title"
                     style={{ fontFamily: headFont }}
                 >
-                    {isRTL ? "درباره این پروژه" : "About This Project"}
+                    {t(CONTENT.title)}
                 </h1>
                 <p className="about-subtitle">
-                    {isRTL
-                        ? "یک چارچوب حاکمیت غیرمتمرکز مبتنی بر بلاکچین برای آینده ایران"
-                        : "A blockchain-based decentralized governance framework for the future of Iran"
-                    }
+                    {t(CONTENT.subtitle)}
                 </p>
 
                 <div className="about-section">
                     <div className="about-section-title">
-                        {isRTL ? "چشم‌انداز" : "VISION"}
+                        {t(CONTENT.visionTitle)}
                     </div>
                     <div className="about-section-body">
                         <p>
-                            {isRTL
-                                ? "این پروژه معماری یک سیستم حاکمیت غیرمتمرکز را ترسیم می‌کند که در آن شهروندان مستقیماً در تصمیم‌گیری‌ها مشارکت دارند. با استفاده از فناوری بلاکچین، شفافیت، امنیت و پاسخگویی تضمین می‌شود."
-                                : "This project maps the architecture of a decentralized governance system where citizens participate directly in decision-making. Using blockchain technology, transparency, security, and accountability are guaranteed."
-                            }
+                            {t(CONTENT.visionBody)}
                         </p>
                     </div>
                 </div>
 
                 <div className="about-section">
                     <div className="about-section-title">
-                        {isRTL ? "اصول بنیادین" : "CORE PRINCIPLES"}
+                        {t(CONTENT.principlesTitle)}
                     </div>
                     <div className="about-principles">
-                        {PRINCIPLES.map((p, i) => (
+                        {CONTENT.principles.map((p, i) => (
                             <div
                                 key={i}
                                 className="about-principle"
@@ -220,35 +182,29 @@ export default function AboutPage() {
 
                 <div className="about-section">
                     <div className="about-section-title">
-                        {isRTL ? "فناوری" : "TECHNOLOGY"}
+                        {t(CONTENT.technologyTitle)}
                     </div>
                     <div className="about-section-body">
                         <p>
-                            {isRTL
-                                ? "این سیستم بر پایه شبکه‌های بلاکچین لایه ۱ و ۲، قراردادهای هوشمند، پروتکل‌های رأی‌گیری رمزنگاری‌شده و سیستم‌های هویت غیرمتمرکز طراحی شده است."
-                                : "The system is built on Layer 1 & 2 blockchain networks, smart contracts, cryptographic voting protocols, and decentralized identity systems."
-                            }
+                            {t(CONTENT.technologyBody)}
                         </p>
                     </div>
                 </div>
 
                 <div className="about-section">
                     <div className="about-section-title">
-                        {isRTL ? "تماس با ما" : "CONTACT"}
+                        {t(CONTENT.contactTitle)}
                     </div>
                     <div className="about-section-body">
                         <p>
-                            {isRTL
-                                ? "سوال دارید یا می‌خواهید مشارکت کنید؟ با ما تماس بگیرید."
-                                : "Have questions or want to get involved? We'd love to hear from you."
-                            }
+                            {t(CONTENT.contactBody)}
                         </p>
                         <Link
                             to="/contact"
                             className="about-contact-btn"
                             style={{ fontFamily: headFont }}
                         >
-                            {isRTL ? "ارسال پیام ←" : "Get in Touch →"}
+                            {t(CONTENT.contactButton)}
                         </Link>
                     </div>
                 </div>

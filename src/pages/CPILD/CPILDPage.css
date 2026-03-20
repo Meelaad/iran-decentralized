@@ -567,6 +567,30 @@
 }
 
 /* ── RTL ──────────────────────────────────────────────────────────────────── */
+[dir="rtl"] .cpild-hero-title,
+[dir="rtl"] .cpild-sechead-title,
+[dir="rtl"] .cpild-hero-eyebrow,
+[dir="rtl"] .cpild-hero-subtitle,
+[dir="rtl"] .cpild-hero-desc,
+[dir="rtl"] .cpild-badge,
+[dir="rtl"] .cpild-sechead-label,
+[dir="rtl"] .cpild-body-text,
+[dir="rtl"] .cpild-phase-subhead,
+[dir="rtl"] .cpild-pillar-head,
+[dir="rtl"] .cpild-pillar-body,
+[dir="rtl"] .cpild-phase-name,
+[dir="rtl"] .cpild-phase-desc,
+[dir="rtl"] .cpild-power-title,
+[dir="rtl"] .cpild-power-sub,
+[dir="rtl"] .cpild-power-body,
+[dir="rtl"] .cpild-target-name,
+[dir="rtl"] .cpild-target-policy,
+[dir="rtl"] .cpild-target-detail,
+[dir="rtl"] .cpild-acc-label,
+[dir="rtl"] .cpild-acc-point,
+[dir="rtl"] .cpild-conclusion-label,
+[dir="rtl"] .cpild-conclusion-quote,
+[dir="rtl"] .cpild-footer-nav-link { font-family: 'Irancell', sans-serif; }
 [dir="rtl"] .cpild-sechead-line {
   background: linear-gradient(270deg, #d97706, transparent) !important;
 }

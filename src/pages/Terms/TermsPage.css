@@ -107,3 +107,13 @@
     .terms-eyebrow { font-size: 12px; }
     .terms-date { font-size: 13px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .terms-eyebrow,
+[dir="rtl"] .terms-title,
+[dir="rtl"] .terms-date,
+[dir="rtl"] .terms-section-heading,
+[dir="rtl"] .terms-section-body {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

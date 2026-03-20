@@ -220,3 +220,20 @@
     .tc-cta { font-size: 13px; }
     .tc-view-link { font-size: 12px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .tc-back,
+[dir="rtl"] .tc-eyebrow,
+[dir="rtl"] .tc-title,
+[dir="rtl"] .tc-sub,
+[dir="rtl"] .tc-selector-label,
+[dir="rtl"] .tc-selector-btn,
+[dir="rtl"] .tc-cell,
+[dir="rtl"] .tc-cell--label,
+[dir="rtl"] .tc-plan-name,
+[dir="rtl"] .tc-points li,
+[dir="rtl"] .tc-cta,
+[dir="rtl"] .tc-view-link {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

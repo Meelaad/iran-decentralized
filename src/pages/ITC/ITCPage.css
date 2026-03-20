@@ -169,7 +169,19 @@
 }
 
 /* ── RTL ── */
-[dir="rtl"] .itc-hero-title, [dir="rtl"] .itc-sechead-title { letter-spacing: 0; }
+[dir="rtl"] .itc-hero-title, [dir="rtl"] .itc-sechead-title { letter-spacing: 0; font-family: 'Irancell', sans-serif; }
+
+[dir="rtl"] .itc-hero-eyebrow,
+[dir="rtl"] .itc-hero-desc,
+[dir="rtl"] .itc-badge,
+[dir="rtl"] .itc-sechead-eyebrow,
+[dir="rtl"] .itc-sechead-intro,
+[dir="rtl"] .itc-acc-title,
+[dir="rtl"] .itc-acc-subtitle,
+[dir="rtl"] .itc-bullet-item,
+[dir="rtl"] .itc-phase-priority,
+[dir="rtl"] .itc-source,
+[dir="rtl"] .itc-footer-nav-link { font-family: 'Irancell', sans-serif; }
 
 /* ── Responsive ── */
 @media (max-width: 1000px) {

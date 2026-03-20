@@ -576,6 +576,28 @@
 }
 
 /* ── RTL ─────────────────────────────────────────────────────────────────────  */
+[dir="rtl"] .jmi-hero-title,
+[dir="rtl"] .jmi-sechead-title,
+[dir="rtl"] .jmi-hero-eyebrow,
+[dir="rtl"] .jmi-hero-subtitle,
+[dir="rtl"] .jmi-hero-desc,
+[dir="rtl"] .jmi-badge,
+[dir="rtl"] .jmi-sechead-label,
+[dir="rtl"] .jmi-body-text,
+[dir="rtl"] .jmi-phase-subhead,
+[dir="rtl"] .jmi-phase-name,
+[dir="rtl"] .jmi-phase-desc,
+[dir="rtl"] .jmi-power-title,
+[dir="rtl"] .jmi-power-sub,
+[dir="rtl"] .jmi-power-body,
+[dir="rtl"] .jmi-target-name,
+[dir="rtl"] .jmi-target-policy,
+[dir="rtl"] .jmi-target-detail,
+[dir="rtl"] .jmi-acc-label,
+[dir="rtl"] .jmi-acc-point,
+[dir="rtl"] .jmi-conclusion-label,
+[dir="rtl"] .jmi-conclusion-quote,
+[dir="rtl"] .jmi-footer-nav-link { font-family: 'Irancell', sans-serif; }
 [dir="rtl"] .jmi-sechead-line {
   background: linear-gradient(270deg, #38bdf8, transparent) !important;
 }

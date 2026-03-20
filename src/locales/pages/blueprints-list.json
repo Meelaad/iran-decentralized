@@ -1,0 +1,30 @@
+{
+  "eyebrow": {
+    "en": "STAGE 2 — THE DESTINATION",
+    "fa": "مرحله ۲ — مقصد"
+  },
+  "title": {
+    "en": "Governance Blueprints",
+    "fa": "طرحهای حاکمیتی"
+  },
+  "subtitle": {
+    "en": "Six proposed systems of government for Iran's permanent constitution",
+    "fa": "شش سیستم حکومتی پیشنهادی برای قانون اساسی دائمی ایران"
+  },
+  "mapButton": {
+    "en": "MAP",
+    "fa": "نقشه"
+  },
+  "sectorsButton": {
+    "en": "SECTORS",
+    "fa": "بخشها"
+  },
+  "destinationLink": {
+    "en": "← Destination Hub",
+    "fa": "مرکز مقصد ←"
+  },
+  "compareLink": {
+    "en": "Compare blueprints →",
+    "fa": "← مقایسه طرحها"
+  }
+}

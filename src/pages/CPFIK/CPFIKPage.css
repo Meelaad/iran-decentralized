@@ -177,7 +177,22 @@
 .cpfik-footer-nav-link--secondary:hover { background: rgba(139,92,246,0.07); border-color: rgba(139,92,246,0.55); }
 
 /* ── RTL ── */
-[dir="rtl"] .cpfik-hero-title, [dir="rtl"] .cpfik-sechead-title { letter-spacing: 0; }
+[dir="rtl"] .cpfik-hero-title, [dir="rtl"] .cpfik-sechead-title { letter-spacing: 0; font-family: 'Irancell', sans-serif; }
+
+[dir="rtl"] .cpfik-hero-eyebrow,
+[dir="rtl"] .cpfik-hero-desc,
+[dir="rtl"] .cpfik-badge,
+[dir="rtl"] .cpfik-sechead-eyebrow,
+[dir="rtl"] .cpfik-sechead-intro,
+[dir="rtl"] .cpfik-acc-title,
+[dir="rtl"] .cpfik-acc-subtitle,
+[dir="rtl"] .cpfik-bullet-item,
+[dir="rtl"] .cpfik-source,
+[dir="rtl"] .cpfik-phase-label,
+[dir="rtl"] .cpfik-phase-title,
+[dir="rtl"] .cpfik-conclusion,
+[dir="rtl"] .cpfik-footer-nav-link { font-family: 'Irancell', sans-serif; }
+
 [dir="rtl"] .cpfik-mil-label { min-width: 80px; }
 
 /* ── Responsive ── */

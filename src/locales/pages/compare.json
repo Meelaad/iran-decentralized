@@ -1,0 +1,90 @@
+{
+  "kicker": {
+    "en": "GOVERNANCE BLUEPRINT COMPARISON",
+    "fa": "مقایسه طرحهای حاکمیتی"
+  },
+  "title": {
+    "en": "Compare Models",
+    "fa": "مقایسه مدلها"
+  },
+  "selectorALabel": {
+    "en": "A",
+    "fa": "A"
+  },
+  "selectorBLabel": {
+    "en": "B",
+    "fa": "B"
+  },
+  "vsLabel": {
+    "en": "vs",
+    "fa": "vs"
+  },
+  "sectorsLabel": {
+    "en": "Sectors",
+    "fa": "بخش"
+  },
+  "connectionsLabel": {
+    "en": "Connections",
+    "fa": "ارتباط"
+  },
+  "sharedLayersLabel": {
+    "en": "Shared Layers",
+    "fa": "لایه مشترک"
+  },
+  "tierLabels": [
+    {
+      "key": "core",
+      "label": {
+        "en": "CORE LAYER",
+        "fa": "لایه هسته"
+      },
+      "color": "#8B5CF6"
+    },
+    {
+      "key": "primary",
+      "label": {
+        "en": "PRIMARY SECTORS",
+        "fa": "بخشهای اولیه"
+      },
+      "color": "#66bb6a"
+    },
+    {
+      "key": "secondary",
+      "label": {
+        "en": "SECONDARY SECTORS",
+        "fa": "بخشهای ثانویه"
+      },
+      "color": "#ffa726"
+    },
+    {
+      "key": "tertiary",
+      "label": {
+        "en": "SUPPORTING",
+        "fa": "بخشهای پشتیبان"
+      },
+      "color": "#ab47bc"
+    }
+  ],
+  "layersSectionTitle": {
+    "en": "SHARED INFRASTRUCTURE LAYERS",
+    "fa": "لایههای زیرساخت مشترک"
+  },
+  "connectionsSectionTitle": {
+    "en": "CONNECTION STRENGTH DISTRIBUTION",
+    "fa": "توزیع قدرت ارتباطات"
+  },
+  "connectionStrength": {
+    "strong": {
+      "en": "Strong",
+      "fa": "قوی"
+    },
+    "medium": {
+      "en": "Medium",
+      "fa": "متوسط"
+    },
+    "weak": {
+      "en": "Weak",
+      "fa": "ضعیف"
+    }
+  }
+}

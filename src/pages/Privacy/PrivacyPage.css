@@ -116,3 +116,13 @@
     .priv-eyebrow { font-size: 12px; }
     .priv-date { font-size: 13px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .priv-eyebrow,
+[dir="rtl"] .priv-title,
+[dir="rtl"] .priv-date,
+[dir="rtl"] .priv-section-heading,
+[dir="rtl"] .priv-section-body {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

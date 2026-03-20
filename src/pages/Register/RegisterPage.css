@@ -791,3 +791,33 @@
         font-size: 17px;
     }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .reg-eyebrow,
+[dir="rtl"] .reg-title,
+[dir="rtl"] .reg-subtitle,
+[dir="rtl"] .reg-step-item,
+[dir="rtl"] .reg-blueprint-btn,
+[dir="rtl"] .reg-type-btn,
+[dir="rtl"] .reg-label,
+[dir="rtl"] .reg-input,
+[dir="rtl"] .reg-select,
+[dir="rtl"] .reg-submit-btn,
+[dir="rtl"] .reg-error,
+[dir="rtl"] .reg-verify-text,
+[dir="rtl"] .reg-back-btn,
+[dir="rtl"] .reg-resend-btn,
+[dir="rtl"] .reg-caretaker-title,
+[dir="rtl"] .reg-caretaker-body,
+[dir="rtl"] .reg-choose-title,
+[dir="rtl"] .reg-choose-subtitle,
+[dir="rtl"] .reg-choose-card-name,
+[dir="rtl"] .reg-choose-confirm,
+[dir="rtl"] .reg-success-title,
+[dir="rtl"] .reg-success-body,
+[dir="rtl"] .reg-success-tag,
+[dir="rtl"] .reg-footnote,
+[dir="rtl"] .reg-invite-notice {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

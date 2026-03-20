@@ -1,0 +1,95 @@
+{
+  "title": {
+    "en": "Shared Infrastructure Layers",
+    "fa": "لایههای زیرساخت مشترک"
+  },
+  "subtitle": {
+    "en": "Foundational principles of the",
+    "fa": "اصول بنیادین طرح"
+  },
+  "keyCapabilitiesLabel": {
+    "en": "KEY CAPABILITIES",
+    "fa": "قابلیتهای کلیدی"
+  },
+  "connectedSectorsLabel": {
+    "en": "CONNECTED SECTORS",
+    "fa": "بخشهای متصل"
+  },
+  "layerDetails": [
+    {
+      "sectors": ["governance", "citizens", "economy", "justice"],
+      "features": {
+        "en": [
+          "Tamper-proof voting records",
+          "Budget allocation audit trails",
+          "Cross-provincial sync"
+        ],
+        "fa": [
+          "سوابق رأیگیری ضدتقلب",
+          "ردیابی تخصیص بودجه",
+          "همگامسازی بین استانها"
+        ]
+      }
+    },
+    {
+      "sectors": ["citizens", "healthcare", "social", "justice"],
+      "features": {
+        "en": [
+          "Anonymous credential verification",
+          "Medical record privacy",
+          "Selective disclosure proofs"
+        ],
+        "fa": [
+          "تأیید مدارک ناشناس",
+          "حریم خصوصی پرونده پزشکی",
+          "اثباتهای افشای انتخابی"
+        ]
+      }
+    },
+    {
+      "sectors": ["citizens", "education", "healthcare", "housing"],
+      "features": {
+        "en": [
+          "Citizen-owned data vaults",
+          "Temporary access delegation",
+          "Cross-sector data portability"
+        ],
+        "fa": [
+          "صندوق دادههای متعلق به شهروندان",
+          "واگذاری دسترسی موقت",
+          "قابلیت انتقال داده بینبخشی"
+        ]
+      }
+    },
+    {
+      "sectors": ["economy", "resources", "business", "governance"],
+      "features": {
+        "en": [
+          "Real-time budget anomaly alerts",
+          "Procurement fraud detection",
+          "Public spending dashboards"
+        ],
+        "fa": [
+          "هشدار ناهنجاری بودجه بلادرنگ",
+          "تشخیص تقلب در تدارکات",
+          "داشبوردهای هزینه عمومی"
+        ]
+      }
+    },
+    {
+      "sectors": ["infrastructure", "media", "environment", "culture"],
+      "features": {
+        "en": [
+          "Standardized API contracts",
+          "Provincial DAO connectors",
+          "Cross-chain bridge protocols"
+        ],
+        "fa": [
+          "قراردادهای API استاندارد",
+          "اتصالدهندههای DAO استانی",
+          "پروتکلهای پل بینزنجیرهای"
+        ]
+      }
+    }
+  ]
+}

@@ -202,3 +202,15 @@
     .about-principle-desc { font-size: 13px; }
     .about-contact-btn { font-size: 14px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .about-title,
+[dir="rtl"] .about-subtitle,
+[dir="rtl"] .about-section-title,
+[dir="rtl"] .about-section-body,
+[dir="rtl"] .about-principle-title,
+[dir="rtl"] .about-principle-desc,
+[dir="rtl"] .about-contact-btn {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

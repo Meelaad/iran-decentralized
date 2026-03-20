@@ -1,0 +1,102 @@
+{
+  "heroEyebrow": {
+    "en": "STAGE 2 OF 2 · POST-TRANSITION",
+    "fa": "مرحله ۲ از ۲ · پس از انتقال"
+  },
+  "heroTitle": {
+    "en": "The Destination",
+    "fa": "مقصد"
+  },
+  "heroSubtitle": {
+    "en": "After the transition is complete, Iranians choose their permanent system of government. This is where the diaspora and citizens worldwide weigh in on what Iran becomes.",
+    "fa": "پس از اتمام دوره انتقال، ایرانیان نظام حکومتی دائمی خود را انتخاب میکنند. اینجاست که دیاسپورا و شهروندان جهان در مورد آینده ایران نظر میدهند."
+  },
+  "voteSectionHeading": {
+    "en": "Where does the diaspora stand?",
+    "fa": "دیاسپورا کجا ایستاده است؟"
+  },
+  "voteSectionSub": {
+    "en": "Live blueprint vote distribution",
+    "fa": "توزیع زنده آرای طرحهای حکومتی"
+  },
+  "voteLink": {
+    "en": "Cast your vote →",
+    "fa": "رأی خود را ثبت کنید ←"
+  },
+  "blueprintsSectionHeading": {
+    "en": "Governance Blueprints",
+    "fa": "طرحهای حکومتی"
+  },
+  "blueprintsSectionSub": {
+    "en": "Six proposed systems for Iran's permanent government",
+    "fa": "شش نظام پیشنهادی برای حکومت دائمی ایران"
+  },
+  "votesLabel": {
+    "en": "Votes:",
+    "fa": "آرا:"
+  },
+  "shareLabel": {
+    "en": "Share:",
+    "fa": "سهم:"
+  },
+  "sectorsLabel": {
+    "en": "Sectors:",
+    "fa": "بخشها:"
+  },
+  "exploreButton": {
+    "en": "EXPLORE →",
+    "fa": "کاوش ←"
+  },
+  "sectorsButton": {
+    "en": "SECTORS →",
+    "fa": "بخشها ←"
+  },
+  "compareButton": {
+    "en": "COMPARE →",
+    "fa": "مقایسه ←"
+  },
+  "howWorksHeading": {
+    "en": "How it works",
+    "fa": "نحوه عملکرد"
+  },
+  "howWorksSub": {
+    "en": "Two stages. One referendum.",
+    "fa": "دو مرحله. یک همهپرسی."
+  },
+  "step1Num": {
+    "en": "STEP 1",
+    "fa": "مرحله ۱"
+  },
+  "step1Title": {
+    "en": "Arena decides the transition",
+    "fa": "میدان دوره انتقال را تعیین میکند"
+  },
+  "step1Desc": {
+    "en": "Plans competing in the Transition Arena define how power transfers, which institutions dissolve, and what temporary governance looks like.",
+    "fa": "طرحهای رقیب در میدان انتقال تعیین میکنند که چگونه قدرت منتقل میشود، کدام نهادها منحل میشوند و حکومت موقت چگونه خواهد بود."
+  },
+  "step2Num": {
+    "en": "STEP 2",
+    "fa": "مرحله ۲"
+  },
+  "step2Title": {
+    "en": "Destination decides the end state",
+    "fa": "مقصد وضعیت نهایی را تعیین میکند"
+  },
+  "step2Desc": {
+    "en": "The six governance blueprints on this page represent the candidate permanent systems. Citizens vote on which one Iran should adopt permanently.",
+    "fa": "شش طرح حکومتی در این صفحه نمایانگر نظامهای دائمی نامزد هستند. شهروندان رأی میدهند که ایران کدام نظام را به طور دائمی بپذیرد."
+  },
+  "step3Num": {
+    "en": "STEP 3",
+    "fa": "مرحله ۳"
+  },
+  "step3Title": {
+    "en": "Both feed into the referendum",
+    "fa": "هر دو به همهپرسی ختم میشوند"
+  },
+  "step3Desc": {
+    "en": "The winning transition plan and the leading destination blueprint are presented together in a national referendum — the first free vote in Iran's modern history.",
+    "fa": "طرح انتقالی برنده و طرح مقصد پیشرو با هم در یک همهپرسی ملی ارائه میشوند — اولین رأیگیری آزاد در تاریخ معاصر ایران."
+  }
+}

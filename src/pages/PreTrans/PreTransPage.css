@@ -112,3 +112,17 @@
     transition: color 0.15s;
 }
 .pretrans-phase2-link:hover { color: #7c72e8; }
+
+
+/* ── RTL ── */
+[dir="rtl"] .pretrans-inner { letter-spacing: 0; font-family: 'Irancell', sans-serif; }
+[dir="rtl"] .pretrans-back { font-family: 'Irancell Mono', monospace; }
+[dir="rtl"] .pretrans-eyebrow { font-family: 'Irancell Mono', monospace; }
+[dir="rtl"] .pretrans-title { font-family: 'Irancell', sans-serif; }
+[dir="rtl"] .pretrans-sub { font-family: 'Irancell', sans-serif; }
+[dir="rtl"] .pretrans-card-title { font-family: 'Irancell Mono', monospace; }
+[dir="rtl"] .pretrans-grid { direction: rtl; }
+[dir="rtl"] .pretrans-card-desc {font-family: 'Irancell', sans-serif;text-align: right;}
+[dir="rtl"] .pretrans-footer { text-align: right; }
+[dir="rtl"] .pretrans-phase2-link { font-family: 'Irancell Mono', monospace; }
+[dir="rtl"] .pretrans-card { text-align: right; }

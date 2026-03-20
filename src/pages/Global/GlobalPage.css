@@ -406,3 +406,20 @@
     .gm-stat-card-title { font-size: 13px; }
     .gm-data-note { font-size: 13px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .gm-eyebrow,
+[dir="rtl"] .gm-title,
+[dir="rtl"] .gm-subtitle,
+[dir="rtl"] .gm-total-label,
+[dir="rtl"] .gm-countries-title,
+[dir="rtl"] .gm-stat-card-title,
+[dir="rtl"] .gm-data-note,
+[dir="rtl"] .gm-city-panel-region,
+[dir="rtl"] .gm-city-panel-name,
+[dir="rtl"] .gm-city-panel-label,
+[dir="rtl"] .gm-city-panel-note,
+[dir="rtl"] .gm-under-construction {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

@@ -634,7 +634,19 @@
 [dir="rtl"] .mp-hero-title,
 [dir="rtl"] .mp-sechead-title {
   letter-spacing: 0;
+  font-family: 'Irancell', sans-serif;
 }
+
+[dir="rtl"] .mp-hero-eyebrow,
+[dir="rtl"] .mp-hero-desc,
+[dir="rtl"] .mp-badge,
+[dir="rtl"] .mp-sechead-eyebrow,
+[dir="rtl"] .mp-sechead-intro,
+[dir="rtl"] .mp-acc-title,
+[dir="rtl"] .mp-acc-subtitle,
+[dir="rtl"] .mp-bullet-item,
+[dir="rtl"] .mp-source,
+[dir="rtl"] .mp-footer-nav-link { font-family: 'Irancell', sans-serif; }
 
 [dir="rtl"] .mp-demand-row,
 [dir="rtl"] .mp-timeline-shift {

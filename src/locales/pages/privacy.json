@@ -1,0 +1,66 @@
+{
+  "eyebrow": {
+    "en": "LEGAL",
+    "fa": "سند قانونی"
+  },
+  "title": {
+    "en": "Privacy Policy",
+    "fa": "سیاست حریم خصوصی"
+  },
+  "date": {
+    "en": "Last updated: March 2026",
+    "fa": "آخرین بهروزرسانی: مارس ۲۰۲۶"
+  },
+  "sections": [
+    {
+      "heading": {
+        "en": "Overview",
+        "fa": "مرور کلی"
+      },
+      "body": {
+        "en": "IranDAO is a decentralized governance platform. This policy explains what information we collect and how we use it.",
+        "fa": "ایراندائو یک پلتفرم حاکمیت غیرمتمرکز است. این سیاست توضیح میدهد که چه اطلاعاتی جمعآوری میکنیم و چگونه از آن استفاده میکنیم."
+      }
+    },
+    {
+      "heading": {
+        "en": "What We Collect",
+        "fa": "آنچه جمعآوری میکنیم"
+      },
+      "body": {
+        "en": "We collect information and technical data from your device to operate and protect the platform. This includes information you provide during registration and technical signals from your browser used for security purposes.",
+        "fa": "ما اطلاعات و دادههای فنی از دستگاه شما را برای راهاندازی و محافظت از پلتفرم جمعآوری میکنیم. این شامل اطلاعاتی است که در هنگام ثبتنام ارائه میدهید و سیگنالهای فنی از مرورگر شما که برای اهداف امنیتی استفاده میشود."
+      }
+    },
+    {
+      "heading": {
+        "en": "How We Use It",
+        "fa": "چگونه استفاده میکنیم"
+      },
+      "body": {
+        "en": "Collected information is used solely to operate the platform, verify identities, detect abuse, and protect the community. We do not sell, share, or transfer your data to third parties.",
+        "fa": "اطلاعات جمعآوریشده صرفاً برای راهاندازی پلتفرم، تأیید هویت، تشخیص سوءاستفاده و حفاظت از جامعه استفاده میشود. ما دادههای شما را به اشخاص ثالث نمیفروشیم، به اشتراک نمیگذاریم یا منتقل نمیکنیم."
+      }
+    },
+    {
+      "heading": {
+        "en": "Data Security",
+        "fa": "امنیت داده"
+      },
+      "body": {
+        "en": "Your data is stored securely and access is strictly limited to platform administrators. We take reasonable technical measures to protect against unauthorised access.",
+        "fa": "دادههای شما به صورت امن ذخیره میشود و دسترسی به آنها کاملاً محدود به مدیران پلتفرم است. ما اقدامات فنی معقولی برای محافظت در برابر دسترسی غیرمجاز انجام میدهیم."
+      }
+    },
+    {
+      "heading": {
+        "en": "Contact",
+        "fa": "تماس"
+      },
+      "body": {
+        "en": "If you have questions about this policy or your data, contact us through the support page.",
+        "fa": "اگر سؤالی درباره این سیاست یا دادههای خود دارید، از طریق صفحه پشتیبانی با ما تماس بگیرید."
+      }
+    }
+  ]
+}

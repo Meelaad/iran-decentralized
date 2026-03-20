@@ -1,0 +1,380 @@
+{
+  "eyebrow": {
+    "en": "CITIZEN PORTAL",
+    "fa": "پورتال شهروندی"
+  },
+  "title": {
+    "en": "Join IranDAO",
+    "fa": "به ایراندائو بپیوندید"
+  },
+  "subtitle": {
+    "en": "Register your sovereign digital identity. No passwords. Your email is your key.",
+    "fa": "هویت دیجیتال مستقل خود را ثبت کنید. بدون رمز عبور. ایمیل شما کلید شماست."
+  },
+  "stepLabels": [
+    {
+      "en": "DETAILS",
+      "fa": "اطلاعات"
+    },
+    {
+      "en": "VERIFY",
+      "fa": "تأیید"
+    }
+  ],
+  "typeCitizen": {
+    "en": "Citizen",
+    "fa": "شهروند داخلی"
+  },
+  "typeDiaspora": {
+    "en": "Diaspora",
+    "fa": "دیاسپورا"
+  },
+  "labelBlueprint": {
+    "en": "PREFERRED GOVERNANCE MODEL",
+    "fa": "مدل حاکمیتی مورد نظر"
+  },
+  "labelName": {
+    "en": "FULL NAME",
+    "fa": "نام و نام خانوادگی"
+  },
+  "labelCountry": {
+    "en": "COUNTRY",
+    "fa": "کشور"
+  },
+  "labelEmail": {
+    "en": "EMAIL",
+    "fa": "ایمیل"
+  },
+  "placeholderName": {
+    "en": "Your full name",
+    "fa": "نام کامل شما"
+  },
+  "placeholderEmail": {
+    "en": "you@example.com",
+    "fa": "you@example.com"
+  },
+  "selectCountry": {
+    "en": "Select your country",
+    "fa": "کشور خود را انتخاب کنید"
+  },
+  "btnSend": {
+    "en": "SEND VERIFICATION CODE",
+    "fa": "ارسال کد تأیید"
+  },
+  "btnVerify": {
+    "en": "VERIFY & JOIN",
+    "fa": "تأیید و پیوستن"
+  },
+  "btnBack": {
+    "en": "← BACK",
+    "fa": "← بازگشت"
+  },
+  "btnResend": {
+    "en": "Resend code",
+    "fa": "ارسال مجدد کد"
+  },
+  "verifyText": {
+    "en": "We sent a 6-digit code to",
+    "fa": "یک کد ۶ رقمی به این آدرس ارسال شد"
+  },
+  "verifyHint": {
+    "en": "Enter the 6-digit code from your email. Check spam if you don't see it.",
+    "fa": "کد ۶ رقمی را از ایمیل خود وارد کنید. اگر آن را نمیبینید پوشه اسپم را بررسی کنید."
+  },
+  "otpLabel": {
+    "en": "VERIFICATION CODE",
+    "fa": "کد تأیید"
+  },
+  "successTitle": {
+    "en": "Identity Registered",
+    "fa": "هویت ثبت شد"
+  },
+  "successBody": {
+    "en": "Your sovereign digital identity has been created. Welcome to IranDAO.",
+    "fa": "هویت دیجیتال مستقل شما ایجاد شد. به ایراندائو خوش آمدید."
+  },
+  "successTag": {
+    "en": "ACCESS GRANTED",
+    "fa": "دسترسی تأیید شد"
+  },
+  "footnote": {
+    "en": "No passwords stored. No seed phrases. Your email verifies your identity.",
+    "fa": "هیچ رمز عبوری ذخیره نمیشود. بدون عبارت بازیابی. ایمیل شما هویت شما را تأیید میکند."
+  },
+  "inviteOnly": {
+    "en": "Registration is currently by invitation only.",
+    "fa": "ثبتنام در حال حاضر فقط با دعوتنامه امکانپذیر است."
+  },
+  "labelInvite": {
+    "en": "INVITE CODE",
+    "fa": "کد دعوت"
+  },
+  "placeholderInvite": {
+    "en": "Enter your 6–8 character invite code",
+    "fa": "کد دعوت ۶ تا ۸ کاراکتری خود را وارد کنید"
+  },
+  "errors": {
+    "inviteRequired": {
+      "en": "An invite code is required.",
+      "fa": "کد دعوت الزامی است."
+    },
+    "inviteInvalid": {
+      "en": "Invalid invite code format. Codes are 6–8 characters (letters and numbers).",
+      "fa": "فرمت کد دعوت نامعتبر است. کدها ۶ تا ۸ کاراکتر هستند."
+    },
+    "inviteNotFound": {
+      "en": "Invite code not found. Please check and try again.",
+      "fa": "کد دعوت یافت نشد. لطفاً دوباره بررسی کنید."
+    },
+    "inviteUsed": {
+      "en": "This invite code has already been used.",
+      "fa": "این کد دعوت قبلاً استفاده شده است."
+    },
+    "nameRequired": {
+      "en": "Full name is required.",
+      "fa": "نام کامل الزامی است."
+    },
+    "nameInvalid": {
+      "en": "Please enter your name correctly.",
+      "fa": "لطفاً نام خود را به درستی وارد کنید."
+    },
+    "countryRequired": {
+      "en": "Please select your country.",
+      "fa": "لطفاً کشور خود را انتخاب کنید."
+    },
+    "countryNameInvalid": {
+      "en": "Please enter a valid country name.",
+      "fa": "لطفاً یک نام کشور معتبر وارد کنید."
+    },
+    "emailRequired": {
+      "en": "Email address is required.",
+      "fa": "آدرس ایمیل الزامی است."
+    },
+    "emailInvalid": {
+      "en": "Please use a valid email address.",
+      "fa": "لطفاً یک آدرس ایمیل معتبر وارد کنید."
+    },
+    "emailDomain": {
+      "en": "Please use a recognised email provider or institutional address.",
+      "fa": "لطفاً از یک ارائهدهنده ایمیل شناختهشده یا آدرس ایمیل دانشگاهی استفاده کنید."
+    },
+    "otpIncomplete": {
+      "en": "Please enter the full 6-digit code.",
+      "fa": "لطفاً کد ۶ رقمی را کامل وارد کنید."
+    },
+    "generic": {
+      "en": "Something went wrong. Please try again.",
+      "fa": "خطایی رخ داد. لطفاً دوباره تلاش کنید."
+    },
+    "rateLimit": {
+      "en": "We are currently experiencing a high volume of requests. Please try again in an hour.",
+      "fa": "در حال حاضر با حجم بالایی از درخواستها مواجه هستیم. لطفاً یک ساعت دیگر دوباره تلاش کنید."
+    },
+    "otpInvalid": {
+      "en": "The code you entered is incorrect or has expired. Please check and try again, or request a new code.",
+      "fa": "کد واردشده اشتباه است یا منقضی شده. لطفاً دوباره بررسی کنید یا کد جدیدی درخواست دهید."
+    },
+    "serverError": {
+      "en": "A system error occurred. If this keeps happening, please contact support.",
+      "fa": "خطای سیستمی رخ داد. اگر مشکل ادامه دارد، لطفاً با پشتیبانی تماس بگیرید."
+    }
+  },
+  "contactSupport": {
+    "en": "Contact Support",
+    "fa": "تماس با پشتیبانی"
+  },
+  "countries": [
+    {
+      "en": "Iran",
+      "fa": "ایران"
+    },
+    {
+      "en": "United States",
+      "fa": "ایالات متحده"
+    },
+    {
+      "en": "United Arab Emirates",
+      "fa": "امارات متحده عربی"
+    },
+    {
+      "en": "Germany",
+      "fa": "آلمان"
+    },
+    {
+      "en": "Canada",
+      "fa": "کانادا"
+    },
+    {
+      "en": "Sweden",
+      "fa": "سوئد"
+    },
+    {
+      "en": "United Kingdom",
+      "fa": "بریتانیا"
+    },
+    {
+      "en": "Australia",
+      "fa": "استرالیا"
+    },
+    {
+      "en": "Turkey",
+      "fa": "ترکیه"
+    },
+    {
+      "en": "Israel",
+      "fa": "اسرائیل"
+    },
+    {
+      "en": "France",
+      "fa": "فرانسه"
+    },
+    {
+      "en": "Netherlands",
+      "fa": "هلند"
+    },
+    {
+      "en": "Norway",
+      "fa": "نروژ"
+    },
+    {
+      "en": "Azerbaijan",
+      "fa": "آذربایجان"
+    },
+    {
+      "en": "Austria",
+      "fa": "اتریش"
+    },
+    {
+      "en": "Denmark",
+      "fa": "دانمارک"
+    },
+    {
+      "en": "Switzerland",
+      "fa": "سوئیس"
+    },
+    {
+      "en": "Russia",
+      "fa": "روسیه"
+    },
+    {
+      "en": "Belgium",
+      "fa": "بلژیک"
+    },
+    {
+      "en": "Iraq",
+      "fa": "عراق"
+    },
+    {
+      "en": "Spain",
+      "fa": "اسپانیا"
+    },
+    {
+      "en": "Italy",
+      "fa": "ایتالیا"
+    },
+    {
+      "en": "Georgia",
+      "fa": "گرجستان"
+    },
+    {
+      "en": "Armenia",
+      "fa": "ارمنستان"
+    },
+    {
+      "en": "Greece",
+      "fa": "یونان"
+    },
+    {
+      "en": "Bahrain",
+      "fa": "بحرین"
+    },
+    {
+      "en": "Tajikistan",
+      "fa": "تاجیکستان"
+    },
+    {
+      "en": "Malaysia",
+      "fa": "مالزی"
+    },
+    {
+      "en": "Finland",
+      "fa": "فنلاند"
+    },
+    {
+      "en": "Pakistan",
+      "fa": "پاکستان"
+    },
+    {
+      "en": "India",
+      "fa": "هند"
+    },
+    {
+      "en": "Kuwait",
+      "fa": "کویت"
+    },
+    {
+      "en": "Qatar",
+      "fa": "قطر"
+    },
+    {
+      "en": "Saudi Arabia",
+      "fa": "عربستان سعودی"
+    },
+    {
+      "en": "Oman",
+      "fa": "عمان"
+    },
+    {
+      "en": "Japan",
+      "fa": "ژاپن"
+    },
+    {
+      "en": "Brazil",
+      "fa": "برزیل"
+    },
+    {
+      "en": "Argentina",
+      "fa": "آرژانتین"
+    },
+    {
+      "en": "New Zealand",
+      "fa": "نیوزیلند"
+    },
+    {
+      "en": "South Korea",
+      "fa": "کره جنوبی"
+    },
+    {
+      "en": "Ireland",
+      "fa": "ایرلند"
+    },
+    {
+      "en": "Portugal",
+      "fa": "پرتغال"
+    },
+    {
+      "en": "Czech Republic",
+      "fa": "جمهوری چک"
+    },
+    {
+      "en": "Poland",
+      "fa": "لهستان"
+    },
+    {
+      "en": "Hungary",
+      "fa": "مجارستان"
+    },
+    {
+      "en": "Romania",
+      "fa": "رومانی"
+    },
+    {
+      "en": "Afghanistan",
+      "fa": "افغانستان"
+    },
+    {
+      "en": "Other",
+      "fa": "سایر"
+    }
+  ]
+}

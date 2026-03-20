@@ -555,7 +555,35 @@
 
 /* ── RTL ── */
 [dir="rtl"] .cs-hero-title,
-[dir="rtl"] .cs-sechead-title { letter-spacing: 0; }
+[dir="rtl"] .cs-sechead-title { letter-spacing: 0; font-family: 'Irancell', sans-serif; }
+
+[dir="rtl"] .cs-hero-eyebrow,
+[dir="rtl"] .cs-hero-desc,
+[dir="rtl"] .cs-badge,
+[dir="rtl"] .cs-sechead-eyebrow,
+[dir="rtl"] .cs-sechead-intro,
+[dir="rtl"] .cs-seg-label,
+[dir="rtl"] .cs-acc-title,
+[dir="rtl"] .cs-acc-subtitle,
+[dir="rtl"] .cs-bullet-item,
+[dir="rtl"] .cs-banner-label,
+[dir="rtl"] .cs-banner-text,
+[dir="rtl"] .cs-pillar-title,
+[dir="rtl"] .cs-pillar-sub,
+[dir="rtl"] .cs-org-domain,
+[dir="rtl"] .cs-org-orgs,
+[dir="rtl"] .cs-org-fn,
+[dir="rtl"] .cs-phase-label,
+[dir="rtl"] .cs-phase-title,
+[dir="rtl"] .cs-econ-sector,
+[dir="rtl"] .cs-econ-regime,
+[dir="rtl"] .cs-econ-charter,
+[dir="rtl"] .cs-article-text,
+[dir="rtl"] .cs-strat-label,
+[dir="rtl"] .cs-strat-title,
+[dir="rtl"] .cs-conclusion,
+[dir="rtl"] .cs-source,
+[dir="rtl"] .cs-footer-nav-link { font-family: 'Irancell', sans-serif; }
 
 [dir="rtl"] .cs-econ-table-head,
 [dir="rtl"] .cs-econ-table-row { direction: rtl; }

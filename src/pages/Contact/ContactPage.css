@@ -302,3 +302,20 @@
     .contact-detail-label { font-size: 12px; }
     .contact-detail-val { font-size: 14px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .contact-eyebrow,
+[dir="rtl"] .contact-title,
+[dir="rtl"] .contact-subtitle,
+[dir="rtl"] .contact-label,
+[dir="rtl"] .contact-input,
+[dir="rtl"] .contact-textarea,
+[dir="rtl"] .contact-msg-hint,
+[dir="rtl"] .contact-submit-btn,
+[dir="rtl"] .contact-error-list,
+[dir="rtl"] .contact-success-title,
+[dir="rtl"] .contact-success-body,
+[dir="rtl"] .contact-success-tag {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

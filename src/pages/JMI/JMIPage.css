@@ -183,7 +183,19 @@
 .jmi-source { text-align: center; font-size: 11px; color: #3a5468; margin-top: 44px; padding-top: 18px; border-top: 1px solid rgba(232,200,64,0.07); letter-spacing: 0.04em; }
 
 /* ── RTL ── */
-[dir="rtl"] .jmi-hero-title, [dir="rtl"] .jmi-sechead-title { letter-spacing: 0; }
+[dir="rtl"] .jmi-hero-title,
+[dir="rtl"] .jmi-sechead-title { letter-spacing: 0; font-family: 'Irancell', sans-serif; }
+
+[dir="rtl"] .jmi-hero-eyebrow,
+[dir="rtl"] .jmi-hero-desc,
+[dir="rtl"] .jmi-badge,
+[dir="rtl"] .jmi-sechead-eyebrow,
+[dir="rtl"] .jmi-sechead-intro,
+[dir="rtl"] .jmi-acc-title,
+[dir="rtl"] .jmi-bullet-item,
+[dir="rtl"] .jmi-phase-obj,
+[dir="rtl"] .jmi-source,
+[dir="rtl"] .jmi-footer-nav-link { font-family: 'Irancell', sans-serif; }
 [dir="rtl"] .jmi-evo-head, [dir="rtl"] .jmi-evo-row,
 [dir="rtl"] .jmi-inst-head, [dir="rtl"] .jmi-inst-row { direction: rtl; }
 

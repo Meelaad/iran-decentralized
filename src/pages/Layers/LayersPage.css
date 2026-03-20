@@ -198,3 +198,16 @@
     .layer-features-list li { font-size: 13px; }
     .layer-sector-chip { font-size: 12px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .layers-title,
+[dir="rtl"] .layers-subtitle,
+[dir="rtl"] .layer-card-name,
+[dir="rtl"] .layer-card-desc,
+[dir="rtl"] .layer-features-label,
+[dir="rtl"] .layer-sectors-label,
+[dir="rtl"] .layer-features-list li,
+[dir="rtl"] .layer-sector-chip {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

@@ -1,0 +1,72 @@
+{
+  "backLink": {
+    "en": "Back to path selection",
+    "fa": "بازگشت به انتخاب مسیر"
+  },
+  "eyebrow": {
+    "en": "PHASE I — PRE-TRANSITIONAL",
+    "fa": "مرحله یک — پیشانتقالی"
+  },
+  "title": {
+    "en": "Transitional Governance",
+    "fa": "حاکمیت انتقالی"
+  },
+  "subtitle": {
+    "en": "When the regime falls, there will be a power vacuum. This platform prepares the diaspora to fill it with a legitimate, pre-agreed transitional framework.",
+    "fa": "وقتی رژیم فرو میپاشد، خلأ قدرتی به وجود میآید. این پلتفرم دیاسپورا را برای پر کردن آن با یک چارچوب انتقالی مشروع و از پیش توافقشده آماده میکند."
+  },
+  "sections": [
+    {
+      "icon": "🏛",
+      "title": {
+        "en": "Main Stage",
+        "fa": "صحنه اصلی"
+      },
+      "desc": {
+        "en": "Endorse or oppose active transitional plans put forward by coalitions and movements.",
+        "fa": "طرحهای انتقالی فعال ارائهشده توسط ائتلافها را تأیید یا رد کنید."
+      },
+      "to": "/transition/main-stage"
+    },
+    {
+      "icon": "🌱",
+      "title": {
+        "en": "Plan Incubator",
+        "fa": "پرورشگاه طرح"
+      },
+      "desc": {
+        "en": "Propose a new grassroots plan and gather the 10,000 signatures needed for the Main Stage.",
+        "fa": "یک طرح مردمی جدید پیشنهاد دهید و ۱۰,۰۰۰ امضای لازم را جمعآوری کنید."
+      },
+      "to": "/transition/incubator"
+    },
+    {
+      "icon": "📜",
+      "title": {
+        "en": "Amendment Floor",
+        "fa": "پیشنهاد اصلاحی در صحن"
+      },
+      "desc": {
+        "en": "Propose and vote on line-item changes to any active plan in real time.",
+        "fa": "تغییرات خطبهخط طرحهای فعال را پیشنهاد دهید و رأی بدهید."
+      },
+      "to": "/transition/amendment-floor"
+    },
+    {
+      "icon": "⚖️",
+      "title": {
+        "en": "Shadow Cabinet",
+        "fa": "دولت سایه"
+      },
+      "desc": {
+        "en": "Nominate and elect sector experts to a shadow government using ranked-choice voting.",
+        "fa": "کارشناسان بخشی را برای دولت سایه معرفی و با رأی ترجیحی انتخاب کنید."
+      },
+      "to": "/transition/shadow-cabinet"
+    }
+  ],
+  "phase2Link": {
+    "en": "Phase II: Permanent Constitution →",
+    "fa": "← مرحله دوم: قانون اساسی دائمی"
+  }
+}

@@ -348,3 +348,20 @@
     .compare-cta { font-size: 13px; }
     .compare-back { font-size: 13px; }
 }
+
+/* ── RTL ── */
+[dir="rtl"] .compare-kicker,
+[dir="rtl"] .compare-title,
+[dir="rtl"] .compare-selector-label,
+[dir="rtl"] .compare-select,
+[dir="rtl"] .compare-stat-label,
+[dir="rtl"] .compare-col-header,
+[dir="rtl"] .compare-tier-label,
+[dir="rtl"] .compare-sector-name,
+[dir="rtl"] .compare-sector-tier-badge,
+[dir="rtl"] .compare-layers-title,
+[dir="rtl"] .compare-layer-chip,
+[dir="rtl"] .compare-conn-label {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

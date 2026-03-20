@@ -58,13 +58,16 @@ function App() {
                 <Routes>
                     {/* Standalone pages without the main layout */}
                     <Route path="/" element={<StartPage />} />
-                    <Route path="/access-mode" element={<AccessModePage />} />
-                    <Route path="/pre" element={<PreTransPage />} />
-                    <Route path="/choose" element={<StartSelection />} />
                     <Route path="/profile" element={<ProfilePage />} />
 
                     {/* Main application routes with Layout */}
                     <Route path="/" element={<Layout />}>
+                        {/* Access flow pages */}
+                        <Route path="access-mode" element={<AccessModePage />} />
+                        <Route path="choose" element={<StartSelection />} />
+                        <Route path="pre" element={<PreTransPage />} />
+                        
+                        {/* Blueprint routes */}
                         <Route path="blueprint/gov/:blueprintId" element={<BlueprintViewer />} />
                         <Route path="blueprint/gov/:blueprintId/sectors" element={<SectorsIndex />} />
                         <Route path="blueprint/gov/:blueprintId/sectors/:sectorId" element={<SectorPage />} />
