@@ -127,7 +127,8 @@
     "chooseSubtitle": "This registers your vote and personalizes your experience. You can change it anytime.",
     "chooseConfirm": "SELECT THIS MODEL →",
     "birthYear": "BIRTH YEAR",
-    "birthYearPlaceholder": "e.g. 1995",
+    "birthYearPlaceholder": "e.g. 1995 (Gregorian) or 1374 (Shamsi)",
+    "birthYearConverted": "Converted from Shamsi: {{year}} CE",
     "tooYoungTitle": "Age Requirement Not Met",
     "tooYoung": "Registration requires age 13 or older. If you are younger, a parent, guardian, or caretaker can register on the platform and note your presence in their profile — adding you to the count of Iranians represented here."
   },

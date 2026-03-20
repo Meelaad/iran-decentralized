@@ -31,7 +31,7 @@ export function useAuth() {
             .from('profiles')
             .select('is_admin, full_name')
             .eq('id', userId)
-            .single();
+            .maybeSingle();
         setIsAdmin(data?.is_admin === true);
         if (data?.full_name) setProfileName(data.full_name.split(' ')[0]);
     }

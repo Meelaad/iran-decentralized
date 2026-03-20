@@ -585,6 +585,14 @@
     color: #8B5CF6;
 }
 
+/* ── Shamsi conversion hint ── */
+.reg-shamsi-hint {
+    margin: 6px 0 0;
+    font-size: 11px;
+    color: #26DEC2;
+    letter-spacing: 0.5px;
+}
+
 /* ── Caretaker / too-young message ── */
 .reg-caretaker-msg {
     padding: 14px 16px;

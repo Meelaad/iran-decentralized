@@ -34,14 +34,14 @@ export default function StartSelection() {
             <div className="ss-bg-grid" style={{ viewTransitionName: 'standalone-bg' }} />
 
             {/* Language switcher + theme toggle */}
-            <div className="ss-lang" style={{ viewTransitionName: 'standalone-topbar' }}>
+            {/* <div className="ss-lang" style={{ viewTransitionName: 'standalone-topbar' }}>
                 <ThemeSwitch />
                 <button className={`ss-lang-btn${lang === 'fa' ? ' is-active' : ''}`} onClick={() => setLang('fa')} style={{ fontFamily: headFont }}>فارسی</button>
                 <button className={`ss-lang-btn${lang === 'en' ? ' is-active' : ''}`} onClick={() => setLang('en')}>EN</button>
-            </div>
+            </div> */}
 
             {/* Mobile menu button */}
-            <div className="ss-mobile-menu">
+            {/* <div className="ss-mobile-menu">
                 <button className="ss-mobile-menu-btn" onClick={() => setMenuOpen(o => !o)} aria-label="Menu">
                     {menuOpen
                         ? <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l3.22 3.22a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-3.22 3.22a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" /></svg>
@@ -57,7 +57,7 @@ export default function StartSelection() {
                         </div>
                     </div>
                 )}
-            </div>
+            </div> */}
 
             <header className="ss-header">
                 <BrandMark size="sm" />

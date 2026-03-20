@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { collectMetadata } from '../../lib/collectMetadata';
+import { isShamsiYear, shamsiYearToGregorian } from '../../lib/shamsi';
 import { BLUEPRINTS } from '../../data';
 import { Turnstile } from '@marsidev/react-turnstile';
 import './RegisterPage.css';
@@ -401,6 +402,17 @@ export default function RegisterPage() {
         return () => clearTimeout(timer);
     }, [cooldown]);
 
+    // ── Shamsi year detection & conversion ─────────────────────────────────
+    // Returns the Gregorian year to use for age checks and DB storage.
+    // If the raw input is a Shamsi year (1280–1499), converts to Gregorian.
+    // Otherwise returns the parsed integer as-is.
+    function getResolvedYear(raw) {
+        const n = parseInt(raw, 10);
+        if (isNaN(n)) return NaN;
+        if (isShamsiYear(n)) return shamsiYearToGregorian(n);
+        return n;
+    }
+
     // ── Validation ─────────────────────────────────────────────────────────
 
     function validateForm() {
@@ -452,13 +464,13 @@ export default function RegisterPage() {
         e.preventDefault();
         // Age check before other validation
         const currentYear = new Date().getFullYear();
-        const yearNum = parseInt(birthYear, 10);
-        if (!birthYear || isNaN(yearNum) || yearNum < 1900 || yearNum > currentYear) {
+        const resolvedYear = getResolvedYear(birthYear);
+        if (!birthYear || isNaN(resolvedYear) || resolvedYear < 1900 || resolvedYear > currentYear) {
             setError(isRTL ? 'لطفاً سال تولد معتبر وارد کنید.' : 'Please enter a valid birth year.');
             setShowCaretakerMsg(false);
             return;
         }
-        if (currentYear - yearNum < 13) {
+        if (currentYear - resolvedYear < 13) {
             setShowCaretakerMsg(true);
             setError(null);
             return;
@@ -581,12 +593,12 @@ export default function RegisterPage() {
 
     async function handleChooseBlueprint(bpId) {
         setPreferredBlueprint(bpId);
-        setStep('success');
-        // Complete registration with chosen blueprint (best-effort)
+        setLoading(true);
+        setError(null);
         try {
             const { data: { session } } = await supabase.auth.getSession();
             const metadata = await collectMetadata();
-            await fetch('/api/auth/register', {
+            const res = await fetch('/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -598,12 +610,21 @@ export default function RegisterPage() {
                     country: country === 'Other' ? customCountry.trim() : country,
                     user_type: userType,
                     preferred_blueprint: bpId,
-                    birth_year: parseInt(birthYear, 10) || null,
+                    birth_year: getResolvedYear(birthYear) || null,
                     metadata,
                     turnstile_token: turnstileToken || undefined,
                 }),
             });
-        } catch { /* silent */ }
+            if (!res.ok) {
+                const json = await res.json().catch(() => ({}));
+                throw new Error(json.error || t(CONTENT.errors.serverError));
+            }
+            setStep('success');
+        } catch (err) {
+            setError(err.message || t(CONTENT.errors.serverError));
+        } finally {
+            setLoading(false);
+        }
     }
 
     // ── Resend ─────────────────────────────────────────────────────────────
@@ -823,6 +844,11 @@ export default function RegisterPage() {
                                     disabled={loading}
                                     dir="ltr"
                                 />
+                                {isShamsiYear(parseInt(birthYear, 10)) && (
+                                    <p className="reg-shamsi-hint" style={{ fontFamily: monoFont }}>
+                                        {tKey('register.birthYearConverted').replace('{{year}}', getResolvedYear(birthYear))}
+                                    </p>
+                                )}
                             </div>
 
                             {/* Caretaker message — shown when under 13 */}
