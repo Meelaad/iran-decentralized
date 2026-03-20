@@ -151,6 +151,7 @@
     "diaspora": "Diaspora",
     "privacyPolicy": "Privacy Policy",
     "termsOfUse": "Terms of Use",
+    "careers": "Careers",
     "loading": "Loading…",
     "error": "Something went wrong.",
     "notFound": "Not found.",
@@ -268,5 +269,49 @@
     "tooltip": "{{count}} actions on {{date}}",
     "noActivity": "No activity",
     "activityGrid": "Activity over the past year"
+  },
+  "careers": {
+    "eyebrow": "JOIN THE TEAM",
+    "title": "Careers at IranDAO",
+    "subtitle": "Help build the decentralized digital infrastructure for the future of Iran.",
+    "openRoles": "OPEN ROLES",
+    "noRoles": "There are currently no open positions, but we are always looking for talented individuals.",
+    "applyBtn": "APPLY NOW →",
+    "roles": {
+      "blockchain": {
+        "title": "Lead Protocol Sovereign & Strategic Governor",
+        "type": "Level 4 Clearance · Proof of Stake Contribution",
+        "desc": "The ultimate authority on decentralized systems. You will architect the transition from human-led administration to a fully autonomous, code-governed network state. Requires deep mastery of ZK-Rollups, DAO theory, and game-theoretic incentive structures."
+      },
+      "frontend": {
+        "title": "Lead Sovereign Interface Architect",
+        "type": "Network-State Contribution · Merit-Based Bounties",
+        "desc": "Engineering the primary gateway through which a nation interacts with its digital soul. Requires mastery of high-performance React architectures and cryptographic UI security."
+      },
+      "smartContract": {
+        "title": "Protocol Consensus Engineer (L1/L2)",
+        "type": "Network-State Contribution · Merit-Based Bounties",
+        "desc": "Architecting the immutable laws of a new society. You will build the algorithmic trust layers that replace centuries of human corruption."
+      },
+      "policy": {
+        "title": "Cyber-Legislative Strategist",
+        "type": "Network-State Contribution · Merit-Based Bounties",
+        "desc": "Encoding the transition from physical tyranny to digital sovereignty. You are the bridge between advanced political theory and executable code."
+      }
+    },
+    "contactPrompt": "Don't see a role that fits? Send us an email at",
+    "applyEyebrow": "INITIATE PROTOCOL",
+    "applyTitle": "Submit Proof of Work",
+    "applySub": "We do not accept PDF resumes for security reasons. Provide your alias, a secure communication channel, and links to your cryptographic or architectural contributions.",
+    "formRole": "TARGETED PROTOCOL (ROLE)",
+    "formAlias": "ALIAS OR IDENTITY",
+    "formContact": "SECURE COMMS (Proton, Matrix, Session ID)",
+    "formProof": "PROOF OF WORK (GitHub, GitLab, Portfolio Link)",
+    "formMessage": "DECRYPTED INTENT (Why are you here?)",
+    "submitApp": "TRANSMIT DOSSIER",
+    "successApp": "TRANSMISSION SECURE",
+    "successAppSub": "Your dossier has been encrypted and sent to the core maintainers. If your proof of work meets the threshold, we will initiate contact.",
+    "errValidation": "All fields must be strictly valid to prevent injection.",
+    "placeholderContact": "e.g., @satoshi:matrix.org or alias@proton.me"
   }
 }

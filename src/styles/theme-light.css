@@ -1499,3 +1499,49 @@
 }
 [data-theme="light"] .vote-trans-view { color: #7c3aed; }
 [data-theme="light"] .vote-trans-view:hover { color: #6d28d9; }
+
+/* ══════════════════════════════════════════════════════════════════════════
+   CAREERS PAGE  (careers-*)
+══════════════════════════════════════════════════════════════════════════ */
+
+[data-theme="light"] .careers-page { background: #e6ecff; color: #354959; }
+[data-theme="light"] .careers-bg-grid,
+[data-theme="light"] .careers-scanline { opacity: 0.03; }
+[data-theme="light"] .careers-title { color: #141452; }
+[data-theme="light"] .careers-subtitle { color: #6D7891; }
+[data-theme="light"] .careers-section-title { border-bottom-color: rgba(124,58,237,0.15); }
+
+[data-theme="light"] .careers-card {
+    background: #ffffff;
+    border-color: rgba(20, 20, 82, 0.08);
+}
+[data-theme="light"] .careers-card:hover {
+    background: #f8fafc;
+    border-color: rgba(124, 58, 237, 0.3);
+}
+[data-theme="light"] .careers-card-title { color: #141452; }
+[data-theme="light"] .careers-card-desc { color: #475569; }
+
+[data-theme="light"] .careers-apply-btn {
+    background: rgba(124,58,237,0.05);
+    border-color: rgba(124,58,237,0.2);
+    color: #7C3AED;
+}
+[data-theme="light"] .careers-apply-btn:hover {
+    background: rgba(124,58,237,0.1);
+    border-color: rgba(124,58,237,0.4);
+    color: #6d28d9;
+}
+
+[data-theme="light"] .careers-footer {
+    color: #6D7891;
+    border-top-color: rgba(20, 20, 82, 0.06);
+}
+
+[data-theme="light"] .careers-card-title {
+    /* Swap the white gradient for a deep navy-to-purple gradient */
+    background: linear-gradient(to right, #141452, #7C3AED);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #141452; /* Fallback for older browsers */
+}

@@ -1,0 +1,371 @@
+.careers-page {
+    position: relative;
+    min-height: 100vh;
+    padding: 6rem 1.5rem 4rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.careers-bg-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: linear-gradient(rgba(139, 92, 246, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.careers-scanline {
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 100%;
+    background: linear-gradient(to bottom, transparent, rgba(139,92,246,0.03) 50%, transparent);
+    animation: scanLine 8s linear infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.careers-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 800px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.careers-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.careers-eyebrow {
+    color: #8B5CF6;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.careers-title {
+    font-size: 2.5rem;
+    color: #e2e8f0;
+    margin-bottom: 1rem;
+}
+
+.careers-subtitle {
+    font-size: 1.125rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.careers-section-title {
+    color: #8B5CF6;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.careers-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.careers-card {
+    position: relative; /* This keeps the ribbon attached to the card */
+    overflow: hidden; /* THIS IS THE MAGIC FIX: It chops off the overhanging ribbon */
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: linear-gradient(145deg, #0a0c10, #12151c);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+}
+.careers-card:hover {
+    border-color: rgba(139, 92, 246, 0.6);
+    background: linear-gradient(145deg, rgba(16, 20, 26, 0.95), rgba(22, 26, 35, 0.9));
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), inset 0 0 15px rgba(139, 92, 246, 0.05);
+    transform: translateY(-2px);
+}
+/* 1. Base Ribbon (English / LTR) */
+.careers-card::before {
+    content: "HIGH-TIER CLEARANCE REQUIRED";
+    position: absolute;
+    top: 22px;
+    right: -50px; /* Top-Right corner */
+    left: auto;
+    width:300px; /* Super wide so text never wraps */
+    text-align: center;
+    white-space: nowrap; /* THE FIX: Prevents text from breaking into two lines */
+    transform: rotate(45deg);
+    background: #8B5CF6;
+    color: #000;
+    font-size: 8px;
+    font-weight: 900;
+    padding: 4px 0;
+    font-family: 'intelone-mono', monospace;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
+    animation: securityPulse 3s infinite alternate;
+    z-index: 10;
+    text-indent: 85px;
+    opacity: 0.5;
+
+}
+
+
+/* 2. Farsi / RTL Override */
+[dir="rtl"] .careers-card::before {
+    content: "نیازمند دسترسی امنیتی بالا";
+    right: auto;
+    left: -60px;
+    transform: rotate(-45deg);
+    font-family: 'Irancell', sans-serif;
+    font-size: 12px;  /* Farsi fonts usually need to be slightly larger */
+    letter-spacing: normal;
+    text-indent: 55px;
+    opacity: 0.5;
+
+
+
+}
+
+
+/* 3. Light Mode Overrides */
+[data-theme="light"] .careers-card::before {
+    background: #7C3AED;
+    color: #fff;
+}
+
+/* Decorative corner hashes to look like a targeting UI */
+.apply-form::before, .apply-form::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #8B5CF6;
+    opacity: 0.5;
+    pointer-events: none;
+}
+.apply-form::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+.apply-form::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+/* Hacker terminal label prefixes */
+.apply-field label::before {
+    content: ">> ";
+    color: rgba(139, 92, 246, 0.5);
+    font-family: 'intelone-mono', monospace;
+}
+
+[dir="rtl"] .apply-field label::before {
+    content: " <<";
+    float: right;
+    margin-left: 5px;
+}
+
+.apply-input {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-left: 3px solid rgba(139, 92, 246, 0.4); /* Accent left border */
+    color: #e2e8f0;
+    padding: 0.85rem 1rem;
+    font-family: 'intelone-mono', monospace;
+    font-size: 0.875rem;
+    transition: all 0.2s ease-out;
+    outline: none;
+}
+
+[dir="rtl"] .apply-input {
+    border-left: 1px solid rgba(139, 92, 246, 0.2);
+    border-right: 3px solid rgba(139, 92, 246, 0.4);
+}
+
+.apply-input:focus {
+    border-color: #8B5CF6;
+    border-left-width: 5px; /* Physical unlocking effect */
+    background: rgba(139, 92, 246, 0.05);
+    box-shadow: 0 0 15px rgba(139, 92, 246, 0.15);
+}
+
+[dir="rtl"] .apply-input:focus {
+    border-right-width: 5px;
+}
+
+/* 4. THE BUTTON: Hardware Sweep Animation */
+.apply-submit-btn {
+    width: 100%;
+    background: transparent;
+    color: #8B5CF6;
+    border: 1px solid #8B5CF6;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.apply-submit-btn:hover:not(:disabled) {
+    background: rgba(139, 92, 246, 0.15);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3), inset 0 0 10px rgba(139, 92, 246, 0.2);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+/* The scanning laser inside the button */
+.apply-submit-btn::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.4), transparent);
+    transform: skewX(-20deg);
+}
+
+.apply-submit-btn:hover:not(:disabled)::after {
+    animation: hardwareSweep 1.5s infinite;
+}
+
+
+
+
+.careers-card-title {
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fff, #8B5CF6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.careers-card-meta {
+    font-size: 0.875rem;
+    color: #8B5CF6;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.careers-card-desc {
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.careers-apply-btn {
+    display: inline-block;
+    background: rgba(139, 92, 246, 0.1);
+    color: #8B5CF6;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.careers-apply-btn:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: #8B5CF6;
+    color: #fff;
+}
+
+.careers-footer {
+    margin-top: 4rem;
+    text-align: center;
+    color: #64748b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 2rem;
+}
+
+.careers-footer a {
+    color: #8B5CF6;
+}
+
+.careers-footer a:hover {
+    text-decoration: underline;
+}
+/* Apply Form Styling (Cyberpunk/Terminal Vibe) */
+.apply-container {
+    max-width: 600px;
+}
+
+.apply-form {
+    background: #0a0c10;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    padding: 2rem;
+    box-shadow: inset 0 0 20px rgba(139, 92, 246, 0.05);
+}
+
+.apply-field {
+    margin-bottom: 1.5rem;
+}
+
+.apply-field label {
+    display: block;
+    color: #8B5CF6;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.apply-input::placeholder {
+    color: #475569;
+}
+
+.apply-submit-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.apply-error {
+    background: rgba(220, 38, 38, 0.1);
+    color: #ef4444;
+    border: 1px solid #ef4444;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+}
+
+.apply-success-box {
+    text-align: center;
+    border: 1px solid #10b981;
+    background: rgba(16, 185, 129, 0.05);
+    padding: 4rem 2rem;
+}
+
+.apply-success-icon {
+    display: block;
+    color: #10b981;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Light Theme Overrides */
+[data-theme="light"] .apply-form {
+    background: #ffffff;
+    border-color: rgba(20, 20, 82, 0.1);
+    box-shadow: 0 8px 24px rgba(20, 20, 82, 0.05);
+}
+[data-theme="light"] .apply-input {
+    background: #f8fafc;
+    color: #141452;
+}
+/*dropdown*/
+.apply-input option {
+    background-color: #0a0c10; /* Matches the dark background of the form */
+    color: #e2e8f0; /* Keeps the text light and readable */
+}
+[data-theme="light"] .apply-input option {
+    background-color: #ffffff;
+    color: #1A2933;
+}

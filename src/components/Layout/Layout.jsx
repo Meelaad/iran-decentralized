@@ -350,6 +350,11 @@ function NavContent() {
                     <Link to="/terms" className="site-footer-link" style={{ fontFamily: headFont }}>
                         {tKey('common.termsOfUse')}
                     </Link>
+                    <span className="site-footer-sep">·</span>
+
+                    <Link to="/careers" className="site-footer-link">
+                        {tKey('common.careers')}
+                    </Link>
                 </footer>
             </div>
             <DevLinks />

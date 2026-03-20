@@ -47,6 +47,8 @@ import CPILDPage from './pages/CPILD/CPILDPage';
 import GlobalPage from './pages/Global/GlobalPage';
 import ComingSoonPage from './pages/ComingSoon/ComingSoonPage';
 import AccessModePage from './pages/AccessMode/AccessModePage';
+import CareersPage from './pages/Careers/CareersPage';
+import ApplyPage from './pages/Careers/ApplyPage';
 
 function App() {
     return (
@@ -78,7 +80,7 @@ function App() {
                         <Route path="arena/:slug" element={<PlanPage />} />
                         <Route path="arena/submit" element={<ArenaSubmitPage />} />
                         <Route path="transitional/plan/nufdi" element={<TransitionalPage />} />
-                    <Route path="transitional/plan/mirhosein-mousavi" element={<MousaviPage />} />
+                        <Route path="transitional/plan/mirhosein-mousavi" element={<MousaviPage />} />
                         <Route path="transitional/plan/itc" element={<ITCPage />} />
                         <Route path="transitional/plan/uri" element={<URIPage />} />
                         <Route path="transitional/plan/cpfik" element={<CPFIKPage />} />
@@ -99,6 +101,9 @@ function App() {
                         <Route path="privacy" element={<PrivacyPage />} />
                         <Route path="terms" element={<TermsPage />} />
                         <Route path="login" element={<LoginPage />} />
+                        <Route path="careers" element={<CareersPage />} />
+                        <Route path="apply" element={<ApplyPage />} />
+
 
                         {/* Post-collapse: The Destination */}
                         <Route path="destination" element={<DestinationPage />} />
