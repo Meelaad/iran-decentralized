@@ -117,14 +117,14 @@ export default function StartSelection() {
                                 </div>
                             </div>
                         </Link>
-                        <Link to="/transitional/plan/nufdi" className="ss-link ss-link--pre">
+                        <Link to="/plans" className="ss-link ss-link--pre">
                             <span className="ss-link-icon">📜</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'طرح NUFDI' : 'NUFDI BLUEPRINT'}
+                                    {isRTL ? 'طرح های پیشنهادی ' : 'PROPOSED BLUEPRINTS'}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'سند مرجع کامل گذار' : 'Full transitional reference document'}
+                                    {isRTL ? 'سندهای کامل پیشنهادی فعال دوره گذار' : 'Proposed transitional state reference documents'}
                                 </div>
                             </div>
                         </Link>
@@ -260,7 +260,7 @@ export default function StartSelection() {
             </div>
 
             <div className="ss-footer">
-                <Link to="/" className="ss-back" style={{ fontFamily: monoFont }}>← {isRTL ? 'بازگشت' : 'Back'}</Link>
+                <Link to="/" className="ss-back" style={{ fontFamily: monoFont }}>← {isRTL ? 'بازگشت به نحوه دسترسی' : 'Back to access mode'}</Link>
             </div>
 
             <FeatureSlider items={RIGHT_FEATURES} />
