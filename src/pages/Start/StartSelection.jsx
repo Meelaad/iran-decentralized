@@ -188,11 +188,22 @@ export default function StartSelection() {
                         </p>
                     </div>
                     <div className="ss-zone-links">
+                        <Link to="/blueprints" className="ss-link ss-link--post">
+                            <span className="ss-link-icon">🧭</span>
+                            <div>
+                                <div className="ss-link-title" style={{ fontFamily: monoFont }}>
+                                    {isRTL ? 'سیستم های دولتی پبشنهادی' : 'PROPOSED GOVERNING SYSTEMS'}
+                                </div>
+                                <div className="ss-link-desc">
+                                    {isRTL ? 'مرور مدل ها و سیستم های سیاسی ' : 'Overview political systems and forms'}
+                                </div>
+                            </div>
+                        </Link>
                         <Link to="/destination" className="ss-link ss-link--post">
                             <span className="ss-link-icon">🏛</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'مرکز دولت مقصد' : 'DESTINATION HUB'}
+                                    {isRTL ? 'مرکز دولت نهایی' : 'DESTINATION GOVERNMENT HUB'}
                                 </div>
                                 <div className="ss-link-desc">
                                     {isRTL ? 'مرور طرح‌های حکومتی و آمار زنده' : 'Blueprint overview & live stats'}
