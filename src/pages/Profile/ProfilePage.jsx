@@ -59,6 +59,7 @@ const NAV_GROUPS = [
             { id: 'nav-destination', Icon: I.Destination, en: 'Destination',    fa: 'مقصد',         href: '/destination' },
             { id: 'nav-global',      Icon: I.Globe,       en: 'Global Map',     fa: 'نقشه جهانی',   href: '/global' },
             { id: 'nav-about',       Icon: I.Info,        en: 'About',          fa: 'درباره',       href: '/about' },
+            { id: 'nav-faq',         Icon: I.HelpCircle,  en: 'Help & FAQ',     fa: 'راهنما',        href: '/faq' },
         ],
     },
     {
@@ -66,7 +67,7 @@ const NAV_GROUPS = [
         items: [
             { id: 'settings', Icon: I.Settings,   en: 'Account Settings', fa: 'تنظیمات حساب' },
             { id: 'verify',   Icon: I.Shield,     en: 'Verify Identity',  fa: 'تأیید هویت',   accent: true },
-            { id: 'help',     Icon: I.HelpCircle, en: 'Help',             fa: 'راهنما',        placeholder: true },
+            { id: 'help',     Icon: I.HelpCircle, en: 'Help & FAQ',       fa: 'راهنما و سؤالات', href: '/faq' },
         ],
     },
 ];
@@ -376,7 +377,7 @@ export default function ProfilePage() {
     }
 
     return (
-        <div className="pd-fullscreen" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="pd-fullscreen" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
 
             {/* Admin preview banner */}
             {isPreview && (

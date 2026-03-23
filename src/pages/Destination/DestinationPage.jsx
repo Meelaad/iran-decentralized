@@ -30,7 +30,7 @@ export default function DestinationPage() {
   return (
     <div className="destination-page" dir={isRTL ? 'rtl' : 'ltr'}>
       <PageMeta
-        title={isRTL ? 'مرکز مقصد' : 'Destination Hub'}
+        title={isRTL ? 'دولت آینده' : 'Future Government'}
         description={isRTL ? 'مرور طرح‌های حکومتی و آمار زنده رأی' : 'Compare governance blueprints and track live vote counts for Iran\'s permanent system of government.'}
         lang={isRTL ? 'fa' : 'en'}
       />

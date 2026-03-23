@@ -57,17 +57,9 @@ export default function ContributionGrid({ grid = {} }) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
-        const yearStart = new Date(today.getFullYear(), 0, 1); // Jan 1 of current year
-
-        const start = new Date(today);
-        start.setDate(today.getDate() - (WEEKS * DAYS) + 1);
-        start.setDate(start.getDate() - start.getDay()); // align to Sunday
-
-        // Never show squares from before the current year
-        if (start < yearStart) {
-            start.setTime(yearStart.getTime());
-            start.setDate(start.getDate() - start.getDay()); // realign to Sunday
-        }
+        // Start from Jan 1 of the current year, aligned back to the nearest Sunday
+        const start = new Date(today.getFullYear(), 0, 1);
+        start.setDate(start.getDate() - start.getDay());
 
         const weeks = [];
         let cursor = new Date(start);
@@ -77,12 +69,11 @@ export default function ContributionGrid({ grid = {} }) {
             for (let d = 0; d < DAYS; d++) {
                 const dateStr = cursor.toISOString().slice(0, 10);
                 const isFuture = cursor > today;
-                const isBefore = cursor < yearStart;
                 week.push({
                     dateStr,
-                    count: (isFuture || isBefore) ? null : (grid[dateStr] || 0),
+                    count: isFuture ? null : (grid[dateStr] || 0),
                     date: new Date(cursor),
-                    isFuture: isFuture || isBefore,
+                    isFuture,
                 });
                 cursor.setDate(cursor.getDate() + 1);
             }

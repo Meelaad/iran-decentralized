@@ -20,7 +20,7 @@ export default function ContactPage() {
     const [name,    setName]    = useState('');
     const [email,   setEmail]   = useState('');
     const [subject, setSubject] = useState(searchParams.get('subject') || '');
-    const [message, setMessage] = useState('');
+    const [message, setMessage] = useState(searchParams.get('message') || '');
     const [loading, setLoading] = useState(false);
     const [error,   setError]   = useState(null);
     const [success, setSuccess] = useState(false);

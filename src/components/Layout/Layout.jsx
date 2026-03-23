@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 import { NavLink, Outlet, Link, useLocation, useNavigate } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
@@ -6,6 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 import { ThemeSwitch } from '../ThemeSwitch/ThemeSwitch';
 import { BrandMark } from '../BrandMark/BrandMark';
 import { BLUEPRINTS } from '../../data';
+import FAQ_CONTENT from '../../locales/pages/faq.json';
 import './Layout.css';
 
 export { useLang };
@@ -85,20 +86,321 @@ function DevLinks() {
     );
 }
 
+// ── Transition dropdown items ──────────────────────────────────────────────
+const TRANSITION_ITEMS = [
+    { to: '/arena',              icon: '⚔',  labelKey: 'nav.arena',       descKey: 'nav.arenaDesc' },
+    { to: '/plans',              icon: '📋', labelKey: 'nav.plans',       descKey: 'nav.plansDesc' },
+    { to: '/pre',                icon: '🗺', labelKey: 'nav.preTransGuide', descKey: 'nav.preTransDesc' },
+    { to: '/global',             icon: '🌐', labelKey: 'nav.global',      descKey: 'nav.globalDesc' },
+    { to: '/compare/transition', icon: '⚖',  labelKey: 'nav.comparePlans', descKey: 'nav.comparePlansDesc' },
+    { to: '/vote',               icon: '🗳',  labelKey: 'nav.vote',        descKey: 'nav.voteDesc' },
+];
+
+// ── Destination dropdown items ─────────────────────────────────────────────
+function buildDestinationItems(bpId) {
+    const id = bpId || 'decentralized';
+    return [
+        { to: '/destination',                     icon: '🏛',  labelKey: 'nav.destination', descKey: 'nav.destinationDesc' },
+        { to: '/blueprints',                      icon: '📐',  labelKey: 'nav.blueprints',  descKey: 'nav.blueprintsDesc' },
+        { to: `/blueprint/gov/${id}`,             icon: '🗺',  labelKey: 'nav.map',         descKey: 'nav.mapDesc' },
+        { to: `/blueprint/gov/${id}/sectors`,     icon: '🔷',  labelKey: 'nav.sectors',     descKey: 'nav.sectorsDesc' },
+        { to: `/blueprint/gov/${id}/layers`,      icon: '🔧',  labelKey: 'nav.layers',      descKey: 'nav.layersDesc' },
+        { to: `/blueprint/gov/${id}/roadmap`,     icon: '🛤',  labelKey: 'nav.roadmap',     descKey: 'nav.roadmapDesc' },
+        { to: '/compare',                         icon: '⚖',   labelKey: 'nav.compare',     descKey: 'nav.compareDesc' },
+    ];
+}
+
+// ── Mega dropdown panel ────────────────────────────────────────────────────
+function MegaDropdown({ items, title, onClose, tKey }) {
+    return (
+        <div className="mega-dropdown" onMouseDown={e => e.stopPropagation()}>
+            <div className="mega-dropdown-title">{title}</div>
+            <div className="mega-dropdown-grid">
+                {items.map(item => (
+                    <NavLink
+                        key={item.to}
+                        to={item.to}
+                        className="mega-dropdown-item"
+                        onClick={onClose}
+                    >
+                        <span className="mega-dropdown-icon">{item.icon}</span>
+                        <span className="mega-dropdown-text">
+                            <span className="mega-dropdown-label">{tKey(item.labelKey)}</span>
+                            <span className="mega-dropdown-desc">{tKey(item.descKey)}</span>
+                        </span>
+                    </NavLink>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+// ── Concierge FAQ accordion item ────────────────────────────────────────────
+function ConciergeAccordionItem({ item, isRTL }) {
+    const [open, setOpen] = useState(false);
+    return (
+        <div className={`concierge-faq-item${open ? ' is-open' : ''}`}>
+            <button className="concierge-faq-q" onClick={() => setOpen(o => !o)}>
+                <span>{isRTL ? item.q.fa : item.q.en}</span>
+                <span className="concierge-faq-chevron">{open ? '▲' : '▼'}</span>
+            </button>
+            {open && <div className="concierge-faq-a">{isRTL ? item.a.fa : item.a.en}</div>}
+        </div>
+    );
+}
+
+// ── Concierge panel ────────────────────────────────────────────────────────
+function ConciergePanel({ isRTL, tKey, location }) {
+    const { headFont } = useLang();
+    const [open, setOpen] = useState(false);
+    const [expanded, setExpanded] = useState(false);
+    const [tab, setTab] = useState('info');
+    const [feedback, setFeedback] = useState('');
+    const navigate = useNavigate();
+
+    function handleClose() {
+        setOpen(false);
+        setExpanded(false);
+    }
+
+    const handleFeedbackSubmit = (e) => {
+        e.preventDefault();
+        const params = new URLSearchParams();
+        if (feedback.trim()) params.set('message', feedback.trim());
+        navigate(`/contact${params.toString() ? '?' + params.toString() : ''}`);
+    };
+
+    const pageInfoMap = {
+        '/': { title: 'IranDAO', desc: 'Decentralized governance platform for Iran' },
+        '/arena': { title: 'Arena', desc: 'Democratic debate arena for transitional plans' },
+        '/plans': { title: 'Plans', desc: 'Transitional governance plans' },
+        '/destination': { title: 'Destination', desc: 'Future governance destination hub' },
+        '/blueprints': { title: 'Blueprints', desc: 'Government system blueprints' },
+        '/vote': { title: 'Vote', desc: 'Cast your governance vote' },
+        '/about': { title: 'About', desc: 'About IranDAO' },
+    };
+
+    const pageInfo = pageInfoMap[location.pathname] || {
+        title: 'IranDAO',
+        desc: 'Decentralized governance platform for Iran',
+    };
+
+    return (
+        <>
+            {/* Toggle strip */}
+            <button
+                className={`concierge-toggle ${open ? 'is-open' : ''} ${isRTL ? 'is-rtl' : ''}`}
+                onClick={() => setOpen(v => !v)}
+                aria-label={open ? tKey('concierge.closePanel') : tKey('concierge.expandPanel')}
+                title={open ? tKey('concierge.closePanel') : tKey('concierge.expandPanel')}
+            >
+                <span className="concierge-toggle-chevron">{open ? (isRTL ? '❯' : '❮') : (isRTL ? '❮' : '❯')}</span>
+            </button>
+
+            {/* Sliding panel */}
+            <div className={`concierge-panel ${open ? 'is-open' : ''} ${expanded ? 'is-expanded' : ''} ${isRTL ? 'is-rtl' : ''}`} style={{ fontFamily: headFont }}>
+                {/* Panel header */}
+                <div className="concierge-header">
+                    <div className="concierge-tabs">
+                        <button
+                            className={`concierge-tab ${tab === 'info' ? 'is-active' : ''}`}
+                            onClick={() => setTab('info')}
+                            title={tKey('concierge.pageInfo')}
+                        >ℹ</button>
+                        <button
+                            className={`concierge-tab ${tab === 'feedback' ? 'is-active' : ''}`}
+                            onClick={() => setTab('feedback')}
+                            title={tKey('concierge.feedback')}
+                        >💬</button>
+                        <button
+                            className={`concierge-tab ${tab === 'help' ? 'is-active' : ''}`}
+                            onClick={() => setTab('help')}
+                            title={tKey('concierge.help')}
+                        >?</button>
+                    </div>
+                    <div className="concierge-header-actions">
+                        {/* Expand / compress toggle */}
+                        <button
+                            className={`concierge-expand-btn ${expanded ? 'is-compressed' : ''}`}
+                            onClick={() => setExpanded(v => !v)}
+                            title={expanded ? (isRTL ? 'کوچک کردن' : 'Compress') : (isRTL ? 'بزرگ کردن' : 'Expand')}
+                            aria-label={expanded ? 'Compress panel' : 'Expand panel'}
+                        >
+                            {expanded ? (
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                                    <polyline points="4 14 10 14 10 20" />
+                                    <polyline points="20 10 14 10 14 4" />
+                                    <line x1="10" y1="14" x2="3" y2="21" />
+                                    <line x1="21" y1="3" x2="14" y2="10" />
+                                </svg>
+                            ) : (
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <polyline points="9 21 3 21 3 15" />
+                                    <line x1="21" y1="3" x2="14" y2="10" />
+                                    <line x1="3" y1="21" x2="10" y2="14" />
+                                </svg>
+                            )}
+                        </button>
+                        <button
+                            className="concierge-close"
+                            onClick={handleClose}
+                            title={tKey('concierge.closePanel')}
+                        >✕</button>
+                    </div>
+                </div>
+
+                {/* Panel body */}
+                <div className="concierge-body">
+                    {tab === 'info' && (
+                        <div className="concierge-info">
+                            <div className="concierge-page-title">{pageInfo.title}</div>
+                            <div className="concierge-page-desc">{pageInfo.desc}</div>
+                        </div>
+                    )}
+                    {tab === 'feedback' && (
+                        <div className="concierge-feedback">
+                            <div className="concierge-section-title">{tKey('concierge.feedbackTitle')}</div>
+                            <form onSubmit={handleFeedbackSubmit}>
+                                <textarea
+                                    className="concierge-textarea"
+                                    placeholder={tKey('concierge.feedbackPlaceholder')}
+                                    value={feedback}
+                                    onChange={e => setFeedback(e.target.value)}
+                                    rows={5}
+                                />
+                                <button type="submit" className="concierge-send-btn">
+                                    {tKey('concierge.feedbackSend')}
+                                </button>
+                            </form>
+                        </div>
+                    )}
+                    {tab === 'help' && (
+                        <div className="concierge-help">
+                            <div className="concierge-section-title">{tKey('concierge.helpTitle')}</div>
+                            {FAQ_CONTENT.sections.map((section, si) => (
+                                <div key={si}>
+                                    <div className="concierge-faq-section-label">
+                                        {isRTL ? section.title.fa : section.title.en}
+                                    </div>
+                                    {section.items.map((item, ii) => (
+                                        <ConciergeAccordionItem key={ii} item={item} isRTL={isRTL} />
+                                    ))}
+                                </div>
+                            ))}
+                            <Link to="/faq" className="concierge-faq-link" onClick={() => setOpen(false)}>
+                                {isRTL ? 'مشاهده همه سوالات ←' : 'View full FAQ →'}
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            </div>
+
+            {/* Backdrop — always shown when expanded, mobile-only when just open */}
+            {open && <div className={`concierge-backdrop ${expanded ? 'is-expanded' : ''}`} onClick={handleClose} />}
+        </>
+    );
+}
+
+// ── Scrollable secondary nav bar ──────────────────────────────────────────
+function SubnavBar({ links, tKey }) {
+    const scrollRef = useRef(null);
+    const [canLeft, setCanLeft] = useState(false);
+    const [canRight, setCanRight] = useState(false);
+
+    const updateArrows = useCallback(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+        setCanLeft(el.scrollLeft > 4);
+        setCanRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+    }, []);
+
+    useEffect(() => {
+        const el = scrollRef.current;
+        if (!el) return;
+        updateArrows();
+        el.addEventListener('scroll', updateArrows, { passive: true });
+        window.addEventListener('resize', updateArrows, { passive: true });
+        return () => {
+            el.removeEventListener('scroll', updateArrows);
+            window.removeEventListener('resize', updateArrows);
+        };
+    }, [links, updateArrows]);
+
+    const scroll = (dir) => {
+        const el = scrollRef.current;
+        if (el) el.scrollBy({ left: dir * 120, behavior: 'smooth' });
+    };
+
+    return (
+        <div className="site-subnav">
+            {canLeft && (
+                <button className="subnav-arrow subnav-arrow--left" onClick={() => scroll(-1)} aria-label="Scroll left">‹</button>
+            )}
+            <div className="site-subnav-inner" ref={scrollRef}>
+                {links.map(link => (
+                    <NavLink
+                        key={link.to}
+                        to={link.to}
+                        className={({ isActive }) => `subnav-tab ${isActive ? 'is-active' : ''}`}
+                    >
+                        {tKey(link.labelKey)}
+                    </NavLink>
+                ))}
+            </div>
+            {canRight && (
+                <button className="subnav-arrow subnav-arrow--right" onClick={() => scroll(1)} aria-label="Scroll right">›</button>
+            )}
+        </div>
+    );
+}
+
+// ── Nav dropdown hook ──────────────────────────────────────────────────────
+function useDropdown() {
+    const [open, setOpen] = useState(false);
+    const closeTimer = useRef(null);
+
+    const onMouseEnter = useCallback(() => {
+        if (closeTimer.current) clearTimeout(closeTimer.current);
+        setOpen(true);
+    }, []);
+
+    const onMouseLeave = useCallback(() => {
+        closeTimer.current = setTimeout(() => setOpen(false), 120);
+    }, []);
+
+    const close = useCallback(() => setOpen(false), []);
+
+    useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
+
+    return { open, onMouseEnter, onMouseLeave, close };
+}
+
+// ── Main NavContent ────────────────────────────────────────────────────────
 function NavContent() {
-    const { lang, setLang, isRTL, t, tKey, monoFont, headFont } = useLang();
+    const { lang, setLang, isRTL, tKey, monoFont, headFont } = useLang();
     const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
-    const [blueprintOpen, setBlueprintOpen] = useState(false);
+    const [searchOpen, setSearchOpen] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [dotMenuOpen, setDotMenuOpen] = useState(false);
+
     const { session, isAdmin, profileName, logout } = useAuth();
 
     const navRef = useRef(null);
-    const blueprintRef = useRef(null);
+    const searchInputRef = useRef(null);
+    const dotMenuRef = useRef(null);
     const navigate = useNavigate();
     const location = useLocation();
+
+    const transDropdown = useDropdown();
+    const destDropdown = useDropdown();
 
     const match = location.pathname.match(/\/blueprint\/gov\/([^/]+)(\/.*)?/);
     const activeBlueprintId = match ? match[1] : null;
 
+    const destinationItems = buildDestinationItems(activeBlueprintId);
+
+    // Close mobile nav on outside click
     useEffect(() => {
         if (!mobileNavOpen) return;
         function handleOutsideClick(e) {
@@ -114,21 +416,39 @@ function NavContent() {
         };
     }, [mobileNavOpen]);
 
+    // Auto-focus search input when opened
     useEffect(() => {
-        if (!blueprintOpen) return;
-        function handleOutsideClick(e) {
-            if (blueprintRef.current && !blueprintRef.current.contains(e.target)) {
-                setBlueprintOpen(false);
+        if (searchOpen && searchInputRef.current) {
+            searchInputRef.current.focus();
+        }
+    }, [searchOpen]);
+
+    // Close dot menu on outside click
+    useEffect(() => {
+        if (!dotMenuOpen) return;
+        function handleOutside(e) {
+            if (dotMenuRef.current && !dotMenuRef.current.contains(e.target)) {
+                setDotMenuOpen(false);
             }
         }
-        document.addEventListener('mousedown', handleOutsideClick);
-        return () => document.removeEventListener('mousedown', handleOutsideClick);
-    }, [blueprintOpen]);
+        document.addEventListener('mousedown', handleOutside);
+        return () => document.removeEventListener('mousedown', handleOutside);
+    }, [dotMenuOpen]);
 
-    const handleBlueprintChange = (id) => {
-        setBlueprintOpen(false);
-        const subpath = location.pathname.match(/\/blueprint\/gov\/[^/]+(\/.*)?/)?.[1] || '';
-        navigate(`/blueprint/gov/${id}${subpath}`);
+    const handleSearchSubmit = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim()) {
+            navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+            setSearchOpen(false);
+            setSearchQuery('');
+        }
+    };
+
+    const handleSearchKeyDown = (e) => {
+        if (e.key === 'Escape') {
+            setSearchOpen(false);
+            setSearchQuery('');
+        }
     };
 
     const handleMobileLinkClick = () => setMobileNavOpen(false);
@@ -141,13 +461,7 @@ function NavContent() {
     const isTransitionZone  = /^\/(arena|transitional|plans|compare\/transition|pre|global)/.test(location.pathname);
     const isDestinationZone = !isTransitionZone && /^\/(destination|blueprints|blueprint\/gov|compare)/.test(location.pathname);
 
-    // General links — always shown regardless of zone
-    const generalNavLinks = [
-        { to: '/vote',  labelKey: 'nav.vote' },
-        { to: '/about', labelKey: 'nav.about' },
-    ];
-
-    // Zone-specific links (empty on neutral pages like /contact, /privacy, etc.)
+    // Secondary nav links (context-sensitive)
     const transitionZoneLinks = [
         { to: '/arena',              labelKey: 'nav.arena' },
         { to: '/plans',              labelKey: 'nav.plans' },
@@ -166,58 +480,185 @@ function NavContent() {
     ];
 
     const zoneLinks = isTransitionZone ? transitionZoneLinks : isDestinationZone ? destinationZoneLinks : [];
-    const hasSeparator = zoneLinks.length > 0;
+
+    // Is current path in transition or destination zone for active state on top nav
+    const isInTransition = isTransitionZone;
+    const isInDestination = isDestinationZone;
 
     return (
-        <div
-            dir={isRTL ? "rtl" : "ltr"}
-            style={{ fontFamily: headFont }}
-        >
+        <div dir={isRTL ? "rtl" : "ltr"} style={{ fontFamily: headFont }}>
+
+            {/* ── Sticky nav wrapper (primary + secondary bars) ────── */}
+            <div className="site-nav-wrapper">
+
+            {/* ── Primary nav bar ──────────────────────────────────── */}
             <nav className="site-nav" ref={navRef} onMouseDown={e => e.preventDefault()}>
+
+                {/* Left: Logo + primary nav links */}
                 <div className="site-nav-left">
                     <NavLink to="/" className="site-nav-logo">
                         <img src="/logo.svg" alt="logo" />
                         <BrandMark size="nav" />
                     </NavLink>
 
-                    <div className="site-nav-links">
-                        {zoneLinks.map(link => (
-                            <NavLink
-                                key={link.to}
-                                to={link.to}
-                                className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}
-                            >
-                                {tKey(link.labelKey)}
-                            </NavLink>
-                        ))}
-                        {hasSeparator && <span className="site-nav-sep" />}
-                        {generalNavLinks.map(link => (
-                            <NavLink
-                                key={link.to}
-                                to={link.to}
-                                className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}
-                            >
-                                {tKey(link.labelKey)}
-                            </NavLink>
-                        ))}
+                {/* Primary links with mega dropdowns (desktop only) */}
+                <div className="site-nav-center">
+
+                    {/* TRANSITION dropdown */}
+                    <div
+                        className={`primary-nav-item ${isInTransition ? 'is-active' : ''}`}
+                        onMouseEnter={transDropdown.onMouseEnter}
+                        onMouseLeave={transDropdown.onMouseLeave}
+                    >
+                        <button className={`site-nav-link primary-nav-btn ${isInTransition ? 'is-active' : ''}`}>
+                            {tKey('nav.transitionMenu')}
+                            <span className="primary-nav-caret">▾</span>
+                        </button>
+                        {transDropdown.open && (
+                            <MegaDropdown
+                                items={TRANSITION_ITEMS}
+                                title={tKey('nav.transitionMenu')}
+                                onClose={transDropdown.close}
+                                tKey={tKey}
+                            />
+                        )}
                     </div>
 
-                </div>
+                    {/* DESTINATION dropdown */}
+                    <div
+                        className={`primary-nav-item ${isInDestination ? 'is-active' : ''}`}
+                        onMouseEnter={destDropdown.onMouseEnter}
+                        onMouseLeave={destDropdown.onMouseLeave}
+                    >
+                        <button className={`site-nav-link primary-nav-btn ${isInDestination ? 'is-active' : ''}`}>
+                            {tKey('nav.destinationMenu')}
+                            <span className="primary-nav-caret">▾</span>
+                        </button>
+                        {destDropdown.open && (
+                            <MegaDropdown
+                                items={destinationItems}
+                                title={tKey('nav.destinationMenu')}
+                                onClose={destDropdown.close}
+                                tKey={tKey}
+                            />
+                        )}
+                    </div>
 
+                    {/* VOTE plain link */}
+                    <NavLink
+                        to="/vote"
+                        className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
+                    >
+                        {tKey('nav.vote')}
+                    </NavLink>
+
+                    {/* FAQ plain link */}
+                    <NavLink
+                        to="/faq"
+                        className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
+                    >
+                        {tKey('nav.faq')}
+                    </NavLink>
+
+                    {/* ABOUT plain link */}
+                    <NavLink
+                        to="/about"
+                        className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
+                    >
+                        {tKey('nav.about')}
+                    </NavLink>
+
+                </div>
+                </div>{/* end site-nav-left */}
+
+                {/* Right: search, auth, settings */}
                 <div className="site-nav-right">
+
+                    {/* Search */}
+                    <div className={`site-nav-search ${searchOpen ? 'is-open' : ''}`}>
+                        {searchOpen ? (
+                            <form onSubmit={handleSearchSubmit} className="site-nav-search-form">
+                                <input
+                                    ref={searchInputRef}
+                                    type="text"
+                                    className="site-nav-search-input"
+                                    placeholder={tKey('nav.searchPlaceholder')}
+                                    value={searchQuery}
+                                    onChange={e => setSearchQuery(e.target.value)}
+                                    onBlur={() => { setSearchOpen(false); setSearchQuery(''); }}
+                                    onKeyDown={handleSearchKeyDown}
+                                />
+                            </form>
+                        ) : (
+                            <button
+                                className="site-nav-search-btn"
+                                onClick={() => setSearchOpen(true)}
+                                aria-label={tKey('nav.search')}
+                                title={tKey('nav.search')}
+                            >
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z" />
+                                </svg>
+                            </button>
+                        )}
+                    </div>
+
+                    {/* Admin link */}
                     {isAdmin && (
                         <Link to="/admin" className="site-nav-admin-btn">
                             {tKey('nav.admin')}
                         </Link>
                     )}
+
+                    {/* Auth section */}
                     {session ? (
                         <>
+                            {/* Username pill */}
                             <Link to="/profile" className="site-nav-profile-btn">
                                 {profileName || tKey('nav.profile')}
                             </Link>
-                            <button className="site-nav-logout-btn" onClick={logout}>
-                                {tKey('nav.logout')}
-                            </button>
+
+                            {/* 3-dot vertical menu */}
+                            <div className="site-nav-dot-menu" ref={dotMenuRef}>
+                                <button
+                                    className="site-nav-dot-btn"
+                                    onClick={() => setDotMenuOpen(v => !v)}
+                                    aria-label={tKey('nav.moreOptions')}
+                                    title={tKey('nav.moreOptions')}
+                                >
+                                    ⋮
+                                </button>
+                                {dotMenuOpen && (
+                                    <div className="site-nav-dot-dropdown">
+                                        <Link to="/profile" className="dot-menu-item" onClick={() => setDotMenuOpen(false)}>
+                                            {tKey('nav.profile')}
+                                        </Link>
+                                        <div className="dot-menu-sep" />
+                                        <div className="dot-menu-item dot-menu-lang">
+                                            <button
+                                                className={`dot-lang-btn ${lang === 'fa' ? 'is-active' : ''}`}
+                                                style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                                                onClick={() => { setLang('fa'); setDotMenuOpen(false); }}
+                                            >فارسی</button>
+                                            <button
+                                                className={`dot-lang-btn ${lang === 'en' ? 'is-active' : ''}`}
+                                                style={{ fontFamily: "'Inter', sans-serif" }}
+                                                onClick={() => { setLang('en'); setDotMenuOpen(false); }}
+                                            >EN</button>
+                                        </div>
+                                        <div className="dot-menu-item dot-menu-theme">
+                                            <ThemeSwitch />
+                                        </div>
+                                        <div className="dot-menu-sep" />
+                                        <button
+                                            className="dot-menu-item dot-menu-logout"
+                                            onClick={() => { setDotMenuOpen(false); logout(); }}
+                                        >
+                                            {tKey('nav.logout')}
+                                        </button>
+                                    </div>
+                                )}
+                            </div>
                         </>
                     ) : (
                         <>
@@ -227,32 +668,34 @@ function NavContent() {
                             <Link to="/register" className="site-nav-register-btn">
                                 {tKey('nav.register')}
                             </Link>
+
+                            {/* Desktop theme + lang for logged-out */}
+                            <div className="site-nav-theme-desktop">
+                                <ThemeSwitch />
+                            </div>
+                            <div className="site-nav-lang">
+                                <button
+                                    className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
+                                    style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                                    onClick={() => setLang("fa")}
+                                >فارسی</button>
+                                <button
+                                    className={`site-nav-lang-btn ${lang === "en" ? "is-active" : ""}`}
+                                    style={{ fontFamily: "'Inter', sans-serif" }}
+                                    onClick={() => setLang("en")}
+                                >EN</button>
+                            </div>
                         </>
                     )}
 
-                    <div className="site-nav-theme-desktop">
-                        <ThemeSwitch />
-                    </div>
-
-                    <div className="site-nav-lang">
-                        <button
-                            className={`site-nav-lang-btn ${lang === "fa" ? "is-active" : ""}`}
-                            style={{ fontFamily: "'Vazirmatn', sans-serif" }}
-                            onClick={() => setLang("fa")}
-                        >فارسی</button>
-                        <button
-                            className={`site-nav-lang-btn ${lang === "en" ? "is-active" : ""}`}
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                            onClick={() => setLang("en")}
-                        >EN</button>
-                    </div>
+                    {/* Username next to hamburger on small screens */}
                     {session && (
-                        <div style={{display: 'flex', alignItems: 'center', gap: 8}}>
-                            <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: monoFont }}>
-                                {profileName || tKey('nav.profile')}
-                            </Link>
-                        </div>
+                        <Link to="/profile" className="site-nav-username-mobile" style={{ fontFamily: monoFont }}>
+                            {profileName || tKey('nav.profile')}
+                        </Link>
                     )}
+
+                    {/* Hamburger */}
                     <button
                         className="hamburger-nav-btn"
                         onClick={() => setMobileNavOpen(!mobileNavOpen)}
@@ -271,38 +714,57 @@ function NavContent() {
                     </button>
                 </div>
 
-
+                {/* Mobile dropdown */}
                 {mobileNavOpen && (
                     <div className="mobile-nav-dropdown">
-                        {zoneLinks.map(link => (
+                        {/* Transition section */}
+                        <div className="mobile-nav-section-label">{tKey('nav.transitionMenu')}</div>
+                        {TRANSITION_ITEMS.map(item => (
                             <NavLink
-                                key={link.to}
-                                to={link.to}
-                                className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}
+                                key={item.to}
+                                to={item.to}
+                                className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
                                 onClick={handleMobileLinkClick}
                             >
-                                {tKey(link.labelKey)}
+                                {item.icon} {tKey(item.labelKey)}
                             </NavLink>
                         ))}
-                        {hasSeparator && <div className="mobile-nav-sep" />}
-                        {generalNavLinks.map(link => (
+                        <div className="mobile-nav-sep" />
+
+                        {/* Destination section */}
+                        <div className="mobile-nav-section-label">{tKey('nav.destinationMenu')}</div>
+                        {destinationItems.map(item => (
                             <NavLink
-                                key={link.to}
-                                to={link.to}
-                                className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`}
+                                key={item.to}
+                                to={item.to}
+                                className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
                                 onClick={handleMobileLinkClick}
                             >
-                                {tKey(link.labelKey)}
+                                {item.icon} {tKey(item.labelKey)}
                             </NavLink>
                         ))}
+                        <div className="mobile-nav-sep" />
+
+                        {/* Vote / FAQ / About */}
+                        <NavLink to="/vote" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
+                            {tKey('nav.vote')}
+                        </NavLink>
+                        <NavLink to="/faq" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
+                            {tKey('nav.faq')}
+                        </NavLink>
+                        <NavLink to="/about" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
+                            {tKey('nav.about')}
+                        </NavLink>
+
                         {session ? (
                             <>
+                                <div className="mobile-nav-sep" />
                                 {isAdmin && (
-                                    <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
+                                    <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
                                         {tKey('nav.admin')}
                                     </NavLink>
                                 )}
-                                <NavLink to="/profile" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
+                                <NavLink to="/profile" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
                                     {profileName || tKey('nav.profile')}
                                 </NavLink>
                                 <button className="site-nav-link mobile-nav-logout" onClick={handleMobileLogout}>
@@ -311,14 +773,16 @@ function NavContent() {
                             </>
                         ) : (
                             <>
-                                <NavLink to="/login" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
+                                <div className="mobile-nav-sep" />
+                                <NavLink to="/login" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
                                     {tKey('nav.login')}
                                 </NavLink>
-                                <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? "is-active" : ""}`} onClick={handleMobileLinkClick}>
+                                <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
                                     {tKey('nav.register')}
                                 </NavLink>
                             </>
                         )}
+
                         <div className="mobile-nav-theme">
                             <ThemeSwitch />
                         </div>
@@ -338,6 +802,12 @@ function NavContent() {
                 )}
             </nav>
 
+            {/* ── Secondary nav bar (context-sensitive tabs) ────────── */}
+            {zoneLinks.length > 0 && <SubnavBar links={zoneLinks} tKey={tKey} />}
+
+            </div>{/* end site-nav-wrapper */}
+
+            {/* ── Page content ─────────────────────────────────────── */}
             <div className="site-layout-content">
                 <ErrorBoundary>
                     <Outlet />
@@ -351,12 +821,15 @@ function NavContent() {
                         {tKey('common.termsOfUse')}
                     </Link>
                     <span className="site-footer-sep">·</span>
-
                     <Link to="/careers" className="site-footer-link">
                         {tKey('common.careers')}
                     </Link>
                 </footer>
             </div>
+
+            {/* ── Concierge panel (right side) ──────────────────────── */}
+            <ConciergePanel isRTL={isRTL} tKey={tKey} location={location} />
+
             <DevLinks />
         </div>
     );

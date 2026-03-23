@@ -1,6 +1,7 @@
 import { sendContactEmail } from '../../lib/public/contact.js';
 import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
 import { getArenaPlans, getPlanBySlug, endorsePlan, signPlan } from '../../lib/public/plans.js';
+import { searchPublicPlans } from '../../lib/public/search.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
@@ -130,6 +131,10 @@ export default async function handler(req, res) {
                     const result = await recordScoreEvent(req);
                     return res.status(200).json(result);
                 }
+
+            case 'search':
+                if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed.' });
+                return res.status(200).json(await searchPublicPlans(req));
 
             case 'contact':
                 if (req.method !== 'POST') {

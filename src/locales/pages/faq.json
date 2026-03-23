@@ -1,0 +1,187 @@
+{
+  "pageTitle": { "en": "Help & FAQ", "fa": "راهنما و پرسش‌های متداول" },
+  "pageSubtitle": {
+    "en": "Everything you need to know about using IranDAO",
+    "fa": "هر آنچه برای استفاده از IranDAO باید بدانید"
+  },
+  "sections": [
+    {
+      "title": { "en": "Getting Started", "fa": "شروع کار" },
+      "items": [
+        {
+          "q": { "en": "What is IranDAO?", "fa": "IranDAO چیست؟" },
+          "a": {
+            "en": "IranDAO is a decentralized civic platform where Iranians — inside Iran and across the diaspora — can participate in designing the future of Iranian governance. You can explore proposed government blueprints, vote on transitional plans, track civic participation, and collaborate on the democratic process before and after a regime change.",
+            "fa": "IranDAO یک پلتفرم مدنی غیرمتمرکز است که در آن ایرانیان — در داخل و خارج از ایران — می‌توانند در طراحی آینده حاکمیت ایران مشارکت کنند. می‌توانید طرح‌های پیشنهادی حکومتی را بررسی کنید، به طرح‌های گذار رأی دهید، مشارکت مدنی خود را پیگیری کنید و در فرآیند دموکراتیک قبل و بعد از تغییر رژیم همکاری کنید."
+          }
+        },
+        {
+          "q": { "en": "How do I create an account?", "fa": "چگونه حساب کاربری بسازم؟" },
+          "a": {
+            "en": "IranDAO uses an invite-only registration system to keep the community trusted and verified. You need a valid invite code from an existing member. Go to /register, enter your invite code, provide your name and country, verify your email with a one-time code, then choose your preferred governance blueprint. Your account is immediately active.",
+            "fa": "IranDAO از سیستم ثبت‌نام با دعوت‌نامه استفاده می‌کند تا جامعه قابل اعتماد باقی بماند. برای ثبت‌نام به یک کد دعوت از عضو موجود نیاز دارید. به /register بروید، کد دعوت خود را وارد کنید، نام و کشور خود را ثبت کنید، ایمیل خود را با یک کد یکبارمصرف تأیید کنید، سپس طرح حکومتی مورد نظرتان را انتخاب کنید. حساب شما بلافاصله فعال می‌شود."
+          }
+        },
+        {
+          "q": { "en": "What is an invite code and how do I get one?", "fa": "کد دعوت چیست و چطور می‌توانم یکی بگیرم؟" },
+          "a": {
+            "en": "An invite code is an 8-character code that a current member generates for you. Each member has a quota of invite codes they can create from their profile page. Codes expire after 48 hours, so use yours promptly after receiving it. If you don't have one, reach out to someone you know in the community or contact us via the Contact page.",
+            "fa": "کد دعوت یک کد ۸ کاراکتری است که یک عضو فعلی برای شما تولید می‌کند. هر عضو سهمیه‌ای از کدهای دعوت دارد که می‌تواند از صفحه پروفایل خود ایجاد کند. کدها پس از ۴۸ ساعت منقضی می‌شوند، پس بلافاصله پس از دریافت آن را استفاده کنید. اگر کدی ندارید، با کسی که در جامعه می‌شناسید تماس بگیرید یا از طریق صفحه تماس با ما در ارتباط باشید."
+          }
+        },
+        {
+          "q": { "en": "How do I log in after registering?", "fa": "پس از ثبت‌نام چگونه وارد شوم؟" },
+          "a": {
+            "en": "Go to /login and enter your email address. You will receive a one-time login code by email — enter it to access your account. There is no password to remember. Each login code is valid for a short window, so enter it promptly.",
+            "fa": "به /login بروید و آدرس ایمیل خود را وارد کنید. یک کد ورود یکبارمصرف به ایمیل شما ارسال می‌شود — آن را وارد کنید تا به حساب خود دسترسی داشته باشید. هیچ رمز عبوری برای به خاطر سپردن وجود ندارد. هر کد ورود برای مدت کوتاهی معتبر است، پس آن را سریعاً وارد کنید."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Voting & Plans", "fa": "رأی‌گیری و طرح‌ها" },
+      "items": [
+        {
+          "q": { "en": "What is the difference between a Blueprint Vote and a Plan Endorsement?", "fa": "تفاوت رأی طرح حکومتی و تأیید طرح گذار چیست؟" },
+          "a": {
+            "en": "There are two distinct votes on IranDAO. A Blueprint Vote (/vote) is your choice for Iran's permanent long-term system of government — currently Decentralized Republic, Constitutional Monarchy, or Secular Liberal Democracy. A Plan Endorsement is your support for a transitional governance plan (/arena) — the temporary leadership structure for the period immediately after regime change. You can change both votes at any time.",
+            "fa": "در IranDAO دو نوع رأی‌گیری مجزا وجود دارد. رأی طرح حکومتی (/vote) انتخاب شما برای نظام حکومتی دائمی بلندمدت ایران است — در حال حاضر جمهوری غیرمتمرکز، مشروطه سلطنتی یا دموکراسی لیبرال سکولار. تأیید طرح گذار حمایت شما از یک طرح حکومت موقت است (/arena) — ساختار رهبری موقت برای دوره بلافاصله پس از تغییر رژیم. می‌توانید هر دو رأی را در هر زمانی تغییر دهید."
+          }
+        },
+        {
+          "q": { "en": "How do I vote on a governance blueprint?", "fa": "چگونه به یک طرح حکومتی رأی دهم؟" },
+          "a": {
+            "en": "Go to /vote or open your Profile and click 'Blueprint Vote'. You must be logged in and have a verified birth date on your profile (age verification is required). Select your preferred blueprint — Decentralized Republic, Constitutional Monarchy, or Secular Liberal Democracy — and confirm. Your vote is recorded securely and counted in the live results on the Destination page.",
+            "fa": "به /vote بروید یا پروفایل خود را باز کنید و روی 'رأی طرح' کلیک کنید. باید وارد سیستم شده باشید و تاریخ تولد تأییدشده در پروفایل داشته باشید (تأیید سن الزامی است). طرح مورد نظر خود را انتخاب کنید — جمهوری غیرمتمرکز، مشروطه سلطنتی یا دموکراسی لیبرال سکولار — و تأیید کنید. رأی شما به صورت امن ثبت شده و در نتایج زنده صفحه دولت آینده شمارش می‌شود."
+          }
+        },
+        {
+          "q": { "en": "What is the Arena?", "fa": "گودِ گذار چیست؟" },
+          "a": {
+            "en": "The Arena (/arena) is the democratic debate space for transitional governance plans — proposals for how Iran should be governed in the period immediately after regime change. You can browse each plan, read its full document, endorse the one you support, and track which plans are gaining momentum. Plans that gather enough signatures move from the Incubator into the Arena for full consideration.",
+            "fa": "گودِ گذار (/arena) فضای مناظره دموکراتیک برای طرح‌های حکومت گذار است — پیشنهاداتی درباره اینکه ایران در دوره بلافاصله پس از تغییر رژیم چگونه باید اداره شود. می‌توانید هر طرح را مرور کنید، سند کامل آن را بخوانید، از طرح مورد حمایت خود پشتیبانی کنید و پیگیری کنید کدام طرح‌ها در حال پیشرفت هستند. طرح‌هایی که امضای کافی جمع‌آوری کنند از انکوباتور وارد گود می‌شوند."
+          }
+        },
+        {
+          "q": { "en": "What are the current transitional plans?", "fa": "طرح‌های گذار فعلی کدام‌اند؟" },
+          "a": {
+            "en": "You can find all active plans at /plans or /arena. Current official plans include Mousavi's 'To Save Iran', the NUFDI plan, Iran Transition Council (ITC), CPILD, JMI, CPFIK, URI, and the Civil Society Transitional Plan. Each has its own dedicated page with full documentation, leadership details, and endorsement count. Use /compare/transition to compare them side by side.",
+            "fa": "تمام طرح‌های فعال را می‌توانید در /plans یا /arena بیابید. طرح‌های رسمی فعلی شامل طرح موسوی 'برای نجات ایران'، طرح NUFDI، شورای انتقال ایران (ITC)، CPILD، JMI، CPFIK، URI و طرح گذار جامعه مدنی هستند. هر طرح صفحه اختصاصی خود را با مستندات کامل، جزئیات رهبری و تعداد تأییدیه دارد. از /compare/transition برای مقایسه آن‌ها در کنار هم استفاده کنید."
+          }
+        },
+        {
+          "q": { "en": "Can I change my vote after submitting?", "fa": "آیا می‌توانم پس از ثبت رأی خود آن را تغییر دهم؟" },
+          "a": {
+            "en": "Yes. Both your blueprint vote and your plan endorsement can be changed at any time. Go to /vote or your Profile to update your blueprint vote. On the Arena page, simply click a different plan to switch your endorsement. The live tallies update in real time.",
+            "fa": "بله. هم رأی طرح حکومتی و هم تأیید طرح گذار شما می‌توانند در هر زمانی تغییر کنند. برای به‌روزرسانی رأی طرح حکومتی به /vote یا پروفایل خود بروید. در صفحه گودِ گذار، کافی است روی طرح دیگری کلیک کنید تا تأییدیه‌تان تغییر کند. نتایج زنده بلادرنگ به‌روز می‌شوند."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Profile & Civic Score", "fa": "پروفایل و امتیاز مدنی" },
+      "items": [
+        {
+          "q": { "en": "What is the Civic Score?", "fa": "امتیاز مدنی چیست؟" },
+          "a": {
+            "en": "Your Civic Score is a measure of your verified participation and contribution to IranDAO. It increases when you vote, endorse plans, log in regularly, verify your identity, and contribute. A higher score raises your Trust Tier (LOW → MID → HIGH), which gives your votes greater weight in weighted results. You can view your score and breakdown on your Profile page.",
+            "fa": "امتیاز مدنی شما معیار مشارکت تأییدشده و مشارکت شما در IranDAO است. با رأی دادن، تأیید طرح‌ها، ورود منظم، تأیید هویت و مشارکت افزایش می‌یابد. امتیاز بالاتر سطح اعتماد شما را بالا می‌برد (پایین ← متوسط ← بالا)، که به رأی شما وزن بیشتری در نتایج وزنی می‌دهد. می‌توانید امتیاز و جزئیات آن را در صفحه پروفایل خود مشاهده کنید."
+          }
+        },
+        {
+          "q": { "en": "What is identity verification and why should I do it?", "fa": "تأیید هویت چیست و چرا باید آن را انجام دهم؟" },
+          "a": {
+            "en": "Identity verification is an optional process where you submit a photo or ID document to confirm you are a real person. Verified members receive additional Civic Score points, a higher Trust Tier, and greater vote weight in weighted tallies. It also strengthens the democratic integrity of the platform. Go to /verify or click 'Verify Identity' in your profile sidebar.",
+            "fa": "تأیید هویت فرآیندی اختیاری است که در آن یک عکس یا سند شناسایی ارسال می‌کنید تا تأیید کنید که یک فرد واقعی هستید. اعضای تأییدشده امتیاز مدنی اضافی، سطح اعتماد بالاتر و وزن رأی بیشتر در شمارش‌های وزنی دریافت می‌کنند. همچنین یکپارچگی دموکراتیک پلتفرم را تقویت می‌کند. به /verify بروید یا در نوار کناری پروفایل روی 'تأیید هویت' کلیک کنید."
+          }
+        },
+        {
+          "q": { "en": "Why is my name or birth date locked?", "fa": "چرا نام یا تاریخ تولدم قفل شده است؟" },
+          "a": {
+            "en": "Once you set and confirm your full name or birth date, it locks permanently. This prevents identity fraud and ensures vote integrity — particularly for age-gated voting. If you made a mistake, contact support through the Contact page and an admin can review your case.",
+            "fa": "پس از اینکه نام کامل یا تاریخ تولد خود را تنظیم و تأیید کردید، برای همیشه قفل می‌شود. این از تقلب هویتی جلوگیری می‌کند و یکپارچگی رأی‌گیری را تضمین می‌کند — به‌ویژه برای رأی‌گیری با محدودیت سنی. اگر اشتباهی مرتکب شدید، از طریق صفحه تماس با پشتیبانی ارتباط بگیرید و یک مدیر می‌تواند پرونده شما را بررسی کند."
+          }
+        },
+        {
+          "q": { "en": "What does the activity grid on my profile show?", "fa": "شبکه فعالیت در پروفایلم چه نشان می‌دهد؟" },
+          "a": {
+            "en": "The contribution grid shows your participation activity across the current year, week by week. Each square represents a day — darker squares mean more activity on that day (logins, votes, endorsements). It works similarly to GitHub's contribution graph. Your streak counter shows how many consecutive days you have been active.",
+            "fa": "شبکه مشارکت فعالیت شما را در سراسر سال جاری، هفته به هفته نشان می‌دهد. هر مربع نمایانگر یک روز است — مربع‌های تیره‌تر به معنای فعالیت بیشتر در آن روز است (ورود، رأی‌گیری، تأیید). مشابه نمودار مشارکت GitHub عمل می‌کند. شمارنده streak نشان می‌دهد چند روز متوالی فعال بوده‌اید."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Invite Codes", "fa": "کدهای دعوت" },
+      "items": [
+        {
+          "q": { "en": "How do I invite someone to IranDAO?", "fa": "چگونه کسی را به IranDAO دعوت کنم؟" },
+          "a": {
+            "en": "Go to your Profile page and open the 'Invite Codes' section. Click 'Create Code' to generate a new invite code. Share the 8-character code with the person you want to invite. They must use it at /register within 48 hours before it expires. Each member has a quota of invite codes — once you reach your quota, you cannot generate more.",
+            "fa": "به صفحه پروفایل خود بروید و بخش 'کدهای دعوت' را باز کنید. روی 'ایجاد کد' کلیک کنید تا یک کد دعوت جدید تولید شود. کد ۸ کاراکتری را با فردی که می‌خواهید دعوت کنید به اشتراک بگذارید. آن‌ها باید آن را در /register ظرف ۴۸ ساعت قبل از انقضا استفاده کنند. هر عضو سهمیه‌ای از کدهای دعوت دارد — پس از رسیدن به سهمیه، نمی‌توانید بیشتر تولید کنید."
+          }
+        },
+        {
+          "q": { "en": "My invite code expired. What now?", "fa": "کد دعوتم منقضی شده. حالا چه کنم؟" },
+          "a": {
+            "en": "Expired codes cannot be used. Simply go to your Profile → Invite Codes and generate a new one. The expired code does not count against your quota — only successfully used codes reduce your remaining count.",
+            "fa": "کدهای منقضی‌شده قابل استفاده نیستند. کافی است به پروفایل ← کدهای دعوت بروید و یک کد جدید تولید کنید. کد منقضی‌شده از سهمیه شما کسر نمی‌شود — فقط کدهای با موفقیت استفاده‌شده تعداد باقیمانده شما را کاهش می‌دهند."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Blueprints & Governance", "fa": "طرح‌های حکومتی" },
+      "items": [
+        {
+          "q": { "en": "What are the three governance blueprints?", "fa": "سه طرح حکومتی کدام‌اند؟" },
+          "a": {
+            "en": "The three blueprints represent different visions for Iran's permanent system of government after the transition: (1) Decentralized Republic — a system distributing power across regions and autonomous institutions, reducing central authority. (2) Constitutional Monarchy — a modern constitutional framework retaining a symbolic monarchy alongside elected democratic institutions. (3) Secular Liberal Democracy — a fully elected republic with strong separation of religion and state. Explore each in depth at /choose or /blueprints.",
+            "fa": "سه طرح نمایانگر دیدگاه‌های مختلف برای نظام حکومتی دائمی ایران پس از دوران گذار هستند: (۱) جمهوری غیرمتمرکز — نظامی که قدرت را در مناطق و نهادهای مستقل توزیع می‌کند و اقتدار مرکزی را کاهش می‌دهد. (۲) مشروطه سلطنتی — چارچوب مشروطه مدرن با حفظ یک سلطنت نمادین در کنار نهادهای دموکراتیک منتخب. (۳) دموکراسی لیبرال سکولار — یک جمهوری کاملاً انتخابی با جدایی قوی دین و دولت. هر یک را به طور عمیق در /choose یا /blueprints کاوش کنید."
+          }
+        },
+        {
+          "q": { "en": "How do I explore a blueprint in detail?", "fa": "چگونه یک طرح را به تفصیل بررسی کنم؟" },
+          "a": {
+            "en": "From the /blueprints or /choose page, select any blueprint to open its interactive viewer. Inside, you can navigate Sectors (economy, judiciary, military, etc.), Governance Layers (federal, regional, local), and the Roadmap showing the implementation timeline. You can also fork a blueprint to create your own customized version.",
+            "fa": "از صفحه /blueprints یا /choose، هر طرح را انتخاب کنید تا مشاهده‌گر تعاملی آن باز شود. در داخل، می‌توانید بخش‌ها (اقتصاد، قضائیه، نظامی و غیره)، لایه‌های حاکمیتی (فدرال، منطقه‌ای، محلی) و نقشه راه نشان‌دهنده جدول زمانی اجرا را مرور کنید. همچنین می‌توانید یک طرح را fork کنید تا نسخه سفارشی خودتان را بسازید."
+          }
+        }
+      ]
+    },
+    {
+      "title": { "en": "Privacy & Security", "fa": "حریم خصوصی و امنیت" },
+      "items": [
+        {
+          "q": { "en": "Is my vote private?", "fa": "آیا رأی من خصوصی است؟" },
+          "a": {
+            "en": "Your identity is never publicly linked to your vote. Aggregated vote counts are displayed publicly (which blueprint is leading, which plan has the most endorsements), but individual votes are not exposed. The platform stores votes with server-side security and access controls.",
+            "fa": "هویت شما هرگز به صورت عمومی به رأی شما مرتبط نمی‌شود. تعداد رأی‌های تجمیع‌شده به صورت عمومی نمایش داده می‌شوند (کدام طرح پیشتاز است، کدام برنامه بیشترین تأیید را دارد)، اما رأی‌های فردی فاش نمی‌شوند. پلتفرم رأی‌ها را با امنیت سمت سرور و کنترل‌های دسترسی ذخیره می‌کند."
+          }
+        },
+        {
+          "q": { "en": "What data does IranDAO collect?", "fa": "IranDAO چه داده‌ای جمع‌آوری می‌کند؟" },
+          "a": {
+            "en": "IranDAO collects your email address (for login), name, country, and optional profile details you choose to provide. During registration, basic device metadata (timezone, language, screen size) is collected to detect duplicate accounts. We do not sell or share your data. Read the full Privacy Policy at /privacy.",
+            "fa": "IranDAO آدرس ایمیل (برای ورود)، نام، کشور و جزئیات اختیاری پروفایل که انتخاب می‌کنید ارائه دهید را جمع‌آوری می‌کند. در طول ثبت‌نام، متادیتای اولیه دستگاه (منطقه زمانی، زبان، اندازه صفحه) برای تشخیص حساب‌های تکراری جمع‌آوری می‌شود. ما داده‌های شما را نمی‌فروشیم یا به اشتراک نمی‌گذاریم. سیاست حریم خصوصی کامل را در /privacy بخوانید."
+          }
+        },
+        {
+          "q": { "en": "I am inside Iran. Is it safe to use IranDAO?", "fa": "من در داخل ایران هستم. آیا استفاده از IranDAO امن است؟" },
+          "a": {
+            "en": "We take privacy seriously. Votes are not publicly tied to identities, and we do not display member lists. However, if you are in Iran, we strongly recommend using a VPN and being cautious about what information you share in your profile (city, bio). Do not use your real name in a way that could identify you to authorities if that is a concern. Your safety comes first.",
+            "fa": "ما حریم خصوصی را جدی می‌گیریم. رأی‌ها به صورت عمومی به هویت‌ها مرتبط نیستند و ما لیست اعضا را نمایش نمی‌دهیم. با این حال، اگر در ایران هستید، توصیه اکید می‌کنیم از VPN استفاده کنید و در مورد اطلاعاتی که در پروفایل خود به اشتراک می‌گذارید (شهر، بیوگرافی) محتاط باشید. اگر نگران هستید، از نام واقعی خود به گونه‌ای استفاده نکنید که مقامات بتوانند شما را شناسایی کنند. امنیت شما در اولویت است."
+          }
+        }
+      ]
+    }
+  ],
+  "contactPrompt": {
+    "en": "Still have questions?",
+    "fa": "هنوز سؤال دارید؟"
+  },
+  "contactLink": {
+    "en": "Contact us",
+    "fa": "با ما تماس بگیرید"
+  }
+}

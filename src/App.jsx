@@ -49,6 +49,8 @@ import ComingSoonPage from './pages/ComingSoon/ComingSoonPage';
 import AccessModePage from './pages/AccessMode/AccessModePage';
 import CareersPage from './pages/Careers/CareersPage';
 import ApplyPage from './pages/Careers/ApplyPage';
+import FAQPage from './pages/FAQ/FAQPage';
+import SearchPage from './pages/Search/SearchPage';
 
 function App() {
     return (
@@ -106,6 +108,8 @@ function App() {
                         <Route path="login" element={<LoginPage />} />
                         <Route path="careers" element={<CareersPage />} />
                         <Route path="apply" element={<ApplyPage />} />
+                        <Route path="faq" element={<FAQPage />} />
+                        <Route path="search" element={<SearchPage />} />
 
 
                         {/* Post-collapse: The Destination */}
