@@ -917,29 +917,11 @@ function NavContent() {
                             {tKey('nav.about')}
                         </NavLink>
 
-                        {session ? (
+                        {isAdmin && (
                             <>
                                 <div className="mobile-nav-sep" />
-                                {isAdmin && (
-                                    <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
-                                        {tKey('nav.admin')}
-                                    </NavLink>
-                                )}
-                                <NavLink to="/profile" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
-                                    {profileName || tKey('nav.profile')}
-                                </NavLink>
-                                <button className="site-nav-link mobile-nav-logout" onClick={handleMobileLogout}>
-                                    {tKey('nav.logout')}
-                                </button>
-                            </>
-                        ) : (
-                            <>
-                                <div className="mobile-nav-sep" />
-                                <NavLink to="/login" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
-                                    {tKey('nav.login')}
-                                </NavLink>
-                                <NavLink to="/register" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
-                                    {tKey('nav.register')}
+                                <NavLink to="/admin" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
+                                    {tKey('nav.admin')}
                                 </NavLink>
                             </>
                         )}
@@ -962,6 +944,52 @@ function NavContent() {
                     </div>
                 )}
             </nav>
+
+            {/* ── Mobile zone bar (Transition ▾ / Destination ▾ on ≤767px) */}
+            <div className="mobile-zone-bar">
+                <div
+                    className={`mobile-zone-item${isInTransition ? ' is-active' : ''}`}
+                    onMouseEnter={transDropdown.onMouseEnter}
+                    onMouseLeave={transDropdown.onMouseLeave}
+                >
+                    <button
+                        className={`mobile-zone-btn${isInTransition ? ' is-active' : ''}`}
+                        onClick={transDropdown.onToggle}
+                    >
+                        {tKey('nav.transitionMenu')}
+                        <span className="primary-nav-caret">▾</span>
+                    </button>
+                    {transDropdown.open && (
+                        <MegaDropdown
+                            items={TRANSITION_ITEMS}
+                            title={tKey('nav.transitionMenu')}
+                            onClose={transDropdown.close}
+                            tKey={tKey}
+                        />
+                    )}
+                </div>
+                <div
+                    className={`mobile-zone-item${isInDestination ? ' is-active' : ''}`}
+                    onMouseEnter={destDropdown.onMouseEnter}
+                    onMouseLeave={destDropdown.onMouseLeave}
+                >
+                    <button
+                        className={`mobile-zone-btn${isInDestination ? ' is-active' : ''}`}
+                        onClick={destDropdown.onToggle}
+                    >
+                        {tKey('nav.destinationMenu')}
+                        <span className="primary-nav-caret">▾</span>
+                    </button>
+                    {destDropdown.open && (
+                        <MegaDropdown
+                            items={destinationItems}
+                            title={tKey('nav.destinationMenu')}
+                            onClose={destDropdown.close}
+                            tKey={tKey}
+                        />
+                    )}
+                </div>
+            </div>
 
             {/* ── Secondary nav bar (context-sensitive tabs) ────────── */}
             {zoneLinks.length > 0 && <SubnavBar links={zoneLinks} tKey={tKey} />}
