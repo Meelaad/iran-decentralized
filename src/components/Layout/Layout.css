@@ -28,6 +28,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 1;
     min-width: 0;
     flex: 1;
 }
@@ -667,6 +668,7 @@
     .site-nav {
         padding: 8px 16px;
         gap: 0;
+        flex-wrap: wrap;
     }
 
     .site-nav-left {
@@ -692,13 +694,14 @@
         display: none;
     }
 
-    /* Hide auth buttons + lang picker — they live in the hamburger dropdown */
+    /* Hide auth buttons, lang picker, and search icon — they live in the hamburger dropdown */
     .site-nav-login-btn,
     .site-nav-register-btn,
     .site-nav-profile-btn,
     .site-nav-logout-btn,
     .site-nav-admin-btn,
-    .site-nav-lang {
+    .site-nav-lang,
+    .site-nav-search {
         display: none;
     }
 
@@ -832,6 +835,8 @@
     align-items: center;
     justify-content: flex-start;
     gap: 4px;
+    flex: 1;
+    min-width: 0;
 }
 
 .primary-nav-item {
@@ -860,6 +865,127 @@
 .primary-nav-item.is-active .primary-nav-caret {
     transform: rotate(180deg);
     opacity: 0.85;
+}
+
+/* ── Priority nav "More" button & overflow dropdown ──────────── */
+.site-nav-more {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.site-nav-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 6px 10px;
+    transition: color 0.15s, border-color 0.15s;
+    white-space: nowrap;
+}
+
+.site-nav-more-btn:hover,
+.site-nav-more-btn.is-open {
+    color: var(--text-primary, #e2e8f0);
+    border-color: rgba(255,255,255,0.12);
+}
+
+.site-nav-more-btn.is-open .primary-nav-caret {
+    transform: rotate(180deg);
+}
+
+.site-nav-overflow-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 200px;
+    background: rgba(4,8,20,0.97);
+    border: 1px solid rgba(139,92,246,0.18);
+    border-radius: 10px;
+    padding: 8px 0;
+    z-index: 300;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(139,92,246,0.06);
+    animation: megaSlideDown 0.18s ease;
+}
+
+[dir="rtl"] .site-nav-overflow-dropdown {
+    left: auto;
+    right: 0;
+}
+
+.overflow-section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted, #94a3b8);
+    padding: 8px 16px 4px;
+    opacity: 0.7;
+}
+
+.overflow-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-secondary, #cbd5e1);
+    text-decoration: none;
+    transition: background 0.12s, color 0.12s;
+}
+
+.overflow-nav-link:hover {
+    background: rgba(139,92,246,0.1);
+    color: var(--text-primary, #e2e8f0);
+}
+
+.overflow-nav-link.is-active {
+    color: var(--accent-teal, #26DEC2);
+}
+
+.overflow-nav-icon {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Light theme */
+[data-theme="light"] .site-nav-overflow-dropdown {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+[data-theme="light"] .site-nav-more-btn {
+    color: #64748b;
+}
+
+[data-theme="light"] .site-nav-more-btn:hover,
+[data-theme="light"] .site-nav-more-btn.is-open {
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+[data-theme="light"] .overflow-section-label { color: #94a3b8; }
+
+[data-theme="light"] .overflow-nav-link {
+    color: #334155;
+}
+
+[data-theme="light"] .overflow-nav-link:hover {
+    background: rgba(139,92,246,0.06);
+    color: #1e293b;
 }
 
 /* ── Mega dropdown panel ──────────────────────────────────────── */
@@ -1021,6 +1147,11 @@
 
 .site-nav-search-input::placeholder {
     color: rgba(90,106,126,0.6);
+}
+
+/* Hide desktop search on mobile (override must come after the base display:flex rule) */
+@media (max-width: 1279px) {
+    .site-nav-search { display: none; }
 }
 
 /* ── 3-dot vertical menu ──────────────────────────────────────── */
@@ -1255,6 +1386,132 @@
     font-size: 10px;
 }
 
+/* ── Mobile nav zone accordions ───────────────────────────────── */
+.mobile-nav-zone-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(139,92,246,0.08);
+    padding: 13px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #a1a1aa;
+    text-align: start;
+    transition: color 0.15s, background 0.15s;
+}
+
+.mobile-nav-zone-btn:hover,
+.mobile-nav-zone-btn.is-open {
+    color: #f4f4f5;
+    background: rgba(139,92,246,0.06);
+}
+
+.mobile-nav-zone-chevron {
+    font-size: 9px;
+    color: #52525b;
+    flex-shrink: 0;
+}
+
+.mobile-nav-zone-items {
+    background: rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(139,92,246,0.08);
+}
+
+.mobile-nav-zone-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 24px;
+    font-size: 13px;
+    color: #71717a;
+    text-decoration: none;
+    transition: color 0.15s, background 0.15s;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.mobile-nav-zone-link:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-zone-link:hover,
+.mobile-nav-zone-link.is-active {
+    color: #f4f4f5;
+    background: rgba(139,92,246,0.08);
+}
+
+.mobile-nav-zone-icon {
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+[data-theme="light"] .mobile-nav-zone-btn { color: #52525b; border-bottom-color: rgba(0,0,0,0.07); }
+[data-theme="light"] .mobile-nav-zone-btn:hover,
+[data-theme="light"] .mobile-nav-zone-btn.is-open { color: #18181b; background: rgba(124,58,237,0.05); }
+[data-theme="light"] .mobile-nav-zone-items { background: rgba(0,0,0,0.03); border-bottom-color: rgba(0,0,0,0.07); }
+[data-theme="light"] .mobile-nav-zone-link { color: #71717a; border-bottom-color: rgba(0,0,0,0.04); }
+[data-theme="light"] .mobile-nav-zone-link:hover,
+[data-theme="light"] .mobile-nav-zone-link.is-active { color: #18181b; background: rgba(124,58,237,0.06); }
+
+/* ── Mobile zone bar (shown outside hamburger at 480px+) ──────── */
+/* ── Mobile hamburger search form ─────────────────────────────── */
+.mobile-nav-search-form {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 8px 12px 4px;
+    border: 1px solid rgba(139,92,246,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.04);
+}
+
+.mobile-nav-search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px 12px;
+    font-size: 13px;
+    font-family: inherit;
+    color: #d4d4d8;
+    outline: none;
+}
+
+.mobile-nav-search-input::placeholder {
+    color: #52525b;
+}
+
+.mobile-nav-search-btn {
+    background: none;
+    border: none;
+    border-left: 1px solid rgba(139,92,246,0.15);
+    padding: 0 12px;
+    height: 100%;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: #71717a;
+    transition: color 0.15s;
+    flex-shrink: 0;
+}
+
+.mobile-nav-search-btn:hover { color: #a78bfa; }
+
+[dir="rtl"] .mobile-nav-search-btn { border-left: none; border-right: 1px solid rgba(139,92,246,0.15); }
+
+[data-theme="light"] .mobile-nav-search-form { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.1); }
+[data-theme="light"] .mobile-nav-search-input { color: #18181b; }
+[data-theme="light"] .mobile-nav-search-input::placeholder { color: #a1a1aa; }
+[data-theme="light"] .mobile-nav-search-btn { border-left-color: rgba(0,0,0,0.08); color: #71717a; }
+
 /* ── Concierge panel ──────────────────────────────────────────── */
 .concierge-toggle {
     position: fixed;
@@ -1328,19 +1585,51 @@
     transform: translateX(0);
 }
 
-.concierge-panel.is-open.is-expanded {
-    width: min(560px, 92vw);
-    box-shadow: -12px 0 48px rgba(0,0,0,0.55);
+/* ── Modal overlay backdrop ─────────────────────────────────── */
+.concierge-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 1012;
+    animation: concierge-fade-in 0.18s ease;
 }
 
-.concierge-panel.is-rtl.is-open.is-expanded {
-    box-shadow: 12px 0 48px rgba(0,0,0,0.55);
+@keyframes concierge-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
-.concierge-backdrop.is-expanded {
-    display: block;
-    background: rgba(0,0,0,0.55);
-    backdrop-filter: blur(2px);
+/* ── Modal (detached, centered) panel state ─────────────────── */
+.concierge-panel.is-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    width: min(80vw, 860px);
+    height: 80vh;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    border: 1px solid rgba(139,92,246,0.22);
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.4),
+        0 12px 40px 6px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(139,92,246,0.1);
+    z-index: 1013;
+    animation: concierge-modal-in 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.concierge-panel.is-rtl.is-modal {
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+}
+
+@keyframes concierge-modal-in {
+    from { opacity: 0; transform: translate(-50%, calc(-50% + 20px)); }
+    to   { opacity: 1; transform: translate(-50%, -50%); }
 }
 
 .concierge-header {
@@ -1379,7 +1668,7 @@
     color: #8B5CF6;
 }
 
-.concierge-expand-btn.is-compressed:hover {
+.concierge-expand-btn.is-docked:hover {
     background: rgba(90,106,126,0.08);
     border-color: rgba(90,106,126,0.3);
     color: #8a9bae;
@@ -1602,12 +1891,43 @@
 
 }
 
-/* ── Mobile/tablet: hide center links ────────────────────────── */
+/* ── Mobile/tablet: show zone dropdown buttons, hide plain links ─ */
 @media (max-width: 1279px) {
+    /* Show site-nav-center so zone buttons are visible in the nav bar */
     .site-nav-center {
+        display: flex;
+        flex: 1;
+        gap: 2px;
+    }
+
+    /* Hide plain NavLinks (vote, faq, about idx=2,3,4) and MORE button — they live in hamburger */
+    .site-nav-center > [data-nav-idx="2"],
+    .site-nav-center > [data-nav-idx="3"],
+    .site-nav-center > [data-nav-idx="4"],
+    .site-nav-center .site-nav-more {
         display: none;
     }
 
+    /* Compact zone dropdown buttons for mobile */
+    .primary-nav-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    /* Mega-dropdown: prevent off-screen overflow on small screens */
+    .mega-dropdown {
+        min-width: min(94vw, 480px);
+        left: 0;
+        transform: none;
+        animation: megaSlideDown 0.18s ease;
+    }
+
+    [dir="rtl"] .mega-dropdown {
+        left: auto;
+        right: 0;
+        transform: none;
+        animation: megaSlideDown 0.18s ease;
+    }
 
     .concierge-backdrop {
         display: block;

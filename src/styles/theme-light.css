@@ -1689,7 +1689,12 @@
 [data-theme="light"] .concierge-close:hover { background: rgba(220,38,38,0.06); color: #dc2626; }
 [data-theme="light"] .concierge-expand-btn { color: #6D7891; border-color: rgba(20,20,82,0.1); }
 [data-theme="light"] .concierge-expand-btn:hover { background: rgba(124,58,237,0.06); border-color: rgba(124,58,237,0.3); color: #7C3AED; }
-[data-theme="light"] .concierge-panel.is-open.is-expanded { box-shadow: -12px 0 48px rgba(20,20,82,0.18); }
+[data-theme="light"] .concierge-panel.is-modal {
+    background: #ffffff;
+    border-color: rgba(124,58,237,0.18);
+    box-shadow: 0 2px 4px rgba(20,20,82,0.12), 0 12px 40px 6px rgba(20,20,82,0.18);
+}
+[data-theme="light"] .concierge-modal-overlay { background: rgba(20,20,82,0.45); }
 
 [data-theme="light"] .concierge-section-title { color: rgba(124,58,237,0.7); }
 [data-theme="light"] .concierge-page-title { color: #141452; }

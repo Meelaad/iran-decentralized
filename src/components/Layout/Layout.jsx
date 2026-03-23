@@ -152,16 +152,15 @@ function ConciergeAccordionItem({ item, isRTL }) {
 // ── Concierge panel ────────────────────────────────────────────────────────
 function ConciergePanel({ isRTL, tKey, location }) {
     const { headFont } = useLang();
-    const [open, setOpen] = useState(false);
-    const [expanded, setExpanded] = useState(false);
-    const [tab, setTab] = useState('info');
+    const [open, setOpen]   = useState(false);
+    const [modal, setModal] = useState(false);
+    const [tab, setTab]     = useState('info');
     const [feedback, setFeedback] = useState('');
     const navigate = useNavigate();
 
-    function handleClose() {
-        setOpen(false);
-        setExpanded(false);
-    }
+    function handleClose() { setOpen(false); setModal(false); }
+    function handleDock()  { setModal(false); }
+    function handleModal() { setModal(true); }
 
     const handleFeedbackSubmit = (e) => {
         e.preventDefault();
@@ -179,74 +178,64 @@ function ConciergePanel({ isRTL, tKey, location }) {
         '/vote': { title: 'Vote', desc: 'Cast your governance vote' },
         '/about': { title: 'About', desc: 'About IranDAO' },
     };
-
-    const pageInfo = pageInfoMap[location.pathname] || {
-        title: 'IranDAO',
-        desc: 'Decentralized governance platform for Iran',
-    };
+    const pageInfo = pageInfoMap[location.pathname] || { title: 'IranDAO', desc: 'Decentralized governance platform for Iran' };
 
     return (
         <>
-            {/* Toggle strip */}
-            <button
-                className={`concierge-toggle ${open ? 'is-open' : ''} ${isRTL ? 'is-rtl' : ''}`}
-                onClick={() => setOpen(v => !v)}
-                aria-label={open ? tKey('concierge.closePanel') : tKey('concierge.expandPanel')}
-                title={open ? tKey('concierge.closePanel') : tKey('concierge.expandPanel')}
-            >
-                <span className="concierge-toggle-chevron">{open ? (isRTL ? '❯' : '❮') : (isRTL ? '❮' : '❯')}</span>
-            </button>
+            {/* Edge toggle strip — hidden when modal */}
+            {!modal && (
+                <button
+                    className={`concierge-toggle ${open ? 'is-open' : ''} ${isRTL ? 'is-rtl' : ''}`}
+                    onClick={() => setOpen(v => !v)}
+                    aria-label={open ? tKey('concierge.closePanel') : tKey('concierge.expandPanel')}
+                    title={open ? tKey('concierge.closePanel') : tKey('concierge.expandPanel')}
+                >
+                    <span className="concierge-toggle-chevron">{open ? (isRTL ? '❯' : '❮') : (isRTL ? '❮' : '❯')}</span>
+                </button>
+            )}
 
-            {/* Sliding panel */}
-            <div className={`concierge-panel ${open ? 'is-open' : ''} ${expanded ? 'is-expanded' : ''} ${isRTL ? 'is-rtl' : ''}`} style={{ fontFamily: headFont }}>
+            {/* Modal overlay — wraps panel when detached */}
+            {open && modal && (
+                <div className="concierge-modal-overlay" onClick={handleClose} aria-modal="true" role="dialog" />
+            )}
+
+            {/* Sliding / floating panel */}
+            <div className={`concierge-panel ${open ? 'is-open' : ''} ${modal ? 'is-modal' : ''} ${isRTL ? 'is-rtl' : ''}`} style={{ fontFamily: headFont }}>
                 {/* Panel header */}
                 <div className="concierge-header">
                     <div className="concierge-tabs">
-                        <button
-                            className={`concierge-tab ${tab === 'info' ? 'is-active' : ''}`}
-                            onClick={() => setTab('info')}
-                            title={tKey('concierge.pageInfo')}
-                        >ℹ</button>
-                        <button
-                            className={`concierge-tab ${tab === 'feedback' ? 'is-active' : ''}`}
-                            onClick={() => setTab('feedback')}
-                            title={tKey('concierge.feedback')}
-                        >💬</button>
-                        <button
-                            className={`concierge-tab ${tab === 'help' ? 'is-active' : ''}`}
-                            onClick={() => setTab('help')}
-                            title={tKey('concierge.help')}
-                        >?</button>
+                        <button className={`concierge-tab ${tab === 'info'     ? 'is-active' : ''}`} onClick={() => setTab('info')}     title={tKey('concierge.pageInfo')}>ℹ</button>
+                        <button className={`concierge-tab ${tab === 'feedback' ? 'is-active' : ''}`} onClick={() => setTab('feedback')} title={tKey('concierge.feedback')}>💬</button>
+                        <button className={`concierge-tab ${tab === 'help'     ? 'is-active' : ''}`} onClick={() => setTab('help')}     title={tKey('concierge.help')}>?</button>
                     </div>
                     <div className="concierge-header-actions">
-                        {/* Expand / compress toggle */}
-                        <button
-                            className={`concierge-expand-btn ${expanded ? 'is-compressed' : ''}`}
-                            onClick={() => setExpanded(v => !v)}
-                            title={expanded ? (isRTL ? 'کوچک کردن' : 'Compress') : (isRTL ? 'بزرگ کردن' : 'Expand')}
-                            aria-label={expanded ? 'Compress panel' : 'Expand panel'}
-                        >
-                            {expanded ? (
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                                    <polyline points="4 14 10 14 10 20" />
-                                    <polyline points="20 10 14 10 14 4" />
-                                    <line x1="10" y1="14" x2="3" y2="21" />
-                                    <line x1="21" y1="3" x2="14" y2="10" />
+                        {/* Fullscreen / dock button — matching Google devsite icons */}
+                        {!modal ? (
+                            <button
+                                className="concierge-expand-btn"
+                                onClick={handleModal}
+                                title={isRTL ? 'نمایش در مرکز صفحه' : 'Open in center'}
+                                aria-label="Open panel in center"
+                            >
+                                {/* fullscreen icon */}
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
                                 </svg>
-                            ) : (
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                                    <polyline points="15 3 21 3 21 9" />
-                                    <polyline points="9 21 3 21 3 15" />
-                                    <line x1="21" y1="3" x2="14" y2="10" />
-                                    <line x1="3" y1="21" x2="10" y2="14" />
+                            </button>
+                        ) : (
+                            <button
+                                className="concierge-expand-btn is-docked"
+                                onClick={handleDock}
+                                title={isRTL ? 'بازگشت به کنار صفحه' : 'Dock to side'}
+                                aria-label="Dock panel to side"
+                            >
+                                {/* close_fullscreen icon */}
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M22 3.41 16.71 8.7 20 12h-8V4l3.29 3.29L20.59 2 22 3.41zM3.41 22l5.29-5.29L12 20v-8H4l3.29 3.29L2 20.59 3.41 22z"/>
                                 </svg>
-                            )}
-                        </button>
-                        <button
-                            className="concierge-close"
-                            onClick={handleClose}
-                            title={tKey('concierge.closePanel')}
-                        >✕</button>
+                            </button>
+                        )}
+                        <button className="concierge-close" onClick={handleClose} title={tKey('concierge.closePanel')}>✕</button>
                     </div>
                 </div>
 
@@ -269,9 +258,7 @@ function ConciergePanel({ isRTL, tKey, location }) {
                                     onChange={e => setFeedback(e.target.value)}
                                     rows={5}
                                 />
-                                <button type="submit" className="concierge-send-btn">
-                                    {tKey('concierge.feedbackSend')}
-                                </button>
+                                <button type="submit" className="concierge-send-btn">{tKey('concierge.feedbackSend')}</button>
                             </form>
                         </div>
                     )}
@@ -280,15 +267,13 @@ function ConciergePanel({ isRTL, tKey, location }) {
                             <div className="concierge-section-title">{tKey('concierge.helpTitle')}</div>
                             {FAQ_CONTENT.sections.map((section, si) => (
                                 <div key={si}>
-                                    <div className="concierge-faq-section-label">
-                                        {isRTL ? section.title.fa : section.title.en}
-                                    </div>
+                                    <div className="concierge-faq-section-label">{isRTL ? section.title.fa : section.title.en}</div>
                                     {section.items.map((item, ii) => (
                                         <ConciergeAccordionItem key={ii} item={item} isRTL={isRTL} />
                                     ))}
                                 </div>
                             ))}
-                            <Link to="/faq" className="concierge-faq-link" onClick={() => setOpen(false)}>
+                            <Link to="/faq" className="concierge-faq-link" onClick={handleClose}>
                                 {isRTL ? 'مشاهده همه سوالات ←' : 'View full FAQ →'}
                             </Link>
                         </div>
@@ -296,8 +281,8 @@ function ConciergePanel({ isRTL, tKey, location }) {
                 </div>
             </div>
 
-            {/* Backdrop — always shown when expanded, mobile-only when just open */}
-            {open && <div className={`concierge-backdrop ${expanded ? 'is-expanded' : ''}`} onClick={handleClose} />}
+            {/* Mobile backdrop (side-panel mode only) */}
+            {open && !modal && <div className="concierge-backdrop" onClick={handleClose} />}
         </>
     );
 }
@@ -355,6 +340,80 @@ function SubnavBar({ links, tKey }) {
     );
 }
 
+// ── Priority nav hook ──────────────────────────────────────────────────────
+// .site-nav-center has flex:1 so container.offsetWidth == available space (stable).
+// Stored item widths are measured once; priority nav is desktop-only (≥1280px).
+const MORE_BTN_W = 82; // approx width of "More ▾" / "بیشتر ▾" button
+
+function usePriorityNav(containerRef, totalItems) {
+    const [visibleCount, setVisibleCount] = useState(totalItems);
+    const storedWidths = useRef([]);
+    const wasMobile = useRef(typeof window !== 'undefined' && window.innerWidth < 1280);
+
+    useEffect(() => {
+        const container = containerRef.current;
+        if (!container) return;
+
+        function getItemWidths() {
+            return Array.from(container.querySelectorAll('[data-nav-idx]'))
+                .map(el => el.getBoundingClientRect().width);
+        }
+
+        function recalculate() {
+            // Priority nav is desktop-only; on mobile all items show via CSS rules
+            if (window.innerWidth < 1280) {
+                setVisibleCount(totalItems);
+                return;
+            }
+            const widths = storedWidths.current;
+            if (!widths.length) return;
+            // container.offsetWidth == available space because .site-nav-center has flex:1
+            const available = container.offsetWidth;
+            let used = 0;
+            let count = widths.length;
+            for (let i = 0; i < widths.length; i++) {
+                const needsMore = i < widths.length - 1;
+                if (used + widths[i] + (needsMore ? MORE_BTN_W : 0) <= available) {
+                    used += widths[i];
+                } else {
+                    count = i;
+                    break;
+                }
+            }
+            setVisibleCount(count);
+        }
+
+        // First measurement: all items are visible (visibleCount starts at totalItems)
+        const raf = requestAnimationFrame(() => {
+            if (window.innerWidth >= 1280) {
+                storedWidths.current = getItemWidths();
+            }
+            recalculate();
+        });
+
+        const ro = new ResizeObserver(() => {
+            const nowMobile = window.innerWidth < 1280;
+            const crossedToDesktop = wasMobile.current && !nowMobile;
+            wasMobile.current = nowMobile;
+
+            // Re-measure when crossing from mobile to desktop (items newly visible in CSS)
+            if (crossedToDesktop || (nowMobile === false && storedWidths.current.some(w => w === 0))) {
+                const measured = getItemWidths();
+                if (measured.every(w => w > 0)) storedWidths.current = measured;
+            }
+            recalculate();
+        });
+        ro.observe(container);
+
+        return () => {
+            cancelAnimationFrame(raf);
+            ro.disconnect();
+        };
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+    return visibleCount;
+}
+
 // ── Nav dropdown hook ──────────────────────────────────────────────────────
 function useDropdown() {
     const [open, setOpen] = useState(false);
@@ -370,10 +429,14 @@ function useDropdown() {
     }, []);
 
     const close = useCallback(() => setOpen(false), []);
+    const onToggle = useCallback(() => {
+        if (closeTimer.current) clearTimeout(closeTimer.current);
+        setOpen(v => !v);
+    }, []);
 
     useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
 
-    return { open, onMouseEnter, onMouseLeave, close };
+    return { open, onMouseEnter, onMouseLeave, close, onToggle };
 }
 
 // ── Main NavContent ────────────────────────────────────────────────────────
@@ -389,6 +452,9 @@ function NavContent() {
     const navRef = useRef(null);
     const searchInputRef = useRef(null);
     const dotMenuRef = useRef(null);
+    const centerRef = useRef(null);
+    const moreRef = useRef(null);
+    const [moreOpen, setMoreOpen] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -435,11 +501,27 @@ function NavContent() {
         return () => document.removeEventListener('mousedown', handleOutside);
     }, [dotMenuOpen]);
 
+    // Close "More" dropdown on outside click
+    useEffect(() => {
+        if (!moreOpen) return;
+        function handleOutside(e) {
+            if (moreRef.current && !moreRef.current.contains(e.target)) {
+                setMoreOpen(false);
+            }
+        }
+        document.addEventListener('mousedown', handleOutside);
+        return () => document.removeEventListener('mousedown', handleOutside);
+    }, [moreOpen]);
+
+    // Priority nav: how many center items fit in the container
+    const visibleCount = usePriorityNav(centerRef, 5);
+
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         if (searchQuery.trim()) {
             navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
             setSearchOpen(false);
+            setMobileNavOpen(false);
             setSearchQuery('');
         }
     };
@@ -502,15 +584,17 @@ function NavContent() {
                     </NavLink>
 
                 {/* Primary links with mega dropdowns (desktop only) */}
-                <div className="site-nav-center">
+                <div className="site-nav-center" ref={centerRef}>
 
-                    {/* TRANSITION dropdown */}
+                    {/* TRANSITION dropdown — item 0 */}
                     <div
+                        data-nav-idx="0"
                         className={`primary-nav-item ${isInTransition ? 'is-active' : ''}`}
+                        style={visibleCount <= 0 ? { display: 'none' } : undefined}
                         onMouseEnter={transDropdown.onMouseEnter}
                         onMouseLeave={transDropdown.onMouseLeave}
                     >
-                        <button className={`site-nav-link primary-nav-btn ${isInTransition ? 'is-active' : ''}`}>
+                        <button className={`site-nav-link primary-nav-btn ${isInTransition ? 'is-active' : ''}`} onClick={transDropdown.onToggle}>
                             {tKey('nav.transitionMenu')}
                             <span className="primary-nav-caret">▾</span>
                         </button>
@@ -524,13 +608,15 @@ function NavContent() {
                         )}
                     </div>
 
-                    {/* DESTINATION dropdown */}
+                    {/* DESTINATION dropdown — item 1 */}
                     <div
+                        data-nav-idx="1"
                         className={`primary-nav-item ${isInDestination ? 'is-active' : ''}`}
+                        style={visibleCount <= 1 ? { display: 'none' } : undefined}
                         onMouseEnter={destDropdown.onMouseEnter}
                         onMouseLeave={destDropdown.onMouseLeave}
                     >
-                        <button className={`site-nav-link primary-nav-btn ${isInDestination ? 'is-active' : ''}`}>
+                        <button className={`site-nav-link primary-nav-btn ${isInDestination ? 'is-active' : ''}`} onClick={destDropdown.onToggle}>
                             {tKey('nav.destinationMenu')}
                             <span className="primary-nav-caret">▾</span>
                         </button>
@@ -544,29 +630,112 @@ function NavContent() {
                         )}
                     </div>
 
-                    {/* VOTE plain link */}
+                    {/* VOTE plain link — item 2 */}
                     <NavLink
+                        data-nav-idx="2"
                         to="/vote"
+                        style={visibleCount <= 2 ? { display: 'none' } : undefined}
                         className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
                     >
                         {tKey('nav.vote')}
                     </NavLink>
 
-                    {/* FAQ plain link */}
+                    {/* FAQ plain link — item 3 */}
                     <NavLink
+                        data-nav-idx="3"
                         to="/faq"
+                        style={visibleCount <= 3 ? { display: 'none' } : undefined}
                         className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
                     >
                         {tKey('nav.faq')}
                     </NavLink>
 
-                    {/* ABOUT plain link */}
+                    {/* ABOUT plain link — item 4 */}
                     <NavLink
+                        data-nav-idx="4"
                         to="/about"
+                        style={visibleCount <= 4 ? { display: 'none' } : undefined}
                         className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
                     >
                         {tKey('nav.about')}
                     </NavLink>
+
+                    {/* MORE button — shown when not all items fit */}
+                    {visibleCount < 5 && (
+                        <div className="site-nav-more" ref={moreRef}>
+                            <button
+                                className={`site-nav-more-btn ${moreOpen ? 'is-open' : ''}`}
+                                onClick={() => setMoreOpen(v => !v)}
+                            >
+                                {tKey('nav.more')}
+                                <span className="primary-nav-caret">▾</span>
+                            </button>
+                            {moreOpen && (
+                                <div className="site-nav-overflow-dropdown">
+                                    {/* Show overflow items */}
+                                    {visibleCount <= 0 && (
+                                        <>
+                                            <div className="overflow-section-label">{tKey('nav.transitionMenu')}</div>
+                                            {TRANSITION_ITEMS.map(item => (
+                                                <NavLink
+                                                    key={item.to}
+                                                    to={item.to}
+                                                    className={({ isActive }) => `overflow-nav-link ${isActive ? 'is-active' : ''}`}
+                                                    onClick={() => setMoreOpen(false)}
+                                                >
+                                                    <span className="overflow-nav-icon">{item.icon}</span>
+                                                    {tKey(item.labelKey)}
+                                                </NavLink>
+                                            ))}
+                                        </>
+                                    )}
+                                    {visibleCount <= 1 && (
+                                        <>
+                                            <div className="overflow-section-label">{tKey('nav.destinationMenu')}</div>
+                                            {destinationItems.map(item => (
+                                                <NavLink
+                                                    key={item.to}
+                                                    to={item.to}
+                                                    className={({ isActive }) => `overflow-nav-link ${isActive ? 'is-active' : ''}`}
+                                                    onClick={() => setMoreOpen(false)}
+                                                >
+                                                    <span className="overflow-nav-icon">{item.icon}</span>
+                                                    {tKey(item.labelKey)}
+                                                </NavLink>
+                                            ))}
+                                        </>
+                                    )}
+                                    {visibleCount <= 2 && (
+                                        <NavLink
+                                            to="/vote"
+                                            className={({ isActive }) => `overflow-nav-link ${isActive ? 'is-active' : ''}`}
+                                            onClick={() => setMoreOpen(false)}
+                                        >
+                                            {tKey('nav.vote')}
+                                        </NavLink>
+                                    )}
+                                    {visibleCount <= 3 && (
+                                        <NavLink
+                                            to="/faq"
+                                            className={({ isActive }) => `overflow-nav-link ${isActive ? 'is-active' : ''}`}
+                                            onClick={() => setMoreOpen(false)}
+                                        >
+                                            {tKey('nav.faq')}
+                                        </NavLink>
+                                    )}
+                                    {visibleCount <= 4 && (
+                                        <NavLink
+                                            to="/about"
+                                            className={({ isActive }) => `overflow-nav-link ${isActive ? 'is-active' : ''}`}
+                                            onClick={() => setMoreOpen(false)}
+                                        >
+                                            {tKey('nav.about')}
+                                        </NavLink>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                 </div>
                 </div>{/* end site-nav-left */}
@@ -714,36 +883,26 @@ function NavContent() {
                     </button>
                 </div>
 
-                {/* Mobile dropdown */}
+                {/* Mobile dropdown (auth + simple links — zones handled by zone bar below) */}
                 {mobileNavOpen && (
                     <div className="mobile-nav-dropdown">
-                        {/* Transition section */}
-                        <div className="mobile-nav-section-label">{tKey('nav.transitionMenu')}</div>
-                        {TRANSITION_ITEMS.map(item => (
-                            <NavLink
-                                key={item.to}
-                                to={item.to}
-                                className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
-                                onClick={handleMobileLinkClick}
-                            >
-                                {item.icon} {tKey(item.labelKey)}
-                            </NavLink>
-                        ))}
-                        <div className="mobile-nav-sep" />
 
-                        {/* Destination section */}
-                        <div className="mobile-nav-section-label">{tKey('nav.destinationMenu')}</div>
-                        {destinationItems.map(item => (
-                            <NavLink
-                                key={item.to}
-                                to={item.to}
-                                className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`}
-                                onClick={handleMobileLinkClick}
-                            >
-                                {item.icon} {tKey(item.labelKey)}
-                            </NavLink>
-                        ))}
-                        <div className="mobile-nav-sep" />
+                        {/* Search — mobile only */}
+                        <form onSubmit={handleSearchSubmit} className="mobile-nav-search-form">
+                            <input
+                                type="text"
+                                className="mobile-nav-search-input"
+                                placeholder={tKey('nav.searchPlaceholder')}
+                                value={searchQuery}
+                                onChange={e => setSearchQuery(e.target.value)}
+                            />
+                            <button type="submit" className="mobile-nav-search-btn" aria-label={tKey('nav.search')}>
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M10.68 11.74a6 6 0 0 1-7.922-8.982 6 6 0 0 1 8.982 7.922l3.04 3.04a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215ZM11.5 7a4.499 4.499 0 1 0-8.997 0A4.499 4.499 0 0 0 11.5 7Z" />
+                                </svg>
+                            </button>
+                        </form>
+
 
                         {/* Vote / FAQ / About */}
                         <NavLink to="/vote" className={({ isActive }) => `site-nav-link ${isActive ? 'is-active' : ''}`} onClick={handleMobileLinkClick}>
