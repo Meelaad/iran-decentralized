@@ -694,15 +694,26 @@
         display: none;
     }
 
-    /* Hide auth buttons, lang picker, and search icon — they live in the hamburger dropdown */
-    .site-nav-login-btn,
-    .site-nav-register-btn,
+    /* Hide profile/logout/admin/lang/search on mobile — these live in 3-dot or hamburger */
     .site-nav-profile-btn,
     .site-nav-logout-btn,
     .site-nav-admin-btn,
     .site-nav-lang,
     .site-nav-search {
         display: none;
+    }
+
+    /* Login + Register stay visible in the top bar on mobile (compact) */
+    .site-nav-login-btn,
+    .site-nav-register-btn {
+        padding: 5px 10px;
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    /* Hide username-mobile — 3-dot replaces it for logged-in */
+    .site-nav-username-mobile {
+        display: none !important;
     }
 
     .hamburger-nav-btn {
@@ -828,6 +839,80 @@
 /* ═══════════════════════════════════════════════════════════════
    NEW NAVIGATION REDESIGN — Google Developers style
    ═══════════════════════════════════════════════════════════════ */
+
+/* ── Mobile zone bar (shown below main nav on ≤767px) ─────────── */
+.mobile-zone-bar {
+    display: none; /* hidden on desktop; .site-nav-wrapper shows it on mobile */
+    align-items: stretch;
+    background: rgba(1,3,3,0.95);
+    border-bottom: 1px solid rgba(139,92,246,0.12);
+    overflow: visible;
+}
+
+.mobile-zone-item {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+
+.mobile-zone-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 9px 12px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #5a6a7e;
+    background: transparent;
+    border: none;
+    border-right: 1px solid rgba(139,92,246,0.1);
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+}
+
+.mobile-zone-item:last-child .mobile-zone-btn {
+    border-right: none;
+}
+
+.mobile-zone-btn:hover,
+.mobile-zone-btn.is-active {
+    color: #8fe3ff;
+    background: rgba(139,92,246,0.06);
+}
+
+[dir="rtl"] .mobile-zone-btn {
+    font-family: 'Vazirmatn', sans-serif;
+    letter-spacing: 0;
+    border-right: none;
+    border-left: 1px solid rgba(139,92,246,0.1);
+}
+
+[dir="rtl"] .mobile-zone-item:last-child .mobile-zone-btn {
+    border-left: none;
+}
+
+[data-theme="light"] .mobile-zone-bar {
+    background: rgba(255,255,255,0.97);
+    border-bottom-color: rgba(0,0,0,0.1);
+}
+
+[data-theme="light"] .mobile-zone-btn {
+    color: #52525b;
+    border-right-color: rgba(0,0,0,0.08);
+}
+
+[data-theme="light"] .mobile-zone-btn:hover,
+[data-theme="light"] .mobile-zone-btn.is-active {
+    color: #18181b;
+    background: rgba(124,58,237,0.05);
+}
 
 /* ── Primary nav: center column ───────────────────────────────── */
 .site-nav-center {
@@ -1891,27 +1976,16 @@
 
 }
 
-/* ── True mobile: show zone dropdown buttons, hide plain links ─── */
+/* ── True mobile: zone buttons move to zone bar, center hidden ─── */
 @media (max-width: 767px) {
-    /* Show site-nav-center so zone buttons are visible in the nav bar */
+    /* Hide priority nav center — zone dropdowns live in mobile-zone-bar */
     .site-nav-center {
-        display: flex;
-        flex: 1;
-        gap: 2px;
-    }
-
-    /* Hide plain NavLinks (vote, faq, about idx=2,3,4) and MORE button — they live in hamburger */
-    .site-nav-center > [data-nav-idx="2"],
-    .site-nav-center > [data-nav-idx="3"],
-    .site-nav-center > [data-nav-idx="4"],
-    .site-nav-center .site-nav-more {
         display: none;
     }
 
-    /* Compact zone dropdown buttons for mobile */
-    .primary-nav-btn {
-        padding: 5px 10px;
-        font-size: 11px;
+    /* Show the mobile zone bar */
+    .mobile-zone-bar {
+        display: flex;
     }
 
     /* Mega-dropdown: prevent off-screen overflow on small screens */
