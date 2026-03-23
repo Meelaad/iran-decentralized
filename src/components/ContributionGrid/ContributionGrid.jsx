@@ -57,9 +57,17 @@ export default function ContributionGrid({ grid = {} }) {
         const today = new Date();
         today.setHours(0, 0, 0, 0);
 
+        const yearStart = new Date(today.getFullYear(), 0, 1); // Jan 1 of current year
+
         const start = new Date(today);
         start.setDate(today.getDate() - (WEEKS * DAYS) + 1);
         start.setDate(start.getDate() - start.getDay()); // align to Sunday
+
+        // Never show squares from before the current year
+        if (start < yearStart) {
+            start.setTime(yearStart.getTime());
+            start.setDate(start.getDate() - start.getDay()); // realign to Sunday
+        }
 
         const weeks = [];
         let cursor = new Date(start);
@@ -69,11 +77,12 @@ export default function ContributionGrid({ grid = {} }) {
             for (let d = 0; d < DAYS; d++) {
                 const dateStr = cursor.toISOString().slice(0, 10);
                 const isFuture = cursor > today;
+                const isBefore = cursor < yearStart;
                 week.push({
                     dateStr,
-                    count: isFuture ? null : (grid[dateStr] || 0),
+                    count: (isFuture || isBefore) ? null : (grid[dateStr] || 0),
                     date: new Date(cursor),
-                    isFuture,
+                    isFuture: isFuture || isBefore,
                 });
                 cursor.setDate(cursor.getDate() + 1);
             }
@@ -128,7 +137,7 @@ export default function ContributionGrid({ grid = {} }) {
                     </svg>
                     <span className="cg-title">{isRTL ? 'فعالیت مشارکتی' : 'Participation Activity'}</span>
                 </div>
-                <p className="cg-subtitle">{isRTL ? 'الگوی مشارکت هفتگی در طول سال گذشته' : 'Weekly engagement patterns over the past year'}</p>
+                <p className="cg-subtitle">{isRTL ? 'الگوی مشارکت هفتگی از ابتدای سال جاری' : 'Weekly engagement patterns since the start of this year'}</p>
             </div>
 
             <div className="cg-stats-row">

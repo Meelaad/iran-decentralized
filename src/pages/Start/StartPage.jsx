@@ -20,7 +20,7 @@ function useLiveStats() {
         Promise.all([
             supabase.from('profiles').select('*', { count: 'exact', head: true }),
             supabase.from('transitional_plans').select('*', { count: 'exact', head: true }).eq('status', 'arena'),
-            supabase.from('votes').select('*', { count: 'exact', head: true }),
+            supabase.from('plan_endorsements').select('*', { count: 'exact', head: true }),
         ]).then(([users, plans, votes]) => {
             setStats({ users: users.count ?? 0, plans: plans.count ?? 0, votes: votes.count ?? 0 });
         }).catch(() => {});
