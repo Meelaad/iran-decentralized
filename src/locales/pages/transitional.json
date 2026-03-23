@@ -1,0 +1,887 @@
+{
+  "heroEyebrow": {
+    "en": "Iran Prosperity Project · NUFDI · Emergency Phase Booklet, March 2026",
+    "fa": "ایران پراسپریتی پروژه · نافدی · کتاب فاز اضطراری، مارس ۲۰۲۶"
+  },
+  "heroTitle": {
+    "en": "Transitional Government Blueprint",
+    "fa": "طرح دولت موقت"
+  },
+  "heroDesc": {
+    "en": "Comprehensive organizational structure drawn directly from the Emergency Phase Booklet (14 white papers). Stage 1 covers the Transitional Period under the Transitional System. Stage 2 shows the permanent democratic structure it is designed to produce. The plan covers the first 180 days (Emergency Phase) in detail, with the full transitional period lasting 18–24 months.",
+    "fa": "ساختار سازمانی جامع برگرفته مستقیم از کتاب فاز اضطراری (۱۴ کاغذ سفید). مرحله اول دوره موقت را تحت سیستم موقت پوشش می‌دهد. مرحله دوم ساختار دموکراتیک دائمی را که برای تولید آن طراحی شده نشان می‌دهد. این برنامه ۱۸۰ روز اول («فاز اضطراری») را به تفصیل پوشش می‌دهد، با دوره کامل گذار ۱۸–۲۴ ماهه."
+  },
+  "heroBadges": [
+    { "en": "14 White Papers", "fa": "۱۴ کاغذ سفید" },
+    { "en": "Emergency Phase: 180 Days", "fa": "فاز اضطراری ۱۸۰ روز" },
+    { "en": "7 Immutable Principles", "fa": "۷ اصل تغییرناپذیر" },
+    { "en": "13 Structural Reforms", "fa": "۱۳ اصلاح ساختاری" },
+    { "en": "18–24 Month Transition", "fa": "۱۸–۲۴ ماه" }
+  ],
+  "partA_eyebrow": {
+    "en": "Stage 1 · Part A",
+    "fa": "مرحله ۱ · بخش الف"
+  },
+  "partA_title": {
+    "en": "Political Structure — Full Transitional Period (18–24 months)",
+    "fa": "ساختار سیاسی — دوره کامل گذار (۱۸–۲۴ ماه)"
+  },
+  "partA_intro": {
+    "en": "Top-down structure. Power flows from the Leader downward across three appointed branches and a directly-commanded military. Pre-fall, the Leader operates through two advisory/executive bodies. On Day 1, a three-part decree abolishes the IRI constitution and establishes the Transitional System as the binding governing instrument.",
+    "fa": "ساختار از بالا به پایین. قدرت از رهبر به سه قوه منصوب و ارتش تحت فرماندهی مستقیم جریان می‌یابد. پیش از سقوط، رهبر از طریق دو نهاد مشورتی/اجرایی عمل می‌کند. در روز اول، یک فرمان سه‌بخشی قانون اساسی جمهوری اسلامی را لغو کرده و سیستم موقت را به عنوان ابزار حاکمیتی الزام‌آور تأسیس می‌کند."
+  },
+  "prefallLabel": {
+    "en": "PRE-FALL INSTITUTIONS (Before Regime Collapse)",
+    "fa": "نهادهای پیش از سقوط (قبل از فروپاشی رژیم)"
+  },
+  "nuc": {
+    "title": { "en": "National Uprising Council", "fa": "شورای قیام ملی" },
+    "sub": { "en": "Advisory & policy/decision arm of the Leader", "fa": "بازوی مشورتی و سیاستگذاری رهبر" },
+    "items": [
+      { "en": "Advisory & policy/decision arm of the Leader", "fa": "بازوی مشورتی و سیاستگذاری رهبر" },
+      { "en": "Members inside + outside Iran", "fa": "اعضا داخل و خارج از ایران" },
+      { "en": "Identities secret until safe to reveal", "fa": "هویت‌ها تا زمان امنیت مخفی باقی می‌مانند" },
+      { "en": "Works in coordination with the Temporary Executive Team", "fa": "در هماهنگی با تیم اجرایی موقت عمل می‌کند" }
+    ]
+  },
+  "tet": {
+    "title": { "en": "Temporary Executive Team", "fa": "تیم اجرایی موقت" },
+    "sub": { "en": "Implements decisions of the Leader", "fa": "مجری تصمیمات رهبر" },
+    "items": [
+      { "en": "Implements decisions of the Leader", "fa": "مجری تصمیمات رهبر" },
+      { "en": "Members inside + outside Iran", "fa": "اعضا داخل و خارج از ایران" },
+      { "en": "Works per the 5-pronged strategy", "fa": "طبق استراتژی ۵ محوری عمل می‌کند" },
+      { "en": "Coordinates all pre-fall operational planning", "fa": "هماهنگ‌کننده تمام برنامه‌ریزی عملیاتی پیش از سقوط" }
+    ]
+  },
+  "prongs": {
+    "label": { "en": "5-Pronged Pre-Fall Strategy", "fa": "استراتژی ۵ محوری پیش از سقوط" },
+    "items": [
+      { "en": "(1) Max pressure on regime", "fa": "(۱) حداکثر فشار بر رژیم" },
+      { "en": "(2) Max support for people", "fa": "(۲) حداکثر حمایت از مردم" },
+      { "en": "(3) Max defections from the regime", "fa": "(۳) حداکثر فرار از رژیم" },
+      { "en": "(4) Max mobilization inside and outside Iran", "fa": "(۴) حداکثر بسیج داخل و خارج از ایران" },
+      { "en": "(5) Plan reconstruction → Iran Prosperity Project", "fa": "(۵) برنامه‌ریزی بازسازی → ایران پراسپریتی پروژه" }
+    ]
+  },
+  "leaderTitle": { "en": "Leader of the National Uprising", "fa": "رهبر قیام ملی" },
+  "leaderSub": { "en": "Crown Prince Reza Pahlavi · Head of State · Commander-in-Chief of Armed Forces", "fa": "ولیعهد رضا پهلوی · رئیس دولت · فرمانده کل قوا" },
+  "leaderNote": { "en": "Contingency: If the Leader is unable to serve → Temporary Leadership Council forms immediately (heads of all 3 branches, decisions by majority vote)", "fa": "اضطراری: در صورت عدم توانایی رهبر برای خدمت → شورای رهبری موقت فوراً تشکیل می‌شود (سران هر سه قوه، تصمیمات با رأی اکثریت)" },
+  "meh": {
+    "title": { "en": "Transitional Mehestan", "fa": "مجلس موقت" },
+    "sub": { "en": "Legislative branch · Head elected internally by absolute majority", "fa": "قوه مقننه · رئیس توسط اکثریت مطلق داخلی انتخاب می‌شود" },
+    "sections": [
+      {
+        "title": { "en": "Members appointed by Leader", "fa": "اعضا توسط رهبر منصوب می‌شوند" },
+        "items": [
+          { "en": "Represent the diversity of the unified Iranian nation", "fa": "نماینده تنوع ملت یکپارچه ایران" },
+          { "en": "Identities may remain secret until safe to reveal", "fa": "هویت‌ها ممکن است تا زمان امنیت مخفی بمانند" },
+          { "en": "Head elected internally by absolute majority vote", "fa": "رئیس توسط اکثریت مطلق داخلی انتخاب می‌شود" },
+          { "en": "Removal of head requires absolute majority + Leader approval", "fa": "برکناری رئیس: اکثریت مطلق + تأیید رهبر" }
+        ]
+      },
+      {
+        "title": { "en": "Reviews all existing laws — Hybrid Option", "fa": "بررسی همه قوانین موجود — گزینه ترکیبی" },
+        "items": [
+          { "en": "Repeal laws conflicting with UDHR 1948, national identity, or transition progress", "fa": "لغو قوانین مغایر با اعلامیه جهانی حقوق بشر ۱۹۴۸، هویت ملی، یا پیشرفت گذار" },
+          { "en": "Replacement laws drawn from Pahlavi Imperial era or updated modern equivalents", "fa": "قوانین جایگزین از دوره امپراتوری پهلوی یا معادل‌های مدرن به‌روزشده" },
+          { "en": "Full modernization deferred to the future elected Mehestan", "fa": "نوسازی کامل به مجلس منتخب آینده موکول می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Enacts temporary new laws", "fa": "وضع قوانین موقت جدید" },
+        "items": [
+          { "en": "Must appoint & consult a panel of 5 distinguished jurists for every law enacted", "fa": "باید پنل ۵ حقوقدان برجسته را برای هر قانون منصوب و مشورت کند" },
+          { "en": "Jurist panel has no other activities during their tenure", "fa": "پنل حقوقدانان در دوران تصدی هیچ فعالیت دیگری ندارد" }
+        ]
+      },
+      {
+        "title": { "en": "Reviews & approves national annual budget", "fa": "بررسی و تصویب بودجه سالانه کشور" },
+        "items": [
+          { "en": "Budget proposed by the Transitional Government", "fa": "بودجه توسط دولت موقت پیشنهاد می‌شود" },
+          { "en": "Divan Budget Organization presents its portion independently", "fa": "سازمان بودجه دیوان بخش خود را مستقل ارائه می‌دهد" },
+          { "en": "Government cannot alter the Divan's budget portion", "fa": "دولت نمی‌تواند بخش بودجه دیوان را تغییر دهد" }
+        ]
+      },
+      {
+        "title": { "en": "Confirms Supreme Court & Administrative Justice Court judges", "fa": "تأیید قضات دیوان عالی و دادگاه عدالت اداری" },
+        "items": [
+          { "en": "Judges nominated by the head of the Divan", "fa": "قضات توسط رئیس دیوان نامزد می‌شوند" },
+          { "en": "Absolute majority vote required for confirmation", "fa": "نیاز به رأی اکثریت مطلق برای تأیید دارد" },
+          { "en": "Removal follows the same process", "fa": "برکناری با همان فرآیند" }
+        ]
+      },
+      {
+        "title": { "en": "Sets Constituent Assembly rules", "fa": "تعیین قوانین مجلس مؤسسان" },
+        "items": [
+          { "en": "Total seat count (70–310 seats)", "fa": "تعداد کل کرسی‌ها (۷۰–۳۱۰ کرسی)" },
+          { "en": "Eligibility criteria: age, education, and other requirements", "fa": "معیارهای احراز صلاحیت: سن، تحصیلات و سایر الزامات" },
+          { "en": "Rules must be finalized before the referendum takes place", "fa": "قوانین باید قبل از برگزاری رفراندوم نهایی شوند" }
+        ]
+      },
+      {
+        "title": { "en": "Post-transition: advisory body only", "fa": "پس از گذار: فقط نهاد مشورتی" },
+        "items": [
+          { "en": "Legislative role ends when the elected Mehestan forms", "fa": "نقش قانونگذاری با تشکیل مجلس منتخب پایان می‌یابد" },
+          { "en": "Advises the Leader until full dissolution of the transitional system", "fa": "تا انحلال کامل سیستم موقت به رهبر مشورت می‌دهد" },
+          { "en": "Does not retain any legislative powers after the elected body forms", "fa": "پس از تشکیل نهاد منتخب هیچ اختیار قانونگذاری ندارد" }
+        ]
+      },
+      {
+        "title": { "en": "Timeline extension rules", "fa": "قوانین تمدید زمانی" },
+        "items": [
+          { "en": ">6 months: requires approval of all 3 branch heads + Leader jointly", "fa": "تمدید بیش از ۶ ماه: نیاز به تصویب همزمان سران هر سه قوه + رهبر" },
+          { "en": ">12 months: requires a national referendum to authorize the extension", "fa": "تمدید بیش از ۱۲ ماه: نیاز به رفراندوم ملی برای مجوز" }
+        ]
+      }
+    ]
+  },
+  "gov": {
+    "title": { "en": "Transitional Government", "fa": "دولت موقت" },
+    "sub": { "en": "Executive branch · Head appointed by Leader (after consulting Mehestan)", "fa": "قوه مجریه · رئیس توسط رهبر (پس از مشورت با مجلس موقت) منصوب می‌شود" },
+    "sections": [
+      {
+        "title": { "en": "Structure set by head of Government", "fa": "ساختار توسط رئیس دولت تعیین می‌شود" },
+        "items": [
+          { "en": "Number and names of ministries decided by the head of Government", "fa": "تعداد و نام وزارتخانه‌ها توسط رئیس دولت تصمیم‌گیری می‌شود" },
+          { "en": "After consulting Transitional Mehestan + Leader approval required", "fa": "پس از مشورت با مجلس موقت + تأیید رهبر الزامی است" }
+        ]
+      },
+      {
+        "title": { "en": "Appoints all ministers", "fa": "انتصاب تمام وزرا" },
+        "items": [
+          { "en": "All ministers approved by Mehestan (absolute majority)", "fa": "همه وزرا با تأیید اکثریت مطلق مجلس موقت" },
+          { "en": "Removal at the head of Government's discretion", "fa": "برکناری به صلاحدید رئیس دولت" },
+          { "en": "★ Minister of Defense: special rule — approved by Leader directly, not Mehestan", "fa": "★ وزیر دفاع: قانون ویژه — مستقیماً توسط رهبر تأیید می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Day-1 international declarations", "fa": "اعلامیه‌های بین‌المللی روز اول" },
+        "items": [
+          { "en": "Remove 'Islamic Republic' from official name — notify all UN member states", "fa": "حذف 'جمهوری اسلامی' از نام رسمی — اطلاع‌رسانی به تمام کشورهای عضو سازمان ملل" },
+          { "en": "Restore Lion & Sun tricolor flag — notify all UN states and organizations", "fa": "بازگرداندن پرچم سه‌رنگ شیر و خورشید — اطلاع‌رسانی به تمام کشورها و سازمان‌ها" },
+          { "en": "Replace national anthem with 'Ey Iran' until official anthem is chosen", "fa": "جایگزینی سرود ملی با 'ای ایران' تا انتخاب سرود رسمی" },
+          { "en": "Notify Swiss Government (Geneva Convention depositary) re: Red Crescent rename", "fa": "اطلاع‌رسانی به دولت سوئیس (امین کنوانسیون ژنو) درباره تغییر نام هلال احمر" },
+          { "en": "Assume control of all embassies; appoint interim envoys", "fa": "کنترل تمام سفارتخانه‌ها؛ انتصاب نمایندگان موقت" },
+          { "en": "Manage Iranian assets abroad; update passports to remove IRI branding", "fa": "مدیریت دارایی‌های ایران در خارج؛ به‌روزرسانی گذرنامه‌ها" }
+        ]
+      },
+      {
+        "title": { "en": "Negotiate lifting all sanctions", "fa": "مذاکره برای لغو تمام تحریم‌ها" },
+        "items": [
+          { "en": "Financial, trade, human rights, and military sanctions", "fa": "تحریم‌های مالی، تجاری، حقوق بشر و نظامی" },
+          { "en": "Remove visa restrictions on Iranian citizens", "fa": "حذف محدودیت‌های ویزا برای شهروندان ایرانی" },
+          { "en": "Initiate IAEA full access — immediately stop uranium enrichment", "fa": "آغاز دسترسی کامل آژانس — فوراً توقف غنی‌سازی اورانیوم" },
+          { "en": "Recognize Israel (Cyrus Accord framework) — Week 1", "fa": "شناسایی اسرائیل (چارچوب توافق کوروش) — هفته اول" },
+          { "en": "MOUs on trade, non-aggression, security with US and Israel — Months 2–3", "fa": "تفاهم‌نامه تجاری، عدم تجاوز، امنیتی با آمریکا و اسرائیل — ماه‌های ۲–۳" },
+          { "en": "Reset China/Russia ties on basis of mutual respect", "fa": "بازتنظیم روابط با چین/روسیه بر اساس احترام متقابل" },
+          { "en": "India/Japan/South Korea as energy and technology partners", "fa": "هند/ژاپن/کره جنوبی به عنوان شرکای انرژی و فناوری" }
+        ]
+      },
+      {
+        "title": { "en": "Referendum on system of government (within 4 months)", "fa": "رفراندوم نظام حکومتی (ظرف ۴ ماه)" },
+        "items": [
+          { "en": "3-month public campaign period precedes the vote", "fa": "دوره کمپین عمومی ۳ ماهه پیش از رأی‌گیری" },
+          { "en": "Ballot choice: Parliamentary Monarchy vs. Republic", "fa": "گزینه رأی: پادشاهی پارلمانی در برابر جمهوری" },
+          { "en": "Both ballots include the 7 immutable principles", "fa": "هر دو برگه رأی شامل ۷ اصل تغییرناپذیر" },
+          { "en": "State media treats both sides equally; political parties may campaign", "fa": "رسانه دولتی هر دو طرف را برابر پوشش می‌دهد؛ احزاب سیاسی می‌توانند فعالیت کنند" },
+          { "en": "If monarchy approved: coronation within 2 weeks of referendum result", "fa": "در صورت تصویب پادشاهی: تاجگذاری ظرف ۲ هفته از نتیجه رفراندوم" },
+          { "en": "If republic approved: presidential election held simultaneously with Mehestan election", "fa": "در صورت تصویب جمهوری: انتخابات ریاست‌جمهوری همزمان با انتخابات مجلس" }
+        ]
+      },
+      {
+        "title": { "en": "Constituent Assembly election (within 2 months of referendum)", "fa": "انتخابات مجلس مؤسسان (ظرف ۲ ماه از رفراندوم)" },
+        "items": [
+          { "en": "Seat count and eligibility set by Transitional Mehestan in advance", "fa": "تعداد کرسی و شرایط احراز صلاحیت توسط مجلس موقت از پیش تعیین می‌شود" },
+          { "en": "7-member jurist panel assists drafting of constitution", "fa": "پنل ۷ حقوقدان در تهیه پیش‌نویس قانون اساسی کمک می‌کند" },
+          { "en": "6-month mandate to complete the draft constitution", "fa": "مأموریت ۶ ماهه برای تکمیل پیش‌نویس قانون اساسی" },
+          { "en": "Consults expert committees across 10+ sectors", "fa": "با کمیته‌های متخصص در ۱۰+ بخش مشورت می‌کند" },
+          { "en": "May draw on 1906 Iranian Constitution as drafting basis if monarchy is chosen", "fa": "در صورت انتخاب پادشاهی: ممکن است از قانون اساسی ۱۹۰۶ ایران به عنوان پایه استفاده شود" },
+          { "en": "Publishes each article for public comment during the drafting process", "fa": "هر ماده را برای نظرخواهی عمومی در طول تهیه پیش‌نویس منتشر می‌کند" }
+        ]
+      },
+      {
+        "title": { "en": "Constitutional referendum (within 1 month of draft completion)", "fa": "رفراندوم قانون اساسی (ظرف ۱ ماه از تکمیل پیش‌نویس)" },
+        "items": [
+          { "en": "National vote to approve or reject the draft constitution", "fa": "رأی‌گیری ملی برای تصویب یا رد پیش‌نویس قانون اساسی" },
+          { "en": "If rejected: 2-month revision + re-vote (up to 3 attempts)", "fa": "در صورت رد: بازنگری ۲ ماهه + رأی‌گیری مجدد (تا ۳ بار)" },
+          { "en": "If rejected 3 times: an entirely new Constituent Assembly must be elected", "fa": "در صورت رد ۳ بار: مجلس مؤسسان کاملاً جدید باید انتخاب شود" }
+        ]
+      },
+      {
+        "title": { "en": "Mehestan election (within 3 months of constitution approval)", "fa": "انتخابات مجلس (ظرف ۳ ماه از تصویب قانون اساسی)" },
+        "items": [
+          { "en": "People directly elect the new Mehestan (parliament)", "fa": "مردم مستقیماً مجلس جدید را انتخاب می‌کنند" },
+          { "en": "If monarchy: coronation ≤2 weeks after constitution approval", "fa": "در صورت پادشاهی: تاجگذاری ≤۲ هفته پس از تصویب قانون اساسی" },
+          { "en": "If republic: presidential election held simultaneously with Mehestan election", "fa": "در صورت جمهوری: انتخابات ریاست‌جمهوری همزمان با انتخابات مجلس" }
+        ]
+      },
+      {
+        "title": { "en": "Elected Government sworn in → dissolution", "fa": "سوگند دولت منتخب → انحلال سیستم موقت" },
+        "items": [
+          { "en": "PM or President's cabinet sworn in", "fa": "سوگند کابینه نخست‌وزیر یا رئیس‌جمهور" },
+          { "en": "Transitional Government dissolved", "fa": "انحلال دولت موقت" },
+          { "en": "Transitional Mehestan dissolved (becomes advisory only, then fully dissolved)", "fa": "انحلال مجلس موقت (ابتدا فقط مشورتی، سپس کاملاً منحل)" },
+          { "en": "Leader of the National Uprising role completely dissolved", "fa": "نقش رهبر قیام ملی کاملاً منحل می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Bar Association independence + textbook reform", "fa": "استقلال کانون وکلا + اصلاح کتب درسی" },
+        "items": [
+          { "en": "Government allocates budget to Bar Association for legal aid programs", "fa": "دولت بودجه کانون وکلا را برای برنامه‌های معاضدت قضایی تأمین می‌کند" },
+          { "en": "Bar Association independence guaranteed by law", "fa": "استقلال کانون وکلا توسط قانون تضمین می‌شود" },
+          { "en": "Remove ideology from all levels of education (primary, secondary, higher)", "fa": "حذف ایدئولوژی از همه سطوح آموزشی (ابتدایی، متوسطه، عالی)" },
+          { "en": "Reflect values of the new democratic era in all curriculum materials", "fa": "انعکاس ارزش‌های دوران جدید دموکراتیک در تمام مواد درسی" }
+        ]
+      }
+    ]
+  },
+  "div": {
+    "title": { "en": "Transitional Divan", "fa": "دیوان موقت" },
+    "sub": { "en": "Judicial branch · Head = distinguished jurist appointed by Leader (after consulting Mehestan)", "fa": "قوه قضاییه · رئیس = حقوقدان برجسته منصوب توسط رهبر (پس از مشورت با مجلس موقت)" },
+    "sections": [
+      {
+        "title": { "en": "Head appoints all judicial organization heads", "fa": "رئیس سران تمام سازمان‌های قضایی را منصوب می‌کند" },
+        "items": [
+          { "en": "Chief Justice — Supreme Court", "fa": "رئیس کل دیوان عالی کشور" },
+          { "en": "Chief Justice — Administrative Justice Court", "fa": "رئیس کل دادگاه عدالت اداری" },
+          { "en": "Head of National Inspectorate", "fa": "رئیس سازمان بازرسی کل کشور" },
+          { "en": "Head of Prisons Organization", "fa": "رئیس سازمان زندان‌ها" },
+          { "en": "Head of Forensic Medicine", "fa": "رئیس پزشکی قانونی" },
+          { "en": "Head of Deeds & Properties Registration Organization", "fa": "رئیس سازمان ثبت اسناد و املاک" },
+          { "en": "Head of Budget Organization of the Divan", "fa": "رئیس سازمان بودجه دیوان" }
+        ]
+      },
+      {
+        "title": { "en": "Attorney General → Ministry of Justice (executive branch)", "fa": "دادستان کل → وزارت دادگستری (قوه مجریه)" },
+        "items": [
+          { "en": "Moved from the judiciary to the executive branch", "fa": "انتقال از قوه قضاییه به قوه مجریه" },
+          { "en": "Eliminates conflict between adjudication and prosecution duties", "fa": "رفع تعارض بین وظایف قضایی و تعقیب" },
+          { "en": "Appointed by the Minister of Justice", "fa": "توسط وزیر دادگستری منصوب می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Judicial Council — 5 distinguished jurists", "fa": "شورای قضایی — ۵ حقوقدان برجسته" },
+        "items": [
+          { "en": "Oversees all lower-court judge appointment rules nationwide", "fa": "نظارت بر قوانین انتصاب قضات دادگاه‌های پایین‌تر در سراسر کشور" },
+          { "en": "Reviews rules for all judge appointments across the country", "fa": "بررسی قوانین برای تمام انتصابات قضایی" },
+          { "en": "No other activities permitted during tenure on the Council", "fa": "هیچ فعالیت دیگری در دوران تصدی مجاز نیست" }
+        ]
+      },
+      {
+        "title": { "en": "Budget Organization of the Divan — fully independent", "fa": "سازمان بودجه دیوان — کاملاً مستقل" },
+        "items": [
+          { "en": "Prepares the Divan budget independently — government cannot alter it", "fa": "بودجه دیوان را مستقل تهیه می‌کند — دولت نمی‌تواند تغییر دهد" },
+          { "en": "Presents budget directly to Transitional Mehestan (bypasses government)", "fa": "بودجه را مستقیماً به مجلس موقت ارائه می‌دهد (دور زدن دولت)" },
+          { "en": "Audited by the Supreme Audit Court", "fa": "توسط دیوان محاسبات کشور حسابرسی می‌شود" },
+          { "en": "Ensures complete judicial financial independence", "fa": "تضمین استقلال مالی کامل قضایی" }
+        ]
+      },
+      {
+        "title": { "en": "Transitional Justice Court", "fa": "دادگاه عدالت انتقالی" },
+        "items": [
+          { "en": "Exclusive criminal jurisdiction over crimes committed from Feb 1979 to the fall of the regime", "fa": "صلاحیت کیفری انحصاری بر جرایم از بهمن ۱۳۵۷ تا سقوط رژیم" },
+          { "en": "Universal jurisdiction — no political immunity granted to anyone", "fa": "صلاحیت جهانی — هیچ مصونیت سیاسی اعطا نمی‌شود" },
+          { "en": "No statute of limitations on crimes within scope", "fa": "هیچ مرور زمانی برای جرایم در محدوده اعمال نمی‌شود" },
+          { "en": "Managers not automatically liable — requires strong direct evidence of involvement", "fa": "مدیران به طور خودکار مسئول نیستند — نیاز به شواهد مستقیم قوی از مشارکت" },
+          { "en": "Proceedings begin on indictment issued by the Special Prosecutor", "fa": "دادرسی با کیفرخواست دادستان ویژه آغاز می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Special Prosecutor", "fa": "دادستان ویژه" },
+        "items": [
+          { "en": "Appointed by the Attorney General after consulting the Minister of Justice", "fa": "توسط دادستان کل پس از مشورت با وزیر دادگستری منصوب می‌شود" },
+          { "en": "Initiates all Transitional Justice Court proceedings", "fa": "تمام دادرسی‌های دادگاه عدالت انتقالی را آغاز می‌کند" },
+          { "en": "Handles appeals — appeals decisions are final", "fa": "درخواست‌های تجدیدنظر — تصمیمات تجدیدنظر قطعی است" }
+        ]
+      },
+      {
+        "title": { "en": "Truth Commission — 3 committees", "fa": "کمیسیون حقیقت — ۳ کمیته" },
+        "items": [
+          { "en": "Members appointed by the Judicial Council", "fa": "اعضا توسط شورای قضایی منصوب می‌شوند" },
+          { "en": "Head appointed by the head of the Divan", "fa": "رئیس توسط رئیس دیوان منصوب می‌شود" },
+          { "en": "Duration: maximum 5 years + 1-year extension", "fa": "مدت: حداکثر ۵ سال + تمدید ۱ ساله" },
+          { "en": "All hearings public by default; national security exceptions allowed", "fa": "تمام جلسات به طور پیش‌فرض عمومی هستند؛ استثنائات امنیت ملی مجاز" },
+          { "en": "Scope limited to pre-fall crimes only", "fa": "محدوده به جرایم پیش از سقوط محدود است" }
+        ]
+      },
+      {
+        "title": { "en": "① Investigation Committee", "fa": "① کمیته تحقیق" },
+        "items": [
+          { "en": "Collects and documents all evidence", "fa": "جمع‌آوری و مستندسازی تمام شواهد" },
+          { "en": "Creates a safe space for victims to testify", "fa": "ایجاد فضای امن برای شهادت قربانیان" },
+          { "en": "Produces the Comprehensive Report with reparation proposals", "fa": "تولید گزارش جامع با پیشنهادات جبران خسارت" }
+        ]
+      },
+      {
+        "title": { "en": "② Conditional Amnesty Committee", "fa": "② کمیته عفو مشروط" },
+        "items": [
+          { "en": "Individual amnesty only — no group amnesty", "fa": "فقط عفو فردی — هیچ عفو گروهی" },
+          { "en": "Conditions: full disclosure + political nexus + proportionality of action", "fa": "شرایط: افشای کامل + ارتباط سیاسی + تناسب اقدام" },
+          { "en": "Amnesty automatically revoked if applicant is proven to have lied", "fa": "عفو به طور خودکار لغو می‌شود اگر متقاضی دروغ گفته باشد" },
+          { "en": "Cannot grant amnesty for crimes against humanity", "fa": "نمی‌تواند برای جنایات علیه بشریت عفو صادر کند" }
+        ]
+      },
+      {
+        "title": { "en": "③ High Committee (apex supervisor)", "fa": "③ کمیته عالی (ناظر ارشد)" },
+        "items": [
+          { "en": "Hears appeals of amnesty decisions", "fa": "رسیدگی به درخواست‌های تجدیدنظر عفو" },
+          { "en": "Finalizes and publishes the Comprehensive Report", "fa": "نهایی‌سازی و انتشار گزارش جامع" },
+          { "en": "Head of Divan may veto any individual amnesty grant", "fa": "رئیس دیوان می‌تواند هر عفو فردی را وتو کند" }
+        ]
+      }
+    ]
+  },
+  "mil": {
+    "title": { "en": "Senior Military Commanders", "fa": "فرماندهان ارشد نظامی" },
+    "sub": { "en": "Appointed & removed by the Leader directly · Commander-in-Chief role", "fa": "منصوب و برکنار توسط رهبر مستقیم · نقش فرمانده کل قوا" },
+    "sections": [
+      {
+        "title": { "en": "Artesh (conventional forces) retained", "fa": "ارتش (نیروهای رسمی) حفظ می‌شود" },
+        "items": [
+          { "en": "Ground Forces, Navy, Air Force — vetted and kept operational from Day 1", "fa": "نیروی زمینی، دریایی، هوایی — غربالگری شده و از روز اول عملیاتی" },
+          { "en": "Vetted officers continue in command pending full vetting review", "fa": "افسران غربالگری‌شده در فرماندهی ادامه می‌دهند" },
+          { "en": "Unified, centralized, apolitical national army", "fa": "ارتش ملی یکپارچه، متمرکز و غیرسیاسی" }
+        ]
+      },
+      {
+        "title": { "en": "IRGC dissolved completely", "fa": "سپاه پاسداران انقلاب کاملاً منحل می‌شود" },
+        "items": [
+          { "en": "Armed wing → absorbed into National Army", "fa": "بازوی نظامی → جذب در ارتش ملی" },
+          { "en": "Intelligence wing → transferred to new NISS agency", "fa": "بازوی اطلاعاتی → انتقال به سازمان جدید سرین" },
+          { "en": "Economic/cultural assets → transferred to Transitional Government", "fa": "دارایی‌های اقتصادی/فرهنگی → انتقال به دولت موقت" },
+          { "en": "All IRGC ranks subject to 3-tier vetting protocol", "fa": "تمام درجه‌داران سپاه مشمول پروتکل غربالگری سه‌مرحله‌ای" }
+        ]
+      },
+      {
+        "title": { "en": "Basij + Quds Force dissolved", "fa": "بسیج + نیروی قدس منحل می‌شوند" },
+        "items": [
+          { "en": "Dissolved entirely — no retention, no rebranding", "fa": "کاملاً منحل — هیچ نگهداری یا تغییر نام" },
+          { "en": "No parallel military or security structures permitted", "fa": "هیچ ساختار نظامی یا امنیتی موازی مجاز نیست" },
+          { "en": "All personnel subject to individual 3-tier vetting", "fa": "پرسنل مشمول غربالگری فردی سه‌مرحله‌ای" }
+        ]
+      },
+      {
+        "title": { "en": "NISS (National Intelligence & Security Service) established", "fa": "سرین (سرویس اطلاعات و امنیت ملی) تأسیس می‌شود" },
+        "items": [
+          { "en": "Replaces the Ministry of Intelligence and all parallel intel agencies", "fa": "جایگزین وزارت اطلاعات و تمام سازمان‌های اطلاعاتی موازی" },
+          { "en": "Under the Transitional Government (not the military chain of command)", "fa": "تحت دولت موقت (نه زنجیره نظامی)" },
+          { "en": "Three divisions: Internal Security, External Intelligence, Cyber Intelligence", "fa": "سه بخش: امنیت داخلی، اطلاعات خارجی، اطلاعات سایبری" },
+          { "en": "Civilian-led with parliamentary oversight", "fa": "رهبری غیرنظامی با نظارت پارلمانی" }
+        ]
+      },
+      {
+        "title": { "en": "3-tier vetting protocol", "fa": "پروتکل غربالگری سه‌مرحله‌ای" },
+        "items": [
+          { "en": "Category A: Retain — vetted, clean record, continue in service", "fa": "دسته الف: نگه‌داری — غربالگری شده، سابقه پاک، ادامه خدمت" },
+          { "en": "Category B: Retrain — retraining and de-radicalization programs", "fa": "دسته ب: آموزش مجدد — برنامه‌های آموزش مجدد و افراط‌زدایی" },
+          { "en": "Category C: Prosecute — referred to the Transitional Justice Court", "fa": "دسته پ: پیگرد — ارجاع به دادگاه عدالت انتقالی" },
+          { "en": "Individual case-by-case review — no collective punishment", "fa": "بررسی فردی موردبه‌مورد — بدون مجازات دسته‌جمعی" }
+        ]
+      },
+      {
+        "title": { "en": "Civilian oversight boards", "fa": "هیئت‌های نظارت مدنی" },
+        "items": [
+          { "en": "Transitional Mehestan security committees oversee all armed forces", "fa": "کمیته‌های امنیتی مجلس موقت بر تمام نیروها نظارت دارند" },
+          { "en": "Inspector-General for each military and security unit", "fa": "بازرس کل برای هر واحد نظامی و امنیتی" },
+          { "en": "Regular public reporting on reform progress", "fa": "گزارش منظم عمومی از پیشرفت اصلاحات" }
+        ]
+      },
+      {
+        "title": { "en": "24-month phased reconstruction", "fa": "بازسازی مرحله‌ای ۲۴ ماهه" },
+        "items": [
+          { "en": "Phase 0–3 months: Stabilize and secure existing structures", "fa": "مرحله ۰–۳ ماه: تثبیت و تأمین ساختارهای موجود" },
+          { "en": "Phase 3–12 months: Rebuild institutions and command doctrine", "fa": "مرحله ۳–۱۲ ماه: بازسازی نهادها و دکترین فرماندهی" },
+          { "en": "Phase 12–24 months: Consolidate reforms + hand over to elected government", "fa": "مرحله ۱۲–۲۴ ماه: تثبیت اصلاحات + تحویل به دولت منتخب" }
+        ]
+      }
+    ]
+  },
+  "contingencyText": {
+    "en": "Temporary Leadership Council forms immediately: heads of Transitional Government + Transitional Mehestan + Transitional Divan · Decisions by majority vote",
+    "fa": "شورای رهبری موقت فوراً تشکیل می‌شود: سران دولت موقت + مجلس موقت + دیوان موقت · تصمیمات با رأی اکثریت"
+  },
+  "immutable": {
+    "label": { "en": "7 IMMUTABLE PRINCIPLES — Enshrined on both referendum ballots and in the new Constitution", "fa": "۷ اصل تغییرناپذیر — مندرج در هر دو برگه رفراندوم و در قانون اساسی جدید" },
+    "items": [
+      { "en": "Territorial integrity of Iran", "fa": "تمامیت ارضی ایران" },
+      { "en": "Human dignity + rights (Cyrus Cylinder + UDHR 1948)", "fa": "کرامت و حقوق بشر (منشور کوروش + اعلامیه جهانی حقوق بشر ۱۹۴۸)" },
+      { "en": "Democracy — 'one citizen, one vote'", "fa": "دموکراسی — 'یک شهروند، یک رأی'" },
+      { "en": "Rule of law", "fa": "حاکمیت قانون" },
+      { "en": "Complete separation of religion and state", "fa": "جدایی کامل دین از حکومت" },
+      { "en": "Separation of powers", "fa": "تفکیک قوا" },
+      { "en": "Independence and impartiality of the Divan", "fa": "استقلال و بی‌طرفی دیوان" }
+    ]
+  },
+  "hybridOption": {
+    "title": { "en": "Legal Framework: The Hybrid Option (inspired by Brexit 2020 transition)", "fa": "چارچوب حقوقی: گزینه ترکیبی (الهام از گذار برگزیت ۲۰۲۰)" },
+    "text": { "en": "Retain all IRI laws as the default rule · Repeal those conflicting with UDHR/national identity/transition · Replacement = Pahlavi era laws or updated modern equivalents · Future elected Mehestan performs full modernization. Three criteria: (1) Practical — lessens the Transitional System's workload; (2) Stabilizing — maintains continuity in daily affairs; (3) Promising — repealing repressive laws boosts public confidence. Historical precedent: Brexit 2020 — EU laws stayed in force as default; laws symbolizing EU membership repealed immediately on Day 1. Same logic applied here.", "fa": "حفظ تمام قوانین جمهوری اسلامی به عنوان پیش‌فرض · لغو آن‌هایی که با اعلامیه جهانی حقوق بشر/هویت ملی/گذار مغایرت دارند · جایگزین = قوانین دوره پهلوی یا معادل‌های مدرن · نوسازی کامل توسط مجلس منتخب آینده. سه معیار: (۱) عملی — کاهش بار کاری سیستم موقت؛ (۲) تثبیت‌کننده — حفظ تداوم در امور روزمره؛ (۳) امیدبخش — لغو قوانین سرکوبگرانه اعتماد عمومی را افزایش می‌دهد." }
+  },
+  "partB_eyebrow": { "en": "Stage 1 · Part B", "fa": "مرحله ۱ · بخش ب" },
+  "partB_title": { "en": "The Leader's Day-1 Decree — 3-Part Legal Framework + 13 Structural Reforms", "fa": "فرمان روز اول رهبر — چارچوب حقوقی ۳ بخشی + ۱۳ اصلاح ساختاری" },
+  "partB_intro": { "en": "The first official act abolishes the IRI constitution, retains existing laws as the default rule (Hybrid/Brexit model), and immediately repeals institutions in conflict with national identity, the UDHR, or the transition. Triggers 13 specific structural reforms listed in the decree itself.", "fa": "اولین اقدام رسمی قانون اساسی جمهوری اسلامی را لغو کرده، قوانین موجود را به عنوان قاعده پیش‌فرض حفظ می‌کند (مدل ترکیبی/برگزیت)، و نهادهای مغایر با هویت ملی، اعلامیه جهانی حقوق بشر، یا گذار را فوراً لغو می‌کند. ۱۳ اصلاح ساختاری مشخص را که در خود فرمان فهرست شده‌اند آغاز می‌کند." },
+  "decreeTitle": { "en": "Leader's Official Decree (Day 1)", "fa": "فرمان رسمی رهبر (روز اول)" },
+  "decreeSub": { "en": "Abolishes IRI Constitution · Establishes Transitional Framework as the binding governing instrument of the State", "fa": "لغو قانون اساسی جمهوری اسلامی · تأسیس چارچوب موقت به عنوان ابزار حاکمیتی الزام‌آور دولت" },
+  "decreeParts": [
+    {
+      "label": { "en": "Part I", "fa": "بخش اول" },
+      "title": { "en": "Abolish IRI Constitution", "fa": "لغو قانون اساسی جمهوری اسلامی" },
+      "items": [
+        { "en": "Formally dissolves the regime", "fa": "انحلال رسمی رژیم" },
+        { "en": "Creates a definitive break with the old order", "fa": "ایجاد گسست قطعی از نظام قدیم" },
+        { "en": "Establishes the international legitimacy basis for the new government", "fa": "پایه مشروعیت بین‌المللی برای دولت جدید" }
+      ],
+      "color": "#ef5350"
+    },
+    {
+      "label": { "en": "Part II", "fa": "بخش دوم" },
+      "title": { "en": "Hybrid Option: Retain Existing Laws", "fa": "گزینه ترکیبی: حفظ قوانین موجود" },
+      "items": [
+        { "en": "Default rule: all existing laws and institutions continue in force", "fa": "قاعده پیش‌فرض: همه قوانین و نهادهای موجود به اجرا ادامه می‌دهند" },
+        { "en": "Prevents legal vacuum and societal disruption", "fa": "جلوگیری از خلاء قانونی و اختلال اجتماعی" },
+        { "en": "Inspired by the Brexit 2020 transition model", "fa": "الهام از مدل گذار برگزیت ۲۰۲۰" },
+        { "en": "Replacement laws drawn from Pahlavi Imperial era or updated modern equivalents", "fa": "قوانین جایگزین از دوره پهلوی یا معادل‌های مدرن" }
+      ],
+      "color": "#8B5CF6"
+    },
+    {
+      "label": { "en": "Part III", "fa": "بخش سوم" },
+      "title": { "en": "Repeal Conflicting Laws & Institutions", "fa": "لغو قوانین و نهادهای متعارض" },
+      "items": [
+        { "en": "Repeal laws conflicting with (a) Iran's historical/national identity", "fa": "لغو قوانین مغایر با (الف) هویت تاریخی/ملی ایران" },
+        { "en": "Repeal laws conflicting with (b) UDHR 1948", "fa": "لغو قوانین مغایر با (ب) اعلامیه جهانی حقوق بشر ۱۹۴۸" },
+        { "en": "Repeal laws conflicting with (c) transition progress and democratic principles", "fa": "لغو قوانین مغایر با (پ) پیشرفت گذار و اصول دموکراتیک" }
+      ],
+      "color": "#69d98c"
+    }
+  ],
+  "reforms": {
+    "label": { "en": "13 Immediate Structural Reforms Triggered by the Decree", "fa": "۱۳ اصلاح ساختاری فوری ناشی از فرمان" },
+    "items": [
+      { "en": "Remove 'Islamic Republic' from official name · Notify all UN states and international organizations", "fa": "حذف 'جمهوری اسلامی' از نام رسمی · اطلاع‌رسانی به تمام کشورها و سازمان‌های بین‌المللی" },
+      { "en": "Restore Lion & Sun tricolor flag · Notify all UN states, organizations, and treaty bodies", "fa": "بازگرداندن پرچم سه‌رنگ شیر و خورشید · اطلاع‌رسانی به تمام کشورها، سازمان‌ها و نهادهای معاهداتی" },
+      { "en": "Replace national anthem with 'Ey Iran' as interim until official anthem is chosen by elected parliament", "fa": "جایگزینی سرود ملی با 'ای ایران' تا انتخاب سرود رسمی توسط پارلمان منتخب" },
+      { "en": "Dissolve: Supreme Leader's Office, Assembly of Experts, Expediency Council, Guardian Council", "fa": "انحلال: دفتر رهبر معظم، مجلس خبرگان، مجمع تشخیص مصلحت، شورای نگهبان" },
+      { "en": "Dissolve IRGC: armed wing → National Army; intelligence → NISS; economic/cultural assets → Government", "fa": "انحلال سپاه: بازوی نظامی → ارتش ملی؛ اطلاعات → سرین؛ دارایی‌های اقتصادی/فرهنگی → دولت" },
+      { "en": "Establish NISS (National Intelligence and Security Service) under Transitional Government", "fa": "تأسیس سرین (سرویس اطلاعات و امنیت ملی) تحت دولت موقت" },
+      { "en": "Dissolve IRI Revolutionary Court and Special Clerical Court; restore General Court system", "fa": "انحلال دادگاه انقلاب اسلامی و دادگاه ویژه روحانیت؛ احیای سیستم دادگاه عمومی" },
+      { "en": "Transfer Attorney General from judiciary to Ministry of Justice (executive branch)", "fa": "انتقال دادستان کل از قوه قضاییه به وزارت دادگستری (قوه مجریه)" },
+      { "en": "Establish Bar Association independence mechanism; allocate legal aid budget from government", "fa": "ایجاد مکانیزم استقلال کانون وکلا؛ تخصیص بودجه معاضدت قضایی از دولت" },
+      { "en": "Dissolve Morality Police (Gasht-e Ershad), Supreme Council of Cultural Revolution, Supreme Council of Cyberspace", "fa": "انحلال پلیس اخلاق (گشت ارشاد)، شورای عالی انقلاب فرهنگی، شورای عالی فضای مجازی" },
+      { "en": "Dissolve IRI State Broadcasting; restore National Iranian Radio and Television", "fa": "انحلال صداوسیمای جمهوری اسلامی؛ احیای رادیو و تلویزیون ملی ایران" },
+      { "en": "Rename Red Crescent → Red Lion and Sun Society; notify Swiss Government (Geneva Convention depositary)", "fa": "تغییر نام هلال احمر → جمعیت شیر و خورشید سرخ؛ اطلاع‌رسانی به دولت سوئیس (امین کنوانسیون ژنو)" },
+      { "en": "Establish transitional justice mechanism to address gross human rights violations since Feb 1979", "fa": "ایجاد مکانیزم عدالت انتقالی برای رسیدگی به نقض فاحش حقوق بشر از بهمن ۱۳۵۷" }
+    ]
+  },
+  "hybridWhy": { "en": "Why the Hybrid Option? (1) Practical — lessens Transitional System workload · (2) Stabilizing — maintains continuity in daily affairs · (3) Promising — repealing repressive laws boosts public confidence · Historical precedent: Brexit 2020 transition model", "fa": "چرا گزینه ترکیبی؟ (۱) عملی — کاهش بار کاری سیستم موقت · (۲) تثبیت‌کننده — حفظ تداوم در امور روزمره · (۳) امیدبخش — لغو قوانین سرکوبگرانه اعتماد عمومی را افزایش می‌دهد · سابقه تاریخی: مدل گذار برگزیت ۲۰۲۰" },
+  "partC_eyebrow": { "en": "Stage 1 · Part C", "fa": "مرحله ۱ · بخش پ" },
+  "partC_title": { "en": "Cross-Cutting Policy Tracks — First 180 Days (Emergency Phase)", "fa": "مسیرهای سیاستی موازی — ۱۸۰ روز اول (فاز اضطراری)" },
+  "partC_intro": { "en": "Running in parallel to the political structure, the Transitional Government operates five major policy tracks simultaneously from Day 1. Each track has a concrete action plan with specific time horizons drawn from the 14 white papers.", "fa": "موازی با ساختار سیاسی، دولت موقت پنج مسیر سیاستی اصلی را همزمان از روز اول اجرا می‌کند. هر مسیر یک برنامه عملیاتی مشخص با افق‌های زمانی معین از ۱۴ کاغذ سفید دارد." },
+  "fp": {
+    "title": { "en": "Foreign Policy", "fa": "سیاست خارجی" },
+    "sub": { "en": "Non-ideological · National-interest-based", "fa": "غیرایدئولوژیک · مبتنی بر منافع ملی" },
+    "sections": [
+      {
+        "title": { "en": "Week 1: Recognize Israel (Cyrus Accord framework)", "fa": "هفته اول: شناسایی اسرائیل (چارچوب توافق کوروش)" },
+        "items": [
+          { "en": "Official recognition of the State of Israel", "fa": "شناسایی رسمی دولت اسرائیل" },
+          { "en": "Invite direct diplomatic talks", "fa": "دعوت به مذاکرات دیپلماتیک مستقیم" },
+          { "en": "Operate within the Cyrus Accord framework", "fa": "عمل در چارچوب توافق کوروش" }
+        ]
+      },
+      {
+        "title": { "en": "Week 1: Stop enrichment + full IAEA access", "fa": "هفته اول: توقف غنی‌سازی + دسترسی کامل آژانس" },
+        "items": [
+          { "en": "Full nuclear transparency declared immediately", "fa": "اعلام شفافیت هسته‌ای کامل" },
+          { "en": "NPT + Additional Protocol compliance", "fa": "رعایت پادمان‌ها + پروتکل الحاقی" },
+          { "en": "Invite IAEA inspectors immediately", "fa": "دعوت فوری از بازرسان آژانس" }
+        ]
+      },
+      {
+        "title": { "en": "Week 1: Outreach to US, EU, UN, all neighbors", "fa": "هفته اول: تماس با آمریکا، اتحادیه اروپا، سازمان ملل، همسایگان" },
+        "items": [
+          { "en": "Normalize US relations (1970s model as reference)", "fa": "عادی‌سازی روابط با آمریکا (مدل دهه ۷۰ به عنوان مرجع)" },
+          { "en": "Engage EU for immediate sanctions removal", "fa": "تعامل با اتحادیه اروپا برای رفع تحریم‌ها" },
+          { "en": "Notify all 193 UN member states of leadership change", "fa": "اطلاع‌رسانی به تمام کشورهای عضو سازمان ملل" }
+        ]
+      },
+      {
+        "title": { "en": "Month 1: Regional stability framework", "fa": "ماه اول: چارچوب ثبات منطقه‌ای" },
+        "items": [
+          { "en": "Monthly meetings with all 14 neighboring countries", "fa": "جلسات ماهانه با ۱۴ کشور همسایه" },
+          { "en": "Joint Border Operations Rooms established", "fa": "اتاق‌های عملیات مشترک مرزی تأسیس می‌شوند" },
+          { "en": "End all proxy support in regional countries immediately", "fa": "پایان دادن به تمام حمایت‌های نیابتی در منطقه" },
+          { "en": "Non-aggression framework with all neighbors", "fa": "چارچوب عدم تجاوز با همه همسایگان" }
+        ]
+      },
+      {
+        "title": { "en": "Months 2–3: MOUs + preliminary agreements", "fa": "ماه‌های ۲–۳: تفاهم‌نامه‌ها + توافقات اولیه" },
+        "items": [
+          { "en": "MOUs on trade, non-aggression, security", "fa": "تفاهم‌نامه تجاری، عدم تجاوز، امنیتی" },
+          { "en": "Sign preliminary agreements with US and Israel", "fa": "امضای توافقات اولیه با آمریکا و اسرائیل" },
+          { "en": "Reset China/Russia ties on basis of mutual respect", "fa": "بازتنظیم روابط با چین/روسیه بر اساس احترام متقابل" },
+          { "en": "India/Japan/South Korea as energy and tech partners", "fa": "هند/ژاپن/کره جنوبی به عنوان شرکای انرژی و فناوری" }
+        ]
+      },
+      {
+        "title": { "en": "MFA overhaul + Special Envoy for Diaspora", "fa": "بازسازی وزارت خارجه + نماینده ویژه دیاسپورا" },
+        "items": [
+          { "en": "Vetting Committee for all foreign ministry staff", "fa": "کمیته غربالگری برای کارمندان وزارت خارجه" },
+          { "en": "Diplomatic Reorientation Center established", "fa": "مرکز جهت‌گیری مجدد دیپلماتیک" },
+          { "en": "Transparency Unit within MFA", "fa": "واحد شفافیت" },
+          { "en": "Neighboring States Coordination Desk", "fa": "میز هماهنگی با کشورهای همسایه" },
+          { "en": "Special Envoy for Iranian Diaspora appointed", "fa": "نماینده ویژه دیاسپورای ایرانی" }
+        ]
+      },
+      {
+        "title": { "en": "Economic Diplomacy Task Force", "fa": "کارگروه دیپلماسی اقتصادی" },
+        "items": [
+          { "en": "Attract foreign direct investment across all sectors", "fa": "جذب سرمایه‌گذاری مستقیم خارجی" },
+          { "en": "IMF/World Bank engagement and lending programs", "fa": "تعامل با صندوق بین‌المللی پول/بانک جهانی" },
+          { "en": "Iran Economic Opportunities Booklet published in 8 languages", "fa": "کتاب فرصت‌های اقتصادی ایران به ۸ زبان" },
+          { "en": "Coordinate with energy and industry white paper teams", "fa": "هماهنگی با تیم‌های کاغذ سفید انرژی و صنعت" }
+        ]
+      }
+    ]
+  },
+  "milTimeline": {
+    "title": { "en": "Military Reform Timeline", "fa": "جدول زمانی اصلاح نظامی" },
+    "sub": { "en": "Days 1–180 + 24-month reconstruction plan", "fa": "روزهای ۱–۱۸۰ + برنامه بازسازی ۲۴ ماهه" },
+    "sections": [
+      {
+        "title": { "en": "Days 1–10: Seizure & Stabilization", "fa": "روزهای ۱–۱۰: تصرف و تثبیت" },
+        "items": [
+          { "en": "Artesh deployed to secure key governmental and strategic sites", "fa": "استقرار ارتش برای تأمین نقاط کلیدی" },
+          { "en": "Cyber operations neutralized within 48–72 hours", "fa": "عملیات سایبری ظرف ۴۸–۷۲ ساعت خنثی می‌شوند" },
+          { "en": "Emergency national broadcasts to the population", "fa": "پخش ملی اضطراری به مردم" },
+          { "en": "Secure critical infrastructure: fuel, water, ports, hospitals, telecom", "fa": "تأمین زیرساخت‌های حیاتی: سوخت، آب، بنادر، بیمارستان‌ها، مخابرات" },
+          { "en": "IRGC command structure dissolved Day 1", "fa": "فرماندهی سپاه روز اول منحل می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Days 11–40: Vetting & Disarmament", "fa": "روزهای ۱۱–۴۰: غربالگری و خلع سلاح" },
+        "items": [
+          { "en": "3-tier vetting protocol applied to all armed forces", "fa": "پروتکل غربالگری سه‌مرحله‌ای برای تمام نیروهای مسلح" },
+          { "en": "Disarm all militant groups and Basij remnants", "fa": "خلع سلاح گروه‌های شبه‌نظامی و بقایای بسیج" },
+          { "en": "De-radicalization programs initiated", "fa": "برنامه‌های افراط‌زدایی آغاز می‌شود" },
+          { "en": "Basij full dismantlement completed", "fa": "تفکیک کامل بسیج" }
+        ]
+      },
+      {
+        "title": { "en": "Days 41–100: Build New Institutions", "fa": "روزهای ۴۱–۱۰۰: ساخت نهادهای جدید" },
+        "items": [
+          { "en": "NISS formally established and operational", "fa": "سرین رسماً تأسیس و عملیاتی می‌شود" },
+          { "en": "Police demilitarized and civilian-led", "fa": "پلیس غیرنظامی می‌شود و رهبری غیرنظامی می‌یابد" },
+          { "en": "Community oversight boards for each unit", "fa": "هیئت‌های نظارت اجتماعی برای هر واحد" },
+          { "en": "National Security Academy (NSA) launched", "fa": "آکادمی امنیت ملی (NSA) راه‌اندازی می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Days 101–140: Global Legitimation", "fa": "روزهای ۱۰۱–۱۴۰: مشروعیت جهانی" },
+        "items": [
+          { "en": "NSRB (National Security Review Board) civilian audit body formed", "fa": "هیئت حسابرسی غیرنظامی NSRB تشکیل می‌شود" },
+          { "en": "International alliance building with key partners", "fa": "ساخت اتحاد بین‌المللی با شرکا" },
+          { "en": "Publish vetting results for transparency and international confidence", "fa": "انتشار نتایج غربالگری برای شفافیت و اعتماد بین‌المللی" },
+          { "en": "Seek international recognition of reformed armed forces", "fa": "کسب شناسایی بین‌المللی از نیروهای مسلح اصلاح‌شده" }
+        ]
+      },
+      {
+        "title": { "en": "Days 141–180: Stress Testing", "fa": "روزهای ۱۴۱–۱۸۰: آزمون استرس" },
+        "items": [
+          { "en": "Cyberattack war game exercises", "fa": "تمرینات بازی جنگی حملات سایبری" },
+          { "en": "Civil unrest response drills", "fa": "تمرینات پاسخ به آشوب مدنی" },
+          { "en": "Proxy insurgency simulation exercises", "fa": "شبیه‌سازی شورش‌های نیابتی" },
+          { "en": "Permanent oversight bodies fully operational", "fa": "نهادهای نظارت دائمی کاملاً عملیاتی" }
+        ]
+      },
+      {
+        "title": { "en": "Months 3–24: Full 3-Phase Reconstruction", "fa": "ماه‌های ۳–۲۴: بازسازی کامل ۳ مرحله‌ای" },
+        "items": [
+          { "en": "0–3 months: Stabilize existing structures and prevent collapse", "fa": "۰–۳ ماه: تثبیت ساختارهای موجود" },
+          { "en": "3–12 months: Rebuild institutions, doctrine, and command culture", "fa": "۳–۱۲ ماه: بازسازی نهادها و دکترین" },
+          { "en": "12–24 months: Consolidate reforms + hand over to elected government", "fa": "۱۲–۲۴ ماه: تثبیت اصلاحات + تحویل به دولت منتخب" }
+        ]
+      }
+    ]
+  },
+  "macro": {
+    "title": { "en": "Macroeconomics", "fa": "اقتصاد کلان" },
+    "sub": { "en": "Fiscal + monetary + banking stabilization", "fa": "تثبیت مالی + پولی + بانکی" },
+    "sections": [
+      {
+        "title": { "en": "Secure Central Bank of Iran (CBI)", "fa": "تأمین بانک مرکزی ایران" },
+        "items": [
+          { "en": "CBI = fiscal agent + independent monetary authority", "fa": "بانک مرکزی = عامل مالی + مرجع پولی مستقل" },
+          { "en": "New Governor appointed Day 1", "fa": "رئیس جدید روز اول منصوب می‌شود" },
+          { "en": "CBI tasked with dual mandate: price stability + financial stability", "fa": "مأموریت دوگانه: ثبات قیمت + ثبات مالی" },
+          { "en": "Independent, transparent, accountable per modern central banking governance", "fa": "مستقل، شفاف، پاسخگو بر اساس حاکمیت مدرن بانکداری" }
+        ]
+      },
+      {
+        "title": { "en": "Capital controls + asset freezes", "fa": "کنترل سرمایه + انجماد دارایی‌ها" },
+        "items": [
+          { "en": "Prevent capital flight from Day 1", "fa": "جلوگیری از فرار سرمایه از روز اول" },
+          { "en": "Freeze large accounts linked to regime affiliates", "fa": "انجماد حساب‌های بزرگ مرتبط با وابستگان رژیم" },
+          { "en": "100% deposit insurance for retail and commercial accounts (first 100 days)", "fa": "بیمه سپرده ۱۰۰٪ برای حساب‌های خرده و تجاری (۱۰۰ روز اول)" },
+          { "en": "Prohibit insider transfers and fire sales by regime-linked entities", "fa": "ممنوعیت انتقالات خودی و فروش ضرری" },
+          { "en": "Domestic bond issuance to address short-term budget deficits", "fa": "انتشار اوراق داخلی برای کسری بودجه کوتاه‌مدت" }
+        ]
+      },
+      {
+        "title": { "en": "Access $120–150B in frozen reserves", "fa": "دسترسی به ۱۲۰–۱۵۰ میلیارد دلار ذخایر منجمد" },
+        "items": [
+          { "en": "Requires formal recognition by US, EU, China, IMF", "fa": "نیاز به شناسایی رسمی توسط آمریکا، اتحادیه اروپا، چین، صندوق بین‌المللی پول" },
+          { "en": "IMF lending programs initiated immediately", "fa": "برنامه‌های وام صندوق بین‌المللی پول آغاز می‌شود" },
+          { "en": "Unlock via demonstrated international legitimacy", "fa": "رفع انجماد از طریق مشروعیت بین‌المللی اثبات‌شده" },
+          { "en": "Joint Financial Task Force to prevent unregulated money flows", "fa": "کارگروه مالی مشترک برای جلوگیری از جریان‌های پولی تنظیم‌نشده" }
+        ]
+      },
+      {
+        "title": { "en": "Banking stabilization", "fa": "تثبیت بانکی" },
+        "items": [
+          { "en": "Protect all deposits; restore uninterrupted banking services", "fa": "حفظ سپرده‌ها؛ احیای خدمات بانکی بدون وقفه" },
+          { "en": "Restore SWIFT access for Iranian banks", "fa": "احیای دسترسی به SWIFT برای بانک‌های ایرانی" },
+          { "en": "FATF compliance program initiated", "fa": "برنامه رعایت استانداردهای FATF آغاز می‌شود" },
+          { "en": "Consolidate multiple exchange rates into managed dual-rate system (transitional step)", "fa": "تجمیع نرخ‌های ارز متعدد در سیستم نرخ دوگانه مدیریت‌شده" },
+          { "en": "Suspend Tehran Stock Exchange 90–180 days for audits and governance reset", "fa": "تعلیق بورس اوراق بهادار تهران ۹۰–۱۸۰ روز برای حسابرسی" }
+        ]
+      },
+      {
+        "title": { "en": "Bonyad reform + de-ideologize state institutions", "fa": "اصلاح بنیادها + زدایش ایدئولوژی" },
+        "items": [
+          { "en": "Downsize quasi-state foundations (Bonyads, Setad/EIKO, Astan Quds Razavi)", "fa": "کوچک‌سازی بنیادهای شبه‌دولتی (بنیاد مستضعفان، ستاد، آستان قدس رضوی)" },
+          { "en": "Subject all to taxation and public accountability oversight", "fa": "مشمول مالیات و نظارت عمومی شدن" },
+          { "en": "Merge redundant ministries to reduce bureaucratic bloat", "fa": "ادغام وزارتخانه‌های موازی" },
+          { "en": "Dismantle IRGC's economic holdings (Khatam al-Anbiya and subsidiaries)", "fa": "برچیدن دارایی‌های اقتصادی سپاه (قرارگاه خاتم‌الانبیا)" },
+          { "en": "Appoint technocratic interim management at all state-owned enterprises", "fa": "انتصاب مدیریت موقت تکنوکرات در تمام شرکت‌های دولتی" }
+        ]
+      },
+      {
+        "title": { "en": "Pension + subsidy continuity from Day 1", "fa": "تداوم بازنشستگی + یارانه از روز اول" },
+        "items": [
+          { "en": "Uninterrupted pension payments from Day 1", "fa": "پرداخت بازنشستگی بدون وقفه از روز اول" },
+          { "en": "Continue existing subsidies throughout transition period", "fa": "ادامه یارانه‌های موجود در دوران گذار" },
+          { "en": "Rebuild sovereign credit ratings (Fitch, Moody's, S&P)", "fa": "بازسازی رتبه‌بندی اعتبار حاکمیتی (فیچ، مودیز، اس‌اند‌پی)" },
+          { "en": "Reinstate High Council for Social Security", "fa": "احیای شورای عالی رفاه اجتماعی" }
+        ]
+      },
+      {
+        "title": { "en": "National asset recovery (PBAD program)", "fa": "بازیابی دارایی‌های ملی (برنامه پباد)" },
+        "items": [
+          { "en": "Locate and secure all regime-controlled assets domestically and abroad", "fa": "شناسایی و تأمین تمام دارایی‌های رژیم داخل و خارج" },
+          { "en": "Freeze accounts in UAE, Türkiye, Switzerland, Luxembourg, Malaysia, China, Caribbean", "fa": "انجماد حساب‌ها در امارات، ترکیه، سوئیس، لوکزامبورگ، مالزی، چین" },
+          { "en": "Prevent sabotage by regime loyalists using state wealth", "fa": "جلوگیری از خرابکاری توسط وفاداران رژیم" },
+          { "en": "Coordinate with FATF, Interpol, and foreign financial intelligence units", "fa": "هماهنگی با FATF، اینترپل و سازمان‌های اطلاعات مالی خارجی" },
+          { "en": "Priority assets: crypto (BTC/XMR), gold reserves, offshore real estate, IRGC corporate holdings", "fa": "اولویت: رمزارز، ذخایر طلا، املاک خارجی، دارایی‌های شرکتی سپاه" }
+        ]
+      }
+    ]
+  },
+  "ess": {
+    "title": { "en": "Essential Functions", "fa": "خدمات اساسی" },
+    "sub": { "en": "Continuity of government services — 180-day plan", "fa": "تداوم خدمات دولتی — برنامه ۱۸۰ روزه" },
+    "sections": [
+      {
+        "title": { "en": "H-Hour to H+72: Immediate seizure of critical infrastructure", "fa": "H تا H+72: تصرف فوری زیرساخت‌های حیاتی" },
+        "items": [
+          { "en": "Secure fuel depots and all fuel distribution networks", "fa": "تأمین انبارهای سوخت و شبکه توزیع" },
+          { "en": "Secure grain reserves and food supply chain", "fa": "تأمین ذخایر غله و زنجیره تأمین غذا" },
+          { "en": "Secure major ports and logistics corridors", "fa": "تأمین بنادر اصلی و کریدورهای لجستیک" },
+          { "en": "Secure hospitals and medical supply chains", "fa": "تأمین بیمارستان‌ها و زنجیره تأمین دارو" },
+          { "en": "Secure water treatment plants and distribution systems", "fa": "تأمین تأسیسات تصفیه آب و توزیع" },
+          { "en": "Secure telecom hubs and internet exchange points", "fa": "تأمین مراکز مخابراتی و تبادل اینترنت" }
+        ]
+      },
+      {
+        "title": { "en": "Days 3–30: National stabilization & triage", "fa": "روزهای ۳–۳۰: تثبیت و تریاژ ملی" },
+        "items": [
+          { "en": "National availability assessments for all critical goods", "fa": "ارزیابی دسترسی ملی به تمام کالاهای ضروری" },
+          { "en": "Utilities and health service continuity posture", "fa": "وضعیت تداوم خدمات آب‌وبرق و بهداشت" },
+          { "en": "Anti-hoarding enforcement and price-gouging controls", "fa": "اجرای اقدامات ضدسودجویی و کنترل قیمت‌ها" },
+          { "en": "Emergency measures for vulnerable populations", "fa": "اقدامات اضطراری برای جمعیت‌های آسیب‌پذیر" }
+        ]
+      },
+      {
+        "title": { "en": "Days 31–180: Operational continuity", "fa": "روزهای ۳۱–۱۸۰: تداوم عملیاتی" },
+        "items": [
+          { "en": "Standardized execution across all 31 provinces", "fa": "اجرای استاندارد در تمام ۳۱ استان" },
+          { "en": "Preserve institutional knowledge of key technical staff", "fa": "حفظ دانش سازمانی کارکنان فنی کلیدی" },
+          { "en": "Digitize all government records and databases", "fa": "دیجیتال‌سازی تمام اسناد و پایگاه‌های داده دولتی" },
+          { "en": "Provincial coordination centers operational", "fa": "مراکز هماهنگی استانی عملیاتی" }
+        ]
+      },
+      {
+        "title": { "en": "7 protected service categories (continuous from Day 1)", "fa": "۷ دسته خدمات محافظت‌شده (مستمر از روز اول)" },
+        "items": [
+          { "en": "Food security and supply chains", "fa": "امنیت غذایی و زنجیره تأمین" },
+          { "en": "Transport and logistics infrastructure", "fa": "زیرساخت حمل‌ونقل و لجستیک" },
+          { "en": "Utilities (electricity, gas, water)", "fa": "خدمات عمومی (برق، گاز، آب)" },
+          { "en": "Public health and emergency medical services", "fa": "بهداشت عمومی و خدمات پزشکی اضطراری" },
+          { "en": "Emergency response and disaster management", "fa": "پاسخ اضطراری و مدیریت بحران" },
+          { "en": "Personnel continuity (all government employees paid from Day 1)", "fa": "تداوم پرسنل (کارکنان دولت از روز اول حقوق دریافت می‌کنند)" },
+          { "en": "Communications and information infrastructure", "fa": "زیرساخت ارتباطات و اطلاعات" }
+        ]
+      },
+      {
+        "title": { "en": "Pay all government employees from Day 1", "fa": "پرداخت حقوق تمام کارکنان دولت از روز اول" },
+        "items": [
+          { "en": "Military personnel — all ranks without exception", "fa": "پرسنل نظامی — تمام درجه‌ها بدون استثنا" },
+          { "en": "Teachers and educators at all levels", "fa": "معلمان و مربیان در تمام سطوح" },
+          { "en": "Healthcare workers: doctors, nurses, support staff", "fa": "کارکنان بهداشت: پزشکان، پرستاران، کادر پشتیبانی" },
+          { "en": "All civil servants and government administrators", "fa": "تمام کارمندان دولتی و مدیران اداری" },
+          { "en": "Objective: prevent social collapse and brain drain", "fa": "هدف: جلوگیری از فروپاشی اجتماعی و فرار مغزها" }
+        ]
+      },
+      {
+        "title": { "en": "Sector white papers (detailed plans for each)", "fa": "کاغذ سفیدهای بخشی (برنامه‌های تفصیلی برای هر بخش)" },
+        "items": [
+          { "en": "National Assets — PBAD recovery program", "fa": "دارایی‌های ملی — برنامه بازیابی پباد" },
+          { "en": "Energy — secure and maintain oil/gas production", "fa": "انرژی — تأمین و حفظ تولید نفت/گاز" },
+          { "en": "Industry — protect manufacturing and supply chains", "fa": "صنعت — حفاظت از تولید و زنجیره تأمین" },
+          { "en": "Cybersecurity — protect all critical digital infrastructure", "fa": "امنیت سایبری — حفاظت از تمام زیرساخت‌های دیجیتال حیاتی" },
+          { "en": "Environment — protect critical ecosystems", "fa": "محیط زیست — حفاظت از اکوسیستم‌های حیاتی" },
+          { "en": "Water — prevent water crisis escalation", "fa": "آب — جلوگیری از تشدید بحران آب" },
+          { "en": "Healthcare — maintain all health systems", "fa": "بهداشت — حفظ تمام سیستم‌های سلامت" }
+        ]
+      }
+    ]
+  },
+  "edu": {
+    "title": { "en": "Education + Social Reform", "fa": "آموزش + اصلاح اجتماعی" },
+    "sub": { "en": "De-ideologize + equal access + continuity", "fa": "زدایش ایدئولوژی + دسترسی برابر + تداوم" },
+    "sections": [
+      {
+        "title": { "en": "Remove ideology from all textbooks", "fa": "حذف ایدئولوژی از تمام کتب درسی" },
+        "items": [
+          { "en": "Primary, secondary, and higher education textbooks", "fa": "کتب درسی ابتدایی، متوسطه و آموزش عالی" },
+          { "en": "Reflect values of the new democratic era in Iran", "fa": "انعکاس ارزش‌های ایران جدید دموکراتیک" },
+          { "en": "Replace religious indoctrination content with civic education", "fa": "جایگزینی محتوای آموزش دینی با آموزش شهروندی" },
+          { "en": "Immediate audit of all curriculum materials", "fa": "بررسی فوری تمام مواد درسی" }
+        ]
+      },
+      {
+        "title": { "en": "Military education overhaul", "fa": "بازسازی آموزش نظامی" },
+        "items": [
+          { "en": "Drone and cyber warfare training", "fa": "آموزش جنگ‌افزارهای پهپاد و سایبری" },
+          { "en": "Intelligence analysis and professional ethics", "fa": "تحلیل اطلاعاتی و اخلاق حرفه‌ای" },
+          { "en": "Human rights principles integrated into military doctrine", "fa": "اصول حقوق بشر در دکترین نظامی" },
+          { "en": "Democratic civilian oversight principles", "fa": "اصول نظارت غیرنظامی دموکراتیک" }
+        ]
+      },
+      {
+        "title": { "en": "Healthcare continuity", "fa": "تداوم بهداشت و درمان" },
+        "items": [
+          { "en": "Essential medicine procurement maintained uninterrupted", "fa": "خرید داروهای ضروری حفظ می‌شود" },
+          { "en": "Surge capacity protocols for hospitals", "fa": "پروتکل‌های ظرفیت تقویت‌شده برای بیمارستان‌ها" },
+          { "en": "Emergency capacity protected from budget cuts", "fa": "ظرفیت اضطراری از کاهش بودجه محافظت می‌شود" },
+          { "en": "International health partnerships established", "fa": "مشارکت‌های بهداشتی بین‌المللی برقرار می‌شود" }
+        ]
+      },
+      {
+        "title": { "en": "Equal citizenship for all groups", "fa": "شهروندی برابر برای همه گروه‌ها" },
+        "items": [
+          { "en": "Women equal before the law — remove all gender-discriminatory laws immediately", "fa": "برابری زنان در برابر قانون — حذف فوری تمام قوانین تبعیض‌آمیز جنسیتی" },
+          { "en": "Ethnic minorities (Kurds, Arabs, Baloch, Turkmen, etc.) equal citizenship guaranteed", "fa": "شهروندی برابر برای اقلیت‌های قومی (کردها، عرب‌ها، بلوچ‌ها، ترکمن‌ها و غیره)" },
+          { "en": "Religious minorities fully protected under the new constitution", "fa": "اقلیت‌های دینی تحت قانون اساسی جدید محافظت می‌شوند" },
+          { "en": "No compulsory religious dress codes of any kind", "fa": "بدون قوانین اجباری پوشش دینی از هر نوع" }
+        ]
+      },
+      {
+        "title": { "en": "Cybersecurity + critical infrastructure protection", "fa": "امنیت سایبری + حفاظت از زیرساخت‌های حیاتی" },
+        "items": [
+          { "en": "Transitional National Cybersecurity Task Force operational from Day 0", "fa": "کارگروه ملی امنیت سایبری موقت از روز صفر" },
+          { "en": "Protect telecom, energy, water, and financial systems from sabotage", "fa": "حفاظت از سیستم‌های مخابراتی، انرژی، آب و مالی" },
+          { "en": "Guard against sabotage by regime remnants", "fa": "محافظت در برابر خرابکاری توسط بقایای رژیم" },
+          { "en": "National CERT/CSIRT with 24/7 operations", "fa": "مرکز ملی واکنش به حوادث سایبری با عملیات ۲۴ ساعته" },
+          { "en": "Insider risk management protocols for all critical facilities", "fa": "پروتکل‌های مدیریت تهدیدات داخلی" }
+        ]
+      },
+      {
+        "title": { "en": "National Security Academy (NSA)", "fa": "آکادمی امنیت ملی (NSA)" },
+        "items": [
+          { "en": "Rapid induction program for all new security personnel", "fa": "برنامه القاء سریع برای تمام پرسنل امنیتی جدید" },
+          { "en": "Ethics and rule of law training", "fa": "آموزش اخلاق و حاکمیت قانون" },
+          { "en": "Chain of command and civilian oversight principles", "fa": "اصول زنجیره فرماندهی و نظارت غیرنظامی" },
+          { "en": "International law and human rights obligations", "fa": "تعهدات حقوق بشر و حقوق بین‌الملل" }
+        ]
+      }
+    ]
+  },
+  "whitePapersNote": { "en": "14 white papers in total — detailed plans also exist for: National Assets · Energy · Industry · Cybersecurity · Environment · Water · Healthcare. Each white paper has its own operational framework for the Emergency Phase. Full details in the Emergency Phase Booklet (March 2026).", "fa": "مجموع ۱۴ کاغذ سفید — برنامه‌های تفصیلی همچنین برای: دارایی‌های ملی · انرژی · صنعت · امنیت سایبری · محیط زیست · آب · بهداشت وجود دارد. هر کاغذ سفید چارچوب عملیاتی خاص خود برای فاز اضطراری دارد." },
+  "stage2_eyebrow": { "en": "Stage 2 of 2", "fa": "مرحله ۲ از ۲" },
+  "stage2_title": { "en": "The Permanent Democratic Structure — The Final Goal", "fa": "ساختار دموکراتیک دائمی — هدف نهایی" },
+  "stage2_intro": { "en": "Bottom-up. All authority shifts from the temporary Leader to the people of Iran. A Constituent Assembly drafts the constitution; a referendum approves it and selects the system of government. All Stage 1 institutions — including the Leader's role — are then completely dissolved. The transition is designed to be 'neither rushed nor open-ended.'", "fa": "از پایین به بالا. تمام اقتدار از رهبر موقت به مردم ایران منتقل می‌شود. مجلس مؤسسان قانون اساسی را تهیه می‌کند؛ یک رفراندوم آن را تأیید کرده و نظام حکومتی را انتخاب می‌کند. سپس تمام نهادهای مرحله اول — از جمله نقش رهبر — کاملاً منحل می‌شوند. گذار طراحی شده تا 'نه شتابزده و نه بی‌پایان' باشد." },
+  "s2_people_title": { "en": "The People of Iran", "fa": "مردم ایران" },
+  "s2_people_sub": { "en": "Ultimate source of all sovereignty · All authority derived from free, fair, periodic elections · 'one citizen, one vote'", "fa": "منبع اصلی تمام حاکمیت · تمام اقتدار از انتخابات آزاد، منصفانه و دوره‌ای مشتق می‌شود · 'یک شهروند، یک رأی'" },
+  "s2ca": {
+    "title": { "en": "Constituent Assembly", "fa": "مجلس مؤسسان" },
+    "sub": { "en": "Elected by the people · Drafts new constitution · 6-month mandate", "fa": "توسط مردم انتخاب می‌شود · پیش‌نویس قانون اساسی جدید را تهیه می‌کند · مأموریت ۶ ماهه" },
+    "items": [
+      { "en": "Rules (seat count 70–310, eligibility) set by Transitional Mehestan in advance", "fa": "قوانین (تعداد کرسی ۷۰–۳۱۰، شرایط) توسط مجلس موقت از پیش تعیین می‌شود" },
+      { "en": "7-member jurist panel assists the drafting process", "fa": "پنل ۷ حقوقدان در فرآیند تهیه پیش‌نویس کمک می‌کند" },
+      { "en": "Consults expert committees on 10+ sectors", "fa": "با کمیته‌های متخصص در ۱۰+ بخش مشورت می‌کند" },
+      { "en": "If monarchy chosen: may draw on 1906 Iranian Constitution as drafting basis", "fa": "در صورت انتخاب پادشاهی: ممکن است از قانون اساسی ۱۹۰۶ ایران به عنوان پایه استفاده شود" },
+      { "en": "Publishes each article for public comment during drafting", "fa": "هر ماده را برای نظرخواهی عمومی در طول تهیه پیش‌نویس منتشر می‌کند" }
+    ]
+  },
+  "s2ref": {
+    "title": { "en": "National Referendum", "fa": "رفراندوم ملی" },
+    "sub": { "en": "Vote on system of government — within 4 months of transition start", "fa": "رأی درباره نظام حکومتی — ظرف ۴ ماه از آغاز گذار" },
+    "items": [
+      { "en": "Choice: Parliamentary Monarchy vs. Republic", "fa": "گزینه: پادشاهی پارلمانی در برابر جمهوری" },
+      { "en": "Both ballots include the 7 immutable principles", "fa": "هر دو برگه رأی شامل ۷ اصل تغییرناپذیر" },
+      { "en": "3-month public campaign period", "fa": "دوره کمپین عمومی ۳ ماهه" },
+      { "en": "State media treats both sides equally", "fa": "رسانه دولتی هر دو طرف را برابر پوشش می‌دهد" },
+      { "en": "Political parties may actively campaign", "fa": "احزاب سیاسی می‌توانند فعالانه کمپین کنند" },
+      { "en": "International democratic standards apply", "fa": "استانداردهای بین‌المللی دموکراتیک اعمال می‌شود" }
+    ]
+  },
+  "s2const": {
+    "title": { "en": "New Constitution", "fa": "قانون اساسی جدید" },
+    "sub": { "en": "Permanent law of the land · Approved by constitutional referendum · Establishes all permanent institutions", "fa": "قانون دائمی کشور · با رفراندوم قانون اساسی تصویب می‌شود · تمام نهادهای دائمی را تأسیس می‌کند" },
+    "items": [
+      { "en": "Constitutional referendum held within 1 month of draft completion", "fa": "رفراندوم قانون اساسی ظرف ۱ ماه از اتمام پیش‌نویس برگزار می‌شود" },
+      { "en": "If rejected: 2-month revision + re-vote (up to 3 attempts)", "fa": "در صورت رد: بازنگری ۲ ماهه + رأی‌گیری مجدد (تا ۳ بار)" },
+      { "en": "If rejected 3 times: an entirely new Constituent Assembly must be elected", "fa": "در صورت رد ۳ بار: مجلس مؤسسان کاملاً جدید باید انتخاب شود" },
+      { "en": "Must enshrine all 7 immutable principles", "fa": "باید تمام ۷ اصل تغییرناپذیر را در خود جای دهد" }
+    ]
+  },
+  "s2parliament": {
+    "title": { "en": "Parliament (Mehestan)", "fa": "پارلمان (مجلس)" },
+    "items": [
+      { "en": "Fully elected by citizens — no appointed members", "fa": "کاملاً توسط شهروندان انتخاب می‌شود — بدون عضو انتصابی" },
+      { "en": "Passes laws and approves the national budget", "fa": "قوانین را تصویب و بودجه ملی را تأیید می‌کند" },
+      { "en": "Approves elected government (confidence votes)", "fa": "دولت منتخب را تأیید می‌کند (رأی اعتماد)" },
+      { "en": "Fully democratic, periodic elections", "fa": "کاملاً دموکراتیک، انتخابات دوره‌ای" }
+    ]
+  },
+  "s2govt": {
+    "title": { "en": "Government", "fa": "دولت" },
+    "items": [
+      { "en": "PM or President per the new constitution", "fa": "نخست‌وزیر یا رئیس‌جمهور طبق قانون اساسی جدید" },
+      { "en": "Parliamentary monarchy / parliamentary republic / presidential republic", "fa": "پادشاهی پارلمانی / جمهوری پارلمانی / جمهوری ریاستی" },
+      { "en": "Accountable to parliament and the constitution", "fa": "پاسخگو در برابر پارلمان و قانون اساسی" }
+    ]
+  },
+  "s2jud": {
+    "title": { "en": "Independent Judiciary", "fa": "قوه قضاییه مستقل" },
+    "items": [
+      { "en": "Supreme Court + lower courts", "fa": "دیوان عالی کشور + دادگاه‌های پایین‌تر" },
+      { "en": "Fully independent of the executive branch", "fa": "کاملاً مستقل از قوه مجریه" },
+      { "en": "Operating under the new constitution", "fa": "عمل می‌کند تحت قانون اساسی جدید" }
+    ]
+  },
+  "dissolution": { "en": "At this point: the entire Stage 1 transitional system — including the Leader of the National Uprising — is completely dissolved. All power transfers to the permanent, democratically elected institutions under the new constitution. \"The Transitional System shall be deemed dissolved.\" — Emergency Phase Booklet, para. 21", "fa": "در این لحظه: تمام سیستم موقت مرحله اول — از جمله نقش رهبر قیام ملی — کاملاً منحل می‌شود. همه قدرت به نهادهای دائمی منتخب دموکراتیک تحت قانون اساسی جدید منتقل می‌شود. «سیستم موقت منحل تلقی خواهد شد.» — کتاب فاز اضطراری، بند ۲۱" },
+  "source": { "en": "Source: Emergency Phase Booklet (March 2026) · Iran Prosperity Project / NUFDI · 14 White Papers · IranProsperityProject.org", "fa": "منبع: کتاب فاز اضطراری (مارس ۲۰۲۶) · ایران پراسپریتی پروژه / نافدی · ۱۴ کاغذ سفید · IranProsperityProject.org" },
+  "threeBranchesLabel": {
+    "en": "→ Three Transitional Branches (established after regime fall)",
+    "fa": "→ سه قوه موقت (پس از سقوط رژیم)"
+  },
+  "contingencyLabel": { "en": "CONTINGENCY", "fa": "اضطراری" },
+  "s2ElectLabel": { "en": "elect", "fa": "انتخاب می‌کنند" },
+  "s2VoteInLabel": { "en": "vote in", "fa": "رأی می‌دهند" },
+  "s2DetailsLabel": { "en": "Details", "fa": "جزئیات" },
+  "navEnterArena": { "en": "Enter Transition Arena →", "fa": "← بازگشت به آرنا" },
+  "navPermanentConst": { "en": "Phase II: Permanent Constitution →", "fa": "→ قانون اساسی دائمی (مرحله دوم)" },
+  "navBackToChoose": { "en": "← Back to Choose Your Path", "fa": "← بازگشت به انتخاب مسیر" }
+}

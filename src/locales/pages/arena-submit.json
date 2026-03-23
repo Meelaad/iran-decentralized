@@ -1,0 +1,154 @@
+{
+  "loginGateTitle": {
+    "en": "Sign in to submit a plan",
+    "fa": "برای ارسال طرح وارد شوید"
+  },
+  "loginGateDesc": {
+    "en": "Submitting a plan requires an account.",
+    "fa": "ارسال طرح نیاز به حساب کاربری دارد."
+  },
+  "loginGateBtn": {
+    "en": "Sign In",
+    "fa": "ورود"
+  },
+  "successTitle": {
+    "en": "Plan submitted successfully",
+    "fa": "طرح شما ارسال شد"
+  },
+  "successDesc": {
+    "en": "Your plan is now in the Arena incubator. Once it collects {n} signatures it will be sent for admin review.",
+    "fa": "طرح شما در بخش آزمایشگاه آرنا قرار گرفت. پس از جمع‌آوری {n} امضا، برای بررسی مدیران ارسال می‌شود."
+  },
+  "successBackBtn": {
+    "en": "Back to Arena",
+    "fa": "بازگشت به آرنا"
+  },
+  "breadcrumbArena": {
+    "en": "Arena",
+    "fa": "آرنا"
+  },
+  "breadcrumbSubmit": {
+    "en": "Submit Plan",
+    "fa": "ارسال طرح"
+  },
+  "pageTitle": {
+    "en": "Submit a Transitional Plan",
+    "fa": "ارسال طرح انتقالی"
+  },
+  "pageSubtitle": {
+    "en": "Your plan will appear in the Arena incubator. Once it reaches {n} signatures it moves to admin review for potential promotion to the main plans.",
+    "fa": "طرح شما در بخش آزمایشگاه آرنا نمایش داده می‌شود. پس از جمع‌آوری {n} امضا، برای بررسی و تأیید به تیم مدیران ارسال می‌شود."
+  },
+  "requirementNote": {
+    "en": "Requires a minimum civic score of 4 to submit.",
+    "fa": "برای ارسال طرح به حداقل ۴ امتیاز مدنی نیاز دارید."
+  },
+  "sectionTitle": {
+    "en": "Plan Title",
+    "fa": "عنوان طرح"
+  },
+  "labelTitleEn": {
+    "en": "Title (English) — required",
+    "fa": "عنوان (انگلیسی) — الزامی"
+  },
+  "labelTitleFa": {
+    "en": "Title (Farsi) — optional",
+    "fa": "عنوان (فارسی) — اختیاری"
+  },
+  "sectionSummary": {
+    "en": "Plan Summary",
+    "fa": "خلاصه طرح"
+  },
+  "labelSummaryEn": {
+    "en": "Summary (English) — required",
+    "fa": "خلاصه (انگلیسی) — الزامی"
+  },
+  "labelSummaryFa": {
+    "en": "Summary (Farsi) — optional",
+    "fa": "خلاصه (فارسی) — اختیاری"
+  },
+  "charMin": {
+    "en": "min {n}",
+    "fa": "حداقل {n}"
+  },
+  "sectionDocs": {
+    "en": "Documentation",
+    "fa": "مستندات"
+  },
+  "labelDocUrl": {
+    "en": "Full document URL — optional",
+    "fa": "لینک سند کامل — اختیاری"
+  },
+  "docUrlHint": {
+    "en": "Link to a PDF, Google Doc, or any publicly accessible document",
+    "fa": "لینک به PDF، Google Docs یا هر مستند عمومی دیگری"
+  },
+  "submitBtnPending": {
+    "en": "Submitting...",
+    "fa": "در حال ارسال..."
+  },
+  "submitBtn": {
+    "en": "Submit Plan",
+    "fa": "ارسال طرح"
+  },
+  "cancelLink": {
+    "en": "Cancel",
+    "fa": "انصراف"
+  },
+  "validateTitleRequired": {
+    "en": "English title is required.",
+    "fa": "عنوان انگلیسی الزامی است."
+  },
+  "validateTitleShort": {
+    "en": "Title must be at least {n} characters.",
+    "fa": "عنوان باید حداقل {n} کاراکتر داشته باشد."
+  },
+  "validateTitleInvalid": {
+    "en": "English title contains invalid characters.",
+    "fa": "عنوان انگلیسی شامل کاراکترهای غیرمجاز است."
+  },
+  "validateSummaryRequired": {
+    "en": "English summary is required.",
+    "fa": "خلاصه انگلیسی الزامی است."
+  },
+  "validateSummaryShort": {
+    "en": "Summary must be at least {n} characters.",
+    "fa": "خلاصه باید حداقل {n} کاراکتر داشته باشد."
+  },
+  "validateUrlHttps": {
+    "en": "Document URL must start with https://.",
+    "fa": "لینک سند باید با https:// شروع شود."
+  },
+  "errSubmitDefault": {
+    "en": "Failed to submit plan.",
+    "fa": "خطا در ارسال طرح."
+  },
+  "errCivicScore": {
+    "en": "Insufficient civic score. You need at least 4 civic score points to submit a plan.",
+    "fa": "امتیاز مدنی شما کافی نیست. برای ارسال طرح به حداقل ۴ امتیاز مدنی نیاز دارید."
+  },
+  "errUnauthorized": {
+    "en": "Please sign in to submit a plan.",
+    "fa": "لطفاً ابتدا وارد شوید."
+  },
+  "errDuplicate": {
+    "en": "A plan with this title already exists.",
+    "fa": "طرحی با این عنوان قبلاً ارسال شده است."
+  },
+  "errTitleInvalid": {
+    "en": "Invalid English title. Please review your input.",
+    "fa": "عنوان انگلیسی نامعتبر است. لطفاً بررسی کنید."
+  },
+  "errSummaryShort": {
+    "en": "English summary must be at least 50 characters.",
+    "fa": "خلاصه انگلیسی باید حداقل ۵۰ کاراکتر داشته باشد."
+  },
+  "errUrlHttps": {
+    "en": "Document URL must start with https://.",
+    "fa": "لینک سند باید با https:// شروع شود."
+  },
+  "errSubmitRetry": {
+    "en": "Failed to submit plan. Please try again.",
+    "fa": "خطا در ارسال طرح. لطفاً دوباره امتحان کنید."
+  }
+}

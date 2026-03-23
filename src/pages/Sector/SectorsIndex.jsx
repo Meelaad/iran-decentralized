@@ -2,14 +2,10 @@ import React, { useRef, useCallback, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS, SECTORS } from "../../data";
+import CONTENT from '../../locales/pages/sectors-index.json';
 import './SectorsIndex.css';
 
-const TIERS = [
-    { key: "core", label: { en: "CORE LAYER", fa: "لایه هسته" }, color: "#8B5CF6" },
-    { key: "primary", label: { en: "PRIMARY SECTORS", fa: "بخش‌های اولیه" }, color: "#66bb6a" },
-    { key: "secondary", label: { en: "SECONDARY SECTORS", fa: "بخش‌های ثانویه" }, color: "#ffa726" },
-    { key: "tertiary", label: { en: "SUPPORTING SECTORS", fa: "بخش‌های پشتیبان" }, color: "#ab47bc" },
-];
+const TIERS = CONTENT.tiers;
 
 const HEX_R = 16;
 const HEX_GAP = 4;

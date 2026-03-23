@@ -1,0 +1,36 @@
+{
+  "title": { "en": "Choose Your Access Mode", "fa": "نحوه دسترسی را انتخاب کنید" },
+  "subtitle": {
+    "en": "The platform has two versions — one simplified, one full",
+    "fa": "پلتفرم دو نسخه دارد — یکی ساده‌تر، یکی کامل‌تر"
+  },
+  "easyBadge": { "en": "EASY ACCESS", "fa": "دسترسی آسان" },
+  "easyTitle": { "en": "Simple Version", "fa": "نسخه ساده" },
+  "easyDesc": {
+    "en": "A simplified interface designed for older users or those less comfortable with technology. Larger text, fewer steps, more guidance.",
+    "fa": "رابط کاربری ساده‌شده برای افراد مسن‌تر یا کسانی که با فناوری آشنایی کمتری دارند. متن بزرگ‌تر، مراحل کمتر، راهنمایی بیشتر."
+  },
+  "easyFeature1": { "en": "Larger text and buttons", "fa": "متن و دکمه‌های بزرگ‌تر" },
+  "easyFeature2": { "en": "Step-by-step guidance", "fa": "راهنمای مرحله به مرحله" },
+  "easyFeature3": { "en": "Simplified feature set", "fa": "امکانات ساده‌شده" },
+  "easyFeature4": { "en": "Voice support (coming soon)", "fa": "پشتیبانی صوتی (به زودی)" },
+  "soonLabel": { "en": "UNDER DEVELOPMENT", "fa": "در حال ساخت" },
+  "soonText": {
+    "en": "The easy access version is being designed and built. It will be available soon.",
+    "fa": "نسخه دسترسی آسان در حال طراحی و ساخت است. به زودی در دسترس خواهد بود."
+  },
+  "soonPulse": { "en": "Active development", "fa": "توسعه فعال" },
+  "soonBack": { "en": "← Back", "fa": "← بازگشت" },
+  "completeBadge": { "en": "COMPLETE ACCESS", "fa": "دسترسی کامل" },
+  "completeTitle": { "en": "Full Platform", "fa": "پلتفرم کامل" },
+  "completeDesc": {
+    "en": "The full platform experience — transitional plans, voting, the Arena, shadow cabinet, global map, and more.",
+    "fa": "تمام قابلیت‌های پلتفرم — طرح‌های انتقالی، رأی‌گیری، آرنا، دولت سایه، نقشه جهانی و بیشتر."
+  },
+  "completeFeature1": { "en": "All transitional plans", "fa": "همه طرح‌های انتقالی" },
+  "completeFeature2": { "en": "Secure voting", "fa": "رأی‌گیری امن" },
+  "completeFeature3": { "en": "Arena & plan submission", "fa": "آرنا و پیشنهاد طرح" },
+  "completeFeature4": { "en": "Advanced compare & analysis", "fa": "تحلیل و مقایسه پیشرفته" },
+  "completeCta": { "en": "Continue →", "fa": "ادامه ←" },
+  "backHome": { "en": "← Back to home", "fa": "← بازگشت به صفحه اصلی" }
+}

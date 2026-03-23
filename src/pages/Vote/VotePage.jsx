@@ -7,6 +7,7 @@ import { BLUEPRINTS } from '../../data';
 import { SHOW_VOTE_COUNTS } from '../../config';
 import { useArenaPlans, useUserEndorsement, useEndorsePlan } from '../../hooks/usePlans';
 import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
+import CONTENT from '../../locales/pages/vote.json';
 import './VotePage.css';
 
 const BLUEPRINT_COLORS = {
@@ -57,9 +58,7 @@ export default function VotePage() {
             setMyTransVote(planId);
         } catch (e) {
             if (e.status === 429) {
-                setTransVoteError(isRTL
-                    ? 'برای نظم و امنیت و یکپارچگی سیستم نمی‌توانید در مدت خیلی کوتاه چند بار رأی را عوض کنید، محدودیت موقت روی حساب شما ایجاد شد، لطفاً اگر قصد تعویض رأی دارید بعداً دوباره تلاش کنید.'
-                    : 'Security Warning: too many vote changes in a short time. Your account now has a temporary voting limit. If you need to change your current vote, please try again later.');
+                setTransVoteError(t(CONTENT.transVoteError429));
             } else {
                 console.error('Trans vote error', e);
             }
@@ -148,7 +147,7 @@ export default function VotePage() {
         e.preventDefault();
         const age = calcAge(birthDateInput);
         if (isNaN(age) || age < 0 || age > 99) {
-            setAgeError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.');
+            setAgeError(t(CONTENT.ageInvalidDate));
             return;
         }
         if (age < 18) {
@@ -230,7 +229,7 @@ export default function VotePage() {
                         <h1 className="vote-age-title" style={{ fontFamily: headFont }}>{tKey('vote.ageTooYoungTitle')}</h1>
                         <p className="vote-age-too-young-body">{tKey('vote.ageTooYoung')}</p>
                         <Link to="/blueprint/gov/decentralized" className="vote-age-explore-link" style={{ fontFamily: monoFont }}>
-                            {isRTL ? 'کاوش طرح‌ها ←' : 'EXPLORE BLUEPRINTS →'}
+                            {t(CONTENT.exploreBlueprintsLink)}
                         </Link>
                     </div>
                 </div>
@@ -261,37 +260,35 @@ export default function VotePage() {
                             onClick={() => setViewMode('raw')}
                             style={{ fontFamily: monoFont }}
                         >
-                            {isRTL ? 'رأی خام' : 'RAW VOTES'}
+                            {t(CONTENT.rawVotes)}
                         </button>
                         <button
                             className={`vote-toggle-btn${viewMode === 'weighted' ? ' is-active' : ''}`}
                             onClick={() => setViewMode('weighted')}
                             style={{ fontFamily: monoFont }}
                         >
-                            {isRTL ? 'رأی وزن‌دار' : 'WEIGHTED VOTES'}
+                            {t(CONTENT.weightedVotes)}
                         </button>
                     </div>
                         {viewMode === 'weighted' && (
                             <div className="vote-weight-info" style={{ fontFamily: monoFont }}>
                                 <span className="vote-weight-info-title">
-                                    {isRTL
-                                        ? 'آرا بر اساس سطح اعتماد شهروند وزن‌دهی می‌شوند'
-                                        : 'Votes are weighted by citizen trust tier'}
+                                    {t(CONTENT.weightedInfoTitle)}
                                 </span>
                                 <span className="vote-weight-info-tiers">
                                     <span className="vote-weight-tier">
                                         <span className="vote-weight-tier-badge">×1</span>
-                                        {isRTL ? 'پایین — اعضای جدید' : 'Low — new members'}
+                                        {t(CONTENT.tierLow)}
                                     </span>
                                     <span className="vote-weight-sep">·</span>
                                     <span className="vote-weight-tier">
                                         <span className="vote-weight-tier-badge">×2</span>
-                                        {isRTL ? 'متوسط — اعضای تأیید‌شده' : 'Mid — verified members'}
+                                        {t(CONTENT.tierMid)}
                                     </span>
                                     <span className="vote-weight-sep">·</span>
                                     <span className="vote-weight-tier">
                                         <span className="vote-weight-tier-badge vote-weight-tier-badge--high">×3</span>
-                                        {isRTL ? 'بالا — اعضای معتمد' : 'High — trusted members'}
+                                        {t(CONTENT.tierHigh)}
                                     </span>
                                 </span>
                             </div>
@@ -382,7 +379,7 @@ export default function VotePage() {
 
                     {transPlans.length === 0 ? (
                         <p className="vote-trans-empty" style={{ fontFamily: monoFont }}>
-                            {isRTL ? 'هنوز طرحی در گودِ گذار نیست.' : 'No plans in the Arena yet.'}
+                            {t(CONTENT.transArenaEmpty)}
                         </p>
                     ) : (
                         <div className="vote-trans-cards">

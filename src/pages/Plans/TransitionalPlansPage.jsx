@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
+import CONTENT from '../../locales/pages/transitional-plans.json';
 import styles from './TransitionalPlansPage.module.css';
 
 export default function TransitionalPlansPage() {
@@ -10,37 +11,31 @@ export default function TransitionalPlansPage() {
         <div className={styles.root} dir={isRTL ? 'rtl' : 'ltr'}>
             <div className={styles.inner}>
                 <div className={styles.eyebrow}>
-                    {t({ en: 'STAGE 1 — THE TRANSITION', fa: 'مرحله ۱ — انتقال' })}
+                    {t(CONTENT.eyebrow)}
                 </div>
                 <h1 className={styles.title}>
-                    {t({ en: 'Transitional Plans', fa: 'طرح‌های انتقالی' })}
+                    {t(CONTENT.title)}
                 </h1>
                 <p className={styles.subtitle}>
-                    {t({
-                        en: "Documented frameworks proposed for Iran's post-regime transition period",
-                        fa: 'چارچوب‌های مستند پیشنهادشده برای دوران انتقال ایران پس از رژیم',
-                    })}
+                    {t(CONTENT.subtitle)}
                 </p>
 
                 <section className={styles.section}>
                     <div className={styles.sectionLabel}>
-                        {t({ en: 'REFERENCE DOCUMENTS', fa: 'اسناد مرجع' })}
+                        {t(CONTENT.sectionRefDocs)}
                     </div>
                     <div className={styles.cardList}>
                         <Link to="/transitional/plan/nufdi" className={styles.card} style={{ '--card-accent': '#7c72e8' }}>
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'NUFDI Blueprint', fa: 'طرح NUFDI' })}
+                                    {t(CONTENT.nufdiTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'National United Front of Democrats of Iran',
-                                        fa: 'جبهه ملی متحد دموکرات‌های ایران',
-                                    })}
+                                    {t(CONTENT.nufdiMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Decentralized Federal · 18–24 months', fa: 'فدرال غیرمتمرکز · ۱۸–۲۴ ماه' })}
+                                    {t(CONTENT.nufdiTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -50,16 +45,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'Mousavi — "To Save Iran"', fa: 'موسوی — «برای نجات ایران»' })}
+                                    {t(CONTENT.mousaviTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'Mir Hossein Mousavi (Green Movement)',
-                                        fa: 'میر حسین موسوی (جنبش سبز)',
-                                    })}
+                                    {t(CONTENT.mousaviMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: '3-Stage Popular Sovereignty', fa: 'حاکمیت مردمی ۳ مرحله‌ای' })}
+                                    {t(CONTENT.mousaviTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -69,13 +61,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'Iran Transition Council (ITC)', fa: 'شورای انتقال ایران (ITC)' })}
+                                    {t(CONTENT.itcTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({ en: 'Shadow Government & Transitional Planning Unit', fa: 'دولت سایه و واحد برنامه‌ریزی انتقالی' })}
+                                    {t(CONTENT.itcMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Operational Shadow Government · Est. 2019', fa: 'دولت سایه عملیاتی · تأسیس ۲۰۱۹' })}
+                                    {t(CONTENT.itcTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -85,16 +77,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'Constitutionalist Party of Iran (CPILD)', fa: 'حزب مشروطه ایران (لیبرال دموکرات)' })}
+                                    {t(CONTENT.cpildTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'Constitutionalist Party of Iran — Liberal Democrat',
-                                        fa: 'حزب مشروطه ایران — لیبرال دموکرات',
-                                    })}
+                                    {t(CONTENT.cpildMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Constitutional Monarchy · Liberal Democracy', fa: 'پادشاهی مشروطه · دموکراسی لیبرال' })}
+                                    {t(CONTENT.cpildTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -104,16 +93,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'Jebhe Melli Iran (JMI)', fa: 'جبهه ملی ایران (JMI)' })}
+                                    {t(CONTENT.jmiTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'National Front of Iran · Founded 1949 by Dr. Mossadegh',
-                                        fa: 'جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق',
-                                    })}
+                                    {t(CONTENT.jmiMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Mosaddeghist Democratic Republic', fa: 'جمهوری دموکراتیک مصدقی' })}
+                                    {t(CONTENT.jmiTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -123,16 +109,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'CPFIK — Kurdish Federal Blueprint', fa: 'CPFIK — طرح فدرال کردستان' })}
+                                    {t(CONTENT.cpfikTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'Coalition of Political Forces of Iranian Kurdistan',
-                                        fa: 'ائتلاف نیروهای سیاسی کردستان ایران',
-                                    })}
+                                    {t(CONTENT.cpfikMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Federal Liberation · Active Military Operations', fa: 'رهایی فدرال · عملیات نظامی فعال' })}
+                                    {t(CONTENT.cpfikTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -142,16 +125,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'URI / Hamgami Coalition', fa: 'ائتلاف URI / همگامی' })}
+                                    {t(CONTENT.uriTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'United Republicans of Iran & Hamgami Coalition',
-                                        fa: 'جمهوری‌خواهان متحد ایران و ائتلاف همگامی',
-                                    })}
+                                    {t(CONTENT.uriMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Secular Republic · Two-Phase Transition', fa: 'جمهوری سکولار · انتقال دو مرحله‌ای' })}
+                                    {t(CONTENT.uriTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -161,16 +141,13 @@ export default function TransitionalPlansPage() {
                             <div className={styles.cardAccentBar} />
                             <div className={styles.cardBody}>
                                 <div className={styles.cardTitle}>
-                                    {t({ en: 'Iran Civil Society Charter', fa: 'منشور جامعه مدنی ایران' })}
+                                    {t(CONTENT.civilSocietyTitle)}
                                 </div>
                                 <div className={styles.cardMeta}>
-                                    {t({
-                                        en: 'Civil Society Research & Advocacy Network',
-                                        fa: 'شبکه پژوهش و حمایت جامعه مدنی',
-                                    })}
+                                    {t(CONTENT.civilSocietyMeta)}
                                 </div>
                                 <div className={styles.cardTag}>
-                                    {t({ en: 'Civil Society Framework', fa: 'چارچوب جامعه مدنی' })}
+                                    {t(CONTENT.civilSocietyTag)}
                                 </div>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -180,18 +157,15 @@ export default function TransitionalPlansPage() {
 
                 <section className={styles.section}>
                     <div className={styles.sectionLabel}>
-                        {t({ en: 'THE ARENA', fa: 'آرنا' })}
+                        {t(CONTENT.sectionArena)}
                     </div>
                     <Link to="/arena" className={styles.arenaCard}>
                         <div className={styles.arenaCardBody}>
                             <div className={styles.arenaCardTitle}>
-                                {t({ en: 'Transition Arena', fa: 'آرنای انتقال' })}
+                                {t(CONTENT.arenaCardTitle)}
                             </div>
                             <div className={styles.arenaCardDesc}>
-                                {t({
-                                    en: 'View live plans being endorsed and debated by the community',
-                                    fa: 'مشاهده طرح‌های زنده که توسط جامعه تأیید و بحث می‌شوند',
-                                })}
+                                {t(CONTENT.arenaCardDesc)}
                             </div>
                         </div>
                         <span className={styles.cardArrow}>→</span>
@@ -200,7 +174,7 @@ export default function TransitionalPlansPage() {
 
                 <div className={styles.footer}>
                     <Link to="/compare/transition" className={styles.footerLink}>
-                        {t({ en: 'Compare transitional plans side by side →', fa: '← مقایسه طرح‌های انتقالی در کنار هم' })}
+                        {t(CONTENT.compareLink)}
                     </Link>
                 </div>
             </div>

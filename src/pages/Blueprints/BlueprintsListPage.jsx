@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import styles from './BlueprintsListPage.module.css';
+import CONTENT from '../../locales/pages/blueprints-list.json';
 
 export default function BlueprintsListPage() {
     const { t, isRTL } = useLang();
@@ -13,16 +14,13 @@ export default function BlueprintsListPage() {
         <div className={styles.root} dir={isRTL ? 'rtl' : 'ltr'}>
             <div className={styles.inner}>
                 <div className={styles.eyebrow}>
-                    {t({ en: 'STAGE 2 — THE DESTINATION', fa: 'مرحله ۲ — مقصد' })}
+                    {t(CONTENT.eyebrow)}
                 </div>
                 <h1 className={styles.title}>
-                    {t({ en: 'Governance Blueprints', fa: 'طرح‌های حاکمیتی' })}
+                    {t(CONTENT.title)}
                 </h1>
                 <p className={styles.subtitle}>
-                    {t({
-                        en: "Six proposed systems of government for Iran's permanent constitution",
-                        fa: 'شش سیستم حکومتی پیشنهادی برای قانون اساسی دائمی ایران',
-                    })}
+                    {t(CONTENT.subtitle)}
                 </p>
 
                 <div className={styles.cardList}>
@@ -42,14 +40,14 @@ export default function BlueprintsListPage() {
                             </div>
                             <div className={styles.cardActions}>
                                 <span className={styles.cardLink}>
-                                    {t({ en: 'MAP', fa: 'نقشه' })}
+                                    {t(CONTENT.mapButton)}
                                 </span>
                                 <Link
                                     to={`/blueprint/gov/${bp.id}/sectors`}
                                     className={styles.cardLink}
                                     onClick={e => e.stopPropagation()}
                                 >
-                                    {t({ en: 'SECTORS', fa: 'بخش‌ها' })}
+                                    {t(CONTENT.sectorsButton)}
                                 </Link>
                             </div>
                             <span className={styles.cardArrow}>→</span>
@@ -59,10 +57,10 @@ export default function BlueprintsListPage() {
 
                 <div className={styles.footer}>
                     <Link to="/destination" className={styles.footerLink}>
-                        {t({ en: '← Destination Hub', fa: 'مرکز مقصد ←' })}
+                        {t(CONTENT.destinationLink)}
                     </Link>
                     <Link to="/compare" className={styles.footerLink}>
-                        {t({ en: 'Compare blueprints →', fa: '← مقایسه طرح‌ها' })}
+                        {t(CONTENT.compareLink)}
                     </Link>
                 </div>
             </div>

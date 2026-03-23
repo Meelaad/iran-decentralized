@@ -5,15 +5,15 @@
   },
   "eyebrow": {
     "en": "TRANSITIONAL PLAN COMPARISON",
-    "fa": "مقایسه طرحهای انتقالی"
+    "fa": "مقایسه طرح‌های انتقالی"
   },
   "title": {
     "en": "Compare Transitional Plans",
-    "fa": "مقایسه طرحهای دوران گذار"
+    "fa": "مقایسه طرح‌های دوران گذار"
   },
   "subtitle": {
     "en": "Placeholder page — content will be edited by admin later",
-    "fa": "این صفحه نمونه است — محتوا بعداً توسط مدیر ویرایش میشود"
+    "fa": "این صفحه نمونه است — محتوا بعداً توسط مدیر ویرایش می‌شود"
   },
   "selectorLabel": {
     "en": "Plan",
@@ -29,11 +29,11 @@
   },
   "footerCTA1": {
     "en": "Arena — Endorse Transitional Plans →",
-    "fa": "← آرنا — تأیید طرحهای انتقالی"
+    "fa": "← آرنا — تأیید طرح‌های انتقالی"
   },
   "footerCTA2": {
     "en": "Compare Governance Systems (Stage 2) →",
-    "fa": "مقایسه سیستمهای حکومتی (مرحله ۲)"
+    "fa": "مقایسه سیستم‌های حکومتی (مرحله ۲)"
   },
   "rows": [
     {
@@ -54,7 +54,7 @@
       "key": "author",
       "label": {
         "en": "Proposed By",
-        "fa": "پیشنهاددهنده"
+        "fa": "پیشنهاد‌دهنده"
       }
     },
     {
@@ -74,7 +74,7 @@
       },
       "author": {
         "en": "National United Front of Democrats of Iran",
-        "fa": "جبهه ملی متحد دموکراتهای ایران"
+        "fa": "جبهه ملی متحد دموکرات‌های ایران"
       },
       "type": {
         "en": "Decentralized Federal",
@@ -95,7 +95,7 @@
         },
         {
           "en": "Regional autonomy during transition",
-          "fa": "خودمختاری منطقهای در دوران انتقال"
+          "fa": "خودمختاری منطقه‌ای در دوران انتقال"
         },
         {
           "en": "Constitutional assembly via open election",
@@ -121,7 +121,7 @@
       },
       "type": {
         "en": "3-Stage Popular Sovereignty",
-        "fa": "حاکمیت مردمی ۳ مرحلهای"
+        "fa": "حاکمیت مردمی ۳ مرحله‌ای"
       },
       "duration": {
         "en": "Until regime capitulation",
@@ -130,7 +130,7 @@
       "keyPoints": [
         {
           "en": "Stage 1: Deconstruction referendum on current constitution",
-          "fa": "مرحله ۱: همهپرسی فروپاشی قانون اساسی موجود"
+          "fa": "مرحله ۱: همه‌پرسی فروپاشی قانون اساسی موجود"
         },
         {
           "en": "Stage 2: Constituent Assembly elected by free vote",
@@ -138,11 +138,11 @@
         },
         {
           "en": "Stage 3: Ratification referendum on new constitution",
-          "fa": "مرحله ۳: همهپرسی تصویب قانون اساسی جدید"
+          "fa": "مرحله ۳: همه‌پرسی تصویب قانون اساسی جدید"
         },
         {
           "en": "Non-violent, rejects foreign military intervention",
-          "fa": "غیرخشونتآمیز، مخالف مداخله نظامی خارجی"
+          "fa": "غیرخشونت‌آمیز، مخالف مداخله نظامی خارجی"
         }
       ],
       "color": "#69d98c",
@@ -160,7 +160,7 @@
       },
       "author": {
         "en": "Shadow Government & Transitional Planning Unit",
-        "fa": "دولت سایه و واحد برنامهریزی انتقالی"
+        "fa": "دولت سایه و واحد برنامه‌ریزی انتقالی"
       },
       "type": {
         "en": "Operational Shadow Government",
@@ -173,7 +173,7 @@
       "keyPoints": [
         {
           "en": "Pre-positioned shadow ministries ready for rapid deployment",
-          "fa": "وزارتخانههای سایه آماده برای استقرار سریع"
+          "fa": "وزارتخانه‌های سایه آماده برای استقرار سریع"
         },
         {
           "en": "Absorb power vacuum and prevent state collapse",
@@ -211,7 +211,7 @@
       },
       "duration": {
         "en": "Phased transition · Constitutional framework",
-        "fa": "انتقال مرحلهای · چارچوب قانون اساسی"
+        "fa": "انتقال مرحله‌ای · چارچوب قانون اساسی"
       },
       "keyPoints": [
         {
@@ -220,7 +220,7 @@
         },
         {
           "en": "Liberal democratic values — individual rights and rule of law",
-          "fa": "ارزشهای دموکراتیک لیبرال — حقوق فردی و حاکمیت قانون"
+          "fa": "ارزش‌های دموکراتیک لیبرال — حقوق فردی و حاکمیت قانون"
         },
         {
           "en": "Secular state with separation of religion and government",
@@ -254,12 +254,12 @@
       },
       "duration": {
         "en": "5-phase transition · Constituent Assembly → Referendum",
-        "fa": "انتقال ۵ مرحلهای · مجلس مؤسسان → همهپرسی"
+        "fa": "انتقال ۵ مرحله‌ای · مجلس مؤسسان → همه‌پرسی"
       },
       "keyPoints": [
         {
           "en": "Non-violent civil resistance leading to regime capitulation",
-          "fa": "مقاومت مدنی غیرخشونتآمیز تا تسلیم رژیم"
+          "fa": "مقاومت مدنی غیرخشونت‌آمیز تا تسلیم رژیم"
         },
         {
           "en": "Interim Transition Council → free Constituent Assembly elections",
@@ -297,12 +297,12 @@
       },
       "duration": {
         "en": "Active military phase · Charter ratified Feb 2026",
-        "fa": "مرحله نظامی فعال · منشور تصویبشده فوریه ۲۰۲۶"
+        "fa": "مرحله نظامی فعال · منشور تصویب‌شده فوریه ۲۰۲۶"
       },
       "keyPoints": [
         {
           "en": "Unified command of 8 Kurdish factions via 15-Article Charter",
-          "fa": "فرماندهی متحد ۸ جناح کردی از طریق منشور ۱۵ مادهای"
+          "fa": "فرماندهی متحد ۸ جناح کردی از طریق منشور ۱۵ ماده‌ای"
         },
         {
           "en": "Armed territorial liberation phase combined with democratic transition",
@@ -332,7 +332,7 @@
       },
       "author": {
         "en": "United Republicans of Iran & Hamgami Coalition",
-        "fa": "جمهوریخواهان متحد ایران و ائتلاف همگامی"
+        "fa": "جمهوری‌خواهان متحد ایران و ائتلاف همگامی"
       },
       "type": {
         "en": "Secular Republic (Laïcité)",
@@ -340,7 +340,7 @@
       },
       "duration": {
         "en": "Two-phase · Est. 2004 / Consolidated 2023",
-        "fa": "دو مرحلهای · تأسیس ۲۰۰۴ / تثبیت ۲۰۲۳"
+        "fa": "دو مرحله‌ای · تأسیس ۲۰۰۴ / تثبیت ۲۰۲۳"
       },
       "keyPoints": [
         {
@@ -357,7 +357,7 @@
         },
         {
           "en": "Rejects theocracy, monarchy, and vanguardist sectarianism",
-          "fa": "رد تئوکراسی، پادشاهی و فرقهگرایی پیشتازانه"
+          "fa": "رد تئوکراسی، پادشاهی و فرقه‌گرایی پیشتازانه"
         }
       ],
       "color": "#e8507a",
@@ -388,7 +388,7 @@
       "keyPoints": [
         {
           "en": "Grassroots civil society organisation and capacity-building",
-          "fa": "سازماندهی پایهای جامعه مدنی و ظرفیتسازی"
+          "fa": "سازماندهی پایه‌ای جامعه مدنی و ظرفیت‌سازی"
         },
         {
           "en": "Independent media and press freedom framework",
@@ -400,7 +400,7 @@
         },
         {
           "en": "Coalition-building across ethnic and political lines",
-          "fa": "ائتلافسازی فراتر از مرزهای قومی و سیاسی"
+          "fa": "ائتلاف‌سازی فراتر از مرزهای قومی و سیاسی"
         }
       ],
       "color": "#ffd166",

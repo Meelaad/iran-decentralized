@@ -1,0 +1,271 @@
+{
+  "notLoggedIn": {
+    "en": "You are not logged in.",
+    "fa": "شما وارد نشده‌اید."
+  },
+  "register": {
+    "en": "Register →",
+    "fa": "ثبت‌نام"
+  },
+  "back": {
+    "en": "← Back",
+    "fa": "← بازگشت"
+  },
+  "breadcrumbRoot": {
+    "en": "Profile",
+    "fa": "پروفایل"
+  },
+  "headerBack": {
+    "en": "Back",
+    "fa": "بازگشت"
+  },
+  "adminPanel": {
+    "en": "Admin Panel",
+    "fa": "پنل مدیریت"
+  },
+  "logOut": {
+    "en": "Log out",
+    "fa": "خروج"
+  },
+  "backToAdmin": {
+    "en": "Back to Admin",
+    "fa": "بازگشت"
+  },
+  "citizen": {
+    "en": "Citizen",
+    "fa": "شهروند"
+  },
+  "diaspora": {
+    "en": "Diaspora",
+    "fa": "دیاسپورا"
+  },
+  "memberSince": {
+    "en": "Member since",
+    "fa": "عضو از"
+  },
+  "completeProfileTitle": {
+    "en": "Complete your profile",
+    "fa": "پروفایل خود را تکمیل کنید"
+  },
+  "completeProfileSub": {
+    "en": "Add title, pronouns, city and bio",
+    "fa": "عنوان، ضمیر، شهر و بیو را اضافه کنید"
+  },
+  "achievementsHeading": {
+    "en": "Achievements",
+    "fa": "دستاوردها"
+  },
+  "inviteCodesHeading": {
+    "en": "Invite Codes",
+    "fa": "کدهای دعوت"
+  },
+  "inviteCodesHint": {
+    "en": "Share these codes to invite new members. Each code can only be used once.",
+    "fa": "این کدها را برای دعوت اعضای جدید به اشتراک بگذارید. هر کد فقط یک بار قابل استفاده است."
+  },
+  "clickToCopy": {
+    "en": "Click to copy",
+    "fa": "کلیک کنید تا کپی شود"
+  },
+  "copied": {
+    "en": "Copied!",
+    "fa": "کپی شد!"
+  },
+  "generateCode": {
+    "en": "GENERATE CODE",
+    "fa": "ساخت کد"
+  },
+  "remaining": {
+    "en": "remaining",
+    "fa": "باقی‌مانده"
+  },
+  "noInviteSlots": {
+    "en": "No invite slots remaining.",
+    "fa": "سهمیه دعوت تمام شده است."
+  },
+  "generateError": {
+    "en": "Failed to generate code.",
+    "fa": "ساخت کد ناموفق بود."
+  },
+  "blueprintVoteHeading": {
+    "en": "Blueprint Vote",
+    "fa": "رأی به طرح حاکمیتی"
+  },
+  "yourVote": {
+    "en": "YOUR VOTE",
+    "fa": "رأی شما"
+  },
+  "blueprintVoteHint": {
+    "en": "Select or change your preferred governance blueprint.",
+    "fa": "طرح حاکمیتی مورد نظر خود را انتخاب یا تغییر دهید."
+  },
+  "voteSaved": {
+    "en": "Vote saved",
+    "fa": "رأی ذخیره شد"
+  },
+  "voteErrorAge": {
+    "en": "Please verify your age first.",
+    "fa": "ابتدا سن خود را تأیید کنید."
+  },
+  "voteErrorGeneric": {
+    "en": "Failed to cast vote.",
+    "fa": "خطا در ثبت رأی."
+  },
+  "verifyBirthdayMsg": {
+    "en": "Please verify your birthday to vote.",
+    "fa": "تاریخ تولد خود را برای رأی‌دهی تأیید نکرده‌اید."
+  },
+  "verifyAge": {
+    "en": "VERIFY AGE →",
+    "fa": "← تأیید سن"
+  },
+  "accountSettingsHeading": {
+    "en": "Account Settings",
+    "fa": "تنظیمات حساب"
+  },
+  "memberInformation": {
+    "en": "Member Information",
+    "fa": "اطلاعات عضو"
+  },
+  "fullNameLabel": {
+    "en": "FULL NAME",
+    "fa": "نام کامل"
+  },
+  "nameChangeOnce": {
+    "en": "This can only be changed once.",
+    "fa": "این تغییر فقط یک بار مجاز است."
+  },
+  "confirmBtn": {
+    "en": "CONFIRM",
+    "fa": "تأیید"
+  },
+  "cancelBtn": {
+    "en": "CANCEL",
+    "fa": "انصراف"
+  },
+  "editBtn": {
+    "en": "EDIT",
+    "fa": "ویرایش"
+  },
+  "lockedTitle": {
+    "en": "Locked",
+    "fa": "قابل تغییر نیست"
+  },
+  "nameEmptyError": {
+    "en": "Name cannot be empty.",
+    "fa": "نام نمی‌تواند خالی باشد."
+  },
+  "saveFailedError": {
+    "en": "Failed to save.",
+    "fa": "ذخیره ناموفق بود."
+  },
+  "dobLabel": {
+    "en": "DATE OF BIRTH",
+    "fa": "تاریخ تولد"
+  },
+  "verified": {
+    "en": "✓ VERIFIED",
+    "fa": "✓ تأیید شده"
+  },
+  "notSet": {
+    "en": "Not set",
+    "fa": "تنظیم نشده"
+  },
+  "verifyAgeBtnGreen": {
+    "en": "VERIFY AGE",
+    "fa": "تأیید سن"
+  },
+  "birthdayOnce": {
+    "en": "Birthday can only be set once.",
+    "fa": "تاریخ تولد فقط یک بار قابل ثبت است."
+  },
+  "confirmDateBtn": {
+    "en": "CONFIRM DATE",
+    "fa": "تأیید تاریخ"
+  },
+  "selectDateError": {
+    "en": "Please select a date.",
+    "fa": "لطفاً تاریخ را انتخاب کنید."
+  },
+  "invalidDateError": {
+    "en": "Invalid date.",
+    "fa": "تاریخ نامعتبر."
+  },
+  "ageVerifiedSuccess": {
+    "en": "✓ Age verified",
+    "fa": "✓ سن تأیید شد"
+  },
+  "emailLabel": {
+    "en": "EMAIL",
+    "fa": "ایمیل"
+  },
+  "countryLabel": {
+    "en": "COUNTRY",
+    "fa": "کشور"
+  },
+  "accountTypeLabel": {
+    "en": "ACCOUNT TYPE",
+    "fa": "نوع حساب"
+  },
+  "additionalInfo": {
+    "en": "Additional Info",
+    "fa": "اطلاعات تکمیلی"
+  },
+  "verifyIdentityTitle": {
+    "en": "Verify Identity",
+    "fa": "تأیید هویت"
+  },
+  "verifyIdentityHint": {
+    "en": "Verify your identity to increase your civic score and vote weight.",
+    "fa": "هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید."
+  },
+  "goToVerification": {
+    "en": "GO TO VERIFICATION →",
+    "fa": "رفتن به صفحه تأیید ←"
+  },
+  "helpComingSoon": {
+    "en": "Help section coming soon.",
+    "fa": "بخش راهنما به زودی اضافه می‌شود."
+  },
+  "formTitleLabel": {
+    "en": "TITLE",
+    "fa": "عنوان"
+  },
+  "formSelectPlaceholder": {
+    "en": "— Select —",
+    "fa": "— انتخاب کنید —"
+  },
+  "formPronounsLabel": {
+    "en": "PRONOUNS",
+    "fa": "ضمیر"
+  },
+  "formCityLabel": {
+    "en": "CITY",
+    "fa": "شهر"
+  },
+  "formCityPlaceholder": {
+    "en": "Your city",
+    "fa": "شهر شما"
+  },
+  "formBioLabel": {
+    "en": "BIO",
+    "fa": "درباره من"
+  },
+  "formBioPlaceholder": {
+    "en": "Optional — briefly describe your background.",
+    "fa": "اختیاری — درباره خود بنویسید."
+  },
+  "formSaveChanges": {
+    "en": "SAVE CHANGES",
+    "fa": "ذخیره تغییرات"
+  },
+  "formSaved": {
+    "en": "SAVED ✓",
+    "fa": "ذخیره شد ✓"
+  },
+  "navGroupLabels": [
+    { "en": "PROFILE",  "fa": "پروفایل" },
+    { "en": "NAVIGATE", "fa": "پیمایش"  },
+    { "en": "ACCOUNT",  "fa": "حساب"    }
+  ]
+}

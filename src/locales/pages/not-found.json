@@ -1,0 +1,10 @@
+{
+  "eyebrow": { "en": "SYSTEM ERROR", "fa": "خطای سیستم" },
+  "title": { "en": "Page Not Found", "fa": "صفحه یافت نشد" },
+  "subtitle": {
+    "en": "This address does not exist in the decentralized network.",
+    "fa": "این آدرس در شبکه غیرمتمرکز وجود ندارد."
+  },
+  "status": { "en": "CONNECTION LOST — UNKNOWN NODE", "fa": "اتصال قطع شد — گره ناشناخته" },
+  "homeBtn": { "en": "← RETURN TO MAP", "fa": "← بازگشت به نقشه" }
+}

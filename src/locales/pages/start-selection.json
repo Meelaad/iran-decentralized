@@ -1,0 +1,130 @@
+{
+  "title": {
+    "en": "Choose Your Path",
+    "fa": "مسیر خود را انتخاب کنید"
+  },
+  "subtitle": {
+    "en": "Two historical phases — the transition and the destination",
+    "fa": "دو مرحله‌ی تاریخی — گذار و مقصدنهایی"
+  },
+  "tabTransition": {
+    "en": "The Transition",
+    "fa": "مرحله گذار"
+  },
+  "tabDestination": {
+    "en": "The Destination",
+    "fa": "دولت مقصد"
+  },
+  "zone1Title": {
+    "en": "The Transition",
+    "fa": "مرحله گذار"
+  },
+  "zone1Desc": {
+    "en": "Before regime collapse — debate and endorse transitional plans",
+    "fa": "قبل از فروپاشی رژیم طرح‌های انتقالی را مورد بحث و تأیید قرار دهید"
+  },
+  "arenaTitle": {
+    "en": "THE ARENA",
+    "fa": "گودِ گذار"
+  },
+  "arenaDesc": {
+    "en": "Active plans — endorse & debate",
+    "fa": "طرح‌های فعال — تأیید و بحث"
+  },
+  "proposedBlueprintsTitle": {
+    "en": "PROPOSED BLUEPRINTS",
+    "fa": "طرح های پیشنهادی "
+  },
+  "proposedBlueprintsDesc": {
+    "en": "Proposed transitional state reference documents",
+    "fa": "سندهای کامل پیشنهادی فعال دوره گذار"
+  },
+  "preTransTitle": {
+    "en": "PRE-TRANSITION OVERVIEW",
+    "fa": "مرور کلی پیش‌انتقال"
+  },
+  "preTransDesc": {
+    "en": "The four phases of transition",
+    "fa": "چهار مرحله گذار"
+  },
+  "comparePlansTitle": {
+    "en": "COMPARE PLANS",
+    "fa": "مقایسه طرح‌های گذار"
+  },
+  "comparePlansDesc": {
+    "en": "Compare suggested transitional blueprints",
+    "fa": "مقایسه طرح‌های پیشنهادی برای دوره گذار"
+  },
+  "voteTitle": {
+    "en": "VOTE",
+    "fa": "رأی‌گیری"
+  },
+  "voteDesc": {
+    "en": "Independent secure voting platform",
+    "fa": "پلتفرم مستقل رأی‌گیری امن"
+  },
+  "globalMapTitle": {
+    "en": "GLOBAL MAP",
+    "fa": "نقشه جهانی"
+  },
+  "globalMapDesc": {
+    "en": "Member distribution and activity worldwide",
+    "fa": "توزیع اعضا و فعالیت در سراسر جهان"
+  },
+  "zone2Title": {
+    "en": "The Destination",
+    "fa": "دولت مقصد"
+  },
+  "zone2Desc": {
+    "en": "After regime collapse — choosing the permanent system of government",
+    "fa": "پس از فروپاشی انتخاب سیستم دائمی حکومت"
+  },
+  "proposedGovSystemsTitle": {
+    "en": "PROPOSED GOVERNING SYSTEMS",
+    "fa": "سیستم های دولتی پبشنهادی"
+  },
+  "proposedGovSystemsDesc": {
+    "en": "Overview political systems and forms",
+    "fa": "مرور مدل ها و سیستم های سیاسی "
+  },
+  "destinationHubTitle": {
+    "en": "DESTINATION GOVERNMENT HUB",
+    "fa": "مرکز دولت نهایی"
+  },
+  "destinationHubDesc": {
+    "en": "Blueprint overview & live stats",
+    "fa": "مرور طرح‌های حکومتی و آمار زنده"
+  },
+  "mapViewTitle": {
+    "en": "MAP VIEW",
+    "fa": "نمایش نقشه"
+  },
+  "mapViewDesc": {
+    "en": "Visual architecture of governance blueprints",
+    "fa": "معماری بصری طرح‌های حکومتی"
+  },
+  "compareTitle": {
+    "en": "COMPARE",
+    "fa": "مقایسه طرح‌ها"
+  },
+  "compareDesc": {
+    "en": "Side-by-side governance model comparison",
+    "fa": "مقایسه جانبی مدل‌های حکومتی"
+  },
+  "voteDestTitle": {
+    "en": "VOTE",
+    "fa": "رأی دهید"
+  },
+  "voteDestDesc": {
+    "en": "Cast your blueprint preference",
+    "fa": "انتخاب طرح مورد نظر شما"
+  },
+  "liveVoteSnapshot": {
+    "en": "LIVE VOTE SNAPSHOT",
+    "fa": "آمار زنده رأی"
+  },
+  "backToAccessMode": {
+    "en": "Back to access mode",
+    "fa": "بازگشت به نحوه دسترسی"
+  }
+}

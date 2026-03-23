@@ -4,6 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { useAuth } from '../../hooks/useAuth';
 import { useSubmitPlan } from '../../hooks/usePlans';
 import './ArenaSubmitPage.css';
+import CONTENT from '../../locales/pages/arena-submit.json';
 
 const THRESHOLD = 10_000;
 
@@ -12,7 +13,7 @@ const MIN_TITLE = 5;
 const MIN_SUMMARY = 50;
 
 export default function ArenaSubmitPage() {
-    const { isRTL } = useLang();
+    const { t, isRTL } = useLang();
     const { session, authLoading } = useAuth();
     const navigate = useNavigate();
     const submitMutation = useSubmitPlan();
@@ -38,36 +39,34 @@ export default function ArenaSubmitPage() {
         const summary = form.summary_en.trim();
         const url = form.full_doc_url.trim();
 
-        if (!title) return isRTL ? 'عنوان انگلیسی الزامی است.' : 'English title is required.';
-        if (title.length < MIN_TITLE) return isRTL ? `عنوان باید حداقل ${MIN_TITLE} کاراکتر داشته باشد.` : `Title must be at least ${MIN_TITLE} characters.`;
-        if (!TITLE_REGEX.test(title)) return isRTL ? 'عنوان انگلیسی شامل کاراکترهای غیرمجاز است.' : 'English title contains invalid characters.';
+        if (!title) return t(CONTENT.validateTitleRequired);
+        if (title.length < MIN_TITLE) return t(CONTENT.validateTitleShort).replace('{n}', MIN_TITLE);
+        if (!TITLE_REGEX.test(title)) return t(CONTENT.validateTitleInvalid);
 
-        if (!summary) return isRTL ? 'خلاصه انگلیسی الزامی است.' : 'English summary is required.';
-        if (summary.length < MIN_SUMMARY) return isRTL ? `خلاصه باید حداقل ${MIN_SUMMARY} کاراکتر داشته باشد.` : `Summary must be at least ${MIN_SUMMARY} characters.`;
+        if (!summary) return t(CONTENT.validateSummaryRequired);
+        if (summary.length < MIN_SUMMARY) return t(CONTENT.validateSummaryShort).replace('{n}', MIN_SUMMARY);
 
-        if (url && !url.startsWith('https://')) return isRTL ? 'لینک سند باید با https:// شروع شود.' : 'Document URL must start with https://.';
+        if (url && !url.startsWith('https://')) return t(CONTENT.validateUrlHttps);
 
         return null;
     }
 
-    function friendlyError(msg, rtl) {
-        if (!msg) return rtl ? 'خطا در ارسال طرح.' : 'Failed to submit plan.';
+    function friendlyError(msg) {
+        if (!msg) return t(CONTENT.errSubmitDefault);
         const m = msg.toLowerCase();
         if (m.includes('civic') || m.includes('score'))
-            return rtl
-                ? 'امتیاز مدنی شما کافی نیست. برای ارسال طرح به حداقل ۴ امتیاز مدنی نیاز دارید.'
-                : 'Insufficient civic score. You need at least 4 civic score points to submit a plan.';
+            return t(CONTENT.errCivicScore);
         if (m.includes('unauthorized') || m.includes('401'))
-            return rtl ? 'لطفاً ابتدا وارد شوید.' : 'Please sign in to submit a plan.';
+            return t(CONTENT.errUnauthorized);
         if (m.includes('duplicate') || m.includes('already exists') || m.includes('unique'))
-            return rtl ? 'طرحی با این عنوان قبلاً ارسال شده است.' : 'A plan with this title already exists.';
+            return t(CONTENT.errDuplicate);
         if (m.includes('title') && (m.includes('character') || m.includes('invalid')))
-            return rtl ? 'عنوان انگلیسی نامعتبر است. لطفاً بررسی کنید.' : 'Invalid English title. Please review your input.';
+            return t(CONTENT.errTitleInvalid);
         if (m.includes('summary') && m.includes('character'))
-            return rtl ? 'خلاصه انگلیسی باید حداقل ۵۰ کاراکتر داشته باشد.' : 'English summary must be at least 50 characters.';
+            return t(CONTENT.errSummaryShort);
         if (m.includes('https'))
-            return rtl ? 'لینک سند باید با https:// شروع شود.' : 'Document URL must start with https://.';
-        return rtl ? 'خطا در ارسال طرح. لطفاً دوباره امتحان کنید.' : 'Failed to submit plan. Please try again.';
+            return t(CONTENT.errUrlHttps);
+        return t(CONTENT.errSubmitRetry);
     }
 
     async function handleSubmit(e) {
@@ -85,7 +84,7 @@ export default function ArenaSubmitPage() {
             });
             setSubmitted(true);
         } catch (err) {
-            setError(friendlyError(err.message, isRTL));
+            setError(friendlyError(err.message));
         }
     }
 
@@ -98,15 +97,13 @@ export default function ArenaSubmitPage() {
                     <div className="as-login-gate">
                         <div className="as-login-icon">🔒</div>
                         <h2 className="as-login-title">
-                            {isRTL ? 'برای ارسال طرح وارد شوید' : 'Sign in to submit a plan'}
+                            {t(CONTENT.loginGateTitle)}
                         </h2>
                         <p className="as-login-desc">
-                            {isRTL
-                                ? 'ارسال طرح نیاز به حساب کاربری دارد.'
-                                : 'Submitting a plan requires an account.'}
+                            {t(CONTENT.loginGateDesc)}
                         </p>
                         <Link to="/login" className="as-login-btn">
-                            {isRTL ? 'ورود' : 'Sign In'}
+                            {t(CONTENT.loginGateBtn)}
                         </Link>
                     </div>
                 </div>
@@ -121,16 +118,14 @@ export default function ArenaSubmitPage() {
                     <div className="as-success">
                         <div className="as-success-icon">✓</div>
                         <h2 className="as-success-title">
-                            {isRTL ? 'طرح شما ارسال شد' : 'Plan submitted successfully'}
+                            {t(CONTENT.successTitle)}
                         </h2>
                         <p className="as-success-desc">
-                            {isRTL
-                                ? `طرح شما در بخش آزمایشگاه آرنا قرار گرفت. پس از جمع‌آوری ${THRESHOLD.toLocaleString()} امضا، برای بررسی مدیران ارسال می‌شود.`
-                                : `Your plan is now in the Arena incubator. Once it collects ${THRESHOLD.toLocaleString()} signatures it will be sent for admin review.`}
+                            {t(CONTENT.successDesc).replace('{n}', THRESHOLD.toLocaleString())}
                         </p>
                         <div className="as-success-actions">
                             <Link to="/arena" className="as-success-btn">
-                                {isRTL ? 'بازگشت به آرنا' : 'Back to Arena'}
+                                {t(CONTENT.successBackBtn)}
                             </Link>
                         </div>
                     </div>
@@ -144,37 +139,33 @@ export default function ArenaSubmitPage() {
             <div className="as-inner">
                 <nav className="as-breadcrumb">
                     <Link to="/arena" className="as-breadcrumb-link">
-                        {isRTL ? 'آرنا' : 'Arena'}
+                        {t(CONTENT.breadcrumbArena)}
                     </Link>
                     <span className="as-breadcrumb-sep">/</span>
-                    <span>{isRTL ? 'ارسال طرح' : 'Submit Plan'}</span>
+                    <span>{t(CONTENT.breadcrumbSubmit)}</span>
                 </nav>
 
                 <header className="as-header">
                     <h1 className="as-title">
-                        {isRTL ? 'ارسال طرح انتقالی' : 'Submit a Transitional Plan'}
+                        {t(CONTENT.pageTitle)}
                     </h1>
                     <p className="as-subtitle">
-                        {isRTL
-                            ? `طرح شما در بخش آزمایشگاه آرنا نمایش داده می‌شود. پس از جمع‌آوری ${THRESHOLD.toLocaleString()} امضا، برای بررسی و تأیید به تیم مدیران ارسال می‌شود.`
-                            : `Your plan will appear in the Arena incubator. Once it reaches ${THRESHOLD.toLocaleString()} signatures it moves to admin review for potential promotion to the main plans.`}
+                        {t(CONTENT.pageSubtitle).replace('{n}', THRESHOLD.toLocaleString())}
                     </p>
                     <div className="as-requirement">
                         <span className="as-req-dot" />
-                        {isRTL
-                            ? 'برای ارسال طرح به حداقل ۴ امتیاز مدنی نیاز دارید.'
-                            : 'Requires a minimum civic score of 4 to submit.'}
+                        {t(CONTENT.requirementNote)}
                     </div>
                 </header>
 
                 <form className="as-form" onSubmit={handleSubmit}>
                     <div className="as-section-label">
-                        {isRTL ? 'عنوان طرح' : 'Plan Title'}
+                        {t(CONTENT.sectionTitle)}
                     </div>
 
                     <div className="as-field">
                         <label className="as-label" htmlFor="title_en">
-                            {isRTL ? 'عنوان (انگلیسی) — الزامی' : 'Title (English) — required'}
+                            {t(CONTENT.labelTitleEn)}
                         </label>
                         <input
                             id="title_en"
@@ -190,7 +181,7 @@ export default function ArenaSubmitPage() {
 
                     <div className="as-field">
                         <label className="as-label" htmlFor="title_fa">
-                            {isRTL ? 'عنوان (فارسی) — اختیاری' : 'Title (Farsi) — optional'}
+                            {t(CONTENT.labelTitleFa)}
                         </label>
                         <input
                             id="title_fa"
@@ -205,12 +196,12 @@ export default function ArenaSubmitPage() {
                     </div>
 
                     <div className="as-section-label">
-                        {isRTL ? 'خلاصه طرح' : 'Plan Summary'}
+                        {t(CONTENT.sectionSummary)}
                     </div>
 
                     <div className="as-field">
                         <label className="as-label" htmlFor="summary_en">
-                            {isRTL ? 'خلاصه (انگلیسی) — الزامی' : 'Summary (English) — required'}
+                            {t(CONTENT.labelSummaryEn)}
                         </label>
                         <textarea
                             id="summary_en"
@@ -225,14 +216,14 @@ export default function ArenaSubmitPage() {
                         <span className="as-char-count">
                             {form.summary_en.length}/2000
                             {form.summary_en.length < MIN_SUMMARY && form.summary_en.length > 0 && (
-                                <span className="as-char-min"> — {isRTL ? `حداقل ${MIN_SUMMARY}` : `min ${MIN_SUMMARY}`}</span>
+                                <span className="as-char-min"> — {t(CONTENT.charMin).replace('{n}', MIN_SUMMARY)}</span>
                             )}
                         </span>
                     </div>
 
                     <div className="as-field">
                         <label className="as-label" htmlFor="summary_fa">
-                            {isRTL ? 'خلاصه (فارسی) — اختیاری' : 'Summary (Farsi) — optional'}
+                            {t(CONTENT.labelSummaryFa)}
                         </label>
                         <textarea
                             id="summary_fa"
@@ -248,12 +239,12 @@ export default function ArenaSubmitPage() {
                     </div>
 
                     <div className="as-section-label">
-                        {isRTL ? 'مستندات' : 'Documentation'}
+                        {t(CONTENT.sectionDocs)}
                     </div>
 
                     <div className="as-field">
                         <label className="as-label" htmlFor="full_doc_url">
-                            {isRTL ? 'لینک سند کامل — اختیاری' : 'Full document URL — optional'}
+                            {t(CONTENT.labelDocUrl)}
                         </label>
                         <input
                             id="full_doc_url"
@@ -265,9 +256,7 @@ export default function ArenaSubmitPage() {
                             onChange={e => set('full_doc_url', e.target.value)}
                         />
                         <span className="as-field-hint">
-                            {isRTL
-                                ? 'لینک به PDF، Google Docs یا هر مستند عمومی دیگری'
-                                : 'Link to a PDF, Google Doc, or any publicly accessible document'}
+                            {t(CONTENT.docUrlHint)}
                         </span>
                     </div>
 
@@ -280,11 +269,11 @@ export default function ArenaSubmitPage() {
                             disabled={submitMutation.isPending}
                         >
                             {submitMutation.isPending
-                                ? (isRTL ? 'در حال ارسال...' : 'Submitting...')
-                                : (isRTL ? 'ارسال طرح' : 'Submit Plan')}
+                                ? t(CONTENT.submitBtnPending)
+                                : t(CONTENT.submitBtn)}
                         </button>
                         <Link to="/arena" className="as-cancel-link">
-                            {isRTL ? 'انصراف' : 'Cancel'}
+                            {t(CONTENT.cancelLink)}
                         </Link>
                     </div>
                 </form>

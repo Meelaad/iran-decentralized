@@ -43,8 +43,10 @@ export default function PlanPage() {
     const voteAmendMutation = useVoteAmendment();
     const proposeMutation = useProposeAmendment();
 
+    // Define tabs with translation keys in Arena Plans
     const tabs = [
         { id: 'overview',    label: tKey('plan.overview') },
+      //  { id: 'fullDetails',label: tKey('plan.fullDetails') },
         { id: 'sectors',     label: tKey('plan.sectorsExperts') },
         { id: 'amendments',  label: tKey('plan.amendments') },
         { id: 'demographics',label: tKey('plan.demographics') },
@@ -166,6 +168,17 @@ export default function PlanPage() {
             {activeTab === 'overview' && (
                 <section className="plan-body">
                     <p>{isRTL ? plan.summary?.fa : plan.summary?.en}</p>
+                    {plan.fullDocUrl && (
+                        <a className="plan-source-link" href={plan.fullDocUrl} target="_blank" rel="noopener noreferrer">
+                            {tKey('plan.sourceLink')}
+                        </a>
+                    )}
+                </section>
+            )}
+             {/* FULL DETAILS */}
+            {activeTab === 'fullDetails' && (
+                <section className="plan-body">
+                    <p>{isRTL ? plan.fullDetails?.fa : plan.fullDetails?.en}</p>
                     {plan.fullDocUrl && (
                         <a className="plan-source-link" href={plan.fullDocUrl} target="_blank" rel="noopener noreferrer">
                             {tKey('plan.sourceLink')}

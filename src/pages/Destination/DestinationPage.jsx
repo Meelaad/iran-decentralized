@@ -5,6 +5,7 @@ import { BLUEPRINTS } from '../../data';
 import { useBlueprintVoteCounts } from '../../hooks/useDestination';
 import { SHOW_VOTE_COUNTS } from '../../config';
 import { PageMeta } from '../../components/PageMeta/PageMeta';
+import CONTENT from '../../locales/pages/destination.json';
 import './DestinationPage.css';
 
 const BP_LIST = Object.values(BLUEPRINTS);
@@ -37,26 +38,23 @@ export default function DestinationPage() {
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <section className="dest-hero">
         <p className="dest-hero-eyebrow">
-          {t({ en: 'STAGE 2 OF 2 · POST-TRANSITION', fa: 'مرحله ۲ از ۲ · پس از انتقال' })}
+          {t(CONTENT.heroEyebrow)}
         </p>
         <h1 className="dest-hero-title">
-          {t({ en: 'The Destination', fa: 'مقصد' })}
+          {t(CONTENT.heroTitle)}
         </h1>
         <p className="dest-hero-subtitle">
-          {t({
-            en: 'After the transition is complete, Iranians choose their permanent system of government. This is where the diaspora and citizens worldwide weigh in on what Iran becomes.',
-            fa: 'پس از اتمام دوره انتقال، ایرانیان نظام حکومتی دائمی خود را انتخاب می‌کنند. اینجاست که دیاسپورا و شهروندان جهان در مورد آینده ایران نظر می‌دهند.',
-          })}
+          {t(CONTENT.heroSubtitle)}
         </p>
       </section>
 
       {/* ── Live vote summary ─────────────────────────────────────────── */}
       <section className="dest-section">
         <p className="dest-section-heading">
-          {t({ en: 'Where does the diaspora stand?', fa: 'دیاسپورا کجا ایستاده است؟' })}
+          {t(CONTENT.voteSectionHeading)}
         </p>
         <p className="dest-section-sub">
-          {t({ en: 'Live blueprint vote distribution', fa: 'توزیع زنده آرای طرح‌های حکومتی' })}
+          {t(CONTENT.voteSectionSub)}
         </p>
 
         {votesLoading ? (
@@ -92,17 +90,17 @@ export default function DestinationPage() {
         )}
 
         <Link to="/vote" className="dest-vote-link">
-          {t({ en: 'Cast your vote →', fa: 'رأی خود را ثبت کنید ←' })}
+          {t(CONTENT.voteLink)}
         </Link>
       </section>
 
       {/* ── Blueprint cards ───────────────────────────────────────────── */}
       <section className="dest-section">
         <p className="dest-section-heading">
-          {t({ en: 'Governance Blueprints', fa: 'طرح‌های حکومتی' })}
+          {t(CONTENT.blueprintsSectionHeading)}
         </p>
         <p className="dest-section-sub">
-          {t({ en: 'Six proposed systems for Iran\'s permanent government', fa: 'شش نظام پیشنهادی برای حکومت دائمی ایران' })}
+          {t(CONTENT.blueprintsSectionSub)}
         </p>
 
         <div className="dest-cards-grid">
@@ -118,17 +116,17 @@ export default function DestinationPage() {
                   {SHOW_VOTE_COUNTS && (
                     <>
                       <span className="dest-card-stat">
-                        {t({ en: 'Votes:', fa: 'آرا:' })}&nbsp;
+                        {t(CONTENT.votesLabel)}&nbsp;
                         <span className="dest-card-stat-value">{count.toLocaleString()}</span>
                       </span>
                       <span className="dest-card-stat">
-                        {t({ en: 'Share:', fa: 'سهم:' })}&nbsp;
+                        {t(CONTENT.shareLabel)}&nbsp;
                         <span className="dest-card-stat-pct">{pct}%</span>
                       </span>
                     </>
                   )}
                   <span className="dest-card-stat">
-                    {t({ en: 'Sectors:', fa: 'بخش‌ها:' })}&nbsp;
+                    {t(CONTENT.sectorsLabel)}&nbsp;
                     <span className="dest-card-stat-value">{bp.sectors.length}</span>
                   </span>
                 </div>
@@ -138,19 +136,19 @@ export default function DestinationPage() {
                     to={`/blueprint/gov/${bp.id}`}
                     className="dest-card-action primary"
                   >
-                    {t({ en: 'EXPLORE →', fa: 'کاوش ←' })}
+                    {t(CONTENT.exploreButton)}
                   </Link>
                   <Link
                     to={`/blueprint/gov/${bp.id}/sectors`}
                     className="dest-card-action secondary"
                   >
-                    {t({ en: 'SECTORS →', fa: 'بخش‌ها ←' })}
+                    {t(CONTENT.sectorsButton)}
                   </Link>
                   <Link
                     to={`/compare?a=${bp.id}`}
                     className="dest-card-action tertiary"
                   >
-                    {t({ en: 'COMPARE →', fa: 'مقایسه ←' })}
+                    {t(CONTENT.compareButton)}
                   </Link>
                 </div>
               </div>
@@ -162,55 +160,46 @@ export default function DestinationPage() {
       {/* ── How it works ──────────────────────────────────────────────── */}
       <section className="dest-section">
         <p className="dest-section-heading">
-          {t({ en: 'How it works', fa: 'نحوه عملکرد' })}
+          {t(CONTENT.howWorksHeading)}
         </p>
         <p className="dest-section-sub">
-          {t({ en: 'Two stages. One referendum.', fa: 'دو مرحله. یک همه‌پرسی.' })}
+          {t(CONTENT.howWorksSub)}
         </p>
 
         <div className="dest-how-steps">
           <div className="dest-how-step">
             <span className="dest-how-step-num">
-              {t({ en: 'STEP 1', fa: 'مرحله ۱' })}
+              {t(CONTENT.step1Num)}
             </span>
             <div className="dest-how-step-title">
-              {t({ en: 'Arena decides the transition', fa: 'میدان دوره انتقال را تعیین می‌کند' })}
+              {t(CONTENT.step1Title)}
             </div>
             <div className="dest-how-step-desc">
-              {t({
-                en: 'Plans competing in the Transition Arena define how power transfers, which institutions dissolve, and what temporary governance looks like.',
-                fa: 'طرح‌های رقیب در میدان انتقال تعیین می‌کنند که چگونه قدرت منتقل می‌شود، کدام نهادها منحل می‌شوند و حکومت موقت چگونه خواهد بود.',
-              })}
+              {t(CONTENT.step1Desc)}
             </div>
           </div>
 
           <div className="dest-how-step">
             <span className="dest-how-step-num">
-              {t({ en: 'STEP 2', fa: 'مرحله ۲' })}
+              {t(CONTENT.step2Num)}
             </span>
             <div className="dest-how-step-title">
-              {t({ en: 'Destination decides the end state', fa: 'مقصد وضعیت نهایی را تعیین می‌کند' })}
+              {t(CONTENT.step2Title)}
             </div>
             <div className="dest-how-step-desc">
-              {t({
-                en: 'The six governance blueprints on this page represent the candidate permanent systems. Citizens vote on which one Iran should adopt permanently.',
-                fa: 'شش طرح حکومتی در این صفحه نمایانگر نظام‌های دائمی نامزد هستند. شهروندان رأی می‌دهند که ایران کدام نظام را به طور دائمی بپذیرد.',
-              })}
+              {t(CONTENT.step2Desc)}
             </div>
           </div>
 
           <div className="dest-how-step">
             <span className="dest-how-step-num">
-              {t({ en: 'STEP 3', fa: 'مرحله ۳' })}
+              {t(CONTENT.step3Num)}
             </span>
             <div className="dest-how-step-title">
-              {t({ en: 'Both feed into the referendum', fa: 'هر دو به همه‌پرسی ختم می‌شوند' })}
+              {t(CONTENT.step3Title)}
             </div>
             <div className="dest-how-step-desc">
-              {t({
-                en: 'The winning transition plan and the leading destination blueprint are presented together in a national referendum — the first free vote in Iran\'s modern history.',
-                fa: 'طرح انتقالی برنده و طرح مقصد پیشرو با هم در یک همه‌پرسی ملی ارائه می‌شوند — اولین رأی‌گیری آزاد در تاریخ معاصر ایران.',
-              })}
+              {t(CONTENT.step3Desc)}
             </div>
           </div>
         </div>

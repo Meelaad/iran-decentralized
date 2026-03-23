@@ -62,7 +62,7 @@
   "errors": {
     "nameInvalid": {
       "en": "Name may only contain letters and spaces.",
-      "fa": "نام فقط میتواند شامل حروف و فاصله باشد."
+      "fa": "نام فقط می‌تواند شامل حروف و فاصله باشد."
     },
     "emailRequired": {
       "en": "Email address is required.",
@@ -102,7 +102,7 @@
     },
     "rateLimit": {
       "en": "Too many requests. Please wait a few minutes.",
-      "fa": "درخواستهای زیادی ارسال شده. لطفاً چند دقیقه صبر کنید."
+      "fa": "درخواست‌های زیادی ارسال شده. لطفاً چند دقیقه صبر کنید."
     }
   }
 }

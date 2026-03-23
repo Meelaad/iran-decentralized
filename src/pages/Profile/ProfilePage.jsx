@@ -10,6 +10,7 @@ import ContributionGrid from '../../components/ContributionGrid/ContributionGrid
 import StatsRow from '../../components/Charts/StatsRow';
 import BadgesShelf from '../../components/Achievements/BadgesShelf';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
+import CONTENT from '../../locales/pages/profile.json';
 import './ProfilePage.css';
 import './pd-dashboard.css';
 
@@ -40,7 +41,7 @@ const I = {
 // ── Nav structure ─────────────────────────────────────────────────────────
 const NAV_GROUPS = [
     {
-        label: { en: 'PROFILE', fa: 'پروفایل' },
+        label: CONTENT.navGroupLabels[0],
         items: [
             { id: 'overview',     Icon: I.Dashboard,   en: 'Overview',       fa: 'نمای کلی' },
             { id: 'achievements', Icon: I.Award,        en: 'Achievements',   fa: 'دستاوردها' },
@@ -49,7 +50,7 @@ const NAV_GROUPS = [
         ],
     },
     {
-        label: { en: 'NAVIGATE', fa: 'پیمایش' },
+        label: CONTENT.navGroupLabels[1],
         items: [
             { id: 'nav-arena',       Icon: I.Zap,         en: 'The Arena',      fa: 'آرنا',        href: '/arena' },
             { id: 'nav-plans',       Icon: I.List,        en: 'Plans',          fa: 'طرح‌ها',       href: '/plans' },
@@ -61,7 +62,7 @@ const NAV_GROUPS = [
         ],
     },
     {
-        label: { en: 'ACCOUNT', fa: 'حساب' },
+        label: CONTENT.navGroupLabels[2],
         items: [
             { id: 'settings', Icon: I.Settings,   en: 'Account Settings', fa: 'تنظیمات حساب' },
             { id: 'verify',   Icon: I.Shield,     en: 'Verify Identity',  fa: 'تأیید هویت',   accent: true },
@@ -98,29 +99,29 @@ function AdditionalInfoForm({ title, setTitle, pronouns, setPronouns, city, setC
     return (
         <form onSubmit={handleSave} className="prof-form">
             <div className="prof-field">
-                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'عنوان' : 'TITLE'}</label>
+                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.formTitleLabel.fa : CONTENT.formTitleLabel.en}</label>
                 <select className="prof-select" value={title} onChange={e => setTitle(e.target.value)}>
-                    {TITLES.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
+                    {TITLES.map(v => <option key={v} value={v}>{v || (isRTL ? CONTENT.formSelectPlaceholder.fa : CONTENT.formSelectPlaceholder.en)}</option>)}
                 </select>
             </div>
             <div className="prof-field">
-                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'ضمیر' : 'PRONOUNS'}</label>
+                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.formPronounsLabel.fa : CONTENT.formPronounsLabel.en}</label>
                 <select className="prof-select" value={pronouns} onChange={e => setPronouns(e.target.value)}>
-                    {PRONOUNS.map(v => <option key={v} value={v}>{v || (isRTL ? '— انتخاب کنید —' : '— Select —')}</option>)}
+                    {PRONOUNS.map(v => <option key={v} value={v}>{v || (isRTL ? CONTENT.formSelectPlaceholder.fa : CONTENT.formSelectPlaceholder.en)}</option>)}
                 </select>
             </div>
             <div className="prof-field">
-                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'شهر' : 'CITY'}</label>
-                <input className="prof-input" type="text" value={city} onChange={e => setCity(e.target.value)} maxLength={80} placeholder={isRTL ? 'شهر شما' : 'Your city'} />
+                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.formCityLabel.fa : CONTENT.formCityLabel.en}</label>
+                <input className="prof-input" type="text" value={city} onChange={e => setCity(e.target.value)} maxLength={80} placeholder={isRTL ? CONTENT.formCityPlaceholder.fa : CONTENT.formCityPlaceholder.en} />
             </div>
             <div className="prof-field">
-                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? 'درباره من' : 'BIO'}</label>
-                <textarea className="prof-textarea" value={bio} onChange={e => setBio(e.target.value)} maxLength={280} rows={4} placeholder={isRTL ? 'اختیاری — درباره خود بنویسید.' : 'Optional — briefly describe your background.'} />
+                <label className="prof-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.formBioLabel.fa : CONTENT.formBioLabel.en}</label>
+                <textarea className="prof-textarea" value={bio} onChange={e => setBio(e.target.value)} maxLength={280} rows={4} placeholder={isRTL ? CONTENT.formBioPlaceholder.fa : CONTENT.formBioPlaceholder.en} />
                 <div className="prof-char-count" style={{ fontFamily: monoFont }}>{bio.length}/280</div>
             </div>
             {saveError && <div className="prof-error" style={{ fontFamily: monoFont }}>{saveError}</div>}
             <button type="submit" className="prof-save-btn" disabled={isPending} style={{ fontFamily: monoFont }}>
-                {isPending ? '...' : saved ? (isRTL ? 'ذخیره شد ✓' : 'SAVED ✓') : (isRTL ? 'ذخیره تغییرات' : 'SAVE CHANGES')}
+                {isPending ? '...' : saved ? (isRTL ? CONTENT.formSaved.fa : CONTENT.formSaved.en) : (isRTL ? CONTENT.formSaveChanges.fa : CONTENT.formSaveChanges.en)}
             </button>
         </form>
     );
@@ -195,18 +196,18 @@ export default function ProfilePage() {
     // ── Handlers ─────────────────────────────────────────────────────────────
     function handleNameSave() {
         const trimmed = nameValue.trim();
-        if (!trimmed) { setNameError(isRTL ? 'نام نمی‌تواند خالی باشد.' : 'Name cannot be empty.'); return; }
+        if (!trimmed) { setNameError(isRTL ? CONTENT.nameEmptyError.fa : CONTENT.nameEmptyError.en); return; }
         setNameError('');
         nameUpdateMutation.mutate({ full_name: trimmed, name_locked: true }, {
             onSuccess: () => setNameEditing(false),
-            onError:   () => setNameError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+            onError:   () => setNameError(isRTL ? CONTENT.saveFailedError.fa : CONTENT.saveFailedError.en),
         });
     }
 
     function handleBirthSave() {
-        if (!birthDateDraft) { setBirthError(isRTL ? 'لطفاً تاریخ را انتخاب کنید.' : 'Please select a date.'); return; }
+        if (!birthDateDraft) { setBirthError(isRTL ? CONTENT.selectDateError.fa : CONTENT.selectDateError.en); return; }
         const age = calcAge(birthDateDraft);
-        if (age === null || age > 99) { setBirthError(isRTL ? 'تاریخ نامعتبر.' : 'Invalid date.'); return; }
+        if (age === null || age > 99) { setBirthError(isRTL ? CONTENT.invalidDateError.fa : CONTENT.invalidDateError.en); return; }
         setBirthError('');
         birthUpdateMutation.mutate({ birth_date: birthDateDraft }, {
             onSuccess: () => {
@@ -214,7 +215,7 @@ export default function ProfilePage() {
                 setBirthPickerOpen(false); setBirthSaved(true);
                 setTimeout(() => setBirthSaved(false), 3000);
             },
-            onError: () => setBirthError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+            onError: () => setBirthError(isRTL ? CONTENT.saveFailedError.fa : CONTENT.saveFailedError.en),
         });
     }
 
@@ -224,7 +225,7 @@ export default function ProfilePage() {
             { title: title || null, pronouns: pronouns || null, city: city.trim() || null, bio: bio.trim() || null },
             {
                 onSuccess: () => { setSaved(true); setTimeout(() => setSaved(false), 2500); },
-                onError:   () => setSaveError(isRTL ? 'ذخیره ناموفق بود.' : 'Failed to save.'),
+                onError:   () => setSaveError(isRTL ? CONTENT.saveFailedError.fa : CONTENT.saveFailedError.en),
             }
         );
     }
@@ -235,8 +236,8 @@ export default function ProfilePage() {
         castVoteMutation.mutate(blueprintId, {
             onSuccess: () => { setPreferredBlueprint(blueprintId); setVoteSaved(true); setTimeout(() => setVoteSaved(false), 2500); },
             onError: err => setVoteError(err?.error === 'age_unverified'
-                ? (isRTL ? 'ابتدا سن خود را تأیید کنید.' : 'Please verify your age first.')
-                : (isRTL ? 'خطا در ثبت رأی.' : 'Failed to cast vote.')),
+                ? (isRTL ? CONTENT.voteErrorAge.fa : CONTENT.voteErrorAge.en)
+                : (isRTL ? CONTENT.voteErrorGeneric.fa : CONTENT.voteErrorGeneric.en)),
         });
     }
 
@@ -247,7 +248,7 @@ export default function ProfilePage() {
 
     function handleGenerate() {
         setGenerateError('');
-        generateCodeMutation.mutate(undefined, { onError: () => setGenerateError(isRTL ? 'ساخت کد ناموفق بود.' : 'Failed to generate code.') });
+        generateCodeMutation.mutate(undefined, { onError: () => setGenerateError(isRTL ? CONTENT.generateError.fa : CONTENT.generateError.en) });
     }
 
     function goSection(id) { setActiveSection(id); setMobileSidebarOpen(false); }
@@ -263,12 +264,12 @@ export default function ProfilePage() {
 
     if (!session) return (
         <div className="pd-fullscreen" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
-            <div style={{ color: '#71717a', fontSize: 13 }}>{isRTL ? 'شما وارد نشده‌اید.' : 'You are not logged in.'}</div>
+            <div style={{ color: '#71717a', fontSize: 13 }}>{isRTL ? CONTENT.notLoggedIn.fa : CONTENT.notLoggedIn.en}</div>
             <button className="pd-btn-primary" onClick={() => navigate('/register')} style={{ fontFamily: monoFont }}>
-                {isRTL ? 'ثبت‌نام' : 'Register →'}
+                {isRTL ? CONTENT.register.fa : CONTENT.register.en}
             </button>
             <button className="pd-btn-ghost" onClick={() => navigate(-1)} style={{ fontFamily: monoFont }}>
-                {isRTL ? '← بازگشت' : '← Back'}
+                {isRTL ? CONTENT.back.fa : CONTENT.back.en}
             </button>
         </div>
     );
@@ -353,11 +354,11 @@ export default function ProfilePage() {
                         <div className="pd-user-menu">
                             {isAdmin && (
                                 <Link to="/admin" className="pd-user-menu-item" onClick={() => setUserMenuOpen(false)}>
-                                    {isRTL ? 'پنل مدیریت' : 'Admin Panel'}
+                                    {isRTL ? CONTENT.adminPanel.fa : CONTENT.adminPanel.en}
                                 </Link>
                             )}
                             <button className="pd-user-menu-item pd-user-menu-item--danger" onClick={() => { setUserMenuOpen(false); logout(); }}>
-                                <I.LogOut /> {isRTL ? 'خروج' : 'Log out'}
+                                <I.LogOut /> {isRTL ? CONTENT.logOut.fa : CONTENT.logOut.en}
                             </button>
                         </div>
                     )}
@@ -381,7 +382,7 @@ export default function ProfilePage() {
             {isPreview && (
                 <div className="pd-preview-bar" style={{ fontFamily: monoFont }}>
                     <span>ADMIN PREVIEW — {profile?.full_name || previewId}</span>
-                    <button onClick={() => navigate('/admin')}>← {isRTL ? 'بازگشت' : 'Back to Admin'}</button>
+                    <button onClick={() => navigate('/admin')}>← {isRTL ? CONTENT.backToAdmin.fa : CONTENT.backToAdmin.en}</button>
                 </div>
             )}
 
@@ -417,7 +418,7 @@ export default function ProfilePage() {
                                 <I.Menu />
                             </button>
                             <div className="pd-breadcrumb">
-                                <span className="pd-breadcrumb-root">{isRTL ? 'پروفایل' : 'Profile'}</span>
+                                <span className="pd-breadcrumb-root">{isRTL ? CONTENT.breadcrumbRoot.fa : CONTENT.breadcrumbRoot.en}</span>
                                 {activeItem && (
                                     <>
                                         <span className="pd-breadcrumb-sep">/</span>
@@ -436,7 +437,7 @@ export default function ProfilePage() {
                             {/* Nav back button */}
                             <button className="pd-btn-ghost pd-btn-sm" onClick={() => navigate(-1)} style={{ fontFamily: monoFont }}>
                                 <I.ChevronLeft />
-                                {isRTL ? 'بازگشت' : 'Back'}
+                                {isRTL ? CONTENT.headerBack.fa : CONTENT.headerBack.en}
                             </button>
                         </div>
                     </header>
@@ -454,10 +455,10 @@ export default function ProfilePage() {
                                         <h1 className="pd-page-title" style={{ fontFamily: headFont }}>{profile?.full_name}</h1>
                                         <div className="pd-page-meta" style={{ fontFamily: monoFont }}>
                                             <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
-                                                {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
+                                                {profile?.user_type === 'citizen' ? (isRTL ? CONTENT.citizen.fa : CONTENT.citizen.en) : (isRTL ? CONTENT.diaspora.fa : CONTENT.diaspora.en)}
                                             </span>
                                             {profile?.country && <><span className="pd-dot">·</span><span>{profile.country}</span></>}
-                                            {joinedDate && <><span className="pd-dot">·</span><span>{isRTL ? `عضو از ${joinedDate}` : `Member since ${joinedDate}`}</span></>}
+                                            {joinedDate && <><span className="pd-dot">·</span><span>{isRTL ? `${CONTENT.memberSince.fa} ${joinedDate}` : `${CONTENT.memberSince.en} ${joinedDate}`}</span></>}
                                         </div>
                                     </div>
                                 </div>
@@ -482,8 +483,8 @@ export default function ProfilePage() {
                                         <div className="pd-card-header">
                                             <span className="pd-status-dot" />
                                             <div>
-                                                <div className="pd-card-title" style={{ fontFamily: monoFont }}>{isRTL ? 'پروفایل خود را تکمیل کنید' : 'Complete your profile'}</div>
-                                                <div className="pd-card-sub">{isRTL ? 'عنوان، ضمیر، شهر و بیو را اضافه کنید' : 'Add title, pronouns, city and bio'}</div>
+                                                <div className="pd-card-title" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.completeProfileTitle.fa : CONTENT.completeProfileTitle.en}</div>
+                                                <div className="pd-card-sub">{isRTL ? CONTENT.completeProfileSub.fa : CONTENT.completeProfileSub.en}</div>
                                             </div>
                                         </div>
                                         <div className="pd-divider" />
@@ -496,7 +497,7 @@ export default function ProfilePage() {
                         {/* ══════════════════ ACHIEVEMENTS ══════════════════ */}
                         {activeSection === 'achievements' && (
                             <div className="pd-section">
-                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? 'دستاوردها' : 'Achievements'}</div>
+                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? CONTENT.achievementsHeading.fa : CONTENT.achievementsHeading.en}</div>
                                 <BadgesShelf userId={userId} />
                             </div>
                         )}
@@ -504,15 +505,15 @@ export default function ProfilePage() {
                         {/* ══════════════════ INVITE CODES ══════════════════ */}
                         {activeSection === 'invite' && (
                             <div className="pd-section">
-                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? 'کدهای دعوت' : 'Invite Codes'}</div>
+                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? CONTENT.inviteCodesHeading.fa : CONTENT.inviteCodesHeading.en}</div>
                                 <div className="pd-card">
                                     <p className="prof-hint" style={{ fontFamily: monoFont }}>
-                                        {isRTL ? 'این کدها را برای دعوت اعضای جدید به اشتراک بگذارید. هر کد فقط یک بار قابل استفاده است.' : 'Share these codes to invite new members. Each code can only be used once.'}
+                                        {isRTL ? CONTENT.inviteCodesHint.fa : CONTENT.inviteCodesHint.en}
                                     </p>
                                     <div className="prof-codes-list">
                                         {unusedCodes.map(c => (
-                                            <button key={c.code} className="prof-code-chip prof-code-chip--unused" onClick={() => copyCode(c.code)} title={isRTL ? 'کلیک کنید تا کپی شود' : 'Click to copy'} style={{ fontFamily: monoFont }}>
-                                                {copiedCode === c.code ? (isRTL ? 'کپی شد!' : 'Copied!') : c.code}
+                                            <button key={c.code} className="prof-code-chip prof-code-chip--unused" onClick={() => copyCode(c.code)} title={isRTL ? CONTENT.clickToCopy.fa : CONTENT.clickToCopy.en} style={{ fontFamily: monoFont }}>
+                                                {copiedCode === c.code ? (isRTL ? CONTENT.copied.fa : CONTENT.copied.en) : c.code}
                                                 <span className="prof-code-expiry">{timeRemaining(c.expires_at)}</span>
                                             </button>
                                         ))}
@@ -523,12 +524,12 @@ export default function ProfilePage() {
                                     {profile?.invite_codes_remaining > 0 ? (
                                         <div className="prof-generate-row">
                                             <button className="prof-generate-btn" onClick={handleGenerate} disabled={generateCodeMutation.isPending} style={{ fontFamily: monoFont }}>
-                                                {generateCodeMutation.isPending ? '...' : (isRTL ? 'ساخت کد' : 'GENERATE CODE')}
+                                                {generateCodeMutation.isPending ? '...' : (isRTL ? CONTENT.generateCode.fa : CONTENT.generateCode.en)}
                                             </button>
-                                            <span className="prof-remaining" style={{ fontFamily: monoFont }}>{profile.invite_codes_remaining} {isRTL ? 'باقی‌مانده' : 'remaining'}</span>
+                                            <span className="prof-remaining" style={{ fontFamily: monoFont }}>{profile.invite_codes_remaining} {isRTL ? CONTENT.remaining.fa : CONTENT.remaining.en}</span>
                                         </div>
                                     ) : (
-                                        <div className="prof-no-codes" style={{ fontFamily: monoFont }}>{isRTL ? 'سهمیه دعوت تمام شده است.' : 'No invite slots remaining.'}</div>
+                                        <div className="prof-no-codes" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.noInviteSlots.fa : CONTENT.noInviteSlots.en}</div>
                                     )}
                                     {generateError && <div className="prof-error" style={{ fontFamily: monoFont }}>{generateError}</div>}
                                 </div>
@@ -538,17 +539,17 @@ export default function ProfilePage() {
                         {/* ══════════════════ BLUEPRINT VOTE ══════════════════ */}
                         {activeSection === 'vote' && (
                             <div className="pd-section">
-                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? 'رأی به طرح حاکمیتی' : 'Blueprint Vote'}</div>
+                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? CONTENT.blueprintVoteHeading.fa : CONTENT.blueprintVoteHeading.en}</div>
                                 <div className="pd-card prof-card--vote-wrap">
                                     <div className={`prof-vote-content${!voteEligible ? ' prof-vote-content--blurred' : ''}`}>
                                         {currentBp && (
                                             <div className="prof-current-vote" style={{ '--bp-color': currentBpColor }}>
-                                                <div className="prof-current-vote-label" style={{ fontFamily: monoFont }}>{isRTL ? 'رأی شما' : 'YOUR VOTE'}</div>
+                                                <div className="prof-current-vote-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.yourVote.fa : CONTENT.yourVote.en}</div>
                                                 <div className="prof-current-vote-name" style={{ fontFamily: headFont, color: currentBpColor }}>{t(currentBp.name)}</div>
                                                 <div className="prof-current-vote-bar" />
                                             </div>
                                         )}
-                                        <p className="prof-hint" style={{ fontFamily: monoFont }}>{isRTL ? 'طرح حاکمیتی مورد نظر خود را انتخاب یا تغییر دهید.' : 'Select or change your preferred governance blueprint.'}</p>
+                                        <p className="prof-hint" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.blueprintVoteHint.fa : CONTENT.blueprintVoteHint.en}</p>
                                         <div className="prof-blueprint-options">
                                             {Object.values(BLUEPRINTS).map(bp => (
                                                 <button key={bp.id} className={`prof-blueprint-btn${preferredBlueprint === bp.id ? ' is-active' : ''}`} onClick={() => handleVote(bp.id)} disabled={castVoteMutation.isPending} style={{ fontFamily: monoFont, '--btn-color': BLUEPRINT_COLORS[bp.id] || '#8B5CF6' }}>
@@ -557,15 +558,15 @@ export default function ProfilePage() {
                                             ))}
                                         </div>
                                         {voteError  && <div className="prof-error"      style={{ fontFamily: monoFont }}>{voteError}</div>}
-                                        {voteSaved  && <div className="prof-vote-saved" style={{ fontFamily: monoFont }}>{isRTL ? 'رأی ذخیره شد' : 'Vote saved'}</div>}
+                                        {voteSaved  && <div className="prof-vote-saved" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.voteSaved.fa : CONTENT.voteSaved.en}</div>}
                                     </div>
                                     {!voteEligible && (
                                         <div className="prof-vote-gate">
                                             <div className="prof-vote-gate-inner">
                                                 <div className="prof-vote-gate-icon">⚿</div>
-                                                <p className="prof-vote-gate-msg" style={{ fontFamily: monoFont }}>{isRTL ? 'تاریخ تولد خود را برای رأی‌دهی تأیید نکرده‌اید.' : 'Please verify your birthday to vote.'}</p>
+                                                <p className="prof-vote-gate-msg" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.verifyBirthdayMsg.fa : CONTENT.verifyBirthdayMsg.en}</p>
                                                 <button className="prof-vote-gate-btn" style={{ fontFamily: monoFont }} onClick={() => { goSection('settings'); setTimeout(() => setBirthPickerOpen(true), 200); }}>
-                                                    {isRTL ? '← تأیید سن' : 'VERIFY AGE →'}
+                                                    {isRTL ? CONTENT.verifyAge.fa : CONTENT.verifyAge.en}
                                                 </button>
                                             </div>
                                         </div>
@@ -577,33 +578,33 @@ export default function ProfilePage() {
                         {/* ══════════════════ ACCOUNT SETTINGS ══════════════════ */}
                         {activeSection === 'settings' && (
                             <div className="pd-section">
-                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? 'تنظیمات حساب' : 'Account Settings'}</div>
+                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? CONTENT.accountSettingsHeading.fa : CONTENT.accountSettingsHeading.en}</div>
 
                                 {/* Member Info */}
                                 <div className="pd-card" ref={memberCardRef}>
-                                    <div className="pd-card-section-title" style={{ fontFamily: monoFont }}>{isRTL ? 'اطلاعات عضو' : 'Member Information'}</div>
+                                    <div className="pd-card-section-title" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.memberInformation.fa : CONTENT.memberInformation.en}</div>
                                     <div className="prof-info-table">
 
                                         <div className="prof-info-row">
-                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'نام کامل' : 'FULL NAME'}</span>
+                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.fullNameLabel.fa : CONTENT.fullNameLabel.en}</span>
                                             <div className="prof-info-value-col">
                                                 {nameEditing ? (
                                                     <div className="prof-inline-edit">
-                                                        <div className="prof-once-warn" style={{ fontFamily: monoFont }}>⚠ {isRTL ? 'این تغییر فقط یک بار مجاز است.' : 'This can only be changed once.'}</div>
+                                                        <div className="prof-once-warn" style={{ fontFamily: monoFont }}>⚠ {isRTL ? CONTENT.nameChangeOnce.fa : CONTENT.nameChangeOnce.en}</div>
                                                         <input className="prof-input prof-input--sm" value={nameValue} onChange={e => setNameValue(e.target.value)} maxLength={80} autoFocus style={{ fontFamily: monoFont }} />
                                                         {nameError && <div className="prof-inline-error" style={{ fontFamily: monoFont }}>{nameError}</div>}
                                                         <div className="prof-inline-btns">
-                                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} disabled={nameUpdateMutation.isPending} style={{ fontFamily: monoFont }}>{nameUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید' : 'CONFIRM')}</button>
-                                                            <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={{ fontFamily: monoFont }}>{isRTL ? 'انصراف' : 'CANCEL'}</button>
+                                                            <button className="prof-action-btn prof-action-btn--confirm" onClick={handleNameSave} disabled={nameUpdateMutation.isPending} style={{ fontFamily: monoFont }}>{nameUpdateMutation.isPending ? '...' : (isRTL ? CONTENT.confirmBtn.fa : CONTENT.confirmBtn.en)}</button>
+                                                            <button className="prof-action-btn" onClick={() => { setNameEditing(false); setNameError(''); }} style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.cancelBtn.fa : CONTENT.cancelBtn.en}</button>
                                                         </div>
                                                     </div>
                                                 ) : (
                                                     <div className="prof-info-value-row">
                                                         <span className="prof-info-value" style={{ fontFamily: monoFont }}>{profile?.full_name || '—'}</span>
                                                         {!profile?.name_locked ? (
-                                                            <button className="prof-chip-btn" onClick={() => { setNameValue(profile?.full_name || ''); setNameEditing(true); }} style={{ fontFamily: monoFont }}>{isRTL ? 'ویرایش' : 'EDIT'}</button>
+                                                            <button className="prof-chip-btn" onClick={() => { setNameValue(profile?.full_name || ''); setNameEditing(true); }} style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.editBtn.fa : CONTENT.editBtn.en}</button>
                                                         ) : (
-                                                            <span className="prof-lock-icon" title={isRTL ? 'قابل تغییر نیست' : 'Locked'}>🔒</span>
+                                                            <span className="prof-lock-icon" title={isRTL ? CONTENT.lockedTitle.fa : CONTENT.lockedTitle.en}>🔒</span>
                                                         )}
                                                     </div>
                                                 )}
@@ -611,39 +612,39 @@ export default function ProfilePage() {
                                         </div>
 
                                         <div className="prof-info-row">
-                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'تاریخ تولد' : 'DATE OF BIRTH'}</span>
+                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.dobLabel.fa : CONTENT.dobLabel.en}</span>
                                             <div className="prof-info-value-col">
                                                 {profile?.birth_date ? (
                                                     <div className="prof-info-value-row">
                                                         <span className="prof-info-value" style={{ fontFamily: monoFont }}>{formatDate(profile.birth_date)}</span>
                                                         <span className="prof-lock-icon" title="Locked">🔒</span>
-                                                        {voteEligible && <span className="prof-verified-badge" style={{ fontFamily: monoFont }}>{isRTL ? '✓ تأیید شده' : '✓ VERIFIED'}</span>}
+                                                        {voteEligible && <span className="prof-verified-badge" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.verified.fa : CONTENT.verified.en}</span>}
                                                     </div>
                                                 ) : (
                                                     <>
                                                         <div className="prof-info-value-row">
-                                                            <span className="prof-info-value prof-info-value--empty" style={{ fontFamily: monoFont }}>{isRTL ? 'تنظیم نشده' : 'Not set'}</span>
-                                                            {!birthPickerOpen && <button className="prof-chip-btn prof-chip-btn--green" onClick={() => setBirthPickerOpen(true)} style={{ fontFamily: monoFont }}>{isRTL ? 'تأیید سن' : 'VERIFY AGE'}</button>}
+                                                            <span className="prof-info-value prof-info-value--empty" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.notSet.fa : CONTENT.notSet.en}</span>
+                                                            {!birthPickerOpen && <button className="prof-chip-btn prof-chip-btn--green" onClick={() => setBirthPickerOpen(true)} style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.verifyAgeBtnGreen.fa : CONTENT.verifyAgeBtnGreen.en}</button>}
                                                         </div>
                                                         {birthPickerOpen && (
                                                             <div className="prof-birth-picker-wrap">
-                                                                <div className="prof-once-warn" style={{ fontFamily: monoFont }}>⚠ {isRTL ? 'تاریخ تولد فقط یک بار قابل ثبت است.' : 'Birthday can only be set once.'}</div>
+                                                                <div className="prof-once-warn" style={{ fontFamily: monoFont }}>⚠ {isRTL ? CONTENT.birthdayOnce.fa : CONTENT.birthdayOnce.en}</div>
                                                                 <BirthDatePicker onChange={d => { setBirthDateDraft(d); setBirthError(''); }} isRTL={isRTL} />
                                                                 {birthError && <div className="prof-inline-error" style={{ fontFamily: monoFont }}>{birthError}</div>}
                                                                 <div className="prof-inline-btns">
-                                                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={birthUpdateMutation.isPending || !birthDateDraft} style={{ fontFamily: monoFont }}>{birthUpdateMutation.isPending ? '...' : (isRTL ? 'تأیید تاریخ' : 'CONFIRM DATE')}</button>
-                                                                    <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={{ fontFamily: monoFont }}>{isRTL ? 'انصراف' : 'CANCEL'}</button>
+                                                                    <button className="prof-action-btn prof-action-btn--confirm" onClick={handleBirthSave} disabled={birthUpdateMutation.isPending || !birthDateDraft} style={{ fontFamily: monoFont }}>{birthUpdateMutation.isPending ? '...' : (isRTL ? CONTENT.confirmDateBtn.fa : CONTENT.confirmDateBtn.en)}</button>
+                                                                    <button className="prof-action-btn" onClick={() => { setBirthPickerOpen(false); setBirthError(''); }} style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.cancelBtn.fa : CONTENT.cancelBtn.en}</button>
                                                                 </div>
                                                             </div>
                                                         )}
                                                     </>
                                                 )}
-                                                {birthSaved && <div className="prof-inline-success" style={{ fontFamily: monoFont }}>{isRTL ? '✓ سن تأیید شد' : '✓ Age verified'}</div>}
+                                                {birthSaved && <div className="prof-inline-success" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.ageVerifiedSuccess.fa : CONTENT.ageVerifiedSuccess.en}</div>}
                                             </div>
                                         </div>
 
                                         <div className="prof-info-row">
-                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'ایمیل' : 'EMAIL'}</span>
+                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.emailLabel.fa : CONTENT.emailLabel.en}</span>
                                             <div className="prof-info-value-col">
                                                 <div className="prof-info-value-row">
                                                     <span className="prof-info-value prof-info-value--muted" style={{ fontFamily: monoFont }}>{session?.user?.email || '—'}</span>
@@ -654,7 +655,7 @@ export default function ProfilePage() {
 
                                         {profile?.country && (
                                             <div className="prof-info-row">
-                                                <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'کشور' : 'COUNTRY'}</span>
+                                                <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.countryLabel.fa : CONTENT.countryLabel.en}</span>
                                                 <div className="prof-info-value-col">
                                                     <span className="prof-info-value prof-info-value--muted" style={{ fontFamily: monoFont }}>{profile.country}</span>
                                                 </div>
@@ -662,10 +663,10 @@ export default function ProfilePage() {
                                         )}
 
                                         <div className="prof-info-row">
-                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? 'نوع حساب' : 'ACCOUNT TYPE'}</span>
+                                            <span className="prof-info-label" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.accountTypeLabel.fa : CONTENT.accountTypeLabel.en}</span>
                                             <div className="prof-info-value-col">
                                                 <span className={`prof-type-badge prof-type-badge--${profile?.user_type}`}>
-                                                    {profile?.user_type === 'citizen' ? (isRTL ? 'شهروند' : 'Citizen') : (isRTL ? 'دیاسپورا' : 'Diaspora')}
+                                                    {profile?.user_type === 'citizen' ? (isRTL ? CONTENT.citizen.fa : CONTENT.citizen.en) : (isRTL ? CONTENT.diaspora.fa : CONTENT.diaspora.en)}
                                                 </span>
                                             </div>
                                         </div>
@@ -674,15 +675,15 @@ export default function ProfilePage() {
 
                                 {/* Additional info */}
                                 <div className="pd-card pd-mt">
-                                    <div className="pd-card-section-title" style={{ fontFamily: monoFont }}>{isRTL ? 'اطلاعات تکمیلی' : 'Additional Info'}</div>
+                                    <div className="pd-card-section-title" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.additionalInfo.fa : CONTENT.additionalInfo.en}</div>
                                     <AdditionalInfoForm {...additionalInfoProps} />
                                 </div>
 
                                 {/* Verify Identity */}
                                 <div className="pd-card pd-mt prof-card--verify">
-                                    <div className="pd-card-section-title" style={{ fontFamily: monoFont }}>{isRTL ? 'تأیید هویت' : 'Verify Identity'}</div>
-                                    <p className="prof-hint" style={{ fontFamily: monoFont }}>{isRTL ? 'هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید.' : 'Verify your identity to increase your civic score and vote weight.'}</p>
-                                    <Link to="/verify" className="prof-verify-link" style={{ fontFamily: monoFont }}>{isRTL ? 'رفتن به صفحه تأیید ←' : 'GO TO VERIFICATION →'}</Link>
+                                    <div className="pd-card-section-title" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.verifyIdentityTitle.fa : CONTENT.verifyIdentityTitle.en}</div>
+                                    <p className="prof-hint" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.verifyIdentityHint.fa : CONTENT.verifyIdentityHint.en}</p>
+                                    <Link to="/verify" className="prof-verify-link" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.goToVerification.fa : CONTENT.goToVerification.en}</Link>
                                 </div>
                             </div>
                         )}
@@ -690,10 +691,10 @@ export default function ProfilePage() {
                         {/* ══════════════════ VERIFY ══════════════════ */}
                         {activeSection === 'verify' && (
                             <div className="pd-section">
-                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? 'تأیید هویت' : 'Verify Identity'}</div>
+                                <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? CONTENT.verifyIdentityTitle.fa : CONTENT.verifyIdentityTitle.en}</div>
                                 <div className="pd-card prof-card--verify">
-                                    <p className="prof-hint" style={{ fontFamily: monoFont }}>{isRTL ? 'هویت خود را تأیید کنید تا امتیاز مدنی و وزن رأی خود را افزایش دهید.' : 'Verify your identity to increase your civic score and vote weight.'}</p>
-                                    <Link to="/verify" className="prof-verify-link" style={{ fontFamily: monoFont }}>{isRTL ? 'رفتن به صفحه تأیید ←' : 'GO TO VERIFICATION →'}</Link>
+                                    <p className="prof-hint" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.verifyIdentityHint.fa : CONTENT.verifyIdentityHint.en}</p>
+                                    <Link to="/verify" className="prof-verify-link" style={{ fontFamily: monoFont }}>{isRTL ? CONTENT.goToVerification.fa : CONTENT.goToVerification.en}</Link>
                                 </div>
                             </div>
                         )}
@@ -703,7 +704,7 @@ export default function ProfilePage() {
                             <div className="pd-section">
                                 <div className="pd-card pd-card--placeholder">
                                     <I.HelpCircle />
-                                    <div style={{ color: '#4a5568', fontSize: 13 }}>{isRTL ? 'بخش راهنما به زودی اضافه می‌شود.' : 'Help section coming soon.'}</div>
+                                    <div style={{ color: '#4a5568', fontSize: 13 }}>{isRTL ? CONTENT.helpComingSoon.fa : CONTENT.helpComingSoon.en}</div>
                                 </div>
                             </div>
                         )}

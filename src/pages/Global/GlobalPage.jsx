@@ -8,6 +8,7 @@ import {
   formatNumber,
 } from '../../data/globalData';
 import WorldDotMap from '../../components/WorldDotMap/WorldDotMap';
+import CONTENT from '../../locales/pages/global.json';
 import './GlobalPage.css';
 
 // ─── Public map markers hook (anon SELECT — RLS allows public read) ────────────
@@ -104,16 +105,13 @@ export default function GlobalPage() {
         {/* Header */}
         <div className="gm-header">
           <div className="gm-eyebrow">
-            {t({ en: 'GLOBAL ACTIVITY', fa: 'فعالیت جهانی' })}
+            {t(CONTENT.eyebrow)}
           </div>
           <h1 className="gm-title">
-            {t({ en: 'IranDAO Global', fa: 'ایران‌دائو جهانی' })}
+            {t(CONTENT.title)}
           </h1>
           <p className="gm-subtitle">
-            {t({
-              en: 'Real-time member distribution and activity across the world',
-              fa: 'توزیع اعضا و فعالیت‌های زنده در سراسر جهان',
-            })}
+            {t(CONTENT.subtitle)}
           </p>
         </div>
 
@@ -122,7 +120,7 @@ export default function GlobalPage() {
           <div className="gm-map-left">
             <div className="gm-total-block">
               <div className="gm-total-label">
-                {t({ en: 'TOTAL MEMBERS', fa: 'کل اعضا' })}
+                {t(CONTENT.totalMembersLabel)}
               </div>
               <div className="gm-total-value">
                 {MASK_STATS ? '—' : formatNumber(stats.totalMembers)}
@@ -131,7 +129,7 @@ export default function GlobalPage() {
 
             <div className="gm-countries-list">
               <div className="gm-countries-title">
-                {t({ en: 'TOP COUNTRIES', fa: 'کشورهای برتر' })}
+                {t(CONTENT.topCountriesLabel)}
               </div>
               <ul>
                 {topCountries.map((c) => (
@@ -157,38 +155,32 @@ export default function GlobalPage() {
         </div>
 
         <p className="gm-under-construction">
-          {t({
-            en: '⚠ Live member data and country distribution are currently under construction — figures will appear once the platform reaches scale.',
-            fa: '⚠ داده‌های زنده اعضا و توزیع کشوری در حال توسعه هستند — ارقام پس از رسیدن پلتفرم به مقیاس کافی نمایش داده خواهند شد.',
-          })}
+          {t(CONTENT.underConstructionText)}
         </p>
 
         {/* Stats grid */}
         <div className="gm-stats-grid">
           <StatCard
-            title={t({ en: 'VOTES CAST', fa: 'آرای ثبت‌شده' })}
+            title={t(CONTENT.statCardTitles.votesCast)}
             value={stats.votesCast}
           />
           <StatCard
-            title={t({ en: 'PLANS ENDORSED', fa: 'طرح‌های تأیید‌شده' })}
+            title={t(CONTENT.statCardTitles.plansEndorsed)}
             value={stats.plansEndorsed}
           />
           <StatCard
-            title={t({ en: 'COUNTRIES', fa: 'کشورها' })}
+            title={t(CONTENT.statCardTitles.countries)}
             value={stats.countriesRepresented}
           />
           <StatCard
-            title={t({ en: 'CIVIC ACTIONS', fa: 'اقدامات مدنی' })}
+            title={t(CONTENT.statCardTitles.civicActions)}
             value={stats.civicActions}
           />
         </div>
 
         {/* Data note */}
         <p className="gm-data-note">
-          {t({
-            en: 'Member counts are real-time from the IranDAO registry. Data updates on page load. Country distribution based on registration location.',
-            fa: 'تعداد اعضا به‌صورت زنده از ثبت ایران‌دائو گرفته می‌شود. داده‌ها هنگام بارگذاری صفحه به‌روز می‌شوند. توزیع کشوری بر اساس محل ثبت‌نام است.',
-          })}
+          {t(CONTENT.dataNote)}
         </p>
       </div>
     </div>

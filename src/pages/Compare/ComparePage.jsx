@@ -4,14 +4,10 @@ import { useLang } from '../../contexts/LangContext';
 import { BLUEPRINTS } from '../../data';
 import { supabase } from '../../lib/supabase';
 import { PageMeta } from '../../components/PageMeta/PageMeta';
+import CONTENT from '../../locales/pages/compare.json';
 import './ComparePage.css';
 
-const TIERS = [
-    { key: 'core',      label: { en: 'CORE LAYER',        fa: 'لایه هسته' },       color: '#8B5CF6' },
-    { key: 'primary',   label: { en: 'PRIMARY SECTORS',   fa: 'بخش‌های اولیه' },   color: '#66bb6a' },
-    { key: 'secondary', label: { en: 'SECONDARY SECTORS', fa: 'بخش‌های ثانویه' }, color: '#ffa726' },
-    { key: 'tertiary',  label: { en: 'SUPPORTING',        fa: 'بخش‌های پشتیبان' }, color: '#ab47bc' },
-];
+const TIERS = CONTENT.tierLabels;
 
 export default function ComparePage() {
     const { t, isRTL, headFont } = useLang();
@@ -58,10 +54,10 @@ export default function ComparePage() {
 
             <div className="compare-inner">
                 <div className={`compare-kicker ${!isRTL ? 'is-ltr' : ''}`}>
-                    {isRTL ? 'مقایسه طرح‌های حاکمیتی' : 'GOVERNANCE BLUEPRINT COMPARISON'}
+                    {t(CONTENT.kicker)}
                 </div>
                 <h1 className="compare-title" style={{ fontFamily: headFont }}>
-                    {isRTL ? 'مقایسه مدل‌ها' : 'Compare Models'}
+                    {t(CONTENT.title)}
                 </h1>
 
                 {/* Selectors */}
@@ -101,30 +97,30 @@ export default function ComparePage() {
                 <div className="compare-stats-bar">
                     <div className="compare-stat-block compare-a-border">
                         <span className="compare-stat-num compare-a-color">{bpA.sectors.length}</span>
-                        <span className="compare-stat-label">{isRTL ? 'بخش' : 'Sectors'}</span>
+                        <span className="compare-stat-label">{t(CONTENT.sectorsLabel)}</span>
                     </div>
                     <div className="compare-stat-block compare-a-border">
                         <span className="compare-stat-num compare-a-color">{bpA.connections.length}</span>
-                        <span className="compare-stat-label">{isRTL ? 'ارتباط' : 'Connections'}</span>
+                        <span className="compare-stat-label">{t(CONTENT.connectionsLabel)}</span>
                     </div>
                     <div className="compare-stat-block compare-a-border">
                         <span className="compare-stat-num compare-a-color">{bpA.sharedLayers.length}</span>
-                        <span className="compare-stat-label">{isRTL ? 'لایه مشترک' : 'Shared Layers'}</span>
+                        <span className="compare-stat-label">{t(CONTENT.sharedLayersLabel)}</span>
                     </div>
 
                     <div className="compare-stat-divider" />
 
                     <div className="compare-stat-block compare-b-border">
                         <span className="compare-stat-num compare-b-color">{bpB.sectors.length}</span>
-                        <span className="compare-stat-label">{isRTL ? 'بخش' : 'Sectors'}</span>
+                        <span className="compare-stat-label">{t(CONTENT.sectorsLabel)}</span>
                     </div>
                     <div className="compare-stat-block compare-b-border">
                         <span className="compare-stat-num compare-b-color">{bpB.connections.length}</span>
-                        <span className="compare-stat-label">{isRTL ? 'ارتباط' : 'Connections'}</span>
+                        <span className="compare-stat-label">{t(CONTENT.connectionsLabel)}</span>
                     </div>
                     <div className="compare-stat-block compare-b-border">
                         <span className="compare-stat-num compare-b-color">{bpB.sharedLayers.length}</span>
-                        <span className="compare-stat-label">{isRTL ? 'لایه مشترک' : 'Shared Layers'}</span>
+                        <span className="compare-stat-label">{t(CONTENT.sharedLayersLabel)}</span>
                     </div>
                 </div>
 
@@ -201,7 +197,7 @@ export default function ComparePage() {
                 {/* Shared layers comparison */}
                 <div className="compare-layers-section">
                     <div className="compare-layers-title">
-                        {isRTL ? 'لایه‌های زیرساخت مشترک' : 'SHARED INFRASTRUCTURE LAYERS'}
+                        {t(CONTENT.layersSectionTitle)}
                     </div>
                     <div className="compare-columns">
                         <div className="compare-col">
@@ -227,7 +223,7 @@ export default function ComparePage() {
                 {/* Connections summary */}
                 <div className="compare-connections-section">
                     <div className="compare-layers-title">
-                        {isRTL ? 'توزیع قدرت ارتباطات' : 'CONNECTION STRENGTH DISTRIBUTION'}
+                        {t(CONTENT.connectionsSectionTitle)}
                     </div>
                     <div className="compare-columns">
                         <div className="compare-col">
@@ -235,8 +231,8 @@ export default function ComparePage() {
                                 const count = bpA.connections.filter(c => c.strength === strength).length;
                                 const pct = Math.round((count / bpA.connections.length) * 100);
                                 const label = strength === 3
-                                    ? (isRTL ? 'قوی' : 'Strong')
-                                    : strength === 2 ? (isRTL ? 'متوسط' : 'Medium') : (isRTL ? 'ضعیف' : 'Weak');
+                                    ? t(CONTENT.connectionStrength.strong)
+                                    : strength === 2 ? t(CONTENT.connectionStrength.medium) : t(CONTENT.connectionStrength.weak);
                                 return (
                                     <div key={strength} className="compare-conn-row">
                                         <span className="compare-conn-label">{label}</span>
@@ -254,8 +250,8 @@ export default function ComparePage() {
                                 const count = bpB.connections.filter(c => c.strength === strength).length;
                                 const pct = Math.round((count / bpB.connections.length) * 100);
                                 const label = strength === 3
-                                    ? (isRTL ? 'قوی' : 'Strong')
-                                    : strength === 2 ? (isRTL ? 'متوسط' : 'Medium') : (isRTL ? 'ضعیف' : 'Weak');
+                                    ? t(CONTENT.connectionStrength.strong)
+                                    : strength === 2 ? t(CONTENT.connectionStrength.medium) : t(CONTENT.connectionStrength.weak);
                                 return (
                                     <div key={strength} className="compare-conn-row">
                                         <span className="compare-conn-label">{label}</span>

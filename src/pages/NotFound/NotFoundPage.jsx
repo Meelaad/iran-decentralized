@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
+import CONTENT from '../../locales/pages/not-found.json';
 import './NotFoundPage.css';
 
 function GlitchGrid() {
@@ -81,7 +82,7 @@ function GlitchGrid() {
 }
 
 export default function NotFoundPage() {
-    const { isRTL, monoFont, headFont } = useLang();
+    const { t, isRTL, monoFont, headFont } = useLang();
 
     return (
         <div className="nf-page">
@@ -91,7 +92,7 @@ export default function NotFoundPage() {
 
             <div className="nf-inner">
                 <div className="nf-eyebrow" style={{ fontFamily: monoFont }}>
-                    {isRTL ? 'خطای سیستم' : 'SYSTEM ERROR'}
+                    {t(CONTENT.eyebrow)}
                 </div>
 
                 <div className="nf-code-block">
@@ -112,23 +113,21 @@ export default function NotFoundPage() {
                 </div>
 
                 <h1 className="nf-title" style={{ fontFamily: headFont }}>
-                    {isRTL ? 'صفحه یافت نشد' : 'Page Not Found'}
+                    {t(CONTENT.title)}
                 </h1>
                 <p className="nf-subtitle" style={{ fontFamily: monoFont }}>
-                    {isRTL
-                        ? 'این آدرس در شبکه غیرمتمرکز وجود ندارد.'
-                        : 'This address does not exist in the decentralized network.'}
+                    {t(CONTENT.subtitle)}
                 </p>
 
                 <div className="nf-status-row" style={{ fontFamily: monoFont }}>
                     <span className="nf-status-dot" />
                     <span className="nf-status-text">
-                        {isRTL ? 'اتصال قطع شد — گره ناشناخته' : 'CONNECTION LOST — UNKNOWN NODE'}
+                        {t(CONTENT.status)}
                     </span>
                 </div>
 
                 <Link to="/" className="nf-home-btn" style={{ fontFamily: monoFont }}>
-                    {isRTL ? '← بازگشت به نقشه' : '← RETURN TO MAP'}
+                    {t(CONTENT.homeBtn)}
                 </Link>
             </div>
         </div>

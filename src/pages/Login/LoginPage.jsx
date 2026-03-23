@@ -4,29 +4,7 @@ import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { Turnstile } from '@marsidev/react-turnstile';
 import '../Register/RegisterPage.css';
-
-const CONTENT = {
-    eyebrow:    { en: 'CITIZEN PORTAL',            fa: 'پورتال شهروندی' },
-    title:      { en: 'Sign In',                   fa: 'ورود به حساب' },
-    subtitle:   { en: 'Enter your registered email. We\'ll send you a one-time code to sign in.', fa: 'ایمیل ثبت‌شده خود را وارد کنید. یک کد یکبار مصرف برای ورود ارسال می‌کنیم.' },
-    labelEmail: { en: 'EMAIL',                     fa: 'ایمیل' },
-    btnSend:    { en: 'SEND CODE',                 fa: 'ارسال کد' },
-    btnVerify:  { en: 'SIGN IN',                   fa: 'ورود' },
-    btnBack:    { en: '← BACK',                    fa: '← بازگشت' },
-    btnResend:  { en: 'Resend code',               fa: 'ارسال مجدد کد' },
-    verifyText: { en: 'We sent a 6-digit code to', fa: 'یک کد ۶ رقمی به این آدرس ارسال شد' },
-    noAccount:  { en: "Don't have an account?",    fa: 'حساب ندارید؟' },
-    registerLink:{ en: 'Register',                 fa: 'ثبت‌نام' },
-    errors: {
-        emailRequired: { en: 'Email address is required.',             fa: 'آدرس ایمیل الزامی است.' },
-        emailInvalid:  { en: 'Please enter a valid email address.',    fa: 'لطفاً یک آدرس ایمیل معتبر وارد کنید.' },
-        notRegistered: { en: 'No account found with this email. Please register first.', fa: 'هیچ حسابی با این ایمیل یافت نشد. لطفاً ابتدا ثبت‌نام کنید.' },
-        otpIncomplete: { en: 'Please enter the full 6-digit code.',    fa: 'لطفاً کد ۶ رقمی را کامل وارد کنید.' },
-        otpInvalid:    { en: 'The code is incorrect or has expired. Try again or request a new code.', fa: 'کد اشتباه است یا منقضی شده. دوباره تلاش کنید یا کد جدید بخواهید.' },
-        generic:       { en: 'Something went wrong. Please try again.', fa: 'خطایی رخ داد. لطفاً دوباره تلاش کنید.' },
-        rateLimit:     { en: 'Too many requests. Please wait a minute.', fa: 'درخواست‌های زیاد. لطفاً یک دقیقه صبر کنید.' },
-    },
-};
+import CONTENT from '../../locales/pages/login.json';
 
 function getCooldown(resendCount) {
     if (resendCount === 0) return 60;

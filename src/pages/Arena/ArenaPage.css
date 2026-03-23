@@ -181,3 +181,21 @@
     padding-top: 8px;
 }
 .arena-featured-card:hover .arena-featured-cta { color: #8B5CF6; }
+
+/* ── RTL / Farsi font overrides ── */
+[dir="rtl"] .arena-hero-kicker,
+[dir="rtl"] .arena-section-title,
+[dir="rtl"] .arena-submit-btn,
+[dir="rtl"] .arena-vote-hint,
+[dir="rtl"] .arena-featured-cta {
+    font-family: 'Irancell', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+}
+[dir="rtl"] .plan-vote-btn,
+[dir="rtl"] .plan-endorse-btn,
+[dir="rtl"] .plan-view-btn,
+[dir="rtl"] .plan-your-vote-badge {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}

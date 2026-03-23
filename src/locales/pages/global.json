@@ -5,11 +5,11 @@
   },
   "title": {
     "en": "IranDAO Global",
-    "fa": "ایراندائو جهانی"
+    "fa": "ایران‌دائو جهانی"
   },
   "subtitle": {
     "en": "Real-time member distribution and activity across the world",
-    "fa": "توزیع اعضا و فعالیتهای زنده در سراسر جهان"
+    "fa": "توزیع اعضا و فعالیت‌های زنده در سراسر جهان"
   },
   "totalMembersLabel": {
     "en": "TOTAL MEMBERS",
@@ -21,16 +21,16 @@
   },
   "underConstructionText": {
     "en": "⚠ Live member data and country distribution are currently under construction — figures will appear once the platform reaches scale.",
-    "fa": "⚠ دادههای زنده اعضا و توزیع کشوری در حال توسعه هستند — ارقام پس از رسیدن پلتفرم به مقیاس کافی نمایش داده خواهند شد."
+    "fa": "⚠ داده‌های زنده اعضا و توزیع کشوری در حال توسعه هستند — ارقام پس از رسیدن پلتفرم به مقیاس کافی نمایش داده خواهند شد."
   },
   "statCardTitles": {
     "votesCast": {
       "en": "VOTES CAST",
-      "fa": "آرای ثبتشده"
+      "fa": "آرای ثبت‌شده"
     },
     "plansEndorsed": {
       "en": "PLANS ENDORSED",
-      "fa": "طرحهای تأییدشده"
+      "fa": "طرح‌های تأیید‌شده"
     },
     "countries": {
       "en": "COUNTRIES",
@@ -43,6 +43,6 @@
   },
   "dataNote": {
     "en": "Member counts are real-time from the IranDAO registry. Data updates on page load. Country distribution based on registration location.",
-    "fa": "تعداد اعضا بهصورت زنده از ثبت ایراندائو گرفته میشود. دادهها هنگام بارگذاری صفحه بهروز میشوند. توزیع کشوری بر اساس محل ثبتنام است."
+    "fa": "تعداد اعضا به‌صورت زنده از ثبت ایران‌دائو گرفته می‌شود. داده‌ها هنگام بارگذاری صفحه به‌روز می‌شوند. توزیع کشوری بر اساس محل ثبت‌نام است."
   }
 }

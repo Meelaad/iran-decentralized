@@ -9,7 +9,7 @@
   },
   "subtitle": {
     "en": "Enter your registered email. We'll send you a one-time code to sign in.",
-    "fa": "ایمیل ثبتشده خود را وارد کنید. یک کد یکبار مصرف برای ورود ارسال میکنیم."
+    "fa": "ایمیل ثبت‌شده خود را وارد کنید. یک کد یک‌بار مصرف برای ورود ارسال می‌کنیم."
   },
   "labelEmail": {
     "en": "EMAIL",
@@ -41,7 +41,7 @@
   },
   "registerLink": {
     "en": "Register",
-    "fa": "ثبتنام"
+    "fa": "ثبت‌نام"
   },
   "errors": {
     "emailRequired": {
@@ -54,7 +54,7 @@
     },
     "notRegistered": {
       "en": "No account found with this email. Please register first.",
-      "fa": "هیچ حسابی با این ایمیل یافت نشد. لطفاً ابتدا ثبتنام کنید."
+      "fa": "هیچ حسابی با این ایمیل یافت نشد. لطفاً ابتدا ثبت‌نام کنید."
     },
     "otpIncomplete": {
       "en": "Please enter the full 6-digit code.",
@@ -70,7 +70,7 @@
     },
     "rateLimit": {
       "en": "Too many requests. Please wait a minute.",
-      "fa": "درخواستهای زیاد. لطفاً یک دقیقه صبر کنید."
+      "fa": "درخواست‌های زیاد. لطفاً یک دقیقه صبر کنید."
     }
   }
 }

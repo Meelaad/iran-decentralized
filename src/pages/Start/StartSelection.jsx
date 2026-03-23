@@ -7,6 +7,7 @@ import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import { SHOW_VOTE_COUNTS } from '../../config';
 import { BrandMark } from '../../components/BrandMark/BrandMark';
 import { FeatureSlider, RIGHT_FEATURES } from '../../components/FeatureSlider/FeatureSlider';
+import CONTENT from '../../locales/pages/start-selection.json';
 import './StartSelection.css';
 
 function useLiveVoteCounts() {
@@ -62,12 +63,10 @@ export default function StartSelection() {
             <header className="ss-header">
                 <BrandMark size="sm" />
                 <h1 className="ss-title">
-                    {isRTL ? 'مسیر خود را انتخاب کنید' : 'Choose Your Path'}
+                    {t(CONTENT.title)}
                 </h1>
                 <p className="ss-sub">
-                    {isRTL
-                        ? 'دو مرحله‌ی تاریخی — گذار و مقصدنهایی'
-                        : 'Two historical phases — the transition and the destination'}
+                    {t(CONTENT.subtitle)}
                 </p>
             </header>
 
@@ -80,14 +79,14 @@ export default function StartSelection() {
                         onClick={() => setActiveStage(1)}
                         style={{ fontFamily: headFont }}
                     >
-                        {isRTL ? 'مرحله گذار' : 'The Transition'}
+                        {t(CONTENT.tabTransition)}
                     </button>
                     <button
                         className={`ss-pill-btn${activeStage === 2 ? ' is-active' : ''}`}
                         onClick={() => setActiveStage(2)}
                         style={{ fontFamily: headFont }}
                     >
-                        {isRTL ? 'دولت مقصد' : 'The Destination'}
+                        {t(CONTENT.tabDestination)}
                     </button>
                 </div>
             </div>
@@ -97,12 +96,10 @@ export default function StartSelection() {
                 <div className={`ss-zone ss-zone--pre${activeStage !== 1 ? ' ss-zone--inactive' : ''}`}>
                     <div className="ss-zone-header">
                         <h2 className="ss-zone-title">
-                            {isRTL ? 'مرحله گذار' : 'The Transition'}
+                            {t(CONTENT.zone1Title)}
                         </h2>
                         <p className="ss-zone-desc">
-                            {isRTL
-                                ? 'قبل از فروپاشی رژیم طرح‌های انتقالی را مورد بحث و تأیید قرار دهید'
-                                : 'Before regime collapse — debate and endorse transitional plans'}
+                            {t(CONTENT.zone1Desc)}
                         </p>
                     </div>
                     <div className="ss-zone-links">
@@ -110,10 +107,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">⚡</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'گودِ گذار' : 'THE ARENA'}
+                                    {t(CONTENT.arenaTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'طرح‌های فعال — تأیید و بحث' : 'Active plans — endorse & debate'}
+                                    {t(CONTENT.arenaDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -121,10 +118,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">📜</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'طرح های پیشنهادی ' : 'PROPOSED BLUEPRINTS'}
+                                    {t(CONTENT.proposedBlueprintsTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'سندهای کامل پیشنهادی فعال دوره گذار' : 'Proposed transitional state reference documents'}
+                                    {t(CONTENT.proposedBlueprintsDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -132,10 +129,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🗺</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'مرور کلی پیش‌انتقال' : 'PRE-TRANSITION OVERVIEW'}
+                                    {t(CONTENT.preTransTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'چهار مرحله گذار' : 'The four phases of transition'}
+                                    {t(CONTENT.preTransDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -143,10 +140,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">⚖️</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'مقایسه طرح‌های گذار' : 'COMPARE PLANS'}
+                                    {t(CONTENT.comparePlansTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'مقایسه طرح‌های پیشنهادی برای دوره گذار' : 'Compare suggested transitional blueprints'}
+                                    {t(CONTENT.comparePlansDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -154,10 +151,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🗳</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'رأی‌گیری' : 'VOTE'}
+                                    {t(CONTENT.voteTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'پلتفرم مستقل رأی‌گیری امن' : 'Independent secure voting platform'}
+                                    {t(CONTENT.voteDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -165,10 +162,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🌍</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'نقشه جهانی' : 'GLOBAL MAP'}
+                                    {t(CONTENT.globalMapTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'توزیع اعضا و فعالیت در سراسر جهان' : 'Member distribution and activity worldwide'}
+                                    {t(CONTENT.globalMapDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -179,12 +176,10 @@ export default function StartSelection() {
                 <div className={`ss-zone ss-zone--post${activeStage !== 2 ? ' ss-zone--inactive' : ''}`}>
                     <div className="ss-zone-header">
                         <h2 className="ss-zone-title">
-                            {isRTL ? 'دولت مقصد' : 'The Destination'}
+                            {t(CONTENT.zone2Title)}
                         </h2>
                         <p className="ss-zone-desc">
-                            {isRTL
-                                ? 'پس از فروپاشی انتخاب سیستم دائمی حکومت'
-                                : 'After regime collapse — choosing the permanent system of government'}
+                            {t(CONTENT.zone2Desc)}
                         </p>
                     </div>
                     <div className="ss-zone-links">
@@ -192,10 +187,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🧭</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'سیستم های دولتی پبشنهادی' : 'PROPOSED GOVERNING SYSTEMS'}
+                                    {t(CONTENT.proposedGovSystemsTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'مرور مدل ها و سیستم های سیاسی ' : 'Overview political systems and forms'}
+                                    {t(CONTENT.proposedGovSystemsDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -203,10 +198,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🏛</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'مرکز دولت نهایی' : 'DESTINATION GOVERNMENT HUB'}
+                                    {t(CONTENT.destinationHubTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'مرور طرح‌های حکومتی و آمار زنده' : 'Blueprint overview & live stats'}
+                                    {t(CONTENT.destinationHubDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -214,10 +209,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🗺</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'نمایش نقشه' : 'MAP VIEW'}
+                                    {t(CONTENT.mapViewTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'معماری بصری طرح‌های حکومتی' : 'Visual architecture of governance blueprints'}
+                                    {t(CONTENT.mapViewDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -225,10 +220,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">⚖️</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'مقایسه طرح‌ها' : 'COMPARE'}
+                                    {t(CONTENT.compareTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'مقایسه جانبی مدل‌های حکومتی' : 'Side-by-side governance model comparison'}
+                                    {t(CONTENT.compareDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -236,10 +231,10 @@ export default function StartSelection() {
                             <span className="ss-link-icon">🗳</span>
                             <div>
                                 <div className="ss-link-title" style={{ fontFamily: monoFont }}>
-                                    {isRTL ? 'رأی دهید' : 'VOTE'}
+                                    {t(CONTENT.voteDestTitle)}
                                 </div>
                                 <div className="ss-link-desc">
-                                    {isRTL ? 'انتخاب طرح مورد نظر شما' : 'Cast your blueprint preference'}
+                                    {t(CONTENT.voteDestDesc)}
                                 </div>
                             </div>
                         </Link>
@@ -249,7 +244,7 @@ export default function StartSelection() {
                     {SHOW_VOTE_COUNTS && Object.keys(votes).length > 0 && (
                         <div className="ss-vote-summary">
                             <div className="ss-vote-summary-label" style={{ fontFamily: monoFont }}>
-                                {isRTL ? 'آمار زنده رأی' : 'LIVE VOTE SNAPSHOT'}
+                                {t(CONTENT.liveVoteSnapshot)}
                             </div>
                             {blueprints.slice(0, 3).map(bp => {
                                 const count = votes[bp.id] ?? 0;
@@ -271,7 +266,7 @@ export default function StartSelection() {
             </div>
 
             <div className="ss-footer">
-                <Link to="/" className="ss-back" style={{ fontFamily: monoFont }}>← {isRTL ? 'بازگشت به نحوه دسترسی' : 'Back to access mode'}</Link>
+                <Link to="/access-mode" className="ss-back" style={{ fontFamily: monoFont }}>← {t(CONTENT.backToAccessMode)}</Link>
             </div>
 
             <FeatureSlider items={RIGHT_FEATURES} />

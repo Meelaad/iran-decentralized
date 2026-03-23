@@ -6,79 +6,8 @@ import { collectMetadata } from '../../lib/collectMetadata';
 import { isShamsiYear, shamsiYearToGregorian } from '../../lib/shamsi';
 import { BLUEPRINTS } from '../../data';
 import { Turnstile } from '@marsidev/react-turnstile';
+import CONTENT from '../../locales/pages/register.json';
 import './RegisterPage.css';
-
-// ── Bilingual content ────────────────────────────────────────────────────────
-
-const CONTENT = {
-    eyebrow:       { en: "CITIZEN PORTAL",          fa: "پورتال شهروندی" },
-    title:         { en: "Join IranDAO",             fa: "به ایران‌دائو بپیوندید" },
-    subtitle: {
-        en: "Register your sovereign digital identity. No passwords. Your email is your key.",
-        fa: "هویت دیجیتال مستقل خود را ثبت کنید. بدون رمز عبور. ایمیل شما کلید شماست.",
-    },
-    stepLabels:    [
-        { en: "DETAILS",  fa: "اطلاعات" },
-        { en: "VERIFY",   fa: "تأیید" },
-    ],
-    typeCitizen:   { en: "Citizen",   fa: "شهروند داخلی" },
-    typeDiaspora:  { en: "Diaspora",  fa: "دیاسپورا" },
-    labelBlueprint: { en: "PREFERRED GOVERNANCE MODEL", fa: "مدل حاکمیتی مورد نظر" },
-    labelName:     { en: "FULL NAME", fa: "نام و نام خانوادگی" },
-    labelCountry:  { en: "COUNTRY",   fa: "کشور" },
-    labelEmail:    { en: "EMAIL",      fa: "ایمیل" },
-    placeholderName:    { en: "Your full name",    fa: "نام کامل شما" },
-    placeholderEmail:   { en: "you@example.com",   fa: "you@example.com" },
-    selectCountry:      { en: "Select your country", fa: "کشور خود را انتخاب کنید" },
-    btnSend:   { en: "SEND VERIFICATION CODE", fa: "ارسال کد تأیید" },
-    btnVerify: { en: "VERIFY & JOIN",           fa: "تأیید و پیوستن" },
-    btnBack:   { en: "← BACK",                  fa: "← بازگشت" },
-    btnResend: { en: "Resend code",              fa: "ارسال مجدد کد" },
-    verifyText: {
-        en: "We sent a 6-digit code to",
-        fa: "یک کد ۶ رقمی به این آدرس ارسال شد",
-    },
-    verifyHint: {
-        en: "Enter the 6-digit code from your email. Check spam if you don't see it.",
-        fa: "کد ۶ رقمی را از ایمیل خود وارد کنید. اگر آن را نمی‌بینید پوشه اسپم را بررسی کنید.",
-    },
-    otpLabel: { en: "VERIFICATION CODE", fa: "کد تأیید" },
-    successTitle:  { en: "Identity Registered",       fa: "هویت ثبت شد" },
-    successBody:   {
-        en: "Your sovereign digital identity has been created. Welcome to IranDAO.",
-        fa: "هویت دیجیتال مستقل شما ایجاد شد. به ایران‌دائو خوش آمدید.",
-    },
-    successTag:    { en: "ACCESS GRANTED",  fa: "دسترسی تأیید شد" },
-    footnote: {
-        en: "No passwords stored. No seed phrases. Your email verifies your identity.",
-        fa: "هیچ رمز عبوری ذخیره نمی‌شود. بدون عبارت بازیابی. ایمیل شما هویت شما را تأیید می‌کند.",
-    },
-    inviteOnly: {
-        en: "Registration is currently by invitation only.",
-        fa: "ثبت‌نام در حال حاضر فقط با دعوت‌نامه امکان‌پذیر است.",
-    },
-    labelInvite:       { en: "INVITE CODE", fa: "کد دعوت" },
-    placeholderInvite: { en: "Enter your 6–8 character invite code", fa: "کد دعوت ۶ تا ۸ کاراکتری خود را وارد کنید" },
-    errors: {
-        inviteRequired: { en: "An invite code is required.", fa: "کد دعوت الزامی است." },
-        inviteInvalid:  { en: "Invalid invite code format. Codes are 6–8 characters (letters and numbers).", fa: "فرمت کد دعوت نامعتبر است. کدها ۶ تا ۸ کاراکتر هستند." },
-        inviteNotFound: { en: "Invite code not found. Please check and try again.", fa: "کد دعوت یافت نشد. لطفاً دوباره بررسی کنید." },
-        inviteUsed:     { en: "This invite code has already been used.", fa: "این کد دعوت قبلاً استفاده شده است." },
-        nameRequired:    { en: "Full name is required.",        fa: "نام کامل الزامی است." },
-        nameInvalid:     { en: "Please enter your name correctly.", fa: "لطفاً نام خود را به درستی وارد کنید." },
-        countryRequired:     { en: "Please select your country.",      fa: "لطفاً کشور خود را انتخاب کنید." },
-        countryNameInvalid:  { en: "Please enter a valid country name.", fa: "لطفاً یک نام کشور معتبر وارد کنید." },
-        emailRequired:       { en: "Email address is required.",         fa: "آدرس ایمیل الزامی است." },
-        emailInvalid:        { en: "Please use a valid email address.",  fa: "لطفاً یک آدرس ایمیل معتبر وارد کنید." },
-        emailDomain:     { en: "Please use a recognised email provider or institutional address.", fa: "لطفاً از یک ارائه‌دهنده ایمیل شناخته‌شده یا آدرس ایمیل دانشگاهی استفاده کنید." },
-        otpIncomplete:   { en: "Please enter the full 6-digit code.", fa: "لطفاً کد ۶ رقمی را کامل وارد کنید." },
-        generic:         { en: "Something went wrong. Please try again.", fa: "خطایی رخ داد. لطفاً دوباره تلاش کنید." },
-        rateLimit:       { en: "We are currently experiencing a high volume of requests. Please try again in an hour.", fa: "در حال حاضر با حجم بالایی از درخواست‌ها مواجه هستیم. لطفاً یک ساعت دیگر دوباره تلاش کنید." },
-        otpInvalid:      { en: "The code you entered is incorrect or has expired. Please check and try again, or request a new code.", fa: "کد واردشده اشتباه است یا منقضی شده. لطفاً دوباره بررسی کنید یا کد جدیدی درخواست دهید." },
-        serverError:     { en: "A system error occurred. If this keeps happening, please contact support.", fa: "خطای سیستمی رخ داد. اگر مشکل ادامه دارد، لطفاً با پشتیبانی تماس بگیرید." },
-    },
-    contactSupport: { en: "Contact Support", fa: "تماس با پشتیبانی" },
-};
 
 // ── Country list ─────────────────────────────────────────────────────────────
 
@@ -137,56 +66,7 @@ const DIASPORA_ESTIMATES = {
 
 // Translation map — order here does not matter, sorting is derived from DIASPORA_ESTIMATES.
 // Iran is pinned first; Other is pinned last.
-const COUNTRIES = [
-    { en: "Iran",                 fa: "ایران" },          // home country — always first
-    { en: "United States",        fa: "ایالات متحده" },   // ~1,000,000+
-    { en: "United Arab Emirates", fa: "امارات متحده عربی" }, // ~400,000–500,000
-    { en: "Germany",              fa: "آلمان" },           // ~150,000–200,000
-    { en: "Canada",               fa: "کانادا" },          // ~163,000–400,000
-    { en: "Sweden",               fa: "سوئد" },            // ~100,000–200,000
-    { en: "United Kingdom",       fa: "بریتانیا" },        // ~90,000–150,000
-    { en: "Australia",            fa: "استرالیا" },        // ~60,000–140,000
-    { en: "Turkey",               fa: "ترکیه" },           // ~83,000–100,000
-    { en: "Israel",               fa: "اسرائیل" },         // ~100,000 (Iranian-Jewish community)
-    { en: "France",               fa: "فرانسه" },          // ~40,000–70,000
-    { en: "Netherlands",          fa: "هلند" },            // ~40,000–80,000
-    { en: "Norway",               fa: "نروژ" },            // ~40,000–60,000
-    { en: "Azerbaijan",           fa: "آذربایجان" },       // ~30,000–60,000
-    { en: "Austria",              fa: "اتریش" },           // ~30,000–50,000
-    { en: "Denmark",              fa: "دانمارک" },         // ~25,000–40,000
-    { en: "Switzerland",          fa: "سوئیس" },           // ~20,000–40,000
-    { en: "Russia",               fa: "روسیه" },           // ~20,000–50,000
-    { en: "Belgium",              fa: "بلژیک" },           // ~20,000–40,000
-    { en: "Iraq",                 fa: "عراق" },            // ~15,000–30,000
-    { en: "Spain",                fa: "اسپانیا" },         // ~15,000–25,000
-    { en: "Italy",                fa: "ایتالیا" },         // ~10,000–20,000
-    { en: "Georgia",              fa: "گرجستان" },         // ~10,000–20,000
-    { en: "Armenia",              fa: "ارمنستان" },        // ~10,000–20,000
-    { en: "Greece",               fa: "یونان" },           // ~10,000–15,000
-    { en: "Bahrain",              fa: "بحرین" },           // ~10,000–20,000
-    { en: "Tajikistan",           fa: "تاجیکستان" },       // ~10,000–15,000
-    { en: "Malaysia",             fa: "مالزی" },           // ~8,000–15,000
-    { en: "Finland",              fa: "فنلاند" },          // ~5,000–15,000
-    { en: "Pakistan",             fa: "پاکستان" },         // ~5,000–15,000
-    { en: "India",                fa: "هند" },             // ~5,000–10,000
-    { en: "Kuwait",               fa: "کویت" },            // ~5,000–10,000
-    { en: "Qatar",                fa: "قطر" },             // ~5,000–10,000
-    { en: "Saudi Arabia",         fa: "عربستان سعودی" },  // ~5,000–10,000
-    { en: "Oman",                 fa: "عمان" },            // ~5,000–10,000
-    { en: "Japan",                fa: "ژاپن" },            // ~3,000–8,000
-    { en: "Brazil",               fa: "برزیل" },           // ~5,000–10,000
-    { en: "Argentina",            fa: "آرژانتین" },        // ~3,000–8,000
-    { en: "New Zealand",          fa: "نیوزیلند" },        // ~3,000–8,000
-    { en: "South Korea",          fa: "کره جنوبی" },       // ~2,000–5,000
-    { en: "Ireland",              fa: "ایرلند" },          // ~3,000–6,000
-    { en: "Portugal",             fa: "پرتغال" },          // ~3,000–6,000
-    { en: "Czech Republic",       fa: "جمهوری چک" },       // ~2,000–5,000
-    { en: "Poland",               fa: "لهستان" },          // ~2,000–4,000
-    { en: "Hungary",              fa: "مجارستان" },        // ~2,000–4,000
-    { en: "Romania",              fa: "رومانی" },          // ~1,000–3,000
-    { en: "Afghanistan",          fa: "افغانستان" },       // small (not a typical destination)
-    { en: "Other",                fa: "سایر" },            // always last
-];
+const COUNTRIES = CONTENT.countries;
 
 // Extracts the lower-bound number from estimate strings like "1,000,000–1,500,000", "~438,000", "500,000+"
 function parseEstimate(str) {
@@ -393,7 +273,6 @@ export default function RegisterPage() {
     useEffect(() => {
         if (step === 'verify') setCooldown(getCooldown(0));
     }, [step]);
-
 
     // Tick the cooldown down every second
     useEffect(() => {

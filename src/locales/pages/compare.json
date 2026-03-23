@@ -1,11 +1,11 @@
 {
   "kicker": {
     "en": "GOVERNANCE BLUEPRINT COMPARISON",
-    "fa": "مقایسه طرحهای حاکمیتی"
+    "fa": "مقایسه طرح‌های حاکمیتی"
   },
   "title": {
     "en": "Compare Models",
-    "fa": "مقایسه مدلها"
+    "fa": "مقایسه مدل‌ها"
   },
   "selectorALabel": {
     "en": "A",
@@ -44,7 +44,7 @@
       "key": "primary",
       "label": {
         "en": "PRIMARY SECTORS",
-        "fa": "بخشهای اولیه"
+        "fa": "بخش‌های اولیه"
       },
       "color": "#66bb6a"
     },
@@ -52,7 +52,7 @@
       "key": "secondary",
       "label": {
         "en": "SECONDARY SECTORS",
-        "fa": "بخشهای ثانویه"
+        "fa": "بخش‌های ثانویه"
       },
       "color": "#ffa726"
     },
@@ -60,14 +60,14 @@
       "key": "tertiary",
       "label": {
         "en": "SUPPORTING",
-        "fa": "بخشهای پشتیبان"
+        "fa": "بخش‌های پشتیبان"
       },
       "color": "#ab47bc"
     }
   ],
   "layersSectionTitle": {
     "en": "SHARED INFRASTRUCTURE LAYERS",
-    "fa": "لایههای زیرساخت مشترک"
+    "fa": "لایه‌های زیرساخت مشترک"
   },
   "connectionsSectionTitle": {
     "en": "CONNECTION STRENGTH DISTRIBUTION",

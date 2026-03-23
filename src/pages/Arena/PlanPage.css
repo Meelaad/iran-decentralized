@@ -64,6 +64,34 @@
 .plan-country-bar { height: 100%; background: #8B5CF6; border-radius: 3px; }
 .plan-country-count { width: 40px; text-align: end; color: #CCE3F0; }
 
+/* ── RTL / Farsi font overrides ── */
+[dir="rtl"] .plan-tab {
+    font-family: 'Irancell', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+}
+[dir="rtl"] .plan-endorse-btn,
+[dir="rtl"] .plan-propose-btn,
+[dir="rtl"] .plan-propose-submit,
+[dir="rtl"] .plan-propose-cancel,
+[dir="rtl"] .amend-yes-btn,
+[dir="rtl"] .amend-no-btn {
+    font-family: 'Irancell', sans-serif;
+    letter-spacing: 0;
+}
+[dir="rtl"] .amendment-status {
+    font-family: 'Irancell', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+}
+[dir="rtl"] .demo-label,
+[dir="rtl"] .plan-country-title,
+[dir="rtl"] .plan-official-badge {
+    font-family: 'Irancell', sans-serif;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
 @media (max-width: 600px) {
     .plan-page { padding: 14px; }
     .plan-tabs { gap: 0; }

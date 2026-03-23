@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "allPlans": { "en": "← All Transitional Plans", "fa": "← همه طرح‌های انتقالی" },
+    "arena": { "en": "Arena →", "fa": "آرنا ←" }
+  },
+  "sections": {
+    "/transition/main-stage": {
+      "label": { "en": "TRANSITION / MAIN STAGE", "fa": "گذار / صحنه اصلی" },
+      "title": { "en": "Main Stage", "fa": "صحنه اصلی" },
+      "desc": {
+        "en": "The arena where active transitional plans endorsed by movements and coalitions are voted on by the public. Plans that reach 10,000 signatures advance here for final deliberation.",
+        "fa": "بستری که در آن طرح‌های انتقالی فعال مورد تأیید جنبش‌ها و ائتلاف‌ها توسط مردم رأی‌گیری می‌شوند. طرح‌هایی که به ۱۰٬۰۰۰ امضا می‌رسند برای بررسی نهایی به اینجا می‌آیند."
+      },
+      "eta": { "en": "Under active development", "fa": "در حال توسعه فعال" }
+    },
+    "/transition/incubator": {
+      "label": { "en": "TRANSITION / PLAN INCUBATOR", "fa": "گذار / پرورشگاه طرح" },
+      "title": { "en": "Plan Incubator", "fa": "پرورشگاه طرح" },
+      "desc": {
+        "en": "Propose a new grassroots transitional plan and gather the 10,000 signatures needed to advance it to the Main Stage. Currently accessible via the Arena.",
+        "fa": "یک طرح انتقالی مردمی جدید پیشنهاد دهید و ۱۰٬۰۰۰ امضای لازم برای ارتقا به صحنه اصلی را جمع‌آوری کنید. در حال حاضر از طریق آرنا در دسترس است."
+      },
+      "eta": { "en": "Available now via /arena", "fa": "هم‌اکنون از طریق آرنا در دسترس" },
+      "linkLabel": { "en": "Go to Arena →", "fa": "رفتن به آرنا ←" }
+    },
+    "/transition/amendment-floor": {
+      "label": { "en": "TRANSITION / AMENDMENT FLOOR", "fa": "گذار / پیشنهاد اصلاحی در صحن" },
+      "title": { "en": "Amendment Floor", "fa": "پیشنهاد اصلاحی در صحن" },
+      "desc": {
+        "en": "Propose and vote on line-item changes to any active transitional plan in real time. This deliberative layer enables the public to refine plans before they are ratified.",
+        "fa": "تغییرات خط‌به‌خط هر طرح انتقالی فعال را در زمان واقعی پیشنهاد دهید و رأی بدهید. این لایه مداولاتی به مردم امکان می‌دهد طرح‌ها را پیش از تصویب اصلاح کنند."
+      },
+      "eta": { "en": "Under active development", "fa": "در حال توسعه فعال" }
+    },
+    "/transition/shadow-cabinet": {
+      "label": { "en": "TRANSITION / SHADOW CABINET", "fa": "گذار / دولت سایه" },
+      "title": { "en": "Shadow Cabinet", "fa": "دولت سایه" },
+      "desc": {
+        "en": "Nominate and elect sector experts to a shadow transitional government using ranked-choice voting. The cabinet will serve as a public accountability layer during the transition.",
+        "fa": "کارشناسان بخشی را برای کابینه دولت انتقالی سایه معرفی و با رأی ترجیحی انتخاب کنید. کابینه در دوران گذار به عنوان لایه پاسخگویی عمومی عمل خواهد کرد."
+      },
+      "eta": { "en": "Under active development", "fa": "در حال توسعه فعال" }
+    },
+    "default": {
+      "label": { "en": "SYSTEM", "fa": "سیستم" },
+      "title": { "en": "Page In Progress", "fa": "صفحه در دست ساخت" },
+      "desc": {
+        "en": "This section of the platform is currently being built. Check back soon.",
+        "fa": "این بخش از پلتفرم در حال ساخت است. به زودی بازگردید."
+      },
+      "eta": { "en": "Under active development", "fa": "در حال توسعه فعال" }
+    }
+  },
+  "icons": {
+    "/transition/main-stage": "🏛",
+    "/transition/incubator": "🌱",
+    "/transition/amendment-floor": "📜",
+    "/transition/shadow-cabinet": "⚖️",
+    "default": "⚙️"
+  },
+  "links": {
+    "/transition/incubator": "/arena"
+  }
+}

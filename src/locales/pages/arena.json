@@ -1,0 +1,126 @@
+{
+  "metaTitle": {
+    "en": "The Arena",
+    "fa": "گودِ گذار"
+  },
+  "metaDescription": {
+    "en": "Active transitional plans — endorse, debate, and shape Iran's future.",
+    "fa": "طرح‌های گذار فعال — تأیید و بحث"
+  },
+  "rateLimitMsg": {
+    "en": "Security Warning: \nToo many vote changes in a short time. Your account now has a temporary voting limit. If you need to change your current vote, please try again later.",
+    "fa": "برای نظم و امنیت و یکپارچگی سیستم نمی‌توانید در مدت خیلی کوتاه چند بار رأی را عوض کنید، محدودیت موقت روی حساب شما ایجاد شد، لطفاً اگر قصد تعویض رأی دارید بعداً دوباره تلاش کنید."
+  },
+  "compareLabel": {
+    "en": "COMPARE",
+    "fa": "مقایسه"
+  },
+  "compareTitle": {
+    "en": "Compare All Plans",
+    "fa": "مقایسه طرح‌های انتقالی"
+  },
+  "compareSub": {
+    "en": "Side-by-side comparison of suggested frameworks",
+    "fa": "مقایسه جانبی طرح‌های پیشنهادی"
+  },
+  "compareCTA": {
+    "en": "COMPARE →",
+    "fa": "مقایسه ←"
+  },
+  "referencePlansTitle": {
+    "en": "REFERENCE PLANS",
+    "fa": "طرح‌های مرجع"
+  },
+  "referencePlansSub": {
+    "en": "Documented and analysed transitional frameworks",
+    "fa": "طرح‌های مستند و تحلیل‌شده برای دوران گذار"
+  },
+  "badgeActivePlan": {
+    "en": "ACTIVE PLAN",
+    "fa": "طرح فعال"
+  },
+  "badgeReferenceDoc": {
+    "en": "REFERENCE DOC",
+    "fa": "سند مرجع"
+  },
+  "badgeActiveOps": {
+    "en": "ACTIVE OPS",
+    "fa": "عملیات فعال"
+  },
+  "badgeActiveCoalition": {
+    "en": "ACTIVE COALITION",
+    "fa": "ائتلاف فعال"
+  },
+  "viewFullAnalysis": {
+    "en": "VIEW FULL ANALYSIS →",
+    "fa": "مشاهده تحلیل کامل ←"
+  },
+  "viewDocument": {
+    "en": "VIEW DOCUMENT →",
+    "fa": "مشاهده سند ←"
+  },
+  "mousaviName": {
+    "en": "Mousavi — \"To Save Iran\"",
+    "fa": "موسوی — «برای نجات ایران»"
+  },
+  "mousaviMeta": {
+    "en": "Mir Hossein Mousavi · Feb 2023",
+    "fa": "میر حسین موسوی · فوریه ۲۰۲۳"
+  },
+  "nufdiName": {
+    "en": "NUFDI Blueprint",
+    "fa": "طرح NUFDI"
+  },
+  "nufdiMeta": {
+    "en": "National United Front of Democrats of Iran",
+    "fa": "جبهه ملی متحد دموکرات‌های ایران"
+  },
+  "itcName": {
+    "en": "Iran Transition Council (ITC)",
+    "fa": "شورای انتقال ایران (ITC)"
+  },
+  "itcMeta": {
+    "en": "Shadow Government & Transitional Planning Unit · 2019",
+    "fa": "دولت سایه و واحد برنامه‌ریزی انتقالی · ۲۰۱۹"
+  },
+  "cpildName": {
+    "en": "Constitutionalist Party of Iran (CPILD)",
+    "fa": "حزب مشروطه ایران (لیبرال دموکرات)"
+  },
+  "cpildMeta": {
+    "en": "Constitutionalist Party of Iran — Liberal Democrat",
+    "fa": "حزب مشروطه ایران — لیبرال دموکرات"
+  },
+  "jmiName": {
+    "en": "Jebhe Melli Iran (JMI)",
+    "fa": "جبهه ملی ایران (JMI)"
+  },
+  "jmiMeta": {
+    "en": "National Front of Iran · Founded 1949 by Dr. Mossadegh",
+    "fa": "جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق"
+  },
+  "cpfikName": {
+    "en": "CPFIK — Kurdish Federal Blueprint",
+    "fa": "CPFIK — طرح فدرال کردستان"
+  },
+  "cpfikMeta": {
+    "en": "Coalition of Political Forces of Iranian Kurdistan · 2026",
+    "fa": "ائتلاف نیروهای سیاسی کردستان ایران · ۲۰۲۶"
+  },
+  "uriName": {
+    "en": "URI / Hamgami Coalition",
+    "fa": "ائتلاف URI / همگامی"
+  },
+  "uriMeta": {
+    "en": "United Republicans of Iran · Founded 2004",
+    "fa": "جمهوری‌خواهان متحد ایران · تأسیس ۲۰۰۴"
+  },
+  "civilSocietyName": {
+    "en": "Iran Civil Society Charter",
+    "fa": "منشور جامعه مدنی ایران"
+  },
+  "civilSocietyMeta": {
+    "en": "Civil Society Research & Advocacy Network",
+    "fa": "شبکه پژوهش و حمایت جامعه مدنی"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "exploreBlueprintsLink": {
+    "en": "EXPLORE BLUEPRINTS →",
+    "fa": "کاوش طرح‌ها ←"
+  },
+  "rawVotes": {
+    "en": "RAW VOTES",
+    "fa": "رأی خام"
+  },
+  "weightedVotes": {
+    "en": "WEIGHTED VOTES",
+    "fa": "رأی وزن‌دار"
+  },
+  "weightedInfoTitle": {
+    "en": "Votes are weighted by citizen trust tier",
+    "fa": "آرا بر اساس سطح اعتماد شهروند وزن‌دهی می‌شوند"
+  },
+  "tierLow": {
+    "en": "Low — new members",
+    "fa": "پایین — اعضای جدید"
+  },
+  "tierMid": {
+    "en": "Mid — verified members",
+    "fa": "متوسط — اعضای تأیید‌شده"
+  },
+  "tierHigh": {
+    "en": "High — trusted members",
+    "fa": "بالا — اعضای معتمد"
+  },
+  "transArenaEmpty": {
+    "en": "No plans in the Arena yet.",
+    "fa": "هنوز طرحی در گودِ گذار نیست."
+  },
+  "transVoteError429": {
+    "en": "Security Warning: too many vote changes in a short time. Your account now has a temporary voting limit. If you need to change your current vote, please try again later.",
+    "fa": "برای نظم و امنیت و یکپارچگی سیستم نمی‌توانید در مدت خیلی کوتاه چند بار رأی را عوض کنید، محدودیت موقت روی حساب شما ایجاد شد، لطفاً اگر قصد تعویض رأی دارید بعداً دوباره تلاش کنید."
+  },
+  "ageInvalidDate": {
+    "en": "Invalid date.",
+    "fa": "تاریخ نامعتبر."
+  }
+}

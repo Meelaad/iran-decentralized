@@ -5,7 +5,7 @@
   },
   "title": {
     "en": "Join IranDAO",
-    "fa": "به ایراندائو بپیوندید"
+    "fa": "به ایران‌دائو بپیوندید"
   },
   "subtitle": {
     "en": "Register your sovereign digital identity. No passwords. Your email is your key.",
@@ -79,7 +79,7 @@
   },
   "verifyHint": {
     "en": "Enter the 6-digit code from your email. Check spam if you don't see it.",
-    "fa": "کد ۶ رقمی را از ایمیل خود وارد کنید. اگر آن را نمیبینید پوشه اسپم را بررسی کنید."
+    "fa": "کد ۶ رقمی را از ایمیل خود وارد کنید. اگر آن را نمی‌بینید پوشه اسپم را بررسی کنید."
   },
   "otpLabel": {
     "en": "VERIFICATION CODE",
@@ -91,7 +91,7 @@
   },
   "successBody": {
     "en": "Your sovereign digital identity has been created. Welcome to IranDAO.",
-    "fa": "هویت دیجیتال مستقل شما ایجاد شد. به ایراندائو خوش آمدید."
+    "fa": "هویت دیجیتال مستقل شما ایجاد شد. به ایران‌دائو خوش آمدید."
   },
   "successTag": {
     "en": "ACCESS GRANTED",
@@ -99,11 +99,11 @@
   },
   "footnote": {
     "en": "No passwords stored. No seed phrases. Your email verifies your identity.",
-    "fa": "هیچ رمز عبوری ذخیره نمیشود. بدون عبارت بازیابی. ایمیل شما هویت شما را تأیید میکند."
+    "fa": "هیچ رمز عبوری ذخیره نمی‌شود. بدون عبارت بازیابی. ایمیل شما هویت شما را تأیید می‌کند."
   },
   "inviteOnly": {
     "en": "Registration is currently by invitation only.",
-    "fa": "ثبتنام در حال حاضر فقط با دعوتنامه امکانپذیر است."
+    "fa": "ثبت‌نام در حال حاضر فقط با دعوت‌نامه امکان‌پذیر است."
   },
   "labelInvite": {
     "en": "INVITE CODE",
@@ -156,7 +156,7 @@
     },
     "emailDomain": {
       "en": "Please use a recognised email provider or institutional address.",
-      "fa": "لطفاً از یک ارائهدهنده ایمیل شناختهشده یا آدرس ایمیل دانشگاهی استفاده کنید."
+      "fa": "لطفاً از یک ارائه‌دهنده ایمیل شناخته‌شده یا آدرس ایمیل دانشگاهی استفاده کنید."
     },
     "otpIncomplete": {
       "en": "Please enter the full 6-digit code.",
@@ -168,7 +168,7 @@
     },
     "rateLimit": {
       "en": "We are currently experiencing a high volume of requests. Please try again in an hour.",
-      "fa": "در حال حاضر با حجم بالایی از درخواستها مواجه هستیم. لطفاً یک ساعت دیگر دوباره تلاش کنید."
+      "fa": "در حال حاضر با حجم بالایی از درخواست‌ها مواجه هستیم. لطفاً یک ساعت دیگر دوباره تلاش کنید."
     },
     "otpInvalid": {
       "en": "The code you entered is incorrect or has expired. Please check and try again, or request a new code.",

@@ -331,6 +331,7 @@ export default function BlueprintViewer() {
     const location = useLocation();
     const [bpPickerOpen, setBpPickerOpen] = useState(false);
     const bpPickerRef = useRef(null);
+    const bpPickerMobileRef = useRef(null);
     const [selected, setSelected] = useState(null);
     const [animating, setAnimating] = useState(null);
     const [panelOrigin, setPanelOrigin] = useState(null);
@@ -462,7 +463,9 @@ export default function BlueprintViewer() {
     useEffect(() => {
         if (!bpPickerOpen) return;
         function handleOutside(e) {
-            if (bpPickerRef.current && !bpPickerRef.current.contains(e.target)) setBpPickerOpen(false);
+            const inDesktop = bpPickerRef.current?.contains(e.target);
+            const inMobile  = bpPickerMobileRef.current?.contains(e.target);
+            if (!inDesktop && !inMobile) setBpPickerOpen(false);
         }
         document.addEventListener('mousedown', handleOutside);
         return () => document.removeEventListener('mousedown', handleOutside);
@@ -802,7 +805,7 @@ export default function BlueprintViewer() {
                             <span className="tab-icon">⬡</span>
                             {tKey('blueprint.list')}
                         </button>
-                        <div className="bv-bp-picker bv-bp-picker--mobile" ref={bpPickerRef}>
+                        <div className="bv-bp-picker bv-bp-picker--mobile" ref={bpPickerMobileRef}>
                             <button
                                 className="bv-bp-picker-btn"
                                 onClick={() => setBpPickerOpen(o => !o)}
@@ -856,7 +859,7 @@ export default function BlueprintViewer() {
                             <span className="tab-icon">⬡</span>
                             {tKey('blueprint.list')}
                         </button>
-                        <div className="bv-bp-picker bv-bp-picker--mobile" ref={bpPickerRef}>
+                        <div className="bv-bp-picker bv-bp-picker--mobile" ref={bpPickerMobileRef}>
                             <button
                                 className="bv-bp-picker-btn"
                                 onClick={() => setBpPickerOpen(o => !o)}

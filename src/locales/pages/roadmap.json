@@ -1,11 +1,11 @@
 {
   "title": {
     "en": "Implementation Roadmap",
-    "fa": "نقشه راه پیادهسازی"
+    "fa": "نقشه راه پیاده‌سازی"
   },
   "subtitle": {
     "en": "A phased path for the",
-    "fa": "مسیر گامبهگام برای طرح"
+    "fa": "مسیر گام‌به‌گام برای طرح"
   },
   "decentralizedPhases": [
     {
@@ -17,11 +17,11 @@
       "items": [
         {
           "en": "Deploy Sovereign Digital Identity (SSI) pilot with diaspora volunteers",
-          "fa": "راهاندازی آزمایشی هویت دیجیتال مستقل با داوطلبان دیاسپورا"
+          "fa": "راه‌اندازی آزمایشی هویت دیجیتال مستقل با داوطلبان دیاسپورا"
         },
         {
           "en": "Launch censorship-resistant mesh network in 3 provinces",
-          "fa": "راهاندازی شبکه مقاوم در برابر سانسور در ۳ استان"
+          "fa": "راه‌اندازی شبکه مقاوم در برابر سانسور در ۳ استان"
         },
         {
           "en": "Establish Censorship-Resistant Ledger (Layer 1) testnet",
@@ -36,7 +36,7 @@
     {
       "phase": {
         "en": "Phase 2 — Core Services",
-        "fa": "فاز ۲ — خدمات هستهای"
+        "fa": "فاز ۲ — خدمات هسته‌ای"
       },
       "color": "#66bb6a",
       "items": [
@@ -50,11 +50,11 @@
         },
         {
           "en": "Tokenized National Resource tracking for oil & gas reserves",
-          "fa": "ردیابی توکنشده ذخایر نفت و گاز"
+          "fa": "ردیابی توکن‌شده ذخایر نفت و گاز"
         },
         {
           "en": "Transitional Justice Immutable Ledger — truth commission integration",
-          "fa": "دفتر کل عدالت انتقالی — یکپارچهسازی با کمیسیون حقیقتیاب"
+          "fa": "دفتر کل عدالت انتقالی — یکپارچه‌سازی با کمیسیون حقیقت‌یاب"
         },
         {
           "en": "AI Anti-Corruption Engine v1 — budget monitoring",
@@ -71,15 +71,15 @@
       "items": [
         {
           "en": "Healthcare patient-record sovereignty across all provinces",
-          "fa": "حاکمیت پرونده بیمار در تمام استانها"
+          "fa": "حاکمیت پرونده بیمار در تمام استان‌ها"
         },
         {
           "en": "On-Chain Land Registry & tokenized property titles",
-          "fa": "ثبت اسناد املاک روی زنجیره و اسناد مالکیت توکنشده"
+          "fa": "ثبت اسناد املاک روی زنجیره و اسناد مالکیت توکن‌شده"
         },
         {
           "en": "Education Credential NFTs — university integration",
-          "fa": "NFT مدارک تحصیلی — یکپارچهسازی با دانشگاهها"
+          "fa": "NFT مدارک تحصیلی — یکپارچه‌سازی با دانشگاه‌ها"
         },
         {
           "en": "Social Services benefits engine with AI-driven eligibility",
@@ -91,28 +91,28 @@
         },
         {
           "en": "Decentralized News Verification Protocol launch",
-          "fa": "راهاندازی پروتکل تأیید اخبار غیرمتمرکز"
+          "fa": "راه‌اندازی پروتکل تأیید اخبار غیرمتمرکز"
         }
       ]
     },
     {
       "phase": {
         "en": "Phase 4 — Full Integration",
-        "fa": "فاز ۴ — یکپارچهسازی کامل"
+        "fa": "فاز ۴ — یکپارچه‌سازی کامل"
       },
       "color": "#ab47bc",
       "items": [
         {
           "en": "All 31 provincial DAOs online with cross-chain interoperability",
-          "fa": "تمام ۳۱ DAO استانی آنلاین با قابلیت همکاری بینزنجیرهای"
+          "fa": "تمام ۳۱ DAO استانی آنلاین با قابلیت همکاری بین‌زنجیره‌ای"
         },
         {
           "en": "Culture & Heritage tokenization — Persepolis, Isfahan, and beyond",
-          "fa": "توکنسازی میراث فرهنگی — تختجمشید، اصفهان و فراتر"
+          "fa": "توکن‌سازی میراث فرهنگی — تخت‌جمشید، اصفهان و فراتر"
         },
         {
           "en": "Instant Business Registration (On-Chain) for all enterprise types",
-          "fa": "ثبت فوری کسبوکار (روی زنجیره) برای تمام انواع شرکتها"
+          "fa": "ثبت فوری کسب‌وکار (روی زنجیره) برای تمام انواع شرکت‌ها"
         },
         {
           "en": "Defense & Cybersecurity Operations Center fully decentralized",
@@ -120,7 +120,7 @@
         },
         {
           "en": "Interoperability Gateway — all sector APIs standardized",
-          "fa": "درگاه یکپارچهسازی — استانداردسازی تمام APIهای بخشی"
+          "fa": "درگاه یکپارچه‌سازی — استانداردسازی تمام APIهای بخشی"
         },
         {
           "en": "Full citizen participation: every adult with sovereign digital identity",
@@ -140,7 +140,7 @@
     "primary": {
       "phase": {
         "en": "Phase 2 — Core Services",
-        "fa": "فاز ۲ — خدمات هستهای"
+        "fa": "فاز ۲ — خدمات هسته‌ای"
       },
       "color": "#66bb6a"
     },
@@ -154,7 +154,7 @@
     "tertiary": {
       "phase": {
         "en": "Phase 4 — Full Integration",
-        "fa": "فاز ۴ — یکپارچهسازی کامل"
+        "fa": "فاز ۴ — یکپارچه‌سازی کامل"
       },
       "color": "#ab47bc"
     }

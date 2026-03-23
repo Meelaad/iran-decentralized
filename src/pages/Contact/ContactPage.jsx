@@ -3,48 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { useLang } from '../../contexts/LangContext';
 import './ContactPage.css';
+import CONTENT from '../../locales/pages/contact.json';
 
 const TURNSTILE_SITEKEY = import.meta.env.VITE_CONTACT_TURNSTILE_SITE_KEY || '1x00000000000000000000AA';
-
-const CONTENT = {
-    eyebrow:  { en: 'SUPPORT',          fa: 'پشتیبانی' },
-    title:    { en: 'Contact Us',        fa: 'تماس با ما' },
-    subtitle: {
-        en: 'Having an issue? Send us a message and we\'ll get back to you.',
-        fa: 'مشکلی دارید؟ پیامی بفرستید تا در اسرع وقت پاسخ دهیم.',
-    },
-    labelName:    { en: 'NAME (OPTIONAL)',    fa: 'نام (اختیاری)' },
-    labelEmail:   { en: 'EMAIL',             fa: 'ایمیل' },
-    labelSubject: { en: 'SUBJECT',           fa: 'موضوع' },
-    labelMessage: { en: 'MESSAGE',           fa: 'پیام' },
-    placeholderName:    { en: 'Your name',               fa: 'نام شما' },
-    placeholderEmail:   { en: 'you@example.com',         fa: 'you@example.com' },
-    placeholderSubject: { en: 'What is this about?',     fa: 'موضوع پیام شما چیست؟' },
-    placeholderMessage: {
-        en: 'Please describe your issue in detail...',
-        fa: 'لطفاً مشکل خود را با جزئیات توضیح دهید...',
-    },
-    btnSend: { en: 'SEND MESSAGE', fa: 'ارسال پیام' },
-    successTitle: { en: 'Message Sent',      fa: 'پیام ارسال شد' },
-    successBody:  {
-        en: 'We received your message and will respond to your email shortly.',
-        fa: 'پیام شما دریافت شد. به زودی از طریق ایمیل پاسخ خواهیم داد.',
-    },
-    successTag: { en: 'RECEIVED', fa: 'دریافت شد' },
-    errors: {
-        nameInvalid:      { en: 'Name may only contain letters and spaces.',        fa: 'نام فقط می‌تواند شامل حروف و فاصله باشد.' },
-        emailRequired:    { en: 'Email address is required.',                       fa: 'آدرس ایمیل الزامی است.' },
-        emailInvalid:     { en: 'Please enter a valid email address.',              fa: 'لطفاً یک آدرس ایمیل معتبر وارد کنید.' },
-        subjectRequired:  { en: 'Subject is required.',                             fa: 'موضوع الزامی است.' },
-        subjectShort:     { en: 'Subject must be at least 4 characters.',           fa: 'موضوع باید حداقل ۴ کاراکتر باشد.' },
-        subjectLong:      { en: 'Subject must be under 120 characters.',            fa: 'موضوع باید کمتر از ۱۲۰ کاراکتر باشد.' },
-        messageRequired:  { en: 'Message is required.',                             fa: 'پیام الزامی است.' },
-        messageShort:     { en: 'Please write at least a sentence (50 characters).', fa: 'لطفاً حداقل یک جمله بنویسید (۵۰ کاراکتر).' },
-        messageLong:      { en: 'Message must be under 2000 characters.',           fa: 'پیام باید کمتر از ۲۰۰۰ کاراکتر باشد.' },
-        generic:          { en: 'Failed to send. Please try again.',                fa: 'ارسال ناموفق بود. لطفاً دوباره تلاش کنید.' },
-        rateLimit:        { en: 'Too many requests. Please wait a few minutes.',    fa: 'درخواست‌های زیادی ارسال شده. لطفاً چند دقیقه صبر کنید.' },
-    },
-};
 
 const NAME_REGEX  = /^[\u0600-\u06FFa-zA-Z\s'-]+$/;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

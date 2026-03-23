@@ -1,0 +1,130 @@
+{
+  "eyebrow": {
+    "en": "STAGE 1 — THE TRANSITION",
+    "fa": "مرحله ۱ — انتقال"
+  },
+  "title": {
+    "en": "Transitional Plans",
+    "fa": "طرح‌های انتقالی"
+  },
+  "subtitle": {
+    "en": "Documented frameworks proposed for Iran's post-regime transition period",
+    "fa": "چارچوب‌های مستند پیشنهادشده برای دوران انتقال ایران پس از رژیم"
+  },
+  "sectionRefDocs": {
+    "en": "REFERENCE DOCUMENTS",
+    "fa": "اسناد مرجع"
+  },
+  "nufdiTitle": {
+    "en": "NUFDI Blueprint",
+    "fa": "طرح NUFDI"
+  },
+  "nufdiMeta": {
+    "en": "National United Front of Democrats of Iran",
+    "fa": "جبهه ملی متحد دموکرات‌های ایران"
+  },
+  "nufdiTag": {
+    "en": "Decentralized Federal · 18–24 months",
+    "fa": "فدرال غیرمتمرکز · ۱۸–۲۴ ماه"
+  },
+  "mousaviTitle": {
+    "en": "Mousavi — \"To Save Iran\"",
+    "fa": "موسوی — «برای نجات ایران»"
+  },
+  "mousaviMeta": {
+    "en": "Mir Hossein Mousavi (Green Movement)",
+    "fa": "میر حسین موسوی (جنبش سبز)"
+  },
+  "mousaviTag": {
+    "en": "3-Stage Popular Sovereignty",
+    "fa": "حاکمیت مردمی ۳ مرحله‌ای"
+  },
+  "itcTitle": {
+    "en": "Iran Transition Council (ITC)",
+    "fa": "شورای انتقال ایران (ITC)"
+  },
+  "itcMeta": {
+    "en": "Shadow Government & Transitional Planning Unit",
+    "fa": "دولت سایه و واحد برنامه‌ریزی انتقالی"
+  },
+  "itcTag": {
+    "en": "Operational Shadow Government · Est. 2019",
+    "fa": "دولت سایه عملیاتی · تأسیس ۲۰۱۹"
+  },
+  "cpildTitle": {
+    "en": "Constitutionalist Party of Iran (CPILD)",
+    "fa": "حزب مشروطه ایران (لیبرال دموکرات)"
+  },
+  "cpildMeta": {
+    "en": "Constitutionalist Party of Iran — Liberal Democrat",
+    "fa": "حزب مشروطه ایران — لیبرال دموکرات"
+  },
+  "cpildTag": {
+    "en": "Constitutional Monarchy · Liberal Democracy",
+    "fa": "پادشاهی مشروطه · دموکراسی لیبرال"
+  },
+  "jmiTitle": {
+    "en": "Jebhe Melli Iran (JMI)",
+    "fa": "جبهه ملی ایران (JMI)"
+  },
+  "jmiMeta": {
+    "en": "National Front of Iran · Founded 1949 by Dr. Mossadegh",
+    "fa": "جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر مصدق"
+  },
+  "jmiTag": {
+    "en": "Mosaddeghist Democratic Republic",
+    "fa": "جمهوری دموکراتیک مصدقی"
+  },
+  "cpfikTitle": {
+    "en": "CPFIK — Kurdish Federal Blueprint",
+    "fa": "CPFIK — طرح فدرال کردستان"
+  },
+  "cpfikMeta": {
+    "en": "Coalition of Political Forces of Iranian Kurdistan",
+    "fa": "ائتلاف نیروهای سیاسی کردستان ایران"
+  },
+  "cpfikTag": {
+    "en": "Federal Liberation · Active Military Operations",
+    "fa": "رهایی فدرال · عملیات نظامی فعال"
+  },
+  "uriTitle": {
+    "en": "URI / Hamgami Coalition",
+    "fa": "ائتلاف URI / همگامی"
+  },
+  "uriMeta": {
+    "en": "United Republicans of Iran & Hamgami Coalition",
+    "fa": "جمهوری‌خواهان متحد ایران و ائتلاف همگامی"
+  },
+  "uriTag": {
+    "en": "Secular Republic · Two-Phase Transition",
+    "fa": "جمهوری سکولار · انتقال دو مرحله‌ای"
+  },
+  "civilSocietyTitle": {
+    "en": "Iran Civil Society Charter",
+    "fa": "منشور جامعه مدنی ایران"
+  },
+  "civilSocietyMeta": {
+    "en": "Civil Society Research & Advocacy Network",
+    "fa": "شبکه پژوهش و حمایت جامعه مدنی"
+  },
+  "civilSocietyTag": {
+    "en": "Civil Society Framework",
+    "fa": "چارچوب جامعه مدنی"
+  },
+  "sectionArena": {
+    "en": "THE ARENA",
+    "fa": "آرنا"
+  },
+  "arenaCardTitle": {
+    "en": "Transition Arena",
+    "fa": "آرنای انتقال"
+  },
+  "arenaCardDesc": {
+    "en": "View live plans being endorsed and debated by the community",
+    "fa": "مشاهده طرح‌های زنده که توسط جامعه تأیید و بحث می‌شوند"
+  },
+  "compareLink": {
+    "en": "Compare transitional plans side by side →",
+    "fa": "← مقایسه طرح‌های انتقالی در کنار هم"
+  }
+}
