@@ -342,13 +342,15 @@ function SubnavBar({ links, tKey }) {
 
 // ── Priority nav hook ──────────────────────────────────────────────────────
 // .site-nav-center has flex:1 so container.offsetWidth == available space (stable).
-// Stored item widths are measured once; priority nav is desktop-only (≥1280px).
+// Priority nav runs at all widths ≥768px (hamburger threshold); items collapse
+// progressively into "More ▾" with no hard desktop breakpoint — same as developers.google.com.
 const MORE_BTN_W = 82; // approx width of "More ▾" / "بیشتر ▾" button
+const MOBILE_BP = 768; // hamburger breakpoint
 
 function usePriorityNav(containerRef, totalItems) {
     const [visibleCount, setVisibleCount] = useState(totalItems);
     const storedWidths = useRef([]);
-    const wasMobile = useRef(typeof window !== 'undefined' && window.innerWidth < 1280);
+    const wasMobile = useRef(typeof window !== 'undefined' && window.innerWidth < MOBILE_BP);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -360,8 +362,8 @@ function usePriorityNav(containerRef, totalItems) {
         }
 
         function recalculate() {
-            // Priority nav is desktop-only; on mobile all items show via CSS rules
-            if (window.innerWidth < 1280) {
+            // Below hamburger breakpoint: all items show via CSS rules (zone buttons only)
+            if (window.innerWidth < MOBILE_BP) {
                 setVisibleCount(totalItems);
                 return;
             }
@@ -385,14 +387,14 @@ function usePriorityNav(containerRef, totalItems) {
 
         // First measurement: all items are visible (visibleCount starts at totalItems)
         const raf = requestAnimationFrame(() => {
-            if (window.innerWidth >= 1280) {
+            if (window.innerWidth >= MOBILE_BP) {
                 storedWidths.current = getItemWidths();
             }
             recalculate();
         });
 
         const ro = new ResizeObserver(() => {
-            const nowMobile = window.innerWidth < 1280;
+            const nowMobile = window.innerWidth < MOBILE_BP;
             const crossedToDesktop = wasMobile.current && !nowMobile;
             wasMobile.current = nowMobile;
 

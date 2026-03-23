@@ -663,8 +663,8 @@
     }
 }
 
-/* Tablet + small desktop (hamburger kicks in up to 1279px) */
-@media (max-width: 1279px) {
+/* True mobile: hamburger kicks in below 768px */
+@media (max-width: 767px) {
     .site-nav {
         padding: 8px 16px;
         gap: 0;
@@ -1149,8 +1149,8 @@
     color: rgba(90,106,126,0.6);
 }
 
-/* Hide desktop search on mobile (override must come after the base display:flex rule) */
-@media (max-width: 1279px) {
+/* Hide desktop search on true mobile */
+@media (max-width: 767px) {
     .site-nav-search { display: none; }
 }
 
@@ -1891,8 +1891,8 @@
 
 }
 
-/* ── Mobile/tablet: show zone dropdown buttons, hide plain links ─ */
-@media (max-width: 1279px) {
+/* ── True mobile: show zone dropdown buttons, hide plain links ─── */
+@media (max-width: 767px) {
     /* Show site-nav-center so zone buttons are visible in the nav bar */
     .site-nav-center {
         display: flex;
