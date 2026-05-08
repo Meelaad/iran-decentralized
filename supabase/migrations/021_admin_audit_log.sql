@@ -1,7 +1,7 @@
 -- Admin audit log: every admin action is recorded
 CREATE TABLE IF NOT EXISTS admin_audit_log (
     id          uuid PRIMARY KEY DEFAULT gen_random_uuid(),
-    admin_id    uuid NOT NULL REFERENCES auth.users(id) ON DELETE SET NULL,
+    admin_id    uuid REFERENCES auth.users(id) ON DELETE SET NULL,
     action      text NOT NULL,
     target_id   uuid,
     target_type text,
