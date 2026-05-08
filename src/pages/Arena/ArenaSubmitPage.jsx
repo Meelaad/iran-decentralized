@@ -13,7 +13,7 @@ const MIN_TITLE = 5;
 const MIN_SUMMARY = 50;
 
 export default function ArenaSubmitPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
     const { session, authLoading } = useAuth();
     const navigate = useNavigate();
     const submitMutation = useSubmitPlan();
@@ -29,6 +29,7 @@ export default function ArenaSubmitPage() {
     const [submitted, setSubmitted] = useState(false);
 
     const dir = isRTL ? 'rtl' : 'ltr';
+    const rootStyle = { fontFamily: headFont };
 
     function set(field, value) {
         setForm(f => ({ ...f, [field]: value }));
@@ -92,7 +93,7 @@ export default function ArenaSubmitPage() {
 
     if (!session) {
         return (
-            <div className="as-page" dir={dir}>
+            <div className="as-page" dir={dir} style={rootStyle}>
                 <div className="as-inner">
                     <div className="as-login-gate">
                         <div className="as-login-icon">🔒</div>
@@ -113,7 +114,7 @@ export default function ArenaSubmitPage() {
 
     if (submitted) {
         return (
-            <div className="as-page" dir={dir}>
+            <div className="as-page" dir={dir} style={rootStyle}>
                 <div className="as-inner">
                     <div className="as-success">
                         <div className="as-success-icon">✓</div>
@@ -135,7 +136,7 @@ export default function ArenaSubmitPage() {
     }
 
     return (
-        <div className="as-page" dir={dir}>
+        <div className="as-page" dir={dir} style={rootStyle}>
             <div className="as-inner">
                 <nav className="as-breadcrumb">
                     <Link to="/arena" className="as-breadcrumb-link">
@@ -172,7 +173,7 @@ export default function ArenaSubmitPage() {
                             className="as-input"
                             type="text"
                             dir="ltr"
-                            placeholder="e.g. Democratic Federal Republic of Iran"
+                            placeholder={t(CONTENT.placeholderTitleEn)}
                             value={form.title_en}
                             onChange={e => set('title_en', e.target.value)}
                             maxLength={120}
@@ -188,7 +189,7 @@ export default function ArenaSubmitPage() {
                             className="as-input"
                             type="text"
                             dir="rtl"
-                            placeholder="مثال: جمهوری فدرال دموکراتیک ایران"
+                            placeholder={t(CONTENT.placeholderTitleFa)}
                             value={form.title_fa}
                             onChange={e => set('title_fa', e.target.value)}
                             maxLength={120}
@@ -208,7 +209,7 @@ export default function ArenaSubmitPage() {
                             className="as-textarea"
                             dir="ltr"
                             rows={5}
-                            placeholder="Describe the core principles, transition methodology, and proposed governance structure..."
+                            placeholder={t(CONTENT.placeholderSummaryEn)}
                             value={form.summary_en}
                             onChange={e => set('summary_en', e.target.value)}
                             maxLength={2000}
@@ -230,7 +231,7 @@ export default function ArenaSubmitPage() {
                             className="as-textarea"
                             dir="rtl"
                             rows={5}
-                            placeholder="اصول اساسی، روش انتقال و ساختار حکومت پیشنهادی را شرح دهید..."
+                            placeholder={t(CONTENT.placeholderSummaryFa)}
                             value={form.summary_fa}
                             onChange={e => set('summary_fa', e.target.value)}
                             maxLength={2000}

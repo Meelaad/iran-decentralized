@@ -150,5 +150,21 @@
   "errSubmitRetry": {
     "en": "Failed to submit plan. Please try again.",
     "fa": "خطا در ارسال طرح. لطفاً دوباره امتحان کنید."
+  },
+  "placeholderTitleEn": {
+    "en": "e.g. Democratic Federal Republic of Iran",
+    "fa": "e.g. Democratic Federal Republic of Iran"
+  },
+  "placeholderTitleFa": {
+    "en": "مثال: جمهوری فدرال دموکراتیک ایران",
+    "fa": "مثال: جمهوری فدرال دموکراتیک ایران"
+  },
+  "placeholderSummaryEn": {
+    "en": "Describe the core principles, transition methodology, and proposed governance structure...",
+    "fa": "Describe the core principles, transition methodology, and proposed governance structure..."
+  },
+  "placeholderSummaryFa": {
+    "en": "اصول اساسی، روش انتقال و ساختار حکومت پیشنهادی را شرح دهید...",
+    "fa": "اصول اساسی، روش انتقال و ساختار حکومت پیشنهادی را شرح دهید..."
   }
 }

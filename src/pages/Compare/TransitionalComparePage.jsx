@@ -56,14 +56,14 @@ function HexGrid() {
 const { plans: PLANS, rows: ROWS } = CONTENT;
 
 export default function TransitionalComparePage() {
-    const { isRTL, t } = useLang();
+    const { isRTL, t, headFont } = useLang();
     const [selected, setSelected] = useState(['nufdi', 'mahsa']);
 
     const planA = PLANS.find(p => p.id === selected[0]);
     const planB = PLANS.find(p => p.id === selected[1]);
 
     return (
-        <div className="tc-root" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="tc-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <HexGrid />
 
             <div className="tc-inner">

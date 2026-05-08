@@ -31,19 +31,18 @@ function checkSuggestedPath(pattern) {
     const resolved = pattern.replace(/\{[^}]+\}/g, '');
     const candidate = path.join(root, resolved);
     if (containsPlaceholder) {
-        // If resolved ends with path separator or empty, check the directory exists
-        const dir = path.dirname(candidate) === '.' ? candidate : path.dirname(candidate);
-        if (!fs.existsSync(path.join(root, dir))) {
-            problems++;
-            warn(`MISSING: directory for pattern "${pattern}" → expected dir: ${path.join(root, dir)}`);
+        // candidate is already absolute; take its dirname directly (no second join with root)
+        const dir = path.dirname(candidate);
+        if (!fs.existsSync(dir)) {
+            // suggestedContentFiles are advisory — warn only, don't fail CI
+            warn(`SUGGESTED: directory for pattern "${pattern}" not yet created: ${dir}`);
             return false;
         }
-        // Directory exists — acceptable; placeholder expected
         return true;
     } else {
         if (!fs.existsSync(candidate)) {
-            problems++;
-            warn(`MISSING: file expected by manifest: ${candidate}`);
+            // suggestedContentFiles are advisory — warn only, don't fail CI
+            warn(`SUGGESTED: content file not yet created: ${candidate}`);
             return false;
         }
         return true;

@@ -139,17 +139,17 @@ function TimelineNode({ date, event, action, shift, color }) {
   );
 }
 
-function VulnCard({ number, title, regime, opposition, verdict, color }) {
+function VulnCard({ number, title, regime, opposition, verdict, color, regimeLabel, oppLabel }) {
   return (
     <div className="mp-vuln-card" style={{ borderColor: `${color}30` }}>
       <div className="mp-vuln-num" style={{ color }}>{number}</div>
       <div className="mp-vuln-title">{title}</div>
       <div className="mp-vuln-row">
-        <span className="mp-vuln-label mp-vuln-label--regime">Regime</span>
+        <span className="mp-vuln-label mp-vuln-label--regime">{regimeLabel}</span>
         <span className="mp-vuln-text">{regime}</span>
       </div>
       <div className="mp-vuln-row">
-        <span className="mp-vuln-label mp-vuln-label--opp">Opposition</span>
+        <span className="mp-vuln-label mp-vuln-label--opp">{oppLabel}</span>
         <span className="mp-vuln-text">{opposition}</span>
       </div>
       <div className="mp-vuln-verdict" style={{ borderColor: `${color}30`, color }}>{verdict}</div>
@@ -468,6 +468,8 @@ const DATA = {
     ],
 
     // ── VULNERABILITY VECTORS ──
+    vulnRegimeLabel: "Regime",
+    vulnOppLabel: "Opposition",
     vulnEyebrow: "Predictive Intelligence Matrix",
     vulnTitle: "Three Systemic Vulnerability Vectors",
     vulnIntro: "The Mousavi blueprint functions simultaneously as a mirror reflecting the Islamic Republic's structural vulnerabilities and a wedge actively exploiting them. Three critical vectors indicate the regime is operating under an acute, multifaceted legitimacy deficit that directly threatens its existential continuity.",
@@ -815,6 +817,8 @@ const DATA = {
       },
     ],
 
+    vulnRegimeLabel: "رژیم",
+    vulnOppLabel: "اپوزیسیون",
     vulnEyebrow: "ماتریس اطلاعاتی پیش‌بینی",
     vulnTitle: "سه بردار آسیب‌پذیری سیستمی",
     vulnIntro: "طرح موسوی هم‌زمان به عنوان آینه‌ای عمل می‌کند که آسیب‌پذیری‌های ساختاری جمهوری اسلامی را منعکس می‌کند و هم به عنوان اهرمی که فعالانه آن‌ها را بهره‌برداری می‌کند.",
@@ -984,7 +988,7 @@ export default function MousaviPage() {
 
         <div className="mp-vuln-grid">
           {d.vulnerabilities.map((v, i) => (
-            <VulnCard key={i} {...v} />
+            <VulnCard key={i} {...v} regimeLabel={d.vulnRegimeLabel} oppLabel={d.vulnOppLabel} />
           ))}
         </div>
 

@@ -1,7 +1,7 @@
 /* SectorsIndex.css — all sectors listing page */
 
 .sectors-index {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     padding: 40px 32px 64px;
     position: relative;
@@ -11,7 +11,7 @@
 /* ── Retro grid overlay (lower layer, perspective) ── */
 .sectors-index-retro-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.1);
+    --grid-color: var(--clr-accent-10);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -24,8 +24,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+    mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
 }
 
 .sectors-index-inner {
@@ -38,13 +38,13 @@
 .sectors-index-title {
     font-size: 28px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 8px;
 }
 
 .sectors-index-sub {
     font-size: 13px;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     margin-bottom: 40px;
 }
 
@@ -73,8 +73,8 @@
     align-items: flex-start;
     gap: 14px;
     padding: 16px 18px;
-    background: rgba(10,14,21,0.85);
-    border: 1px solid rgba(139,92,246,0.06);
+    background: oklch(10% 0.015 215 / 0.85);
+    border: 1px solid var(--clr-accent-05);
     border-left: 3px solid;
     cursor: pointer;
     transition: background-color 0.2s, transform 0.2s, border-color 0.2s;
@@ -94,7 +94,7 @@
 }
 
 .sectors-card:hover {
-    background: rgba(14,19,29,0.95);
+    background: oklch(13% 0.02 220 / 0.95);
     transform: translateX(3px);
 }
 
@@ -121,13 +121,13 @@
 .sectors-card-title {
     font-size: 15px;
     font-weight: 600;
-    color: #d7e0ea;
+    color: oklch(88% 0.02 230);
     margin-bottom: 6px;
 }
 
 .sectors-card-desc {
     font-size: 11.5px;
-    color: #667384;
+    color: oklch(50% 0.02 240);
     line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -136,14 +136,14 @@
 }
 
 .sectors-card-arrow {
-    color: #2f4666;
+    color: oklch(33% 0.06 245);
     font-size: 16px;
     align-self: center;
     transition: color 0.2s, transform 0.2s;
 }
 
 .sectors-card:hover .sectors-card-arrow {
-    color: #66d9ff;
+    color: var(--clr-cyan);
     transform: translateX(3px);
 }
 

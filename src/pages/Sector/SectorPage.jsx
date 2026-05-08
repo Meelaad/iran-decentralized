@@ -55,7 +55,7 @@ export default function SectorPage() {
     }
 
     return (
-        <div className="sector-page">
+        <div className="sector-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="sector-page-retro-grid" />
             <div className="sector-page-scanline" />
 

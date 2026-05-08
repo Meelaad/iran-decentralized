@@ -1,7 +1,7 @@
 /* SectorPage.css — futuristic sector detail page */
 
 .sector-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -9,7 +9,7 @@
 
 .sector-page-retro-grid {
     --grid-cell: 60px;
-    --grid-color: rgba(139, 92, 246, 0.12);
+    --grid-color: var(--clr-accent-10);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -22,8 +22,8 @@
     animation: retroGridScroll 4s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+    mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
 }
 
 .sector-page-scanline {
@@ -31,7 +31,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.15), transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-15), transparent);
     animation: scanLine 8s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -51,21 +51,21 @@
     align-items: center;
     gap: 8px;
     font-size: 11px;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 32px;
     cursor: pointer;
     transition: color 0.2s;
     text-decoration: none;
-    border: 1px solid rgba(139,92,246,0.08);
+    border: 1px solid var(--clr-accent-08);
     padding: 6px 14px;
-    background: rgba(139,92,246,0.02);
+    background: oklch(55% 0.23 293 / 0.02);
 }
 
 .sector-back:hover {
-    color: #8fe3ff;
-    border-color: rgba(139,92,246,0.2);
+    color: var(--clr-cyan);
+    border-color: var(--clr-accent-20);
 }
 
 /* Hero section */
@@ -91,7 +91,7 @@
 .sector-hero-title {
     font-size: 36px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     line-height: 1.15;
     margin-bottom: 16px;
 }
@@ -99,14 +99,14 @@
 .sector-hero-desc {
     font-size: 15px;
     line-height: 1.8;
-    color: #8a97a8;
+    color: var(--clr-text-muted);
     max-width: 680px;
 }
 
 /* Glowing divider */
 .sector-divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.3), transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-30), transparent);
     margin: 40px 0;
 }
 
@@ -114,7 +114,7 @@
 .sector-section-title {
     font-size: 10px;
     font-weight: 700;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     text-transform: uppercase;
     letter-spacing: 2.5px;
     margin-bottom: 20px;
@@ -129,20 +129,20 @@
 
 .sector-system-card {
     padding: 16px 18px;
-    background: rgba(10,16,26,0.7);
+    background: oklch(10% 0.015 215 / 0.7);
     border-left: 3px solid;
-    border-top: 1px solid rgba(139,92,246,0.06);
-    border-right: 1px solid rgba(139,92,246,0.06);
-    border-bottom: 1px solid rgba(139,92,246,0.06);
+    border-top: 1px solid var(--clr-accent-05);
+    border-right: 1px solid var(--clr-accent-05);
+    border-bottom: 1px solid var(--clr-accent-05);
     font-size: 13px;
-    color: #a8b8c8;
+    color: oklch(72% 0.03 230);
     line-height: 1.5;
     animation: fadeInUp 0.4s ease both;
     transition: background 0.2s, border-color 0.2s;
 }
 
 .sector-system-card:hover {
-    background: rgba(14,22,36,0.85);
+    background: oklch(13% 0.02 220 / 0.85);
 }
 
 /* Connections section */
@@ -155,14 +155,14 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 16px;
-    border-bottom: 1px solid rgba(139,92,246,0.06);
+    border-bottom: 1px solid var(--clr-accent-05);
     cursor: pointer;
     transition: background 0.2s;
     text-decoration: none;
 }
 
 .sector-conn-row:hover {
-    background: rgba(139,92,246,0.03);
+    background: oklch(55% 0.23 293 / 0.03);
 }
 
 .sector-conn-left {
@@ -170,7 +170,7 @@
     align-items: center;
     gap: 10px;
     font-size: 13px;
-    color: #8a97a8;
+    color: var(--clr-text-muted);
 }
 
 .sector-conn-icon {
@@ -179,32 +179,32 @@
 
 .sector-conn-label {
     font-size: 9px;
-    color: #66d9ff;
-    background: rgba(139,92,246,0.08);
+    color: var(--clr-cyan);
+    background: var(--clr-accent-08);
     padding: 3px 8px;
-    border: 1px solid rgba(139,92,246,0.16);
+    border: 1px solid oklch(55% 0.23 293 / 0.16);
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
 
 .sector-conn-arrow {
-    color: #2f4666;
+    color: oklch(33% 0.06 245);
     font-size: 14px;
     transition: color 0.2s, transform 0.2s;
 }
 
 .sector-conn-row:hover .sector-conn-arrow {
-    color: #66d9ff;
+    color: var(--clr-cyan);
     transform: translateX(4px);
 }
 
 /* Content placeholder */
 .sector-content-placeholder {
     padding: 40px 32px;
-    background: rgba(139,92,246,0.02);
-    border: 1px dashed rgba(139,92,246,0.12);
+    background: oklch(55% 0.23 293 / 0.02);
+    border: 1px dashed var(--clr-accent-10);
     text-align: center;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     font-size: 13px;
     animation: glowPulse 3s ease infinite;
 }
@@ -214,7 +214,7 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 8px;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
 }
 
 /* Not found */
@@ -225,12 +225,12 @@
     justify-content: center;
     min-height: calc(100vh - 60px);
     text-align: center;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
 }
 
 .sector-not-found h2 {
     font-size: 24px;
-    color: #8fe3ff;
+    color: var(--clr-cyan);
     margin-bottom: 12px;
 }
 

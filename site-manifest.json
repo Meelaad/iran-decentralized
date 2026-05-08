@@ -3,24 +3,22 @@
   "langNote": "UI supports English and Persian (fa) via i18n. Content files here are English-only, but many runtime data objects in src/data.js include bilingual fields; keep id keys consistent.",
   "routes": [
     {
-      "id": "layout-root",
+      "id": "start",
       "path": "/",
-      "component": "src/components/Layout/Layout.jsx",
-      "layout": "layout-wrapper",
-      "navVisible": true,
-      "summary": "Main site layout providing top navigation, blueprint selector and footer. Nested routes render in the Outlet.",
-      "pageLayout": "nav (logo, nav links, blueprint selector, auth actions) + content outlet + footer",
+      "component": "src/pages/Start/StartPage.jsx",
+      "layout": "standalone",
+      "navVisible": false,
+      "summary": "Entry landing page with live stats bar (total profiles, active plans, total votes). Zone selector CTAs to /choose and /pre.",
+      "pageLayout": "hero + live stats bar + dual-zone CTA buttons",
       "keyComponents": [
-        "NavLink, Link",
-        "Blueprint picker (BLUEPRINTS)",
-        "useAuth",
+        "useLiveStats",
         "useLang"
       ],
       "primaryDataSources": [
-        "src/data.js (BLUEPRINTS)"
+        "supabase (profiles count, plans count, votes count)"
       ],
       "suggestedContentFiles": [],
-      "componentName": "Layout",
+      "componentName": "StartPage",
       "dynamicParams": []
     },
     {
@@ -473,8 +471,13 @@
       "dynamicParams": [],
       "summary": "Coming soon placeholder for the Main Stage — where active transitional plans with 10,000+ signatures are voted on by the public. Served by the shared ComingSoonPage component which reads useLocation().pathname to display section-specific EN/FA content.",
       "pageLayout": "centered card with section icon, label, description, pulsing status dot, footer nav to /plans and /arena",
-      "keyComponents": ["ComingSoonPage", "useLang"],
-      "primaryDataSources": ["none (static)"]
+      "keyComponents": [
+        "ComingSoonPage",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "none (static)"
+      ]
     },
     {
       "id": "transition-incubator",
@@ -486,8 +489,13 @@
       "dynamicParams": [],
       "summary": "Coming soon placeholder for the Plan Incubator — grassroots plan submission that needs 10,000 signatures for Main Stage. Shows a direct link to /arena where this feature partially exists today.",
       "pageLayout": "centered card with section icon, label, description, action CTA to /arena, footer nav",
-      "keyComponents": ["ComingSoonPage", "useLang"],
-      "primaryDataSources": ["none (static)"]
+      "keyComponents": [
+        "ComingSoonPage",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "none (static)"
+      ]
     },
     {
       "id": "transition-amendment-floor",
@@ -499,8 +507,13 @@
       "dynamicParams": [],
       "summary": "Coming soon placeholder for the Amendment Floor — real-time line-item edits and voting on active transitional plans.",
       "pageLayout": "centered card with section icon, label, description, pulsing status dot, footer nav",
-      "keyComponents": ["ComingSoonPage", "useLang"],
-      "primaryDataSources": ["none (static)"]
+      "keyComponents": [
+        "ComingSoonPage",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "none (static)"
+      ]
     },
     {
       "id": "transition-shadow-cabinet",
@@ -512,8 +525,13 @@
       "dynamicParams": [],
       "summary": "Coming soon placeholder for the Shadow Cabinet — nominate and elect sector experts via ranked-choice voting.",
       "pageLayout": "centered card with section icon, label, description, pulsing status dot, footer nav",
-      "keyComponents": ["ComingSoonPage", "useLang"],
-      "primaryDataSources": ["none (static)"]
+      "keyComponents": [
+        "ComingSoonPage",
+        "useLang"
+      ],
+      "primaryDataSources": [
+        "none (static)"
+      ]
     },
     {
       "id": "destination",
@@ -643,7 +661,7 @@
         "supabase storage (file upload)",
         "supabase verification_queue"
       ],
-      "requiresAuth": true
+      "requiresAuth": false
     },
     {
       "id": "redirect_transitional",
@@ -717,11 +735,20 @@
       "layout": "Layout",
       "redirectTo": null,
       "dynamicParams": [],
-      "summary": "Reference plan page for the Iran Civil Society Charter. Covers grassroots organisation, independent media, human rights documentation, and coalition-building frameworks.",
-      "pageLayout": "animated canvas hero + bilingual DATA sections + footer nav to /plans and /arena",
+      "summary": "Reference plan page for the Joint Charter of Minimum Demands, authored by 20 independent Iranian civil organizations (trade unions, feminist collectives, student groups) operating inside Iran — February 2023. Covers the 12 foundational articles, intersectional ideology (anti-capitalist, anti-colonial, feminist-socialist nexus), transitional coordinating council, economic restitution (IRGC asset confiscation), and permanent direct democracy with right of recall.",
+      "pageLayout": "animated amber particle canvas hero + bilingual DATA sections (philosophy pillars, signatory orgs, repression accordion, stage-1 phase grid, economy accordions + comparison table, stage-2 accordions, foreign policy, 12 articles grid, strategic assessment) + footer nav to /plans and /arena",
       "keyComponents": [
+        "ParticleGrid (canvas animation)",
+        "Accordion",
+        "Bullets",
+        "SecHead",
+        "PillarCard",
+        "OrgCard",
+        "PhaseBlock",
+        "ArticleGrid",
         "useLang",
-        "bilingual DATA object (en/fa)"
+        "bilingual DATA object (en/fa)",
+        "Link (footer nav)"
       ],
       "primaryDataSources": [
         "static bilingual DATA constant (no API)"
@@ -866,6 +893,86 @@
       "primaryDataSources": [
         "src/data.js (BLUEPRINTS)"
       ]
+    },
+    {
+      "path": "/simple",
+      "component": "./pages/Simple/SimpleHubPage",
+      "componentName": "SimpleHubPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/simple/transition",
+      "component": "./pages/Simple/SimpleTransitionPage",
+      "componentName": "SimpleTransitionPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/simple/destination",
+      "component": "./pages/Simple/SimpleDestinationPage",
+      "componentName": "SimpleDestinationPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/arena/submit",
+      "component": "./pages/Arena/ArenaSubmitPage",
+      "componentName": "ArenaSubmitPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/transitional/plan/cpild",
+      "component": "./pages/CPILD/CPILDPage",
+      "componentName": "CPILDPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/terms",
+      "component": "./pages/Terms/TermsPage",
+      "componentName": "TermsPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/careers",
+      "component": "./pages/Careers/CareersPage",
+      "componentName": "CareersPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/apply",
+      "component": "./pages/Careers/ApplyPage",
+      "componentName": "ApplyPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/faq",
+      "component": "./pages/FAQ/FAQPage",
+      "componentName": "FAQPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
+    },
+    {
+      "path": "/search",
+      "component": "./pages/Search/SearchPage",
+      "componentName": "SearchPage",
+      "redirectTo": null,
+      "dynamicParams": [],
+      "_TODO": "New route — add id, summary, pageLayout, keyComponents, primaryDataSources"
     }
   ],
   "blueprintIds": [
@@ -936,5 +1043,5 @@
     "media",
     "culture"
   ],
-  "mergedAt": "2026-03-15T19:39:40.717Z"
+  "mergedAt": "2026-05-08T03:57:43.497Z"
 }

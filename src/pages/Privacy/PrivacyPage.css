@@ -1,7 +1,7 @@
 /* PrivacyPage.css */
 
 .priv-page {
-    background: #010303;
+    background: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -11,7 +11,7 @@
 
 .priv-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.025);
+    --grid-color: oklch(55% 0.23 293 / 0.025);
     position: absolute;
     inset: 0;
     background-image:
@@ -26,7 +26,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.15) 30%, rgba(139,92,246,0.2) 50%, rgba(139,92,246,0.15) 70%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-15) 30%, var(--clr-accent-20) 50%, var(--clr-accent-15) 70%, transparent);
     animation: scanLine 10s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -51,7 +51,7 @@
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     opacity: 0.5;
     margin-bottom: 12px;
 }
@@ -59,21 +59,21 @@
 .priv-title {
     font-size: clamp(28px, 5vw, 40px);
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     letter-spacing: -0.02em;
     margin-bottom: 12px;
 }
 
 .priv-date {
     font-size: 11px;
-    color: #2a3a4e;
+    color: oklch(28% 0.04 230);
     letter-spacing: 1px;
 }
 
 /* ── Card ── */
 .priv-card {
-    background: rgba(255,255,255,0.015);
-    border: 1px solid rgba(139,92,246,0.07);
+    background: oklch(100% 0 0 / 0.015);
+    border: 1px solid var(--clr-accent-08);
     padding: 40px;
     display: flex;
     flex-direction: column;
@@ -84,19 +84,19 @@
 .priv-section-heading {
     font-size: 14px;
     font-weight: 600;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     margin-bottom: 10px;
     letter-spacing: -0.01em;
 }
 
 .priv-section-body {
     font-size: 14px;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     line-height: 1.8;
 }
 
 .priv-section + .priv-section {
-    border-top: 1px solid rgba(139,92,246,0.05);
+    border-top: 1px solid var(--clr-accent-05);
     padding-top: 36px;
 }
 

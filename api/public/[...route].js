@@ -1,5 +1,5 @@
 import { sendContactEmail } from '../../lib/public/contact.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders, checkOrigin } from '../../lib/security/middleware.js';
 import { getArenaPlans, getPlanBySlug, endorsePlan, signPlan } from '../../lib/public/plans.js';
 import { searchPublicPlans } from '../../lib/public/search.js';
 
@@ -10,6 +10,7 @@ export default async function handler(req, res) {
     try {
         // Use 'api' tier for public reads; write endpoints (endorse/sign/contact) use 'strict' inline
         const isWrite = req.method === 'POST';
+        if (isWrite) checkOrigin(req);
         rateLimit(req, isWrite ? 'strict' : 'api');
         validateRequestSize(req, 200 * 1024);
 

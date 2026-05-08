@@ -1,5 +1,5 @@
-.empty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px;border-radius:8px;background:var(--card-bg,#07101a);color:var(--fg,#e6f0f6)}
+.empty{display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px;border-radius:8px;background:var(--card-bg,var(--clr-bg-panel));color:var(--fg,#e6f0f6)}
 .icon{font-size:28px}
 .title{font-weight:700}
 .message{opacity:.85;text-align:center}
-.action{margin-top:8px;padding:8px 12px;border-radius:6px;background:#0ea5a4;border:none;color:#07101a;font-weight:700;cursor:pointer}
+.action{margin-top:8px;padding:8px 12px;border-radius:6px;background:#0ea5a4;border:none;color:var(--clr-bg-panel);font-weight:700;cursor:pointer}

@@ -6,16 +6,16 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #0d1117;
-    border: 1px solid rgba(255, 165, 0, 0.5);
-    color: #ffa500;
+    background: var(--clr-bg-panel);
+    border: 1px solid oklch(75% 0.18 65 / 0.5);
+    color: oklch(75% 0.18 65);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 8px 14px;
     border-radius: 6px;
-    box-shadow: 0 0 16px rgba(255, 165, 0, 0.15);
+    box-shadow: 0 0 16px oklch(75% 0.18 65 / 0.15);
     pointer-events: none;
     font-family: 'Inter', monospace, sans-serif;
 }
@@ -24,13 +24,13 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #ffa500;
+    background: oklch(75% 0.18 65);
     animation: draft-pulse 1.4s ease-in-out infinite;
     flex-shrink: 0;
 }
 
 .draft-badge-slug {
-    color: rgba(255, 165, 0, 0.55);
+    color: oklch(75% 0.18 65 / 0.55);
     font-weight: 400;
     margin-left: 4px;
 }

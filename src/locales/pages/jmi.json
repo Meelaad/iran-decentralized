@@ -1,0 +1,731 @@
+{
+  "heroEyebrow": {
+    "en": "National Front of Iran (Jebhe Melli · JMI) · Founded 1949 by Dr. Mohammad Mossadegh · 2015 Asasnameh + 2023 Hamgami Principles",
+    "fa": "جبهه ملی ایران (جبهه‌ملی · JMI) · تأسیس ۱۹۴۹ توسط دکتر محمد مصدق · اساسنامه ۲۰۱۵ + اصول همگامی ۲۰۲۳"
+  },
+  "heroTitle": {
+    "en": "Mosaddeghist Democratic Republic Blueprint",
+    "fa": "طرح جمهوری دموکراتیک مصدقی"
+  },
+  "heroDesc": {
+    "en": "The JMI is the oldest pro-democracy political organization in the Iranian political spectrum — carrying 75 years of institutional memory. Its ideology, 'Mosaddeghism,' synthesizes civic nationalism, secular liberalism, and social democracy. It is the only Iranian opposition plan whose entire foreign policy architecture is shaped by a historical trauma: the 1953 CIA/MI6 coup that overthrew its founder. Its blueprint is designed to correct both 1953 (foreign intervention) and 1979 (authoritarian hijacking of revolution) simultaneously.",
+    "fa": "جبهه ملی ایران کهن‌ترین سازمان سیاسی طرفدار دموکراسی در طیف سیاسی ایران است — با ۷۵ سال حافظه نهادی. ایدئولوژی آن، 'مصدقیسم'، ناسیونالیسم مدنی، لیبرالیسم سکولار و سوشیال دموکراسی را ترکیب می‌کند. تنها طرح اپوزیسیون ایرانی است که تمام معماری سیاست خارجی‌اش توسط یک تروما تاریخی شکل گرفته: کودتای ۱۹۵۳ CIA/MI6 که بنیانگذارش را سرنگون کرد. طرح آن برای اصلاح همزمان هر دو خطای ۱۹۵۳ (مداخله خارجی) و ۱۹۷۹ (ربودن استبدادی انقلاب) طراحی شده است."
+  },
+  "heroBadges": [
+    { "en": "Founded 1949", "fa": "تأسیس ۱۹۴۹", "c": "#e8c840" },
+    { "en": "Mosaddeghism", "fa": "مصدقیسم", "c": "#ff9a42" },
+    { "en": "1953 Coup Doctrine", "fa": "دکترین کودتای ۱۹۵۳", "c": "#ef5350" },
+    { "en": "Voice + Pressure Strategy", "fa": "استراتژی صدا + فشار", "c": "#69d98c" },
+    { "en": "Anti-Federalist", "fa": "ضدفدرالیست", "c": "#ba68c8" },
+    { "en": "Oil Nationalization Legacy", "fa": "میراث ملی شدن نفت", "c": "#8B5CF6" }
+  ],
+
+  "ideolEyebrow": {
+    "en": "Mosaddeghism — The Ideological Foundation",
+    "fa": "مصدقیسم — بنیاد ایدئولوژیک"
+  },
+  "ideolTitle": {
+    "en": "75 Years of Civic Nationalism, Secular Liberalism, and the 1953 Wound",
+    "fa": "۷۵ سال ناسیونالیسم مدنی، لیبرالیسم سکولار و زخم ۱۹۵۳"
+  },
+  "ideolIntro": {
+    "en": "JMI's ideology is inseparable from its history. 'Mosaddeghism' is not merely a name — it is a complete political philosophy anchored in three interlocking commitments that have defined the organization for three-quarters of a century.",
+    "fa": "ایدئولوژی جبهه ملی از تاریخش جدایی‌ناپذیر است. 'مصدقیسم' صرفاً یک نام نیست — یک فلسفه سیاسی کامل است که در سه تعهد به‌هم‌پیوسته لنگر انداخته است."
+  },
+  "mosaddeghism": {
+    "title": { "en": "The Three Pillars of Mosaddeghism", "fa": "سه ستون مصدقیسم" },
+    "color": "#e8c840",
+    "items": [
+      {
+        "en": "CIVIC NATIONALISM — Iran's sovereignty belongs to its citizens, not to a dynasty, a clerical class, or a foreign power. The Iranian state is the property of the Iranian people.",
+        "fa": "ناسیونالیسم مدنی — حاکمیت ایران به شهروندانش تعلق دارد، نه به یک سلسله، طبقه روحانی یا قدرت خارجی. دولت ایران ملک مردم ایران است."
+      },
+      {
+        "en": "SECULAR LIBERALISM — Governance is a civil right. The state apparatus is structurally blind to religious affiliation. No religious institution holds any political authority.",
+        "fa": "لیبرالیسم سکولار — حاکمیت یک حق مدنی است. دستگاه دولتی نسبت به وابستگی مذهبی کاملاً کور است. هیچ نهاد مذهبی هیچ اقتدار سیاسی ندارد."
+      },
+      {
+        "en": "SOCIAL DEMOCRACY — Political democracy is impossible without economic equity. The state is obligated to provide universal social welfare, protect labor rights, and ensure that national resources serve the people — not a militarized elite.",
+        "fa": "سوشیال دموکراسی — دموکراسی سیاسی بدون برابری اقتصادی غیرممکن است. دولت موظف است رفاه اجتماعی همگانی ارائه دهد، حقوق کارگری را حمایت کند و اطمینان حاصل کند که منابع ملی به مردم خدمت می‌کنند — نه یک نخبگان نظامی‌شده."
+      },
+      {
+        "en": "The 1953 CIA/MI6 coup that overthrew Mossadegh and reversed oil nationalization is the defining trauma — it shapes every foreign policy position the JMI holds",
+        "fa": "کودتای CIA/MI6 در ۱۹۵۳ که مصدق را سرنگون کرد و ملی شدن نفت را معکوس کرد تروما محوری است"
+      },
+      {
+        "en": "JMI is the only major Iranian opposition organization that has actively opposed BOTH the Pahlavi monarchy AND the Islamic Republic — giving it a unique 'clean hands' legitimacy",
+        "fa": "جبهه ملی تنها سازمان اپوزیسیون ایرانی بزرگی است که فعالانه هم با سلطنت پهلوی و هم با جمهوری اسلامی مخالفت کرده است"
+      }
+    ]
+  },
+  "monarchyCaveat": {
+    "title": { "en": "The Monarchy Caveat — A Historical Note", "fa": "استثنای سلطنت — یک یادداشت تاریخی" },
+    "color": "#ff9a42",
+    "items": [
+      {
+        "en": "Historically (1949–1979): JMI operated within the 1906 Constitutional framework and occasionally tolerated a strictly symbolic, non-ruling constitutional monarchy — provided the parliament held absolute supreme power",
+        "fa": "تاریخاً (۱۹۴۹–۱۹۷۹): جبهه ملی در چارچوب قانون اساسی مشروطه ۱۳۸۵ عمل می‌کرد و گاهی یک سلطنت مشروطه کاملاً نمادین و غیرحاکم را تحمل می‌کرد — مشروط بر اینکه پارلمان قدرت عالی مطلق داشته باشد"
+      },
+      {
+        "en": "The condition was explicit: the monarch reigns but does not rule — identical to the Swedish or UK model",
+        "fa": "شرط صریح بود: پادشاه سلطنت می‌کند اما حکومت نمی‌کند — مانند مدل سوئد یا انگلیس"
+      },
+      {
+        "en": "Post-1979 trauma: the experience of Khomeini's power consolidation and the clerical establishment's authoritarian capture of the revolution permanently hardened JMI's stance",
+        "fa": "تروما پس از ۱۹۷۹: تجربه تمرکز قدرت خمینی و تصرف استبدادی انقلاب توسط دستگاه روحانی موضع جبهه ملی را به طور دائمی سخت‌تر کرد"
+      },
+      {
+        "en": "Contemporary position (2023–2026): the executive leadership and the Hamgami integration represent a definitive shift to a pure Secular Democratic Republic",
+        "fa": "موضع معاصر (۲۰۲۳–۲۰۲۶): رهبری اجرایی و ادغام همگامی نشان‌دهنده یک تحول قطعی به سوی جمهوری دموکراتیک سکولار خالص است"
+      },
+      {
+        "en": "The door is not fully closed on symbolic monarchy as a theoretical option — but current manifestos strongly and explicitly favor a Republic",
+        "fa": "در مورد گزینه نمادین سلطنت به عنوان یک احتمال نظری درهای کاملاً بسته نیست — اما بیانیه‌های کنونی قوی‌اً و صراحتاً جمهوری را ترجیح می‌دهند"
+      },
+      {
+        "en": "This nuance distinguishes JMI from the URI/Hamgami partners who are more categorically anti-monarchy",
+        "fa": "این تمایز ظریف، جبهه ملی را از شرکای URI/همگامی که به طور قاطعانه‌تری ضدسلطنت هستند متمایز می‌کند"
+      }
+    ]
+  },
+  "ideologyEvolution": [
+    {
+      "component": { "en": "Governance Model", "fa": "مدل حاکمیت" },
+      "old": { "en": "Tolerance of symbolic constitutional monarchy; emphasis on 1906 Constitution", "fa": "تحمل سلطنت مشروطه نمادین؛ تأکید بر قانون اساسی ۱۲۸۵" },
+      "new": { "en": "Strict Secular Democratic Republic; absolute rejection of lifelong/hereditary rule", "fa": "جمهوری دموکراتیک سکولار سختگیرانه؛ رد مطلق حکومت مادام‌العمر/موروثی" }
+    },
+    {
+      "component": { "en": "Role of Religion", "fa": "نقش دین" },
+      "old": { "en": "Islamic liberalism tolerated; broad coalition with democratic clerics", "fa": "لیبرالیسم اسلامی تحمل می‌شد؛ ائتلاف گسترده با روحانیان دموکرات" },
+      "new": { "en": "Total separation of religion and state; secular civil law", "fa": "جدایی کامل دین از دولت؛ قانون مدنی سکولار" }
+    },
+    {
+      "component": { "en": "National Sovereignty", "fa": "حاکمیت ملی" },
+      "old": { "en": "Anti-imperialism; nationalization of oil industry", "fa": "ضدامپریالیسم؛ ملی شدن صنعت نفت" },
+      "new": { "en": "Rejection of all foreign intervention; sovereign control over all national resources", "fa": "رد تمام مداخلات خارجی؛ کنترل حاکمیتی بر تمام منابع ملی" }
+    },
+    {
+      "component": { "en": "Human Rights", "fa": "حقوق بشر" },
+      "old": { "en": "Civic nationalism; anti-feudalism", "fa": "ناسیونالیسم مدنی؛ ضدفئودالیسم" },
+      "new": { "en": "Universal Declaration of Human Rights; women's rights and LGBTQ equality explicitly included", "fa": "اعلامیه جهانی حقوق بشر؛ حقوق زنان و برابری LGBTQ صراحتاً گنجانده شده" }
+    }
+  ],
+  "coup1953": {
+    "title": { "en": "The 1953 Wound — How a Coup Shapes a Blueprint 70 Years Later", "fa": "زخم ۱۹۵۳ — چگونه یک کودتا ۷۰ سال بعد یک طرح را شکل می‌دهد" },
+    "items": [
+      {
+        "en": "August 19, 1953: CIA (Operation AJAX) and MI6 (Operation Boot) engineer a coup against PM Mohammad Mossadegh — reversing the nationalization of Iran's oil industry",
+        "fa": "۱۹ اوت ۱۹۵۳: CIA (عملیات AJAX) و MI6 (عملیات Boot) یک کودتا علیه نخست‌وزیر محمد مصدق طراحی می‌کنند — ملی شدن صنعت نفت ایران را معکوس می‌کنند"
+      },
+      {
+        "en": "The Shah is restored to absolute power. Mossadegh is imprisoned, then placed under house arrest until his death in 1967.",
+        "fa": "شاه به قدرت مطلق بازمی‌گردد. مصدق زندانی سپس تا مرگش در ۱۳۴۶ تحت حصر خانگی قرار می‌گیرد"
+      },
+      {
+        "en": "JMI's entire foreign policy architecture flows from this single event:",
+        "fa": "تمام معماری سیاست خارجی جبهه ملی از این رویداد واحد جاری می‌شود:"
+      },
+      {
+        "en": "→ Strict independence from both Western AND Eastern foreign hegemony",
+        "fa": "→ استقلال سختگیرانه از هژمونی خارجی — هم غربی و هم شرقی"
+      },
+      {
+        "en": "→ Absolute rejection of any transition model engineered by foreign powers",
+        "fa": "→ رد مطلق هر مدل گذاری که توسط قدرت‌های خارجی طراحی شده باشد"
+      },
+      {
+        "en": "→ The Iranian nation's sovereignty is non-negotiable — including from well-intentioned foreign 'helpers'",
+        "fa": "→ حاکمیت ملت ایران غیرقابل مذاکره است — حتی از 'کمک‌رسانان' خارجی خیرخواه"
+      },
+      {
+        "en": "→ Iran's natural resources (oil, gas, minerals) must remain under Iranian sovereign control",
+        "fa": "→ منابع طبیعی ایران باید زیر کنترل حاکمیتی ایران باقی بمانند"
+      },
+      {
+        "en": "This anti-imperialist stance coexists with the 2023 Hamgami position of normal relations with the US and Israel — the distinction: normalization based on mutual respect, not subordination",
+        "fa": "این موضع ضدامپریالیستی با موضع همگامی ۲۰۲۳ درباره روابط عادی با آمریکا و اسرائیل همزیستی دارد — تمایز: عادی‌سازی بر اساس احترام متقابل، نه تبعیت"
+      }
+    ]
+  },
+
+  "methEyebrow": {
+    "en": "Methodology — The Path to the Goal",
+    "fa": "روش‌شناسی — مسیر به سوی هدف"
+  },
+  "methTitle": {
+    "en": "Social Force, The Voice, The Pressure, and Top Cracks",
+    "fa": "نیروی اجتماعی، صدا، فشار و ترک‌های بالا"
+  },
+  "methIntro": {
+    "en": "JMI's transition strategy is uniquely theorized under its own named concepts. Unlike plans that simply list 'civil resistance,' JMI has a precise strategic architecture: two mechanisms that create one effect (elite fractures) that produces one outcome (non-violent collapse).",
+    "fa": "استراتژی گذار جبهه ملی به طور منحصربه‌فردی زیر مفاهیم نام‌گذاری‌شده خود نظریه‌پردازی شده است. دو مکانیزم که یک اثر (شکاف نخبگان) ایجاد می‌کنند که یک نتیجه (فروپاشی غیرخشونت‌آمیز) تولید می‌کند."
+  },
+  "voicePressure": [
+    {
+      "icon": "📢",
+      "label": { "en": "THE VOICE", "fa": "صدا" },
+      "title": { "en": "Continuous Grassroots Mobilization", "fa": "بسیج مداوم پایه" },
+      "color": "#e8c840",
+      "items": [
+        {
+          "en": "Continuous street protests and civil disobedience — sustained, not episodic",
+          "fa": "اعتراضات خیابانی مداوم و نافرمانی مدنی — پیوسته، نه دوره‌ای"
+        },
+        {
+          "en": "Mobilization of highly motivated demographic sectors: women, youth, ethnic minorities",
+          "fa": "بسیج بخش‌های جمعیتی با انگیزه بالا: زنان، جوانان، اقلیت‌های قومی"
+        },
+        {
+          "en": "Driven primarily by the 'Woman, Life, Freedom' revolutionary movement",
+          "fa": "در درجه اول توسط جنبش انقلابی 'زن، زندگی، آزادی' هدایت می‌شود"
+        },
+        {
+          "en": "Goal: maintain a permanent visible presence that demonstrates the regime's loss of legitimacy",
+          "fa": "هدف: حفظ یک حضور دائمی قابل مشاهده که از دست دادن مشروعیت رژیم را نشان می‌دهد"
+        },
+        {
+          "en": "Non-violent positioning reduces the regime's justification for mass lethal response",
+          "fa": "موضع‌گیری غیرخشونت‌آمیز توجیه رژیم را برای پاسخ کشتارجمعی کاهش می‌دهد"
+        }
+      ]
+    },
+    {
+      "icon": "⚒️",
+      "label": { "en": "THE PRESSURE", "fa": "فشار" },
+      "title": { "en": "Calculated Economic Attrition", "fa": "فرسایش اقتصادی محاسبه‌شده" },
+      "color": "#69d98c",
+      "items": [
+        {
+          "en": "Nationwide labor strikes in critical sectors: oil industry (most critical), transportation, teachers, bazaar merchants",
+          "fa": "اعتصابات کارگری ملی در بخش‌های حیاتی: صنعت نفت (حیاتی‌ترین)، حمل‌ونقل، معلمان، بازاریان"
+        },
+        {
+          "en": "Bazaar closures — the traditional merchant class closing their shops is a historically decisive signal in Iranian politics",
+          "fa": "تعطیلی بازار — بستن مغازه‌ها توسط طبقه تاجران سنتی یک سیگنال تاریخاً قطعی در سیاست ایرانی است"
+        },
+        {
+          "en": "Widespread economic boycotts",
+          "fa": "تحریم‌های اقتصادی گسترده"
+        },
+        {
+          "en": "Goal: make the country fundamentally ungovernable — state revenues collapse, services fail, bureaucratic loyalty erodes",
+          "fa": "هدف: غیرقابل‌اداره کردن کشور — درآمدهای دولتی فرو می‌ریزند، خدمات شکست می‌خورند، وفاداری بوروکراتیک فرسوده می‌شود"
+        },
+        {
+          "en": "Oil workers specifically: their strikes directly sever the regime's primary income source",
+          "fa": "کارگران نفت به طور خاص: اعتصابات آن‌ها مستقیماً منبع اصلی درآمد رژیم را قطع می‌کند"
+        }
+      ]
+    }
+  ],
+  "topCracks": {
+    "title": { "en": "The 'Top Cracks' Strategy — Fracturing the Elite from Within", "fa": "استراتژی 'ترک‌های بالا' — شکستن نخبگان از درون" },
+    "items": [
+      {
+        "en": "The combined effect of Voice + Pressure is designed to produce a specific internal phenomenon: 'Top Cracks'",
+        "fa": "اثر ترکیبی صدا + فشار برای تولید یک پدیده درونی خاص طراحی شده است: 'ترک‌های بالا'"
+      },
+      {
+        "en": "Top Cracks = ideological and operational fractures within the regime's elite leadership and security apparatus",
+        "fa": "ترک‌های بالا = شکاف‌های ایدئولوژیک و عملیاتی در رهبری نخبگان و دستگاه امنیتی رژیم"
+      },
+      {
+        "en": "When the state is sufficiently paralyzed: bureaucrats calculate that the regime cannot survive → they defect",
+        "fa": "وقتی دولت به اندازه کافی فلج شود: بوروکرات‌ها محاسبه می‌کنند که رژیم نمی‌تواند بقا داشته باشد → فرار می‌کنند"
+      },
+      {
+        "en": "When the state is sufficiently paralyzed: the Artesh calculates that firing on civilians will destroy its own legitimacy → it refuses orders",
+        "fa": "وقتی دولت به اندازه کافی فلج شود: ارتش محاسبه می‌کند که شلیک به غیرنظامیان مشروعیت خود را نابود می‌کند → از دستورات امتناع می‌کند"
+      },
+      {
+        "en": "The Artesh defection is the terminal event — JMI calculates that without the conventional army, the IRGC and Basij cannot sustain mass repression",
+        "fa": "فرار ارتش رویداد نهایی است — جبهه ملی محاسبه می‌کند که بدون ارتش رسمی، سپاه و بسیج نمی‌توانند سرکوب گروهی را ادامه دهند"
+      },
+      {
+        "en": "JMI explicitly maintains non-violent civil resistance and rejects political retribution — this lowers the 'exit cost' for mid-level regime personnel, making defection psychologically safe",
+        "fa": "جبهه ملی صراحتاً مقاومت مدنی غیرخشونت‌آمیز را حفظ می‌کند و مجازات سیاسی را رد می‌کند — این 'هزینه خروج' برای پرسنل میانی رژیم را کاهش می‌دهد و فرار را از نظر روانی ایمن می‌کند"
+      },
+      {
+        "en": "The entire strategy depends on a single threshold: the moment the Artesh abstains or defects during a critical mass uprising",
+        "fa": "تمام استراتژی به یک آستانه واحد بستگی دارد: لحظه‌ای که ارتش در یک قیام توده‌وار بحرانی کناره‌گیری می‌کند یا فرار می‌کند"
+      }
+    ]
+  },
+  "rejections": {
+    "title": { "en": "Explicitly Prohibited Mechanisms", "fa": "مکانیزم‌های صراحتاً ممنوع" },
+    "color": "#ef5350",
+    "items": [
+      {
+        "en": "Armed insurgency and guerrilla warfare — viewed as inherently destructive to the democratic transition",
+        "fa": "شورش مسلحانه و جنگ چریکی — ذاتاً برای گذار دموکراتیک مخرب تلقی می‌شود"
+      },
+      {
+        "en": "Foreign military intervention and external military strikes — condemned as violations of Iranian sovereignty regardless of intent",
+        "fa": "مداخله نظامی خارجی و حملات نظامی خارجی — صرف نظر از هدف، نقض حاکمیت ایرانی محکوم می‌شود"
+      },
+      {
+        "en": "Externally engineered 'alternative-making' — the 1953 trauma makes this an absolute red line",
+        "fa": "ساخت 'جایگزین' توسط خارجی‌ها — تروما ۱۹۵۳ این را یک خط قرمز مطلق می‌کند"
+      },
+      {
+        "en": "The JMI analysis: kinetic violence and foreign strikes STRENGTHEN the domestic security apparatus and invite balkanization",
+        "fa": "تحلیل جبهه ملی: خشونت نظامی و حملات خارجی دستگاه امنیتی داخلی را تقویت می‌کنند و بالکانیزاسیون را دعوت می‌کنند"
+      },
+      {
+        "en": "The JMI analysis: external intervention replaces one form of dictatorship with another — historically validated by 1953",
+        "fa": "تحلیل جبهه ملی: مداخله خارجی یک نوع دیکتاتوری را با دیکتاتوری دیگری جایگزین می‌کند — تاریخاً توسط ۱۹۵۳ تأیید شده"
+      }
+    ]
+  },
+
+  "phasesEyebrow": {
+    "en": "Five-Phase Transition Timeline",
+    "fa": "جدول زمانی گذار پنج مرحله‌ای"
+  },
+  "phasesTitle": {
+    "en": "From Civil Resistance to Constitutional Republic",
+    "fa": "از مقاومت مدنی به جمهوری قانون اساسی"
+  },
+  "phasesIntro": {
+    "en": "A structured phased transition following regime collapse. Note: unlike the ITC's 6-phase plan with specific day counts, JMI does not specify the exact duration of the interim phase — reflecting the organization's preference for organic, people-driven transition over technocratic scheduling.",
+    "fa": "یک گذار مرحله‌ای ساختارمند پس از سقوط رژیم. توجه: برخلاف طرح ۶ مرحله‌ای ITC با شمارش روزهای مشخص، جبهه ملی مدت دقیق مرحله موقت را مشخص نمی‌کند."
+  },
+  "phases": [
+    {
+      "number": { "en": "01", "fa": "۰۱" },
+      "phase": { "en": "Civil Resistance (Ongoing)", "fa": "مقاومت مدنی (در جریان)" },
+      "mechanism": { "en": "Street protests (Voice) + Labor/bazaar strikes (Pressure)", "fa": "اعتراضات خیابانی (صدا) + اعتصابات کارگری/بازار (فشار)" },
+      "objective": { "en": "Paralyze the state economy; fracture the elite leadership; encourage defection of the Artesh", "fa": "فلج کردن اقتصاد دولتی؛ شکستن رهبری نخبگان؛ تشویق فرار ارتش" },
+      "color": "#e8c840"
+    },
+    {
+      "number": { "en": "02", "fa": "۰۲" },
+      "phase": { "en": "Regime Collapse", "fa": "سقوط رژیم" },
+      "mechanism": { "en": "Non-violent capitulation of the Velayat-e Faqih system", "fa": "تسلیم غیرخشونت‌آمیز سیستم ولایت فقیه" },
+      "objective": { "en": "Prevent civil war and foreign intervention; secure critical national infrastructure", "fa": "جلوگیری از جنگ داخلی و مداخله خارجی؛ تأمین زیرساخت‌های حیاتی ملی" },
+      "color": "#69d98c"
+    },
+    {
+      "number": { "en": "03", "fa": "۰۳" },
+      "phase": { "en": "Interim Governance", "fa": "حاکمیت موقت" },
+      "mechanism": { "en": "Formation of a Temporary Transition Council of diverse secular democratic forces", "fa": "تشکیل شورای موقت گذار از نیروهای دموکراتیک سکولار متنوع" },
+      "objective": { "en": "Manage daily state administration; dismantle IRGC/Basij; preserve order without authoritarian consolidation", "fa": "مدیریت اداره روزانه دولتی؛ برچیدن سپاه/بسیج؛ حفظ نظم بدون تمرکز اقتدارگرایانه" },
+      "color": "#8B5CF6"
+    },
+    {
+      "number": { "en": "04", "fa": "۰۴" },
+      "phase": { "en": "Constituent Assembly Elections", "fa": "انتخابات مجلس مؤسسان" },
+      "mechanism": { "en": "Free, fair, and transparent nationwide elections for a Majlis-e Moasesan", "fa": "انتخابات ملی آزاد، منصفانه و شفاف برای مجلس مؤسسان" },
+      "objective": { "en": "Draft a new secular democratic constitution based on universal human rights", "fa": "تهیه یک قانون اساسی دموکراتیک سکولار جدید بر اساس حقوق بشر جهانی" },
+      "color": "#ff9a42"
+    },
+    {
+      "number": { "en": "05", "fa": "۰۵" },
+      "phase": { "en": "Democratic Referendum", "fa": "همه‌پرسی دموکراتیک" },
+      "mechanism": { "en": "National plebiscite on the drafted constitution", "fa": "رفراندوم ملی درباره قانون اساسی تهیه‌شده" },
+      "objective": { "en": "Ratify the constitution; officially inaugurate the Secular Democratic Republic of Iran", "fa": "تصویب قانون اساسی؛ راه‌اندازی رسمی جمهوری دموکراتیک سکولار ایران" },
+      "color": "#ba68c8"
+    }
+  ],
+  "transitionCouncilNote": {
+    "en": "The Temporary Transition Council is JMI's explicit alternative to the NUFDI/Pahlavi 'Emergency Phase' model. JMI explicitly rejects any transition concentrated under a single unelected leader — the council is composed of diverse secular democratic forces with no single dominant actor.",
+    "fa": "شورای موقت گذار جبهه ملی جایگزین صریح مدل 'فاز اضطراری' NUFDI/پهلوی است. جبهه ملی صراحتاً هر گذاری را که تحت یک رهبر منفرد غیرمنتخب متمرکز باشد رد می‌کند."
+  },
+  "transitionCouncilTag": {
+    "en": "TRANSITION COUNCIL NOTE",
+    "fa": "یادداشت شورای گذار"
+  },
+
+  "powerEyebrow": {
+    "en": "Proposed Power Structure",
+    "fa": "ساختار قدرت پیشنهادی"
+  },
+  "powerTitle": {
+    "en": "The Secular Parliamentary Republic — Three Independent Branches",
+    "fa": "جمهوری پارلمانی سکولار — سه قوه مستقل"
+  },
+  "powerIntro": {
+    "en": "The JMI power structure is the most classically republican of all Iranian opposition plans. It maps directly onto standard Western parliamentary democratic models — by design. Mossadegh's democracy in 1951–1953 was parliamentary. The blueprint restores and modernizes that model.",
+    "fa": "ساختار قدرت جبهه ملی کلاسیک‌ترین جمهوری از تمام طرح‌های اپوزیسیون ایرانی است. مستقیماً بر مدل‌های دموکراتیک پارلمانی غربی استاندارد منطبق است — عمداً. دموکراسی مصدق در ۱۳۳۰–۱۳۳۲ پارلمانی بود. طرح آن مدل را بازیابی و مدرنیزه می‌کند."
+  },
+  "powerNodes": [
+    {
+      "icon": "🗳️",
+      "title": { "en": "The Electorate", "fa": "رأی‌دهندگان" },
+      "role": { "en": "Apex Sovereign Authority", "fa": "اقتدار حاکمیتی ارشد" },
+      "color": "#e8c840",
+      "items": [
+        { "en": "Ultimate sovereignty rests with the citizens of Iran — exercises through universal suffrage and national referendums", "fa": "حاکمیت نهایی در شهروندان ایران است — از طریق رأی همگانی و رفراندوم‌های ملی اعمال می‌شود" },
+        { "en": "No supreme leader, no ruling monarch, no unelected guardianship councils — all abolished", "fa": "هیچ رهبر معظم، پادشاه حاکم یا شوراهای نظارتی غیرمنتخب وجود ندارد — همه لغو شده‌اند" },
+        { "en": "Strict Principle of Alternation of Power: term limits for both parliament and presidency", "fa": "اصل تناوب قدرت سختگیرانه: محدودیت دوره برای هر دو پارلمان و ریاست‌جمهوری" },
+        { "en": "No individual, council, or religious body sits above the elected representatives", "fa": "هیچ فرد، شورا یا نهاد مذهبی بالاتر از نمایندگان منتخب قرار ندارد" }
+      ]
+    },
+    {
+      "icon": "🏛️",
+      "title": { "en": "National Parliament (Majlis)", "fa": "مجلس ملی" },
+      "role": { "en": "Legislative Branch — Supreme Law-Making Authority", "fa": "قوه مقننه — اقتدار قانونگذاری عالی" },
+      "color": "#8B5CF6",
+      "items": [
+        { "en": "Directly elected by the Electorate via democratic elections", "fa": "مستقیماً توسط رأی‌دهندگان انتخاب می‌شود" },
+        { "en": "Holds supreme legislative authority and oversight over the Executive", "fa": "اقتدار قانونگذاری عالی و نظارت بر قوه مجریه" },
+        { "en": "Oversees national budget and all government operations", "fa": "نظارت بر بودجه ملی و تمام عملیات دولتی" },
+        { "en": "Restricted by strict term limits — Alternation of Power principle", "fa": "محدود به محدودیت‌های دوره سختگیرانه — اصل تناوب قدرت" },
+        { "en": "No parallel clerical body, guardian council, or assembly of experts exists in this architecture", "fa": "هیچ نهاد روحانی موازی، شورای نگهبان یا مجلس خبرگان در این معماری وجود ندارد" }
+      ]
+    },
+    {
+      "icon": "⚙️",
+      "title": { "en": "President + Cabinet", "fa": "رئیس‌جمهور + هیئت دولت" },
+      "role": { "en": "Executive Branch — Daily State Operations", "fa": "قوه مجریه — عملیات روزانه دولتی" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "President directly elected by the Electorate", "fa": "رئیس‌جمهور مستقیماً توسط رأی‌دهندگان انتخاب می‌شود" },
+        { "en": "Cabinet appointed by the President and confirmed by Parliament", "fa": "هیئت دولت توسط رئیس‌جمهور منصوب و توسط مجلس تأیید می‌شود" },
+        { "en": "Manages: daily state operations, macroeconomic policy, national defense, foreign affairs", "fa": "مدیریت: عملیات روزانه دولتی، سیاست کلان اقتصادی، دفاع ملی، امور خارجی" },
+        { "en": "Governance based on meritocracy and specialization — stripped of all religious or ideological filters", "fa": "حاکمیت بر اساس شایسته‌سالاری و تخصص — از تمام فیلترهای مذهبی یا ایدئولوژیک پاک شده" },
+        { "en": "Accountable to Parliament — parliamentary oversight is absolute", "fa": "کاملاً پاسخگو در برابر مجلس" }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": { "en": "Independent Judiciary", "fa": "قوه قضاییه مستقل" },
+      "role": { "en": "Judicial Branch — Secular Civil Law Only", "fa": "قوه قضاییه — فقط قانون مدنی سکولار" },
+      "color": "#ff9a42",
+      "items": [
+        { "en": "Completely independent from both Executive and Legislative branches", "fa": "کاملاً مستقل از هر دو قوه مجریه و مقننه" },
+        { "en": "Appointments: independent legal professionals based on secular civil law meritocracy — no clergy", "fa": "انتصابات: متخصصان حقوقی مستقل بر اساس شایسته‌سالاری قانون مدنی سکولار" },
+        { "en": "Enforces civil and criminal law based on universal human rights standards", "fa": "اجرای قانون مدنی و کیفری بر اساس استانداردهای حقوق بشر جهانی" },
+        { "en": "Strictly separated from all religious jurisprudence — Sharia has no judicial role", "fa": "الغای کامل مجازات اعدام؛ ممنوعیت قطعی شکنجه" },
+        { "en": "Total abolition of the death penalty and torture constitutionally enshrined", "fa": "کاملاً از فقه مذهبی جدا شده" }
+      ]
+    },
+    {
+      "icon": "🗺️",
+      "title": { "en": "Provincial/District/Village Councils", "fa": "شوراهای استانی/بخشی/روستایی" },
+      "role": { "en": "Administrative Decentralization — NOT Federalism", "fa": "غیرمتمرکزسازی اداری — نه فدرالیسم" },
+      "color": "#ba68c8",
+      "items": [
+        { "en": "Elected directly by local citizens", "fa": "مستقیماً توسط شهروندان محلی انتخاب می‌شوند" },
+        { "en": "Manages: local administrative affairs, regional economic development, infrastructure, cultural preservation", "fa": "مدیریت: امور اداری محلی، توسعه اقتصادی منطقه‌ای، زیرساخت، حفاظت فرهنگی" },
+        { "en": "Strictly subordinate to the national constitution and central parliamentary law", "fa": "تابع قانون اساسی ملی و قانون پارلمانی مرکزی" },
+        { "en": "This is ADMINISTRATIVE decentralization — the central parliament and executive retain ultimate sovereign authority", "fa": "این غیرمتمرکزسازی اداری است — پارلمان و مجریه مرکزی اقتدار حاکمیتی نهایی را حفظ می‌کنند" },
+        { "en": "Persian remains the sole official national language; regional languages (Kurdish, Balochi, Azerbaijani) protected as cultural heritage", "fa": "فارسی زبان رسمی ملی منحصر به فرد باقی می‌ماند؛ زبان‌های منطقه‌ای (کردی، بلوچی، آذری) به عنوان میراث فرهنگی حفاظت می‌شوند" },
+        { "en": "JMI explicitly and vehemently rejects ethno-linguistic federalism — views it as a precursor to balkanization", "fa": "جبهه ملی صراحتاً و شدیداً فدرالیسم قومی-زبانی را رد می‌کند — آن را پیش‌ساز خطرناک بالکانیزاسیون می‌داند" }
+      ]
+    }
+  ],
+
+  "instEyebrow": {
+    "en": "Institutional Targeting Policy",
+    "fa": "سیاست هدف‌گیری نهادی"
+  },
+  "instTitle": {
+    "en": "Sharp Distinctions — Eradicate vs. Reform",
+    "fa": "تمایزات تیز — ریشه‌کن کردن در مقابل اصلاح"
+  },
+  "instIntro": {
+    "en": "JMI draws a sharp architectural distinction between institutions that fulfill necessary national functions (reformed) and institutions created solely to protect and enrich the theocracy (eradicated). This is the clearest institutional targeting table of any Iranian opposition plan.",
+    "fa": "جبهه ملی یک تمایز معماری تیز بین نهادهایی که وظایف ملی لازم را انجام می‌دهند (اصلاح شده) و نهادهایی که صرفاً برای حفاظت و ثروت‌بخشی به تئوکراسی ایجاد شده‌اند (ریشه‌کن شده) قائل می‌شود."
+  },
+  "instTableInstitution": { "en": "Institution", "fa": "نهاد" },
+  "instTablePolicy": { "en": "Policy", "fa": "سیاست" },
+  "instTableAction": { "en": "Action", "fa": "اقدام" },
+  "instRows": [
+    {
+      "institution": { "en": "IRGC + Basij", "fa": "سپاه + بسیج" },
+      "status": { "en": "COMPLETE DISSOLUTION", "fa": "انحلال کامل" },
+      "statusColor": "#ef5350",
+      "action": { "en": "Legal and symbolic eradication. All economic assets confiscated (Khatam al-Anbiya conglomerate and all IRGC monopolies). New laws permanently banning any military/paramilitary interference in civilian politics or economy.", "fa": "ریشه‌کنی قانونی و نمادین. تمام دارایی‌های اقتصادی مصادره (قرارگاه خاتم‌الانبیا و تمام انحصارهای سپاه). قوانین جدید برای ممنوعیت دائمی هر مداخله نظامی/شبه‌نظامی در سیاست غیرنظامی یا اقتصاد." }
+    },
+    {
+      "institution": { "en": "Artesh (Regular Army)", "fa": "ارتش (نیروهای رسمی)" },
+      "status": { "en": "REFORMED & UTILIZED", "fa": "اصلاح و استفاده" },
+      "statusColor": "#69d98c",
+      "action": { "en": "Retained as sole national defense force. Rebuilt with new recruitment protocols. Strictly subordinated to a civilian Ministry of Defense. Placed under absolute parliamentary oversight.", "fa": "به عنوان تنها نیروی دفاع ملی حفظ می‌شود. با پروتکل‌های جدید جذب نیرو بازسازی می‌شود. به طور سختگیرانه تابع وزارت دفاع غیرنظامی. تحت نظارت مطلق پارلمانی قرار می‌گیرد." }
+    },
+    {
+      "institution": { "en": "Clerical + Revolutionary Courts", "fa": "دادگاه‌های روحانی + انقلابی" },
+      "status": { "en": "COMPLETELY DISMANTLED", "fa": "کاملاً برچیده شده" },
+      "statusColor": "#ef5350",
+      "action": { "en": "Total eradication of the Special Clerical Court and Islamic Revolutionary Courts. Replaced by a secular, independent civil judiciary based on universal human rights.", "fa": "ریشه‌کنی کامل دادگاه ویژه روحانیت و دادگاه‌های انقلاب اسلامی. با قوه قضاییه مدنی سکولار و مستقل جایگزین می‌شود." }
+    },
+    {
+      "institution": { "en": "Bonyads (Religious Foundations)", "fa": "بنیادها (بنیادهای مذهبی)" },
+      "status": { "en": "CONFISCATED", "fa": "مصادره شده" },
+      "statusColor": "#ff9a42",
+      "action": { "en": "Dismantled as independent tax-exempt monopolies. Assets integrated into the formal, taxable national economy to fund social welfare programs and infrastructure development.", "fa": "به عنوان انحصارهای مستقل معاف از مالیات برچیده می‌شوند. دارایی‌ها در اقتصاد ملی رسمی و مالیات‌دهنده برای برنامه‌های رفاه اجتماعی و توسعه زیرساخت ادغام می‌شوند." }
+    },
+    {
+      "institution": { "en": "Civilian Ministries", "fa": "وزارتخانه‌های غیرنظامی" },
+      "status": { "en": "PURGED & REFORMED", "fa": "پاکسازی و اصلاح" },
+      "statusColor": "#8B5CF6",
+      "action": { "en": "Retained but purged of all ideological appointees and structural corruption. Restructured based on meritocracy, specialization, and independent media/union oversight.", "fa": "حفظ اما پاکسازی تمام منصوبان ایدئولوژیک. بازسازی بر اساس شایسته‌سالاری، تخصص و نظارت مستقل رسانه‌ای/صنفی." }
+    }
+  ],
+
+  "polEyebrow": {
+    "en": "Key Policy Stances",
+    "fa": "مواضع سیاستی کلیدی"
+  },
+  "polTitle": {
+    "en": "The Four-Domain Policy Matrix",
+    "fa": "ماتریس سیاست چهار حوزه‌ای"
+  },
+  "polIntro": {
+    "en": "JMI's policies address what the coalition terms a 'mega-crisis' — a catastrophic convergence of economic devastation, environmental collapse, international isolation, and severe human rights abuses. Each policy domain directly addresses one of these simultaneous failures.",
+    "fa": "سیاست‌های جبهه ملی آنچه را که ائتلاف 'مگابحران' می‌نامند هدف قرار می‌دهند — یک همگرایی فاجعه‌بار ویرانی اقتصادی، فروپاشی زیست‌محیطی، انزوای بین‌المللی و نقض فاحش حقوق بشر."
+  },
+  "policies": [
+    {
+      "icon": "📊",
+      "title": { "en": "Economy: From Rentier State to Competitive Production", "fa": "اقتصاد: از دولت رانتیر به تولید رقابتی" },
+      "color": "#e8c840",
+      "items": [
+        { "en": "REJECTS the current system: corrupt, non-competitive, 'rent-seeking' economy dominated by ideological mafia bands and military conglomerates (IRGC/Bonyads)", "fa": "رد سیستم موجود: اقتصاد فاسد، غیررقابتی، 'رانت‌خوار' تحت سیطره باندهای مافیایی ایدئولوژیک و کنگلومراهای نظامی" },
+        { "en": "Transition to: production-based, competitive economy using modern technology, foreign investment, global market integration", "fa": "گذار به: اقتصاد رقابتی تولیدمحور با فناوری مدرن، سرمایه‌گذاری خارجی، ادغام با بازار جهانی" },
+        { "en": "BUT: heavily counterbalanced by robust social welfare — universal social security, free education, universal housing access, comprehensive health insurance", "fa": "اما: توسط سیاست‌های رفاه اجتماعی قوی متوازن می‌شود — بیمه اجتماعی همگانی، آموزش رایگان، مسکن و بیمه سلامت همگانی" },
+        { "en": "Explicit ban on child labor; strict implementation of international labor laws; independent trade unions empowered (teachers, oil workers, artists)", "fa": "ممنوعیت صریح کار کودک؛ اجرای سختگیرانه قوانین بین‌المللی کار؛ توانمندسازی اتحادیه‌های مستقل (معلمان، کارگران نفت، هنرمندان)" },
+        { "en": "Mossadegh legacy — nationalization of core natural resources: oil, gas, minerals remain under Iranian sovereign control to prevent foreign or monopolistic exploitation", "fa": "میراث مصدق — ملی کردن منابع طبیعی محوری: نفت، گاز، معادن زیر کنترل حاکمیتی ایران باقی می‌مانند" },
+        { "en": "Environmental crisis elevated to a TOP-TIER national security and economic priority — drought, water table depletion, and extreme pollution explicitly named", "fa": "بحران زیست‌محیطی به اولویت امنیت ملی درجه اول ارتقا یافته — خشکسالی، کاهش سطح آب‌های زیرزمینی و آلودگی شدید صراحتاً نام برده شده" }
+      ]
+    },
+    {
+      "icon": "🗺️",
+      "title": { "en": "Minorities: Administrative Decentralization vs. Federalism", "fa": "اقلیت‌ها: غیرمتمرکزسازی اداری در مقابل فدرالیسم" },
+      "color": "#ba68c8",
+      "items": [
+        { "en": "JMI is fiercely patriotic — absolute, non-negotiable preservation of Iran's territorial integrity and sovereign independence", "fa": "جبهه ملی شدیداً میهن‌پرستانه است — حفظ مطلق و غیرقابل مذاکره تمامیت ارضی ایران" },
+        { "en": "EXPLICITLY AND VEHEMENTLY REJECTS ethno-linguistic federalism — views it as a dangerous precursor to balkanization (citing Yugoslavia model)", "fa": "صراحتاً و شدیداً فدرالیسم قومی-زبانی را رد می‌کند — آن را پیشاهنگ خطرناک بالکانیزاسیون می‌داند" },
+        { "en": "INSTEAD: highly structured administrative decentralization — tiered elected councils at village, district, and provincial levels", "fa": "به جای آن: غیرمتمرکزسازی اداری ساختارمند — شوراهای منتخب در سطوح روستا، بخش و استان" },
+        { "en": "Councils manage: local budgets, infrastructure, educational initiatives — but subordinate to the central parliament", "fa": "فارسی (فارسی) به عنوان تنها زبان رسمی، آموزشی و مشترک دولتی باقی می‌ماند" },
+        { "en": "Persian (Farsi) remains the sole official, educational, and common language of the state — non-negotiable", "fa": "همه زبان‌های منطقه‌ای (کردی، بلوچی، آذری) به عنوان 'میراث فرهنگی' ترویج و حمایت می‌شوند" },
+        { "en": "ALL regional languages (Kurdish, Balochi, Azerbaijani, etc.) promoted and protected as a shared 'cultural heritage' and national treasure", "fa": "همه زبان‌های منطقه‌ای به عنوان گنجینه ملی و میراث فرهنگی مشترک ترویج و حمایت می‌شوند" },
+        { "en": "This position directly conflicts with the CPFIK's federalist demands — placing JMI on a potential collision course with Kurdish and other minority organizations post-transition", "fa": "این موضع مستقیماً با خواسته‌های فدرالیستی CPFIK تعارض دارد — جبهه ملی را در مسیر تصادم بالقوه با سازمان‌های اقلیت قومی پس از گذار قرار می‌دهد" }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": { "en": "Justice: Transitional Justice Without Vengeance", "fa": "عدالت: عدالت انتقالی بدون انتقام" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "Explicitly rejects blanket purges, revolutionary executions, and political retribution", "fa": "صراحتاً پاکسازی کلی، اعدام‌های انقلابی و مجازات سیاسی را رد می‌کند" },
+        { "en": "Operates on the presumption of innocence — absolute judicial security guaranteed for all citizens", "fa": "بر اساس فرض بی‌گناهی عمل می‌کند" },
+        { "en": "Total abolition of the death penalty as a judicial punishment", "fa": "الغای کامل مجازات اعدام به عنوان مجازات قضایی" },
+        { "en": "Strict prohibition of torture in all forms", "fa": "ممنوعیت قطعی شکنجه" },
+        { "en": "Former regime members prosecuted through fair, transparent, independent secular courts — not mob justice or summary tribunals", "fa": "اعضای سابق رژیم از طریق دادگاه‌های سکولار مستقل و منصفانه پیگرد می‌شوند — نه عدالت قضاوت جمعی" },
+        { "en": "Focus on individual accountability for specific, provable crimes — not collective guilt based on organizational membership", "fa": "تمرکز بر پاسخگویی فردی برای جرایم قابل اثبات مشخص — نه گناه جمعی بر اساس عضویت سازمانی" },
+        { "en": "Strategic purpose: lowering the 'exit cost' for lower-ranking military and bureaucratic personnel — making defection to the democratic movement psychologically safe by guaranteeing they won't face arbitrary prosecution", "fa": "هدف استراتژیک: کاهش 'هزینه خروج' برای پرسنل نظامی و اداری رده پایین‌تر — ایمن‌سازی روانی فرار با تضمین عدم پیگرد خودسرانه" }
+      ]
+    },
+    {
+      "icon": "🌍",
+      "title": { "en": "Foreign Policy: Independence, Normalization, and Non-Proliferation", "fa": "سیاست خارجی: استقلال، عادی‌سازی و عدم اشاعه" },
+      "color": "#8B5CF6",
+      "items": [
+        { "en": "Core immutable tenet: strict independence from foreign hegemony — BOTH Western AND Eastern", "fa": "اصل اساسی تغییرناپذیر: استقلال سختگیرانه از هژمونی خارجی — هم غربی و هم شرقی" },
+        { "en": "The 1953 coup makes external interference an absolute red line regardless of direction or intent", "fa": "کودتای ۱۹۵۳ مداخله خارجی را یک خط قرمز مطلق می‌کند صرف نظر از جهت یا هدف" },
+        { "en": "BUT: advocates for peaceful, normal relations with ALL UN member states based strictly on national interests and mutual respect", "fa": "اما: از روابط صلح‌آمیز و عادی با تمام کشورهای عضو سازمان ملل دفاع می‌کند" },
+        { "en": "Explicitly mentions normal relations with the United States AND Israel — a foundational departure from the Islamic Republic", "fa": "روابط عادی با ایالات متحده و اسرائیل صراحتاً ذکر شده" },
+        { "en": "Adamantly opposes regional proxy wars (Lebanon, Syria, Yemen, Gaza) — argues they squander national wealth and invite foreign strikes", "fa": "به شدت با جنگ‌های نیابتی منطقه‌ای (لبنان، سوریه، یمن، غزه) مخالف است" },
+        { "en": "Prohibition and destruction of weapons of mass destruction — nuclear non-proliferation as a commitment", "fa": "ممنوعیت و نابودی سلاح‌های کشتار جمعی — عدم اشاعه هسته‌ای" },
+        { "en": "Senior JMI figure Seyed Hossein Mousavian has proposed REGIONAL NUCLEAR CONSORTIUMS for peaceful, transparent enrichment management — the most diplomatically sophisticated nuclear proposal of any Iranian opposition plan", "fa": "پیشنهاد کنسرسیوم هسته‌ای منطقه‌ای (موسویان) — پیشرفته‌ترین موضع هسته‌ای از هر طرح اپوزیسیون ایرانی" },
+        { "en": "JMI strongly condemns foreign military strikes against Iran as violations of Iranian sovereignty — even when those strikes target the regime", "fa": "جبهه ملی حملات نظامی خارجی علیه ایران را به شدت محکوم می‌کند — حتی هنگامی که آن حملات رژیم را هدف قرار می‌دهند" }
+      ]
+    }
+  ],
+
+  "assessEyebrow": {
+    "en": "Strategic Assessment",
+    "fa": "ارزیابی استراتژیک"
+  },
+  "assessTitle": {
+    "en": "The Single Greatest Vulnerability",
+    "fa": "بزرگترین آسیب‌پذیری واحد"
+  },
+  "assessIntro": {
+    "en": "JMI's blueprint is the most institutionally mature and historically legitimate of all Iranian opposition plans. But it contains a single structural dependency that is simultaneously its greatest strength and greatest risk.",
+    "fa": "طرح جبهه ملی بالغ‌ترین نهادی و مشروع‌ترین از نظر تاریخی از تمام طرح‌های اپوزیسیون ایرانی است. اما شامل یک وابستگی ساختاری واحد است که همزمان بزرگترین نقطه قوت و بزرگترین ریسک آن است."
+  },
+  "dependency": {
+    "title": { "en": "The Artesh Defection Threshold", "fa": "آستانه فرار ارتش" },
+    "color": "#ef5350",
+    "text": { "en": "The entire transition methodology — the Voice, the Pressure, the Top Cracks strategy — is ultimately contingent on one event: the Artesh's abstention or defection during a critical mass uprising. JMI strictly prohibits armed insurgency and foreign military intervention. This means if the Artesh does not defect, the transition cannot proceed through JMI's prescribed path. Every other element of the blueprint — the Temporary Transition Council, the Constituent Assembly, the Secular Democratic Republic — exists downstream of this single military threshold.", "fa": "تمام روش‌شناسی گذار — صدا، فشار، استراتژی ترک‌های بالا — نهایتاً مشروط به یک رویداد است: کناره‌گیری یا فرار ارتش در طول یک قیام توده‌وار بحرانی. جبهه ملی سختگیرانه شورش مسلحانه و مداخله نظامی خارجی را ممنوع می‌کند. این یعنی اگر ارتش فرار نکند، گذار نمی‌تواند از مسیر تجویزی جبهه ملی پیش برود." }
+  },
+  "strengths": {
+    "title": { "en": "Structural Strengths", "fa": "نقاط قوت ساختاری" },
+    "color": "#e8c840",
+    "items": [
+      { "en": "75 years of institutional legitimacy — the only Iranian opposition organization with a direct historical connection to a functioning democratic government (1951–1953)", "fa": "۷۵ سال مشروعیت نهادی — تنها سازمان اپوزیسیون ایرانی با ارتباط تاریخی مستقیم با یک دولت دموکراتیک در حال کار (۱۳۳۰–۱۳۳۲)" },
+      { "en": "'Clean hands' credibility: actively opposed BOTH the Pahlavi monarchy AND the Islamic Republic — unlike every other plan, which came from within one of those systems", "fa": "اعتبار 'دست‌های پاک': فعالانه هم با سلطنت پهلوی و هم با جمهوری اسلامی مخالفت کرده است" },
+      { "en": "The Hamgami coalition integration connects JMI's historical legitimacy to the URI's modern organizational infrastructure", "fa": "ادغام ائتلاف همگامی مشروعیت تاریخی جبهه ملی را به زیرساخت سازمانی مدرن URI متصل می‌کند" },
+      { "en": "The 1953 anti-imperialist credential gives JMI unique appeal to nationalist Iranians who distrust diaspora-led Western-backed opposition", "fa": "اعتبار ضدامپریالیستی ۱۹۵۳ به جبهه ملی جذابیت منحصربه‌فردی برای ایرانیان ملی‌گرا که به اپوزیسیون دیاسپورا-محور حمایت‌شده غربی بی‌اعتمادند می‌دهد" },
+      { "en": "The Artesh retention + reform policy is strategically sophisticated: it reduces the risk of a post-collapse military power vacuum", "fa": "سیاست حفظ و اصلاح ارتش از نظر استراتژیک پیچیده است: خطر خلاء قدرت نظامی پس از فروپاشی را کاهش می‌دهد" },
+      { "en": "The Temporary Transition Council model avoids the single-leader concentration problem that other transition plans exhibit", "fa": "مدل شورای موقت گذار از مشکل تمرکز یک رهبر که سایر طرح‌های گذار نشان می‌دهند اجتناب می‌کند" },
+      { "en": "Nuclear consortium proposal (Mousavian) is the most internationally credible nuclear position of any Iranian opposition plan", "fa": "پیشنهاد کنسرسیوم هسته‌ای (موسویان) معتبرترین موضع هسته‌ای بین‌المللی هر طرح اپوزیسیون ایرانی است" }
+    ]
+  },
+  "weaknesses": {
+    "title": { "en": "Structural Vulnerabilities", "fa": "آسیب‌پذیری‌های ساختاری" },
+    "color": "#ef5350",
+    "items": [
+      { "en": "The entire transition strategy depends on the Artesh defection threshold being met — if the military does not defect, the strategy has no kinetic fallback", "fa": "تمام استراتژی گذار به آستانه فرار ارتش بستگی دارد — اگر ارتش فرار نکند، استراتژی بازگشتی نظامی ندارد" },
+      { "en": "The strict anti-federalism position creates a post-transition collision course with the CPFIK (Kurdish coalition) and other ethnic minority organizations — this could trigger the civil war scenario the blueprint is designed to prevent", "fa": "موضع ضدفدرالیسم سختگیرانه یک مسیر تصادم پس از گذار با CPFIK (ائتلاف کردی) و سایر سازمان‌های اقلیت قومی ایجاد می‌کند" },
+      { "en": "The monarchy caveat creates persistent ambiguity — some JMI members and historical constituencies still tolerate symbolic monarchy, potentially fragmenting the coalition under pressure", "fa": "استثنای سلطنت ابهام پیوسته‌ای ایجاد می‌کند — برخی اعضای جبهه ملی هنوز سلطنت نمادین را تحمل می‌کنند" },
+      { "en": "JMI's condemnation of foreign military strikes against Iran (even against the regime) puts it at odds with the geopolitical reality of 2026, where strikes have already occurred", "fa": "محکومیت جبهه ملی از حملات نظامی خارجی علیه ایران (حتی علیه رژیم) آن را با واقعیت ژئوپلیتیک ۲۰۲۶ در تضاد قرار می‌دهد" },
+      { "en": "The transition timeline is unspecified — unlike the ITC's 180-day plan, the absence of a concrete timeline creates coordination and legitimacy risks during the power vacuum", "fa": "جدول زمانی گذار نامشخص — برخلاف طرح ۱۸۰ روزه ITC، فقدان جدول زمانی مشخص ریسک‌های هماهنگی در طول خلاء قدرت ایجاد می‌کند" },
+      { "en": "JMI's broad historical coalition includes ideologically heterogeneous groups (secular liberals, social democrats, pan-Iranists) — maintaining coherence under the acute pressures of a real transition requires governance structures not fully detailed in the blueprint", "fa": "ائتلاف تاریخی گسترده جبهه ملی شامل گروه‌های از نظر ایدئولوژیک ناهمگون (لیبرال‌های سکولار، سوشیال دموکرات‌ها، پان‌ایرانیست‌ها) است" }
+    ]
+  },
+
+  "conclusion": {
+    "en": "\"The National Front of Iran blueprint offers a highly stable, institutionally resilient governance model. By immediately dissolving parallel ideological militias, secularizing the judiciary, and implementing a socially buffered competitive economy, the blueprint theoretically inoculates the future state against both a return to clerical autocracy and a relapse into dynastic dictatorship. The resulting architecture would produce an Iranian state that is internally equitable, fiercely independent, and externally normalized.\" — JMI Blueprint Systemic Conclusion",
+    "fa": "«طرح جبهه ملی ایران یک مدل حاکمیتی بسیار پایدار و از نظر نهادی انعطاف‌پذیر ارائه می‌دهد. با انحلال فوری شبه‌نظامیان ایدئولوژیک موازی، سکولارسازی دستگاه قضایی و اجرای یک اقتصاد رقابتی با حمایت اجتماعی، طرح نظری آینده دولت را هم در برابر بازگشت به استبداد روحانی و هم در برابر عود دیکتاتوری سلسله‌ای واکسینه می‌کند.» — نتیجه‌گیری سیستمی طرح جبهه ملی"
+  },
+  "source": {
+    "en": "Source: JMI Asasnameh 2015 · Hamgami Coalition Fundamental Principles 2023 · Jebhe Melli Iran · Founded 1949 by Dr. Mohammad Mossadegh · Current leadership: Seyed Hossein Mousavian (Chairperson), Mohsen Farshad (Spokesperson)",
+    "fa": "منبع: اساسنامه جبهه ملی ایران ۲۰۱۵ · اصول بنیادی ائتلاف همگامی ۲۰۲۳ · جبهه ملی ایران · تأسیس ۱۹۴۹ توسط دکتر محمد مصدق · رهبری کنونی: سید حسین موسویان (رئیس شورای مرکزی)، محسن فرشاد (سخنگو)"
+  },
+  "footerAllPlans": { "en": "← All Transitional Plans", "fa": "← همه طرح‌های انتقالی" },
+  "footerArena": { "en": "Arena — Endorse Plans →", "fa": "آرنا — تأیید طرح‌ها ←" },
+
+  "coalEyebrow": {
+    "en": "Leadership & Coalition",
+    "fa": "رهبری و ائتلاف"
+  },
+  "coalTitle": {
+    "en": "The Hamgami Solidarity Coalition — JMI + URI",
+    "fa": "ائتلاف همگامی — جبهه ملی + URI"
+  },
+  "coalIntro": {
+    "en": "JMI is a founding member of the Hamgami (همگامی — Solidarity) coalition alongside URI (United Republicans of Iran). The coalition combines JMI's 75-year institutional legitimacy with URI's modern organizational infrastructure. Current JMI leadership is headed by Seyed Hossein Mousavian, a former Iranian diplomat and nuclear negotiator with Princeton University affiliation, whose presence lends significant international credibility to the organization.",
+    "fa": "جبهه ملی عضو مؤسس ائتلاف همگامی در کنار URI (جمهوریخواهان متحد ایران) است. این ائتلاف مشروعیت نهادی ۷۵ ساله جبهه ملی را با زیرساخت سازمانی مدرن URI ترکیب می‌کند. رهبری کنونی جبهه ملی توسط سید حسین موسویان، دیپلمات سابق ایرانی و مذاکره‌کننده هسته‌ای با وابستگی به دانشگاه پرینستون، هدایت می‌شود."
+  },
+  "coalition": [
+    {
+      "name": { "en": "Jebhe Melli Iran (JMI)", "fa": "جبهه ملی ایران" },
+      "role": { "en": "Founding historical legitimacy; Mosaddeghist ideology; 75 years of institutional memory", "fa": "مشروعیت تاریخی بنیادین؛ ایدئولوژی مصدقی؛ ۷۵ سال حافظه نهادی" },
+      "color": "#e8c840"
+    },
+    {
+      "name": { "en": "URI — United Republicans of Iran", "fa": "جمهوریخواهان متحد ایران" },
+      "role": { "en": "Modern organizational infrastructure; secular republican framework; Laïcité doctrine", "fa": "زیرساخت سازمانی مدرن؛ چارچوب جمهوری سکولار؛ دکترین لائیسیته" },
+      "color": "#8B5CF6"
+    }
+  ],
+
+  "demandsLabel": {
+    "en": "Non-Negotiable Demands",
+    "fa": "خواسته‌های غیرقابل مذاکره"
+  },
+  "demands": [
+    { "en": "Complete abolition of the Islamic Republic — no reform within the existing theocratic constitutional framework; full systemic replacement is required", "fa": "الغای کامل جمهوری اسلامی — بدون اصلاح در چارچوب قانون اساسی تئوکراتیک موجود؛ جایگزینی سیستمی کامل لازم است" },
+    { "en": "Secular Democratic Republic — total separation of religion and state; no theocratic elements in the future constitution", "fa": "جمهوری دموکراتیک سکولار — جدایی کامل دین از دولت؛ بدون عناصر تئوکراتیک در قانون اساسی آینده" },
+    { "en": "No armed foreign military intervention — the transition must be achieved through internal civil resistance, not externally-imposed regime change", "fa": "بدون مداخله نظامی خارجی مسلحانه — گذار باید از طریق مقاومت مدنی داخلی حاصل شود، نه تغییر رژیم تحمیلی خارجی" },
+    { "en": "No armed insurgency — the transition pathway must remain strictly non-violent", "fa": "بدون شورش مسلحانه — مسیر گذار باید کاملاً غیرخشونت‌آمیز باقی بماند" },
+    { "en": "Complete dissolution of the IRGC and Basij — these organizations must be disbanded entirely, not reformed", "fa": "انحلال کامل سپاه و بسیج — این سازمان‌ها باید کاملاً منحل شوند، نه اصلاح" },
+    { "en": "Artesh (conventional military) retention and reform — the regular armed forces are to be retained under civilian democratic control", "fa": "حفظ و اصلاح ارتش (نیروی نظامی رسمی) — نیروهای مسلح رسمی تحت کنترل دموکراتیک غیرنظامی حفظ می‌شوند" },
+    { "en": "Anti-federalism: territorial integrity — no ethno-linguistic federal division of Iran; administrative decentralization only", "fa": "ضدفدرالیسم: تمامیت ارضی — بدون تقسیم فدرال قومی-زبانی ایران؛ فقط غیرمتمرکزسازی اداری" },
+    { "en": "Full gender equality and civil liberties restoration — mandatory hijab and all gender apartheid policies abolished immediately", "fa": "برابری کامل جنسیتی و احیای آزادی‌های مدنی — حجاب اجباری و تمام سیاست‌های آپارتاید جنسیتی فوراً لغو می‌شوند" },
+    { "en": "Nuclear non-proliferation commitment — renunciation of nuclear weapons; support for regional nuclear consortium under IAEA oversight", "fa": "تعهد به عدم اشاعه هسته‌ای — انصراف از سلاح‌های هسته‌ای؛ حمایت از کنسرسیوم هسته‌ای منطقه‌ای تحت نظارت آژانس" }
+  ],
+
+  "geoEyebrow": {
+    "en": "Geopolitical Implications",
+    "fa": "پیامدهای ژئوپلیتیک"
+  },
+  "geoTitle": {
+    "en": "Iran's Democratic Transition and the Regional Order",
+    "fa": "گذار دموکراتیک ایران و نظم منطقه‌ای"
+  },
+  "geoIntro": {
+    "en": "A JMI-led democratic transition would be the most consequential geopolitical event in the Middle East since 1979. Iran's Mosaddeghist non-alignment doctrine positions a future democratic Iran as a regional stabilizer — ending proxy wars, offering a credible nuclear off-ramp, and normalizing relations with all neighbors.",
+    "fa": "یک گذار دموکراتیک به رهبری جبهه ملی بزرگترین رویداد ژئوپلیتیک خاورمیانه از ۱۹۷۹ خواهد بود. دکترین عدم تعهد مصدقی ایران آینده دموکراتیک را به عنوان تثبیت‌کننده منطقه‌ای تعریف می‌کند."
+  },
+  "geoCards": [
+    {
+      "icon": "🌐",
+      "title": { "en": "Regional Power Shift", "fa": "تغییر قدرت منطقه‌ای" },
+      "color": "#e8c840",
+      "items": [
+        { "en": "A secular democratic Iran shares borders with Iraq, Turkey, Armenia, Azerbaijan, Turkmenistan, Afghanistan, and Pakistan — democratization has direct implications for all", "fa": "ایران دموکراتیک سکولار با عراق، ترکیه، ارمنستان، آذربایجان، ترکمنستان، افغانستان و پاکستان همسایه است" },
+        { "en": "JMI's non-alignment doctrine positions Iran as a regional stabilizer rather than a destabilizing theocratic power projection", "fa": "دکترین عدم تعهد جبهه ملی ایران را به عنوان تثبیت‌کننده منطقه‌ای تعریف می‌کند" },
+        { "en": "Normalization with Saudi Arabia and GCC becomes feasible — the primary source of Iranian-Arab geopolitical tension (proxy competition) is removed", "fa": "عادی‌سازی با عربستان سعودی و شورای همکاری خلیج فارس ممکن می‌شود" },
+        { "en": "Diaspora chapters in Germany, France, UK, Sweden, USA, Canada provide established diplomatic networks in all major Western capitals", "fa": "شاخه‌های دیاسپورا در آلمان، فرانسه، بریتانیا، سوئد، آمریکا، کانادا شبکه‌های دیپلماتیک تثبیت‌شده فراهم می‌کنند" }
+      ]
+    },
+    {
+      "icon": "⚛️",
+      "title": { "en": "The Nuclear Off-Ramp", "fa": "مسیر خروج هسته‌ای" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "Seyed Hossein Mousavian (JMI Chairperson, former Iranian nuclear negotiator, Princeton University) has authored a regional nuclear consortium proposal", "fa": "سید حسین موسویان (رئیس شورای مرکزی جبهه ملی، مذاکره‌کننده سابق هسته‌ای ایران، دانشگاه پرینستون) پیشنهاد کنسرسیوم هسته‌ای منطقه‌ای را نوشته است" },
+        { "en": "The consortium model: multilateral regional enrichment facility under IAEA oversight — preserves civilian nuclear capability while eliminating Iran's unilateral enrichment leverage", "fa": "مدل کنسرسیوم: تأسیسات غنی‌سازی منطقه‌ای چندجانبه تحت نظارت آژانس — ظرفیت هسته‌ای غیرنظامی را حفظ می‌کند" },
+        { "en": "This is the most credible nuclear off-ramp proposed by any Iranian opposition group — coming from a former insider negotiator with published academic work", "fa": "این معتبرترین مسیر خروج هسته‌ای است که توسط هر گروه اپوزیسیون ایرانی پیشنهاد شده" },
+        { "en": "Removes the primary obstacle to full Western diplomatic recognition and sanctions relief for a post-transition Iran", "fa": "مانع اصلی در برابر به رسمیت شناختن دیپلماتیک غربی و کاهش تحریم‌ها را برمی‌دارد" }
+      ]
+    },
+    {
+      "icon": "🕊️",
+      "title": { "en": "Proxy Network Dissolution", "fa": "انحلال شبکه نیابتی" },
+      "color": "#ef5350",
+      "items": [
+        { "en": "JMI's foreign policy explicitly ends all funding for Hezbollah, Hamas, PIJ, Houthis, and Iraqi PMF groups", "fa": "سیاست خارجی جبهه ملی صراحتاً تمام تأمین مالی حزب‌الله، حماس، جهاد اسلامی، حوثی‌ها و گروه‌های حشد الشعبی را پایان می‌دهد" },
+        { "en": "Withdrawal from all military presence in Syria and Iraq — ending the 'Axis of Resistance' military footprint", "fa": "خروج از تمام حضور نظامی در سوریه و عراق — پایان دادن به ردپای نظامی 'محور مقاومت'" },
+        { "en": "The Islamic Republic's proxy network is arguably the highest-value geopolitical consequence of Iranian democratization for the Arab world and Israel", "fa": "شبکه نیابتی جمهوری اسلامی به احتمال زیاد بالاترین ارزش ژئوپلیتیک از نظر بین‌المللی است" },
+        { "en": "Non-alignment position terminates military cooperation with Russia — while resisting becoming a Western client state", "fa": "موضع عدم تعهد همکاری نظامی با روسیه را پایان می‌دهد — در حالی که از تبدیل شدن به دولت دست‌نشانده غربی خودداری می‌کند" }
+      ]
+    }
+  ],
+
+  "histEyebrow": {
+    "en": "Organizational History",
+    "fa": "تاریخ سازمانی"
+  },
+  "histTitle": {
+    "en": "75 Years — From Oil Nationalization to the Hamgami Coalition",
+    "fa": "۷۵ سال — از ملی شدن نفت تا ائتلاف همگامی"
+  },
+  "history": [
+    {
+      "year": "1949",
+      "event": { "en": "Founding: Dr. Mohammad Mossadegh establishes Jebhe Melli Iran in Tehran as a coalition of nationalist parties united around the demand for free elections and an end to British control of Iranian oil", "fa": "تأسیس: دکتر محمد مصدق جبهه ملی ایران را در تهران به عنوان ائتلافی از احزاب ملی‌گرا برای انتخابات آزاد و پایان دادن به کنترل بریتانیا بر نفت ایران تأسیس می‌کند" },
+      "color": "#e8c840"
+    },
+    {
+      "year": "1951",
+      "event": { "en": "Mossadegh becomes Prime Minister; nationalizes the Anglo-Iranian Oil Company (AIOC) — a historic act of economic sovereignty that galvanizes Iranian national identity", "fa": "مصدق نخست‌وزیر می‌شود؛ شرکت نفت ایران و انگلیس (AIOC) را ملی می‌کند" },
+      "color": "#e8c840"
+    },
+    {
+      "year": "1953",
+      "event": { "en": "CIA/MI6 coup (Operation AJAX/Boot) overthrows Mossadegh; Shah restored to absolute power. Mossadegh imprisoned (1953–1956), then held under house arrest until his death in 1967", "fa": "کودتای CIA/MI6 (عملیات AJAX/Boot) مصدق را سرنگون می‌کند؛ شاه به قدرت مطلق بازمی‌گردد" },
+      "color": "#ef5350"
+    },
+    {
+      "year": "1960s",
+      "event": { "en": "Second National Front formation; continued underground activity under SAVAK surveillance. Multiple waves of arrests and exile drive the organization overseas", "fa": "تشکیل جبهه ملی دوم؛ فعالیت زیرزمینی ادامه‌دار تحت نظارت ساواک" },
+      "color": "#ff9a42"
+    },
+    {
+      "year": "1979",
+      "event": { "en": "JMI participates in the 1979 revolution, then is rapidly marginalized by Khomeini's government — labeled 'liberal' (a pejorative in early Islamic Republic discourse). The democratic vision is captured by theocrats", "fa": "جبهه ملی در انقلاب ۱۹۷۹ شرکت می‌کند، سپس توسط دولت خمینی به سرعت به حاشیه رانده می‌شود" },
+      "color": "#ff9a42"
+    },
+    {
+      "year": "1981",
+      "event": { "en": "JMI effectively outlawed inside Iran; members arrested, exiled, or driven underground. Organization reconstitutes in diaspora across Europe and North America", "fa": "جبهه ملی در داخل ایران ممنوع می‌شود؛ اعضا دستگیر، تبعید یا مجبور به فعالیت زیرزمینی می‌شوند" },
+      "color": "#ef5350"
+    },
+    {
+      "year": "2015",
+      "event": { "en": "Asasnameh (اساسنامه) revision: JMI formalizes its contemporary stance as a Secular Democratic Republic organization; governance charter updated to reflect post-1979 ideological evolution", "fa": "بازنگری اساسنامه: جبهه ملی موضع معاصر خود را به عنوان سازمان جمهوری دموکراتیک سکولار رسمی می‌کند" },
+      "color": "#69d98c"
+    },
+    {
+      "year": "2023",
+      "event": { "en": "Hamgami coalition formation with URI — JMI's historical legitimacy joins URI's modern organizational infrastructure. Catalyzed by the 2022 'Woman, Life, Freedom' uprising. Seyed Hossein Mousavian becomes Chairperson", "fa": "تشکیل ائتلاف همگامی با URI — مشروعیت تاریخی جبهه ملی به زیرساخت سازمانی مدرن URI می‌پیوندد. سید حسین موسویان رئیس شورای مرکزی می‌شود" },
+      "color": "#e8c840"
+    }
+  ]
+}

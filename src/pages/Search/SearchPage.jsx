@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { searchStatic } from '../../lib/search/staticIndex';
+import CONTENT from '../../locales/pages/search.json';
 import './SearchPage.css';
 
 const TYPE_LABELS = {
@@ -40,7 +41,7 @@ function ResultCard({ item, lang }) {
 }
 
 export default function SearchPage() {
-    const { lang, isRTL, monoFont, headFont, tKey } = useLang();
+    const { lang, isRTL, monoFont, headFont, tKey, t } = useLang();
     const [searchParams, setSearchParams] = useSearchParams();
     const initialQ = sanitizeQuery(searchParams.get('q') ?? '');
 
@@ -94,10 +95,10 @@ export default function SearchPage() {
     };
 
     return (
-        <div className="sr-root" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="sr-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="sr-hero">
                 <h1 className="sr-title" style={{ fontFamily: headFont }}>
-                    {lang === 'fa' ? 'جستجو' : 'Search'}
+                    {t(CONTENT.title)}
                 </h1>
                 <div className="sr-input-wrap">
                     <span className="sr-input-icon" aria-hidden>
@@ -112,7 +113,7 @@ export default function SearchPage() {
                         type="search"
                         value={query}
                         onChange={handleInput}
-                        placeholder={lang === 'fa' ? 'جستجو در IranDAO…' : 'Search IranDAO…'}
+                        placeholder={t(CONTENT.placeholder)}
                         maxLength={MAX_Q}
                         style={{ fontFamily: monoFont }}
                         autoComplete="off"
@@ -127,38 +128,34 @@ export default function SearchPage() {
             <div className="sr-body">
                 {!hasQuery && (
                     <p className="sr-hint" style={{ fontFamily: monoFont }}>
-                        {lang === 'fa'
-                            ? 'برای جستجو در بین طرح‌های حکومتی، برنامه‌ها و صفحات، تایپ کنید.'
-                            : 'Type to search across blueprints, plans, sectors, and pages.'}
+                        {t(CONTENT.hint)}
                     </p>
                 )}
 
                 {isLoading && (
                     <div className="sr-loading" style={{ fontFamily: monoFont }}>
-                        {lang === 'fa' ? 'در حال جستجو…' : 'Searching…'}
+                        {t(CONTENT.searching)}
                     </div>
                 )}
 
                 {dbError && (
                     <div className="sr-error" style={{ fontFamily: monoFont }}>
-                        {lang === 'fa' ? 'خطا در جستجوی پیشرفته. نتایج محلی نمایش داده می‌شود.' : 'Advanced search unavailable. Showing local results.'}
+                        {t(CONTENT.errorAdvanced)}
                     </div>
                 )}
 
                 {noResults && (
                     <p className="sr-no-results" style={{ fontFamily: monoFont }}>
-                        {lang === 'fa'
-                            ? `نتیجه‌ای برای «${debouncedQuery}» یافت نشد.`
-                            : `No results for "${debouncedQuery}".`}
+                        {t(CONTENT.noResults).replace('{q}', debouncedQuery)}
                     </p>
                 )}
 
                 {allResults.length > 0 && (
                     <div className="sr-results-wrap">
                         <div className="sr-count" style={{ fontFamily: monoFont }}>
-                            {lang === 'fa'
-                                ? `${allResults.length} نتیجه`
-                                : `${allResults.length} result${allResults.length !== 1 ? 's' : ''}`}
+                            {allResults.length === 1
+                                ? t(CONTENT.resultCount).replace('{n}', allResults.length)
+                                : t(CONTENT.resultCountPlural).replace('{n}', allResults.length)}
                         </div>
                         <div className="sr-results">
                             {allResults.map(item => (

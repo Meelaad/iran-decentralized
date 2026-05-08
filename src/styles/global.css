@@ -3,6 +3,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700&display=swap');
 @import './theme-light.css';
 
+/* ══════════════════════════════════════════════════════════════════════════
+   COLOR TOKEN SYSTEM  (oklch — P3-extended on capable displays)
+   All hardcoded hex/rgba color values in the codebase map to these tokens.
+   Usage: var(--clr-accent), oklch(from var(--clr-accent) l c h / 0.3)
+══════════════════════════════════════════════════════════════════════════ */
+:root {
+    /* ── Brand accent — purple ──────────────────────────────────────────── */
+    --clr-accent:        oklch(55% 0.23 293);      /* sRGB fallback: #8b5cf6 */
+    --clr-accent-deep:   oklch(45% 0.25 293);      /* sRGB fallback: #7c3aed */
+    --clr-accent-soft:   oklch(70% 0.18 293);      /* sRGB fallback: #a78bfa */
+    --clr-accent-dim:    oklch(55% 0.10 293);      /* muted purple */
+    --clr-accent-05:     oklch(55% 0.23 293 / 0.05);
+    --clr-accent-08:     oklch(55% 0.23 293 / 0.08);
+    --clr-accent-10:     oklch(55% 0.23 293 / 0.10);
+    --clr-accent-15:     oklch(55% 0.23 293 / 0.15);
+    --clr-accent-18:     oklch(55% 0.23 293 / 0.18);
+    --clr-accent-20:     oklch(55% 0.23 293 / 0.20);
+    --clr-accent-25:     oklch(55% 0.23 293 / 0.25);
+    --clr-accent-30:     oklch(55% 0.23 293 / 0.30);
+    --clr-accent-35:     oklch(55% 0.23 293 / 0.35);
+    --clr-accent-40:     oklch(55% 0.23 293 / 0.40);
+    --clr-accent-50:     oklch(55% 0.23 293 / 0.50);
+    --clr-accent-60:     oklch(55% 0.23 293 / 0.60);
+    --clr-accent-70:     oklch(55% 0.23 293 / 0.70);
+
+    /* ── Brand flag — Iran green & red ─────────────────────────────────── */
+    --clr-green:         oklch(59% 0.18 141);      /* sRGB fallback: #239F40 */
+    --clr-green-05:      oklch(59% 0.18 141 / 0.05);
+    --clr-green-08:      oklch(59% 0.18 141 / 0.08);
+    --clr-green-10:      oklch(59% 0.18 141 / 0.10);
+    --clr-green-15:      oklch(59% 0.18 141 / 0.15);
+    --clr-green-20:      oklch(59% 0.18 141 / 0.20);
+    --clr-green-25:      oklch(59% 0.18 141 / 0.25);
+    --clr-green-30:      oklch(59% 0.18 141 / 0.30);
+    --clr-green-40:      oklch(59% 0.18 141 / 0.40);
+    --clr-green-50:      oklch(59% 0.18 141 / 0.50);
+    --clr-green-60:      oklch(59% 0.18 141 / 0.60);
+    --clr-green-70:      oklch(59% 0.18 141 / 0.70);
+    --clr-green-80:      oklch(59% 0.18 141 / 0.80);
+    --clr-green-85:      oklch(59% 0.18 141 / 0.85);
+
+    --clr-red:           oklch(48% 0.22 28);       /* sRGB fallback: #DA0000 */
+    --clr-red-10:        oklch(48% 0.22 28 / 0.10);
+    --clr-red-15:        oklch(48% 0.22 28 / 0.15);
+    --clr-red-20:        oklch(48% 0.22 28 / 0.20);
+    --clr-red-25:        oklch(48% 0.22 28 / 0.25);
+    --clr-red-30:        oklch(48% 0.22 28 / 0.30);
+    --clr-red-40:        oklch(48% 0.22 28 / 0.40);
+    --clr-red-50:        oklch(48% 0.22 28 / 0.50);
+    --clr-red-60:        oklch(48% 0.22 28 / 0.60);
+
+    /* ── Semantic — amber / warning ─────────────────────────────────────── */
+    --clr-amber:         oklch(70% 0.18 75);       /* sRGB fallback: #d97706 */
+    --clr-amber-30:      oklch(70% 0.18 75 / 0.30);
+
+    /* ── Semantic — cyan / info ─────────────────────────────────────────── */
+    --clr-cyan:          oklch(83% 0.12 200);      /* sRGB fallback: #8fe3ff */
+    --clr-teal:          oklch(72% 0.13 185);
+
+    /* ── Backgrounds (dark-mode base) ───────────────────────────────────── */
+    --clr-bg:            oklch(8%  0.01 200);      /* sRGB fallback: #010303 */
+    --clr-bg-nav:        oklch(8%  0.01 200 / 0.92);
+    --clr-bg-card:       oklch(11% 0.015 215);     /* card bg */
+    --clr-bg-panel:      oklch(10% 0.015 215);     /* panel bg */
+    --clr-bg-surface:    oklch(13% 0.02 220);      /* surface */
+    --clr-bg-elevated:   oklch(16% 0.02 220);      /* elevated */
+    --clr-bg-hover:      oklch(19% 0.02 220);
+    --clr-bg-overlay:    oklch(5%  0.01 200 / 0.80);
+
+    /* ── Borders ────────────────────────────────────────────────────────── */
+    --clr-border:        oklch(22% 0.02 230);
+    --clr-border-dim:    oklch(17% 0.02 220);
+    --clr-border-bright: oklch(28% 0.03 240);
+
+    /* ── Text ───────────────────────────────────────────────────────────── */
+    --clr-text:          oklch(82% 0.01 250);      /* sRGB fallback: #c8ccd4 */
+    --clr-text-muted:    oklch(62% 0.02 240);
+    --clr-text-dim:      oklch(44% 0.02 240);
+    --clr-text-faint:    oklch(36% 0.02 240);
+    --clr-text-heading:  oklch(93% 0.01 240);      /* sRGB fallback: #eef5ff */
+    --clr-text-sub:      oklch(33% 0.025 230);
+}
+
 @font-face {
     font-family: 'Irancell';
     src: url('/fonts/Irancell_Regular.ttf') format('truetype');
@@ -70,9 +153,9 @@
 }
 
 *:focus-visible {
-    outline: 1px solid rgba(139, 92, 246, 0.7);
+    outline: 1px solid var(--clr-accent-70);
     outline-offset: 3px;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1), 0 0 12px rgba(139, 92, 246, 0.2);
+    box-shadow: 0 0 0 3px var(--clr-accent-10), 0 0 12px var(--clr-accent-20);
 }
 
 * {
@@ -82,12 +165,12 @@
 
 input, textarea {
     user-select: text;
-    caret-color: #8B5CF6;
+    caret-color: var(--clr-accent);
 }
 
 body {
-    background: #010303;
-    color: #c8ccd4;
+    background: var(--clr-bg);
+    color: var(--clr-text);
     min-height: 100vh;
     font-family: 'Inter', sans-serif;
 }
@@ -97,11 +180,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #12151c;
+    background: oklch(11% 0.01 215);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #2a3040;
+    background: var(--clr-border-bright);
     border-radius: 3px;
 }
 
@@ -145,11 +228,11 @@ svg g {
 
 @keyframes securityPulse {
     from {
-        box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+        box-shadow: 0 0 5px var(--clr-accent-30);
         filter: brightness(1);
     }
     to {
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.7);
+        box-shadow: 0 0 20px var(--clr-accent-70);
         filter: brightness(1.2);
     }
 }

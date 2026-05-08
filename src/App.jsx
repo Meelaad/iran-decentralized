@@ -47,6 +47,9 @@ import CPILDPage from './pages/CPILD/CPILDPage';
 import GlobalPage from './pages/Global/GlobalPage';
 import ComingSoonPage from './pages/ComingSoon/ComingSoonPage';
 import AccessModePage from './pages/AccessMode/AccessModePage';
+import SimpleHubPage from './pages/Simple/SimpleHubPage';
+import SimpleTransitionPage from './pages/Simple/SimpleTransitionPage';
+import SimpleDestinationPage from './pages/Simple/SimpleDestinationPage';
 import CareersPage from './pages/Careers/CareersPage';
 import ApplyPage from './pages/Careers/ApplyPage';
 import FAQPage from './pages/FAQ/FAQPage';
@@ -61,6 +64,8 @@ function App() {
                     {/* Standalone pages without the main layout */}
                     <Route path="/" element={<StartPage />} />
                     <Route path="/profile" element={<ProfilePage />} />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/register" element={<RegisterPage />} />
 
                     {/* Main application routes with Layout */}
                     <Route path="/" element={<Layout />}>
@@ -68,6 +73,11 @@ function App() {
                         <Route path="access-mode" element={<AccessModePage />} />
                         <Route path="choose" element={<StartSelection />} />
                         <Route path="pre" element={<PreTransPage />} />
+
+                        {/* Simple Version */}
+                        <Route path="simple" element={<SimpleHubPage />} />
+                        <Route path="simple/transition" element={<SimpleTransitionPage />} />
+                        <Route path="simple/destination" element={<SimpleDestinationPage />} />
                         
                         {/* Blueprint routes */}
                         <Route path="blueprint/gov/:blueprintId" element={<BlueprintViewer />} />
@@ -100,12 +110,11 @@ function App() {
                         {/* Functional pages */}
                         <Route path="my-blueprints" element={<MyBlueprintsPage />} />
                         <Route path="blueprint-editor/:blueprintId" element={<BlueprintEditorPage />} />
-                        <Route path="register" element={<RegisterPage />} />
+
                         <Route path="admin" element={<AdminPage />} />
                         <Route path="contact" element={<ContactPage />} />
                         <Route path="privacy" element={<PrivacyPage />} />
                         <Route path="terms" element={<TermsPage />} />
-                        <Route path="login" element={<LoginPage />} />
                         <Route path="careers" element={<CareersPage />} />
                         <Route path="apply" element={<ApplyPage />} />
                         <Route path="faq" element={<FAQPage />} />

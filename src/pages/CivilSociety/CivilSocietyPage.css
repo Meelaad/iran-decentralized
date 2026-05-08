@@ -10,8 +10,8 @@
 .cs-page {
   position: relative;
   min-height: 100vh;
-  background: #010303;
-  color: #CCE3F0;
+  background: var(--clr-bg);
+  color: oklch(88% 0.03 220);
   overflow-x: hidden;
 }
 
@@ -69,14 +69,14 @@
   font-size: clamp(24px, 3.5vw, 38px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #e8f4fb;
+  color: oklch(95% 0.02 220);
   margin: 0 0 16px;
   line-height: 1.15;
 }
 
 .cs-hero-desc {
   font-size: 13.5px;
-  color: #8aa8bc;
+  color: var(--clr-text-muted);
   max-width: 900px;
   margin: 0 auto 24px;
   line-height: 1.7;
@@ -116,7 +116,7 @@
 .cs-sechead-title {
   font-size: clamp(17px, 2.2vw, 24px);
   font-weight: 700;
-  color: #e8f4fb;
+  color: oklch(95% 0.02 220);
   margin: 0 0 10px;
   letter-spacing: -0.015em;
   line-height: 1.25;
@@ -124,7 +124,7 @@
 
 .cs-sechead-intro {
   font-size: 13px;
-  color: #7a9db5;
+  color: var(--clr-text-muted);
   line-height: 1.7;
   max-width: 980px;
   margin: 0;
@@ -146,21 +146,21 @@
   text-transform: uppercase;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.06);
   display: block;
 }
 
 /* ── Accordion ── */
 .cs-acc {
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid oklch(100% 0 0 / 0.07);
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.015);
+  background: oklch(100% 0 0 / 0.015);
   width: 100%;
   margin-bottom: 5px;
 }
 .cs-acc:last-child { margin-bottom: 0; }
-.cs-acc:hover { border-color: rgba(255, 255, 255, 0.11); }
+.cs-acc:hover { border-color: oklch(100% 0 0 / 0.11); }
 
 .cs-acc-btn {
   width: 100%;
@@ -171,7 +171,7 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
 }
 .cs-acc-btn:hover { background: rgba(255, 154, 66, 0.04); }
 
@@ -179,7 +179,7 @@
   flex: 1;
   font-size: 12px;
   font-weight: 600;
-  color: #c8dce8;
+  color: oklch(85% 0.03 220);
   line-height: 1.4;
   text-align: left;
 }
@@ -187,7 +187,7 @@
 
 .cs-acc-subtitle {
   font-size: 10px;
-  color: #6a8a9e;
+  color: oklch(57% 0.04 220);
   line-height: 1.3;
   margin-top: 2px;
   display: block;
@@ -207,7 +207,7 @@
 
 .cs-acc-body {
   padding: 4px 13px 11px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid oklch(100% 0 0 / 0.05);
 }
 
 /* ── Bullets ── */
@@ -225,7 +225,7 @@
   align-items: flex-start;
   gap: 8px;
   font-size: 11.5px;
-  color: #8aa8bc;
+  color: var(--clr-text-muted);
   line-height: 1.5;
   text-align: left;
 }
@@ -259,7 +259,7 @@
   text-transform: uppercase;
   flex-shrink: 0;
 }
-.cs-banner-text { font-size: 12px; color: #8aa8bc; line-height: 1.6; }
+.cs-banner-text { font-size: 12px; color: var(--clr-text-muted); line-height: 1.6; }
 
 /* ── Three pillars ── */
 .cs-pillars {
@@ -273,7 +273,7 @@
   border: 1px solid;
   border-radius: 12px;
   padding: 18px 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   min-width: 0;
 }
 
@@ -288,7 +288,7 @@
 
 .cs-pillar-sub {
   font-size: 11px;
-  color: #6a8a9e;
+  color: oklch(57% 0.04 220);
   margin-bottom: 12px;
   line-height: 1.4;
 }
@@ -306,7 +306,7 @@
   border: 1px solid;
   border-radius: 10px;
   padding: 14px;
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   min-width: 0;
 }
 
@@ -319,7 +319,7 @@
 
 .cs-org-orgs {
   font-size: 11.5px;
-  color: #c8dce8;
+  color: oklch(85% 0.03 220);
   font-weight: 500;
   margin-bottom: 8px;
   line-height: 1.4;
@@ -327,7 +327,7 @@
 
 .cs-org-fn {
   font-size: 11px;
-  color: #7a9db5;
+  color: var(--clr-text-muted);
   line-height: 1.55;
 }
 
@@ -387,7 +387,7 @@
 }
 
 .cs-econ-table {
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid oklch(100% 0 0 / 0.07);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -397,20 +397,20 @@
   grid-template-columns: 1fr 2fr 2fr;
   gap: 0;
   padding: 9px 14px;
-  background: rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: oklch(100% 0 0 / 0.04);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.07);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6a8a9e;
+  color: oklch(57% 0.04 220);
 }
 
 .cs-econ-table-row {
   display: grid;
   grid-template-columns: 1fr 2fr 2fr;
   gap: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.04);
 }
 .cs-econ-table-row:last-child { border-bottom: none; }
 
@@ -420,12 +420,12 @@
   padding: 10px 14px;
   font-size: 11.5px;
   line-height: 1.55;
-  border-inline-end: 1px solid rgba(255, 255, 255, 0.04);
+  border-inline-end: 1px solid oklch(100% 0 0 / 0.04);
 }
 .cs-econ-charter { border-inline-end: none; }
-.cs-econ-sector { color: #c8dce8; font-weight: 600; font-size: 11px; }
+.cs-econ-sector { color: oklch(85% 0.03 220); font-weight: 600; font-size: 11px; }
 .cs-econ-regime { color: rgba(239, 83, 80, 0.75); }
-.cs-econ-charter { color: rgba(105, 217, 140, 0.85); }
+.cs-econ-charter { color: oklch(67% 0.18 155 / 0.85); }
 
 /* ── Stage 2 ── */
 .cs-s2-grid {
@@ -437,8 +437,8 @@
 /* ── Foreign policy ── */
 .cs-fp-wrap {
   padding: 16px 20px;
-  background: rgba(139, 92, 246, 0.04);
-  border: 1px solid rgba(139, 92, 246, 0.15);
+  background: oklch(55% 0.23 293 / 0.04);
+  border: 1px solid var(--clr-accent-15);
   border-radius: 10px;
 }
 
@@ -479,7 +479,7 @@
 
 .cs-article-text {
   font-size: 11.5px;
-  color: #c8dce8;
+  color: oklch(85% 0.03 220);
   line-height: 1.55;
 }
 
@@ -491,7 +491,7 @@
   text-transform: uppercase;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.06);
   display: block;
 }
 
@@ -506,7 +506,7 @@
   border: 1px solid;
   border-radius: 10px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
 }
 
 .cs-strat-title {
@@ -524,7 +524,7 @@
   border-radius: 10px;
   background: rgba(255, 154, 66, 0.04);
   font-size: 13px;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   line-height: 1.75;
   display: flex;
   gap: 14px;
@@ -546,7 +546,7 @@
 .cs-source {
   text-align: center;
   font-size: 11px;
-  color: #3a5468;
+  color: oklch(38% 0.04 220);
   margin-top: 44px;
   padding-top: 18px;
   border-top: 1px solid rgba(255, 154, 66, 0.07);
@@ -599,7 +599,7 @@
   .cs-econ-table-head,
   .cs-econ-table-row { grid-template-columns: 1fr; }
   .cs-econ-table-head span:first-child { display: none; }
-  .cs-econ-sector { border-inline-end: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .cs-econ-sector { border-inline-end: none; border-bottom: 1px solid oklch(100% 0 0 / 0.04); }
   .cs-econ-regime { border-inline-end: none; }
   .cs-article-grid { grid-template-columns: 1fr; }
 }
@@ -625,8 +625,8 @@
   border-radius: 6px; transition: background 0.18s, color 0.18s;
 }
 .cs-footer-nav-link:hover { background: rgba(255,154,66,0.1); }
-.cs-footer-nav-link--secondary { color: rgba(204,227,240,0.45); border-color: rgba(204,227,240,0.1); }
-.cs-footer-nav-link--secondary:hover { background: rgba(204,227,240,0.05); color: rgba(204,227,240,0.7); }
+.cs-footer-nav-link--secondary { color: oklch(88% 0.03 220 / 0.45); border-color: oklch(88% 0.03 220 / 0.1); }
+.cs-footer-nav-link--secondary:hover { background: oklch(88% 0.03 220 / 0.05); color: oklch(88% 0.03 220 / 0.7); }
 
 [dir="rtl"] .cs-footer-nav { flex-direction: row-reverse; }
 

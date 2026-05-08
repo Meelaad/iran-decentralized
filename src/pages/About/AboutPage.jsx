@@ -120,10 +120,10 @@ function WaveGrid() {
 }
 
 export default function AboutPage() {
-    const { t, headFont } = useLang();
+    const { t, headFont, isRTL } = useLang();
 
     return (
-        <div className="about-page">
+        <div className="about-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <WaveGrid />
             <div className="about-page-scanline" />
             <div className="about-inner">

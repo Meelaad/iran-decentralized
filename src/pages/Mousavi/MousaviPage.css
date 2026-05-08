@@ -11,8 +11,8 @@
 .mp-page {
   position: relative;
   min-height: 100vh;
-  background: #010303;
-  color: #CCE3F0;
+  background: var(--clr-bg);
+  color: oklch(88% 0.03 220);
   overflow-x: hidden;
 }
 
@@ -32,8 +32,8 @@
     0deg,
     transparent,
     transparent 3px,
-    rgba(105, 217, 140, 0.014) 3px,
-    rgba(105, 217, 140, 0.014) 4px
+    oklch(67% 0.18 155 / 0.014) 3px,
+    oklch(67% 0.18 155 / 0.014) 4px
   );
   pointer-events: none;
   z-index: 1;
@@ -53,7 +53,7 @@
   text-align: center;
   margin-bottom: 52px;
   padding-bottom: 40px;
-  border-bottom: 1px solid rgba(105, 217, 140, 0.12);
+  border-bottom: 1px solid oklch(67% 0.18 155 / 0.12);
 }
 
 .mp-hero-eyebrow {
@@ -61,7 +61,7 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #69d98c;
+  color: oklch(78% 0.15 145);
   margin-bottom: 14px;
   opacity: 0.7;
 }
@@ -70,14 +70,14 @@
   font-size: clamp(24px, 3.5vw, 38px);
   font-weight: 700;
   letter-spacing: -0.02em;
-  color: #e8f4fb;
+  color: oklch(95% 0.02 220);
   margin: 0 0 16px;
   line-height: 1.15;
 }
 
 .mp-hero-desc {
   font-size: 13.5px;
-  color: #8aa8bc;
+  color: var(--clr-text-muted);
   max-width: 860px;
   margin: 0 auto 24px;
   line-height: 1.7;
@@ -119,7 +119,7 @@
 .mp-sechead-title {
   font-size: clamp(17px, 2.2vw, 24px);
   font-weight: 700;
-  color: #e8f4fb;
+  color: oklch(95% 0.02 220);
   margin: 0 0 10px;
   letter-spacing: -0.015em;
   line-height: 1.25;
@@ -127,7 +127,7 @@
 
 .mp-sechead-intro {
   font-size: 13px;
-  color: #7a9db5;
+  color: var(--clr-text-muted);
   line-height: 1.7;
   max-width: 960px;
   margin: 0;
@@ -136,7 +136,7 @@
 /* ── Divider ── */
 .mp-divider {
   border: none;
-  border-top: 1px solid rgba(105, 217, 140, 0.09);
+  border-top: 1px solid oklch(67% 0.18 155 / 0.09);
   margin: 44px 0;
   width: 100%;
 }
@@ -149,23 +149,23 @@
   text-transform: uppercase;
   margin-bottom: 12px;
   padding-bottom: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.06);
   display: block;
 }
 
 /* ── Accordion ── */
 .mp-acc {
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid oklch(100% 0 0 / 0.07);
   border-radius: 8px;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.015);
+  background: oklch(100% 0 0 / 0.015);
   transition: border-color 0.2s;
   width: 100%;
   margin-bottom: 5px;
 }
 
 .mp-acc:last-child { margin-bottom: 0; }
-.mp-acc:hover { border-color: rgba(255, 255, 255, 0.11); }
+.mp-acc:hover { border-color: oklch(100% 0 0 / 0.11); }
 
 .mp-acc-btn {
   width: 100%;
@@ -176,17 +176,17 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   transition: background 0.15s;
 }
 
-.mp-acc-btn:hover { background: rgba(105, 217, 140, 0.04); }
+.mp-acc-btn:hover { background: oklch(67% 0.18 155 / 0.04); }
 
 .mp-acc-title {
   flex: 1;
   font-size: 12px;
   font-weight: 600;
-  color: #c8dce8;
+  color: oklch(85% 0.03 220);
   line-height: 1.4;
   text-align: left;
 }
@@ -195,7 +195,7 @@
 
 .mp-acc-subtitle {
   font-size: 10px;
-  color: #6a8a9e;
+  color: oklch(57% 0.04 220);
   line-height: 1.3;
   margin-top: 2px;
   display: block;
@@ -206,7 +206,7 @@
 
 .mp-acc-caret {
   font-size: 9px;
-  color: var(--c, #69d98c);
+  color: var(--c, oklch(78% 0.15 145));
   opacity: 0.7;
   flex-shrink: 0;
   margin-top: 3px;
@@ -216,7 +216,7 @@
 
 .mp-acc-body {
   padding: 4px 13px 11px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid oklch(100% 0 0 / 0.05);
 }
 
 /* ── Bullets ── */
@@ -234,7 +234,7 @@
   align-items: flex-start;
   gap: 8px;
   font-size: 11.5px;
-  color: #8aa8bc;
+  color: var(--clr-text-muted);
   line-height: 1.5;
   text-align: left;
 }
@@ -274,7 +274,7 @@
 
 .mp-banner-text {
   font-size: 12px;
-  color: #8aa8bc;
+  color: var(--clr-text-muted);
   line-height: 1.6;
 }
 
@@ -308,7 +308,7 @@
   justify-content: center;
   padding-top: 48px;
   font-size: 20px;
-  color: rgba(105, 217, 140, 0.3);
+  color: oklch(67% 0.18 155 / 0.3);
   width: 40px;
   flex-shrink: 0;
 }
@@ -326,8 +326,8 @@
 /* Fallback for browsers without color-mix */
 @supports not (color: color-mix(in srgb, red 50%, blue)) {
   .mp-stage-card {
-    border-color: rgba(105, 217, 140, 0.25);
-    background: rgba(105, 217, 140, 0.04);
+    border-color: oklch(67% 0.18 155 / 0.25);
+    background: oklch(67% 0.18 155 / 0.04);
   }
 }
 
@@ -361,7 +361,7 @@
 
 .mp-stage-sub {
   font-size: 11px;
-  color: #7a9db5;
+  color: var(--clr-text-muted);
   margin-bottom: 12px;
   line-height: 1.5;
 }
@@ -384,7 +384,7 @@
   border: 1px solid;
   border-radius: 10px;
   padding: 14px;
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   min-width: 0;
 }
 
@@ -403,7 +403,7 @@
 
 .mp-coal-sub {
   font-size: 10.5px;
-  color: #6a8a9e;
+  color: oklch(57% 0.04 220);
   margin-bottom: 10px;
   line-height: 1.4;
 }
@@ -441,7 +441,7 @@
   grid-column: 2;
   grid-row: 1 / span 2;
   width: 2px;
-  background: rgba(255, 255, 255, 0.06);
+  background: oklch(100% 0 0 / 0.06);
   justify-self: center;
 }
 
@@ -466,24 +466,24 @@
 .mp-timeline-event {
   font-size: 12px;
   font-weight: 600;
-  color: #c8dce8;
+  color: oklch(85% 0.03 220);
   margin-bottom: 5px;
   line-height: 1.4;
 }
 
 .mp-timeline-action {
   font-size: 11.5px;
-  color: #7a9db5;
+  color: var(--clr-text-muted);
   margin-bottom: 5px;
   line-height: 1.55;
 }
 
 .mp-timeline-shift {
   font-size: 11px;
-  color: #4a6b7a;
+  color: oklch(46% 0.04 220);
   font-style: italic;
   padding: 5px 10px;
-  border-inline-start: 2px solid rgba(255, 255, 255, 0.07);
+  border-inline-start: 2px solid oklch(100% 0 0 / 0.07);
   line-height: 1.5;
 }
 
@@ -499,7 +499,7 @@
   border: 1px solid;
   border-radius: 10px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -517,7 +517,7 @@
 .mp-vuln-title {
   font-size: 13px;
   font-weight: 700;
-  color: #c8dce8;
+  color: oklch(85% 0.03 220);
   line-height: 1.3;
 }
 
@@ -534,12 +534,12 @@
   text-transform: uppercase;
 }
 
-.mp-vuln-label--regime { color: #ef5350; opacity: 0.7; }
-.mp-vuln-label--opp    { color: #69d98c; opacity: 0.7; }
+.mp-vuln-label--regime { color: oklch(58% 0.19 27); opacity: 0.7; }
+.mp-vuln-label--opp    { color: oklch(78% 0.15 145); opacity: 0.7; }
 
 .mp-vuln-text {
   font-size: 11.5px;
-  color: #7a9db5;
+  color: var(--clr-text-muted);
   line-height: 1.55;
 }
 
@@ -549,7 +549,7 @@
   padding: 8px 12px;
   border: 1px solid;
   border-radius: 6px;
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   line-height: 1.5;
 }
 
@@ -590,9 +590,9 @@
 
 .mp-demand-text {
   font-size: 12px;
-  color: #c4bdff;
+  color: oklch(80% 0.12 285);
   line-height: 1.4;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
 }
 
 /* ── Abdication quote ── */
@@ -603,7 +603,7 @@
   border-radius: 10px;
   background: rgba(239, 83, 80, 0.04);
   font-size: 13px;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   line-height: 1.75;
   display: flex;
   gap: 14px;
@@ -623,10 +623,10 @@
 .mp-source {
   text-align: center;
   font-size: 11px;
-  color: #3a5468;
+  color: oklch(38% 0.04 220);
   margin-top: 44px;
   padding-top: 18px;
-  border-top: 1px solid rgba(105, 217, 140, 0.07);
+  border-top: 1px solid oklch(67% 0.18 155 / 0.07);
   letter-spacing: 0.04em;
 }
 

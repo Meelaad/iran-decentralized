@@ -5,10 +5,10 @@ import CONTENT from '../../locales/pages/pretrans.json';
 import './PreTransPage.css';
 
 export default function PreTransPage() {
-    const { isRTL, t } = useLang();
+    const { isRTL, t, headFont } = useLang();
 
     return (
-        <div className="pretrans-root" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="pretrans-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="pretrans-bg-grid" />
 
             <div className="pretrans-inner">

@@ -10,7 +10,6 @@ import './AccessModePage.css';
 export default function AccessModePage() {
     const { t, isRTL, lang, setLang, monoFont, headFont } = useLang();
     const navigate = useNavigate();
-    const [easyClicked, setEasyClicked] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
@@ -65,54 +64,31 @@ export default function AccessModePage() {
 
                     {/* ── Easy Access ── */}
                     <div
-                        className={`am-card am-card--easy${easyClicked ? ' am-card--revealed' : ''}`}
-                        onClick={() => setEasyClicked(true)}
+                        className="am-card am-card--easy"
+                        onClick={() => { if (document.startViewTransition) { document.startViewTransition(() => navigate('/simple')); } else { navigate('/simple'); } }}
                         role="button"
                         tabIndex={0}
-                        onKeyDown={e => e.key === 'Enter' && setEasyClicked(true)}
+                        onKeyDown={e => { if (e.key === 'Enter') { if (document.startViewTransition) { document.startViewTransition(() => navigate('/simple')); } else { navigate('/simple'); } } }}
                     >
-                        {!easyClicked ? (
-                            <>
-                                <div className="am-card-icon">🌿</div>
-                                <div className="am-card-badge am-card-badge--easy" style={{ fontFamily: monoFont }}>
-                                    {t(CONTENT.easyBadge)}
-                                </div>
-                                <h2 className="am-card-title" style={{ fontFamily: headFont }}>
-                                    {t(CONTENT.easyTitle)}
-                                </h2>
-                                <p className="am-card-desc">
-                                    {t(CONTENT.easyDesc)}
-                                </p>
-                                <ul className="am-card-features">
-                                    <li>{t(CONTENT.easyFeature1)}</li>
-                                    <li>{t(CONTENT.easyFeature2)}</li>
-                                    <li>{t(CONTENT.easyFeature3)}</li>
-                                    <li>{t(CONTENT.easyFeature4)}</li>
-                                </ul>
-                            </>
-                        ) : (
-                            <div className="am-card-soon">
-                                <div className="am-soon-icon">⚙️</div>
-                                <div className="am-soon-label" style={{ fontFamily: monoFont }}>
-                                    {t(CONTENT.soonLabel)}
-                                </div>
-                                <p className="am-soon-text">
-                                    {t(CONTENT.soonText)}
-                                </p>
-                                <div className="am-soon-pulse">
-                                    <span className="am-soon-dot" />
-                                    <span style={{ fontFamily: monoFont }}>
-                                        {t(CONTENT.soonPulse)}
-                                    </span>
-                                </div>
-                                <button
-                                    className="am-soon-back"
-                                    onClick={e => { e.stopPropagation(); setEasyClicked(false); }}
-                                >
-                                    {t(CONTENT.soonBack)}
-                                </button>
-                            </div>
-                        )}
+                        <div className="am-card-icon">🌿</div>
+                        <div className="am-card-badge am-card-badge--easy" style={{ fontFamily: monoFont }}>
+                            {t(CONTENT.easyBadge)}
+                        </div>
+                        <h2 className="am-card-title" style={{ fontFamily: headFont }}>
+                            {t(CONTENT.easyTitle)}
+                        </h2>
+                        <p className="am-card-desc">
+                            {t(CONTENT.easyDesc)}
+                        </p>
+                        <ul className="am-card-features">
+                            <li>{t(CONTENT.easyFeature1)}</li>
+                            <li>{t(CONTENT.easyFeature2)}</li>
+                            <li>{t(CONTENT.easyFeature3)}</li>
+                            <li>{t(CONTENT.easyFeature4)}</li>
+                        </ul>
+                        <div className="am-card-cta" style={{ fontFamily: monoFont }}>
+                            {t(CONTENT.completeCta)}
+                        </div>
                     </div>
 
                     {/* ── Complete Access ── */}

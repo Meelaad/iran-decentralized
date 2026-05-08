@@ -1,7 +1,7 @@
 /* NotFoundPage.css */
 
 .nf-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -23,7 +23,7 @@
 /* ── Retro grid ── */
 .nf-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.04);
+    --grid-color: oklch(55% 0.23 293 / 0.04);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -36,8 +36,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
 }
 
 /* ── Scanline ── */
@@ -46,7 +46,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-25) 20%, var(--clr-accent-35) 50%, var(--clr-accent-25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -70,7 +70,7 @@
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     margin-bottom: 32px;
     opacity: 0.7;
 }
@@ -87,10 +87,10 @@
     font-family: inherit;
     font-size: clamp(72px, 14vw, 120px);
     font-weight: 700;
-    color: #c8ccd4;
+    color: var(--clr-text);
     line-height: 1;
     letter-spacing: -4px;
-    text-shadow: 0 0 40px rgba(139,92,246,0.15);
+    text-shadow: 0 0 40px var(--clr-accent-15);
 }
 
 .nf-zero {
@@ -102,7 +102,7 @@
 .nf-hex-svg {
     width: clamp(64px, 12vw, 106px);
     height: clamp(64px, 12vw, 106px);
-    filter: drop-shadow(0 0 12px rgba(139,92,246,0.25));
+    filter: drop-shadow(0 0 12px var(--clr-accent-25));
     animation: glowPulse 3s ease-in-out infinite;
 }
 
@@ -110,14 +110,14 @@
 .nf-title {
     font-size: clamp(18px, 3vw, 24px);
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 10px;
     letter-spacing: -0.01em;
 }
 
 .nf-subtitle {
     font-size: 12px;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     margin-bottom: 28px;
     letter-spacing: 0.02em;
 }
@@ -130,7 +130,7 @@
     margin-bottom: 36px;
     font-size: 10px;
     letter-spacing: 2px;
-    color: #2a3a4e;
+    color: oklch(28% 0.04 230);
     text-transform: uppercase;
 }
 
@@ -138,8 +138,8 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: #ff4444;
-    box-shadow: 0 0 8px rgba(255,68,68,0.6);
+    background: oklch(55% 0.22 25);
+    box-shadow: 0 0 8px oklch(55% 0.22 25 / 0.6);
     animation: glowPulse 1.5s ease-in-out infinite;
     flex-shrink: 0;
 }
@@ -151,18 +151,18 @@
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #8B5CF6;
-    border: 1px solid rgba(139,92,246,0.25);
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent-25);
     padding: 12px 28px;
-    background: rgba(139,92,246,0.04);
+    background: oklch(55% 0.23 293 / 0.04);
     text-decoration: none;
     transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
 .nf-home-btn:hover {
-    background: rgba(139,92,246,0.1);
-    border-color: rgba(139,92,246,0.5);
-    color: #7fd8ff;
+    background: var(--clr-accent-10);
+    border-color: var(--clr-accent-50);
+    color: oklch(85% 0.09 210);
 }
 
 @media (max-width: 480px) {

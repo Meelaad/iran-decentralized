@@ -7,7 +7,7 @@
 
 .jmi-page {
   position: relative; min-height: 100vh;
-  background: #010303; color: #CCE3F0; overflow-x: hidden;
+  background: var(--clr-bg); color: oklch(88% 0.03 220); overflow-x: hidden;
 }
 
 .jmi-bg-canvas { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
@@ -29,35 +29,35 @@
 /* ── Hero ── */
 .jmi-hero { text-align: center; margin-bottom: 52px; padding-bottom: 40px; border-bottom: 1px solid rgba(232,200,64,0.12); }
 .jmi-hero-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #e8c840; margin-bottom: 14px; opacity: 0.7; }
-.jmi-hero-title { font-size: clamp(24px, 3.5vw, 38px); font-weight: 700; letter-spacing: -0.02em; color: #e8f4fb; margin: 0 0 16px; line-height: 1.15; }
-.jmi-hero-desc { font-size: 13.5px; color: #8aa8bc; max-width: 900px; margin: 0 auto 24px; line-height: 1.7; }
+.jmi-hero-title { font-size: clamp(24px, 3.5vw, 38px); font-weight: 700; letter-spacing: -0.02em; color: oklch(95% 0.02 220); margin: 0 0 16px; line-height: 1.15; }
+.jmi-hero-desc { font-size: 13.5px; color: var(--clr-text-muted); max-width: 900px; margin: 0 auto 24px; line-height: 1.7; }
 .jmi-hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 20px; }
 .jmi-badge { font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; padding: 5px 12px; border-radius: 20px; border: 1px solid; text-transform: uppercase; white-space: nowrap; }
 
 /* ── Section header ── */
 .jmi-sechead { margin-bottom: 22px; }
 .jmi-sechead-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 6px; display: block; }
-.jmi-sechead-title { font-size: clamp(17px, 2.2vw, 24px); font-weight: 700; color: #e8f4fb; margin: 0 0 10px; letter-spacing: -0.015em; line-height: 1.25; }
-.jmi-sechead-intro { font-size: 13px; color: #7a9db5; line-height: 1.7; max-width: 980px; margin: 0; }
+.jmi-sechead-title { font-size: clamp(17px, 2.2vw, 24px); font-weight: 700; color: oklch(95% 0.02 220); margin: 0 0 10px; letter-spacing: -0.015em; line-height: 1.25; }
+.jmi-sechead-intro { font-size: 13px; color: var(--clr-text-muted); line-height: 1.7; max-width: 980px; margin: 0; }
 
 /* ── Divider ── */
 .jmi-divider { border: none; border-top: 1px solid rgba(232,200,64,0.09); margin: 42px 0; width: 100%; }
 
 /* ── Accordion ── */
-.jmi-acc { border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; overflow: hidden; background: rgba(255,255,255,0.015); width: 100%; margin-bottom: 5px; }
+.jmi-acc { border: 1px solid oklch(100% 0 0 / 0.07); border-radius: 8px; overflow: hidden; background: oklch(100% 0 0 / 0.015); width: 100%; margin-bottom: 5px; }
 .jmi-acc:last-child { margin-bottom: 0; }
-.jmi-acc:hover { border-color: rgba(255,255,255,0.11); }
-.jmi-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: #CCE3F0; }
+.jmi-acc:hover { border-color: oklch(100% 0 0 / 0.11); }
+.jmi-acc-btn { width: 100%; display: flex; align-items: flex-start; gap: 8px; padding: 10px 13px; background: none; border: none; cursor: pointer; color: oklch(88% 0.03 220); }
 .jmi-acc-btn:hover { background: rgba(232,200,64,0.04); }
-.jmi-acc-title { flex: 1; font-size: 12px; font-weight: 600; color: #c8dce8; line-height: 1.4; text-align: left; }
+.jmi-acc-title { flex: 1; font-size: 12px; font-weight: 600; color: oklch(85% 0.03 220); line-height: 1.4; text-align: left; }
 [dir="rtl"] .jmi-acc-title { text-align: right; }
-.jmi-acc-subtitle { font-size: 10px; color: #6a8a9e; line-height: 1.3; margin-top: 2px; display: block; }
+.jmi-acc-subtitle { font-size: 10px; color: oklch(57% 0.04 220); line-height: 1.3; margin-top: 2px; display: block; }
 .jmi-acc-caret { font-size: 9px; color: var(--c,#e8c840); opacity: 0.7; flex-shrink: 0; margin-top: 3px; padding-inline-start: 6px; line-height: 1.4; }
-.jmi-acc-body { padding: 4px 13px 11px; border-top: 1px solid rgba(255,255,255,0.05); }
+.jmi-acc-body { padding: 4px 13px 11px; border-top: 1px solid oklch(100% 0 0 / 0.05); }
 
 /* ── Bullets ── */
 .jmi-bullets { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; }
-.jmi-bullet-item { display: flex; align-items: flex-start; gap: 8px; font-size: 11.5px; color: #8aa8bc; line-height: 1.5; text-align: left; }
+.jmi-bullet-item { display: flex; align-items: flex-start; gap: 8px; font-size: 11.5px; color: var(--clr-text-muted); line-height: 1.5; text-align: left; }
 [dir="rtl"] .jmi-bullet-item { text-align: right; }
 .jmi-bullet-dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 5.5px; opacity: 0.8; }
 
@@ -65,31 +65,31 @@
 .jmi-ideo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
 
 /* ── Ideology evolution table ── */
-.jmi-evo-table { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; margin: 14px 0; }
+.jmi-evo-table { border: 1px solid oklch(100% 0 0 / 0.07); border-radius: 10px; overflow: hidden; margin: 14px 0; }
 .jmi-evo-head {
   display: grid; grid-template-columns: 1.2fr 2fr 2fr;
-  padding: 9px 14px; background: rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 9px 14px; background: oklch(100% 0 0 / 0.04);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.07);
   font-size: 9px; font-weight: 700; letter-spacing: 0.09em;
-  text-transform: uppercase; color: #6a8a9e; gap: 14px;
+  text-transform: uppercase; color: oklch(57% 0.04 220); gap: 14px;
 }
 .jmi-evo-row {
   display: grid; grid-template-columns: 1.2fr 2fr 2fr;
-  gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 14px; border-bottom: 1px solid oklch(100% 0 0 / 0.04);
 }
 .jmi-evo-row:last-child { border-bottom: none; }
 .jmi-evo-component, .jmi-evo-old, .jmi-evo-new {
   padding: 10px 14px; font-size: 11.5px; line-height: 1.55;
-  border-inline-end: 1px solid rgba(255,255,255,0.04);
+  border-inline-end: 1px solid oklch(100% 0 0 / 0.04);
 }
 .jmi-evo-new { border-inline-end: none; }
-.jmi-evo-component { font-weight: 600; color: #c8dce8; font-size: 11px; }
+.jmi-evo-component { font-weight: 600; color: oklch(85% 0.03 220); font-size: 11px; }
 .jmi-evo-old { color: rgba(239,83,80,0.65); }
 .jmi-evo-new { color: rgba(232,200,64,0.85); }
 
 /* ── Mechanism cards ── */
 .jmi-mech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 10px; }
-.jmi-mech-card { border: 1px solid; border-radius: 12px; padding: 18px 16px; background: rgba(255,255,255,0.02); min-width: 0; }
+.jmi-mech-card { border: 1px solid; border-radius: 12px; padding: 18px 16px; background: oklch(100% 0 0 / 0.02); min-width: 0; }
 .jmi-mech-icon { font-size: 24px; margin-bottom: 10px; line-height: 1; }
 .jmi-mech-label { font-size: 9px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; opacity: 0.7; }
 .jmi-mech-title { font-size: 14px; font-weight: 700; margin-bottom: 12px; line-height: 1.3; }
@@ -100,59 +100,59 @@
   display: grid; grid-template-columns: 32px 1fr auto;
   gap: 14px; align-items: start;
   padding: 12px 16px;
-  border: 1px solid rgba(255,255,255,0.07);
+  border: 1px solid oklch(100% 0 0 / 0.07);
   border-radius: 8px;
-  background: rgba(255,255,255,0.015);
+  background: oklch(100% 0 0 / 0.015);
 }
 .jmi-phase-n { font-size: 18px; font-weight: 800; color: var(--pr); opacity: 0.5; line-height: 1.3; font-variant-numeric: tabular-nums; flex-shrink: 0; }
 .jmi-phase-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .jmi-phase-name { font-size: 13px; font-weight: 700; color: var(--pr); line-height: 1.3; }
-.jmi-phase-mech { font-size: 11px; color: #7a9db5; line-height: 1.4; }
-.jmi-phase-obj { font-size: 11px; color: #6a8a9e; line-height: 1.4; max-width: 280px; text-align: right; }
+.jmi-phase-mech { font-size: 11px; color: var(--clr-text-muted); line-height: 1.4; }
+.jmi-phase-obj { font-size: 11px; color: oklch(57% 0.04 220); line-height: 1.4; max-width: 280px; text-align: right; }
 [dir="rtl"] .jmi-phase-obj { text-align: left; }
 
 /* ── Transition council note ── */
 .jmi-transition-note {
   border: 1px solid; border-radius: 8px; padding: 11px 16px;
-  background: rgba(139,92,246,0.04); display: flex; gap: 10px;
+  background: oklch(55% 0.23 293 / 0.04); display: flex; gap: 10px;
   align-items: baseline; flex-wrap: wrap;
 }
 .jmi-transition-tag { font-size: 9px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; flex-shrink: 0; white-space: nowrap; }
-.jmi-transition-note > span:last-child { font-size: 11.5px; color: #8aa8bc; line-height: 1.55; }
+.jmi-transition-note > span:last-child { font-size: 11.5px; color: var(--clr-text-muted); line-height: 1.55; }
 
 /* ── Power nodes ── */
 .jmi-power-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; align-items: start; }
-.jmi-power-node { border: 1px solid; border-radius: 10px; padding: 14px; background: rgba(255,255,255,0.02); min-width: 0; }
+.jmi-power-node { border: 1px solid; border-radius: 10px; padding: 14px; background: oklch(100% 0 0 / 0.02); min-width: 0; }
 .jmi-power-icon { font-size: 20px; margin-bottom: 8px; line-height: 1; }
 .jmi-power-title { font-size: 13.5px; font-weight: 700; margin-bottom: 3px; line-height: 1.3; }
-.jmi-power-role { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: #5a7a8e; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.jmi-power-role { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: oklch(51% 0.05 220); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid oklch(100% 0 0 / 0.05); }
 
 /* ── Institutional table ── */
-.jmi-inst-table { border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; overflow: hidden; }
+.jmi-inst-table { border: 1px solid oklch(100% 0 0 / 0.07); border-radius: 10px; overflow: hidden; }
 .jmi-inst-head {
   display: grid; grid-template-columns: 1.2fr 1fr 2.5fr;
-  padding: 9px 14px; background: rgba(255,255,255,0.04);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 9px 14px; background: oklch(100% 0 0 / 0.04);
+  border-bottom: 1px solid oklch(100% 0 0 / 0.07);
   font-size: 9px; font-weight: 700; letter-spacing: 0.09em;
-  text-transform: uppercase; color: #6a8a9e; gap: 14px;
+  text-transform: uppercase; color: oklch(57% 0.04 220); gap: 14px;
 }
 .jmi-inst-row {
   display: grid; grid-template-columns: 1.2fr 1fr 2.5fr;
-  gap: 14px; border-bottom: 1px solid rgba(255,255,255,0.04);
+  gap: 14px; border-bottom: 1px solid oklch(100% 0 0 / 0.04);
   align-items: start;
 }
 .jmi-inst-row:last-child { border-bottom: none; }
 .jmi-inst-name, .jmi-inst-policy, .jmi-inst-action {
   padding: 10px 14px; font-size: 11.5px; line-height: 1.55;
-  border-inline-end: 1px solid rgba(255,255,255,0.04);
+  border-inline-end: 1px solid oklch(100% 0 0 / 0.04);
 }
-.jmi-inst-action { border-inline-end: none; color: #8aa8bc; }
-.jmi-inst-name { font-weight: 600; color: #c8dce8; font-size: 11.5px; }
+.jmi-inst-action { border-inline-end: none; color: var(--clr-text-muted); }
+.jmi-inst-name { font-weight: 600; color: oklch(85% 0.03 220); font-size: 11.5px; }
 .jmi-inst-status { font-size: 9px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; border: 1px solid; white-space: nowrap; }
 
 /* ── Policy cards ── */
 .jmi-pol-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; align-items: start; }
-.jmi-pol-card { border: 1px solid; border-radius: 12px; padding: 16px; background: rgba(255,255,255,0.02); min-width: 0; }
+.jmi-pol-card { border: 1px solid; border-radius: 12px; padding: 16px; background: oklch(100% 0 0 / 0.02); min-width: 0; }
 .jmi-pol-icon { font-size: 20px; margin-bottom: 8px; line-height: 1; }
 .jmi-pol-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
 
@@ -162,11 +162,11 @@
   background: rgba(239,83,80,0.04); margin-bottom: 16px;
 }
 .jmi-dependency-title { font-size: 13.5px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
-.jmi-dependency-text { font-size: 12.5px; color: #8aa8bc; line-height: 1.7; }
+.jmi-dependency-text { font-size: 12.5px; color: var(--clr-text-muted); line-height: 1.7; }
 
 /* ── Assessment grid ── */
 .jmi-assess-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 24px; }
-.jmi-assess-card { border: 1px solid; border-radius: 10px; padding: 16px; background: rgba(255,255,255,0.02); }
+.jmi-assess-card { border: 1px solid; border-radius: 10px; padding: 16px; background: oklch(100% 0 0 / 0.02); }
 .jmi-assess-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; }
 
 /* ── Conclusion ── */
@@ -174,13 +174,13 @@
   margin: 24px 0; padding: 20px 24px;
   border: 1px dashed rgba(232,200,64,0.22); border-radius: 10px;
   background: rgba(232,200,64,0.04);
-  font-size: 13px; color: #CCE3F0; line-height: 1.75;
+  font-size: 13px; color: oklch(88% 0.03 220); line-height: 1.75;
   display: flex; gap: 14px; align-items: flex-start; font-style: italic;
 }
 .jmi-conclusion-mark { font-size: 28px; opacity: 0.3; flex-shrink: 0; margin-top: -4px; line-height: 1; font-style: normal; }
 
 /* ── Source ── */
-.jmi-source { text-align: center; font-size: 11px; color: #3a5468; margin-top: 44px; padding-top: 18px; border-top: 1px solid rgba(232,200,64,0.07); letter-spacing: 0.04em; }
+.jmi-source { text-align: center; font-size: 11px; color: oklch(38% 0.04 220); margin-top: 44px; padding-top: 18px; border-top: 1px solid rgba(232,200,64,0.07); letter-spacing: 0.04em; }
 
 /* ── RTL ── */
 [dir="rtl"] .jmi-hero-title,
@@ -210,10 +210,10 @@
 @media (max-width: 720px) {
   .jmi-evo-head, .jmi-evo-row { grid-template-columns: 1fr; }
   .jmi-evo-head span:not(:first-child) { display: none; }
-  .jmi-evo-component { border-inline-end: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .jmi-evo-component { border-inline-end: none; border-bottom: 1px solid oklch(100% 0 0 / 0.04); }
   .jmi-inst-head, .jmi-inst-row { grid-template-columns: 1fr; }
   .jmi-inst-head span:not(:first-child) { display: none; }
-  .jmi-inst-name { border-inline-end: none; border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .jmi-inst-name { border-inline-end: none; border-bottom: 1px solid oklch(100% 0 0 / 0.04); }
   .jmi-phase-row { grid-template-columns: 28px 1fr; }
   .jmi-phase-obj { display: none; }
 }
@@ -226,8 +226,8 @@
 .jmi-footer-nav { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 36px; padding-top: 20px; border-top: 1px solid rgba(232,200,64,0.1); }
 .jmi-footer-nav-link { font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: #e8c840; border: 1px solid rgba(232,200,64,0.3); border-radius: 6px; padding: 8px 18px; text-decoration: none; transition: background 0.15s, border-color 0.15s; }
 .jmi-footer-nav-link:hover { background: rgba(232,200,64,0.07); border-color: rgba(232,200,64,0.55); }
-.jmi-footer-nav-link--secondary { color: #8B5CF6; border-color: rgba(139,92,246,0.3); }
-.jmi-footer-nav-link--secondary:hover { background: rgba(139,92,246,0.07); border-color: rgba(139,92,246,0.55); }
+.jmi-footer-nav-link--secondary { color: var(--clr-accent); border-color: var(--clr-accent-30); }
+.jmi-footer-nav-link--secondary:hover { background: var(--clr-accent-08); border-color: oklch(55% 0.23 293 / 0.55); }
 
 @media (min-width: 960px) {
     .jmi-eyebrow { font-size: 13px; }

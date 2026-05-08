@@ -183,6 +183,42 @@
     "en": "Contact Support",
     "fa": "تماس با پشتیبانی"
   },
+  "populationLabel": {
+    "en": " (Population)",
+    "fa": " (جمعیت)"
+  },
+  "placeholderOtherCountry": {
+    "en": "Enter country name in English",
+    "fa": "نام کشور به انگلیسی"
+  },
+  "resendIn": {
+    "en": "RESEND IN {{time}}",
+    "fa": "ارسال مجدد در {{time}}"
+  },
+  "btnAdminPanel": {
+    "en": "ADMIN PANEL →",
+    "fa": "پنل مدیریت ←"
+  },
+  "btnGoToDashboard": {
+    "en": "GO TO DASHBOARD →",
+    "fa": "رفتن به داشبورد ←"
+  },
+  "btnSignIn": {
+    "en": "Sign In →",
+    "fa": "ورود به حساب ←"
+  },
+  "alreadyRegisteredTitle": {
+    "en": "Already Registered",
+    "fa": "قبلاً ثبت‌نام کرده‌اید"
+  },
+  "alreadyRegisteredBody": {
+    "en": "An account with {{email}} already exists on IranDAO.",
+    "fa": "حسابی با {{email}} در ایران‌دائو وجود دارد."
+  },
+  "userTypeAriaLabel": {
+    "en": "User type",
+    "fa": "نوع کاربر"
+  },
   "countries": [
     {
       "en": "Iran",

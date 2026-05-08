@@ -1,7 +1,7 @@
 .gm-page {
   min-height: 100vh;
-  background: #0b0b18;
-  color: #ededed;
+  background: oklch(8% 0.03 280);
+  color: oklch(94% 0 0);
   position: relative;
   overflow-x: hidden;
 }
@@ -39,13 +39,13 @@
 .gm-title {
   font-size: clamp(28px, 5vw, 52px);
   font-weight: 700;
-  color: #ededed;
+  color: oklch(94% 0 0);
   margin: 0 0 8px;
 }
 
 .gm-subtitle {
   font-size: 14px;
-  color: #9a9a9a;
+  color: oklch(63% 0 0);
   margin: 0 0 40px;
 }
 
@@ -66,7 +66,7 @@
 .gm-map-wrap {
   flex: 1;
   min-width: 0;
-  background: #111122;
+  background: oklch(13% 0.03 280);
   border: 1px solid rgba(232, 80, 122, 0.12);
   border-radius: 12px;
   overflow: hidden;
@@ -96,7 +96,7 @@
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #666;
+  color: oklch(48% 0 0);
   margin-bottom: 4px;
 }
 
@@ -112,7 +112,7 @@
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #666;
+  color: oklch(48% 0 0);
   margin-bottom: 10px;
 }
 
@@ -146,7 +146,7 @@
 }
 
 .gm-country-members {
-  color: #ededed;
+  color: oklch(94% 0 0);
   margin-left: auto;
 }
 
@@ -161,8 +161,8 @@
 }
 
 .gm-city-marker:hover polygon {
-  fill: #fff;
-  filter: drop-shadow(0 0 4px #26DEC2);
+  fill: oklch(100% 0 0);
+  filter: drop-shadow(0 0 4px oklch(79% 0.13 180));
 }
 
 /* ── City panel ──────────────────────────────────────────────────────────────── */
@@ -171,7 +171,7 @@
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(0, 0, 0, 0.45);
+  background: oklch(0% 0 0 / 0.45);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -186,8 +186,8 @@
 
 .gm-city-panel {
   position: relative;
-  background: #10111e;
-  border: 1px solid rgba(38, 222, 194, 0.25);
+  background: oklch(11% 0.03 280);
+  border: 1px solid oklch(79% 0.13 180 / 0.25);
   border-radius: 16px;
   padding: 28px 28px 24px;
   width: 100%;
@@ -206,7 +206,7 @@
   right: 16px;
   background: none;
   border: none;
-  color: rgba(255,255,255,0.35);
+  color: oklch(100% 0 0 / 0.35);
   font-size: 16px;
   cursor: pointer;
   padding: 4px 8px;
@@ -214,13 +214,13 @@
   transition: color 0.15s;
 }
 
-.gm-city-panel-close:hover { color: #fff; }
+.gm-city-panel-close:hover { color: oklch(100% 0 0); }
 
 .gm-city-panel-region {
   font-size: 10px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #26DEC2;
+  color: oklch(79% 0.13 180);
   margin-bottom: 6px;
   font-family: 'intelone-mono', monospace;
 }
@@ -228,7 +228,7 @@
 .gm-city-panel-name {
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
-  color: #ededed;
+  color: oklch(94% 0 0);
   margin: 0 0 18px;
   padding-right: 24px;
 }
@@ -239,8 +239,8 @@
   gap: 12px;
   margin-bottom: 14px;
   padding: 10px 14px;
-  background: rgba(38, 222, 194, 0.06);
-  border: 1px solid rgba(38, 222, 194, 0.12);
+  background: oklch(79% 0.13 180 / 0.06);
+  border: 1px solid oklch(79% 0.13 180 / 0.12);
   border-radius: 8px;
 }
 
@@ -248,7 +248,7 @@
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #666;
+  color: oklch(48% 0 0);
   font-family: 'intelone-mono', monospace;
   flex-shrink: 0;
 }
@@ -256,22 +256,22 @@
 .gm-city-panel-value {
   font-size: 20px;
   font-weight: 700;
-  color: #26DEC2;
+  color: oklch(79% 0.13 180);
   font-family: 'intelone-mono', monospace;
 }
 
 .gm-city-panel-note {
   font-size: 13px;
-  color: #9a9a9a;
+  color: oklch(63% 0 0);
   line-height: 1.65;
   margin: 0 0 14px;
 }
 
 .gm-city-panel-source {
   font-size: 10px;
-  color: #444;
+  color: oklch(32% 0 0);
   line-height: 1.5;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid oklch(100% 0 0 / 0.05);
   padding-top: 12px;
   margin: 0;
 }
@@ -279,7 +279,7 @@
 /* ── Static dots ─────────────────────────────────────────────────────────────── */
 
 .gm-dot-static {
-  fill: rgba(255, 255, 255, 0.12);
+  fill: oklch(100% 0 0 / 0.12);
 }
 
 /* ── SVG marker ──────────────────────────────────────────────────────────────── */
@@ -293,7 +293,7 @@
 }
 
 .gm-marker:hover polygon {
-  fill: #fff;
+  fill: oklch(100% 0 0);
 }
 
 /* ── Pulse animation ─────────────────────────────────────────────────────────── */
@@ -319,9 +319,9 @@
 
 .gm-map-tooltip {
   position: absolute;
-  background: #0d1117;
+  background: var(--clr-bg-panel);
   border: 1px solid rgba(232, 80, 122, 0.3);
-  color: #ededed;
+  color: oklch(94% 0 0);
   font-size: 11px;
   font-family: 'intelone-mono', monospace;
   padding: 5px 9px;
@@ -355,7 +355,7 @@
 }
 
 .gm-stat-card {
-  background: #1a1a2e;
+  background: oklch(13% 0.03 280);
   border: 1px solid rgba(232, 80, 122, 0.12);
   border-radius: 10px;
   padding: 20px 24px;
@@ -365,7 +365,7 @@
   font-size: 10px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #666;
+  color: oklch(48% 0 0);
   margin-bottom: 8px;
   font-family: 'intelone-mono', monospace;
 }
@@ -374,7 +374,7 @@
   font-size: 28px;
   font-weight: 700;
   font-family: 'intelone-mono', monospace;
-  color: #ededed;
+  color: oklch(94% 0 0);
 }
 
 
@@ -382,7 +382,7 @@
 
 .gm-data-note {
   font-size: 11px;
-  color: #555;
+  color: oklch(40% 0 0);
   text-align: center;
   margin-top: 16px;
 }

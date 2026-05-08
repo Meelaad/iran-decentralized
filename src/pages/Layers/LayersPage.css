@@ -1,7 +1,7 @@
 /* LayersPage.css */
 
 .layers-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -9,7 +9,7 @@
 
 .layers-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.1);
+    --grid-color: var(--clr-accent-10);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -22,8 +22,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+    mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
 }
 
 .layers-page-scanline {
@@ -31,7 +31,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-25) 20%, var(--clr-accent-35) 50%, var(--clr-accent-25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -48,14 +48,14 @@
 .layers-title {
     font-size: 32px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 12px;
     letter-spacing: -0.01em;
 }
 
 .layers-subtitle {
     font-size: 14px;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     margin-bottom: 48px;
     line-height: 1.7;
 }
@@ -71,7 +71,7 @@
     display: flex;
     gap: 20px;
     padding: 28px 0;
-    border-bottom: 1px solid rgba(139,92,246,0.06);
+    border-bottom: 1px solid var(--clr-accent-05);
     animation: fadeInUp 0.4s ease both;
     position: relative;
 }
@@ -91,9 +91,9 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #8B5CF6;
-    border: 1px solid rgba(139,92,246,0.2);
-    background: rgba(139,92,246,0.04);
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent-20);
+    background: oklch(55% 0.23 293 / 0.04);
     margin-top: 4px;
 }
 
@@ -116,13 +116,13 @@
 .layer-card-name {
     font-size: 18px;
     font-weight: 600;
-    color: #d7e0ea;
+    color: oklch(88% 0.02 230);
     margin: 0;
 }
 
 .layer-card-desc {
     font-size: 13px;
-    color: #8a9bb0;
+    color: var(--clr-text-muted);
     line-height: 1.7;
     margin-bottom: 16px;
 }
@@ -138,7 +138,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     margin-bottom: 8px;
 }
 
@@ -153,10 +153,10 @@
 
 .layer-features-list li {
     font-size: 11px;
-    color: #7a8da0;
+    color: oklch(57% 0.03 220);
     padding: 4px 10px;
-    background: rgba(139,92,246,0.04);
-    border: 1px solid rgba(139,92,246,0.08);
+    background: oklch(55% 0.23 293 / 0.04);
+    border: 1px solid var(--clr-accent-08);
 }
 
 /* Sector chips */
@@ -170,7 +170,7 @@
     font-size: 11px;
     padding: 4px 10px;
     border: 1px solid;
-    background: rgba(0,0,0,0.3);
+    background: oklch(0% 0 0 / 0.3);
     white-space: nowrap;
 }
 

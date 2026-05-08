@@ -1,0 +1,16 @@
+{
+  "title": { "en": "Search", "fa": "جستجو" },
+  "placeholder": { "en": "Search IranDAO…", "fa": "جستجو در IranDAO…" },
+  "hint": {
+    "en": "Type to search across blueprints, plans, sectors, and pages.",
+    "fa": "برای جستجو در بین طرح‌های حکومتی، برنامه‌ها و صفحات، تایپ کنید."
+  },
+  "searching": { "en": "Searching…", "fa": "در حال جستجو…" },
+  "errorAdvanced": {
+    "en": "Advanced search unavailable. Showing local results.",
+    "fa": "خطا در جستجوی پیشرفته. نتایج محلی نمایش داده می‌شود."
+  },
+  "noResults": { "en": "No results for \"{q}\".", "fa": "نتیجه‌ای برای «{q}» یافت نشد." },
+  "resultCount": { "en": "{n} result", "fa": "{n} نتیجه" },
+  "resultCountPlural": { "en": "{n} results", "fa": "{n} نتیجه" }
+}

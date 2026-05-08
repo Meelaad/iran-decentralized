@@ -21,7 +21,7 @@ import './PlanPage.css';
 
 export default function PlanPage() {
     const { slug } = useParams();
-    const { tKey, isRTL } = useLang();
+    const { tKey, isRTL, headFont } = useLang();
     const { session } = useAuth();
 
     const { data: plan, isLoading, isError } = usePlan(slug);
@@ -53,12 +53,12 @@ export default function PlanPage() {
     ];
 
     if (isLoading) return (
-        <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <Skeleton lines={6} />
         </div>
     );
     if (isError || !plan) return (
-        <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <EmptyState title={tKey('common.notFound')} message={tKey('common.error')} />
         </div>
     );
@@ -93,7 +93,7 @@ export default function PlanPage() {
     const planDesc = isRTL ? plan.summary?.fa : plan.summary?.en;
 
     return (
-        <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="plan-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <PageMeta
                 title={planTitle}
                 description={planDesc}

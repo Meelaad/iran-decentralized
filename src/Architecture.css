@@ -1,9 +1,9 @@
 /* Architecture.css — page-specific styles */
 
 .container {
-    background-color: #000000;
-    background-image: radial-gradient(circle at 50% 50%, #152899 0%, #04081c 65%, #000000 75%);
-    color: #c8ccd4;
+    background-color: oklch(0% 0 0);
+    background-image: radial-gradient(circle at 50% 50%, oklch(23% 0.18 268) 0%, oklch(5% 0.02 260) 65%, oklch(0% 0 0) 75%);
+    color: var(--clr-text);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: auto;
@@ -37,13 +37,13 @@
 }
 
 @keyframes breatheGlow {
-    0%, 100% { filter: brightness(1.1) drop-shadow(0 0 2px rgba(139,92,246,0.2)); }
-    50% { filter: brightness(1.3) drop-shadow(0 0 8px rgba(139,92,246,0.6)); }
+    0%, 100% { filter: brightness(1.1) drop-shadow(0 0 2px var(--clr-accent-20)); }
+    50% { filter: brightness(1.3) drop-shadow(0 0 8px var(--clr-accent-60)); }
 }
 
 @keyframes meshPulse {
-    0%, 100% { opacity: 0.15; stroke: #4a7faa; }
-    50% { opacity: 0.4; stroke: #5a9acc; }
+    0%, 100% { opacity: 0.15; stroke: oklch(54% 0.08 225); }
+    50% { opacity: 0.4; stroke: oklch(62% 0.09 225); }
 }
 
 @keyframes edgeIdle {
@@ -54,12 +54,12 @@
 }
 
 @keyframes edgeLightning {
-    0%, 89%, 100% { opacity: 0.4; stroke: #2f4666; }
-    90% { opacity: 1; stroke: #ffffff; }
-    91% { opacity: 0.1; stroke: #ffffff; }
-    92% { opacity: 1; stroke: #aee9ff; }
-    93% { opacity: 0.2; stroke: #aee9ff; }
-    94% { opacity: 0.8; stroke: #66d9ff; }
+    0%, 89%, 100% { opacity: 0.4; stroke: oklch(33% 0.06 245); }
+    90% { opacity: 1; stroke: oklch(100% 0 0); }
+    91% { opacity: 0.1; stroke: oklch(100% 0 0); }
+    92% { opacity: 1; stroke: oklch(90% 0.08 205); }
+    93% { opacity: 0.2; stroke: oklch(90% 0.08 205); }
+    94% { opacity: 0.8; stroke: var(--clr-cyan); }
 }
 
 @keyframes dashFlow {
@@ -84,8 +84,8 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 30%, rgba(139,92,246,0.08), transparent 35%),
-        radial-gradient(circle at 80% 70%, rgba(171,71,188,0.07), transparent 38%);
+        radial-gradient(circle at 20% 30%, var(--clr-accent-08), transparent 35%),
+        radial-gradient(circle at 80% 70%, oklch(55% 0.18 310 / 0.07), transparent 38%);
     background-size: 140% 140%, 140% 140%;
     background-position: 0% 0%, 100% 100%;
     animation: auroraFloat 11s linear infinite alternate;
@@ -112,15 +112,15 @@
 .blueprint-hero {
     text-align: center;
     padding: 28px 32px 20px;
-    border-bottom: 1px solid rgba(139,92,246,0.06);
-    background: linear-gradient(180deg, rgba(4,8,20,0.6) 0%, transparent 100%);
+    border-bottom: 1px solid var(--clr-accent-05);
+    background: linear-gradient(180deg, oklch(7% 0.01 215 / 0.6) 0%, transparent 100%);
 }
 
 .blueprint-hero-title {
     margin: 0 0 8px;
     font-size: clamp(14px, 1.8vw, 20px);
     font-weight: 600;
-    color: #8fe3ff;
+    color: var(--clr-cyan);
     letter-spacing: 0.02em;
     line-height: 1.3;
 }
@@ -128,7 +128,7 @@
 .blueprint-hero-sub {
     margin: 0;
     font-size: clamp(11px, 1vw, 13px);
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     letter-spacing: 0.04em;
     line-height: 1.5;
 }
@@ -137,9 +137,9 @@
 
 .app-header {
     padding: 20px 28px 14px;
-    border-bottom: 1px solid rgba(111, 141, 178, 0.18);
+    border-bottom: 1px solid oklch(50% 0.03 235 / 0.18);
     background:
-        linear-gradient(180deg, rgba(8,12,18,0.82) 0%, rgba(8,12,18,0.56) 100%);
+        linear-gradient(180deg, oklch(11% 0.015 215 / 0.82) 0%, oklch(11% 0.015 215 / 0.56) 100%);
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 18px;
@@ -163,12 +163,12 @@
     right: 28px;
     bottom: -1px;
     height: 1px;
-    background: linear-gradient(90deg, rgba(139,92,246,0.28), rgba(139,92,246,0.02));
+    background: linear-gradient(90deg, var(--clr-accent-25), oklch(55% 0.23 293 / 0.02));
 }
 
 .app-kicker {
     font-size: 10px;
-    color: #69bde4;
+    color: oklch(73% 0.10 220);
     margin-bottom: 7px;
     font-weight: 600;
     text-transform: uppercase;
@@ -182,7 +182,7 @@
 .app-title {
     font-size: 24px;
     font-weight: 700;
-    color: #edf4ff;
+    color: var(--clr-text-heading);
     letter-spacing: -0.03em;
     line-height: 1.1;
 }
@@ -197,18 +197,18 @@
 
 .control-group {
     display: flex;
-    border: 1px solid rgba(98, 114, 138, 0.28);
-    background: rgba(9, 14, 22, 0.66);
-    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.015);
+    border: 1px solid oklch(50% 0.03 235 / 0.28);
+    background: oklch(11% 0.015 215 / 0.66);
+    box-shadow: inset 0 0 0 1px oklch(100% 0 0 / 0.015);
 }
 
 .btn-base {
     transition: background 0.16s ease, color 0.16s ease, border-color 0.16s ease;
     cursor: pointer;
     border: none;
-    border-right: 1px solid rgba(98, 114, 138, 0.18);
+    border-right: 1px solid oklch(50% 0.03 235 / 0.18);
     background: transparent;
-    color: #76879a;
+    color: oklch(57% 0.025 225);
     padding: 8px 14px 7px;
     font-size: 11px;
     font-family: inherit;
@@ -222,15 +222,15 @@
 }
 
 .btn-base:hover {
-    background: rgba(139,92,246,0.05);
-    color: #b4c5d8;
+    background: var(--clr-accent-05);
+    color: oklch(77% 0.03 220);
 }
 
 .btn-active {
     background:
-        linear-gradient(180deg, rgba(139,92,246,0.14), rgba(139,92,246,0.05));
-    color: #8fe3ff;
-    box-shadow: inset 0 -1px 0 rgba(139,92,246,0.5);
+        linear-gradient(180deg, oklch(55% 0.23 293 / 0.14), var(--clr-accent-05));
+    color: var(--clr-cyan);
+    box-shadow: inset 0 -1px 0 var(--clr-accent-50);
 }
 
 /* MAP */
@@ -241,14 +241,14 @@
     justify-content: center;
     gap: 2px;
     padding: 8px 16px;
-    background: linear-gradient(180deg, rgba(8,12,22,0.9), rgba(5,8,18,0.95));
-    border-top: 1px solid rgba(139,92,246,0.1);
+    background: linear-gradient(180deg, oklch(11% 0.015 215 / 0.9), oklch(7% 0.01 215 / 0.95));
+    border-top: 1px solid var(--clr-accent-10);
 }
 
 /* List-view variant sits at top, border on bottom */
 .mobile-tab-bar--list {
     border-top: none;
-    border-bottom: 1px solid rgba(139,92,246,0.1);
+    border-bottom: 1px solid var(--clr-accent-10);
     margin-bottom: 8px;
 }
 
@@ -257,9 +257,9 @@
     align-items: center;
     gap: 5px;
     padding: 6px 16px;
-    border: 1px solid rgba(98, 114, 138, 0.25);
-    background: rgba(9, 14, 22, 0.6);
-    color: #607080;
+    border: 1px solid oklch(50% 0.03 235 / 0.25);
+    background: oklch(11% 0.015 215 / 0.6);
+    color: oklch(50% 0.02 230);
     font-size: 9px;
     font-family: inherit;
     letter-spacing: 0.08em;
@@ -273,9 +273,9 @@
 }
 
 .mobile-tab-bar .tab-btn.tab-active {
-    color: #8fe3ff;
-    background: rgba(139,92,246,0.08);
-    border-color: rgba(139,92,246,0.3);
+    color: var(--clr-cyan);
+    background: var(--clr-accent-08);
+    border-color: var(--clr-accent-30);
 }
 
 .map-shell {
@@ -304,7 +304,7 @@
 
 .conn-line {
     transition: opacity 0.3s ease, stroke-width 0.3s ease;
-    stroke: #2f4666;
+    stroke: oklch(33% 0.06 245);
     opacity: 0.5;
 }
 
@@ -319,10 +319,10 @@
     transform-origin: center;
     cursor: pointer;
     outline: none;
-    --node-fill: #1b2736;
-    --node-fill-selected: #24384f;
-    --node-label: #9eb2c8;
-    --node-label-selected: #8fe3ff;
+    --node-fill: oklch(19% 0.03 220);
+    --node-fill-selected: oklch(26% 0.04 220);
+    --node-label: oklch(70% 0.03 220);
+    --node-label-selected: var(--clr-cyan);
 }
 
 .sector-node:focus {
@@ -370,7 +370,7 @@ svg path, svg text, svg circle, svg g {
     width: 340px;
     max-height: calc(100% - 24px);
     background:
-        linear-gradient(180deg, rgba(8,12,28,0.96), rgba(5,8,22,0.94));
+        linear-gradient(180deg, oklch(11% 0.015 215 / 0.96), oklch(7% 0.01 215 / 0.94));
     border-radius: 0;
     padding: 18px 18px 16px;
     overflow-y: auto;
@@ -382,8 +382,8 @@ svg path, svg text, svg circle, svg g {
     backdrop-filter: blur(14px);
     will-change: transform, clip-path, opacity;
     box-shadow:
-        0 0 0 1px rgba(21,40,153,0.3),
-        0 18px 50px rgba(0,0,0,0.5);
+        0 0 0 1px oklch(23% 0.18 268 / 0.3),
+        0 18px 50px oklch(0% 0 0 / 0.5);
 }
 
 @keyframes panelSlideDown {
@@ -441,7 +441,7 @@ svg path, svg text, svg circle, svg g {
     align-items: center;
     margin-bottom: 14px;
     padding-bottom: 12px;
-    border-bottom: 1px solid rgba(120, 140, 165, 0.14);
+    border-bottom: 1px solid oklch(50% 0.03 235 / 0.14);
 }
 
 .side-panel-kicker {
@@ -456,8 +456,8 @@ svg path, svg text, svg circle, svg g {
 
 .side-panel-close {
     background: transparent;
-    border: 1px solid rgba(90, 103, 122, 0.34);
-    color: #728193;
+    border: 1px solid oklch(50% 0.03 235 / 0.34);
+    color: oklch(55% 0.025 230);
     width: 24px;
     height: 24px;
     cursor: pointer;
@@ -466,9 +466,9 @@ svg path, svg text, svg circle, svg g {
 }
 
 .side-panel-close:hover {
-    border-color: rgba(143, 168, 192, 0.55);
-    color: #d1deea;
-    background: rgba(255,255,255,0.02);
+    border-color: oklch(50% 0.03 235 / 0.55);
+    color: oklch(87% 0.03 220);
+    background: oklch(100% 0 0 / 0.02);
 }
 
 .side-panel-icon {
@@ -479,7 +479,7 @@ svg path, svg text, svg circle, svg g {
 .side-panel-title {
     font-size: clamp(14px, 4vw, 19px);
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 10px;
     line-height: 1.15;
 }
@@ -487,13 +487,13 @@ svg path, svg text, svg circle, svg g {
 .side-panel-desc {
     font-size: 12px;
     line-height: 1.7;
-    color: #95a2b1;
+    color: oklch(66% 0.02 225);
     margin-bottom: 18px;
 }
 
 .panel-section-label {
     font-size: 10px;
-    color: #566274;
+    color: oklch(44% 0.03 230);
     margin-bottom: 8px;
     font-weight: 700;
     text-transform: uppercase;
@@ -510,29 +510,29 @@ svg path, svg text, svg circle, svg g {
 .panel-item {
     padding: 8px 10px;
     font-size: 11px;
-    color: #afbbc7;
+    color: oklch(75% 0.025 225);
     margin-bottom: 5px;
     line-height: 1.45;
-    background: rgba(255,255,255,0.018);
+    background: oklch(100% 0 0 / 0.018);
 }
 
 .panel-connection-row {
     padding: 7px 8px;
     font-size: 11px;
-    color: #7e8d9e;
+    color: oklch(58% 0.025 225);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid rgba(84, 96, 114, 0.16);
+    border-bottom: 1px solid oklch(50% 0.03 235 / 0.16);
     gap: 10px;
 }
 
 .panel-connection-pill {
     font-size: 9px;
-    color: #66d9ff;
-    background: rgba(139,92,246,0.08);
+    color: var(--clr-cyan);
+    background: var(--clr-accent-08);
     padding: 3px 6px;
-    border: 1px solid rgba(139,92,246,0.16);
+    border: 1px solid oklch(55% 0.23 293 / 0.16);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     white-space: nowrap;
@@ -541,14 +541,14 @@ svg path, svg text, svg circle, svg g {
 /* SHARED SYSTEMS / FOOTER */
 
 .shared-footer {
-    border-top: 1px solid rgba(97, 121, 146, 0.18);
+    border-top: 1px solid oklch(50% 0.03 235 / 0.18);
     padding: 12px 20px 14px;
-    background: linear-gradient(180deg, rgba(6,8,12,0.86), rgba(7,9,13,0.96));
+    background: linear-gradient(180deg, oklch(7% 0.01 215 / 0.86), oklch(7% 0.01 215 / 0.96));
 }
 
 .shared-footer-title {
     font-size: 10px;
-    color: #4b5564;
+    color: oklch(40% 0.025 230);
     margin-bottom: 10px;
     font-weight: 700;
     text-transform: uppercase;
@@ -577,14 +577,14 @@ svg path, svg text, svg circle, svg g {
 .shared-chip-desc {
     margin-top: 10px;
     padding: 11px 13px;
-    background: rgba(139,92,246,0.03);
-    border-left: 2px solid rgba(139,92,246,0.34);
-    border-top: 1px solid rgba(139,92,246,0.08);
-    border-right: 1px solid rgba(139,92,246,0.08);
-    border-bottom: 1px solid rgba(139,92,246,0.08);
+    background: oklch(55% 0.23 293 / 0.03);
+    border-left: 2px solid oklch(55% 0.23 293 / 0.34);
+    border-top: 1px solid var(--clr-accent-08);
+    border-right: 1px solid var(--clr-accent-08);
+    border-bottom: 1px solid var(--clr-accent-08);
     border-radius: 0;
     font-size: 12px;
-    color: #8a97a8;
+    color: var(--clr-text-muted);
     line-height: 1.65;
     animation: fadeIn 0.2s ease;
 }
@@ -639,7 +639,7 @@ svg path, svg text, svg circle, svg g {
 
 .list-card.hex-shape {
     padding: 24px 16px 20px;
-    background: rgba(10,14,21,0.8);
+    background: oklch(10% 0.015 215 / 0.8);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     aspect-ratio: 1 / 1.1;
     display: flex;
@@ -651,7 +651,7 @@ svg path, svg text, svg circle, svg g {
 }
 
 .list-card.hex-shape:hover {
-    background: rgba(14,19,29,0.95);
+    background: oklch(13% 0.02 220 / 0.95);
     filter: brightness(1.2);
     transform: none;
 }
@@ -699,13 +699,13 @@ svg path, svg text, svg circle, svg g {
 .list-card-title {
     font-size: 13px;
     font-weight: 600;
-    color: #d7e0ea;
+    color: oklch(88% 0.02 230);
     line-height: 1.3;
 }
 
 .list-card-desc {
     font-size: 10px;
-    color: #768395;
+    color: oklch(55% 0.025 230);
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -763,7 +763,7 @@ svg path, svg text, svg circle, svg g {
     .side-panel {
         width: min(340px, calc(100% - 24px));
         background:
-            linear-gradient(180deg, rgba(8,12,28,0.75), rgba(5,8,22,0.7));
+            linear-gradient(180deg, oklch(11% 0.015 215 / 0.75), oklch(7% 0.01 215 / 0.7));
         backdrop-filter: blur(18px);
         -webkit-backdrop-filter: blur(18px);
         /* Mobile: reveal from node origin then slide down */
@@ -814,7 +814,7 @@ svg path, svg text, svg circle, svg g {
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 60px);
-    background: #010303;
+    background: var(--clr-bg);
 }
 
 /* ── Vote FAB ── */
@@ -822,22 +822,22 @@ svg path, svg text, svg circle, svg g {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background: rgba(7,16,26,0.9);
-    border: 1px solid rgba(139,92,246,0.5);
+    background: oklch(10% 0.015 215 / 0.9);
+    border: 1px solid var(--clr-accent-50);
     border-radius: 8px;
     padding: 10px 20px;
     font-family: 'intelone-mono', monospace;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 1.5px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     text-decoration: none;
     z-index: 50;
     transition: box-shadow 0.2s, border-color 0.2s;
 }
 .bv-vote-fab:hover {
-    border-color: #8B5CF6;
-    box-shadow: 0 0 16px rgba(139,92,246,0.2);
+    border-color: var(--clr-accent);
+    box-shadow: 0 0 16px var(--clr-accent-20);
 }
 
 /* ── Blueprint picker (inside viewer, next to map/list/tree tabs) ── */
@@ -853,17 +853,17 @@ svg path, svg text, svg circle, svg g {
     font-size: 12px;
     padding: 5px 10px;
     border-radius: 5px;
-    border: 1px solid rgba(139,92,246,0.2);
-    background: rgba(139,92,246,0.05);
-    color: #8B5CF6;
+    border: 1px solid var(--clr-accent-20);
+    background: var(--clr-accent-05);
+    color: var(--clr-accent);
     cursor: pointer;
     white-space: nowrap;
     transition: border-color 0.15s, background 0.15s;
     letter-spacing: 0.03em;
 }
 .bv-bp-picker-btn:hover {
-    border-color: rgba(139,92,246,0.45);
-    background: rgba(139,92,246,0.1);
+    border-color: oklch(55% 0.23 293 / 0.45);
+    background: var(--clr-accent-10);
 }
 
 .bv-bp-picker-caret {
@@ -876,13 +876,13 @@ svg path, svg text, svg circle, svg g {
     top: calc(100% + 6px);
     left: 0;
     min-width: 230px;
-    background: rgba(8,14,26,0.97);
-    border: 1px solid rgba(139,92,246,0.14);
+    background: oklch(11% 0.015 215 / 0.97);
+    border: 1px solid oklch(55% 0.23 293 / 0.14);
     border-radius: 8px;
     padding: 6px;
     z-index: 300;
     backdrop-filter: blur(12px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    box-shadow: 0 8px 32px oklch(0% 0 0 / 0.5);
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -896,17 +896,17 @@ svg path, svg text, svg circle, svg g {
     border-radius: 5px;
     border: none;
     background: transparent;
-    color: rgba(204,227,240,0.6);
+    color: oklch(88% 0.03 220 / 0.6);
     cursor: pointer;
     transition: background 0.12s, color 0.12s;
 }
 .bv-bp-picker-option:hover {
-    background: rgba(139,92,246,0.08);
-    color: #CCE3F0;
+    background: var(--clr-accent-08);
+    color: oklch(88% 0.03 220);
 }
 .bv-bp-picker-option.is-active {
-    background: rgba(139,92,246,0.13);
-    color: #8B5CF6;
+    background: oklch(55% 0.23 293 / 0.13);
+    color: var(--clr-accent);
 }
 
 .bv-bp-picker-row {

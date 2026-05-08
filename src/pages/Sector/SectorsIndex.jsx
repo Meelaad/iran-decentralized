@@ -161,7 +161,7 @@ export default function SectorsIndex() {
     const sectorBase = blueprintId ? `/blueprint/gov/${blueprintId}/sectors` : '/sectors';
 
     return (
-        <div className="sectors-index">
+        <div className="sectors-index" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="sectors-index-retro-grid" />
             <div className="sectors-index-inner">
                 <h1

@@ -115,7 +115,7 @@ export default function ContactPage() {
     const msgNearLimit = msgLen > MSG_MAX * 0.85;
 
     return (
-        <div className="contact-page">
+        <div className="contact-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="contact-bg-grid" />
             <div className="contact-scanline" />
 

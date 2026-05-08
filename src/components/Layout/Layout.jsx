@@ -596,7 +596,7 @@ function NavContent() {
                         onMouseEnter={transDropdown.onMouseEnter}
                         onMouseLeave={transDropdown.onMouseLeave}
                     >
-                        <button className={`site-nav-link primary-nav-btn ${isInTransition ? 'is-active' : ''}`} onClick={transDropdown.onToggle}>
+                        <button className={`site-nav-link primary-nav-btn ${isInTransition ? 'is-active' : ''}`} onClick={transDropdown.onMouseEnter}>
                             {tKey('nav.transitionMenu')}
                             <span className="primary-nav-caret">▾</span>
                         </button>
@@ -618,7 +618,7 @@ function NavContent() {
                         onMouseEnter={destDropdown.onMouseEnter}
                         onMouseLeave={destDropdown.onMouseLeave}
                     >
-                        <button className={`site-nav-link primary-nav-btn ${isInDestination ? 'is-active' : ''}`} onClick={destDropdown.onToggle}>
+                        <button className={`site-nav-link primary-nav-btn ${isInDestination ? 'is-active' : ''}`} onClick={destDropdown.onMouseEnter}>
                             {tKey('nav.destinationMenu')}
                             <span className="primary-nav-caret">▾</span>
                         </button>

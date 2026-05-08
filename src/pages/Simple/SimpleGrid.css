@@ -1,0 +1,339 @@
+/* ══════════════════════════════════════════════════════════════
+   Simple Version — Shared Grid Page Styles
+   Used by SimpleTransitionPage and SimpleDestinationPage
+══════════════════════════════════════════════════════════════ */
+
+.svg-root {
+    position: relative;
+    min-height: 100vh;
+    background: var(--clr-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    padding-bottom: 60px;
+}
+
+.svg-bg {
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(var(--clr-accent-05) 1px, transparent 1px),
+        linear-gradient(90deg, var(--clr-accent-05) 1px, transparent 1px);
+    background-size: 56px 56px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Page header ─────────────────────────────────────────────── */
+.svg-header {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    padding: 48px 24px 36px;
+    text-align: center;
+}
+
+.svg-zone-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+[dir="rtl"] .svg-zone-pill {
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+}
+
+.svg-zone-pill--trans {
+    background: var(--clr-accent-10);
+    border: 1px solid var(--clr-accent-25);
+    color: var(--clr-accent-soft);
+}
+
+.svg-zone-pill--dest {
+    background: var(--clr-green-10);
+    border: 1px solid var(--clr-green-25);
+    color: oklch(72% 0.18 141);
+}
+
+.svg-page-title {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700;
+    color: oklch(100% 0 0);
+    margin: 0;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.svg-page-sub {
+    font-size: clamp(14px, 1.8vw, 18px);
+    color: oklch(65% 0.04 230);
+    margin: 0;
+    max-width: 520px;
+}
+
+/* ── Card grid ───────────────────────────────────────────────── */
+.svg-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1280px;
+    padding: 0 24px;
+}
+
+/* ── Single card ─────────────────────────────────────────────── */
+.svg-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--clr-bg-card);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid var(--clr-border-dim);
+    cursor: pointer;
+    padding: 0;
+    text-align: start;
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.28s ease,
+                border-color 0.28s ease;
+}
+
+.svg-card:hover {
+    transform: translateY(-8px) scale(1.015);
+}
+
+/* Accent glow on hover per accent colour */
+.svg-card--purple:hover  { box-shadow: 0 20px 56px oklch(55% 0.23 293 / 0.32); border-color: oklch(55% 0.23 293 / 0.45); }
+.svg-card--green:hover   { box-shadow: 0 20px 56px oklch(59% 0.18 141 / 0.30); border-color: oklch(59% 0.18 141 / 0.45); }
+.svg-card--blue:hover    { box-shadow: 0 20px 56px oklch(55% 0.18 240 / 0.30); border-color: oklch(55% 0.18 240 / 0.45); }
+.svg-card--cyan:hover    { box-shadow: 0 20px 56px oklch(75% 0.14 200 / 0.30); border-color: oklch(75% 0.14 200 / 0.45); }
+.svg-card--amber:hover   { box-shadow: 0 20px 56px oklch(70% 0.18 75 / 0.30);  border-color: oklch(70% 0.18 75 / 0.45); }
+.svg-card--red:hover     { box-shadow: 0 20px 56px oklch(48% 0.22 28 / 0.30);  border-color: oklch(48% 0.22 28 / 0.45); }
+.svg-card--teal:hover    { box-shadow: 0 20px 56px oklch(65% 0.15 185 / 0.30); border-color: oklch(65% 0.15 185 / 0.45); }
+
+/* ── Image section (top 45% of card) ────────────────────────── */
+.svg-card-img-wrap {
+    position: relative;
+    height: 200px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.svg-card-img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.55;
+    transition: opacity 0.35s ease, transform 0.5s ease;
+}
+
+.svg-card:hover .svg-card-img {
+    opacity: 0.7;
+    transform: scale(1.04);
+}
+
+.svg-card-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 30%, var(--clr-bg-card) 100%);
+    z-index: 1;
+}
+
+/* Large floating emoji over the image */
+.svg-card-emoji-float {
+    position: absolute;
+    bottom: 14px;
+    inset-inline-start: 18px;
+    font-size: 42px;
+    line-height: 1;
+    z-index: 2;
+    filter: drop-shadow(0 2px 8px oklch(0% 0 0 / 0.6));
+    transition: transform 0.3s ease;
+}
+
+.svg-card:hover .svg-card-emoji-float {
+    transform: scale(1.15) translateY(-4px);
+}
+
+/* ── Colour accent strip per card ────────────────────────────── */
+.svg-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 18px 0 0 18px;
+    opacity: 0.8;
+}
+
+.svg-card--purple::before { background: var(--clr-accent); }
+.svg-card--green::before  { background: var(--clr-green); }
+.svg-card--blue::before   { background: oklch(55% 0.18 240); }
+.svg-card--cyan::before   { background: oklch(75% 0.14 200); }
+.svg-card--amber::before  { background: oklch(70% 0.18 75); }
+.svg-card--red::before    { background: var(--clr-red); }
+.svg-card--teal::before   { background: oklch(65% 0.15 185); }
+
+/* RTL: strip on the right */
+[dir="rtl"] .svg-card::before {
+    inset-inline-start: auto;
+    inset-inline-end: 0;
+    border-radius: 0 18px 18px 0;
+}
+
+/* ── Card body ───────────────────────────────────────────────── */
+.svg-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 22px 24px 26px;
+    flex: 1;
+}
+
+.svg-card-title {
+    font-size: clamp(18px, 1.8vw, 22px);
+    font-weight: 700;
+    color: oklch(100% 0 0);
+    margin: 0;
+    letter-spacing: -0.01em;
+    line-height: 1.25;
+}
+
+.svg-card-desc {
+    font-size: clamp(13px, 1.2vw, 15px);
+    color: oklch(65% 0.04 230);
+    margin: 0;
+    line-height: 1.65;
+    flex: 1;
+}
+
+/* CTA row at card bottom */
+.svg-card-open {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: oklch(70% 0.05 230);
+    transition: color 0.2s, gap 0.2s;
+    padding: 10px 0;
+    border-top: 1px solid var(--clr-border-dim);
+    width: 100%;
+}
+
+[dir="rtl"] .svg-card-open {
+    letter-spacing: 0;
+}
+
+.svg-card--purple:hover .svg-card-open { color: var(--clr-accent-soft); }
+.svg-card--green:hover  .svg-card-open { color: oklch(72% 0.18 141); }
+.svg-card--blue:hover   .svg-card-open { color: oklch(72% 0.18 240); }
+.svg-card--cyan:hover   .svg-card-open { color: oklch(80% 0.14 200); }
+.svg-card--amber:hover  .svg-card-open { color: oklch(78% 0.18 75); }
+.svg-card--red:hover    .svg-card-open { color: oklch(68% 0.22 28); }
+.svg-card--teal:hover   .svg-card-open { color: oklch(72% 0.15 185); }
+
+.svg-card:hover .svg-card-open {
+    gap: 14px;
+}
+
+.svg-card-arrow {
+    font-size: 16px;
+    transition: transform 0.2s ease;
+}
+
+.svg-card:hover .svg-card-arrow {
+    transform: translateX(4px);
+}
+
+/* RTL arrow */
+[dir="rtl"] .svg-card-arrow {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .svg-card:hover .svg-card-arrow {
+    transform: scaleX(-1) translateX(-4px);
+}
+
+/* ── Footer ──────────────────────────────────────────────────── */
+.svg-footer {
+    position: relative;
+    z-index: 1;
+    padding: 28px 24px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.svg-back {
+    font-size: 13px;
+    color: oklch(50% 0.04 230);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    transition: color 0.15s;
+}
+
+[dir="rtl"] .svg-back {
+    letter-spacing: 0;
+}
+
+.svg-back:hover {
+    color: var(--clr-accent-soft);
+}
+
+/* ── Light theme ─────────────────────────────────────────────── */
+[data-theme="light"] .svg-root  { background: oklch(96% 0.01 240); }
+[data-theme="light"] .svg-bg    { background-image: linear-gradient(oklch(55% 0.23 293 / 0.04) 1px, transparent 1px), linear-gradient(90deg, oklch(55% 0.23 293 / 0.04) 1px, transparent 1px); }
+[data-theme="light"] .svg-page-title { color: oklch(8% 0.01 200); }
+[data-theme="light"] .svg-page-sub   { color: oklch(38% 0.03 230); }
+[data-theme="light"] .svg-card       { background: oklch(100% 0 0); border-color: oklch(88% 0.01 240); }
+[data-theme="light"] .svg-card-img-overlay { background: linear-gradient(to bottom, transparent 30%, oklch(100% 0 0) 100%); }
+[data-theme="light"] .svg-card-title { color: oklch(8% 0.01 200); }
+[data-theme="light"] .svg-card-desc  { color: oklch(38% 0.03 230); }
+[data-theme="light"] .svg-card-open  { color: oklch(45% 0.04 230); border-top-color: oklch(88% 0.01 240); }
+[data-theme="light"] .svg-back       { color: oklch(48% 0.04 230); }
+[data-theme="light"] .svg-zone-pill--trans { background: oklch(55% 0.23 293 / 0.06); }
+[data-theme="light"] .svg-zone-pill--dest  { background: oklch(59% 0.18 141 / 0.06); }
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .svg-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .svg-header {
+        padding: 36px 20px 28px;
+    }
+    .svg-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        padding: 0 16px;
+    }
+    .svg-card-img-wrap {
+        height: 170px;
+    }
+    .svg-card-body {
+        padding: 18px 20px 22px;
+    }
+    .svg-card-title {
+        font-size: 20px;
+    }
+}

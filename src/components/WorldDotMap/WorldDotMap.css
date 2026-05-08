@@ -1,7 +1,7 @@
 .wdm-map-wrap {
   flex: 1;
   min-width: 0;
-  background: #111122;
+  background: oklch(13% 0.03 280);
   border: 1px solid rgba(232, 80, 122, 0.12);
   border-radius: 12px;
   overflow: hidden;
@@ -19,12 +19,12 @@
 
 .wdm-map-wrap--edit {
   cursor: crosshair;
-  border-color: rgba(38, 222, 194, 0.5) !important;
+  border-color: oklch(79% 0.13 180 / 0.5) !important;
   border-radius: 0 !important;
 }
 
 .wdm-dot-static {
-  fill: rgba(255, 255, 255, 0.12);
+  fill: oklch(100% 0 0 / 0.12);
 }
 
 @keyframes wdm-pulse {
@@ -47,7 +47,7 @@
 }
 
 .wdm-region-marker:hover polygon {
-  fill: #fff;
+  fill: oklch(100% 0 0);
 }
 
 .wdm-db-marker {
@@ -59,8 +59,8 @@
 }
 
 .wdm-db-marker:hover polygon {
-  fill: #fff;
-  filter: drop-shadow(0 0 4px #26DEC2);
+  fill: oklch(100% 0 0);
+  filter: drop-shadow(0 0 4px oklch(79% 0.13 180));
 }
 
 .wdm-db-circle {
@@ -80,14 +80,14 @@
   animation: wdm-blink-pulse 1.8s ease-in-out infinite;
   transform-box: fill-box;
   transform-origin: center;
-  filter: drop-shadow(0 0 3px var(--blink-color, #26DEC2));
+  filter: drop-shadow(0 0 3px var(--blink-color, oklch(79% 0.13 180)));
 }
 
 .wdm-map-tooltip {
   position: absolute;
-  background: #0d1117;
+  background: var(--clr-bg-panel);
   border: 1px solid rgba(232, 80, 122, 0.3);
-  color: #ededed;
+  color: oklch(94% 0 0);
   font-size: 11px;
   font-family: 'intelone-mono', monospace;
   padding: 5px 9px;
@@ -102,9 +102,9 @@
   position: absolute;
   bottom: 8px;
   right: 8px;
-  background: rgba(1, 6, 15, 0.9);
-  border: 1px solid rgba(38, 222, 194, 0.35);
-  color: #26DEC2;
+  background: oklch(8% 0.01 200 / 0.9);
+  border: 1px solid oklch(79% 0.13 180 / 0.35);
+  color: oklch(79% 0.13 180);
   font-family: 'intelone-mono', monospace;
   font-size: 10px;
   padding: 3px 8px;

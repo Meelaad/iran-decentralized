@@ -19,7 +19,7 @@
 .cs2-label {
     font-size: 11px;
     letter-spacing: 0.14em;
-    color: rgba(139,92,246,0.5);
+    color: var(--clr-accent-50);
     text-transform: uppercase;
 }
 
@@ -33,7 +33,7 @@
 .cs2-title {
     font-size: 32px;
     font-weight: 700;
-    color: #CCE3F0;
+    color: oklch(88% 0.03 220);
     margin: 0;
     letter-spacing: -0.01em;
 }
@@ -41,7 +41,7 @@
 .cs2-desc {
     font-size: 15px;
     line-height: 1.7;
-    color: rgba(204,227,240,0.55);
+    color: oklch(88% 0.03 220 / 0.55);
     margin: 0;
     max-width: 480px;
 }
@@ -51,19 +51,19 @@
     align-items: center;
     gap: 8px;
     font-size: 12px;
-    color: rgba(204,227,240,0.35);
+    color: oklch(88% 0.03 220 / 0.35);
     letter-spacing: 0.06em;
     padding: 10px 18px;
-    border: 1px solid rgba(255,255,255,0.06);
+    border: 1px solid oklch(100% 0 0 / 0.06);
     border-radius: 6px;
-    background: rgba(255,255,255,0.02);
+    background: oklch(100% 0 0 / 0.02);
 }
 
 .cs2-status-dot {
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: #8B5CF6;
+    background: var(--clr-accent);
     animation: cs2-pulse 2s ease-in-out infinite;
     flex-shrink: 0;
 }
@@ -77,16 +77,16 @@
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.05em;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     text-decoration: none;
     padding: 10px 24px;
-    border: 1px solid rgba(139,92,246,0.35);
+    border: 1px solid var(--clr-accent-35);
     border-radius: 6px;
     transition: background 0.18s, color 0.18s;
 }
 
 .cs2-action-btn:hover {
-    background: rgba(139,92,246,0.1);
+    background: var(--clr-accent-10);
 }
 
 .cs2-nav {
@@ -99,15 +99,15 @@
 
 .cs2-nav-link {
     font-size: 12px;
-    color: rgba(204,227,240,0.4);
+    color: oklch(88% 0.03 220 / 0.4);
     text-decoration: none;
     letter-spacing: 0.04em;
     transition: color 0.15s;
 }
 
-.cs2-nav-link:hover { color: rgba(204,227,240,0.75); }
-.cs2-nav-link--dim { color: rgba(204,227,240,0.25); }
-.cs2-nav-link--dim:hover { color: rgba(204,227,240,0.5); }
+.cs2-nav-link:hover { color: oklch(88% 0.03 220 / 0.75); }
+.cs2-nav-link--dim { color: oklch(88% 0.03 220 / 0.25); }
+.cs2-nav-link--dim:hover { color: oklch(88% 0.03 220 / 0.5); }
 
 /* ── RTL ── */
 [dir="rtl"] .cs2-inner { text-align: right; align-items: flex-end; }

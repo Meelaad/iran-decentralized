@@ -121,7 +121,7 @@ function GateHex({ onEnter, isRTL }) {
 export default function EntryGate({ children }) {
     const [visible, setVisible] = useState(() => !localStorage.getItem(STORAGE_KEY));
     const [leaving, setLeaving] = useState(false);
-    const { lang, setLang, tKey, isRTL } = useLang();
+    const { lang, setLang, tKey, isRTL, headFont } = useLang();
 
     function enter() {
         localStorage.setItem(STORAGE_KEY, '1');
@@ -146,10 +146,10 @@ export default function EntryGate({ children }) {
 
                         <div className="gate-title-block">
                             <h1 className="gate-title-en">IranDAO</h1>
-                            <h2 className="gate-title-fa">ایران دائو</h2>
+                            <h2 className="gate-title-fa">{tKey('brand.name')}</h2>
                         </div>
 
-                        <p className="gate-tagline" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'intelone-mono', monospace" }}>
+                        <p className="gate-tagline" style={{ fontFamily: isRTL ? headFont : "'intelone-mono', monospace" }}>
                             {tKey('entryGate.tagline')}
                         </p>
 
@@ -170,7 +170,7 @@ export default function EntryGate({ children }) {
                             >EN</button>
                         </div>
 
-                        <div className="gate-hint" style={{ fontFamily: isRTL ? "'Markazi Text', serif" : "'intelone-mono', monospace" }}>
+                        <div className="gate-hint" style={{ fontFamily: isRTL ? headFont : "'intelone-mono', monospace" }}>
                             {tKey('entryGate.hint')}
                         </div>
                     </div>

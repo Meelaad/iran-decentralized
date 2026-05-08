@@ -21,17 +21,17 @@ function VoteSkeleton() {
 }
 
 export default function DestinationPage() {
-  const { t, isRTL } = useLang();
+  const { t, isRTL, headFont } = useLang();
   const { data: voteData, isLoading: votesLoading } = useBlueprintVoteCounts();
 
   const votes = voteData?.votes ?? {};
   const total = voteData?.total ?? 0;
 
   return (
-    <div className="destination-page" dir={isRTL ? 'rtl' : 'ltr'}>
+    <div className="destination-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
       <PageMeta
-        title={isRTL ? 'دولت آینده' : 'Future Government'}
-        description={isRTL ? 'مرور طرح‌های حکومتی و آمار زنده رأی' : 'Compare governance blueprints and track live vote counts for Iran\'s permanent system of government.'}
+        title={t(CONTENT.metaTitle)}
+        description={t(CONTENT.metaDescription)}
         lang={isRTL ? 'fa' : 'en'}
       />
 

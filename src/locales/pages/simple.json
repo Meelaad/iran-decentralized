@@ -1,0 +1,72 @@
+{
+  "hubTitle":       { "en": "Simple Version", "fa": "نسخه ساده" },
+  "hubSubtitle":    { "en": "Choose where you want to go", "fa": "انتخاب کنید کجا می‌خواهید بروید" },
+  "explore":        { "en": "Explore", "fa": "بررسی کنید" },
+  "backAccess":     { "en": "Back to access mode", "fa": "بازگشت به انتخاب دسترسی" },
+
+  "transitionZone": { "en": "TRANSITION ZONE", "fa": "منطقه گذار" },
+  "transitionTitle":{ "en": "How We Get There", "fa": "چطور به آنجا می‌رسیم" },
+  "transitionDesc": { "en": "Explore the plans, debates, and steps for transitioning Iran to democracy.", "fa": "طرح‌ها، مباحث، و مراحل گذار ایران به دموکراسی را کاوش کنید." },
+  "transitionItem1":{ "en": "The Arena — debate stage", "fa": "آرنا — صحنه مناظره" },
+  "transitionItem2":{ "en": "Transition Plans", "fa": "طرح‌های انتقالی" },
+  "transitionItem3":{ "en": "Cast Your Vote", "fa": "رأی خود را بدهید" },
+  "transitionItem4":{ "en": "Iranians Worldwide", "fa": "ایرانیان جهان" },
+
+  "destinationZone": { "en": "DESTINATION ZONE", "fa": "منطقه مقصد" },
+  "destinationTitle":{ "en": "What We're Building", "fa": "چه می‌سازیم" },
+  "destinationDesc": { "en": "See the blueprint for Iran's future government — sectors, layers, and roadmap.", "fa": "نقشه راه دولت آینده ایران را ببینید — بخش‌ها، لایه‌ها، و مسیر." },
+  "destinationItem1":{ "en": "Government Blueprints", "fa": "نقشه‌های حکومتی" },
+  "destinationItem2":{ "en": "Sectors of Government", "fa": "بخش‌های دولت" },
+  "destinationItem3":{ "en": "Governance Layers", "fa": "لایه‌های حکمرانی" },
+  "destinationItem4":{ "en": "Roadmap to the Future", "fa": "نقشه راه به سوی آینده" },
+
+  "directVote":     { "en": "🗳  Cast Your Vote Now", "fa": "🗳  همین الان رأی بدهید" },
+  "directJoin":     { "en": "✨  Join the Platform", "fa": "✨  به پلتفرم بپیوندید" },
+
+  "transPageTitle": { "en": "Transition Zone", "fa": "منطقه گذار" },
+  "transPageSub":   { "en": "Everything about Iran's path to democracy", "fa": "همه چیز درباره مسیر ایران به سوی دموکراسی" },
+  "backSimple":     { "en": "← Back", "fa": "← بازگشت" },
+  "openCard":       { "en": "Open", "fa": "باز کنید" },
+
+  "arenaTitle":     { "en": "The Arena", "fa": "آرنا" },
+  "arenaDesc":      { "en": "The democratic debate stage. Read and compare plans submitted by citizens and leaders.", "fa": "صحنه مناظره دموکراتیک. طرح‌های پیشنهادی شهروندان و رهبران را بخوانید و مقایسه کنید." },
+
+  "plansTitle":     { "en": "Transition Plans", "fa": "طرح‌های انتقالی" },
+  "plansDesc":      { "en": "Browse all official plans proposed for Iran's transition. Compare side by side.", "fa": "همه طرح‌های رسمی پیشنهادی برای گذار ایران را مرور کنید. کنار هم مقایسه کنید." },
+
+  "voteTitle":      { "en": "Cast Your Vote", "fa": "رأی خود را بدهید" },
+  "voteDesc":       { "en": "Your voice matters. Vote on transitional plans and see real-time results from Iranians.", "fa": "صدای شما اهمیت دارد. به طرح‌های انتقالی رأی دهید و نتایج زنده ایرانیان را ببینید." },
+
+  "preTitle":       { "en": "Pre-Transition Guide", "fa": "راهنمای پیش از انتقال" },
+  "preDesc":        { "en": "A step-by-step guide for what to do before, during, and after the transition.", "fa": "راهنمای گام به گام برای قبل، حین، و بعد از انتقال." },
+
+  "globalTitle":    { "en": "Iranians Worldwide", "fa": "ایرانیان جهان" },
+  "globalDesc":     { "en": "See the global map of the Iranian diaspora. Where are we? Who are we?", "fa": "نقشه جهانی ایرانیان مهاجر را ببینید. کجا هستیم؟ چه کسانی هستیم؟" },
+
+  "compareTransTitle": { "en": "Compare Plans", "fa": "مقایسه طرح‌ها" },
+  "compareTransDesc":  { "en": "Put transitional plans side by side. See what's different, what's common.", "fa": "طرح‌های انتقالی را کنار هم بگذارید. ببینید چه تفاوت‌ها و اشتراکاتی دارند." },
+
+  "destPageTitle":  { "en": "Destination Zone", "fa": "منطقه مقصد" },
+  "destPageSub":    { "en": "The future governance system of Iran", "fa": "سیستم حکومتی آینده ایران" },
+
+  "destOverTitle":  { "en": "Destination Overview", "fa": "نگاه اجمالی به مقصد" },
+  "destOverDesc":   { "en": "The big picture. What does a free and democratic Iran look like?", "fa": "تصویر بزرگ. ایران آزاد و دموکراتیک چه شکلی است؟" },
+
+  "bpTitle":        { "en": "Blueprints", "fa": "نقشه‌های اجرایی" },
+  "bpDesc":         { "en": "Detailed government system blueprints. Choose and compare governance models.", "fa": "نقشه‌های سیستم حکومتی دقیق. مدل‌های حکمرانی را انتخاب و مقایسه کنید." },
+
+  "mapTitle":       { "en": "Governance Map", "fa": "نقشه حکمرانی" },
+  "mapDesc":        { "en": "Interactive visual map of the proposed government structure and its branches.", "fa": "نقشه تعاملی تصویری از ساختار دولت پیشنهادی و شعب آن." },
+
+  "sectorsTitle":   { "en": "Sectors of Government", "fa": "بخش‌های دولت" },
+  "sectorsDesc":    { "en": "Explore each ministry and sector — judiciary, military, economy, health and more.", "fa": "هر وزارتخانه و بخش را کاوش کنید — قضایی، نظامی، اقتصاد، بهداشت و بیشتر." },
+
+  "layersTitle":    { "en": "Governance Layers", "fa": "لایه‌های حکمرانی" },
+  "layersDesc":     { "en": "The architecture of power. Federal vs. national, local vs. central governance.", "fa": "معماری قدرت. حکمرانی فدرال در مقابل ملی، محلی در مقابل مرکزی." },
+
+  "roadmapTitle":   { "en": "Roadmap", "fa": "نقشه راه" },
+  "roadmapDesc":    { "en": "The timeline and milestones for building Iran's new governance system.", "fa": "جدول زمانی و نقاط عطف برای ساختن سیستم حکومتی جدید ایران." },
+
+  "compareDestTitle": { "en": "Compare Systems", "fa": "مقایسه سیستم‌ها" },
+  "compareDestDesc":  { "en": "Put different governance blueprints side by side. What model is best for Iran?", "fa": "نقشه‌های حکمرانی مختلف را کنار هم بگذارید. کدام مدل برای ایران بهتر است؟" }
+}

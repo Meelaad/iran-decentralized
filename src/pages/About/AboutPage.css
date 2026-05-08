@@ -1,7 +1,7 @@
 /* AboutPage.css */
 
 .about-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -23,7 +23,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-25) 20%, var(--clr-accent-35) 50%, var(--clr-accent-25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -40,14 +40,14 @@
 .about-title {
     font-size: 32px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 12px;
     letter-spacing: -0.01em;
 }
 
 .about-subtitle {
     font-size: 14px;
-    color: #5a6a7e;
+    color: var(--clr-text-muted);
     margin-bottom: 48px;
     line-height: 1.7;
 }
@@ -61,15 +61,15 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     margin-bottom: 16px;
     padding-bottom: 8px;
-    border-bottom: 1px solid rgba(139,92,246,0.12);
+    border-bottom: 1px solid var(--clr-accent-10);
 }
 
 .about-section-body {
     font-size: 14px;
-    color: #8a9bb0;
+    color: var(--clr-text-muted);
     line-height: 1.8;
 }
 
@@ -90,7 +90,7 @@
     width: 180px;
     height: 200px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background: rgba(10,14,21,0.85);
+    background: oklch(11% 0.015 215 / 0.85);
     animation: fadeInUp 0.4s ease both;
     display: flex;
     flex-direction: column;
@@ -106,7 +106,7 @@
     position: absolute;
     inset: 1px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background: rgba(10,14,21,0.9);
+    background: oklch(11% 0.015 215 / 0.9);
     z-index: 0;
 }
 
@@ -115,7 +115,7 @@
     position: absolute;
     inset: 0;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background: linear-gradient(135deg, rgba(139,92,246,0.08), transparent 60%);
+    background: linear-gradient(135deg, var(--clr-accent-08), transparent 60%);
     z-index: 0;
     transition: opacity 0.3s;
     opacity: 0;
@@ -136,7 +136,7 @@
 }
 
 .about-principle:hover .about-hex-border polygon {
-    stroke: rgba(139,92,246,0.35);
+    stroke: var(--clr-accent-35);
 }
 
 .about-principle-icon {
@@ -149,7 +149,7 @@
 .about-principle-title {
     font-size: 13px;
     font-weight: 600;
-    color: #d7e0ea;
+    color: var(--clr-text);
     margin-bottom: 6px;
     position: relative;
     z-index: 1;
@@ -157,7 +157,7 @@
 
 .about-principle-desc {
     font-size: 11px;
-    color: #667384;
+    color: var(--clr-text-dim);
     line-height: 1.5;
     position: relative;
     z-index: 1;
@@ -186,16 +186,16 @@
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.5px;
-    color: #8B5CF6;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    background: rgba(139, 92, 246, 0.05);
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent-30);
+    background: var(--clr-accent-05);
     text-decoration: none;
     transition: background 0.2s, border-color 0.2s;
 }
 
 .about-contact-btn:hover {
-    background: rgba(139, 92, 246, 0.12);
-    border-color: rgba(139, 92, 246, 0.55);
+    background: var(--clr-accent-10);
+    border-color: oklch(55% 0.23 293 / 0.55);
 }
 
 @media (min-width: 960px) {

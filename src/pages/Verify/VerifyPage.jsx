@@ -43,7 +43,7 @@ function MethodCard({ title, desc, badge, children, done }) {
 }
 
 export default function VerifyPage() {
-    const { tKey, isRTL } = useLang();
+    const { tKey, isRTL, headFont } = useLang();
 
     const [user, setUser] = useState(() => {
         supabase.auth.getUser().then(({ data }) => setUser(data?.user ?? null));
@@ -112,7 +112,7 @@ export default function VerifyPage() {
 
     if (!user) {
         return (
-            <div className="vp-root" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="vp-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
                 <div className="vp-login-wall">
                     <p>{tKey('verify.loginRequired')}</p>
                     <a href="/login" className="vp-login-btn">{tKey('verify.loginCTA')}</a>
@@ -122,7 +122,7 @@ export default function VerifyPage() {
     }
 
     return (
-        <div className="vp-root" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="vp-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <h1 className="vp-title">{tKey('verify.title')}</h1>
             <p className="vp-sub">{tKey('verify.sub')}</p>
 

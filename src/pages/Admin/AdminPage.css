@@ -2,11 +2,11 @@
 
 .admin-page, .admin-page * {
     user-select: text !important;
-    caret-color: #8B5CF6;
+    caret-color: var(--clr-accent);
 }
 
 .admin-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow-x: hidden;
@@ -28,7 +28,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     text-transform: uppercase;
     margin-bottom: 10px;
 }
@@ -37,7 +37,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 28px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 6px;
     letter-spacing: -0.01em;
 }
@@ -45,7 +45,7 @@
 .admin-meta {
     font-family: 'intelone-mono', monospace;
     font-size: 11px;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     letter-spacing: 0.5px;
 }
 
@@ -58,8 +58,8 @@
 }
 
 .admin-stat-card {
-    background: rgba(8, 13, 22, 0.85);
-    border: 1px solid rgba(139, 92, 246, 0.12);
+    background: oklch(11% 0.015 215 / 0.85);
+    border: 1px solid var(--clr-accent-10);
     padding: 16px 24px;
     min-width: 140px;
     flex: 1;
@@ -71,7 +71,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     margin-bottom: 8px;
 }
 
@@ -79,7 +79,7 @@
     font-family: 'intelone-mono', monospace;
     font-size: 28px;
     font-weight: 700;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     line-height: 1;
 }
 
@@ -90,7 +90,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     margin-bottom: 12px;
     margin-top: 36px;
 }
@@ -99,7 +99,7 @@
 .admin-table-wrap {
     width: 100%;
     overflow-x: auto;
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--clr-accent-10);
     margin-bottom: 48px;
 }
 
@@ -112,29 +112,29 @@
 }
 
 .admin-table th {
-    background: rgba(8, 13, 22, 0.95);
+    background: oklch(11% 0.015 215 / 0.95);
     font-family: 'intelone-mono', monospace;
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     padding: 10px 12px;
     text-align: left;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+    border-bottom: 1px solid var(--clr-accent-10);
     white-space: nowrap;
 }
 
 .admin-table td {
     padding: 10px 12px;
-    color: #8a9bb0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    color: var(--clr-text-muted);
+    border-bottom: 1px solid oklch(100% 0 0 / 0.03);
     vertical-align: middle;
     font-family: 'intelone-mono', monospace;
 }
 
 .admin-table tr:hover > td {
-    background: rgba(139, 92, 246, 0.02);
+    background: oklch(55% 0.23 293 / 0.02);
 }
 
 .admin-table tr:last-child > td {
@@ -142,13 +142,13 @@
 }
 
 .admin-td-name {
-    color: #c8ccd4;
+    color: var(--clr-text);
     font-weight: 600;
     white-space: nowrap;
 }
 
 .admin-td-email {
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     font-size: 11px;
 }
 
@@ -160,8 +160,8 @@
 
 .admin-expand-btn {
     background: none;
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    color: #3a4a5e;
+    border: 1px solid var(--clr-accent-15);
+    color: oklch(35% 0.025 230);
     font-family: 'intelone-mono', monospace;
     font-size: 10px;
     letter-spacing: 1px;
@@ -172,14 +172,14 @@
 }
 
 .admin-expand-btn:hover {
-    border-color: rgba(139, 92, 246, 0.4);
-    color: #8B5CF6;
+    border-color: var(--clr-accent-40);
+    color: var(--clr-accent);
 }
 
 .admin-expand-row td {
-    background: rgba(4, 8, 16, 0.8);
+    background: oklch(7% 0.01 215 / 0.8);
     padding: 16px 20px;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.08);
+    border-bottom: 1px solid var(--clr-accent-08);
 }
 
 .admin-expand-grid {
@@ -201,13 +201,13 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
 }
 
 .admin-expand-val {
     font-family: 'intelone-mono', monospace;
     font-size: 11px;
-    color: #7a8fa8;
+    color: oklch(58% 0.04 225);
     word-break: break-all;
 }
 
@@ -229,15 +229,15 @@
 }
 
 .admin-code-chip--unused {
-    color: #8B5CF6;
-    border-color: rgba(139, 92, 246, 0.3);
-    background: rgba(139, 92, 246, 0.04);
+    color: var(--clr-accent);
+    border-color: var(--clr-accent-30);
+    background: oklch(55% 0.23 293 / 0.04);
 }
 
 .admin-code-chip--used {
-    color: #e57373;
-    border-color: rgba(229, 115, 115, 0.3);
-    background: rgba(229, 115, 115, 0.04);
+    color: oklch(65% 0.16 27);
+    border-color: oklch(65% 0.16 27 / 0.3);
+    background: oklch(65% 0.16 27 / 0.04);
     text-decoration: line-through;
 }
 
@@ -255,8 +255,8 @@
     width: 24px;
     height: 24px;
     padding: 0;
-    color: #3a4a5e;
-    border: 1px solid rgba(90, 106, 126, 0.2);
+    color: oklch(35% 0.025 230);
+    border: 1px solid oklch(50% 0.025 230 / 0.2);
     background: transparent;
     cursor: pointer;
     transition: color 0.15s, border-color 0.15s;
@@ -264,13 +264,13 @@
 }
 
 .admin-copy-btn:hover {
-    color: #8fe3ff;
-    border-color: rgba(139, 92, 246, 0.35);
+    color: var(--clr-cyan);
+    border-color: var(--clr-accent-35);
 }
 
 .admin-copy-btn.is-copied {
-    color: #81c784;
-    border-color: rgba(129, 199, 132, 0.4);
+    color: oklch(67% 0.15 145);
+    border-color: oklch(67% 0.15 145 / 0.4);
 }
 
 .admin-delete-code-btn {
@@ -280,8 +280,8 @@
     width: 24px;
     height: 24px;
     padding: 0;
-    color: #3a4a5e;
-    border: 1px solid rgba(90, 106, 126, 0.2);
+    color: oklch(35% 0.025 230);
+    border: 1px solid oklch(50% 0.025 230 / 0.2);
     background: transparent;
     cursor: pointer;
     transition: color 0.15s, border-color 0.15s;
@@ -289,8 +289,8 @@
 }
 
 .admin-delete-code-btn:hover {
-    color: #ef9a9a;
-    border-color: rgba(239, 154, 154, 0.4);
+    color: oklch(72% 0.12 28);
+    border-color: oklch(75% 0.12 28 / 0.4);
 }
 
 /* ── Action buttons ── */
@@ -302,9 +302,9 @@
 }
 
 .admin-action-btn {
-    background: rgba(139, 92, 246, 0.05);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    color: #8B5CF6;
+    background: var(--clr-accent-05);
+    border: 1px solid var(--clr-accent-20);
+    color: var(--clr-accent);
     font-family: 'intelone-mono', monospace;
     font-size: 10px;
     font-weight: 700;
@@ -317,8 +317,8 @@
 }
 
 .admin-action-btn:hover:not(:disabled) {
-    background: rgba(139, 92, 246, 0.12);
-    border-color: rgba(139, 92, 246, 0.5);
+    background: var(--clr-accent-10);
+    border-color: var(--clr-accent-50);
 }
 
 .admin-action-btn:disabled {
@@ -334,9 +334,9 @@
 
 .admin-invites-input {
     width: 52px;
-    background: #080d14;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    color: #c8ccd4;
+    background: var(--clr-bg-card);
+    border: 1px solid var(--clr-accent-20);
+    color: var(--clr-text);
     font-family: 'intelone-mono', monospace;
     font-size: 12px;
     padding: 5px 8px;
@@ -345,7 +345,7 @@
 
 .admin-invites-input:focus {
     outline: none;
-    border-color: rgba(139, 92, 246, 0.5);
+    border-color: var(--clr-accent-50);
 }
 
 /* ── Invite tree ── */
@@ -356,17 +356,17 @@
 .admin-tree-node {
     font-family: 'intelone-mono', monospace;
     font-size: 12px;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     padding: 3px 0;
     white-space: nowrap;
 }
 
 .admin-tree-node--root {
-    color: #8B5CF6;
+    color: var(--clr-accent);
 }
 
 .admin-tree-name {
-    color: #c8ccd4;
+    color: var(--clr-text);
 }
 
 /* ── Access denied ── */
@@ -384,7 +384,7 @@
     font-family: 'intelone-mono', monospace;
     font-size: 48px;
     font-weight: 700;
-    color: rgba(139, 92, 246, 0.2);
+    color: var(--clr-accent-20);
 }
 
 .admin-denied-msg {
@@ -392,7 +392,7 @@
     font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
 }
 
 /* ── Loading state ── */
@@ -406,8 +406,8 @@
 .admin-spinner {
     width: 24px;
     height: 24px;
-    border: 2px solid rgba(139, 92, 246, 0.15);
-    border-top-color: #8B5CF6;
+    border: 2px solid var(--clr-accent-15);
+    border-top-color: var(--clr-accent);
     border-radius: 50%;
     animation: adminSpin 0.7s linear infinite;
 }
@@ -445,7 +445,7 @@
 
 .admin-seed-msg {
     font-size: 11px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     letter-spacing: 0.06em;
 }
 
@@ -453,7 +453,7 @@
 .admin-tab-bar {
     display: flex;
     gap: 0;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.12);
+    border-bottom: 1px solid var(--clr-accent-10);
     margin-bottom: 8px;
     flex-wrap: wrap;
 }
@@ -462,7 +462,7 @@
     background: none;
     border: none;
     border-bottom: 2px solid transparent;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     font-family: 'intelone-mono', monospace;
     font-size: 10px;
     font-weight: 700;
@@ -475,12 +475,12 @@
 }
 
 .admin-tab-btn:hover {
-    color: #8a9bb0;
+    color: var(--clr-text-muted);
 }
 
 .admin-tab-btn--active {
-    color: #8B5CF6;
-    border-bottom-color: #8B5CF6;
+    color: var(--clr-accent);
+    border-bottom-color: var(--clr-accent);
 }
 
 /* ── Status / tier badges ── */
@@ -497,24 +497,24 @@
 
 /* ── Danger variant for action buttons ── */
 .admin-action-btn--view {
-    color: #69d98c;
-    border-color: rgba(105, 217, 140, 0.3);
-    background: rgba(105, 217, 140, 0.04);
+    color: oklch(78% 0.15 145);
+    border-color: oklch(67% 0.18 155 / 0.3);
+    background: oklch(67% 0.18 155 / 0.04);
 }
 .admin-action-btn--view:hover {
-    background: rgba(105, 217, 140, 0.1);
-    border-color: rgba(105, 217, 140, 0.5);
+    background: oklch(67% 0.18 155 / 0.1);
+    border-color: oklch(67% 0.18 155 / 0.5);
 }
 
 .admin-action-btn--danger {
-    color: #ef9a9a;
-    border-color: rgba(239, 154, 154, 0.3);
-    background: rgba(239, 154, 154, 0.04);
+    color: oklch(72% 0.12 28);
+    border-color: oklch(75% 0.12 28 / 0.3);
+    background: oklch(75% 0.12 28 / 0.04);
 }
 
 .admin-action-btn--danger:hover:not(:disabled) {
-    background: rgba(239, 154, 154, 0.1);
-    border-color: rgba(239, 154, 154, 0.5);
+    background: oklch(75% 0.12 28 / 0.1);
+    border-color: oklch(75% 0.12 28 / 0.5);
 }
 
 /* ── External link in tables ── */
@@ -523,14 +523,14 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     text-decoration: none;
-    border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+    border-bottom: 1px solid var(--clr-accent-30);
     transition: border-color 0.15s;
 }
 
 .admin-link:hover {
-    border-bottom-color: #8B5CF6;
+    border-bottom-color: var(--clr-accent);
 }
 
 @media (min-width: 960px) {
@@ -574,28 +574,28 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     padding: 8px 16px;
-    border: 1px solid rgba(139, 92, 246, 0.4);
-    background: rgba(139, 92, 246, 0.08);
-    color: #8B5CF6;
+    border: 1px solid var(--clr-accent-40);
+    background: var(--clr-accent-08);
+    color: var(--clr-accent);
     cursor: pointer;
     transition: all 0.15s;
 }
 
 .admin-map-edit-toggle.is-on {
-    border-color: #26DEC2;
-    background: rgba(38, 222, 194, 0.12);
-    color: #26DEC2;
+    border-color: oklch(79% 0.13 180);
+    background: oklch(79% 0.13 180 / 0.12);
+    color: oklch(79% 0.13 180);
 }
 
 .admin-map-editor-hint {
     font-size: 11px;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     flex: 1;
 }
 
 .admin-map-editor-count {
     font-size: 11px;
-    color: #4a5568;
+    color: var(--clr-text-dim);
 }
 
 .admin-map-editor-body {
@@ -623,8 +623,8 @@
 /* Marker form */
 
 .admin-map-form {
-    background: rgba(8, 13, 22, 0.95);
-    border: 1px solid rgba(38, 222, 194, 0.25);
+    background: oklch(11% 0.015 215 / 0.95);
+    border: 1px solid oklch(79% 0.13 180 / 0.25);
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -639,13 +639,13 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #26DEC2;
+    color: oklch(79% 0.13 180);
 }
 
 .admin-map-form-close {
     background: none;
     border: none;
-    color: rgba(255,255,255,0.35);
+    color: oklch(100% 0 0 / 0.35);
     font-size: 14px;
     cursor: pointer;
     padding: 2px 6px;
@@ -653,11 +653,11 @@
     transition: color 0.15s;
 }
 
-.admin-map-form-close:hover { color: #fff; }
+.admin-map-form-close:hover { color: oklch(100% 0 0); }
 
 .admin-map-form-coords {
     font-size: 10px;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     letter-spacing: 0.5px;
 }
 
@@ -673,13 +673,13 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #4a5568;
+    color: var(--clr-text-dim);
 }
 
 .admin-map-input {
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #eef5ff;
+    background: oklch(100% 0 0 / 0.04);
+    border: 1px solid oklch(100% 0 0 / 0.08);
+    color: var(--clr-text-heading);
     font-family: 'intelone-mono', monospace;
     font-size: 11px;
     padding: 6px 10px;
@@ -690,7 +690,7 @@
 }
 
 .admin-map-input:focus {
-    border-color: rgba(38, 222, 194, 0.4);
+    border-color: oklch(79% 0.13 180 / 0.4);
 }
 
 .admin-map-textarea {
@@ -707,17 +707,17 @@
     font-family: 'intelone-mono', monospace;
     font-size: 10px;
     padding: 5px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid oklch(100% 0 0 / 0.1);
     background: transparent;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     cursor: pointer;
     transition: all 0.15s;
 }
 
 .admin-map-type-btn.is-active {
-    border-color: #26DEC2;
-    color: #26DEC2;
-    background: rgba(38, 222, 194, 0.08);
+    border-color: oklch(79% 0.13 180);
+    color: oklch(79% 0.13 180);
+    background: oklch(79% 0.13 180 / 0.08);
 }
 
 .admin-map-palette {
@@ -736,7 +736,7 @@
 }
 
 .admin-map-swatch.is-active {
-    border-color: #fff;
+    border-color: oklch(100% 0 0);
     transform: scale(1.2);
 }
 
@@ -765,13 +765,13 @@
     align-items: center;
     gap: 10px;
     padding: 8px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid oklch(100% 0 0 / 0.04);
     cursor: default;
     transition: background 0.1s;
 }
 
 .admin-map-marker-row.is-selected {
-    background: rgba(38, 222, 194, 0.06);
+    background: oklch(79% 0.13 180 / 0.06);
 }
 
 .admin-map-marker-swatch {
@@ -783,7 +783,7 @@
 
 .admin-map-marker-type {
     font-size: 9px;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     min-width: 52px;
@@ -791,19 +791,19 @@
 
 .admin-map-marker-label {
     font-size: 12px;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     flex: 1;
 }
 
 .admin-map-marker-coords {
     font-size: 10px;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
 }
 
 .admin-map-marker-region {
     font-size: 10px;
-    color: #4a5568;
-    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--clr-text-dim);
+    border: 1px solid oklch(100% 0 0 / 0.06);
     padding: 1px 6px;
 }
 

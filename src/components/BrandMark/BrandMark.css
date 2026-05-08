@@ -14,13 +14,13 @@
 
 /* Dark mode (default) — IRAN=blue, DAO=white */
 .brand-mark-iran {
-    color: #4fc3f7;
+    color: oklch(76% 0.12 220);
     letter-spacing: 0.06em;
-    text-shadow: 0 0 20px rgba(79, 195, 247, 0.45);
+    text-shadow: 0 0 20px oklch(76% 0.12 220 / 0.45);
 }
 
 .brand-mark-dao {
-    color: #ffffff;
+    color: oklch(100% 0 0);
     letter-spacing: 0.04em;
     margin-left: 0.18em;
 }
@@ -32,10 +32,10 @@
 
 /* Light mode (reversed) — IRAN=blue(dark), DAO=dark */
 [data-theme="light"] .brand-mark-iran {
-    color: #0284c7;
-    text-shadow: 0 0 14px rgba(2, 132, 199, 0.25);
+    color: oklch(52% 0.14 240);
+    text-shadow: 0 0 14px oklch(52% 0.14 240 / 0.25);
 }
 
 [data-theme="light"] .brand-mark-dao {
-    color: #0f172a;
+    color: oklch(12% 0.02 260);
 }

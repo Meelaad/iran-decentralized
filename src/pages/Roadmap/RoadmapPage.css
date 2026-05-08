@@ -1,7 +1,7 @@
 /* RoadmapPage.css */
 
 .roadmap-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -9,7 +9,7 @@
 
 .roadmap-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.1);
+    --grid-color: var(--clr-accent-10);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -22,8 +22,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+    mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 30%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.8) 100%);
 }
 
 .roadmap-page-scanline {
@@ -31,7 +31,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-25) 20%, var(--clr-accent-35) 50%, var(--clr-accent-25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -48,14 +48,14 @@
 .roadmap-title {
     font-size: 32px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 12px;
     letter-spacing: -0.01em;
 }
 
 .roadmap-subtitle {
     font-size: 14px;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     margin-bottom: 56px;
     line-height: 1.7;
 }
@@ -78,7 +78,7 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(to bottom, rgba(139,92,246,0.3), rgba(139,92,246,0.05));
+    background: linear-gradient(to bottom, var(--clr-accent-30), var(--clr-accent-05));
 }
 
 [dir="rtl"] .roadmap-timeline-line {
@@ -104,7 +104,7 @@
     width: 22px;
     height: 22px;
     border: 2px solid;
-    background: #010303;
+    background: var(--clr-bg);
     z-index: 1;
 }
 
@@ -143,7 +143,7 @@
     align-items: flex-start;
     gap: 10px;
     font-size: 13px;
-    color: #8a9bb0;
+    color: var(--clr-text-muted);
     line-height: 1.6;
     animation: fadeInUp 0.35s ease both;
 }

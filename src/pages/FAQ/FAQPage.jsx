@@ -30,12 +30,12 @@ function FAQItem({ item, isRTL }) {
 }
 
 export default function FAQPage() {
-    const { isRTL, headFont } = useLang();
+    const { isRTL, headFont, t } = useLang();
 
     return (
         <div className="faq-root" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="faq-hero">
-                <p className="faq-eyebrow">HELP CENTER</p>
+                <p className="faq-eyebrow">{t(CONTENT.eyebrow)}</p>
                 <h1 className="faq-title">{isRTL ? CONTENT.pageTitle.fa : CONTENT.pageTitle.en}</h1>
                 <p className="faq-subtitle">{isRTL ? CONTENT.pageSubtitle.fa : CONTENT.pageSubtitle.en}</p>
             </div>

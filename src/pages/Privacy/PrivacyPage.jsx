@@ -8,20 +8,20 @@ export default function PrivacyPage() {
     const { t, isRTL, monoFont, headFont } = useLang();
 
     return (
-        <div className="priv-page">
+        <div className="priv-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="priv-bg-grid" />
             <div className="priv-scanline" />
 
-            <div className="priv-inner" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="priv-inner">
                 <div className="priv-header">
                     <div className="priv-eyebrow" style={{ fontFamily: monoFont }}>
-                        {isRTL ? 'سند قانونی' : 'LEGAL'}
+                        {t(CONTENT.eyebrow)}
                     </div>
                     <h1 className="priv-title" style={{ fontFamily: headFont }}>
-                        {isRTL ? 'سیاست حریم خصوصی' : 'Privacy Policy'}
+                        {t(CONTENT.title)}
                     </h1>
                     <p className="priv-date" style={{ fontFamily: monoFont }}>
-                        {isRTL ? 'آخرین به‌روزرسانی: مارس ۲۰۲۶' : 'Last updated: March 2026'}
+                        {t(CONTENT.date)}
                     </p>
                 </div>
 

@@ -1,0 +1,513 @@
+{
+  "heroEyebrow": {
+    "en": "Coalition of Political Forces of Iranian Kurdistan (CPFIK) · Charter Ratified February 22, 2026 · Active Military Operations March 2026",
+    "fa": "ائتلاف نیروهای سیاسی کردستان ایران (CPFIK) · منشور تأیید شده ۲۲ فوریه ۲۰۲۶ · عملیات نظامی فعال مارس ۲۰۲۶"
+  },
+  "heroTitle": {
+    "en": "Kurdish Federal Liberation Blueprint",
+    "fa": "طرح رهایی فدرال کردستان"
+  },
+  "heroDesc": {
+    "en": "The CPFIK is not a diaspora discussion group — it is an active politico-military apparatus formalized during the outbreak of the 2026 Iran War. Eight months of negotiations produced a 15-Article Charter of Cooperation synthesizing the most historically fragmented Kurdish opposition factions into a unified command structure. Its blueprint is the only Iranian opposition plan that combines an armed territorial liberation phase with a democratic administrative transition — and the only one currently engaged in kinetic conflict.",
+    "fa": "CPFIK یک گروه بحث دیاسپورا نیست — یک دستگاه سیاسی-نظامی فعال است که در اوج جنگ ایران در سال ۲۰۲۶ رسمیت یافت. هشت ماه مذاکره یک منشور همکاری ۱۵ ماده‌ای تولید کرد که پراکنده‌ترین جناح‌های اپوزیسیون کردی را در یک ساختار فرماندهی یکپارچه ترکیب کرد. طرح آن تنها طرح اپوزیسیون ایرانی است که یک مرحله آزادسازی سرزمینی مسلحانه را با یک گذار اداری دموکراتیک ترکیب می‌کند."
+  },
+  "heroBadges": [
+    { "label": { "en": "Formalized Feb 22 2026", "fa": "تأسیس ۲۲ فوریه ۲۰۲۶" }, "c": "#26d9b2" },
+    { "label": { "en": "15-Article Charter", "fa": "منشور ۱۵ ماده‌ای" }, "c": "#ffd166" },
+    { "label": { "en": "Active Military Operations", "fa": "عملیات نظامی فعال" }, "c": "#ef5350" },
+    { "label": { "en": "Federalism + Confederalism", "fa": "فدرالیسم + کنفدرالیسم" }, "c": "#ba68c8" },
+    { "label": { "en": "5 Constituent Factions", "fa": "۵ جناح عضو" }, "c": "#8B5CF6" },
+    { "label": { "en": "Nationalities Question", "fa": "مسئله ملیت‌ها" }, "c": "#ff9a42" }
+  ],
+
+  "histEyebrow": {
+    "en": "Historical Architecture",
+    "fa": "معماری تاریخی"
+  },
+  "histTitle": {
+    "en": "From the Republic of Mahabad (1946) to the CPFIK (2026)",
+    "fa": "از جمهوری مهاباد (۱۹۴۶) تا CPFIK (۲۰۲۶)"
+  },
+  "histIntro": {
+    "en": "The Kurdish opposition in Iran carries the deepest institutional memory of any opposition bloc — an 80-year continuum of state-building, suppression, fragmentation, and reconsolidation. Understanding the CPFIK requires understanding this structural memory.",
+    "fa": "اپوزیسیون کردستان در ایران عمیق‌ترین حافظه نهادی هر جبهه اپوزیسیون را حمل می‌کند — یک تداوم ۸۰ ساله دولت‌سازی، سرکوب، تجزیه و تجمیع مجدد."
+  },
+  "history": [
+    {
+      "date": { "en": "1946", "fa": "۱۹۴۶" },
+      "event": { "en": "Republic of Mahabad — the first Kurdish state in modern history. Soviet-backed, lasted 11 months before the Imperial Iranian Army crushed it.", "fa": "جمهوری مهاباد — اولین دولت کردی در تاریخ مدرن. با پشتیبانی شوروی، ۱۱ ماه دوام آورد قبل از اینکه ارتش شاهنشاهی آن را سرکوب کند." },
+      "significance": { "en": "Proved Kurdish self-rule was not theoretical. Hardcoded the federalist aspiration into the PDKI's founding DNA.", "fa": "ثابت کرد که خودمدیریتی کردی نظری نیست. آرزوی فدرالیستی را در DNA بنیادگذاری PDKI رمزگذاری کرد." },
+      "color": "#26d9b2"
+    },
+    {
+      "date": { "en": "1945", "fa": "۱۹۴۵" },
+      "event": { "en": "Democratic Party of Iranian Kurdistan (PDKI) founded — the oldest surviving Iranian opposition party still in operation.", "fa": "حزب دموکرات کردستان ایران (PDKI) تأسیس شد — کهن‌ترین حزب اپوزیسیون ایرانی که هنوز فعال است." },
+      "significance": { "en": "The institutional anchor of Kurdish nationalism. Its Socialist International membership legitimizes the federalist model internationally.", "fa": "لنگر نهادی ناسیونالیسم کردی. عضویت در سوسیالیست اینترناسیونال مدل فدرالیستی را در سطح بین‌المللی مشروعیت می‌بخشد." },
+      "color": "#8B5CF6"
+    },
+    {
+      "date": { "en": "1979", "fa": "۱۹۷۹" },
+      "event": { "en": "Post-revolution negotiations between Kurdish representatives and Khomeini's government over secular local autonomy collapsed. Khomeini issued a fatwa ordering the armed forces to crush Kurdish resistance.", "fa": "مذاکرات پس از انقلاب بین نمایندگان کردی و دولت خمینی درباره خودمختاری محلی سکولار شکست خورد. خمینی فتوایی برای سرکوب مقاومت کردی صادر کرد." },
+      "significance": { "en": "Institutionalized permanent insurgency. Ayatollah Khalkhali's 'hanging courts' executed vast numbers of Kurdish civilians — creating generational trauma that drives the movement today.", "fa": "شورش دائمی را نهادینه کرد. دادگاه‌های آیت‌الله خلخالی — 'قاضی دار' — تعداد زیادی از غیرنظامیان کرد را اعدام کردند." },
+      "color": "#ef5350"
+    },
+    {
+      "date": { "en": "1980s–90s", "fa": "دهه ۶۰–۷۰" },
+      "event": { "en": "PDKI and Komala engaged in a debilitating intra-Kurdish armed conflict, fracturing the united front for over a decade.", "fa": "PDKI و کومله در یک درگیری مسلحانه داخلی کردی فلج‌کننده درگیر شدند." },
+      "significance": { "en": "The civil war between Kurdish factions became the defining lesson — the 15-Article Charter's Article 14 (all factions accept election results) directly addresses this wound.", "fa": "جنگ داخلی بین جناح‌های کردی به درس محوری تبدیل شد — ماده ۱۴ منشور مستقیماً این زخم را هدف می‌گیرد." },
+      "color": "#ff9a42"
+    },
+    {
+      "date": { "en": "2004", "fa": "۲۰۰۴" },
+      "event": { "en": "PJAK founded — ideologically linked to Abdullah Öcalan and the PKK. Introduced democratic confederalism as a competing framework to traditional Kurdish nationalism.", "fa": "PJAK تأسیس شد — ایدئولوژیک با عبدالله اوجالان و PKK مرتبط. کنفدرالیسم دموکراتیک را به عنوان یک چارچوب رقیب معرفی کرد." },
+      "significance": { "en": "Created the PDKI vs. PJAK ideological tension that the CPFIK charter deliberately bridges without resolving.", "fa": "تنش ایدئولوژیک PDKI در مقابل PJAK را ایجاد کرد که منشور CPFIK عمداً بدون حل آن را پل می‌زند." },
+      "color": "#ba68c8"
+    },
+    {
+      "date": { "en": "2017–2018", "fa": "سپتامبر ۲۰۲۲" },
+      "event": { "en": "Cooperation Center of Iranian Kurdistan Political Parties (CCIKP) established during the protest waves — a passive political forum.", "fa": "مهسا (ژینا) امینی توسط گشت ارشاد کشته شد. او کرد بود. قیام 'زن، زندگی، آزادی' آغاز شد." },
+      "significance": { "en": "The precursor to the CPFIK. Coordination without unified command.", "fa": "سپاه با حملات موشکی بالستیک به پایگاه‌های PDKI و کومله در KRG پاسخ داد. این تروما تاریخی به اجبار سازش‌های تاریخی را ممکن ساخت." },
+      "color": "#ffd166"
+    },
+    {
+      "date": { "en": "Sep 2022", "fa": "۲۲ فوریه ۲۰۲۶" },
+      "event": { "en": "Mahsa (Jina) Amini killed by morality police. She was Kurdish. The 'Woman, Life, Freedom' uprising began — partially rooted in Rojhelat.", "fa": "پس از ۸ ماه مذاکره، CPFIK رسماً تصویب شد. منشور همکاری ۱۵ ماده‌ای اتخاذ شد." },
+      "significance": { "en": "The IRGC responded by launching ballistic missile strikes against PDKI and Komala bases in the KRG. Shared trauma from these strikes forced historic ideological compromises.", "fa": "تحول از انجمن همکاری منفعل (CCIKP) به ساختار فرماندهی نظامی یکپارچه فعال." },
+      "color": "#26d9b2"
+    },
+    {
+      "date": { "en": "Feb 22, 2026", "fa": "فوریه–مارس ۲۰۲۶" },
+      "event": { "en": "After 8 months of negotiations in the 'Dialogue Center for Cooperation,' the CPFIK is formally ratified. The 15-Article Charter of Cooperation is adopted.", "fa": "۲۵ فوریه: رضا پهلوی صراحتاً CPFIK را 'تجزیه‌طلب' می‌نامد. ۲۸ فوریه: جنگ مستقیم ایران-آمریکا-اسرائیل شروع می‌شود. ۴ مارس: IDF مقر سپاه در تهران را بمباران می‌کند. جناح کومله موتادی به ائتلاف می‌پیوندد." },
+      "significance": { "en": "Transformation from passive forum (CCIKP) to active unified military command structure. Timed to exploit the 2026 regional war and the IRGC command degradation from IDF airstrikes.", "fa": "CPFIK معماری نظامی خود را دقیقاً زمانی فعال می‌کند که ساختار فرماندهی سپاه تضعیف شده — از نظر عملیاتی بهینه." },
+      "color": "#8B5CF6"
+    },
+    {
+      "date": { "en": "Feb–Mar 2026", "fa": "فوریه–مارس ۲۰۲۶" },
+      "event": { "en": "Feb 25: Reza Pahlavi explicitly condemns CPFIK as 'separatist,' calls it an absolute red line, urges the Artesh to neutralize Kurdish groups. Feb 28: Direct US-Israel-Iran war erupts. Mar 4: IDF strikes IRGC HQ in Tehran. Mohtadi's Komala faction tactically joins coalition.", "fa": "۲۵ فوریه: رضا پهلوی صراحتاً CPFIK را 'تجزیه‌طلب' می‌نامد. ۲۸ فوریه: جنگ مستقیم ایران-آمریکا-اسرائیل شروع می‌شود. ۴ مارس: IDF مقر سپاه در تهران را بمباران می‌کند. جناح کومله موتادی به ائتلاف می‌پیوندد." },
+      "significance": { "en": "The CPFIK activates its military architecture precisely as the IRGC's command structure is degraded — the timing is operationally optimal.", "fa": "CPFIK معماری نظامی خود را دقیقاً زمانی فعال می‌کند که ساختار فرماندهی سپاه تضعیف شده — از نظر عملیاتی بهینه." },
+      "color": "#ef5350"
+    }
+  ],
+
+  "factEyebrow": {
+    "en": "The Five Constituent Factions",
+    "fa": "پنج جناح عضو"
+  },
+  "factTitle": {
+    "en": "A Composite of Distinct Political Machines",
+    "fa": "یک ترکیب از ماشین‌های سیاسی متمایز"
+  },
+  "factIntro": {
+    "en": "The ideological distance between CPFIK member parties is significantly greater than the divides separating Iran's mainstream Persian opposition blocs. Their functional integration is a geopolitical anomaly — made possible only by the shared existential pressure of the 2026 war and the strategic decision to defer all contested economic and governance details to post-liberation councils.",
+    "fa": "فاصله ایدئولوژیک بین احزاب عضو CPFIK به طور قابل توجهی بیشتر از شکاف‌های جدا کننده جبهه‌های اصلی اپوزیسیون فارس است. ادغام کارکردی آن‌ها یک استثنای ژئوپلیتیک است."
+  },
+  "factions": [
+    {
+      "name": { "en": "Democratic Party of Iranian Kurdistan", "fa": "حزب دموکرات کردستان ایران" },
+      "acronym": "PDKI",
+      "ideology": { "en": "Democratic Socialism · Traditional Kurdish Nationalism · Federalism", "fa": "سوسیالیسم دموکراتیک · ناسیونالیسم کردی سنتی · فدرالیسم" },
+      "method": { "en": "Peshmerga insurgency · Diplomacy · Federal state-building", "fa": "پیشمرگه · دیپلماسی · ساختارسازی دولت فدرال" },
+      "affiliation": { "en": "Founded 1945 · Republic of Mahabad · Socialist International member", "fa": "تأسیس ۱۹۴۵ · جمهوری مهاباد · عضو سوسیالیست اینترناسیونال" },
+      "milType": { "en": "PESHMERGA (Conventional)", "fa": "پیشمرگه (متعارف)" },
+      "color": "#26d9b2"
+    },
+    {
+      "name": { "en": "Kurdistan Free Life Party", "fa": "حزب آزادی کردستان ایران" },
+      "acronym": "PJAK",
+      "ideology": { "en": "Democratic Confederalism · Radical Localism · Anti-nation-state · Öcalan ideology", "fa": "کنفدرالیسم دموکراتیک · محلی‌گرایی رادیکال · ضد دولت-ملت · ایدئولوژی اوجالان" },
+      "method": { "en": "Guerrilla warfare · Anti-industrial ecological stewardship · Communal councils", "fa": "جنگ چریکی · مراقبت محیط‌زیستی ضدصنعتی · شوراهای اجتماعی" },
+      "affiliation": { "en": "Formed 2004 · Ideologically linked to Abdullah Öcalan and the PKK · Rojava model", "fa": "تأسیس ۲۰۰۴ · ایدئولوژیک با اوجالان و PKK · مدل روژاوا" },
+      "milType": { "en": "GUERRILLA (Asymmetric)", "fa": "چریکی (نامتقارن)" },
+      "color": "#ba68c8"
+    },
+    {
+      "name": { "en": "Komala of the Toilers of Kurdistan", "fa": "کومله کارگران کردستان" },
+      "acronym": "Komala-KTP",
+      "ideology": { "en": "Social Democracy · Left-wing Nationalism · Labor Syndicalism", "fa": "سوشیال دموکراسی · ناسیونالیسم چپگرایانه · سندیکالیسم کارگری" },
+      "method": { "en": "Class struggle · Progressive labor laws · Universal health service · Peshmerga", "fa": "مبارزه طبقاتی · قوانین کار پیشرو · خدمات بهداشتی همگانی · پیشمرگه" },
+      "affiliation": { "en": "Split from broader Komala movement · Marxist-Leninist roots → modern social democracy", "fa": "انشعاب از جنبش گسترده‌تر کومله · ریشه‌های مارکسیستی-لنینیستی → سوشیال دموکراسی مدرن" },
+      "milType": { "en": "PESHMERGA (Conventional)", "fa": "پیشمرگه (متعارف)" },
+      "color": "#8B5CF6"
+    },
+    {
+      "name": { "en": "Kurdistan Freedom Party", "fa": "حزب آزادی کردستان" },
+      "acronym": "PAK",
+      "ideology": { "en": "Kurdish Nationalism · Explicit statehood goals · Hardline independence", "fa": "ناسیونالیسم کردی · اهداف صریح استقلال · جدایی‌طلبی سختگیرانه" },
+      "method": { "en": "Militant action · Territorial seizure · Most explicitly separatist of the coalition", "fa": "اقدام نظامی · تصرف سرزمینی · صریح‌ترین موضع استقلال در ائتلاف" },
+      "affiliation": { "en": "Highly active militarily in recent decades · explicit full independence position", "fa": "از نظر نظامی در دهه‌های اخیر بسیار فعال · موضع استقلال کامل صریح" },
+      "milType": { "en": "PESHMERGA (Conventional)", "fa": "پیشمرگه (متعارف)" },
+      "color": "#ff9a42"
+    },
+    {
+      "name": { "en": "Organization of Iranian Kurdistan Struggle", "fa": "سازمان مبارزه کردستان ایران" },
+      "acronym": "Khabat",
+      "ideology": { "en": "Islamic / Nationalist synthesis · Traditionalist", "fa": "ترکیب اسلامی/ناسیونالیستی · سنت‌گرا" },
+      "method": { "en": "Peshmerga insurgency · Traditionalist command structures", "fa": "پیشمرگه · ساختارهای فرماندهی سنتی" },
+      "affiliation": { "en": "Smaller faction · Religious conservative roots within Kurdish nationalism", "fa": "جناح کوچکتر · ریشه‌های محافظه‌کارانه مذهبی در ناسیونالیسم کردی" },
+      "milType": { "en": "PESHMERGA (Conventional)", "fa": "پیشمرگه (متعارف)" },
+      "color": "#ffd166"
+    }
+  ],
+
+  "boycottNote": {
+    "en": "BOYCOTT NOTE: The Komala Party of Iranian Kurdistan (led by Abdullah Mohtadi) and Komala-CPI initially boycotted the charter — Mohtadi citing 'ambiguities in transitional administration.' Komala-CPI refused partially over the coalition's refusal to adopt the international communist anthem alongside the Kurdish national anthem. Both tactically aligned by March 4, 2026 due to the outbreak of regional war — highlighting the fragility of the coalition's synthesis.",
+    "fa": "یادداشت تحریم: حزب کومله کردستان ایران (به رهبری عبدالله مهتدی) و کومله-CPI در ابتدا منشور را تحریم کردند — مهتدی با استناد به 'ابهامات در اداره موقت'. کومله-CPI تا حدی به خاطر اختلاف نمادین بر سر امتناع ائتلاف از اتخاذ سرود بین‌المللی کمونیستی در کنار سرود ملی کردی شرکت نکرد. هر دو به دلیل شروع جنگ منطقه‌ای در ۴ مارس ۲۰۲۶ به صورت تاکتیکی به ائتلاف پیوستند."
+  },
+  "boycottTag": {
+    "en": "BOYCOTT NOTE",
+    "fa": "یادداشت تحریم"
+  },
+
+  "synthEyebrow": {
+    "en": "The Core Ideological Tension",
+    "fa": "تنش ایدئولوژیک محوری"
+  },
+  "synthTitle": {
+    "en": "Federalism vs. Democratic Confederalism — The Charter's Deliberate Ambiguity",
+    "fa": "فدرالیسم در مقابل کنفدرالیسم دموکراتیک — ابهام عمدی منشور"
+  },
+  "synthIntro": {
+    "en": "The most complex architectural compromise within the CPFIK is the synthesis of two fundamentally incompatible visions of governance. Rather than resolving this tension, the charter deliberately avoids it — using strategic vagueness to preserve unity.",
+    "fa": "پیچیده‌ترین سازش معماری در CPFIK ترکیب دو دیدگاه حاکمیتی اساساً ناسازگار است. منشور به جای حل این تنش، عمداً از آن اجتناب می‌کند."
+  },
+
+  "fedModel": {
+    "title": { "en": "PDKI's Federal State Model", "fa": "مدل دولت فدرال PDKI" },
+    "color": "#26d9b2",
+    "items": [
+      { "en": "Structuralist and institutional — seeks to replace the unitary theocracy with a decentralized, multi-nation federal republic", "fa": "ساختارگرایانه و نهادی — به دنبال جایگزینی تئوکراسی یکپارچه با یک جمهوری فدرال چندملتی غیرمتمرکز" },
+      { "en": "The nation-state still exists, but power is geographically devolved to regional parliaments along ethnic boundaries", "fa": "دولت-ملت هنوز وجود دارد اما قدرت جغرافیایی به پارلمان‌های منطقه‌ای در مرزهای قومی تفویض می‌شود" },
+      { "en": "PDKI operationalized this by co-founding the Congress of Nationalities for a Federal Iran (CNFI) — coalition with Azeri, Baloch, Turkmen, Ahwazi Arab organizations", "fa": "PDKI با تأسیس کنگره ملیت‌ها برای ایران فدرال (CNFI) با سازمان‌های آذری، بلوچ، ترکمن، عرب اهوازی ائتلاف ساخت" },
+      { "en": "Central government retains: national defense, currency, macro-foreign policy", "fa": "دولت مرکزی حفظ می‌کند: دفاع ملی، ارز، سیاست خارجی کلان" },
+      { "en": "Regional parliaments manage: local police, regional resource management, education in the mother tongue", "fa": "پارلمان‌های منطقه‌ای مدیریت می‌کنند: پلیس محلی، مدیریت منابع منطقه‌ای، آموزش زبان مادری" },
+      { "en": "This is the model endorsed by Abdullah Mohtadi's Komala — the closest to what other Iranian opposition blocs (ITC, URI) can accept", "fa": "این مدلی است که کومله عبدالله مهتدی آن را تأیید می‌کند — نزدیک‌ترین به آنچه سایر جبهه‌های اپوزیسیون ایرانی (ITC، URI) می‌توانند بپذیرند" }
+    ]
+  },
+
+  "confModel": {
+    "title": { "en": "PJAK's Democratic Confederalism", "fa": "کنفدرالیسم دموکراتیک PJAK" },
+    "color": "#ba68c8",
+    "items": [
+      { "en": "Derived from Abdullah Öcalan's interpretation of Murray Bookchin's eco-communitarian theories", "fa": "مشتق از تفسیر اوجالان از نظریات اکو-اجتماعی موری بوکچین" },
+      { "en": "Rejects the very concept of the nation-state as inherently oppressive — a tool of capitalist hegemony", "fa": "مفهوم دولت-ملت را ذاتاً سرکوبگر رد می‌کند — ابزار هژمونی سرمایه‌داری" },
+      { "en": "Advocates for radical devolution of ALL power to local democratic councils — authority flows upward from communal representative bodies", "fa": "از تفویض رادیکال تمام قدرت به شوراهای دموکراتیک محلی دفاع می‌کند — قدرت از نهادهای نمایندگی اجتماعی به بالا جریان می‌یابد" },
+      { "en": "Anti-capitalist AND anti-state socialist — rejects both market economies and centralized planned economies", "fa": "ضد سرمایه‌داری و ضد سوسیالیسم دولتی متمرکز — هر دو را رد می‌کند" },
+      { "en": "Implemented practically by the PYD in Rojava (Autonomous Administration of North and East Syria)", "fa": "در عمل توسط PYD در روژاوا (اداره خودمختار شمال و شرق سوریه) اجرا شد" },
+      { "en": "Incompatible with currency management, central banking, or any macro-resource extraction policy", "fa": "با مدیریت ارز، بانکداری مرکزی یا هرگونه سیاست استخراج منابع کلان ناسازگار است" }
+    ]
+  },
+
+  "bridgeNote": {
+    "en": "The charter bridges this chasm by remaining deliberately vague on the ultimate nature of the state. The 'Central Alliance Management Body' is designed to simultaneously function as a provisional federal government (satisfying PDKI) AND as a supra-council coordinating local communes (satisfying PJAK). The economic policy vacuum is not an oversight — it is a structural requirement for coalition survival.",
+    "fa": "منشور با ابهام عمدی درباره ماهیت نهایی دولت، این تضاد را پل می‌زند. 'هیئت مدیریت مرکزی ائتلاف' طراحی شده است که همزمان به عنوان یک دولت فدرال موقت (ارضای PDKI) و به عنوان یک شورای عالی هماهنگ‌کننده کمون‌های محلی (ارضای PJAK) عمل کند. خلاء سیاست اقتصادی یک غفلت نیست — یک ضرورت ساختاری برای بقای ائتلاف است."
+  },
+  "bridgeTag": {
+    "en": "ARCHITECTURAL BRIDGE",
+    "fa": "پل معماری"
+  },
+
+  "charterEyebrow": {
+    "en": "The 15-Article Charter of Cooperation",
+    "fa": "منشور همکاری ۱۵ ماده‌ای"
+  },
+  "charterTitle": {
+    "en": "Ratified February 22, 2026 — The Functional Code of the CPFIK",
+    "fa": "تصویب شده ۲۲ فوریه ۲۰۲۶ — کد کارکردی CPFIK"
+  },
+  "charterIntro": {
+    "en": "The charter is the constitutional framework of the coalition, establishing rules of engagement, organizational hierarchy, and the operational timeline. It explicitly rejects a spontaneous democratic transition in favor of a tightly controlled two-phase process.",
+    "fa": "منشور چارچوب قانون اساسی ائتلاف است که قوانین درگیری، سلسله‌مراتب سازمانی و جدول زمانی عملیاتی را تعیین می‌کند. صراحتاً گذار دموکراتیک خودجوش را رد کرده و یک فرآیند دو مرحله‌ای کاملاً کنترل‌شده را می‌طلبد."
+  },
+  "articleClusters": [
+    {
+      "articles": { "en": "Articles 1, 3, 11", "fa": "مواد ۱، ۳، ۱۱" },
+      "fn": { "en": "Strategic Objectives — The End State", "fa": "اهداف استراتژیک — وضعیت نهایی" },
+      "directives": { "en": "Mandates the struggle for self-determination. Defines the two-phase process: Liberation of Rojhelat (Phase 1) → establishment of a democratic administrative system guaranteeing the rights of all ethnic and religious groups (Phase 2).", "fa": "مبارزه برای حق تعیین سرنوشت را الزامی می‌کند. فرآیند دو مرحله‌ای را تعریف می‌کند: آزادسازی روژهلات (مرحله ۱) → برقراری نظام اداری دموکراتیک (مرحله ۲)." },
+      "color": "#26d9b2"
+    },
+    {
+      "articles": { "en": "Articles 2, 7", "fa": "مواد ۲، ۷" },
+      "fn": { "en": "Macro-Strategy — National Alliances", "fa": "استراتژی کلان — اتحادهای ملی" },
+      "directives": { "en": "Establishes the strategy of aligning with other oppressed Iranian nations (Baloch, Ahwazi Arabs, Azerbaijani Turks, Turkmen). Recognizes self-determination as the mandatory prerequisite for cooperating with any nationwide Iranian opposition forces.", "fa": "استراتژی همسویی با دیگر ملل ستمدیده ایران (بلوچ، عرب اهوازی، آذربایجانی، ترکمن) را تعیین می‌کند. حق تعیین سرنوشت را پیش‌شرط اجباری همکاری با هر نیروی مخالف سراسری ایران می‌داند." },
+      "color": "#8B5CF6"
+    },
+    {
+      "articles": { "en": "Articles 4, 5, 6", "fa": "مواد ۴، ۵، ۶" },
+      "fn": { "en": "Internal Conduct — Societal Engineering", "fa": "رفتار داخلی — مهندسی اجتماعی" },
+      "directives": { "en": "Demands full gender equality and justice. Strictly prohibits internal violence between Kurdish factions. Mandates democratic collective decision-making. Provides absolute support for civil movements inside Iran.", "fa": "برابری کامل جنسیتی را الزامی می‌کند. خشونت داخلی بین جناح‌های کردی را سختگیرانه ممنوع می‌کند. تصمیم‌گیری دموکراتیک جمعی را الزامی می‌کند." },
+      "color": "#ffd166"
+    },
+    {
+      "articles": { "en": "Articles 8, 9", "fa": "مواد ۸، ۹" },
+      "fn": { "en": "Execution Mechanisms — The Military Organs", "fa": "مکانیزم‌های اجرا — ارگان‌های نظامی" },
+      "directives": { "en": "Decrees the formation of the Joint Command Center to unify Peshmerga and guerrilla forces under a single command. Decrees the formation of the Joint Diplomatic Committee for all external relations.", "fa": "تشکیل مرکز فرماندهی مشترک برای یکپارچه‌سازی پیشمرگه و نیروهای چریکی. تشکیل کمیته دیپلماتیک مشترک برای روابط خارجی." },
+      "color": "#ff9a42"
+    },
+    {
+      "articles": { "en": "Articles 12, 13, 14", "fa": "مواد ۱۲، ۱۳، ۱۴" },
+      "fn": { "en": "Governance Handover — The Transition", "fa": "تحویل حاکمیت — گذار" },
+      "directives": { "en": "Creates the Central Alliance Management Body to administer liberated zones. Mandates this body to organize free and democratic elections. Binds ALL armed factions by Article 14 to honor the democratic ballot results — preventing a return to the 1980s intra-Kurdish civil wars.", "fa": "هیئت مدیریت مرکزی ائتلاف را برای اداره مناطق آزادشده ایجاد می‌کند. این هیئت را ملزم به برگزاری انتخابات آزاد و دموکراتیک می‌کند. تمام جناح‌های مسلح را از طریق ماده ۱۴ قانوناً ملزم به پذیرش نتایج رأی‌گیری می‌کند." },
+      "color": "#ef5350"
+    },
+    {
+      "articles": { "en": "Articles 10, 15", "fa": "مواد ۱۰، ۱۵" },
+      "fn": { "en": "Legal Framework — Compliance", "fa": "چارچوب حقوقی — رعایت" },
+      "directives": { "en": "Makes adherence to the charter mandatory for continued coalition membership. Allows for future legislative annexes as the situation evolves.", "fa": "پایبندی به منشور را برای ادامه عضویت در ائتلاف اجباری می‌کند. امکان ضمائم قانونگذاری آینده را فراهم می‌کند." },
+      "color": "#ba68c8"
+    }
+  ],
+
+  "phasesEyebrow": {
+    "en": "Two-Phase Transition Strategy",
+    "fa": "استراتژی گذار دو مرحله‌ای"
+  },
+  "phasesTitle": {
+    "en": "Kinetic Liberation → Democratic Administration",
+    "fa": "آزادسازی مسلحانه → اداره دموکراتیک"
+  },
+  "phasesIntro": {
+    "en": "Unlike every other Iranian opposition plan, the CPFIK does not wait for Tehran's collapse or permission. Phase 1 is active territorial seizure. Phase 2 begins the moment Kurdish territory is secured — independently of whatever government emerges in Tehran.",
+    "fa": "برخلاف هر طرح دیگر اپوزیسیون ایرانی، CPFIK منتظر سقوط تهران یا اجازه آن نمی‌ماند. مرحله ۱ تصرف سرزمینی فعال است. مرحله ۲ همان لحظه‌ای آغاز می‌شود که سرزمین کردی تأمین می‌شود."
+  },
+  "phases": [
+    {
+      "number": { "en": "01", "fa": "۰۱" },
+      "label": { "en": "PHASE 1", "fa": "مرحله ۱" },
+      "title": { "en": "Liberation of Eastern Kurdistan (Rojhelat)", "fa": "آزادسازی کردستان شرقی (روژهلات)" },
+      "color": "#ef5350",
+      "items": [
+        { "en": "Kinetic expulsion of the IRGC, Artesh, and all central government administrative apparatuses from Kurdish provinces", "fa": "اخراج مسلحانه سپاه، ارتش و تمام دستگاه‌های اداری دولت مرکزی از استان‌های کردی" },
+        { "en": "Joint Command Center coordinates both Peshmerga (PDKI, PAK, Khabat, Komala) and Guerrilla forces (PJAK) under unified command", "fa": "مرکز فرماندهی مشترک هر دو نیروی پیشمرگه (PDKI، PAK، Khabat، Komala) و چریکی (PJAK) را زیر فرماندهی یکپارچه هماهنگ می‌کند" },
+        { "en": "PJAK asymmetric cells deployed for: IRGC logistics sabotage, supply line disruption, neutralizing command nodes deep in Iranian territory", "fa": "سلول‌های نامتقارن PJAK برای: خرابکاری لجستیک سپاه، اختلال در خطوط تدارکاتی، خنثی‌سازی گره‌های فرماندهی عمیق در خاک ایران" },
+        { "en": "Peshmerga conventional forces deployed for: securing, holding, and administering liberated urban centers", "fa": "نیروهای متعارف پیشمرگه برای: تأمین، نگهداری و اداره مراکز شهری آزادشده" },
+        { "en": "Launch bases: KRG territory — Koya, Zargwez sub-district, Qandil Mountains (cross-border incursions into West Azerbaijan, Kurdistan Province, Kermanshah)", "fa": "پایگاه‌های پرتاب: قلمروی KRG — کویه، خرخوره، کوه‌های قندیل" },
+        { "en": "Civil disobedience and general strikes in Kurdish cities run simultaneously with kinetic operations", "fa": "نافرمانی مدنی و اعتصابات عمومی در شهرهای کردی همزمان با عملیات نظامی" },
+        { "en": "CIA intelligence sharing and small arms supply: overstretch IRGC into a two-front war", "fa": "هماهنگی CIA: اطلاعات و تسلیح برای کشاندن سپاه به جنگ دو جبهه" },
+        { "en": "Transitional justice during this phase: MARTIAL LAW — no written tribunal framework; implicit total destruction of regime security forces from Kurdish territory", "fa": "عدالت انتقالی در این مرحله: حکومت نظامی — هیچ چارچوب دادگاهی مکتوبی وجود ندارد؛ نابودی کامل ضمنی نیروهای امنیتی رژیم از قلمروی کردی" }
+      ]
+    },
+    {
+      "number": { "en": "02", "fa": "۰۲" },
+      "label": { "en": "PHASE 2", "fa": "مرحله ۲" },
+      "title": { "en": "Democratic Administrative Transition", "fa": "گذار اداری دموکراتیک" },
+      "color": "#26d9b2",
+      "items": [
+        { "en": "Initiates THE MOMENT Kurdish territory is secured — does NOT wait for a new Tehran government", "fa": "همان لحظه‌ای که سرزمین کردی تأمین می‌شود آغاز می‌شود — منتظر دولت جدید تهران نمی‌ماند" },
+        { "en": "Central Alliance Management Body immediately assumes executive control as the interim government of liberated zones", "fa": "هیئت مدیریت مرکزی ائتلاف فوری کنترل اجرایی را به عنوان دولت موقت مناطق آزادشده به دست می‌گیرد" },
+        { "en": "Tasks: maintaining order, preventing anarchy, securing borders, organizing local democratic councils", "fa": "وظایف: حفظ نظم، جلوگیری از آنارشی، تأمین مرزها، سازماندهی شوراهای دموکراتیک محلی" },
+        { "en": "The Central Alliance Management Body operates as simultaneously a provisional federal government (PDKI framework) AND a supra-council of communes (PJAK framework)", "fa": "هیئت مدیریت مرکزی ائتلاف همزمان به عنوان دولت فدرال موقت (چارچوب PDKI) و شورای عالی کمون‌ها (چارچوب PJAK) عمل می‌کند" },
+        { "en": "Article 13: free and democratic elections organized in Eastern Kurdistan", "fa": "ماده ۱۳: انتخابات آزاد و دموکراتیک در کردستان شرقی" },
+        { "en": "Article 14: ALL member factions legally bound to accept election results — the anti-civil-war clause", "fa": "ماده ۱۴: تمام جناح‌های مسلح قانوناً ملزم به پذیرش نتایج انتخابات — بند ضدجنگ داخلی" },
+        { "en": "Economic policy: deferred entirely to post-liberation local democratic councils and regional parliaments — no unified economic policy during this phase", "fa": "سیاست اقتصادی: کاملاً به شوراهای دموکراتیک محلی پس از آزادسازی موکول می‌شود — هیچ سیاست اقتصادی یکپارچه در این مرحله وجود ندارد" },
+        { "en": "Ultimate endpoint: a national, democratic administrative system in Eastern Kurdistan integrated within a decentralized, federal Iranian state", "fa": "هدف نهایی: یک نظام اداری دموکراتیک ملی در کردستان شرقی ادغام‌شده در یک دولت ایران فدرال غیرمتمرکز" }
+      ]
+    }
+  ],
+
+  "milEyebrow": {
+    "en": "Military Architecture",
+    "fa": "معماری نظامی"
+  },
+  "milTitle": {
+    "en": "The Joint Command Center — Hybrid Force Integration",
+    "fa": "مرکز فرماندهی مشترک — ادغام نیروهای ترکیبی"
+  },
+  "milIntro": {
+    "en": "Prior to the 2026 agreement, Iranian Kurdish forces operated in two entirely different military cultures with opposing doctrines. The Joint Command Center achieves an unprecedented integration of these capabilities into a hybrid force.",
+    "fa": "پیش از توافق ۲۰۲۶، نیروهای کردی ایرانی در دو فرهنگ نظامی کاملاً متفاوت با دکترین‌های متضاد عمل می‌کردند. مرکز فرماندهی مشترک یک ادغام بی‌سابقه از این توانایی‌ها را در یک نیروی ترکیبی به دست می‌آورد."
+  },
+  "milDoctrineLabel": {
+    "en": "Doctrine",
+    "fa": "دکترین"
+  },
+  "milCommandLabel": {
+    "en": "Command",
+    "fa": "فرماندهی"
+  },
+  "milPurposeLabel": {
+    "en": "Purpose",
+    "fa": "هدف"
+  },
+  "milAdvantageLabel": {
+    "en": "Hybrid Advantage",
+    "fa": "مزیت ترکیبی"
+  },
+  "milComparison": [
+    {
+      "type": { "en": "PESHMERGA", "fa": "پیشمرگه" },
+      "parties": "PDKI · PAK · Khabat · Komala-KTP",
+      "color": "#26d9b2",
+      "doctrine": { "en": "Conventional light infantry", "fa": "پیاده‌نظام سبک متعارف" },
+      "command": { "en": "Hierarchical, conventional command structures", "fa": "ساختارهای فرماندهی سلسله‌مراتبی و متعارف" },
+      "purpose": { "en": "Hold territory · defend geographic strongholds · standing army linked to political patronage networks", "fa": "نگهداری سرزمین · دفاع از جایگاه‌های جغرافیایی · ارتش ایستای مرتبط با شبکه‌های حمایت سیاسی" },
+      "advantage": { "en": "Secure and administer liberated urban centers during Phase 2 transition", "fa": "تأمین و اداره مراکز شهری آزادشده در طول گذار مرحله ۲" },
+      "deployment": { "en": "Operate from KRG rear bases (Koya, Zargwez)", "fa": "پایگاه‌های عقبی KRG — کویه، خرخوره" }
+    },
+    {
+      "type": { "en": "GUERRILLA", "fa": "چریکی" },
+      "parties": "PJAK",
+      "color": "#ba68c8",
+      "doctrine": { "en": "Asymmetric insurgency", "fa": "شورش نامتقارن" },
+      "command": { "en": "Highly decentralized, ideologically rigid cells", "fa": "سلول‌های کاملاً غیرمتمرکز و ایدئولوژیک" },
+      "purpose": { "en": "Deep infiltration · sabotage · survival in the Zagros Mountains", "fa": "نفوذ عمیق · خرابکاری · بقا در کوه‌های زاگرس" },
+      "advantage": { "en": "Disrupt IRGC logistics, supply lines, and command nodes deep within Iranian territory", "fa": "اختلال در لجستیک سپاه، خطوط تدارکاتی و گره‌های فرماندهی عمیق در خاک ایران" },
+      "deployment": { "en": "Qandil Mountains base network — PKK-linked tactical doctrine", "fa": "شبکه پایگاه کوه‌های قندیل — دکترین تاکتیکی مرتبط با PKK" }
+    }
+  ],
+
+  "jointCommandNote": {
+    "en": "The Joint Command Center theoretically deploys PJAK's asymmetric infiltration cells to sabotage IRGC logistics while Peshmerga conventional forces secure and administer liberated urban centers. This hybrid architecture was activated precisely when IDF airstrikes degraded IRGC command and control on March 4, 2026 — creating the operational window the coalition was designed for.",
+    "fa": "مرکز فرماندهی مشترک نظری سلول‌های نفوذ نامتقارن PJAK را برای خرابکاری لجستیک سپاه مستقر می‌کند در حالی که نیروهای متعارف پیشمرگه مراکز شهری آزادشده را تأمین و اداره می‌کنند. این معماری ترکیبی دقیقاً زمانی فعال شد که حملات IDF کنترل و فرماندهی سپاه را در ۴ مارس ۲۰۲۶ تضعیف کرد."
+  },
+  "operationalNoteTag": {
+    "en": "OPERATIONAL NOTE",
+    "fa": "نکته عملیاتی"
+  },
+
+  "powerEyebrow": {
+    "en": "Command Structure",
+    "fa": "ساختار فرماندهی"
+  },
+  "powerTitle": {
+    "en": "The Three-Organ Central Alliance Management Body",
+    "fa": "هیئت مدیریت مرکزی ائتلاف — سه ارگان"
+  },
+  "powerIntro": {
+    "en": "The CPFIK's command architecture distributes power across three specialized organs, all answering to the Central Alliance Management Body — which itself is populated by unanimous consensus of the constituent parties' leadership committees.",
+    "fa": "معماری فرماندهی CPFIK قدرت را در سه ارگان تخصصی توزیع می‌کند که همگی به هیئت مدیریت مرکزی ائتلاف پاسخ می‌دهند."
+  },
+  "organs": [
+    {
+      "icon": "🎯",
+      "title": { "en": "Joint Command Center", "fa": "مرکز فرماندهی مشترک" },
+      "color": "#ef5350",
+      "items": [
+        { "en": "Unifies Peshmerga and Guerrilla forces under a single operational command", "fa": "پیشمرگه و نیروهای چریکی را زیر یک فرماندهی عملیاتی یکپارچه می‌کند" },
+        { "en": "Executes all kinetic and defensive operations", "fa": "تمام عملیات نظامی و دفاعی را اجرا می‌کند" },
+        { "en": "Coordinates PJAK asymmetric infiltration with Peshmerga territorial control", "fa": "نفوذ نامتقارن PJAK را با کنترل سرزمینی پیشمرگه هماهنگ می‌کند" },
+        { "en": "Reports to the Central Alliance Management Body", "fa": "به هیئت مدیریت مرکزی ائتلاف گزارش می‌دهد" }
+      ]
+    },
+    {
+      "icon": "🌐",
+      "title": { "en": "Joint Diplomatic Committee", "fa": "کمیته دیپلماتیک مشترک" },
+      "color": "#8B5CF6",
+      "items": [
+        { "en": "Executes all foreign policy and international engagement", "fa": "تمام سیاست خارجی و تعامل بین‌المللی را اجرا می‌کند" },
+        { "en": "Coordinates diaspora resources and funding", "fa": "منابع و بودجه دیاسپورا را هماهنگ می‌کند" },
+        { "en": "Interfaces with CIA, Western democratic institutions, and human rights bodies", "fa": "با CIA، نهادهای دموکراتیک غربی و سازمان‌های حقوق بشر ارتباط برقرار می‌کند" },
+        { "en": "Seeks recognition of CPFIK as a legitimate political authority", "fa": "به دنبال شناسایی CPFIK به عنوان یک مرجع سیاسی مشروع است" }
+      ]
+    },
+    {
+      "icon": "📡",
+      "title": { "en": "Joint Political & Media Coordination", "fa": "هماهنگی سیاسی و رسانه‌ای مشترک" },
+      "color": "#ffd166",
+      "items": [
+        { "en": "Executes psychological operations and public relations", "fa": "عملیات روانی و روابط عمومی را اجرا می‌کند" },
+        { "en": "Manages internal messaging between factions", "fa": "پیام‌رسانی داخلی بین جناح‌ها را مدیریت می‌کند" },
+        { "en": "Coordinates external communications with Iranian civil society", "fa": "با جامعه مدنی ایرانی هماهنگی خارجی دارد" },
+        { "en": "Amplifies the Kurdish cause in international media", "fa": "پرونده کردی را در رسانه‌های بین‌المللی تقویت می‌کند" }
+      ]
+    }
+  ],
+
+  "cascadeEyebrow": {
+    "en": "Second & Third-Order Geopolitical Cascades",
+    "fa": "آبشارهای ژئوپلیتیک مرتبه دوم و سوم"
+  },
+  "cascadeTitle": {
+    "en": "Three Critical Systemic Friction Points",
+    "fa": "سه نقطه اصطکاک سیستمی حیاتی"
+  },
+  "cascadeIntro": {
+    "en": "The activation of the CPFIK in the context of the 2026 Iran War created immediate second and third-order systemic effects across the region. These are not theoretical risks — they are active geopolitical dynamics as of March 2026.",
+    "fa": "فعال‌سازی CPFIK در زمینه جنگ ایران ۲۰۲۶ اثرات سیستمی مرتبه دوم و سوم فوری در سراسر منطقه ایجاد کرد."
+  },
+  "cascadeRiskLabel": {
+    "en": "RISK LEVEL",
+    "fa": "سطح ریسک"
+  },
+  "cascades": [
+    {
+      "number": { "en": "01", "fa": "۰۱" },
+      "title": { "en": "The Turkish Calculus", "fa": "محاسبه ترکیه" },
+      "subtitle": { "en": "Secessionist Contagion Risk", "fa": "ریسک سرایت تجزیه‌طلبی" },
+      "body": { "en": "For Ankara, the ascendance of a heavily armed, autonomous Kurdish political entity on the Iranian border is an existential threat. PJAK shares ideological, logistical, and historical ties with the PKK — which has waged a decades-long insurgency against the Turkish state. Turkey views the CPFIK not as a democratic liberation movement but as a heavily armed terrorist sanctuary. The empowerment of the CPFIK forces Turkey to reassess its posture, generating a high probability of unilateral cross-border interventions into Iranian or Iraqi airspace to suppress PJAK elements. This threatens to fracture NATO cohesion during the anti-Iran coalition effort.", "fa": "برای آنکارا، ظهور یک نهاد سیاسی کردی مسلح و خودمختار در مرز ایران یک تهدید وجودی است. PJAK پیوندهای ایدئولوژیک، لجستیکی و تاریخی با PKK دارد. ترکیه CPFIK را نه به عنوان یک جنبش آزادی‌بخش دموکراتیک بلکه به عنوان یک پناهگاه تروریستی مسلح می‌بیند. توانمندسازی CPFIK ترکیه را مجبور می‌کند موضع خود را بازارزیابی کند و احتمال بالایی از مداخلات یک‌جانبه فرامرزی ایجاد می‌کند." },
+      "risk": { "en": "HIGH — Turkey's national security doctrine makes unilateral military action against PJAK-linked forces near-certain if the CPFIK consolidates territorial control.", "fa": "بالا — دکترین امنیت ملی ترکیه اقدام نظامی یک‌جانبه علیه نیروهای مرتبط با PJAK را تقریباً قطعی می‌کند." },
+      "color": "#ef5350"
+    },
+    {
+      "number": { "en": "02", "fa": "۰۲" },
+      "title": { "en": "The KRG Paradox", "fa": "پارادوکس KRG" },
+      "subtitle": { "en": "Launchpad vs. Diplomatic Liability", "fa": "سکوی پرتاب در مقابل بدهی دیپلماتیک" },
+      "body": { "en": "The Kurdistan Regional Government in northern Iraq serves as the CPFIK's de facto launchpad, logistical sanctuary, and diplomatic base. Yet the KRG is highly vulnerable to Iranian retaliation — the IRGC has previously struck Erbil and Koya with ballistic missiles. KRG officials are forced to maintain strict public neutrality while privately hosting CPFIK operations. If the CPFIK's offensive falters, the KRG faces the wrath of a surviving Iranian regime. If the CPFIK succeeds, the KRG faces pressure from Turkey and Baghdad to suppress the newly empowered Iranian Kurdish factions.", "fa": "دولت منطقه‌ای کردستان در شمال عراق به عنوان سکوی پرتاب واقعی، پناهگاه لجستیکی و پایگاه دیپلماتیک CPFIK عمل می‌کند. با این حال، KRG در برابر تلافی ایران بسیار آسیب‌پذیر است. مقامات KRG مجبورند سیاست بی‌طرفی عمومی سختگیرانه‌ای را در حالی که مخفیانه عملیات CPFIK را میزبانی می‌کنند حفظ کنند." },
+      "risk": { "en": "SEVERE — The KRG has zero good outcomes. Every scenario generates existential pressure from at least two directions simultaneously.", "fa": "شدید — KRG هیچ نتیجه خوبی ندارد. هر سناریو فشار وجودی از حداقل دو جهت همزمان ایجاد می‌کند." },
+      "color": "#ff9a42"
+    },
+    {
+      "number": { "en": "03", "fa": "۰۳" },
+      "title": { "en": "The Pahlavi Factor", "fa": "عامل پهلوی" },
+      "subtitle": { "en": "The Multi-Polar Civil War Scenario", "fa": "سناریوی جنگ داخلی چندقطبی" },
+      "body": { "en": "On February 25, 2026, Crown Prince Reza Pahlavi explicitly condemned the CPFIK as 'separatist,' declared Iran's territorial integrity an absolute 'red line,' and urged the Artesh to confront and neutralize Kurdish groups upon regime collapse. If the CPFIK achieves Phase 1 (territorial liberation) and a Persian nationalist government aligned with Pahlavi assumes control of the surviving state apparatus, it will deploy the Artesh to reclaim the Kurdish provinces. This creates a direct military confrontation between the CPFIK's Joint Command Center and the Iranian regular army — the 'Nationalities Question' transitions from political debate into the primary driver of post-regime kinetic conflict.", "fa": "در ۲۵ فوریه ۲۰۲۶، ولیعهد رضا پهلوی صراحتاً CPFIK را 'تجزیه‌طلب' نامید و از ارتش خواست گروه‌های کردی را پس از سقوط رژیم خنثی کند. اگر CPFIK مرحله ۱ را به دست آورد و یک دولت ناسیونالیست فارس با پهلوی همسو کنترل دستگاه دولتی باقیمانده را به دست گیرد، ارتش را برای بازپس‌گیری استان‌های کردی مستقر خواهد کرد." },
+      "risk": { "en": "CRITICAL — The most severe systemic risk. The near-certainty of a multi-polar civil war is the single greatest vulnerability of the entire transition scenario for Iran.", "fa": "بحرانی — شدیدترین ریسک سیستمی. احتمال قریب‌به‌یقین جنگ داخلی چندقطبی بزرگترین آسیب‌پذیری کل سناریوی گذار ایران است." },
+      "color": "#ba68c8"
+    }
+  ],
+
+  "assessEyebrow": {
+    "en": "Strategic Assessment",
+    "fa": "ارزیابی استراتژیک"
+  },
+  "assessTitle": {
+    "en": "Organizational Capacity vs. Critical Unresolved Variables",
+    "fa": "ظرفیت سازمانی در مقابل متغیرهای حل‌نشده حیاتی"
+  },
+
+  "strengths": {
+    "title": { "en": "Structural Strengths", "fa": "نقاط قوت ساختاری" },
+    "color": "#26d9b2",
+    "items": [
+      { "en": "The only Iranian opposition plan currently engaged in active kinetic operations — the CPFIK does not depend on Tehran's collapse, it accelerates it", "fa": "تنها طرح اپوزیسیون ایرانی که در حال حاضر درگیر عملیات نظامی فعال است — CPFIK به سقوط تهران بستگی ندارد، آن را تسریع می‌کند" },
+      { "en": "Hybrid military force (Peshmerga + Guerrilla) under unified command is architecturally unique — capable of both asymmetric deep-infiltration and territorial administration", "fa": "نیروی نظامی ترکیبی (پیشمرگه + چریکی) زیر فرماندهی یکپارچه از نظر معماری منحصربه‌فرد است — قادر به هر دو نفوذ عمیق نامتقارن و اداره سرزمینی" },
+      { "en": "Article 14 (all factions accept election results) directly addresses the 1980s civil war wound — prevents factional relapse", "fa": "ماده ۱۴ مستقیماً زخم جنگ داخلی دهه ۶۰ را هدف می‌گیرد — از بازگشت جناحی جلوگیری می‌کند" },
+      { "en": "The 15-Article Charter successfully synthesizes PDKI, PJAK, PAK, Khabat, and Komala-KTP — the most ideologically diverse Kurdish coalition in history", "fa": "منشور ۱۵ ماده‌ای با موفقیت PDKI، PJAK، PAK، Khabat و Komala-KTP را ترکیب می‌کند — متنوع‌ترین ائتلاف کردی از نظر ایدئولوژیک در تاریخ" },
+      { "en": "CIA coordination provides intelligence and logistical support — international recognition pathway is more advanced than any other opposition plan", "fa": "هماهنگی CIA کانال شناسایی بین‌المللی پیشرفته‌تر از هر طرح اپوزیسیون دیگری فراهم می‌کند" },
+      { "en": "In the event of IRGC command collapse, the CPFIK has the organizational capacity to rapidly secure Iranian Kurdistan — it is the only opposition bloc with pre-positioned territorial control", "fa": "در صورت فروپاشی فرماندهی سپاه، CPFIK ظرفیت سازمانی برای تأمین سریع کردستان ایران را دارد — تنها جبهه اپوزیسیون با کنترل سرزمینی از پیش استقرار یافته" },
+      { "en": "Alliance with Baloch, Ahwazi Arab, Azerbaijani Turk, and Turkmen organizations (via CNFI) builds a coalition of oppressed nations — making the federalist case harder to dismiss as separatism", "fa": "ائتلاف با سازمان‌های بلوچ، عرب اهوازی، آذربایجانی ترک و ترکمن (از طریق CNFI) استدلال فدرالیستی را تقویت می‌کند" }
+    ]
+  },
+
+  "weaknesses": {
+    "title": { "en": "Critical Unresolved Variables", "fa": "متغیرهای حل‌نشده حیاتی" },
+    "color": "#ef5350",
+    "items": [
+      { "en": "Deliberate omission of macroeconomic policy, resource management, and transitional justice frameworks — exposes ideological fragility when coalition transitions from wartime to governance", "fa": "حذف عمدی سیاست کلان اقتصادی، مدیریت منابع و چارچوب‌های عدالت انتقالی — شکنندگی ایدئولوژیک را هنگام گذار ائتلاف از جنگ به حاکمیت نشان می‌دهد" },
+      { "en": "The PDKI-PJAK synthesis is architecturally unstable — the charter's deliberate vagueness on the nature of the state will fracture into open conflict during Phase 2 when real governance decisions require resolution", "fa": "ترکیب PDKI-PJAK از نظر معماری ناپایدار است — وقتی تصمیمات حاکمیتی واقعی نیاز به حل دارند به درگیری آشکار می‌شکند" },
+      { "en": "The Turkish cross-border intervention risk threatens to transform a liberation campaign into a multi-front war against both the Islamic Republic AND NATO member Turkey simultaneously", "fa": "ریسک مداخله ترمرزی ترکیه تهدید می‌کند یک کمپین رهایی‌بخش را به جنگ چندجبهه‌ای علیه هم جمهوری اسلامی و هم ترکیه عضو ناتو تبدیل کند" },
+      { "en": "The Pahlavi Factor generates near-certain post-collapse civil war between the CPFIK and a Persian nationalist government — making Iranian Kurdistan's long-term autonomous status dependent on military outcomes, not political agreements", "fa": "عامل پهلوی جنگ داخلی پس از سقوط را تقریباً قطعی می‌سازد بین CPFIK و یک دولت ناسیونالیست فارس" },
+      { "en": "The KRG launchpad is vulnerable to IRGC retaliation — a series of ballistic missile strikes on Koya and Zargwez could eliminate the coalition's rear base infrastructure", "fa": "سکوی KRG در برابر تلافی سپاه آسیب‌پذیر است — حملات موشکی بالستیک به کویه و خرخوره می‌توانند زیرساخت پایگاه عقبی ائتلاف را نابود کنند" },
+      { "en": "Mohtadi's initial boycott and the Komala-CPI anthem dispute reveal the coalition's internal fault lines — unity is contingent on the continuation of external existential pressure", "fa": "تحریم اولیه مهتدی و اختلاف سرود کومله-CPI خطوط گسل داخلی ائتلاف را نشان می‌دهد — وحدت مشروط به ادامه فشار وجودی خارجی است" },
+      { "en": "The charter's silence on IRGC, Artesh, clerical courts, and civilian ministries means Phase 2 governance begins with zero institutional framework for handling captured state infrastructure", "fa": "سکوت منشور درباره سپاه، ارتش، دادگاه‌های روحانی و وزارتخانه‌ها یعنی حاکمیت مرحله ۲ بدون هیچ چارچوب نهادی برای مدیریت زیرساخت دولتی تصرف‌شده آغاز می‌شود" }
+    ]
+  },
+
+  "conclusion": {
+    "en": "\"The CPFIK possesses the organizational capacity to rapidly secure Iranian Kurdistan in the event of systemic regime failure in Tehran. Yet translating this tactical occupation into recognized, sustainable federal autonomy will depend entirely on their ability to navigate the subsequent multi-polar power vacuum — balancing their military leverage against the deeply entrenched unitarian forces of the Iranian center.\" — Atlantic Council, March 2026",
+    "fa": "«CPFIK ظرفیت سازمانی برای تأمین سریع کردستان ایران در صورت شکست سیستمی رژیم را دارد. با این حال، تبدیل این تصرف تاکتیکی به خودمختاری فدرال پایدار و به رسمیت شناخته‌شده کاملاً به توانایی آن‌ها در هدایت خلاء قدرت چندقطبی بستگی خواهد داشت.» — شورای آتلانتیک، مارس ۲۰۲۶"
+  },
+
+  "source": {
+    "en": "Source: 15-Article Charter of Cooperation (Feb 22, 2026) · JINSA Analysis · Atlantic Council · Chatham House · Kurdish Peace Institute · Washington Kurdish Institute · ISW Iran Update Mar 4, 2026",
+    "fa": "منبع: منشور همکاری ۱۵ ماده‌ای (۲۲ فوریه ۲۰۲۶) · JINSA · شورای آتلانتیک · Chatham House · موسسه صلح کردی · موسسه واشنگتن کردی · ISW ایران آپدیت ۴ مارس ۲۰۲۶"
+  },
+
+  "footerNavAll": {
+    "en": "← All Transitional Plans",
+    "fa": "← همه طرح‌های انتقالی"
+  },
+  "footerNavArena": {
+    "en": "Arena — Endorse Plans →",
+    "fa": "آرنا — تأیید طرح‌ها ←"
+  }
+}

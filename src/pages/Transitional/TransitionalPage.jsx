@@ -171,7 +171,7 @@ export default function TransitionalPage() {
   const ff = headFont;
   const dir = isRTL ? "rtl" : "ltr";
 
-  const GREEN = "#69d98c", CYAN = "#8B5CF6", AMBER = "#ffd166",
+  const GREEN = "#69d98c", ACCENT_PURPLE = "#8B5CF6", AMBER = "#ffd166",
     ORANGE = "#ff9a42", RED = "#ef5350", PURPLE = "#ba68c8", VIOLET = "#7c72e8";
 
   return (
@@ -187,14 +187,30 @@ export default function TransitionalPage() {
           <p className="tp-hero-desc">{d.heroDesc}</p>
           <div className="tp-hero-badges">
             {d.heroBadges.map((label, i) => {
-              const colors = [CYAN, GREEN, PURPLE, AMBER, ORANGE];
-              const c = colors[i] || CYAN;
+              const colors = [ACCENT_PURPLE, GREEN, PURPLE, AMBER, ORANGE];
+              const c = colors[i] || ACCENT_PURPLE;
               return (
                 <span key={i} className="tp-badge" style={{ color: c, borderColor: `${c}35`, background: `${c}0e` }}>{label}</span>
               );
             })}
           </div>
         </header>
+
+        {/* ══════════════════════════════════════════════════
+            IDEOLOGY / PHILOSOPHICAL FOUNDATION
+        ══════════════════════════════════════════════════ */}
+        <SecHead eyebrow={d.ideolEyebrow} title={d.ideolTitle} intro={d.ideolIntro} color={ACCENT_PURPLE} />
+        <div className="tp-pillars">
+          {d.ideologyPillars.map((p, i) => (
+            <div key={i} className="tp-pillar-card" style={{ borderColor: `${ACCENT_PURPLE}35` }}>
+              <div className="tp-pillar-icon">{p.icon}</div>
+              <div className="tp-pillar-head" style={{ color: ACCENT_PURPLE, fontFamily: ff }}>{p.head}</div>
+              <div className="tp-pillar-body">{p.body}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="tp-divider" />
 
         {/* ══════════════════════════════════════════════════
             PART A
@@ -246,10 +262,10 @@ export default function TransitionalPage() {
 
           {/* Government */}
           <div className="tp-branch-col">
-            <BranchBlock icon="🏛️" title={d.gov.title} sub={d.gov.sub} color={CYAN} />
+            <BranchBlock icon="🏛️" title={d.gov.title} sub={d.gov.sub} color={ACCENT_PURPLE} />
             {d.gov.sections.map((s, i) => (
-              <Accordion key={i} title={s.title} color={CYAN}>
-                <Bullets items={s.items} color={CYAN} />
+              <Accordion key={i} title={s.title} color={ACCENT_PURPLE}>
+                <Bullets items={s.items} color={ACCENT_PURPLE} />
               </Accordion>
             ))}
           </div>
@@ -297,7 +313,7 @@ export default function TransitionalPage() {
           </div>
         </div>
 
-        <Accordion title={d.hybridOption.title} color={CYAN}>
+        <Accordion title={d.hybridOption.title} color={ACCENT_PURPLE}>
           <p className="tp-prose">{d.hybridOption.text}</p>
         </Accordion>
 
@@ -328,7 +344,7 @@ export default function TransitionalPage() {
           <NumGrid items={d.reforms.items} color={AMBER} />
         </div>
 
-        <Banner text={d.hybridWhy} color={CYAN} />
+        <Banner text={d.hybridWhy} color={ACCENT_PURPLE} />
 
         <div className="tp-divider" />
 
@@ -389,16 +405,16 @@ export default function TransitionalPage() {
 
           {/* Essential Functions */}
           <div className="tp-track">
-            <div className="tp-track-head" style={{ borderColor: CYAN }}>
+            <div className="tp-track-head" style={{ borderColor: ACCENT_PURPLE }}>
               <span>⚙️</span>
               <div>
-                <div className="tp-track-title" style={{ color: CYAN, fontFamily: ff }}>{d.ess.title}</div>
+                <div className="tp-track-title" style={{ color: ACCENT_PURPLE, fontFamily: ff }}>{d.ess.title}</div>
                 <div className="tp-track-sub">{d.ess.sub}</div>
               </div>
             </div>
             {d.ess.sections.map((s, i) => (
-              <Accordion key={i} title={s.title} color={CYAN}>
-                <Bullets items={s.items} color={CYAN} />
+              <Accordion key={i} title={s.title} color={ACCENT_PURPLE}>
+                <Bullets items={s.items} color={ACCENT_PURPLE} />
               </Accordion>
             ))}
           </div>
@@ -421,7 +437,40 @@ export default function TransitionalPage() {
 
         </div>
 
-        <Banner text={d.whitePapersNote} color={CYAN} />
+        <Banner text={d.whitePapersNote} color={ACCENT_PURPLE} />
+
+        <div className="tp-divider" />
+
+        {/* ══════════════════════════════════════════════════
+            GEOPOLITICAL IMPLICATIONS
+        ══════════════════════════════════════════════════ */}
+        <SecHead eyebrow={d.geoEyebrow} title={d.geoTitle} intro={d.geoIntro} color={GREEN} />
+        <div className="tp-pillars">
+          {d.geoCards.map((c, i) => (
+            <div key={i} className="tp-pillar-card" style={{ borderColor: `${GREEN}35` }}>
+              <div className="tp-pillar-icon">{c.icon}</div>
+              <div className="tp-pillar-head" style={{ color: GREEN, fontFamily: ff }}>{c.head}</div>
+              <div className="tp-pillar-body">{c.body}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="tp-divider" />
+
+        {/* ══════════════════════════════════════════════════
+            STRATEGIC ASSESSMENT
+        ══════════════════════════════════════════════════ */}
+        <SecHead eyebrow={d.assessEyebrow} title={d.assessTitle} color={AMBER} />
+        <div className="tp-assess-wrap">
+          <div className="tp-assess-col">
+            <div className="tp-seg-label" style={{ color: d.strengths.color }}>{d.strengths.title}</div>
+            <Bullets items={d.strengths.items} color={d.strengths.color} />
+          </div>
+          <div className="tp-assess-col">
+            <div className="tp-seg-label" style={{ color: d.weaknesses.color }}>{d.weaknesses.title}</div>
+            <Bullets items={d.weaknesses.items} color={d.weaknesses.color} />
+          </div>
+        </div>
 
         <div className="tp-divider" />
 
@@ -478,7 +527,7 @@ export default function TransitionalPage() {
           <div className="tp-s2-branches">
             {[
               { icon: "📜", data: d.s2parliament, color: GREEN },
-              { icon: "🏛️", data: d.s2govt, color: CYAN },
+              { icon: "🏛️", data: d.s2govt, color: ACCENT_PURPLE },
               { icon: "⚖️", data: d.s2jud, color: AMBER },
             ].map((b, i) => (
               <div key={i} className="tp-s2-branch" style={{ borderColor: b.color }}>

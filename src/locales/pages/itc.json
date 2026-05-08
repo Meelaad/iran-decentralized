@@ -1,0 +1,569 @@
+{
+  "heroEyebrow": {
+    "en": "Iran Transition Council (ITC) · Launched September 2019 · Secular Democratic Federalist Blueprint",
+    "fa": "شورای مدیریت گذار ایران · تأسیس سپتامبر ۲۰۱۹ · طرح دموکراتیک سکولار فدرالیستی"
+  },
+  "heroTitle": {
+    "en": "Systems Architecture for State Transition",
+    "fa": "معماری سیستم‌ها برای گذار دولتی"
+  },
+  "heroDesc": {
+    "en": "The ITC is not an ideological opposition group — it is a meticulously engineered shadow government and logistical planning unit. Launched in September 2019, its architecture is designed to absorb the shock of regime collapse and manage the power vacuum that follows. This is not a utopian manifesto but a cold, calculated schematic for safely decommissioning a hostile theocratic state apparatus while simultaneously standing up a decentralized democratic replacement.",
+    "fa": "شورای مدیریت گذار یک گروه اپوزیسیون ایدئولوژیک نیست — یک دولت سایه و واحد برنامه‌ریزی لجستیکی به دقت طراحی‌شده است. معماری آن برای جذب شوک فروپاشی رژیم و مدیریت خلاء قدرتی طراحی شده که به دنبال می‌آید. این یک بیانیه آرمانی نیست بلکه یک طرح سرد و محاسبه‌شده برای خاموش کردن ایمن یک دستگاه دولتی تئوکراتیک خصمانه است."
+  },
+  "heroBadges": [
+    { "label": { "en": "Founded Sept 2019", "fa": "تأسیس سپتامبر ۲۰۱۹" }, "c": "#7c72e8" },
+    { "label": { "en": "6-Phase Timeline", "fa": "جدول زمانی ۶ مرحله‌ای" }, "c": "#8B5CF6" },
+    { "label": { "en": "Ethno-Federalist", "fa": "فدرالیسم قومی" }, "c": "#69d98c" },
+    { "label": { "en": "Technocratic Pragmatism", "fa": "عمل‌گرایی تکنوکراتیک" }, "c": "#ffd166" },
+    { "label": { "en": "Shadow Government Design", "fa": "طراحی دولت سایه" }, "c": "#ba68c8" },
+    { "label": { "en": "No Monarchy / No Theocracy", "fa": "نه سلطنت / نه تئوکراسی" }, "c": "#ef5350" }
+  ],
+  "ideolEyebrow": {
+    "en": "Absolute End State & Core Ideology",
+    "fa": "وضعیت نهایی مطلق و ایدئولوژی محوری"
+  },
+  "ideolTitle": {
+    "en": "The Three Non-Negotiable Structural Commitments",
+    "fa": "سه تعهد ساختاری غیرقابل مذاکره"
+  },
+  "ideolIntro": {
+    "en": "The ITC's end state is precisely defined and explicitly bounded. It is not a monarchy, not a theocracy, not a socialist redistribution project, and not a secessionist movement. It is one specific thing: a secular, representative parliamentary democracy with a decentralized, ethno-federalist administrative architecture.",
+    "fa": "وضعیت نهایی شورا دقیقاً تعریف شده و محدود است. نه سلطنت، نه تئوکراسی، نه پروژه توزیع مجدد سوسیالیستی، و نه جنبش جدایی‌طلبانه. دقیقاً یک چیز است: یک دموکراسی پارلمانی سکولار و نمایندگی با یک معماری اداری غیرمتمرکز و فدرالیستی قومی."
+  },
+  "endState": [
+    {
+      "icon": "🏛️",
+      "title": { "en": "Secular Parliamentary Democracy", "fa": "دموکراسی پارلمانی سکولار" },
+      "color": "#7c72e8",
+      "items": [
+        { "en": "Complete structural dismantling of the Islamic Republic's theocratic apparatus", "fa": "برچیدن کامل ساختاری دستگاه تئوکراتیک جمهوری اسلامی" },
+        { "en": "A secular state: strict neutrality toward all religious beliefs — no official state religion", "fa": "دولت سکولار: بی‌طرفی کامل نسبت به تمام باورهای دینی — بدون مذهب رسمی دولتی" },
+        { "en": "No national law may rely on religious decrees — religion is strictly a private matter", "fa": "هیچ قانون ملی‌ای نمی‌تواند بر احکام مذهبی متکی باشد — مذهب صرفاً امری خصوصی است" },
+        { "en": "Governance defined as a universal civil right, wholly independent of divine mandate or hereditary claims", "fa": "حاکمیت به عنوان حق مدنی جهانی تعریف می‌شود، کاملاً مستقل از مأموریت الهی یا ادعاهای موروثی" },
+        { "en": "Three fully independent branches: legislative, executive, judicial", "fa": "سه قوه کاملاً مستقل: قانونگذاری، مجریه، قضاییه" },
+        { "en": "Ultimate sovereignty resides exclusively with the electorate", "fa": "حاکمیت نهایی منحصراً در رأی‌دهندگان است" }
+      ]
+    },
+    {
+      "icon": "🗺️",
+      "title": { "en": "Ethno-Federalist Decentralization", "fa": "غیرمتمرکزسازی فدرالیستی قومی" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "Iran is not a homogeneous Persian nation — it is a diverse multi-ethnic state: Kurds, Baluch, Ahwazi Arabs, Turkmen, Azerbaijanis", "fa": "ایران یک ملت فارسی همگن نیست — یک دولت چندقومی متنوع است: کردها، بلوچ‌ها، عرب‌های اهوازی، ترکمن‌ها، آذربایجانی‌ها" },
+        { "en": "The ITC is identified as the ONLY major opposition organization that explicitly addresses an ethno-federal system", "fa": "شورای مدیریت گذار تنها سازمان اپوزیسیون بزرگی است که صراحتاً یک سیستم فدرال قومی را مطرح می‌کند" },
+        { "en": "Over-centralization and Persian-centric cultural assimilation are identified as root causes of systemic inequality", "fa": "تمرکزگرایی افراطی و استحاله فرهنگی فارس‌محور به عنوان علل ریشه‌ای نابرابری سیستمی شناسایی شده‌اند" },
+        { "en": "True democracy is only achievable through a highly decentralized, federalist structure", "fa": "دموکراسی واقعی تنها از طریق یک ساختار فدرالیستی کاملاً غیرمتمرکز قابل دستیابی است" },
+        { "en": "Equitable distribution of wealth, resources, and administrative power among all regional populations", "fa": "توزیع عادلانه ثروت، منابع و قدرت اداری در میان تمام جمعیت‌های منطقه‌ای" },
+        { "en": "Right to mother-tongue education alongside official Persian — legally enshrined", "fa": "حق آموزش به زبان مادری در کنار فارسی رسمی — تضمین‌شده قانون اساسی" },
+        { "en": "Locally elected provincial councils manage regional development budgets and cultural policy", "fa": "شوراهای استانی منتخب محلی بودجه‌های توسعه منطقه‌ای و سیاست فرهنگی را مدیریت می‌کنند" }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": { "en": "UDHR-Anchored Legal Framework", "fa": "چارچوب حقوقی مبتنی بر اعلامیه جهانی حقوق بشر" },
+      "color": "#ffd166",
+      "items": [
+        { "en": "The Universal Declaration of Human Rights is the non-negotiable legal anchor of the entire framework", "fa": "اعلامیه جهانی حقوق بشر لنگر حقوقی تغییرناپذیر کل چارچوب است" },
+        { "en": "Explicitly rejects: monarchy (absolute or constitutional), theocracy, socialist vanguardism, armed insurgency", "fa": "صراحتاً رد می‌کند: سلطنت (مطلق یا مشروطه)، تئوکراسی، پیشاهنگی سوسیالیستی، شورش مسلحانه" },
+        { "en": "Explicitly rejects: regional separatism — territorial integrity of Iran is non-negotiable", "fa": "صراحتاً رد می‌کند: تجزیه‌طلبی منطقه‌ای — تمامیت ارضی ایران غیرقابل مذاکره است" },
+        { "en": "Governance is an inalienable civil right — not inherited, not divinely appointed, not awarded by military rank", "fa": "حاکمیت یک حق مدنی ذاتی است — به ارث نمی‌رسد، با مأموریت الهی تعیین نمی‌شود، با رتبه نظامی اعطا نمی‌شود" },
+        { "en": "The new constitution must be ratified by popular national referendum — no provisional body can permanently alter the state's fundamental fabric", "fa": "قانون اساسی جدید باید در یک همه‌پرسی ملی مردمی تصویب شود" },
+        { "en": "Post-transition: all principal authorities installed via free, fair, and competitive democratic elections only", "fa": "پس از گذار: تمام مقامات اصلی تنها از طریق انتخابات دموکراتیک آزاد، منصفانه و رقابتی منصوب می‌شوند" }
+      ]
+    }
+  ],
+  "leaderEyebrow": {
+    "en": "Leadership Architecture",
+    "fa": "معماری رهبری"
+  },
+  "leaderTitle": {
+    "en": "The Seven-Node Coalition Command",
+    "fa": "فرماندهی ائتلافی هفت‌گره‌ای"
+  },
+  "leaderIntro": {
+    "en": "To prevent the monopolization of the transition by a single faction — a flaw that reproduces authoritarian centralization — the ITC is architected as a broad, pluralistic umbrella coalition. Each leadership node covers a distinct operational domain, and the combination is specifically designed to bridge the Persian center with ethnic peripheries, domestic resistance with diaspora diplomacy, and civil society with insider intelligence.",
+    "fa": "برای جلوگیری از انحصاری شدن گذار توسط یک جناح، شورا به عنوان یک ائتلاف چتری وسیع و کثرت‌گرا طراحی شده است. هر گره رهبری یک حوزه عملیاتی متمایز را پوشش می‌دهد و این ترکیب به طور خاص برای پل زدن بین مرکز فارسی و حاشیه‌های قومی، مقاومت داخلی با دیپلماسی دیاسپورا، و جامعه مدنی با اطلاعات درونی طراحی شده است."
+  },
+  "leaders": [
+    {
+      "name": "Hassan Shariatmadari",
+      "role": { "en": "Secretary-General · Apex Coordinator", "fa": "دبیر کل · هماهنگ‌کننده ارشد" },
+      "domain": { "en": "Executive Oversight", "fa": "نظارت اجرایی" },
+      "color": "#7c72e8",
+      "value": { "en": "Son of Grand Ayatollah Mohammad Kazem Shariatmadari — the most prominent Ayatollah in Iran and a historic opponent of Khomeini's monopolization of power. His heritage provides the ITC with unassailable legitimacy against the clerical establishment, while he personally advocates for a secular republic.", "fa": "پسر آیت‌الله العظمی سیدمحمدکاظم شریعتمداری — برجسته‌ترین آیت‌الله ایران و مخالف صریح انحصارطلبی آیت‌الله خمینی. میراث او مشروعیت غیرقابل تردید در برابر دستگاه روحانی رژیم را برای شورا فراهم می‌کند، در حالی که شخصاً از یک جمهوری سکولار دفاع می‌کند." },
+      "note": { "en": "This combination — anti-Khomeinist clerical legitimacy + secular advocacy — is architecturally unique and addresses a core ITC challenge: credibility within Iran's religious culture.", "fa": "این ترکیب — مشروعیت روحانی ضدخمینیستی + دفاع از سکولاریسم — از نظر معماری منحصربه‌فرد است." }
+    },
+    {
+      "name": "Abdullah Mohtadi",
+      "role": { "en": "Top Advisor · Regional Affairs Director", "fa": "مشاور ارشد · مدیر امور منطقه‌ای" },
+      "domain": { "en": "Kurdish & Ethnic Networks", "fa": "شبکه‌های کردی و قومی" },
+      "color": "#69d98c",
+      "value": { "en": "Secretary General of the Komala Party of Iranian Kurdistan. His integration bridges the gap between the Persian-majority center and organized, historically armed Kurdish political factions — preempting ethnic fracturing during the transition. Converts a potential separatist actor into an invested stakeholder.", "fa": "دبیر کل حزب کومله کردستان ایران. ادغام او شکاف بین مرکز با اکثریت فارس و جناح‌های سیاسی کردی سازمان‌یافته و تاریخاً مسلح را پر می‌کند — از تکه‌شدن قومی در طول گذار پیشگیری می‌کند." },
+      "note": { "en": "Critical coalition-building masterstroke. Without Kurdish buy-in, the federalist architecture cannot function.", "fa": "بدون خرید کردها، معماری فدرالیستی نمی‌تواند کار کند." }
+    },
+    {
+      "name": "Mohsen Sazegara",
+      "role": { "en": "Director for Civil Resistance", "fa": "مدیر مقاومت مدنی" },
+      "domain": { "en": "Security Intelligence", "fa": "اطلاعات امنیتی" },
+      "color": "#ef5350",
+      "value": { "en": "Original founding member of the Islamic Revolutionary Guard Corps (IRGC) — turned defector and opponent of the regime. Provides the ITC with unparalleled internal intelligence regarding the IRGC's operational mechanics, psychological vulnerabilities, and command structures.", "fa": "یکی از اعضای بنیانگذار اصلی سپاه پاسداران انقلاب اسلامی — تبدیل به مخالف رژیم شده است. اطلاعات درونی بی‌نظیر در مورد مکانیزم‌های عملیاتی سپاه، آسیب‌پذیری‌های روانی و ساختارهای فرماندهی ارائه می‌دهد." },
+      "note": { "en": "His presence implies the ITC possesses targeted intelligence operations aimed at fracturing the IRGC's command structure from within — even though IRGC dismantlement is 'not specified in official text.'", "fa": "حضور او نشان می‌دهد شورا احتمالاً عملیات اطلاعاتی هدفمند برای شکستن ساختار فرماندهی سپاه از درون دارد." }
+    },
+    {
+      "name": "Mehran Barati",
+      "role": { "en": "Vice Secretary-General", "fa": "معاون دبیر کل" },
+      "domain": { "en": "European Diplomacy", "fa": "دیپلماسی اروپایی" },
+      "color": "#8B5CF6",
+      "value": { "en": "Prominent Iranian diaspora figure and former student leader operating out of Germany. Acts as a critical diplomatic bridge to European social democratic institutions — the EU is a key target for sanctions removal and international recognition.", "fa": "چهره برجسته دیاسپورای ایرانی و رهبر سابق دانشجویی مستقر در آلمان. به عنوان یک پل دیپلماتیک حیاتی با نهادهای دموکرات اجتماعی اروپایی عمل می‌کند." },
+      "note": null
+    },
+    {
+      "name": "Shahriar Ahy",
+      "role": { "en": "Spokesperson & Board Member", "fa": "سخنگو و عضو هیئت مدیره" },
+      "domain": { "en": "Global Media & Psychological Operations", "fa": "رسانه‌های جهانی و عملیات روانی" },
+      "color": "#ba68c8",
+      "value": { "en": "Seasoned media executive — former CEO of AGI, managing assets including UPI and MBC. Responsible for shaping the ITC's global communications strategy and psychological operations targeting regime security forces.", "fa": "مدیر رسانه‌ای با تجربه — مدیر عامل سابق AGI، مدیریت دارایی‌هایی از جمله UPI و MBC. مسئول شکل‌دهی استراتژی ارتباطات جهانی شورا و عملیات روانی هدفمند نیروهای امنیتی رژیم." },
+      "note": null
+    },
+    {
+      "name": "Kamal Azari",
+      "role": { "en": "Director of US Operations", "fa": "مدیر عملیات آمریکا" },
+      "domain": { "en": "Washington D.C. Lobbying", "fa": "لابی‌گری واشنگتن" },
+      "color": "#ffd166",
+      "value": { "en": "Directs geopolitical lobbying, diplomatic relations, and strategic communications in Washington D.C. Interfaces directly with US policymakers to build the international isolation framework around the regime. Operates via AF International LLC (registered under FARA).", "fa": "لابی‌گری ژئوپلیتیک، روابط دیپلماتیک و ارتباطات استراتژیک را در واشنگتن دی‌سی هدایت می‌کند. از طریق AF International LLC (ثبت‌شده تحت FARA) فعالیت می‌کند." },
+      "note": null
+    },
+    {
+      "name": "Yazdan Shohadaei",
+      "role": { "en": "Secretariat of Organizations & Communications", "fa": "دبیرخانه سازمان‌ها و ارتباطات" },
+      "domain": { "en": "Civic Organization", "fa": "سازمان مدنی" },
+      "color": "#ff9a42",
+      "value": { "en": "Manages internal coordination, civic resistance networks, civil society outreach, and the organizational infrastructure that connects ITC leadership to labor movements and grassroots resistance nodes inside Iran.", "fa": "هماهنگی داخلی، شبکه‌های مقاومت مدنی و زیرساخت سازمانی که رهبری شورا را به جنبش‌های کارگری و گره‌های مقاومت پایه‌ای در داخل ایران متصل می‌کند را مدیریت می‌کند." },
+      "note": null
+    }
+  ],
+  "methEyebrow": {
+    "en": "Pre-Collapse Methodology",
+    "fa": "روش‌شناسی پیش از سقوط"
+  },
+  "methTitle": {
+    "en": "The Three-Track Pressure Matrix",
+    "fa": "ماتریس فشار سه‌مسیری"
+  },
+  "methIntro": {
+    "en": "The ITC explicitly rejects foreign military intervention and internal armed insurgency. Its calculation: armed conflict would instantly trigger a Syrian-style civil war, destroying infrastructure and rendering democratic transition mathematically impossible. Instead, three parallel tracks apply simultaneous pressure.",
+    "fa": "شورا صراحتاً مداخله نظامی خارجی و شورش مسلحانه داخلی را رد می‌کند. محاسبه: درگیری مسلحانه فوری یک جنگ داخلی به سبک سوریه ایجاد می‌کند که زیرساخت را نابود کرده و گذار دموکراتیک را ریاضیاتاً غیرممکن می‌سازد. در عوض، سه مسیر موازی به طور همزمان فشار وارد می‌کنند."
+  },
+  "tracks": [
+    {
+      "icon": "⚒️",
+      "title": { "en": "Internal Civil Resistance", "fa": "مقاومت مدنی داخلی" },
+      "color": "#7c72e8",
+      "items": [
+        { "en": "Non-violent civil disobedience as the primary operational mode", "fa": "نافرمانی مدنی غیرخشونت‌آمیز به عنوان حالت عملیاتی اصلی" },
+        { "en": "Organized labor strikes targeting the petrochemical and oil sectors — crippling the regime's economic lifelines", "fa": "اعتصابات کارگری سازمان‌یافته با هدف بخش‌های پتروشیمی و نفت — فلج کردن شریان‌های اقتصادی رژیم" },
+        { "en": "Grassroots network coordination via Yazdan Shohadaei's civic organization infrastructure", "fa": "هماهنگی شبکه پایه از طریق زیرساخت سازمان مدنی یزدان شهدایی" },
+        { "en": "Strategic paralysis of the state via coordinated sector-by-sector work stoppages", "fa": "فلج استراتژیک دولت از طریق توقف کار هماهنگ بخش به بخش" },
+        { "en": "Mohsen Sazegara disseminates strategic directives to internal resistance nodes", "fa": "محسن سازگارا دستورالعمل‌های استراتژیک را به گره‌های مقاومت داخلی منتشر می‌کند" }
+      ]
+    },
+    {
+      "icon": "🌐",
+      "title": { "en": "External Diplomatic Isolation", "fa": "انزوای دیپلماتیک خارجی" },
+      "color": "#8B5CF6",
+      "items": [
+        { "en": "ITC is registered as a foreign principal via AF International LLC (FARA-registered)", "fa": "شورا به عنوان یک اصل خارجی از طریق AF International LLC ثبت شده است (ثبت FARA)" },
+        { "en": "Active petitioning of UN Secretary General, WHO, EU High Representative", "fa": "ارتباط فعال با دبیر کل سازمان ملل، سازمان بهداشت جهانی، نماینده عالی اتحادیه اروپا" },
+        { "en": "Kamal Azari's Washington operation: lobbying US policymakers for targeted regime isolation", "fa": "عملیات واشنگتن کمال آذری: لابی نزد سیاستگذاران آمریکایی برای انزوای هدفمند رژیم" },
+        { "en": "Mehran Barati's European operation: engaging EU social democratic institutions", "fa": "عملیات اروپایی مهران براتی: تعامل با نهادهای دموکرات اجتماعی اتحادیه اروپا" },
+        { "en": "Building a pre-legitimized diplomatic network ready to recognize the ITC as a provisional government upon collapse", "fa": "ساخت یک شبکه دیپلماتیک از پیش مشروعیت‌یافته آماده برای شناسایی شورا به عنوان دولت موقت پس از سقوط" }
+      ]
+    },
+    {
+      "icon": "🔓",
+      "title": { "en": "Security Force Defection Campaign", "fa": "کمپین فرار نیروهای امنیتی" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "Blanket amnesty offers broadcast to middle and lower ranks of the Artesh (conventional armed forces)", "fa": "پیشنهادات عفو کلی به رتبه‌های پایین و میانی ارتش (نیروهای مسلح رسمی)" },
+        { "en": "Guaranteed integration into the new state's security architecture — offered in exchange for standing down", "fa": "ادغام تضمین‌شده در معماری امنیتی دولت جدید — در ازای کنار کشیدن" },
+        { "en": "The strategic logic: by drawing a line between the ideological apex (Supreme Leader, senior IRGC commanders) and the operational base (conscripts, mid-level officers), the ITC deprivates the regime of kinetic suppression capability", "fa": "منطق استراتژیک: با رسم مرزی بین قله ایدئولوژیک و پایه عملیاتی، شورا از قدرت سرکوبگری رژیم می‌کاهد" },
+        { "en": "Directly informed by the Iraq post-mortem: de-Baathification destroyed the Iraqi army and birthed insurgency — the ITC explicitly inverts this mistake", "fa": "مستقیماً از درس‌های عراق پس از ۲۰۰۳ آموخته شده: ارتش‌زدایی از بعثیسم ارتش عراق را نابود کرد و خشم سنی ایجاد کرد که داعش را متولد کرد" },
+        { "en": "Mohsen Sazegara's insider IRGC knowledge is applied here to identify the psychological fracture points", "fa": "دانش درونی محسن سازگارا از سپاه در اینجا برای شناسایی نقاط شکست روانی به کار گرفته می‌شود" }
+      ]
+    }
+  ],
+  "phasesEyebrow": {
+    "en": "The 6-Phase Transition Timeline",
+    "fa": "جدول زمانی گذار ۶ مرحله‌ای"
+  },
+  "phasesTitle": {
+    "en": "A Strictly Chronological, Managed Transition",
+    "fa": "یک گذار مدیریت‌شده و کاملاً متوالی"
+  },
+  "phasesIntro": {
+    "en": "The transition is not designed as an immediate, chaotic overthrow. The ITC blueprint dictates a strictly chronological sequence to manage the power vacuum and prevent societal collapse. The most critical design principle: during the emergency phase, contentious debates about the future state's exact structure are PROHIBITED — deferred to the Constituent Assembly to preserve coalition unity.",
+    "fa": "گذار به عنوان یک سرنگونی آنی و آشوبناک طراحی نشده است. مهم‌ترین اصل طراحی: در طول فاز اضطراری، بحث‌های بحث‌برانگیز درباره ساختار دقیق دولت آینده ممنوع است — برای حفظ انسجام ائتلاف به مجلس مؤسسان موکول می‌شود."
+  },
+  "phases": [
+    {
+      "number": { "en": "01", "fa": "۰۱" },
+      "phase": { "en": "Pre-Collapse", "fa": "پیش از سقوط" },
+      "priority": { "en": "Coalition building · Civil disobedience · Diplomatic isolation", "fa": "ائتلاف‌سازی · نافرمانی مدنی · انزوای دیپلماتیک" },
+      "authority": { "en": "Islamic Republic (Target)", "fa": "جمهوری اسلامی (هدف)" },
+      "color": "#7c72e8",
+      "items": [
+        { "en": "Broad coalition building across all opposition factions", "fa": "ائتلاف‌سازی گسترده در تمام جناح‌های اپوزیسیون" },
+        { "en": "Civil society strengthening and grassroots organizing inside Iran", "fa": "تقویت جامعه مدنی و سازماندهی پایه داخل ایران" },
+        { "en": "Intelligence gathering to fracture regime cohesion from within", "fa": "اطلاعات‌گیری برای شکستن انسجام رژیم از درون" },
+        { "en": "Diplomatic lobbying to align international actors against the Islamic Republic", "fa": "لابی دیپلماتیک برای همسوسازی بازیگران بین‌المللی علیه جمهوری اسلامی" },
+        { "en": "Pre-positioning of key ITC assets and contacts for rapid activation upon collapse", "fa": "پیش‌قراردادن دارایی‌ها و مخاطبین کلیدی شورا برای فعال‌سازی سریع پس از سقوط" }
+      ]
+    },
+    {
+      "number": { "en": "02", "fa": "۰۲" },
+      "phase": { "en": "Collapse & Power Vacuum", "fa": "سقوط و خلاء قدرت" },
+      "priority": { "en": "Technical administration · Utility maintenance · Military amnesty", "fa": "مدیریت فنی · تداوم خدمات · عفو نظامی" },
+      "authority": { "en": "ITC Provisional Government", "fa": "دولت موقت شورا" },
+      "color": "#ef5350",
+      "items": [
+        { "en": "As the regime loses its monopoly on violence, the ITC immediately activates as a pre-planned shadow government", "fa": "با از دست دادن انحصار خشونت توسط رژیم، شورا فوری به عنوان یک دولت سایه از پیش برنامه‌ریزی‌شده فعال می‌شود" },
+        { "en": "Operational priority ABRUPTLY SHIFTS from political opposition to technical administration", "fa": "اولویت عملیاتی ناگهانی تغییر می‌کند از مخالفت سیاسی به مدیریت فنی" },
+        { "en": "First 72 hours: secure continuity of water, electricity, and municipal services — this is the #1 priority", "fa": "۷۲ ساعت اول: تضمین تداوم آب، برق و خدمات شهری — اولویت شماره ۱" },
+        { "en": "Blanket amnesty offers to Artesh lower and middle ranks activated simultaneously", "fa": "پیشنهادات عفو کلی به رتبه‌های پایین و میانی ارتش به طور همزمان فعال می‌شوند" },
+        { "en": "Secure national borders to prevent opportunistic external interference", "fa": "تأمین امنیت مرزهای ملی برای جلوگیری از دخالت خارجی فرصت‌طلبانه" },
+        { "en": "The Mathematics of the Power Vacuum: if civilians have water and electricity, they do not turn to warlords", "fa": "اگر شهروندان آب و برق داشته باشند، به سمت جنگ‌سالاران نمی‌روند" }
+      ]
+    },
+    {
+      "number": { "en": "03", "fa": "۰۳" },
+      "phase": { "en": "Emergency Interim Period", "fa": "دوره موقت اضطراری" },
+      "priority": { "en": "Macro-stabilization · Sanctions removal · Deferred decisions", "fa": "تثبیت کلان · رفع تحریم‌ها · تصمیمات موکول‌شده" },
+      "authority": { "en": "ITC Provisional Government", "fa": "دولت موقت شورا" },
+      "color": "#ff9a42",
+      "items": [
+        { "en": "Duration: 100–180 days", "fa": "مدت: ۱۰۰–۱۸۰ روز" },
+        { "en": "The Provisional Government (drawn from ITC + allied opposition coalitions) acts as a temporary, technocratic caretaker ONLY", "fa": "دولت موقت فقط به عنوان یک سرپرست موقت و تکنوکراتیک عمل می‌کند" },
+        { "en": "CRITICAL: The policy of DEFERRED FUNDAMENTAL DECISIONS — debates over the exact nature of the future state (federal vs. unitary, republic vs. constitutional monarchy) are STRICTLY PROHIBITED by the interim government", "fa": "سیاست تصمیمات بنیادی موکول‌شده: بحث‌ها درباره ماهیت دقیق دولت آینده توسط دولت موقت ممنوع است" },
+        { "en": "This deferral is not ideological uncertainty — it is a calculated mechanism to preserve coalition unity during the most volatile window", "fa": "این تعویق عدم قطعیت ایدئولوژیک نیست — یک مکانیزم محاسبه‌شده برای حفظ انسجام ائتلاف در بحرانی‌ترین بازه است" },
+        { "en": "Economic triage: secure emergency international financial aid, stabilize the national currency, ensure food and medicine logistics", "fa": "تریاژ اقتصادی: تضمین کمک مالی اضطراری بین‌المللی، تثبیت ارز ملی، تضمین لجستیک غذا و دارو" },
+        { "en": "International community lifts sanctions upon regime collapse — this is the economic lifeline the entire stabilization depends on", "fa": "جامعه بین‌المللی تحریم‌ها را پس از سقوط رژیم برمی‌دارد — این خط حیاتی اقتصادی است که کل تثبیت به آن بستگی دارد" },
+        { "en": "Technical ministries (Water, Power, Municipal Services) continue operating seamlessly under Provisional Government caretakers", "fa": "وزارتخانه‌های فنی (آب، برق، خدمات شهری) بدون وقفه تحت سرپرستان دولت موقت به کار ادامه می‌دهند" }
+      ]
+    },
+    {
+      "number": { "en": "04", "fa": "۰۴" },
+      "phase": { "en": "Constituent Assembly Elections", "fa": "انتخابات مجلس مؤسسان" },
+      "priority": { "en": "Free, fair, competitive elections · Legal framework drafting", "fa": "انتخابات آزاد، منصفانه، رقابتی · تهیه پیش‌نویس چارچوب قانونی" },
+      "authority": { "en": "Constituent Assembly", "fa": "مجلس مؤسسان" },
+      "color": "#ffd166",
+      "items": [
+        { "en": "Once basic stability is achieved, the interim authority facilitates free, fair, and competitive national elections", "fa": "پس از دستیابی به ثبات پایه، دولت موقت انتخابات ملی آزاد، منصفانه و رقابتی را تسهیل می‌کند" },
+        { "en": "The Assembly is tasked SOLELY with drafting the new democratic constitution — no executive authority", "fa": "مجلس فقط برای تهیه پیش‌نویس قانون اساسی دموکراتیک جدید مأموریت دارد — بدون اختیار اجرایی" },
+        { "en": "Composition determined by competitive national elections — all political factions may participate", "fa": "ترکیب از طریق انتخابات ملی رقابتی تعیین می‌شود — تمام جناح‌های سیاسی می‌توانند شرکت کنند" },
+        { "en": "The DEFERRED FUNDAMENTAL DECISIONS from Phase 3 are now resolved here: federal structure, exact form of democratic government", "fa": "تصمیمات بنیادی موکول‌شده از مرحله سوم در اینجا حل‌وفصل می‌شوند: ساختار فدرال، شکل دقیق حکومت دموکراتیک" },
+        { "en": "The Constituent Assembly cannot expand its own powers — strictly a drafting body", "fa": "مجلس مؤسسان نمی‌تواند اختیارات خود را گسترش دهد — صرفاً یک نهاد تهیه پیش‌نویس است" },
+        { "en": "Consults ethnic minority representatives, regional councils, civil society, and international democratic institutions", "fa": "با نمایندگان اقلیت‌های قومی، شوراهای منطقه‌ای، جامعه مدنی و نهادهای دموکراتیک بین‌المللی مشورت می‌کند" }
+      ]
+    },
+    {
+      "number": { "en": "05", "fa": "۰۵" },
+      "phase": { "en": "Constitutional Referendum", "fa": "همه‌پرسی قانون اساسی" },
+      "priority": { "en": "Final popular ratification of the new constitution", "fa": "تصویب نهایی مردمی قانون اساسی جدید" },
+      "authority": { "en": "National Electorate", "fa": "رأی‌دهندگان ملی" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "The drafted constitution is presented to the entire Iranian populace for a final, binding national vote", "fa": "قانون اساسی تهیه‌شده برای یک رأی ملی نهایی و الزام‌آور به تمام مردم ایران ارائه می‌شود" },
+        { "en": "No provisional body can permanently alter the fundamental fabric of the state — this referendum is the only legitimate source of constitutional authority", "fa": "هیچ نهاد موقتی نمی‌تواند پارچه بنیادی دولت را به طور دائم تغییر دهد" },
+        { "en": "Unrestricted public debate preceding the referendum across all media platforms", "fa": "بحث عمومی نامحدود قبل از همه‌پرسی در تمام رسانه‌ها" },
+        { "en": "International observation of the referendum process", "fa": "ناظران بین‌المللی" },
+        { "en": "If rejected: Constituent Assembly revises and re-submits — no return to the old system", "fa": "در صورت رد: مجلس مؤسسان بازنگری می‌کند و مجدداً ارائه می‌دهد — بازگشت به سیستم قدیمی ممکن نیست" }
+      ]
+    },
+    {
+      "number": { "en": "06", "fa": "۰۶" },
+      "phase": { "en": "Final Transfer of Power", "fa": "انتقال نهایی قدرت" },
+      "priority": { "en": "Dissolution of all interim bodies · Full democratic handover", "fa": "انحلال تمام نهادهای موقت · تحویل کامل دموکراتیک" },
+      "authority": { "en": "Elected National Parliament", "fa": "پارلمان ملی منتخب" },
+      "color": "#8B5CF6",
+      "items": [
+        { "en": "Upon ratification of the new constitution, the Provisional Government DISSOLVES ITSELF", "fa": "پس از تصویب قانون اساسی جدید، دولت موقت خود را منحل می‌کند" },
+        { "en": "All executive and legislative authority transferred to the newly elected, permanent constitutional government", "fa": "تمام اختیارات اجرایی و قانونگذاری به دولت دائمی جدید منتقل می‌شود" },
+        { "en": "The ITC ceases to exist as a governing entity — it was always designed as a temporary instrument", "fa": "شورا به عنوان یک نهاد حاکم وجود ندارد — همیشه به عنوان ابزاری موقت طراحی شده بود" },
+        { "en": "Elected National Parliament and local provincial councils assume their permanent mandates", "fa": "پارلمان ملی منتخب و شوراهای استانی محلی مأموریت‌های دائمی خود را بر عهده می‌گیرند" },
+        { "en": "The transition is complete: a secular, representative parliamentary democracy with decentralized ethno-federalist administration is operational", "fa": "گذار کامل است: یک دموکراسی پارلمانی سکولار با اداره فدرالیستی قومی غیرمتمرکز عملیاتی است" }
+      ]
+    }
+  ],
+  "instEyebrow": {
+    "en": "Institutional Targeting Policy",
+    "fa": "سیاست هدف‌گیری نهادی"
+  },
+  "instTitle": {
+    "en": "Continuity Over Destruction — Learning from MENA Failures",
+    "fa": "تداوم به جای تخریب — آموختن از شکست‌های منا"
+  },
+  "instIntro": {
+    "en": "The ITC explicitly studied the catastrophic consequences of total state dismantling in the MENA region. The ITC's institutional policy is built on the principle of INSTITUTIONAL CONTINUITY — not tabula rasa destruction. This distinguishes it sharply from both the Mousavi three-stage model and the Civil Society Charter's dissolution demands.",
+    "fa": "شورا به طور صریح از پیامدهای فاجعه‌بار برچیدن کامل دولت در منطقه خاورمیانه و شمال آفریقا مطالعه کرده است. سیاست نهادی شورا بر اصل تداوم نهادی بنا شده است — نه تخریب کامل. این آن را به طور تیزی از هم مدل سه‌مرحله‌ای موسوی و هم خواسته‌های انحلال منشور جامعه مدنی متمایز می‌کند."
+  },
+  "institutions": [
+    {
+      "icon": "⚔️",
+      "title": { "en": "Artesh (Conventional Armed Forces)", "fa": "ارتش (نیروهای مسلح رسمی)" },
+      "sub": { "en": "Policy: Co-optation and Integration", "fa": "سیاست: جذب و ادغام" },
+      "color": "#69d98c",
+      "policy": {
+        "label": { "en": "POLICY STANCE", "fa": "موضع سیاستی" },
+        "text": { "en": "Active targeting of lower and middle ranks with blanket amnesty offers + guaranteed integration into the new state's security architecture, provided they abandon the Supreme Leader and stand down during the popular uprising.", "fa": "هدف‌گیری فعال رتبه‌های پایین و میانی با پیشنهادات عفو کلی + ادغام تضمین‌شده در معماری امنیتی دولت جدید، مشروط به ترک رهبری و کنار کشیدن در طول قیام مردمی." }
+      },
+      "implication": {
+        "label": { "en": "GEOPOLITICAL LOGIC", "fa": "منطق ژئوپلیتیک" },
+        "text": { "en": "Securing conventional military loyalty retains a trained institutional force to secure national borders against external opportunistic threats and maintain public order against internal reactionary violence.", "fa": "تضمین وفاداری نیروی نظامی رسمی یک نیروی نهادی آموزش‌دیده را برای تأمین امنیت مرزهای ملی در برابر تهدیدات خارجی و حفظ نظم عمومی در برابر خشونت ضدانقلابی داخلی حفظ می‌کند." }
+      },
+      "note": { "en": "This directly inverts the catastrophic US de-Baathification policy in Iraq (2003) that disbanded the Iraqi army, creating a mass of armed, disenfranchised Sunni insurgents — the exact conditions that birthed ISIS. The ITC learned this lesson explicitly.", "fa": "این مستقیماً سیاست فاجعه‌بار بعثی‌زدایی آمریکا در عراق ۲۰۰۳ را معکوس می‌کند که ارتش عراق را منحل کرد و شرایطی ایجاد کرد که داعش را متولد کرد." }
+    },
+    {
+      "icon": "🔱",
+      "title": { "en": "IRGC (Islamic Revolutionary Guard Corps)", "fa": "سپاه پاسداران انقلاب اسلامی" },
+      "sub": { "en": "Policy: Not specified in official text — analytical inference required", "fa": "سیاست: در متن رسمی مشخص نشده — استنتاج تحلیلی لازم است" },
+      "color": "#ef5350",
+      "policy": {
+        "label": { "en": "POLICY STANCE", "fa": "موضع سیاستی" },
+        "text": { "en": "Not explicitly specified in ITC official documents. However, the presence of Mohsen Sazegara — an original IRGC founding member — as Director for Civil Resistance strongly implies the ITC possesses targeted intelligence operations aimed at fracturing the IRGC command structure from within.", "fa": "در اسناد رسمی شورا به صراحت مشخص نشده. با این حال، حضور محسن سازگارا — یکی از اعضای بنیانگذار اصلی سپاه — به عنوان مدیر مقاومت مدنی به شدت نشان می‌دهد شورا عملیات اطلاعاتی هدفمند برای شکستن ساختار فرماندهی سپاه از درون دارد." }
+      },
+      "implication": {
+        "label": { "en": "ANALYTICAL INFERENCE", "fa": "استنتاج تحلیلی" },
+        "text": { "en": "The ITC's strict UDHR adherence and secular state mandate structurally require that the IRGC's ideological enforcement functions are permanently terminated. The absence of explicit dismantlement language likely reflects strategic ambiguity — leaving the IRGC's fate as a negotiating instrument for defection incentivization.", "fa": "رعایت دقیق شورا از اعلامیه جهانی حقوق بشر و مأموریت دولت سکولار ساختاری مستلزم پایان دائمی کارکردهای اجرای ایدئولوژیک سپاه است. غیاب زبان برچیدن صریح احتمالاً ابهام استراتژیک را منعکس می‌کند." }
+      },
+      "note": null
+    },
+    {
+      "icon": "🏛️",
+      "title": { "en": "Technical Ministries (Water, Power, Municipal)", "fa": "وزارتخانه‌های فنی (آب، برق، خدمات شهری)" },
+      "sub": { "en": "Policy: Immediate Preservation and Utilization", "fa": "سیاست: حفظ فوری و بهره‌برداری" },
+      "color": "#ffd166",
+      "policy": {
+        "label": { "en": "POLICY STANCE", "fa": "موضع سیاستی" },
+        "text": { "en": "The Provisional Government focuses HEAVILY on the technical administration of the state during the power vacuum. The objective is to ensure the Ministries of Water, Power, and Municipal Services continue operating seamlessly while political factions debate the constitution.", "fa": "دولت موقت توجه ویژه‌ای به مدیریت فنی دولت در طول خلاء قدرت دارد. هدف این است که وزارتخانه‌های آب، برق و خدمات شهری در حالی که جناح‌های سیاسی قانون اساسی را بحث می‌کنند بدون وقفه به کار خود ادامه دهند." }
+      },
+      "implication": {
+        "label": { "en": "THE MATHEMATICS OF THE POWER VACUUM", "fa": "ریاضیات خلاء قدرت" },
+        "text": { "en": "Historical data from MENA transitions indicates the actual kinetic collapse of an authoritarian regime is rarely the terminal threat — the subsequent administrative vacuum is where state failure occurs. If municipal services remain online, the civilian population is drastically less likely to turn to localized warlords or reactionary regime remnants for basic survival resources.", "fa": "داده‌های تاریخی از گذارهای منطقه نشان می‌دهد فروپاشی واقعی یک رژیم اقتدارگرا به ندرت تهدید نهایی است — خلاء اداری پس از آن جایی است که شکست دولتی رخ می‌دهد." }
+      },
+      "note": null
+    },
+    {
+      "icon": "⚖️",
+      "title": { "en": "Clerical Courts (Special Clerical Courts)", "fa": "دادگاه‌های روحانی (دادگاه ویژه روحانیت)" },
+      "sub": { "en": "Policy: Structurally implied eradication — not explicitly specified", "fa": "سیاست: ریشه‌کنی ضمنی ساختاری — در متن رسمی مشخص نشده" },
+      "color": "#ba68c8",
+      "policy": {
+        "label": { "en": "POLICY STANCE", "fa": "موضع سیاستی" },
+        "text": { "en": "Not specified in official text. However, the ITC's core requirements of 'Independent Judiciary free from political or security coercion' and absolute 'Separation of Religion and State' structurally guarantee that the parallel theocratic justice system and Special Clerical Courts will be entirely eradicated.", "fa": "در متن رسمی مشخص نشده. با این حال، الزامات محوری شورا مبنی بر 'قوه قضاییه مستقل آزاد از اجبار سیاسی یا امنیتی' و 'جدایی مطلق دین از دولت' ساختاری تضمین می‌کند که سیستم عدالت تئوکراتیک موازی کاملاً ریشه‌کن خواهد شد." }
+      },
+      "implication": {
+        "label": { "en": "ANALYTICAL INFERENCE", "fa": "استنتاج تحلیلی" },
+        "text": { "en": "The new secular constitution nullifies religious decrees as a basis for national law — which mathematically eliminates the jurisdiction of all clerical courts. The exact mechanical dismantling process is left unspecified, likely to avoid alienating moderate religious actors during coalition formation.", "fa": "قانون اساسی سکولار جدید احکام مذهبی را به عنوان مبنای قانون ملی باطل می‌کند — که ریاضیاتاً صلاحیت تمام دادگاه‌های روحانی را از بین می‌برد." }
+      },
+      "note": null
+    }
+  ],
+  "polEyebrow": {
+    "en": "Key Policy Stances",
+    "fa": "مواضع سیاستی کلیدی"
+  },
+  "polTitle": {
+    "en": "Four Core Policy Frameworks",
+    "fa": "چهار چارچوب سیاستی محوری"
+  },
+  "polIntro": {
+    "en": "The ITC's policy positions are calibrated to be internally consistent: each position enables the others. Sanctions relief depends on foreign policy normalization, which depends on abandoning proxies, which depends on the federalist structure reducing internal ethnic unrest.",
+    "fa": "مواضع سیاستی شورا به گونه‌ای کالیبره شده‌اند که از نظر داخلی منسجم باشند: هر موضع موضع دیگری را امکان‌پذیر می‌سازد."
+  },
+  "policies": [
+    {
+      "icon": "💹",
+      "title": { "en": "Economy: Triage Then Regulated Free Market", "fa": "اقتصاد: تریاژ سپس بازار آزاد تنظیم‌شده" },
+      "color": "#ffd166",
+      "items": [
+        { "en": "REJECTS both Marxist wealth confiscation AND IRGC-crony predatory capitalism", "fa": "هم مصادره ثروت مارکسیستی و هم سرمایه‌داری غارتگر وابسته به سپاه را رد می‌کند" },
+        { "en": "Phase 1 — Crisis Triage: immediate lifting of international sanctions upon collapse · emergency international financial aid · stabilize the national currency · ensure food and medicine logistics", "fa": "مرحله ۱ — تریاژ بحران: رفع فوری تحریم‌های بین‌المللی · کمک مالی اضطراری بین‌المللی · تثبیت ارز ملی" },
+        { "en": "Phase 2 — Long-term: tethered to UN Sustainable Development Goals · social justice guarantees: food, clothing, housing, comprehensive healthcare, social security for all citizens", "fa": "مرحله ۲ — بلندمدت: گره خورده به اهداف توسعه پایدار سازمان ملل · تضمین‌های عدالت اجتماعی" },
+        { "en": "Promotes honorable employment as a state mandate", "fa": "اشتغال شرافتمندانه را به عنوان مأموریت دولتی ترویج می‌دهد" },
+        { "en": "International financial institutions (IMF, World Bank) are the primary stabilization mechanism — this is structurally transactional: democratic compliance is traded for economic lifelines", "fa": "شورا ساختاری رعایت ژئوپلیتیک را با خطوط حیاتی اقتصادی مبادله می‌کند" },
+        { "en": "No explicit nationalization of IRGC economic assets in official text — strategic omission", "fa": "هیچ ملی‌سازی صریحی از دارایی‌های اقتصادی سپاه در متن رسمی وجود ندارد — حذف استراتژیک" }
+      ]
+    },
+    {
+      "icon": "🗺️",
+      "title": { "en": "Minorities & Geography: Ethno-Federalism", "fa": "اقلیت‌ها و جغرافیا: فدرالیسم قومی" },
+      "color": "#69d98c",
+      "items": [
+        { "en": "The ITC is the ONLY major opposition organization to explicitly propose an ethno-federal system", "fa": "شورا تنها سازمان اپوزیسیون بزرگی است که صراحتاً یک سیستم فدرال قومی پیشنهاد می‌دهد" },
+        { "en": "Decentralizes power, wealth, and administrative control to the provinces", "fa": "قدرت، ثروت و کنترل اداری را به استان‌ها تفویض می‌کند" },
+        { "en": "Legally recognizes the political, social, and cultural rights of all ethnic groups", "fa": "حقوق سیاسی، اجتماعی و فرهنگی تمام گروه‌های قومی را به رسمیت می‌شناسد" },
+        { "en": "Mother-tongue education alongside Persian: a constitutional right — not a cultural accommodation", "fa": "آموزش زبان مادری در کنار فارسی رسمی: یک حق قانون اساسی — نه تطبیق فرهنگی" },
+        { "en": "Devolves regional development budgets entirely to locally elected bodies", "fa": "بودجه‌های توسعه منطقه‌ای را کاملاً به نهادهای منتخب محلی واگذار می‌کند" },
+        { "en": "The federalism functions as a conflict mitigation protocol: by structurally incentivizing ethno-nationalist groups (Komala) to participate in the central democratic framework rather than pursuing violent secession", "fa": "فدرالیسم به عنوان یک پروتکل کاهش تعارض عمل می‌کند: با ایجاد انگیزه ساختاری برای گروه‌های ملی‌گرای قومی برای مشارکت در چارچوب مرکزی دموکراتیک به جای جدایی مسلحانه" },
+        { "en": "Provincial borders may be redrawn to better reflect ethnic and regional realities — implied by the federalist mandate", "fa": "مرزهای استانی ممکن است برای بهتر منعکس کردن واقعیت‌های قومی و منطقه‌ای بازترسیم شوند" }
+      ]
+    },
+    {
+      "icon": "⚖️",
+      "title": { "en": "Justice & Retribution: Amnesty as Geopolitics", "fa": "عدالت و مجازات: عفو به عنوان ژئوپلیتیک" },
+      "color": "#ba68c8",
+      "items": [
+        { "en": "Lower and middle ranks of Artesh/security forces: BLANKET AMNESTY — in exchange for defection and standing down", "fa": "رتبه‌های پایین و میانی ارتش/نیروهای امنیتی: عفو کلی — در ازای فرار و کنار کشیدن" },
+        { "en": "High-level regime members: not specified in official text", "fa": "اعضای ارشد رژیم: در متن رسمی مشخص نشده" },
+        { "en": "The ITC's strict UDHR adherence mathematically precludes arbitrary revolutionary executions", "fa": "رعایت دقیق UDHR شورا اعدام‌های انقلابی خودسرانه را ریاضیاتاً منتفی می‌کند" },
+        { "en": "Framework heavily implies reliance on formalized transitional justice courts meeting international legal standards — likely The Hague-compatible mechanisms", "fa": "چارچوب به شدت نشان‌دهنده اتکا به دادگاه‌های رسمی عدالت انتقالی است که معیارهای حقوقی بین‌المللی را رعایت می‌کنند" },
+        { "en": "The amnesty strategy is a calculated geopolitical maneuver: it functions as a wedge, separating the ideological apex from the operational base of the coercive apparatus", "fa": "استراتژی عفو یک مانور ژئوپلیتیک محاسبه‌شده است: به عنوان یک اهرم عمل می‌کند و قله ایدئولوژیک را از پایه عملیاتی دستگاه اجباری جدا می‌کند" },
+        { "en": "Iraq post-mortem informs this stance explicitly: blanket de-Baathification created the conditions for ISIS — the ITC inverts this", "fa": "درس عراق: بعثی‌زدایی کامل شرایطی ایجاد کرد که داعش را متولد کرد — شورا این را صریحاً معکوس می‌کند" }
+      ]
+    },
+    {
+      "icon": "🌍",
+      "title": { "en": "Foreign Policy: Geopolitical Compliance for Economic Lifelines", "fa": "سیاست خارجی: رعایت ژئوپلیتیک به عنوان تریاژ اقتصادی" },
+      "color": "#8B5CF6",
+      "items": [
+        { "en": "Total reversal of the Islamic Republic's geopolitical posture", "fa": "چرخش کامل موضع ژئوپلیتیک جمهوری اسلامی" },
+        { "en": "Foreign policy formulated purely on national interests, international law, and mutual respect", "fa": "سیاست خارجی صرفاً بر اساس منافع ملی، حقوق بین‌الملل و احترام متقابل تدوین می‌شود" },
+        { "en": "Peaceful and friendly relations with ALL MENA neighbors, the United States, and Europe", "fa": "روابط صلح‌آمیز و دوستانه با تمام همسایگان منطقه، ایالات متحده و اروپا" },
+        { "en": "The Abraham Accords (Israel-UAE peace treaty) validated as 'a positive and constructive step' — signals willingness to integrate into the emerging MENA security architecture", "fa": "توافق صلح اسرائیل و امارات 'یک گام مثبت و سازنده' ارزیابی شده — اشتیاق برای ادغام در معماری امنیتی در حال ظهور خاورمیانه" },
+        { "en": "Immediate termination of proxy warfare: Hezbollah, Houthis, PMF, and all affiliated networks", "fa": "پایان فوری به تمام جنگ نیابتی: حزب‌الله، حوثی‌ها، الحشد الشعبی" },
+        { "en": "Environmental policy: climate change designated a 'number one global emergency' — legally commits the future state to all international environmental protection agreements", "fa": "سیاست محیطی: تغییرات آب‌وهوایی به عنوان 'اضطرار جهانی شماره یک' تعیین شده — دولت آینده را به تمام توافق‌نامه‌های بین‌المللی حفاظت محیط زیست متعهد می‌کند" },
+        { "en": "Nuclear weapons: not specified in official text — but sanctions relief logically requires abandoning all nuclear weapons activities (mathematical necessity for economic survival)", "fa": "سلاح‌های هسته‌ای: در متن رسمی مشخص نشده — اما رفع تحریم‌ها منطقاً رها کردن برنامه هسته‌ای را ضروری می‌کند" },
+        { "en": "The ITC is structurally trading geopolitical compliance for the economic lifelines required to survive the critical 180-day transition window", "fa": "شورا ساختاری رعایت ژئوپلیتیک را با خطوط حیاتی اقتصادی مورد نیاز برای بقا در پنجره بحرانی ۱۸۰ روزه مبادله می‌کند" }
+      ]
+    }
+  ],
+  "synthEyebrow": {
+    "en": "Architectural Synthesis",
+    "fa": "سنتز معماری"
+  },
+  "synthTitle": {
+    "en": "Four Second-Order Geopolitical Implications",
+    "fa": "چهار پیامد ژئوپلیتیک مرتبه دوم"
+  },
+  "synthIntro": {
+    "en": "The ITC blueprint produces second and third-order systemic effects that distinguish it from all other Iranian opposition proposals. These are not ideological claims — they are engineering observations derived from the blueprint's structural design.",
+    "fa": "طرح شورا پیامدهای سیستمی مرتبه دوم و سوم تولید می‌کند که آن را از تمام پیشنهادات دیگر اپوزیسیون ایرانی متمایز می‌کند."
+  },
+  "synthesis": [
+    {
+      "number": { "en": "01", "fa": "۰۱" },
+      "title": { "en": "The Mathematics of the Power Vacuum", "fa": "ریاضیات خلاء قدرت" },
+      "body": { "en": "Historical MENA data: the actual kinetic collapse of an authoritarian regime is rarely the terminal threat. The subsequent administrative vacuum is where state failure occurs. The ITC's obsessive focus on the Emergency Phase — specifically the technocratic continuity of water, electricity, and municipal services — mathematically reduces the variables that lead to civic panic and warlordism. This is the single most architecturally distinctive feature of the ITC blueprint.", "fa": "داده‌های تاریخی منطقه: فروپاشی واقعی یک رژیم اقتدارگرا به ندرت تهدید نهایی است. خلاء اداری پس از آن جایی است که شکست دولتی رخ می‌دهد. تمرکز وسواس‌گونه شورا بر فاز اضطراری — به ویژه تداوم تکنوکراتیک آب، برق و خدمات شهری — متغیرهایی را که به هراس شهروندی و جنگ‌سالاری منجر می‌شوند ریاضیاتاً کاهش می‌دهد." },
+      "color": "#7c72e8"
+    },
+    {
+      "number": { "en": "02", "fa": "۰۲" },
+      "title": { "en": "The Co-optation of the Coercive Apparatus", "fa": "جذب دستگاه اجبار" },
+      "body": { "en": "The blanket amnesty offer to Artesh lower/middle ranks is a wedge strategy. It separates the ideological apex (Supreme Leader, senior IRGC commanders) from the operational base (conscripts, mid-level officers), depriving the regime of kinetic suppression force. Simultaneously, integrating these forces preempts the formation of heavily armed, disenfranchised insurgencies — the exact systemic failure that birthed insurgent groups following the de-Baathification of the Iraqi military.", "fa": "پیشنهاد عفو کلی به رتبه‌های پایین/میانی ارتش یک استراتژی اهرمی است. قله ایدئولوژیک را از پایه عملیاتی جدا می‌کند و رژیم را از توان سرکوبگری محروم می‌کند. به طور همزمان، ادغام این نیروها از شکل‌گیری شورش‌های مسلح و بی‌سرمایه‌گذاری جلوگیری می‌کند — شکست سیستمی دقیقی که گروه‌های شورشی را پس از بعثی‌زدایی ارتش عراق به وجود آورد." },
+      "color": "#ef5350"
+    },
+    {
+      "number": { "en": "03", "fa": "۰۳" },
+      "title": { "en": "Ethno-Federalism as a Conflict Mitigation Protocol", "fa": "فدرالیسم قومی به عنوان پروتکل کاهش تعارض" },
+      "body": { "en": "Iran is effectively a multi-ethnic empire masquerading as a homogeneous nation-state. The ITC's federalist commitment — specifically mother-tongue education rights — acts as a systemic pressure release valve. By devolving wealth and administrative power to locally elected provincial councils, the ITC structurally incentivizes ethno-nationalist groups (Komala, Baluch organizations) to participate in the central democratic framework rather than pursuing violent secession — converting centrifugal forces into centripetal stakeholders.", "fa": "ایران به طور مؤثر یک امپراتوری چندقومی است که خود را به عنوان یک دولت-ملت همگن نشان می‌دهد. تعهد فدرالیستی شورا — به ویژه حقوق آموزش زبان مادری — به عنوان یک سوپاپ فشار سیستمی عمل می‌کند. با تفویض ثروت و قدرت اداری به شوراهای استانی منتخب محلی، شورا گروه‌های ملی‌گرای قومی را ساختاری تشویق می‌کند که در چارچوب مرکزی دموکراتیک مشارکت کنند نه جدایی مسلحانه را دنبال کنند." },
+      "color": "#69d98c"
+    },
+    {
+      "number": { "en": "04", "fa": "۰۴" },
+      "title": { "en": "Geopolitical Compliance as Economic Triage", "fa": "رعایت ژئوپلیتیک به عنوان تریاژ اقتصادی" },
+      "body": { "en": "The ITC's foreign policy is not merely ideological — it is transactional. Upon collapse, the state treasury will be depleted and the national currency will face hyperinflationary pressure. The transition can only survive an injection of emergency international financial aid. Therefore, the ITC's entire foreign policy posture — MENA peace accords, abandoning proxies, US/EU normalization — is structurally trading geopolitical compliance for the economic lifelines required to survive the critical 180-day transition window.", "fa": "سیاست خارجی شورا صرفاً ایدئولوژیک نیست — معاملاتی است. پس از سقوط، خزانه دولتی احتمالاً تخلیه شده و ارز ملی با فشار ابرتورمی مواجه است. گذار تنها با تزریق کمک‌های مالی اضطراری بین‌المللی می‌تواند بقا یابد. بنابراین، تمام موضع سیاست خارجی شورا ساختاری رعایت ژئوپلیتیک را با خطوط حیاتی اقتصادی مورد نیاز برای بقا در پنجره بحرانی ۱۸۰ روزه مبادله می‌کند." },
+      "color": "#ffd166"
+    }
+  ],
+  "strengthsEyebrow": {
+    "en": "Strategic Assessment",
+    "fa": "ارزیابی استراتژیک"
+  },
+  "strengthsTitle": {
+    "en": "Organizational Strengths & Structural Weaknesses",
+    "fa": "نقاط قوت سازمانی و ضعف‌های ساختاری"
+  },
+  "strengthsIntro": {
+    "en": "An analyst-voice assessment of the ITC as an organizational blueprint — what makes it structurally distinctive, and where its documented gaps lie.",
+    "fa": "ارزیابی از منظر تحلیلگر از شورا به عنوان یک طرح سازمانی — آنچه آن را از نظر ساختاری متمایز می‌کند، و مستندات شکاف‌های موجود."
+  },
+  "strengths": {
+    "title": { "en": "Structural Strengths", "fa": "نقاط قوت ساختاری" },
+    "color": "#69d98c",
+    "items": [
+      { "en": "Institutional memory depth — Mohsen Sazegara's IRGC founding-member background gives the ITC unique insider knowledge of the security forces it seeks to co-opt. No other major Iranian opposition coalition has this credential.", "fa": "عمق حافظه نهادی — پیشینه عضو بنیانگذار سپاه محسن سازگارا به شورا دانش درونی منحصربه‌فردی از نیروهای امنیتی که به دنبال جذب آن‌هاست می‌دهد." },
+      { "en": "Clerical legitimacy bridge — Hassan Shariatmadari's family name carries weight in traditional Shia communities. The Shariatmadari marja line was the primary institutional challenger to Khomeini's Velayat-e Faqih within the clerical establishment.", "fa": "پل مشروعیت روحانی — نام خانوادگی شریعتمداری در جوامع شیعه سنتی وزن دارد. خط مرجعیت شریعتمداری چالشگر اصلی نهادی ولایت فقیه خمینی در دستگاه روحانی بود." },
+      { "en": "Ethnic coalition breadth — Abdullah Mohtadi's Komala participation means the ITC has buy-in from the Kurdish minority — the largest ethno-political minority in Iran. Among Iranian opposition groups, ethno-federalism is uniquely ITC's position.", "fa": "گستردگی ائتلاف قومی — مشارکت عبدالله مهتدی از کومله به معنای حمایت اقلیت کرد از شورا است — بزرگترین اقلیت قومی-سیاسی ایران." },
+      { "en": "Technocratic framing — The ITC's explicit framing as a 'shadow government and logistical planning unit' positions it as a post-political coordination body, reducing zero-sum competition with other opposition groups.", "fa": "چارچوب‌بندی تکنوکراتیک — معرفی صریح شورا به عنوان 'دولت سایه و واحد برنامه‌ریزی لجستیکی' آن را به عنوان یک نهاد هماهنگی پس از سیاسی قرار می‌دهد و رقابت صفر-جمع با سایر گروه‌های اپوزیسیون را کاهش می‌دهد." },
+      { "en": "FARA-registered US lobbying — AF International LLC's FARA registration gives the ITC formal legal standing for US government engagement that most Iranian opposition groups lack.", "fa": "لابی آمریکایی ثبت‌شده تحت FARA — ثبت FARA توسط AF International LLC به شورا جایگاه حقوقی رسمی برای تعامل با دولت آمریکا می‌دهد." },
+      { "en": "Deferred fundamental decisions — The Phase 03 deferral architecture is specifically designed to preserve coalition unity across ideological divides during the most volatile transition window.", "fa": "تصمیمات بنیادی موکول‌شده — معماری تعویق مرحله ۰۳ به طور خاص برای حفظ انسجام ائتلاف در میان اختلافات ایدئولوژیک در بحرانی‌ترین بازه گذار طراحی شده است." }
+    ]
+  },
+  "weaknesses": {
+    "title": { "en": "Documented Weaknesses", "fa": "ضعف‌های مستند" },
+    "color": "#ef5350",
+    "items": [
+      { "en": "Small leadership footprint — 7 named individuals does not constitute a mass movement. The ITC has not demonstrated an ability to mobilize significant numbers of activists inside or outside Iran.", "fa": "پایگاه رهبری کوچک — ۷ نفر یک جنبش توده‌ای را تشکیل نمی‌دهند. شورا توانایی بسیج تعداد قابل توجهی از فعالان داخل یا خارج ایران را نشان نداده است." },
+      { "en": "Ethno-federalism as political liability — While ethno-federalism is the ITC's distinctive commitment, it is deeply controversial among Persian-majority nationalists who fear it is a path to territorial fragmentation.", "fa": "فدرالیسم قومی به عنوان بار سیاسی — اگرچه فدرالیسم قومی تعهد متمایز شورا است، در میان ناسیونالیست‌های اکثریت فارس که آن را مسیری به تکه‌شدن ارضی می‌دانند عمیقاً بحث‌برانگیز است." },
+      { "en": "Monarchist opposition hostility — The ITC's explicit opposition to monarchy places it in direct conflict with the Pahlavi-camp coalition, foreclosing cooperation with the largest single diaspora political brand.", "fa": "خصومت اپوزیسیون سلطنت‌طلب — مخالفت صریح شورا با سلطنت آن را در تعارض مستقیم با ائتلاف کمپ پهلوی قرار می‌دهد و همکاری با بزرگترین برند سیاسی دیاسپورا را منتفی می‌کند." },
+      { "en": "No demonstrated inside-Iran organizational footprint — The three-track pressure matrix requires a coordinated inside-Iran organizational presence. The page does not document this. During the 2022 Woman Life Freedom uprising, the ITC was not a visibly prominent organizing force inside Iran.", "fa": "فاقد ردپای سازمانی مستند در داخل ایران — ماتریس فشار سه‌مسیری نیازمند حضور سازمانی هماهنگ در داخل ایران است. در قیام زن زندگی آزادی ۲۰۲۲، شورا یک نیروی سازماندهی برجسته داخل ایران نبود." },
+      { "en": "IRGC institutional policy gap — The IRGC policy is explicitly 'analytically inferred' rather than officially documented. This is the most significant gap in the ITC's publicly available plan — the IRGC controls Iran's primary power base and its fate is unspecified.", "fa": "شکاف سیاست نهادی سپاه — سیاست سپاه صراحتاً 'استنتاج تحلیلی' است نه مستندات رسمی. این مهم‌ترین شکاف در طرح در دسترس عموم شورا است." }
+    ]
+  },
+  "vulnEyebrow": {
+    "en": "Regime Vulnerability Analysis",
+    "fa": "تحلیل آسیب‌پذیری‌های رژیم"
+  },
+  "vulnTitle": {
+    "en": "Three Structural Pressure Points",
+    "fa": "سه نقطه فشار ساختاری"
+  },
+  "vulnIntro": {
+    "en": "The ITC's strategy is calibrated against three documented structural vulnerabilities of the Islamic Republic — each representing a pressure point where the regime's coherence can be fractured.",
+    "fa": "استراتژی شورا در برابر سه آسیب‌پذیری ساختاری مستند جمهوری اسلامی کالیبره شده است — هر کدام نمایانگر نقطه فشاری است که در آن انسجام رژیم می‌تواند شکسته شود."
+  },
+  "vulnerabilities": [
+    {
+      "regime": { "en": "Security Force Loyalty", "fa": "وفاداری نیروهای امنیتی" },
+      "regimeText": { "en": "IRGC loyalty to the Supreme Leader is conditional on continued resource access and political dominance. Artesh loyalty is more institutionally than ideologically rooted — conventional military personnel do not share the IRGC's ideological investment.", "fa": "وفاداری سپاه به رهبر معظم مشروط به دسترسی مستمر به منابع و سلطه سیاسی است. وفاداری ارتش بیشتر نهادی است تا ایدئولوژیک." },
+      "opp": { "en": "Amnesty + Reintegration Offer", "fa": "پیشنهاد عفو و ادغام" },
+      "oppText": { "en": "The ITC's blanket amnesty + guaranteed reintegration offer creates a credible defection incentive for Artesh lower/middle ranks. Mohsen Sazegara's insider IRGC knowledge enables targeted psychological operations to fracture the IRGC command structure from within.", "fa": "پیشنهاد عفو کلی شورا + ادغام تضمین‌شده یک انگیزه جداافتادن معتبر برای رتبه‌های پایین/میانی ارتش ایجاد می‌کند. دانش درونی سپاه محسن سازگارا عملیات روانی هدفمند را برای شکستن ساختار فرماندهی سپاه از درون ممکن می‌سازد." },
+      "color": "#ef5350"
+    },
+    {
+      "regime": { "en": "Economic Collapse Risk", "fa": "ریسک فروپاشی اقتصادی" },
+      "regimeText": { "en": "Sanctions + IRGC economic monopolization has produced chronic inflation and currency devaluation. The regime has no exit from the sanctions trap without geopolitical concessions it cannot make while maintaining the clerical system.", "fa": "تحریم‌ها + انحصار اقتصادی سپاه تورم مزمن و کاهش ارزش ارزی ایجاد کرده است. رژیم راه خروجی از تله تحریم‌ها بدون امتیازات ژئوپلیتیکی که نمی‌تواند در حالی که سیستم روحانی را حفظ کند بدهد، ندارد." },
+      "opp": { "en": "ITC's 180-Day Stabilization Plan", "fa": "طرح تثبیت ۱۸۰ روزه شورا" },
+      "oppText": { "en": "The ITC's emergency financial aid package + immediate sanctions relief upon regime collapse offers a credible alternative economic pathway. The transactional foreign policy (geopolitical compliance for economic lifelines) is specifically designed to exploit this structural vulnerability.", "fa": "بسته کمک مالی اضطراری شورا + رفع فوری تحریم‌ها پس از سقوط رژیم یک مسیر اقتصادی جایگزین معتبر ارائه می‌دهد. سیاست خارجی معاملاتی (رعایت ژئوپلیتیک در ازای خطوط حیاتی اقتصادی) به طور خاص برای بهره‌برداری از این آسیب‌پذیری ساختاری طراحی شده است." },
+      "color": "#ffd166"
+    },
+    {
+      "regime": { "en": "Ethnic Minority Alienation", "fa": "بیگانگی اقلیت‌های قومی" },
+      "regimeText": { "en": "Persian-nationalist centralism has alienated Kurds, Azeris, Arabs, and Baluchis who collectively represent 40%+ of Iran's population. The regime's suppression of minority languages and cultural autonomy creates permanent structural grievances.", "fa": "مرکزگرایی ناسیونالیسم فارسی کردها، آذربایجانی‌ها، عرب‌ها و بلوچ‌ها را که مجموعاً ۴۰%+ جمعیت ایران را تشکیل می‌دهند بیگانه کرده است." },
+      "opp": { "en": "Ethno-Federalist Constitutional Commitment", "fa": "تعهد قانون اساسی فدرالیستی قومی" },
+      "oppText": { "en": "The ITC's ethno-federalist constitutional commitment — specifically mother-tongue education rights and devolution of regional budgets — is the only opposition plan that addresses this structural grievance systemically. It converts potential separatist forces into invested democratic stakeholders.", "fa": "تعهد قانون اساسی فدرالیستی قومی شورا — به ویژه حقوق آموزش زبان مادری و واگذاری بودجه‌های منطقه‌ای — تنها طرح اپوزیسیونی است که این شکایت ساختاری را به صورت سیستمی مورد توجه قرار می‌دهد." },
+      "color": "#69d98c"
+    }
+  ],
+  "conclusion": {
+    "en": "\"The Iran Transition Council's blueprint is not a utopian manifesto, but rather a cold, calculated schematic designed to safely decommission a hostile, theocratic state apparatus while simultaneously standing up a decentralized, democratic replacement within a highly volatile geopolitical theater.\" — ITC Blueprint Analytical Summary",
+    "fa": "«طرح شورای مدیریت گذار ایران یک بیانیه آرمانی نیست، بلکه یک طرح سرد و محاسبه‌شده است که برای خاموش کردن ایمن یک دستگاه دولتی تئوکراتیک خصمانه و در عین حال راه‌اندازی همزمان یک جایگزین دموکراتیک غیرمتمرکز در یک تئاتر ژئوپلیتیک بسیار پرتلاطم طراحی شده است.» — خلاصه تحلیلی طرح شورا"
+  },
+  "source": {
+    "en": "Source: ITC Official Policy Documents · FARA Registration (AF International LLC) · ITC White Papers (iran-tc.com) · Middle East Forum · Foundation for Defense of Democracies · Launched September 2019",
+    "fa": "منبع: اسناد سیاستی رسمی شورا · ثبت FARA (AF International LLC) · کتاب‌های سفید شورا (iran-tc.com) · Middle East Forum · بنیاد دفاع از دموکراسی‌ها · تأسیس سپتامبر ۲۰۱۹"
+  },
+  "vulnRegimeLabel": {
+    "en": "REGIME POSITION",
+    "fa": "موضع رژیم"
+  },
+  "vulnOppLabel": {
+    "en": "OPPOSITION OPPORTUNITY",
+    "fa": "فرصت اپوزیسیون"
+  },
+  "analyticalNoteLabel": {
+    "en": "ANALYTICAL NOTE",
+    "fa": "یادداشت تحلیلی"
+  }
+}

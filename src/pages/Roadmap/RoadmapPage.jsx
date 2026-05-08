@@ -33,7 +33,7 @@ export default function RoadmapPage() {
     }, [blueprint]);
 
     return (
-        <div className="roadmap-page">
+        <div className="roadmap-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="roadmap-page-scanline" />
             <div className="roadmap-bg-grid" />
             <div className="roadmap-inner">

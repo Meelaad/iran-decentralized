@@ -40,8 +40,8 @@
     align-items: flex-start;
     gap: 12px;
     width: 260px;
-    background: rgba(10, 15, 22, 0.65);
-    border: 1px solid rgba(139, 92, 246, 0.12);
+    background: oklch(10% 0.015 215 / 0.65);
+    border: 1px solid var(--clr-accent-10);
     border-radius: 10px;
     padding: 14px 16px;
     backdrop-filter: blur(6px);
@@ -50,7 +50,7 @@
     cursor: default;
 }
 
-.fm-card:hover { border-color: rgba(139, 92, 246, 0.35); }
+.fm-card:hover { border-color: var(--clr-accent-35); }
 
 .fm-card-icon {
     font-size: 22px;
@@ -65,7 +65,7 @@
     font-size: clamp(12px, 0.9vw, 15px);
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: #CCE3F0;
+    color: oklch(88% 0.03 220);
     margin-bottom: 4px;
     font-family: 'intelone-mono', monospace;
     white-space: nowrap;
@@ -75,7 +75,7 @@
 
 .fm-card-desc {
     font-size: clamp(11px, 0.85vw, 14px);
-    color: #607c8e;
+    color: oklch(52% 0.04 220);
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -95,9 +95,9 @@
 
 /* Light mode */
 [data-theme="light"] .fm-card {
-    background: rgba(255, 251, 244, 0.82);
-    border-color: rgba(168, 35, 42, 0.12);
+    background: oklch(99% 0.01 80 / 0.82);
+    border-color: oklch(40% 0.20 23 / 0.12);
 }
-[data-theme="light"] .fm-card:hover { border-color: rgba(168, 35, 42, 0.30); }
-[data-theme="light"] .fm-card-title { color: #2D1B0E; }
-[data-theme="light"] .fm-card-desc  { color: #6B4B36; }
+[data-theme="light"] .fm-card:hover { border-color: oklch(40% 0.20 23 / 0.30); }
+[data-theme="light"] .fm-card-title { color: oklch(16% 0.05 55); }
+[data-theme="light"] .fm-card-desc  { color: oklch(38% 0.06 50); }

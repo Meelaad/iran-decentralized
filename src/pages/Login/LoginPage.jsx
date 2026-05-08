@@ -3,7 +3,9 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useLang } from '../../contexts/LangContext';
 import { supabase } from '../../lib/supabase';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import '../Register/RegisterPage.css';
+import './LoginPage.css';
 import CONTENT from '../../locales/pages/login.json';
 
 function getCooldown(resendCount) {
@@ -13,7 +15,7 @@ function getCooldown(resendCount) {
 }
 
 export default function LoginPage() {
-    const { t, isRTL, monoFont, headFont } = useLang();
+    const { t, lang, setLang, isRTL, monoFont, headFont } = useLang();
     const navigate = useNavigate();
 
     const [step, setStep] = useState('form');
@@ -27,7 +29,6 @@ export default function LoginPage() {
     const otpRefs = useRef([]);
     const turnstileRef = useRef(null);
 
-    // Redirect if already logged in
     useEffect(() => {
         supabase.auth.getSession().then(({ data }) => {
             if (data.session) navigate('/profile', { replace: true });
@@ -40,8 +41,8 @@ export default function LoginPage() {
 
     useEffect(() => {
         if (cooldown <= 0) return;
-        const t = setTimeout(() => setCooldown(c => c - 1), 1000);
-        return () => clearTimeout(t);
+        const timer = setTimeout(() => setCooldown(c => c - 1), 1000);
+        return () => clearTimeout(timer);
     }, [cooldown]);
 
     async function handleSendCode(e) {
@@ -52,7 +53,10 @@ export default function LoginPage() {
         setError(null);
         setLoading(true);
         try {
-            const { error: supaErr } = await supabase.auth.signInWithOtp({ email: mail, options: { shouldCreateUser: false, captchaToken: turnstileToken || undefined } });
+            const { error: supaErr } = await supabase.auth.signInWithOtp({
+                email: mail,
+                options: { shouldCreateUser: false, captchaToken: turnstileToken || undefined },
+            });
             if (supaErr) throw supaErr;
             setStep('verify');
             setTurnstileToken('');
@@ -96,7 +100,10 @@ export default function LoginPage() {
         const count = resendCount + 1;
         setResendCount(count);
         setCooldown(getCooldown(count));
-        await supabase.auth.signInWithOtp({ email: email.trim(), options: { shouldCreateUser: false, captchaToken: turnstileToken || undefined } });
+        await supabase.auth.signInWithOtp({
+            email: email.trim(),
+            options: { shouldCreateUser: false, captchaToken: turnstileToken || undefined },
+        });
         setTurnstileToken('');
         turnstileRef.current?.reset();
     }
@@ -125,7 +132,23 @@ export default function LoginPage() {
         <div className="reg-page">
             <div className="reg-bg-grid" />
             <div className="reg-scanline" />
-            <div className="reg-inner">
+
+            <div className="login-topbar">
+                <ThemeSwitch />
+                <button
+                    className={`gate-lang-btn${lang === 'fa' ? ' is-active' : ''}`}
+                    style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                    onClick={() => setLang('fa')}
+                >فارسی</button>
+                <span className="gate-lang-sep">|</span>
+                <button
+                    className={`gate-lang-btn${lang === 'en' ? ' is-active' : ''}`}
+                    style={{ fontFamily: monoFont }}
+                    onClick={() => setLang('en')}
+                >EN</button>
+            </div>
+
+            <div className="reg-inner" dir={isRTL ? 'rtl' : 'ltr'}>
                 <div className="reg-header">
                     <div className="reg-eyebrow" style={{ fontFamily: monoFont }}>{t(CONTENT.eyebrow)}</div>
                     <h1 className="reg-title" style={{ fontFamily: headFont }}>{t(CONTENT.title)}</h1>
@@ -149,7 +172,7 @@ export default function LoginPage() {
                                 </div>
                             )}
                             <div className="reg-field">
-                                <label className="reg-label" style={{ fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' }}>
+                                <label className="reg-label" style={{ fontFamily: monoFont }}>
                                     {t(CONTENT.labelEmail)}
                                 </label>
                                 <input
@@ -162,7 +185,12 @@ export default function LoginPage() {
                                     dir="ltr"
                                 />
                             </div>
-                            <button type="submit" className="reg-submit-btn" disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)} style={{ fontFamily: monoFont }}>
+                            <button
+                                type="submit"
+                                className="reg-submit-btn"
+                                disabled={loading || (import.meta.env.VITE_TURNSTILE_SITE_KEY && !turnstileToken)}
+                                style={{ fontFamily: monoFont }}
+                            >
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnSend)}
                             </button>
@@ -170,7 +198,7 @@ export default function LoginPage() {
                     )}
 
                     {import.meta.env.VITE_TURNSTILE_SITE_KEY && (
-                        <div style={{ display: step === 'form' ? 'block' : 'none' }}>
+                        <div style={{ display: step === 'form' ? 'block' : 'none', marginTop: '12px' }}>
                             <Turnstile
                                 ref={turnstileRef}
                                 siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
@@ -194,7 +222,7 @@ export default function LoginPage() {
                                 </div>
                             )}
                             <div className="reg-field">
-                                <label className="reg-label" style={{ fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' }}>
+                                <label className="reg-label" style={{ fontFamily: monoFont }}>
                                     {isRTL ? 'کد تأیید' : 'VERIFICATION CODE'}
                                 </label>
                                 <div className="reg-otp-boxes">
@@ -213,23 +241,38 @@ export default function LoginPage() {
                                     ))}
                                 </div>
                             </div>
-                            <button type="submit" className="reg-submit-btn" disabled={loading} style={{ fontFamily: monoFont }}>
+                            <button
+                                type="submit"
+                                className="reg-submit-btn"
+                                disabled={loading}
+                                style={{ fontFamily: monoFont }}
+                            >
                                 {loading && <span className="reg-spinner" />}
                                 {t(CONTENT.btnVerify)}
                             </button>
                             <div className="reg-resend-row">
-                                <button type="button" className="reg-back-btn" style={{ fontFamily: monoFont }} onClick={() => { setStep('form'); setOtp(['','','','','','']); setError(null); }}>
+                                <button
+                                    type="button"
+                                    className="reg-back-btn"
+                                    style={{ fontFamily: monoFont }}
+                                    onClick={() => { setStep('form'); setOtp(['','','','','','']); setError(null); }}
+                                >
                                     {t(CONTENT.btnBack)}
                                 </button>
                                 {cooldown > 0 ? (
                                     <div className="reg-cooldown">
                                         <div className="reg-cooldown-bar-track">
-                                            <div className="reg-cooldown-bar-fill" style={{ width: `${((getCooldown(resendCount) - cooldown) / getCooldown(resendCount)) * 100}%` }} />
+                                            <div
+                                                className="reg-cooldown-bar-fill"
+                                                style={{ width: `${((getCooldown(resendCount) - cooldown) / getCooldown(resendCount)) * 100}%` }}
+                                            />
                                         </div>
                                         <span className="reg-cooldown-label" style={{ fontFamily: monoFont }}>{cooldown}s</span>
                                     </div>
                                 ) : (
-                                    <button type="button" className="reg-resend-btn" onClick={handleResend}>{t(CONTENT.btnResend)}</button>
+                                    <button type="button" className="reg-resend-btn" onClick={handleResend}>
+                                        {t(CONTENT.btnResend)}
+                                    </button>
                                 )}
                             </div>
                         </form>
@@ -238,7 +281,7 @@ export default function LoginPage() {
 
                 <p className="reg-footnote" style={{ fontFamily: monoFont }}>
                     {t(CONTENT.noAccount)}{' '}
-                    <Link to="/register" style={{ color: '#8B5CF6', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                    <Link to="/register" style={{ color: 'var(--clr-accent)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
                         {t(CONTENT.registerLink)}
                     </Link>
                 </p>

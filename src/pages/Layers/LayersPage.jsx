@@ -12,7 +12,7 @@ export default function LayersPage() {
     const sharedLayers = blueprint.sharedLayers || [];
 
     return (
-        <div className="layers-page">
+        <div className="layers-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="layers-page-scanline" />
             <div className="layers-bg-grid" />
             <div className="layers-inner">

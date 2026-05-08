@@ -85,7 +85,7 @@ export default function NotFoundPage() {
     const { t, isRTL, monoFont, headFont } = useLang();
 
     return (
-        <div className="nf-page">
+        <div className="nf-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <GlitchGrid />
             <div className="nf-bg-grid" />
             <div className="nf-scanline" />

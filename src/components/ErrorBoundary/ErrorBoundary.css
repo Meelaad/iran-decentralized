@@ -1,7 +1,7 @@
 /* ErrorBoundary.css */
 
 .eb-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -12,7 +12,7 @@
 
 .eb-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(255, 80, 80, 0.04);
+    --grid-color: oklch(62% 0.20 25 / 0.04);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -25,8 +25,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
 }
 
 .eb-scanline {
@@ -34,7 +34,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(255,80,80,0.2) 20%, rgba(255,80,80,0.3) 50%, rgba(255,80,80,0.2) 80%, transparent);
+    background: linear-gradient(90deg, transparent, oklch(62% 0.20 25 / 0.2) 20%, oklch(62% 0.20 25 / 0.3) 50%, oklch(62% 0.20 25 / 0.2) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -56,7 +56,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 4px;
-    color: #ff6b6b;
+    color: oklch(65% 0.18 25);
     opacity: 0.6;
     margin-bottom: 28px;
 }
@@ -65,7 +65,7 @@
     width: 80px;
     height: 80px;
     margin-bottom: 28px;
-    filter: drop-shadow(0 0 12px rgba(255,80,80,0.2));
+    filter: drop-shadow(0 0 12px oklch(62% 0.20 25 / 0.2));
     animation: glowPulse 3s ease-in-out infinite;
 }
 
@@ -78,14 +78,14 @@
     font-family: 'Inter', sans-serif;
     font-size: 22px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 10px;
     letter-spacing: -0.01em;
 }
 
 .eb-subtitle {
     font-size: 13px;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     margin-bottom: 32px;
     line-height: 1.7;
     max-width: 340px;
@@ -104,29 +104,29 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #ff6b6b;
-    border: 1px solid rgba(255, 100, 100, 0.25);
+    color: oklch(65% 0.18 25);
+    border: 1px solid oklch(62% 0.20 25 / 0.25);
     padding: 11px 24px;
-    background: rgba(255, 80, 80, 0.04);
+    background: oklch(62% 0.20 25 / 0.04);
     text-decoration: none;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s;
 }
 
 .eb-btn:hover {
-    background: rgba(255, 80, 80, 0.1);
-    border-color: rgba(255, 100, 100, 0.45);
+    background: oklch(62% 0.20 25 / 0.1);
+    border-color: oklch(62% 0.20 25 / 0.45);
 }
 
 .eb-btn--secondary {
-    color: #8B5CF6;
-    border-color: rgba(139, 92, 246, 0.25);
-    background: rgba(139, 92, 246, 0.04);
+    color: var(--clr-accent);
+    border-color: var(--clr-accent-25);
+    background: oklch(55% 0.23 293 / 0.04);
 }
 
 .eb-btn--secondary:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.45);
+    background: var(--clr-accent-10);
+    border-color: oklch(55% 0.23 293 / 0.45);
 }
 
 @media (min-width: 960px) {

@@ -44,10 +44,10 @@ export default function ComparePage() {
     }
 
     return (
-        <div className="compare-page" style={{ fontFamily: headFont }}>
+        <div className="compare-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <PageMeta
-                title={isRTL ? 'مقایسه طرح‌های حکومتی' : 'Compare Governance Blueprints'}
-                description={isRTL ? 'مقایسه جانبی مدل‌های حکومتی پیشنهادی برای ایران' : 'Side-by-side comparison of all proposed governance models for Iran\'s future.'}
+                title={t(CONTENT.metaTitle)}
+                description={t(CONTENT.metaDescription)}
                 lang={isRTL ? 'fa' : 'en'}
             />
             <div className="compare-retro-grid" />
@@ -76,7 +76,7 @@ export default function ComparePage() {
                         </select>
                     </div>
 
-                    <div className="compare-vs">vs</div>
+                    <div className="compare-vs">{t(CONTENT.vsLabel)}</div>
 
                     <div className="compare-selector-group">
                         <div className="compare-selector-label compare-b-color">B</div>

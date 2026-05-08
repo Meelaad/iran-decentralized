@@ -1,5 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 import { Resend } from 'resend';
+import { checkOrigin } from '../../lib/security/middleware.js';
 
 const supabase = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL,
@@ -44,6 +45,12 @@ async function verifyTurnstile(token, ip) {
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+
+    try {
+        checkOrigin(req);
+    } catch (e) {
+        return res.status(e.status || 403).json({ error: e.error || 'Forbidden' });
+    }
 
     const ip = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || req.socket?.remoteAddress || 'unknown';
 

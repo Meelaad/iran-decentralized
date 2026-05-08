@@ -1,7 +1,7 @@
 /* ContactPage.css */
 
 .contact-page {
-    background-color: #010303;
+    background-color: var(--clr-bg);
     min-height: calc(100vh - 60px);
     position: relative;
     overflow: hidden;
@@ -12,7 +12,7 @@
 
 .contact-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.07);
+    --grid-color: var(--clr-accent-08);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -25,8 +25,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
 }
 
 .contact-scanline {
@@ -34,7 +34,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-25) 20%, var(--clr-accent-35) 50%, var(--clr-accent-25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -58,28 +58,28 @@
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     margin-bottom: 12px;
 }
 
 .contact-title {
     font-size: 26px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 10px;
     letter-spacing: -0.01em;
 }
 
 .contact-subtitle {
     font-size: 13px;
-    color: #5a6a7e;
+    color: var(--clr-text-muted);
     line-height: 1.7;
 }
 
 /* ── Card ── */
 .contact-card {
-    background: rgba(8, 12, 20, 0.72);
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    background: oklch(11% 0.015 215 / 0.72);
+    border: 1px solid var(--clr-accent-10);
     padding: 32px 28px;
 }
 
@@ -88,15 +88,15 @@
     display: flex;
     gap: 10px;
     align-items: flex-start;
-    background: rgba(255, 80, 80, 0.06);
-    border: 1px solid rgba(255, 80, 80, 0.2);
+    background: oklch(48% 0.22 28 / 0.06);
+    border: 1px solid oklch(48% 0.22 28 / 0.2);
     padding: 12px 14px;
     margin-bottom: 20px;
     animation: fadeIn 0.2s ease;
 }
 
 .contact-error-icon {
-    color: #ff6b6b;
+    color: var(--clr-red);
     font-size: 13px;
     flex-shrink: 0;
     margin-top: 1px;
@@ -105,7 +105,7 @@
 .contact-error-list {
     list-style: none;
     font-size: 12px;
-    color: #e07070;
+    color: var(--clr-red);
     line-height: 1.7;
 }
 
@@ -127,7 +127,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     margin-bottom: 7px;
 }
 
@@ -137,33 +137,33 @@
 
 .contact-char-count {
     font-size: 10px;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     letter-spacing: 0;
 }
 
 .contact-input,
 .contact-textarea {
     width: 100%;
-    background: rgba(4, 8, 16, 0.8);
-    border: 1px solid rgba(139, 92, 246, 0.12);
-    color: #c8ccd4;
+    background: oklch(8% 0.01 200 / 0.8);
+    border: 1px solid var(--clr-accent-10);
+    color: var(--clr-text);
     font-size: 13px;
     padding: 10px 14px;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
     font-family: inherit;
-    caret-color: #8B5CF6;
+    caret-color: var(--clr-accent);
 }
 
 .contact-input:focus,
 .contact-textarea:focus {
-    border-color: rgba(139, 92, 246, 0.4);
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.06);
+    border-color: var(--clr-accent-40);
+    box-shadow: 0 0 0 2px var(--clr-accent-05);
 }
 
 .contact-input::placeholder,
 .contact-textarea::placeholder {
-    color: #2a3a4e;
+    color: var(--clr-text-sub);
 }
 
 .contact-input:disabled,
@@ -180,7 +180,7 @@
 
 .contact-msg-hint {
     font-size: 10px;
-    color: #3a5a6e;
+    color: var(--clr-text-faint);
     margin-top: 5px;
     letter-spacing: 0.5px;
 }
@@ -198,9 +198,9 @@
 /* ── Submit ── */
 .contact-submit-btn {
     width: 100%;
-    background: rgba(139, 92, 246, 0.08);
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    color: #8B5CF6;
+    background: var(--clr-accent-08);
+    border: 1px solid var(--clr-accent-25);
+    color: var(--clr-accent);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 2.5px;
@@ -216,8 +216,8 @@
 }
 
 .contact-submit-btn:hover:not(:disabled) {
-    background: rgba(139, 92, 246, 0.14);
-    border-color: rgba(139, 92, 246, 0.45);
+    background: oklch(55% 0.23 293 / 0.14);
+    border-color: oklch(55% 0.23 293 / 0.45);
 }
 
 .contact-submit-btn:disabled {
@@ -230,8 +230,8 @@
     display: inline-block;
     width: 14px;
     height: 14px;
-    border: 2px solid rgba(139, 92, 246, 0.25);
-    border-top-color: #8B5CF6;
+    border: 2px solid var(--clr-accent-25);
+    border-top-color: var(--clr-accent);
     border-radius: 50%;
     animation: spin 0.7s linear infinite;
 }
@@ -253,7 +253,7 @@
 
 .contact-success-icon {
     font-size: 40px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     margin-bottom: 20px;
     animation: glowPulse 2.5s ease-in-out infinite;
     display: block;
@@ -262,13 +262,13 @@
 .contact-success-title {
     font-size: 20px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 10px;
 }
 
 .contact-success-body {
     font-size: 13px;
-    color: #5a7a8e;
+    color: var(--clr-text-muted);
     line-height: 1.7;
     margin-bottom: 20px;
 }
@@ -277,8 +277,8 @@
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: #8B5CF6;
-    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent-25);
     padding: 5px 14px;
     text-transform: uppercase;
 }

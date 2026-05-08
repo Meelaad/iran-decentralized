@@ -1,0 +1,432 @@
+{
+  "heroEyebrow": {
+    "en": "Transitional Plan · Constitutionalist Party of Iran (Liberal Democrat)",
+    "fa": "طرح انتقالی · حزب مشروطه ایران (لیبرال دموکرات)"
+  },
+  "heroTitle": {
+    "en": "CPI-LD",
+    "fa": "حزب مشروطه ایران (ل.د)"
+  },
+  "heroSubtitle": {
+    "en": "Constitutionalist Party of Iran (Liberal Democrat) · Est. 1994",
+    "fa": "حزب مشروطه ایران (لیبرال دموکرات) · بنیان‌گذاری ۱۳۷۳"
+  },
+  "heroDesc": {
+    "en": "Founded in 1994 by exiled supporters of the former Pahlavi dynasty—most notably former Minister of Information Dariush Homayoon—the CPI-LD is a sophisticated political architecture in exile. It couples the historic legitimacy of the Persian constitutional monarchy with the technocratic rigor of the Iran Prosperity Project's 180-day Emergency Phase blueprint, engineered as a complete state operating system waiting to be installed the moment the Islamic Republic collapses.",
+    "fa": "حزب مشروطه ایران (لیبرال دموکرات) در سال ۱۳۷۳ توسط حامیان تبعیدی سلسله پهلوی—به‌ویژه داریوش همایون، وزیر اطلاعات پیشین—بنیانگذاری شد. این حزب یک معماری سیاسی پیچیده در تبعید است که مشروعیت تاریخی مشروطه‌خواهی پارسی را با دقت تکنوکراتیک طرح ۱۸۰ روزه «مرحله اضطراری» پروژه رونق ایران (IPP) پیوند می‌زند—سیستمی عملیاتی کامل در انتظار نصب در لحظه‌ای که جمهوری اسلامی از هم می‌پاشد."
+  },
+  "heroBadges": [
+    { "label": { "en": "Constitutional Monarchy", "fa": "پادشاهی مشروطه" }, "c": "#d97706" },
+    { "label": { "en": "Liberal Democracy", "fa": "لیبرال دموکراسی" }, "c": "#f59e0b" },
+    { "label": { "en": "Iran Prosperity Project", "fa": "پروژه رونق ایران" }, "c": "#60a5fa" },
+    { "label": { "en": "Secular State", "fa": "دولت سکولار" }, "c": "#34d399" },
+    { "label": { "en": "Free Market", "fa": "اقتصاد بازار آزاد" }, "c": "#f472b6" },
+    { "label": { "en": "Centralized Nationalism", "fa": "ناسیونالیسم متمرکز" }, "c": "#a78bfa" }
+  ],
+  "ideologyLabel": {
+    "en": "IDEOLOGICAL FOUNDATION",
+    "fa": "پایه‌های ایدئولوژیک"
+  },
+  "ideologyTitle": {
+    "en": "Constitutional Monarchism, Secular Liberalism & the 1906 Restoration",
+    "fa": "مشروطه‌خواهی، لیبرالیسم سکولار و بازگشت به ۱۲۸۵"
+  },
+  "ideologyBody": {
+    "en": "The CPI-LD operates on a strict teleological imperative: the absolute dismantling of the Islamic Republic and its replacement with a modernized iteration of the 1906 Persian Constitutional Revolution framework, updated with contemporary liberal democratic institutionalism. The ideological engine is a synthesis of Iranian civic nationalism, Pahlavi royalism, and secular liberalism—designed not merely to overthrow a government, but to fundamentally reverse the 1979 Islamic Revolution, which the party views as a catastrophic deviation from Iran's natural historical trajectory of modernization. Rooted in the philosophies of founder Dariush Homayoon, the CPI-LD argues that while the autocratic excesses of the Pahlavi era warranted critique, the baseline trajectory of Pahlavi modernization was historically correct and necessary.",
+    "fa": "حزب مشروطه ایران (ل.د) بر یک امر مطلق‌گرایانه عمل می‌کند: انحلال کامل جمهوری اسلامی ایران و جایگزینی آن با نسخه‌ای نوسازی‌شده از چارچوب انقلاب مشروطه ۱۲۸۵، به‌روزرسانی‌شده با نهادگرایی دموکراتیک لیبرال معاصر. موتور ایدئولوژیک این حزب ترکیبی از ناسیونالیسم مدنی ایرانی، پهلوی‌گرایی سلطنتی و لیبرالیسم سکولار است—طراحی‌شده نه‌تنها برای سرنگونی یک دولت، بلکه برای معکوس کردن بنیادی انقلاب اسلامی ۱۳۵۷، که حزب آن را یک انحراف فاجعه‌بار از مسیر طبیعی تاریخی مدرن‌سازی ایران می‌داند."
+  },
+  "ideologyEvolution": {
+    "en": "The monarchy envisioned by the CPI-LD is explicitly non-executive. Crown Prince Reza Pahlavi is positioned as the unifying node of the state—a neutral arbiter and vessel of historical continuity designed to mitigate extreme partisan factionalism and preserve territorial integrity across a highly diverse nation. The causal logic is precise: by installing a non-partisan head of state, the legislative and executive branches are insulated from ideological extremism. Drawing explicit parallels to South Africa's apartheid transition, the CPI-LD views political secularism as the essential mechanism required to dismantle the Islamically sanctioned gender and religious apartheid of the Vilayat-e Faqih. This liberal institutionalism extends to equal rights for men and women, economic freedom, and the absolute protection of individual human personality against state coercion.",
+    "fa": "سلطنت مورد نظر حزب مشروطه (ل.د) صریحاً غیراجرایی است. ولیعهد رضا پهلوی به‌عنوان گره‌ای وحدت‌بخش در دولت قرار می‌گیرد—یک داور بی‌طرف و ظرف تداوم تاریخی طراحی‌شده برای کاهش فصل‌بندی حزبی افراطی و حفظ تمامیت ارضی یک کشور بسیار متنوع. این ساختار موازی‌هایی با گذار آفریقای جنوبی از آپارتاید دارد: سکولاریسم سیاسی به‌عنوان مکانیسم اساسی مورد نیاز برای انحلال آپارتاید جنسیتی و دینی مبتنی بر اسلام دیده می‌شود که توسط نظام ولایت فقیه اجرا می‌شود."
+  },
+  "ideologyPillars": [
+    {
+      "icon": "👑",
+      "head": { "en": "Constitutional Monarchism", "fa": "پادشاهی مشروطه" },
+      "body": { "en": "The sovereign acts as ceremonial head of state with no unilateral executive vetoes and no direction of government policy. Functions as a unifying national symbol, diplomatic figurehead, and neutral arbiter above partisan politics—akin to Western European constitutional monarchies.", "fa": "پادشاه به‌عنوان رئیس کشور تشریفاتی بدون هیچ حق وتوی اجرایی یک‌جانبه و بدون هدایت سیاست دولتی عمل می‌کند. یک نماد ملی وحدت‌بخش، نماینده دیپلماتیک و داور بی‌طرف فراتر از سیاست حزبی—مشابه پادشاهی‌های مشروطه اروپای غربی." }
+    },
+    {
+      "icon": "⚖",
+      "head": { "en": "Secular Liberal Institutionalism", "fa": "نهادگرایی لیبرال سکولار" },
+      "body": { "en": "Complete separation of religious institutions from legislative and executive functions. In a religiously and ethnically diverse society, secular constitution is the only viable method to guarantee the Universal Declaration of Human Rights, ensure political pluralism, and mandate equality before the law.", "fa": "جدایی کامل نهادهای دینی از وظایف قانونگذاری و اجرایی. در جامعه‌ای متنوع از نظر دینی و قومی، قانون اساسی سکولار تنها روش عملی برای تضمین اعلامیه جهانی حقوق بشر، تضمین پلورالیسم سیاسی و الزام برابری در برابر قانون است." }
+    },
+    {
+      "icon": "🏴",
+      "head": { "en": "Centralized Civic Nationalism", "fa": "ناسیونالیسم مدنی متمرکز" },
+      "body": { "en": "A unified Iranian civic nationalism that prioritizes the cohesion of the nation-state over ethnic, linguistic, or sectarian sub-identities. Centralized state authority and the Persian language are viewed as the primary bulwark against the Balkanization of the Iranian plateau.", "fa": "ناسیونالیسم مدنی ایرانی یکپارچه‌ای که اولویت را به انسجام دولت-ملت می‌دهد به جای هویت‌های فرعی قومی، زبانی یا فرقه‌ای. اقتدار دولتی متمرکز و زبان فارسی به‌عنوان اصلی‌ترین سد دفاعی در برابر تجزیه فلات ایران دیده می‌شوند." }
+    },
+    {
+      "icon": "📈",
+      "head": { "en": "Free-Market Liberal Economics", "fa": "اقتصاد لیبرال بازار آزاد" },
+      "body": { "en": "Informed by classical liberal economic theory (with Chicago School influence). Systematic dismantling of IRGC and bonyad monopolies. Transparent privatization, central bank independence, FATF compliance, and SWIFT re-entry to attract massive Foreign Direct Investment.", "fa": "متأثر از نظریه اقتصادی کلاسیک لیبرال (با تأثیر مکتب شیکاگو). انحلال سیستماتیک انحصارات سپاه و بنیادها. خصوصی‌سازی شفاف، استقلال بانک مرکزی، رعایت FATF و بازگشت به SWIFT برای جذب سرمایه‌گذاری مستقیم خارجی عظیم." }
+    }
+  ],
+  "methodLabel": {
+    "en": "TRANSITION METHODOLOGY",
+    "fa": "روش‌شناسی انتقال"
+  },
+  "methodTitle": {
+    "en": "The Emergency Phase: A 180-Day State Operating System",
+    "fa": "مرحله اضطراری: یک سیستم عملیاتی دولتی ۱۸۰ روزه"
+  },
+  "methodBody": {
+    "en": "The CPI-LD's methodology is highly procedural, aligning tightly with the Iran Prosperity Project (IPP)—championed by Reza Pahlavi and developed by NUFDI. Rather than relying on unstructured revolutionary fervor, the party deploys a phased blueprint intended to manage the immediate aftermath of regime collapse, preventing the state failure and power vacuums that typically destroy post-revolutionary environments. The displacement strategy targets the regime's security apparatus by driving a psychological and political wedge between the ideological IRGC and the traditional Artesh—while internationally lobbying for the IRGC's proscription as a terrorist organization to sever its financial networks.",
+    "fa": "روش‌شناسی حزب مشروطه (ل.د) بسیار رویه‌محور است و با پروژه رونق ایران (IPP)—که رضا پهلوی آن را حمایت می‌کند و NUFDI توسعه داده—همسویی تنگاتنگی دارد. به جای اتکا به شور انقلابی بی‌ساختار، حزب یک طرح مرحله‌ای را برای مدیریت پیامدهای فوری فروپاشی رژیم مستقر می‌کند و از شکست دولت و خلاء قدرتی که معمولاً محیط‌های پس از انقلاب را ویران می‌کند جلوگیری می‌نماید."
+  },
+  "phases": [
+    {
+      "phase": { "en": "Phase 1", "fa": "مرحله ۱" },
+      "name": { "en": "Displacement & Destabilization", "fa": "بی‌ثبات‌سازی و جابجایی" },
+      "desc": { "en": "Widespread civilian protests and economic paralysis via strikes erode domestic control. Simultaneously: aggressive diplomatic lobbying to proscribe the IRGC as a foreign terrorist organization, severing financial networks. Strategic co-optation of the Artesh by offering amnesty and professional respect, inducing defection.", "fa": "اعتراضات گسترده غیرنظامی و فلج اقتصادی از طریق اعتصابات، کنترل داخلی را فرسایش می‌دهد. همزمان: لابیگری دیپلماتیک برای ممنوعیت سپاه به‌عنوان سازمان تروریستی خارجی. جذب استراتژیک ارتش با ارائه عفو و احترام حرفه‌ای." },
+      "color": "#d97706"
+    },
+    {
+      "phase": { "en": "Phase 2", "fa": "مرحله ۲" },
+      "name": { "en": "Regime Collapse", "fa": "فروپاشی رژیم" },
+      "desc": { "en": "The Artesh refuses to fire on protesters and protects the public from IRGC reprisals, accelerating regime collapse. The IRGC's economic empire is starved of capital. The transitional governance architecture activates immediately.", "fa": "ارتش از تیراندازی به معترضان خودداری می‌کند و آنها را از انتقام‌جویی سپاه محافظت می‌نماید. امپراتوری اقتصادی سپاه از سرمایه محروم می‌شود. معماری حاکمیت انتقالی بلافاصله فعال می‌شود." },
+      "color": "#f59e0b"
+    },
+    {
+      "phase": { "en": "Phase 3", "fa": "مرحله ۳" },
+      "name": { "en": "Emergency Phase (Days 1–180)", "fa": "مرحله اضطراری (روز ۱ تا ۱۸۰)" },
+      "desc": { "en": "Activation of the 15-chapter IPP blueprint. Tripartite transitional governance: Transitional Mehestan (legislature) + Transitional Government (technocratic cabinet) + Transitional Divan (secular judiciary). Priority: secure borders, maintain utilities, stabilize macroeconomy, disarm rogue paramilitary factions.", "fa": "فعال‌سازی طرح ۱۵ فصلی IPP. حاکمیت انتقالی سه‌گانه: مهستان انتقالی (قوه مقننه) + دولت انتقالی (کابینه تکنوکراتیک) + دیوان انتقالی (دادگستری سکولار). اولویت: ایمن‌سازی مرزها، حفظ خدمات ضروری، تثبیت اقتصاد کلان، خلع سلاح گروه‌های شبه‌نظامی سرکش." },
+      "color": "#60a5fa"
+    },
+    {
+      "phase": { "en": "Phase 4", "fa": "مرحله ۴" },
+      "name": { "en": "System Referendum", "fa": "همه‌پرسی نظام" },
+      "desc": { "en": "A national referendum explicitly offering the choice between a secular republic or a parliamentary constitutional monarchy. Democratic consent is established before any permanent institutions are created. Mathematical thresholds for referendum validation are not specified in official texts.", "fa": "یک همه‌پرسی ملی که انتخاب صریحی بین جمهوری سکولار یا پادشاهی مشروطه پارلمانی ارائه می‌دهد. رضایت دموکراتیک قبل از ایجاد هرگونه نهاد دائمی احراز می‌شود." },
+      "color": "#34d399"
+    },
+    {
+      "phase": { "en": "Phase 5", "fa": "مرحله ۵" },
+      "name": { "en": "Constituent Assembly", "fa": "مجلس مؤسسان" },
+      "desc": { "en": "The populace elects a Constituent Assembly tasked exclusively with drafting a new, secular constitution reflecting the chosen system of government. Prioritizes legal scholars and representatives across Iran's ideological and geographic diversity.", "fa": "مردم یک مجلس مؤسسان انتخاب می‌کنند که منحصراً مسئول تدوین قانون اساسی سکولار جدیدی است که نظام حکومتی انتخاب‌شده را منعکس کند." },
+      "color": "#a78bfa"
+    },
+    {
+      "phase": { "en": "Phase 6", "fa": "مرحله ۶" },
+      "name": { "en": "Ratification & Permanent Elections", "fa": "تصویب و انتخابات دائمی" },
+      "desc": { "en": "The new constitution is submitted to the public for ratification via a second national referendum. Nationwide elections under the new constitution populate the permanent parliament. Transitional bodies dissolve immediately. The Emergency Phase formally ends.", "fa": "قانون اساسی جدید از طریق یک همه‌پرسی ملی دوم به تصویب می‌رسد. انتخابات سراسری تحت قانون اساسی جدید مجلس دائمی را شکل می‌دهد. نهادهای انتقالی بلافاصله منحل می‌شوند." },
+      "color": "#f472b6"
+    }
+  ],
+  "powerLabel": {
+    "en": "PROPOSED POWER ARCHITECTURE",
+    "fa": "معماری قدرت پیشنهادی"
+  },
+  "powerTitle": {
+    "en": "Dual-Phase: Transitional Tripartite → Constitutional Monarchy",
+    "fa": "دو مرحله: سه‌گانه انتقالی ← پادشاهی مشروطه دائمی"
+  },
+  "powerBody": {
+    "en": "The CPI-LD org chart is bifurcated into two distinct chronological eras—the Transitional System (the 180-day Emergency Phase) and the Permanent System (post-constitutional ratification). This dual architecture ensures the separation of powers is maintained even during periods of extreme national vulnerability, actively preventing the emergence of a transitional dictatorship.",
+    "fa": "نمودار سازمانی حزب مشروطه (ل.د) به دو دوره زمانی متمایز تقسیم می‌شود: سیستم انتقالی (مرحله اضطراری ۱۸۰ روزه) و سیستم دائمی (پس از تصویب قانون اساسی). این معماری دوگانه به‌طور خاص طراحی شده تا از پیدایش یک دیکتاتوری انتقالی جدید جلوگیری کند."
+  },
+  "transitionalPhaseSubhead": {
+    "en": "Transitional Phase (180 Days)",
+    "fa": "مرحله انتقالی (۱۸۰ روز)"
+  },
+  "permanentPhaseSubhead": {
+    "en": "Permanent Phase (Post-Ratification)",
+    "fa": "مرحله دائمی (پس از تصویب قانون اساسی)"
+  },
+  "transitionalNodes": [
+    {
+      "icon": "🏛",
+      "title": { "en": "Transitional Mehestan", "fa": "مهستان انتقالی" },
+      "sub": { "en": "Emergency Legislature", "fa": "مجلس اضطراری" },
+      "body": { "en": "Represents a diverse coalition adhering to four non-negotiable principles: territorial integrity, secular democracy, individual human rights, and the right to freely choose the system of government. Provides legislative oversight over the executive and drafts emergency stabilization laws.", "fa": "نماینده ائتلافی متنوع است که به چهار اصل غیرقابل مذاکره پایبند است: تمامیت ارضی، دموکراسی سکولار، حقوق فردی بشر، و حق انتخاب آزادانه نظام حکومتی. نظارت قانونگذاری بر قوه مجریه و تهیه قوانین تثبیت اضطراری." }
+    },
+    {
+      "icon": "🎯",
+      "title": { "en": "Transitional Government", "fa": "دولت انتقالی" },
+      "sub": { "en": "Technocratic Cabinet", "fa": "کابینه تکنوکراتیک" },
+      "body": { "en": "Populated by technical experts tasked with executing IPP crisis management protocols. Manages the state bureaucracy, ensures essential service continuity, implements monetary stabilization, and assumes command over armed forces to disarm rogue paramilitary factions.", "fa": "از کارشناسان فنی تشکیل شده که مأمور اجرای پروتکل‌های مدیریت بحران IPP هستند. بوروکراسی دولتی را مدیریت می‌کند، تداوم خدمات ضروری را تضمین می‌کند، تثبیت پولی را اجرا می‌کند و فرماندهی نیروهای مسلح را برای خلع سلاح گروه‌های شبه‌نظامی سرکش به عهده می‌گیرد." }
+    },
+    {
+      "icon": "⚡",
+      "title": { "en": "Transitional Divan", "fa": "دیوان انتقالی" },
+      "sub": { "en": "Emergency Judiciary", "fa": "دادگستری اضطراری" },
+      "body": { "en": "An independent, secular judicial body maintaining rule of law during the emergency phase. Initiates preliminary transitional justice protocols based on international legal norms, replacing the deeply compromised Islamic Republic court system.", "fa": "یک نهاد قضایی مستقل و سکولار که حاکمیت قانون را در مرحله اضطراری حفظ می‌کند. پروتکل‌های اولیه عدالت انتقالی مبتنی بر هنجارهای حقوقی بین‌المللی را آغاز می‌کند و جایگزین دستگاه قضایی به‌شدت مصون جمهوری اسلامی می‌شود." }
+    }
+  ],
+  "permanentNodes": [
+    {
+      "icon": "👑",
+      "title": { "en": "Sovereign (Constitutional Monarch)", "fa": "پادشاه (مشروطه)" },
+      "sub": { "en": "Head of State", "fa": "رئیس کشور" },
+      "body": { "en": "Ceremonial, strictly constrained by the constitution. No unilateral executive vetoes. No direction of policy. Functions as a unifying national symbol, diplomatic figurehead, and neutral arbiter. Monarch's emergency powers over parliament dissolution are not specified in official texts.", "fa": "تشریفاتی، محدود کاملاً توسط قانون اساسی. هیچ حق وتوی اجرایی یک‌جانبه. هیچ هدایت سیاستی. نماد ملی وحدت، نماینده دیپلماتیک و داور بی‌طرف. اختیارات اضطراری پادشاه برای انحلال مجلس در متون رسمی مشخص نشده است." }
+    },
+    {
+      "icon": "🏛",
+      "title": { "en": "National Mehestan", "fa": "مجلس ملی (مهستان)" },
+      "sub": { "en": "Supreme Legislature", "fa": "مجلس عالی" },
+      "body": { "en": "Populated through free, multi-party elections representing ideological and geographic diversity. Responsible for all permanent legislation, budget approval, and ratification of international treaties. Whether unicameral or bicameral is not specified in official texts.", "fa": "از طریق انتخابات آزاد چندحزبی تشکیل می‌شود که تنوع ایدئولوژیک و جغرافیایی را نمایندگی می‌کند. مسئول تمام قانونگذاری دائمی، تصویب بودجه و تصویب معاهدات بین‌المللی. یک‌اتاقی یا دواتاقی بودن در متون رسمی مشخص نشده است." }
+    },
+    {
+      "icon": "🎯",
+      "title": { "en": "Prime Minister & Cabinet", "fa": "نخست‌وزیر و کابینه" },
+      "sub": { "en": "Head of Government", "fa": "رئیس دولت" },
+      "body": { "en": "Selected based on ability to command a parliamentary majority. Subject to rigorous oversight including votes of no confidence. Represents the Head of Government; state administration, macroeconomic execution, and defense are vested here.", "fa": "بر اساس توانایی فرماندهی اکثریت پارلمانی انتخاب می‌شود. مشمول نظارت دقیق از جمله رأی عدم اعتماد. اداره دولت، اجرای اقتصاد کلان و دفاع در اینجا متمرکز است." }
+    },
+    {
+      "icon": "⚡",
+      "title": { "en": "Independent Supreme Court", "fa": "دیوان عالی مستقل" },
+      "sub": { "en": "Permanent Judiciary", "fa": "قوه قضائیه دائمی" },
+      "body": { "en": "Secular legal arbitration, constitutional review, and oversight of the justice system. Fully independent from both executive and legislative branches. Stripped entirely of Sharia law and clerical jurisdiction.", "fa": "داوری حقوقی سکولار، بررسی قانون اساسی و نظارت بر دستگاه قضایی. کاملاً مستقل از هر دو شاخه اجرایی و قانونگذاری. فقه اسلامی و صلاحیت روحانی کاملاً ریشه‌کن می‌شوند." }
+    }
+  ],
+  "targetsLabel": {
+    "en": "INSTITUTIONAL TARGETS",
+    "fa": "اهداف نهادی"
+  },
+  "targetsTitle": {
+    "en": "Proscription, Co-optation, and Dismantlement",
+    "fa": "ممنوعیت، جذب و انحلال"
+  },
+  "targetsBody": {
+    "en": "The CPI-LD treats the Islamic Republic's bifurcated military with diametrically opposed strategies. The IRGC and its ideological apparatus are slated for total eradication—beginning with international financial proscription before collapse, and ending with judicial prosecution of the command tier after it. The Artesh is the inverse: actively courted, offered amnesty, and positioned to become the indispensable institution of the new state.",
+    "fa": "حزب مشروطه (ل.د) نیروهای نظامی دوگانه جمهوری اسلامی را با استراتژی‌های کاملاً متضاد می‌نگرد. سپاه و دستگاه ایدئولوژیک آن برای ریشه‌کنی کامل در نظر گرفته شده‌اند—از ممنوعیت مالی بین‌المللی قبل از فروپاشی شروع می‌شود و با پیگرد قضایی فرماندهی پس از آن تمام می‌شود. ارتش عکس این است: فعالانه جذب می‌شود، عفو داده می‌شود و برای تبدیل شدن به نهاد ناگزیر دولت جدید قرار می‌گیرد."
+  },
+  "targets": [
+    {
+      "name": { "en": "IRGC Command & Quds Force", "fa": "فرماندهی سپاه و نیروی قدس" },
+      "policy": { "en": "COMPLETE DISMANTLING", "fa": "انحلال کامل" },
+      "detail": { "en": "Primary institutional vector of regime survival. Pre-collapse: international lobbying to proscribe as a foreign terrorist organization, asphyxiating the Khatam al-Anbiya economic empire. Post-collapse: judicial prosecution of upper command under international transitional justice mechanisms. Unit cohesion shattered to prevent a post-collapse insurgency.", "fa": "اصلی‌ترین بردار نهادی بقای رژیم. قبل از فروپاشی: لابیگری بین‌المللی برای ممنوعیت به‌عنوان سازمان تروریستی خارجی و خفه کردن امپراتوری اقتصادی خاتم‌الانبیاء. پس از فروپاشی: پیگرد قضایی فرماندهی عالی در چارچوب مکانیسم‌های عدالت انتقالی بین‌المللی." },
+      "color": "#ef4444",
+      "tag": { "en": "ERADICATE", "fa": "ریشه‌کنی" }
+    },
+    {
+      "name": { "en": "Artesh (Regular Military)", "fa": "ارتش (نیروهای نظامی رسمی)" },
+      "policy": { "en": "STRATEGIC CO-OPTATION", "fa": "جذب استراتژیک" },
+      "detail": { "en": "Historically marginalized by the clerical establishment. CPI-LD exploits the institutional IRGC–Artesh rivalry by offering amnesty, professional respect, and elevated post-transition status to induce defections. Post-transition: reconstituted as the sole, unified, apolitical national defense force under strict civilian democratic control.", "fa": "به‌طور تاریخی توسط روحانیون حاشیه‌نشین شده. حزب مشروطه رقابت نهادی سپاه-ارتش را با ارائه عفو، احترام حرفه‌ای و منزلت ارتقاءیافته پس از انتقال استثمار می‌کند تا فرار گسترده را القا کند. پس از انتقال: به‌عنوان تنها نیروی دفاع ملی متحد و کاملاً غیرسیاسی زیر کنترل دموکراتیک غیرنظامی بازسازی می‌شود." },
+      "color": "#34d399",
+      "tag": { "en": "CO-OPT & RETAIN", "fa": "جذب و نگه‌داری" }
+    },
+    {
+      "name": { "en": "Basij Militia", "fa": "بسیج" },
+      "policy": { "en": "DISBANDMENT", "fa": "انحلال" },
+      "detail": { "en": "Leadership tier targeted for prosecution and decapitation to shatter organizational cohesion. Lower-level conscripts—recognized as having been forced into service—are reintegrated into civilian life to prevent widespread disenfranchisement and counter-revolutionary insurgency. The exact logistical framework for safely discharging ~90,000 Basij personnel is not specified in official texts.", "fa": "ردیف رهبری برای پیگرد قضایی هدف قرار می‌گیرد. سربازان رده‌پایین—که به خدمت اجباری گرفته شده‌اند—به زندگی مدنی بازادغام می‌شوند تا از ناخشنودی گسترده و شورش ضدانقلابی جلوگیری شود. چارچوب دقیق لجستیکی برای تسریح ایمن حدود ۹۰٫۰۰۰ پرسنل بسیج در متون رسمی مشخص نشده است." },
+      "color": "#f59e0b",
+      "tag": { "en": "DISBAND", "fa": "انحلال" }
+    },
+    {
+      "name": { "en": "Bonyads (Religious Foundations)", "fa": "بنیادها (بنیادهای اقتصادی مذهبی)" },
+      "policy": { "en": "DISMANTLED & PRIVATIZED", "fa": "انحلال و خصوصی‌سازی" },
+      "detail": { "en": "Critiqued as pseudo-privatization enterprises that transferred public assets to regime elites and IRGC holding companies. Orderly and legally transparent transfer to the genuine private sector. Fosters competitive markets and attracts Foreign Direct Investment.", "fa": "به‌عنوان بنگاه‌های خصوصی‌سازی کاذب نقد می‌شوند که دارایی‌های عمومی را صرفاً به نخبگان وابسته به رژیم و شرکت‌های هلدینگ سپاه منتقل کردند. انتقال مرتب و شفاف از نظر حقوقی به بخش خصوصی واقعی." },
+      "color": "#f59e0b",
+      "tag": { "en": "PRIVATIZE", "fa": "خصوصی‌سازی" }
+    },
+    {
+      "name": { "en": "Islamic Republic Judiciary", "fa": "دادگستری جمهوری اسلامی" },
+      "policy": { "en": "COMPLETELY REPLACED", "fa": "کاملاً جایگزین می‌شود" },
+      "detail": { "en": "Deeply compromised by ideological Sharia law and political corruption. Replaced immediately by the Transitional Divan during the Emergency Phase, transitioning to an Independent Supreme Court in the permanent architecture. All clerical jurisdiction and revolutionary courts eradicated.", "fa": "عمیقاً آلوده به شریعت ایدئولوژیک و فساد سیاسی. بلافاصله توسط دیوان انتقالی در مرحله اضطراری جایگزین می‌شود و به دیوان عالی مستقل در معماری دائمی منتقل می‌شود. تمام صلاحیت روحانی و دادگاه‌های انقلابی ریشه‌کن می‌شوند." },
+      "color": "#ef4444",
+      "tag": { "en": "ERADICATE", "fa": "ریشه‌کنی" }
+    },
+    {
+      "name": { "en": "Civilian Ministries & Bureaucracy", "fa": "وزارتخانه‌ها و بوروکراسی غیرنظامی" },
+      "policy": { "en": "PURGED & RETAINED", "fa": "پاکسازی و نگه‌داری" },
+      "detail": { "en": "Retained for functional continuity during the Emergency Phase—collapsing state capacity would be catastrophic. Purged of ideological appointees. Restructured around technical competence and meritocracy. The exact lustration law criteria for vetting the civil service without collapsing its capacity are not specified in official texts.", "fa": "برای تداوم عملکردی در مرحله اضطراری نگه‌داری می‌شوند—فروپاشی ظرفیت دولتی فاجعه‌بار خواهد بود. از منصوبان ایدئولوژیک پاکسازی می‌شوند. پیرامون شایستگی فنی و شایسته‌سالاری بازسازی می‌شوند. معیارهای قانون تصفیه برای بررسی کارمندان دولت بدون فروپاشی ظرفیت آن در متون رسمی مشخص نشده است." },
+      "color": "#60a5fa",
+      "tag": { "en": "REFORM", "fa": "اصلاح" }
+    }
+  ],
+  "policyLabel": {
+    "en": "KEY POLICY STANCES",
+    "fa": "مواضع کلیدی سیاستی"
+  },
+  "policyTitle": {
+    "en": "The Post-Theocratic Policy Matrix",
+    "fa": "ماتریس سیاستی پس از تئوکراسی"
+  },
+  "policies": [
+    {
+      "icon": "📈",
+      "title": { "en": "Economy: From IRGC State-Capitalism to Free-Market Liberalism", "fa": "اقتصاد: از سرمایه‌داری دولتی سپاه به لیبرالیسم بازار آزاد" },
+      "items": [
+        { "head": { "en": "Immediate Stabilization:", "fa": "تثبیت فوری:" }, "body": { "en": "Rapid restructuring of the banking sector with highly transparent fiscal policies. Restoration of absolute central bank independence to halt hyperinflation and currency devaluation that has decimated the Iranian middle class.", "fa": "بازسازی سریع بخش بانکی با سیاست‌های مالی بسیار شفاف. احیای استقلال مطلق بانک مرکزی برای توقف ابرتورم و کاهش ارزش پول که طبقه متوسط ایرانی را نابود کرده است." } },
+        { "head": { "en": "Transparent Privatization:", "fa": "خصوصی‌سازی شفاف:" }, "body": { "en": "Orderly legal transfer of state-owned enterprises to the genuine private sector—explicitly critiquing prior \"pseudo-privatization\" under Rafsanjani and Khatami as mere asset-transfers to regime-affiliated elites and IRGC holding companies.", "fa": "انتقال قانونی و منظم بنگاه‌های دولتی به بخش خصوصی واقعی—با انتقاد صریح از «خصوصی‌سازی کاذب» دوران رفسنجانی و خاتمی که صرفاً دارایی‌ها را به نخبگان وابسته به رژیم و شرکت‌های هلدینگ سپاه منتقل کرد." } },
+        { "head": { "en": "Global Market Reintegration:", "fa": "ادغام مجدد در بازار جهانی:" }, "body": { "en": "Rapid harmonization with international regulatory standards: full FATF compliance and re-entry into the global SWIFT system. Designed to attract massive Foreign Direct Investment and end decades of crippling economic isolation.", "fa": "همسوسازی سریع با استانداردهای نظارتی بین‌المللی: رعایت کامل FATF و بازگشت به سیستم جهانی SWIFT. طراحی‌شده برای جذب سرمایه‌گذاری مستقیم خارجی عظیم و پایان دادن به دهه‌ها انزوای اقتصادی فلج‌کننده." } },
+        { "head": { "en": "Environmental Reclamation:", "fa": "بازسازی محیط زیست:" }, "body": { "en": "Urgent policy interventions for environmental recovery and water management, addressing severe ecological degradation—drought, water-table depletion, and extreme pollution—caused by decades of regime mismanagement.", "fa": "مداخلات سیاستی فوری برای احیای محیط زیست و مدیریت آب، رسیدگی به تخریب شدید اکولوژیکی—خشکسالی، کاهش سطح آب‌های زیرزمینی و آلودگی شدید—ناشی از سوءمدیریت دهه‌های رژیم." } }
+      ]
+    },
+    {
+      "icon": "🗺",
+      "title": { "en": "Minorities & Geography: Centralized Civic Equality vs. Ethno-Federalism", "fa": "اقلیت‌ها و جغرافیا: برابری مدنی متمرکز در برابر فدرالیسم قومی" },
+      "items": [
+        { "head": { "en": "Resolute Anti-Federalism:", "fa": "مخالفت قاطعانه با فدرالیسم:" }, "body": { "en": "An uncompromising stance against ethno-federalism, viewing devolution of sovereign power along ethnic lines as a direct precursor to the Balkanization and eventual collapse of the Iranian nation-state—placing the CPI-LD in direct structural opposition to Kurdish parties like PDKI and Komala.", "fa": "موضع بی‌تخفیف علیه فدرالیسم قومی، که انتقال اقتدار حاکمیتی در امتداد خطوط قومی را پیش‌درآمد مستقیم تجزیه و فروپاشی نهایی دولت-ملت ایران می‌داند—حزب را در تضاد ساختاری مستقیم با احزاب کرد مانند PDKI و کوملا قرار می‌دهد." } },
+        { "head": { "en": "Centralized Civic Nationalism:", "fa": "ناسیونالیسم مدنی متمرکز:" }, "body": { "en": "Minority integration relies entirely on centralized civic nationalism—equal civil and human rights for all individuals regardless of ethnicity, rather than group-based territorial rights. No ethnic group receives sovereign administrative autonomy.", "fa": "ادغام اقلیت‌ها کاملاً بر ناسیونالیسم مدنی متمرکز تکیه می‌کند—حقوق مدنی و انسانی برابر برای همه افراد صرف نظر از قومیت، نه حقوق ارضی گروه‌محور. هیچ گروه قومی‌ای استقلال اداری حاکمیتی نمی‌گیرد." } },
+        { "head": { "en": "Language Policy:", "fa": "سیاست زبانی:" }, "body": { "en": "Persian strictly maintained as the sole official and unifying national language for administrative, educational, and cultural cohesion. Mother-tongue instruction for non-Persian populations is permitted as a supplementary cultural right—not a substitute for national integration.", "fa": "فارسی به‌عنوان تنها زبان رسمی و یکپارچه‌ساز ملی برای انسجام اداری، آموزشی و فرهنگی حفظ می‌شود. آموزش به زبان مادری برای جمعیت‌های غیرفارس به‌عنوان یک حق فرهنگی تکمیلی مجاز است." } },
+        { "head": { "en": "Decentralization Limits:", "fa": "محدودیت‌های عدم تمرکز:" }, "body": { "en": "The exact degree of administrative decentralization permitted beneath central government authority (specific taxation or zoning powers for local councils) is not specified in official texts.", "fa": "درجه دقیق عدم تمرکز اداری مجاز زیر اقتدار دولت مرکزی (اختیارات مالیاتی یا منطقه‌بندی خاص برای شوراهای محلی) در متون رسمی مشخص نشده است." } }
+      ]
+    },
+    {
+      "icon": "⚖",
+      "title": { "en": "Transitional Justice: Legalism Over Retribution", "fa": "عدالت انتقالی: قانون‌گرایی به جای انتقام" },
+      "items": [
+        { "head": { "en": "No Political Vengeance:", "fa": "عدم انتقام سیاسی:" }, "body": { "en": "Secretary-General Fouad Pashaei explicitly mandates the transition must not turn into bloodshed or political revenge. Justice must be based strictly on global legal norms, breaking the historical cycle of violent retribution that characterized 1979.", "fa": "دبیرکل فواد پاشایی صریحاً تأکید می‌کند که انتقال نباید به خونریزی یا انتقام سیاسی تبدیل شود. عدالت باید کاملاً بر اساس هنجارهای حقوقی جهانی باشد و چرخه تاریخی خشونت انتقامی که ۱۳۵۷ را مشخص کرد بشکند." } },
+        { "head": { "en": "Strategic Amnesty Logic:", "fa": "منطق استراتژیک عفو:" }, "body": { "en": "Granting amnesty to lower-level state employees and non-violent actors prevents a desperate, counter-revolutionary insurgency driven by existential fear. It also establishes the supremacy of the rule of law and legitimizes the new state internationally.", "fa": "اعطای عفو به کارمندان دولت رده‌پایین و بازیگران غیرخشن از شکل‌گیری یک شورش ضدانقلابی مبتنی بر ترس وجودی جلوگیری می‌کند. همچنین برتری حاکمیت قانون را ایجاد می‌کند و دولت جدید را در سطح بین‌المللی مشروعیت می‌بخشد." } },
+        { "head": { "en": "International Prosecution:", "fa": "پیگرد بین‌المللی:" }, "body": { "en": "Top-tier regime officials responsible for crimes against humanity, gross human rights violations, and systemic corruption are to be prosecuted utilizing international legal standards, potentially in collaboration with international tribunals.", "fa": "مسئولان ارشد رژیم مسئول جنایات علیه بشریت، نقض فاحش حقوق بشر و فساد سیستماتیک با استفاده از استانداردهای حقوقی بین‌المللی، به‌طور بالقوه با همکاری دادگاه‌های بین‌المللی، تحت پیگرد قضایی قرار می‌گیرند." } },
+        { "head": { "en": "Lustration Gap:", "fa": "شکاف قانون تصفیه:" }, "body": { "en": "The exact mechanism for vetting and purging the vast civil service without collapsing its bureaucratic capacity—so-called lustration laws—are not specified in official texts.", "fa": "مکانیسم دقیق بررسی و پاکسازی بوروکراسی گسترده دولتی بدون فروپاشی ظرفیت اداری آن—به اصطلاح قوانین تصفیه—در متون رسمی مشخص نشده است." } }
+      ]
+    },
+    {
+      "icon": "🌐",
+      "title": { "en": "Foreign Policy: Total Pro-Western Realignment", "fa": "سیاست خارجی: بازتراز کامل طرفداری از غرب" },
+      "items": [
+        { "head": { "en": "Eradication of the Axis of Resistance:", "fa": "ریشه‌کنی محور مقاومت:" }, "body": { "en": "Immediate and absolute cessation of all financial, military, and logistical support to proxy militias across the Middle East—Hezbollah, Hamas, the Houthis, and Iraqi militias. Vast state capital redirected back into the domestic economy.", "fa": "قطع فوری و مطلق تمام حمایت‌های مالی، نظامی و لجستیکی از شبه‌نظامیان نیابتی در سراسر خاورمیانه—حزب‌الله، حماس، حوثی‌ها و شبه‌نظامیان عراقی. سرمایه دولتی عظیم به اقتصاد داخلی بازهدایت می‌شود." } },
+        { "head": { "en": "Normalization with Israel:", "fa": "عادی‌سازی با اسرائیل:" }, "body": { "en": "Restoration of full diplomatic relations with the State of Israel is a paramount strategic priority, explicitly abandoning the Islamic Republic's ideological anti-Zionism to foster regional economic and security integration.", "fa": "احیای روابط دیپلماتیک کامل با دولت اسرائیل یک اولویت استراتژیک اصلی است، که ضداسرائیلی‌گری ایدئولوژیک جمهوری اسلامی را صریحاً رها می‌کند تا ادغام اقتصادی و امنیتی منطقه‌ای را تقویت کند." } },
+        { "head": { "en": "Western Strategic Partnership:", "fa": "مشارکت استراتژیک غربی:" }, "body": { "en": "Active re-establishment of robust strategic partnerships with the United States and European allies. Iran positioned as a stabilizing anchor in the Middle East—a cooperative, status-quo power firmly aligned with the global liberal democratic order.", "fa": "احیای فعالانه مشارکت‌های استراتژیک قوی با ایالات متحده و متحدان اروپایی. ایران به‌عنوان لنگر تثبیت‌کننده در خاورمیانه قرار می‌گیرد—یک قدرت وضع موجود مشارکت‌طلب که محکماً با نظم دموکراتیک لیبرال جهانی همسو شده است." } },
+        { "head": { "en": "Hard Break from \"Look East\":", "fa": "قطع کامل از «نگاه به شرق»:" }, "body": { "en": "Complete reversal of the Islamic Republic's strategic pivot toward Russia and China. The CPI-LD's architecture orients Iran toward the transatlantic liberal order as its primary strategic, economic, and security framework.", "fa": "معکوس کردن کامل چرخش استراتژیک جمهوری اسلامی به سمت روسیه و چین. معماری حزب مشروطه (ل.د) ایران را به سمت نظم لیبرال آتلانتیکی به‌عنوان چارچوب استراتژیک، اقتصادی و امنیتی اصلی خود هدایت می‌کند." } }
+      ]
+    }
+  ],
+  "geoLabel": {
+    "en": "GEOPOLITICAL IMPLICATIONS",
+    "fa": "پیامدهای ژئوپلیتیک"
+  },
+  "geoTitle": {
+    "en": "From Revisionist Hegemon to Liberal-Order Anchor",
+    "fa": "از هژمون تجدیدنظرطلب به لنگر نظم لیبرال"
+  },
+  "geoBody": {
+    "en": "A CPI-LD-governed Iran would constitute the most dramatic single-nation realignment in the post-Cold War Middle East. The simultaneous collapse of the Axis of Resistance proxy infrastructure and the normalization of relations with both the United States and Israel would immediately restructure the region's security architecture—eliminating the primary driver of the Israeli–Palestinian conflict's regional escalation, defunding Hezbollah's state-within-a-state in Lebanon, and collapsing Houthi military logistics in Yemen. The reintegration of Iran's economy into global capital markets via SWIFT and FATF compliance would unleash one of the world's most resource-rich and educated nations as a new engine of regional investment and trade. However, the CPI-LD's centralized nationalism model will create sustained structural friction with Kurdish, Baloch, and Azerbaijani minority factions, whose federalist demands are irreconcilable with the party's civic-unity framework—a domestic fault line that foreign adversaries could exploit to destabilize the transition.",
+    "fa": "ایران تحت حکمرانی حزب مشروطه (ل.د) چشمگیرترین بازتراز تک‌ملتی در خاورمیانه پس از جنگ سرد را تشکیل می‌دهد. فروپاشی همزمان زیرساخت نیابتی محور مقاومت و عادی‌سازی روابط با هم ایالات متحده و هم اسرائیل، معماری امنیتی منطقه را فوراً بازسازی می‌کند—اصلی‌ترین محرک تشدید منطقه‌ای تعارض اسرائیلی-فلسطینی را حذف می‌کند، حزب‌الله را در لبنان بی‌پول می‌کند و لجستیک نظامی حوثی‌ها را در یمن منهدم می‌کند. ادغام مجدد اقتصاد ایران در بازارهای سرمایه جهانی از طریق SWIFT و رعایت FATF، یکی از غنی‌ترین کشورهای منابع و باسوادترین ملت‌های جهان را به‌عنوان موتور جدید سرمایه‌گذاری و تجارت منطقه‌ای آزاد خواهد کرد. با این حال، مدل ناسیونالیسم متمرکز حزب اصطکاک ساختاری پایداری با جناح‌های اقلیت کرد، بلوچ و آذربایجانی ایجاد خواهد کرد که خواسته‌های فدرالیستی آنها با چارچوب وحدت مدنی حزب آشتی‌ناپذیر است."
+  },
+  "conclusionLabel": {
+    "en": "STRATEGIC ASSESSMENT",
+    "fa": "ارزیابی استراتژیک"
+  },
+  "conclusionQuote": {
+    "en": "\"The CPI-LD functions not as a traditional political party, but as a fully articulated state operating system in exile—a complete governmental architecture explicitly engineered to be downloaded into the Iranian state apparatus the moment the Islamic Republic experiences catastrophic systemic failure, at the cost of a structurally unresolved tension between its centralized civic nationalism and the federalist aspirations of Iran's deeply heterogeneous periphery.\"",
+    "fa": "«حزب مشروطه ایران (ل.د) نه به‌عنوان یک حزب سیاسی سنتی، بلکه به‌عنوان یک سیستم عملیاتی دولتی کاملاً تبیین‌شده در تبعید عمل می‌کند—یک معماری حکومتی کامل که به‌طور صریح مهندسی شده تا در لحظه‌ای که جمهوری اسلامی دچار شکست سیستماتیک فاجعه‌بار می‌شود در دستگاه دولتی ایران نصب شود، به بهای یک تنش ساختاری حل‌نشده بین ناسیونالیسم مدنی متمرکز و آرزوهای فدرالیستی حاشیه بسیار ناهمگون ایران.»"
+  },
+  "footerAllPlans": {
+    "en": "← All Transitional Plans",
+    "fa": "← همه طرح‌های انتقالی"
+  },
+  "footerArena": {
+    "en": "Arena — Endorse Plans →",
+    "fa": "آرنا — تأیید طرح‌ها ←"
+  },
+  "rejectionsLabel": {
+    "en": "NON-NEGOTIABLE REJECTIONS",
+    "fa": "رد قطعی و غیرقابل مذاکره"
+  },
+  "rejectionsTitle": {
+    "en": "What the CPI-LD Categorically Rejects",
+    "fa": "آنچه حزب مشروطه (ل.د) قطعاً رد می‌کند"
+  },
+  "rejections": [
+    {
+      "en": "Any reformed iteration of the Islamic Republic — the IRI is constitutionally incompatible with secular democracy and must be replaced entirely, not reformed. \"Islamic democracy\" is an oxymoron incompatible with the UDHR.",
+      "fa": "هر گونه نسخه اصلاح‌شده از جمهوری اسلامی — جمهوری اسلامی از نظر قانون اساسی با دموکراسی سکولار ناسازگار است و باید کاملاً جایگزین شود، نه اصلاح. «دموکراسی اسلامی» یک تناقض در اصطلاح است."
+    },
+    {
+      "en": "Federalism or ethnic territorial autonomy — any devolution of sovereign power along ethnic lines is rejected as a direct precursor to the Balkanization of Iran.",
+      "fa": "فدرالیسم یا خودمختاری ارضی قومی — هرگونه واگذاری قدرت حاکمیتی در امتداد خطوط قومی به‌عنوان پیش‌درآمد مستقیم تجزیه ایران رد می‌شود."
+    },
+    {
+      "en": "Collective punishment or revolutionary vengeance — the transition must not become bloodshed or political revenge. Justice must follow global legal norms exclusively.",
+      "fa": "مجازات جمعی یا انتقام انقلابی — انتقال نباید به خونریزی یا انتقام سیاسی تبدیل شود. عدالت باید صرفاً از هنجارهای حقوقی جهانی پیروی کند."
+    },
+    {
+      "en": "Theocracy in any post-transition constitutional form — no role for clerical bodies (Guardian Council, Assembly of Experts) in any future constitution is acceptable.",
+      "fa": "تئوکراسی در هر شکل قانون اساسی پس از انتقال — هیچ نقشی برای نهادهای روحانی (شورای نگهبان، مجلس خبرگان) در هیچ قانون اساسی آینده‌ای قابل قبول نیست."
+    },
+    {
+      "en": "Alliances with IRGC or Basij leadership — the IRGC is designated for dissolution and prosecution, not co-optation. There is no amnesty for IRGC top brass, in contrast to the Artesh co-optation offer.",
+      "fa": "اتحاد با رهبری سپاه یا بسیج — سپاه برای انحلال و پیگرد قضایی تعیین شده است، نه جذب. هیچ عفوی برای فرماندهان ارشد سپاه وجود ندارد، برخلاف پیشنهاد جذب ارتش."
+    }
+  ],
+  "leadersLabel": {
+    "en": "LEADERSHIP",
+    "fa": "رهبری"
+  },
+  "leadersTitle": {
+    "en": "Founders, Secretary-General & Designated Head of State",
+    "fa": "بنیان‌گذاران، دبیرکل و رئیس کشور منتخب"
+  },
+  "leaders": [
+    {
+      "name": { "en": "Dariush Homayoun", "fa": "داریوش همایون" },
+      "role": { "en": "Founder & Chief Ideologist (1933–2011)", "fa": "بنیان‌گذار و معمار اصلی ایدئولوژی (۱۳۱۲–۱۳۸۹)" },
+      "bio": { "en": "Former Minister of Information and Tourism under Mohammad Reza Shah Pahlavi. Founding intellectual architect of the CPI-LD. Developed the defining philosophical argument that the constitutional monarchy must serve as a non-executive \"vessel of national continuity\" — a neutral arbiter rather than a power center. His archive at homayoun.org remains the definitive ideological source for the party.", "fa": "وزیر اطلاعات و جهانگردی در دوران محمدرضا شاه پهلوی. معمار فکری بنیان‌گذار حزب مشروطه (ل.د). استدلال فلسفی تعریف‌کننده را توسعه داد که پادشاهی مشروطه باید به‌عنوان «ظرف تداوم ملی» غیراجرایی عمل کند—یک داور بی‌طرف نه یک مرکز قدرت. آرشیو او در homayoun.org منبع ایدئولوژیک قطعی حزب باقی می‌ماند." }
+    },
+    {
+      "name": { "en": "Fouad Pashaei", "fa": "فواد پاشایی" },
+      "role": { "en": "Secretary-General (active)", "fa": "دبیرکل (فعال)" },
+      "bio": { "en": "Current Secretary-General of the CPI-LD. Active in Iranian diaspora political circles, primarily in Europe. Represents the party at diaspora conferences and in coordination with the IPP/NUFDI framework. Explicitly quoted on transitional justice principles: the transition must not turn into bloodshed or political revenge — justice must be based strictly on global legal norms.", "fa": "دبیرکل فعلی حزب مشروطه (ل.د). در محافل سیاسی ایرانیان خارج از کشور، عمدتاً در اروپا فعال است. حزب را در کنفرانس‌های دیاسپورا و در هماهنگی با چارچوب IPP/NUFDI نمایندگی می‌کند. صریحاً در مورد اصول عدالت انتقالی نقل‌قول شده: انتقال نباید به خونریزی یا انتقام سیاسی تبدیل شود." }
+    },
+    {
+      "name": { "en": "Reza Pahlavi", "fa": "رضا پهلوی" },
+      "role": { "en": "Designated Constitutional Monarch (non-executive)", "fa": "پادشاه مشروطه منتخب (غیراجرایی)" },
+      "bio": { "en": "Crown Prince of Iran, son of Mohammad Reza Shah. The CPI-LD's transition blueprint designates him as the non-executive head of state under a parliamentary constitutional monarchy. Not a formal party member; operates independently and has not formally endorsed any single party's plan. His championing of the IPP 180-day framework aligns with CPI-LD's Phase 3 activation plan.", "fa": "ولیعهد ایران، فرزند محمدرضا شاه. طرح انتقالی حزب مشروطه (ل.د) او را به‌عنوان رئیس کشور غیراجرایی در چارچوب پادشاهی مشروطه پارلمانی تعیین می‌کند. عضو رسمی حزب نیست؛ مستقل عمل می‌کند و هیچ طرح حزب واحدی را به‌طور رسمی تأیید نکرده است." }
+    }
+  ],
+  "assessLabel": {
+    "en": "STRATEGIC STRENGTHS & WEAKNESSES",
+    "fa": "نقاط قوت و ضعف استراتژیک"
+  },
+  "assessTitle": {
+    "en": "Critical Assessment of the CPI-LD Framework",
+    "fa": "ارزیابی انتقادی از چارچوب حزب مشروطه (ل.د)"
+  },
+  "strengths": [
+    { "en": "Most complete governmental blueprint in the opposition — the CPI-LD + IPP combination provides the most operationally detailed transition plan among Iranian exile parties.", "fa": "کامل‌ترین طرح حکومتی در اپوزیسیون — ترکیب حزب مشروطه (ل.د) + IPP جامع‌ترین برنامه انتقالی با جزئیات عملیاتی را در میان احزاب تبعیدی ایرانی ارائه می‌دهد." },
+    { "en": "Ideological coherence — a single, well-developed framework built over 30+ years by Dariush Homayoun, with no internal faction tension comparable to other exile parties.", "fa": "انسجام ایدئولوژیک — یک چارچوب واحد و توسعه‌یافته در طول ۳۰+ سال توسط داریوش همایون، بدون تنش جناحی داخلی قابل مقایسه با دیگر احزاب تبعیدی." },
+    { "en": "IPP alignment — by adopting the IPP blueprint (associated with Reza Pahlavi and NUFDI), the CPI-LD operates within the broadest pro-transition coalition and gains credibility beyond its own membership.", "fa": "همسویی با IPP — با پذیرش طرح IPP (مرتبط با رضا پهلوی و NUFDI)، حزب مشروطه (ل.د) در گسترده‌ترین ائتلاف طرفدار انتقال عمل می‌کند و اعتبارسنجی فراتر از اعضای خود کسب می‌کند." },
+    { "en": "Clear institutional differentiation — the IRGC-eradicate vs. Artesh-co-opt distinction is the most operationally specific security transition policy among all plans. The 6-target institutional map is highly actionable.", "fa": "تمایز نهادی روشن — تمایز ریشه‌کنی سپاه در مقابل جذب ارتش، خاص‌ترین سیاست انتقال امنیتی از نظر عملیاتی در میان تمام طرح‌هاست. نقشه نهادی ۶ هدفه بسیار قابل اجراست." },
+    { "en": "Historical legitimacy claim — the 1906 Constitutional Revolution reference provides a pre-IRI Iranian democratic precedent, allowing the party to argue it restores Iran's own constitutional tradition.", "fa": "ادعای مشروعیت تاریخی — ارجاع به انقلاب مشروطه ۱۲۸۵ یک سابقه دموکراتیک ایرانی پیش از جمهوری اسلامی فراهم می‌کند و به حزب اجازه می‌دهد ادعا کند سنت مشروطه‌ای خود ایران را احیا می‌کند." }
+  ],
+  "weaknesses": [
+    { "en": "Small party, limited mass base — the CPI-LD is an exile organization with no demonstrated domestic organizational infrastructure. Transition plans that depend on party institutions assume a level of presence the party does not have.", "fa": "حزب کوچک، پایگاه توده‌ای محدود — حزب مشروطه (ل.د) یک سازمان تبعیدی است که زیرساخت سازمانی داخلی اثبات‌شده‌ای ندارد. طرح‌های انتقالی که به نهادهای حزبی وابسته‌اند، سطحی از حضور را فرض می‌کنند که حزب ندارد." },
+    { "en": "Monarchism is a political liability — any Pahlavi association activates negative memories of the Shah's authoritarian period for large parts of the Iranian population, particularly the left and ethnic minorities.", "fa": "پادشاهی‌خواهی یک مسئولیت سیاسی است — هر ارتباطی با پهلوی، خاطرات منفی دوران استبداد شاه را برای بخش‌های بزرگی از جمعیت ایران، به‌ویژه چپ و اقلیت‌های قومی، فعال می‌کند." },
+    { "en": "Anti-federalism creates structural opposition from ethnic minorities — Kurdish, Baloch, and Azerbaijani communities (30–40% of Iran's population) are directly opposed to centralized nationalism, with no accommodation mechanism proposed.", "fa": "مخالفت با فدرالیسم، مخالفت ساختاری از اقلیت‌های قومی ایجاد می‌کند — جوامع کرد، بلوچ و آذربایجانی (۳۰-۴۰ درصد جمعیت ایران) مستقیماً با ناسیونالیسم متمرکز مخالفند و هیچ مکانیسم سازگاری پیشنهاد نشده است." },
+    { "en": "No domestic clandestine infrastructure — unlike operationally-oriented opposition groups, the CPI-LD cannot trigger collapse; it can only prepare to govern after one occurs externally.", "fa": "فاقد زیرساخت مخفی داخلی — برخلاف گروه‌های مخالف عملیاتی، حزب مشروطه (ل.د) نمی‌تواند فروپاشی را آغاز کند؛ فقط می‌تواند برای حکمرانی پس از وقوع آن از خارج آماده شود." },
+    { "en": "Reza Pahlavi has not formally endorsed the CPI-LD plan — his designation as constitutional monarch is aspirational. If he does not accept the non-executive constraint or aligns with a different framework, a key pillar of the plan is undermined.", "fa": "رضا پهلوی طرح حزب مشروطه (ل.د) را به‌طور رسمی تأیید نکرده است — تعیین او به‌عنوان پادشاه مشروطه آرمانی است. اگر محدودیت غیراجرایی را نپذیرد یا با چارچوب دیگری همسو شود، یک ستون کلیدی طرح تضعیف می‌شود." },
+    { "en": "IPP dependency — by grounding Phase 3 in the IPP's 15-chapter blueprint, the transition plan is only as robust as the IPP document. If the IPP framework is disputed, the emergency phase loses its operational foundation.", "fa": "وابستگی به IPP — با استوار کردن مرحله ۳ بر طرح ۱۵ فصلی IPP، طرح انتقالی به اندازه سند IPP قوی است. اگر چارچوب IPP مورد اختلاف باشد، مرحله اضطراری پایه عملیاتی خود را از دست می‌دهد." }
+  ],
+  "histLabel": {
+    "en": "HISTORICAL TIMELINE",
+    "fa": "تاریخچه"
+  },
+  "histTitle": {
+    "en": "From the 1906 Constitutional Revolution to the IPP Alignment",
+    "fa": "از انقلاب مشروطه ۱۲۸۵ تا همسویی با IPP"
+  },
+  "history": [
+    { "year": "1906", "event": { "en": "Persian Constitutional Revolution — Iran's first parliament (Majles) and constitutional monarchy established. The political reference point the CPI-LD claims to restore.", "fa": "انقلاب مشروطه ایران — اولین مجلس ایران (مجلس شورای ملی) و پادشاهی مشروطه تأسیس شد. نقطه مرجع سیاسی که حزب مشروطه (ل.د) ادعا می‌کند می‌خواهد آن را احیا کند." } },
+    { "year": "1953", "event": { "en": "CIA/MI6 coup (Operation Ajax) consolidates Mohammad Reza Shah's power. The party views this period as a deviation from the 1906 trajectory, while rejecting the Mosaddeghist nationalist reading.", "fa": "کودتای CIA/MI6 (عملیات آژاکس) قدرت محمدرضا شاه را تثبیت می‌کند. حزب این دوره را انحراف از مسیر ۱۲۸۵ می‌داند، در حالی که تفسیر ناسیونالیستی مصدق‌گرا را رد می‌کند." } },
+    { "year": "1977–78", "event": { "en": "Dariush Homayoun serves as Minister of Information and Tourism in the Shah's final government.", "fa": "داریوش همایون به‌عنوان وزیر اطلاعات و جهانگردی در آخرین دولت شاه خدمت می‌کند." } },
+    { "year": "1979", "event": { "en": "Islamic Revolution. Homayoun and secular monarchists go into exile. The foundational CPI-LD critique: 1979 was a counter-revolutionary rupture of the 1906 constitutional tradition.", "fa": "انقلاب اسلامی. همایون و مشروطه‌خواهان سکولار به تبعید می‌روند. نقد بنیادی حزب مشروطه (ل.د): سال ۱۳۵۷ یک شکست ضدانقلابی در سنت مشروطه ۱۲۸۵ بود." } },
+    { "year": "1994", "event": { "en": "Constitutionalist Party of Iran (Liberal Democrat) formally established in exile. Homayoun is the primary intellectual architect. Party establishes the founding principle: non-executive parliamentary monarchy as the only viable governance model.", "fa": "حزب مشروطه ایران (لیبرال دموکرات) به‌طور رسمی در تبعید تأسیس شد. همایون معمار فکری اصلی است. حزب اصل بنیادی را تثبیت می‌کند: پادشاهی پارلمانی غیراجرایی به‌عنوان تنها مدل حکومتی قابل دوام." } },
+    { "year": "2000s", "event": { "en": "Party publishes position papers and participates in diaspora opposition conferences. The homayoun.org archive is established as the intellectual repository for CPI-LD ideology.", "fa": "حزب اسناد موضع‌گیری منتشر می‌کند و در کنفرانس‌های اپوزیسیون دیاسپورا شرکت می‌کند. آرشیو homayoun.org به‌عنوان مخزن فکری ایدئولوژی حزب مشروطه (ل.د) تأسیس می‌شود." } },
+    { "year": "2011", "event": { "en": "Dariush Homayoun dies in the United States (January 7). Fouad Pashaei and other party members continue the party under his intellectual legacy.", "fa": "داریوش همایون در ایالات متحده درگذشت (۱۷ دی ۱۳۸۹). فواد پاشایی و دیگر اعضای حزب، حزب را تحت میراث فکری او ادامه می‌دهند." } },
+    { "year": "2022", "event": { "en": "Woman Life Freedom (Zan, Zendegi, Azadi) uprising in Iran. CPI-LD expresses solidarity; the uprising reinforces the party's argument that the IRI is irreformable. Coordination with IPP/NUFDI framework intensifies.", "fa": "قیام زن، زندگی، آزادی در ایران. حزب مشروطه (ل.د) همبستگی اعلام می‌کند؛ این قیام استدلال حزب را تقویت می‌کند که جمهوری اسلامی غیرقابل اصلاح است. هماهنگی با چارچوب IPP/NUFDI تشدید می‌شود." } },
+    { "year": "2023–25", "event": { "en": "Party formally aligns with the IPP 180-day Emergency Phase blueprint. Fouad Pashaei serves as Secretary-General. Party participates in broader opposition coordination including NUFDI and coalition efforts.", "fa": "حزب به‌طور رسمی با طرح ۱۸۰ روزه مرحله اضطراری IPP همسو می‌شود. فواد پاشایی به‌عنوان دبیرکل خدمت می‌کند. حزب در هماهنگی گسترده‌تر اپوزیسیون از جمله NUFDI و تلاش‌های ائتلافی شرکت می‌کند." } }
+  ],
+  "demandsLabel": {
+    "en": "NON-NEGOTIABLE DEMANDS",
+    "fa": "خواسته‌های غیرقابل مذاکره"
+  },
+  "demandsTitle": {
+    "en": "Seven Foundational Demands",
+    "fa": "هفت خواسته بنیادی"
+  },
+  "demands": [
+    { "en": "Full dissolution of the Islamic Republic of Iran — not reform, not referendum on existing structures. Complete constitutional replacement.", "fa": "انحلال کامل جمهوری اسلامی ایران — نه اصلاح، نه همه‌پرسی در مورد ساختارهای موجود. جایگزینی کامل قانون اساسی." },
+    { "en": "Dissolution and prosecution of the IRGC high command — the IRGC as a military-economic-political institution must be dismantled. No amnesty for leadership; international proscription sought.", "fa": "انحلال و پیگرد قضایی فرماندهی ارشد سپاه — سپاه به‌عنوان نهاد نظامی-اقتصادی-سیاسی باید منحل شود. بدون عفو برای رهبری؛ ممنوعیت بین‌المللی درخواست می‌شود." },
+    { "en": "Separation of religion and state — no Sharia, no clerical veto over legislation or judiciary in any post-transition constitutional framework.", "fa": "جدایی دین و دولت — بدون شریعت، بدون حق وتوی روحانی بر قانونگذاری یا قضایی در هیچ چارچوب قانون اساسی پس از انتقالی." },
+    { "en": "Free, multi-party, internationally monitored elections — for both the constituent assembly and the first permanent parliament. No single-party or coalition dominance.", "fa": "انتخابات آزاد، چندحزبی و با نظارت بین‌المللی — هم برای مجلس مؤسسان و هم برای اولین مجلس دائمی. بدون تسلط یک حزب یا ائتلاف." },
+    { "en": "Release of all political prisoners as a Day 1 action.", "fa": "آزادی همه زندانیان سیاسی به‌عنوان اقدام روز اول." },
+    { "en": "UDHR-based individual rights — including full gender equality, freedom of religion and irreligion, and non-discrimination protections.", "fa": "حقوق فردی مبتنی بر اعلامیه جهانی حقوق بشر — شامل برابری کامل جنسیتی، آزادی دین و بی‌دینی، و حمایت از عدم تبعیض." },
+    { "en": "Unified territorial integrity of Iran — no territorial partition, no federal autonomy arrangements.", "fa": "تمامیت ارضی یکپارچه ایران — بدون تجزیه سرزمینی، بدون ترتیبات خودمختاری فدرال." }
+  ],
+  "source": {
+    "en": "Content synthesized from CPI-LD official party positions, the Iran Prosperity Project (IPP) 15-chapter Emergency Phase blueprint, and the writings of party founder Dariush Homayoun. Primary sources: hezb-mashrouteh.org (FA), homayoun.org (FA/EN). Transition methodology aligned with the Iran Prosperity Project developed under NUFDI.",
+    "fa": "محتوای این صفحه بر اساس مواضع رسمی حزب مشروطه ایران (لیبرال دموکرات)، سند پروژه رونق ایران (IPP)، و نوشته‌های داریوش همایون، بنیان‌گذار حزب، گردآوری شده است. منابع اصلی: hezb-mashrouteh.org (فارسی)، homayoun.org (فارسی/انگلیسی)."
+  }
+}

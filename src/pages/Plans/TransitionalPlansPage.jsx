@@ -5,10 +5,10 @@ import CONTENT from '../../locales/pages/transitional-plans.json';
 import styles from './TransitionalPlansPage.module.css';
 
 export default function TransitionalPlansPage() {
-    const { t, isRTL } = useLang();
+    const { t, isRTL, headFont } = useLang();
 
     return (
-        <div className={styles.root} dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className={styles.root} dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className={styles.inner}>
                 <div className={styles.eyebrow}>
                     {t(CONTENT.eyebrow)}

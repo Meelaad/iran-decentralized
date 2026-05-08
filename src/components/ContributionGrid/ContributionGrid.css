@@ -1,5 +1,5 @@
 .cg-root {
-    background: #1a1a2e;
+    background: oklch(13% 0.03 280);
     border: 1px solid rgba(232, 80, 122, 0.15);
     border-radius: 12px;
     padding: 20px;
@@ -28,13 +28,13 @@
 .cg-title {
     font-size: 14px;
     font-weight: 600;
-    color: #ededed;
+    color: oklch(94% 0 0);
     letter-spacing: 0.02em;
 }
 
 .cg-subtitle {
     font-size: 11px;
-    color: #9a9a9a;
+    color: oklch(63% 0 0);
     margin: 0;
 }
 
@@ -47,7 +47,7 @@
 
 .cg-stat-box {
     flex: 1;
-    background: rgba(0, 0, 0, 0.3);
+    background: oklch(0% 0 0 / 0.3);
     border: 1px solid rgba(232, 80, 122, 0.1);
     border-radius: 8px;
     padding: 10px 16px;
@@ -65,7 +65,7 @@
     font-size: 9px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #666;
+    color: oklch(48% 0 0);
     margin-top: 4px;
 }
 
@@ -74,7 +74,7 @@
     font-size: 10px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #8aa8bc;
+    color: var(--clr-text-muted);
     margin: 0 0 12px;
 }
 
@@ -99,7 +99,7 @@
     position: absolute;
     right: 0;
     font-size: 9px;
-    color: #555;
+    color: oklch(40% 0 0);
     line-height: 11px;
     white-space: nowrap;
 }
@@ -120,7 +120,7 @@
 .cg-month-label {
     position: absolute;
     font-size: 9px;
-    color: #555;
+    color: oklch(40% 0 0);
     white-space: nowrap;
     top: 0;
 }
@@ -161,7 +161,7 @@
 
 .cg-legend-label {
     font-size: 10px;
-    color: #9a9a9a;
+    color: oklch(63% 0 0);
 }
 
 .cg-legend-swatches {
@@ -177,9 +177,9 @@
 
 /* Portal tooltip — rendered on document.body */
 .cg-tooltip {
-    background: #0d1117;
+    background: var(--clr-bg-panel);
     border: 1px solid rgba(232, 80, 122, 0.35);
-    color: #CCE3F0;
+    color: oklch(88% 0.03 220);
     font-size: 11px;
     padding: 5px 9px;
     border-radius: 5px;

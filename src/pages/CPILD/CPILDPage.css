@@ -1,12 +1,12 @@
 /* ── CPI-LD Page — Constitutionalist Party of Iran (Liberal Democrat) ─────── */
-/* Prefix: .cpild-   Accent: #d97706 (amber gold)                               */
+/* Prefix: .cpild-   Accent: var(--clr-amber) (amber gold)                               */
 
 /* ── Root ─────────────────────────────────────────────────────────────────── */
 .cpild-page {
   position: relative;
   min-height: 100vh;
-  background: #010303;
-  color: #CCE3F0;
+  background: var(--clr-bg);
+  color: oklch(88% 0.03 220);
   overflow-x: hidden;
 }
 
@@ -26,8 +26,8 @@
     0deg,
     transparent,
     transparent 3px,
-    rgba(217, 119, 6, 0.013) 3px,
-    rgba(217, 119, 6, 0.013) 4px
+    oklch(70% 0.18 75 / 0.013) 3px,
+    oklch(70% 0.18 75 / 0.013) 4px
   );
   pointer-events: none;
   z-index: 1;
@@ -75,7 +75,7 @@
 .cpild-sechead-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #e8f4fd;
+  color: oklch(95% 0.02 220);
   margin: 0 0 12px;
   line-height: 1.25;
 }
@@ -91,7 +91,7 @@
 .cpild-body-text {
   font-size: 0.975rem;
   line-height: 1.78;
-  color: #a8c4d4;
+  color: oklch(78% 0.04 220);
   max-width: 820px;
   margin: 0;
 }
@@ -118,23 +118,23 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #d97706;
+  color: var(--clr-amber);
   margin: 0 0 20px;
 }
 
 .cpild-hero-title {
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 800;
-  color: #e8f4fd;
+  color: oklch(95% 0.02 220);
   margin: 0 0 10px;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  text-shadow: 0 0 48px rgba(217, 119, 6, 0.3);
+  text-shadow: 0 0 48px var(--clr-amber-30);
 }
 
 .cpild-hero-subtitle {
   font-size: 0.85rem;
-  color: rgba(217, 119, 6, 0.65);
+  color: oklch(70% 0.18 75 / 0.65);
   letter-spacing: 0.06em;
   margin: 0 0 20px;
 }
@@ -142,7 +142,7 @@
 .cpild-hero-desc {
   font-size: 1.05rem;
   line-height: 1.72;
-  color: #90b4c8;
+  color: oklch(70% 0.04 220);
   margin: 0 auto 28px;
   max-width: 720px;
 }
@@ -172,16 +172,16 @@
 }
 
 .cpild-pillar {
-  background: rgba(217, 119, 6, 0.04);
-  border: 1px solid rgba(217, 119, 6, 0.12);
+  background: oklch(70% 0.18 75 / 0.04);
+  border: 1px solid oklch(70% 0.18 75 / 0.12);
   border-radius: 8px;
   padding: 20px 18px;
   transition: border-color 0.25s, background 0.25s;
 }
 
 .cpild-pillar:hover {
-  border-color: rgba(217, 119, 6, 0.3);
-  background: rgba(217, 119, 6, 0.08);
+  border-color: var(--clr-amber-30);
+  background: oklch(70% 0.18 75 / 0.08);
 }
 
 .cpild-pillar-icon {
@@ -201,7 +201,7 @@
 .cpild-pillar-body {
   font-size: 0.84rem;
   line-height: 1.65;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
   margin: 0;
 }
 
@@ -224,8 +224,8 @@
   width: 2px;
   background: linear-gradient(
     180deg,
-    rgba(217, 119, 6, 0.55),
-    rgba(217, 119, 6, 0.06)
+    oklch(70% 0.18 75 / 0.55),
+    oklch(70% 0.18 75 / 0.06)
   );
 }
 
@@ -262,8 +262,8 @@
 
 .cpild-phase-content {
   flex: 1;
-  background: rgba(217, 119, 6, 0.03);
-  border: 1px solid rgba(217, 119, 6, 0.1);
+  background: oklch(70% 0.18 75 / 0.03);
+  border: 1px solid oklch(70% 0.18 75 / 0.1);
   border-radius: 8px;
   padding: 16px 20px;
 }
@@ -296,7 +296,7 @@
 .cpild-phase-desc {
   font-size: 0.86rem;
   line-height: 1.68;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
   margin: 0;
 }
 
@@ -316,21 +316,21 @@
 }
 
 .cpild-power-node {
-  background: rgba(217, 119, 6, 0.04);
-  border: 1px solid rgba(217, 119, 6, 0.1);
+  background: oklch(70% 0.18 75 / 0.04);
+  border: 1px solid oklch(70% 0.18 75 / 0.1);
   border-radius: 8px;
   padding: 18px 16px;
   transition: border-color 0.25s, background 0.25s;
 }
 
 .cpild-power-node:hover {
-  border-color: rgba(217, 119, 6, 0.28);
-  background: rgba(217, 119, 6, 0.08);
+  border-color: oklch(70% 0.18 75 / 0.28);
+  background: oklch(70% 0.18 75 / 0.08);
 }
 
 .cpild-power-node--crown {
-  border-color: rgba(217, 119, 6, 0.35);
-  background: rgba(217, 119, 6, 0.08);
+  border-color: oklch(70% 0.18 75 / 0.35);
+  background: oklch(70% 0.18 75 / 0.08);
 }
 
 .cpild-power-icon {
@@ -342,7 +342,7 @@
 .cpild-power-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   margin: 0 0 4px;
 }
 
@@ -358,7 +358,7 @@
 .cpild-power-body {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
   margin: 0;
 }
 
@@ -371,7 +371,7 @@
 }
 
 .cpild-target {
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   border: 1px solid;
   border-radius: 8px;
   padding: 18px 16px;
@@ -379,7 +379,7 @@
 }
 
 .cpild-target:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: oklch(100% 0 0 / 0.04);
 }
 
 .cpild-target-header {
@@ -394,7 +394,7 @@
 .cpild-target-name {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   margin: 0;
   flex: 1;
   min-width: 120px;
@@ -423,7 +423,7 @@
 .cpild-target-detail {
   font-size: 0.82rem;
   line-height: 1.62;
-  color: #7a9dae;
+  color: var(--clr-text-muted);
   margin: 0;
 }
 
@@ -436,19 +436,19 @@
 }
 
 .cpild-acc-item {
-  border: 1px solid rgba(217, 119, 6, 0.1);
+  border: 1px solid oklch(70% 0.18 75 / 0.1);
   border-radius: 8px;
   overflow: hidden;
   transition: border-color 0.2s;
 }
 
 .cpild-acc-item.cpild-acc-open {
-  border-color: rgba(217, 119, 6, 0.32);
+  border-color: oklch(70% 0.18 75 / 0.32);
 }
 
 .cpild-acc-head {
   width: 100%;
-  background: rgba(217, 119, 6, 0.04);
+  background: oklch(70% 0.18 75 / 0.04);
   border: none;
   cursor: pointer;
   display: flex;
@@ -461,7 +461,7 @@
 
 .cpild-acc-item.cpild-acc-open .cpild-acc-head,
 .cpild-acc-head:hover {
-  background: rgba(217, 119, 6, 0.09);
+  background: oklch(70% 0.18 75 / 0.09);
 }
 
 .cpild-acc-icon {
@@ -472,19 +472,19 @@
 .cpild-acc-label {
   font-size: 0.93rem;
   font-weight: 600;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   flex: 1;
 }
 
 .cpild-acc-chevron {
   font-size: 0.6rem;
-  color: var(--c, #d97706);
+  color: var(--c, var(--clr-amber));
   flex-shrink: 0;
 }
 
 .cpild-acc-body {
   padding: 20px 18px 20px 44px;
-  background: rgba(217, 119, 6, 0.02);
+  background: oklch(70% 0.18 75 / 0.02);
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -493,7 +493,7 @@
 .cpild-acc-point {
   font-size: 0.875rem;
   line-height: 1.68;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
 }
 
 .cpild-acc-point-head {
@@ -512,14 +512,14 @@
   font-weight: 700;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(217, 119, 6, 0.65);
+  color: oklch(70% 0.18 75 / 0.65);
   margin: 0 0 20px;
 }
 
 .cpild-conclusion-quote {
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   line-height: 1.75;
-  color: #b0cdd8;
+  color: oklch(80% 0.04 220);
   font-style: italic;
   max-width: 860px;
   margin: 0 auto 28px;
@@ -540,7 +540,7 @@
   align-items: center;
   margin-top: 56px;
   padding-top: 24px;
-  border-top: 1px solid rgba(217, 119, 6, 0.12);
+  border-top: 1px solid oklch(70% 0.18 75 / 0.12);
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -548,22 +548,22 @@
 .cpild-footer-nav-link {
   font-size: 0.82rem;
   font-weight: 600;
-  color: rgba(217, 119, 6, 0.8);
+  color: oklch(70% 0.18 75 / 0.8);
   text-decoration: none;
   letter-spacing: 0.04em;
   transition: color 0.2s;
 }
 
 .cpild-footer-nav-link:hover {
-  color: #d97706;
+  color: var(--clr-amber);
 }
 
 .cpild-footer-nav-link--secondary {
-  color: rgba(217, 119, 6, 0.5);
+  color: oklch(70% 0.18 75 / 0.5);
 }
 
 .cpild-footer-nav-link--secondary:hover {
-  color: rgba(217, 119, 6, 0.85);
+  color: oklch(70% 0.18 75 / 0.85);
 }
 
 /* ── RTL ──────────────────────────────────────────────────────────────────── */
@@ -592,7 +592,7 @@
 [dir="rtl"] .cpild-conclusion-quote,
 [dir="rtl"] .cpild-footer-nav-link { font-family: 'Irancell', sans-serif; }
 [dir="rtl"] .cpild-sechead-line {
-  background: linear-gradient(270deg, #d97706, transparent) !important;
+  background: linear-gradient(270deg, var(--clr-amber), transparent) !important;
 }
 
 [dir="rtl"] .cpild-timeline {

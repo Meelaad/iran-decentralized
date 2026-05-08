@@ -5,8 +5,8 @@
 .jmi-page {
   position: relative;
   min-height: 100vh;
-  background: #010303;
-  color: #CCE3F0;
+  background: var(--clr-bg);
+  color: oklch(88% 0.03 220);
   overflow-x: hidden;
 }
 
@@ -71,7 +71,7 @@
 .jmi-sechead-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #e8f4fd;
+  color: oklch(95% 0.02 220);
   margin: 0 0 12px;
   line-height: 1.25;
 }
@@ -87,7 +87,7 @@
 .jmi-body-text {
   font-size: 0.975rem;
   line-height: 1.78;
-  color: #a8c4d4;
+  color: oklch(78% 0.04 220);
   max-width: 820px;
   margin: 0;
 }
@@ -112,7 +112,7 @@
 .jmi-hero-title {
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 800;
-  color: #e8f4fd;
+  color: oklch(95% 0.02 220);
   margin: 0 0 10px;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -129,7 +129,7 @@
 .jmi-hero-desc {
   font-size: 1.05rem;
   line-height: 1.72;
-  color: #90b4c8;
+  color: oklch(70% 0.04 220);
   margin: 0 auto 28px;
   max-width: 700px;
 }
@@ -188,7 +188,7 @@
 .jmi-pillar-body {
   font-size: 0.84rem;
   line-height: 1.65;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
   margin: 0;
 }
 
@@ -283,7 +283,7 @@
 .jmi-phase-desc {
   font-size: 0.86rem;
   line-height: 1.68;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
   margin: 0;
 }
 
@@ -350,7 +350,7 @@
 .jmi-power-title {
   font-size: 0.88rem;
   font-weight: 700;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   margin: 0 0 4px;
 }
 
@@ -366,7 +366,7 @@
 .jmi-power-body {
   font-size: 0.8rem;
   line-height: 1.6;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
   margin: 0;
 }
 
@@ -379,7 +379,7 @@
 }
 
 .jmi-target {
-  background: rgba(255, 255, 255, 0.02);
+  background: oklch(100% 0 0 / 0.02);
   border: 1px solid;
   border-radius: 8px;
   padding: 18px 16px;
@@ -387,7 +387,7 @@
 }
 
 .jmi-target:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: oklch(100% 0 0 / 0.04);
 }
 
 .jmi-target-header {
@@ -402,7 +402,7 @@
 .jmi-target-name {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   margin: 0;
   flex: 1;
   min-width: 120px;
@@ -431,7 +431,7 @@
 .jmi-target-detail {
   font-size: 0.82rem;
   line-height: 1.62;
-  color: #7a9dae;
+  color: var(--clr-text-muted);
   margin: 0;
 }
 
@@ -480,7 +480,7 @@
 .jmi-acc-label {
   font-size: 0.93rem;
   font-weight: 600;
-  color: #CCE3F0;
+  color: oklch(88% 0.03 220);
   flex: 1;
 }
 
@@ -501,7 +501,7 @@
 .jmi-acc-point {
   font-size: 0.875rem;
   line-height: 1.68;
-  color: #8aabb8;
+  color: oklch(68% 0.04 220);
 }
 
 .jmi-acc-point-head {
@@ -527,7 +527,7 @@
 .jmi-conclusion-quote {
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
   line-height: 1.75;
-  color: #b0cdd8;
+  color: oklch(80% 0.04 220);
   font-style: italic;
   max-width: 840px;
   margin: 0 auto 28px;

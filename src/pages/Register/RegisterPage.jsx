@@ -6,6 +6,7 @@ import { collectMetadata } from '../../lib/collectMetadata';
 import { isShamsiYear, shamsiYearToGregorian } from '../../lib/shamsi';
 import { BLUEPRINTS } from '../../data';
 import { Turnstile } from '@marsidev/react-turnstile';
+import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import CONTENT from '../../locales/pages/register.json';
 import './RegisterPage.css';
 
@@ -231,7 +232,7 @@ function formatCooldown(seconds) {
 // ── Main component ────────────────────────────────────────────────────────────
 
 export default function RegisterPage() {
-    const { t, isRTL, tKey, monoFont, headFont } = useLang();
+    const { t, lang, setLang, isRTL, tKey, monoFont, headFont } = useLang();
     const labelStyle  = { fontFamily: monoFont, textAlign: isRTL ? 'right' : 'left' };
 
     // Session check
@@ -602,8 +603,23 @@ export default function RegisterPage() {
             <div className="reg-bg-grid" />
             <div className="reg-scanline" />
 
+            <div className="login-topbar">
+                <ThemeSwitch />
+                <button
+                    className={`gate-lang-btn${lang === 'fa' ? ' is-active' : ''}`}
+                    style={{ fontFamily: "'Vazirmatn', sans-serif" }}
+                    onClick={() => setLang('fa')}
+                >فارسی</button>
+                <span className="gate-lang-sep">|</span>
+                <button
+                    className={`gate-lang-btn${lang === 'en' ? ' is-active' : ''}`}
+                    style={{ fontFamily: monoFont }}
+                    onClick={() => setLang('en')}
+                >EN</button>
+            </div>
+
             <div className="reg-inner">
-                <div className="reg-header">
+                <div className="reg-header" dir={isRTL ? 'rtl' : 'ltr'}>
                     <div className="reg-eyebrow" style={{ fontFamily: monoFont }}>{t(CONTENT.eyebrow)}</div>
                     <h1 className="reg-title" style={{ fontFamily: headFont }}>{t(CONTENT.title)}</h1>
                     <p className="reg-subtitle">{t(CONTENT.subtitle)}</p>
@@ -685,7 +701,7 @@ export default function RegisterPage() {
                             </div>
 
                             {/* User type toggle */}
-                            <div className="reg-type-toggle" role="group" aria-label={isRTL ? "نوع کاربر" : "User type"} style={{ fontFamily: monoFont }}>
+                            <div className="reg-type-toggle" role="group" aria-label={t(CONTENT.userTypeAriaLabel)} style={{ fontFamily: monoFont }}>
                                 <button
                                     type="button"
                                     className={`reg-type-btn${userType === 'citizen' ? ' is-active' : ''}`}
@@ -774,7 +790,7 @@ export default function RegisterPage() {
                                     disabled={loading}
                                 >
                                     <option value="" disabled>
-                                        {t(CONTENT.selectCountry)}{isRTL ? ' (جمعیت)' : ' (Population)'}
+                                        {t(CONTENT.selectCountry)}{t(CONTENT.populationLabel)}
                                     </option>
                                     {SORTED_COUNTRIES.map(c => {
                                         const est = DIASPORA_ESTIMATES[c.en];
@@ -789,7 +805,7 @@ export default function RegisterPage() {
                                     <input
                                         className="reg-input reg-input--other-country"
                                         type="text"
-                                        placeholder={isRTL ? "نام کشور به انگلیسی" : "Enter country name in English"}
+                                        placeholder={t(CONTENT.placeholderOtherCountry)}
                                         value={customCountry}
                                         onChange={e => setCustomCountry(e.target.value)}
                                         disabled={loading}
@@ -889,7 +905,7 @@ export default function RegisterPage() {
                                             />
                                         </div>
                                         <span className="reg-cooldown-label">
-                                            {isRTL ? `ارسال مجدد در ${formatCooldown(cooldown)}` : `RESEND IN ${formatCooldown(cooldown)}`}
+                                            {t(CONTENT.resendIn).replace('{{time}}', formatCooldown(cooldown))}
                                         </span>
                                     </div>
                                 ) : (
@@ -949,9 +965,7 @@ export default function RegisterPage() {
                                 className="reg-submit-btn"
                                 style={{ fontFamily: monoFont, marginTop: 16, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}
                             >
-                                {isAdmin
-                                    ? (isRTL ? 'پنل مدیریت ←' : 'ADMIN PANEL →')
-                                    : (isRTL ? 'رفتن به داشبورد ←' : 'GO TO DASHBOARD →')}
+                                {isAdmin ? t(CONTENT.btnAdminPanel) : t(CONTENT.btnGoToDashboard)}
                             </Link>
                         </div>
                     )}
@@ -960,15 +974,13 @@ export default function RegisterPage() {
                         <div className="reg-success">
                             <span className="reg-success-icon" style={{ fontSize: 36 }}>👤</span>
                             <h2 className="reg-success-title" style={{ fontFamily: headFont }}>
-                                {isRTL ? 'قبلاً ثبت‌نام کرده‌اید' : 'Already Registered'}
+                                {t(CONTENT.alreadyRegisteredTitle)}
                             </h2>
                             <p className="reg-success-body">
-                                {isRTL
-                                    ? `حسابی با ایمیل ${email} در ایران‌دائو وجود دارد.`
-                                    : `An account with ${email} already exists on IranDAO.`}
+                                {t(CONTENT.alreadyRegisteredBody).replace('{{email}}', email)}
                             </p>
                             <Link to="/login" className="reg-submit-btn" style={{ fontFamily: monoFont, textDecoration: 'none', display: 'inline-flex', justifyContent: 'center' }}>
-                                {isRTL ? 'ورود به حساب ←' : 'Sign In →'}
+                                {t(CONTENT.btnSignIn)}
                             </Link>
                         </div>
                     )}

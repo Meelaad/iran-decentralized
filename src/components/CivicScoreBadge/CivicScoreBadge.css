@@ -1,1 +1,1 @@
-.csb-root{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:rgba(255,255,255,0.02);color:#e8f4fb;border:2px solid}
+.csb-root{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;background:oklch(100% 0 0 / 0.02);color:oklch(95% 0.02 220);border:2px solid}

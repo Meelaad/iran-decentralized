@@ -30,8 +30,8 @@
 .fs-scard {
     flex-shrink: 0;
     /* width is set via inline style (JS) — responsive to viewport */
-    background: rgba(10, 15, 22, 0.68);
-    border: 1px solid rgba(139, 92, 246, 0.1);
+    background: oklch(10% 0.015 215 / 0.68);
+    border: 1px solid var(--clr-accent-10);
     border-radius: 14px;
     padding: clamp(8px, 2vh, 20px) 18px;
     backdrop-filter: blur(8px);
@@ -45,8 +45,8 @@
 }
 
 .fs-scard.is-active {
-    border-color: rgba(139, 92, 246, 0.28);
-    box-shadow: 0 6px 36px rgba(139, 92, 246, 0.07);
+    border-color: var(--clr-accent-25);
+    box-shadow: 0 6px 36px var(--clr-accent-08);
 }
 
 .fs-scard-icon {
@@ -67,7 +67,7 @@
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #CCE3F0;
+    color: oklch(88% 0.03 220);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -75,7 +75,7 @@
 
 .fs-scard-desc {
     font-size: clamp(9px, 2vh, 14px);
-    color: #527085;
+    color: oklch(49% 0.04 220);
     line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -88,9 +88,9 @@
     top: 50%;
     transform: translateY(calc(-50% - 18px));
     z-index: 10;
-    background: rgba(8, 12, 18, 0.82);
-    border: 1px solid rgba(139, 92, 246, 0.18);
-    color: rgba(139, 92, 246, 0.65);
+    background: oklch(11% 0.015 215 / 0.82);
+    border: 1px solid var(--clr-accent-18);
+    color: oklch(55% 0.23 293 / 0.65);
     border-radius: 50%;
     width: clamp(22px, 4vh, 34px);
     height: clamp(22px, 4vh, 34px);
@@ -105,9 +105,9 @@
 }
 
 .fs-slider-btn:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    color: #8B5CF6;
-    background: rgba(8, 12, 18, 0.96);
+    border-color: var(--clr-accent-50);
+    color: var(--clr-accent);
+    background: oklch(11% 0.015 215 / 0.96);
 }
 
 .fs-slider-btn--prev { left: 14px; }
@@ -127,7 +127,7 @@
     width: clamp(4px, 0.8vh, 6px);
     height: clamp(4px, 0.8vh, 6px);
     border-radius: 3px;
-    background: rgba(139, 92, 246, 0.15);
+    background: var(--clr-accent-15);
     border: none;
     cursor: pointer;
     padding: 0;
@@ -138,7 +138,7 @@
 
 .fs-sdot.is-active {
     width: clamp(14px, 2.5vh, 22px);
-    background: rgba(139, 92, 246, 0.2);
+    background: var(--clr-accent-20);
 }
 
 /* Progress fill on the active dot — restarts automatically when is-active moves to a new dot */
@@ -147,7 +147,7 @@
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    background: rgba(139, 92, 246, 0.75);
+    background: oklch(55% 0.23 293 / 0.75);
     animation: fsDotProgress 4.5s linear forwards;
 }
 
@@ -162,27 +162,27 @@
 
 /* Light mode */
 [data-theme="light"] .fs-scard {
-    background: rgba(255, 251, 244, 0.82);
-    border-color: rgba(168, 35, 42, 0.1);
+    background: oklch(99% 0.01 80 / 0.82);
+    border-color: oklch(40% 0.20 23 / 0.1);
 }
 [data-theme="light"] .fs-scard.is-active {
-    border-color: rgba(168, 35, 42, 0.25);
-    box-shadow: 0 6px 36px rgba(168, 35, 42, 0.06);
+    border-color: oklch(40% 0.20 23 / 0.25);
+    box-shadow: 0 6px 36px oklch(40% 0.20 23 / 0.06);
 }
-[data-theme="light"] .fs-scard-title { color: #2D1B0E; }
-[data-theme="light"] .fs-scard-desc  { color: #6B4B36; }
+[data-theme="light"] .fs-scard-title { color: oklch(16% 0.05 55); }
+[data-theme="light"] .fs-scard-desc  { color: oklch(38% 0.06 50); }
 [data-theme="light"] .fs-slider-btn {
-    background: rgba(255, 251, 244, 0.9);
-    border-color: rgba(168, 35, 42, 0.2);
-    color: rgba(168, 35, 42, 0.6);
+    background: oklch(99% 0.01 80 / 0.9);
+    border-color: oklch(40% 0.20 23 / 0.2);
+    color: oklch(40% 0.20 23 / 0.6);
 }
 [data-theme="light"] .fs-slider-btn:hover {
-    border-color: rgba(168, 35, 42, 0.45);
-    color: #a8232a;
+    border-color: oklch(40% 0.20 23 / 0.45);
+    color: var(--clr-red);
 }
-[data-theme="light"] .fs-sdot { background: rgba(168, 35, 42, 0.15); }
-[data-theme="light"] .fs-sdot.is-active { background: rgba(168, 35, 42, 0.12); }
-[data-theme="light"] .fs-sdot.is-active::after { background: rgba(168, 35, 42, 0.55); }
+[data-theme="light"] .fs-sdot { background: oklch(40% 0.20 23 / 0.15); }
+[data-theme="light"] .fs-sdot.is-active { background: oklch(40% 0.20 23 / 0.12); }
+[data-theme="light"] .fs-sdot.is-active::after { background: oklch(40% 0.20 23 / 0.55); }
 
 /* Responsive */
 @media (max-width: 640px) {

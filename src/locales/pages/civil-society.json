@@ -1,0 +1,497 @@
+{
+  "heroEyebrow": {
+    "en": "20 Independent Iranian Civil Organizations · Joint Charter of Minimum Demands · February 2023",
+    "fa": "۲۰ سازمان مستقل مدنی ایران · منشور حداقل مطالبات · فوریه ۲۰۲۳"
+  },
+  "heroTitle": {
+    "en": "Civil Society Transitional Charter",
+    "fa": "منشور گذار جامعه مدنی"
+  },
+  "heroDesc": {
+    "en": "A grassroots, intersectional blueprint for Iran's transition authored by independent trade unions, feminist collectives, and student organizations — published in February 2023 coinciding with the 44th anniversary of the 1979 Islamic Revolution. Unlike top-down diaspora proposals, this charter emerges entirely from within Iran's borders, reflecting the immediate material realities of the working class and marginalized communities. Its 12 foundational articles demand the total dismantling of the theocratic-capitalist state and its replacement with a decentralized, council-based direct democracy.",
+    "fa": "یک طرح گذار پایین‌به‌بالا و فراگیر برای ایران، که توسط سندیکاهای مستقل کارگری، کلکتیوهای فمینیستی و سازمان‌های دانشجویی نوشته شده است — منتشر شده در فوریه ۲۰۲۳ همزمان با چهل و چهارمین سالگرد انقلاب ۱۳۵۷. برخلاف پیشنهادهای بالا‌به‌پایین دیاسپورا، این منشور کاملاً از داخل مرزهای ایران برخاسته است. ۱۲ ماده بنیادی آن خواستار برچیدن کامل دولت تئوکراتیک-سرمایه‌دارانه و جایگزینی آن با یک دموکراسی مستقیم مبتنی بر شوراهای غیرمتمرکز است."
+  },
+  "heroBadges": [
+    { "label": { "en": "20 Signatory Organizations", "fa": "۲۰ سازمان امضاکننده" }, "c": "#ff9a42" },
+    { "label": { "en": "12 Foundational Articles", "fa": "۱۲ ماده بنیادی" }, "c": "#ffd166" },
+    { "label": { "en": "Homegrown — Inside Iran", "fa": "خودجوش — داخل ایران" }, "c": "#69d98c" },
+    { "label": { "en": "Labor + Feminist + Anti-Colonial", "fa": "کارگری + فمینیستی + ضداستعماری" }, "c": "#ba68c8" },
+    { "label": { "en": "Direct Democracy", "fa": "دموکراسی مستقیم" }, "c": "#8B5CF6" }
+  ],
+  "philEyebrow": {
+    "en": "Ideological Foundation",
+    "fa": "بنیاد ایدئولوژیک"
+  },
+  "philTitle": {
+    "en": "The Three Pillars of the Ideological Engine",
+    "fa": "سه ستون موتور ایدئولوژیک"
+  },
+  "philIntro": {
+    "en": "The Joint Charter operates at the intersection of three interlocking ideological pillars. It defines the 'Woman, Life, Freedom' uprising as a historic rebellion aimed at ending a century of religious AND non-religious tyranny — explicitly targeting the structural economic system, not merely the theocratic form of governance.",
+    "fa": "منشور مشترک در تقاطع سه ستون ایدئولوژیک به‌هم‌پیوسته عمل می‌کند. جنبش 'زن، زندگی، آزادی' را یک شورش تاریخی برای پایان دادن به یک قرن استبداد مذهبی و غیرمذهبی تعریف می‌کند — صریحاً نظام اقتصادی ساختاری را هدف قرار می‌دهد، نه صرفاً شکل تئوکراتیک حاکمیت."
+  },
+  "pillars": [
+    {
+      "icon": "⚒️",
+      "title": { "en": "Dismantling Capitalist-Authoritarianism", "fa": "برچیدن سرمایه‌داری اقتدارگرا" },
+      "sub": { "en": "Political democracy is impossible without simultaneous economic democracy", "fa": "دموکراسی سیاسی بدون دموکراسی اقتصادی همزمان غیرممکن است" },
+      "color": "#ff9a42",
+      "items": [
+        { "en": "The Islamic Republic's longevity is secured through hyper-exploitation of labor and monopolization of national wealth by a parasitic, militarized elite", "fa": "ماندگاری جمهوری اسلامی از طریق بهره‌کشی شدید از نیروی کار و انحصار ثروت ملی توسط یک نخبگان انگلی و نظامی‌شده تضمین شده است" },
+        { "en": "The IRGC and state-backed religious foundations (Bonyads) control the commanding heights of the economy — this is the engine of the state's durability", "fa": "سپاه پاسداران و بنیادهای مذهبی دولتی (بنیادها) قله‌های فرماندهی اقتصاد را کنترل می‌کنند" },
+        { "en": "Political democratization is strictly impossible without the simultaneous democratization of the economy", "fa": "دموکراتیزه‌سازی سیاسی بدون دموکراتیزه‌سازی همزمان اقتصاد کاملاً غیرممکن است" },
+        { "en": "The transition requires stripping these entities of their economic assets and returning the means of production to the public domain through democratic councils", "fa": "گذار نیازمند سلب مالکیت از این نهادها و بازگرداندن ابزار تولید به حوزه عمومی از طریق شوراهای دموکراتیک است" },
+        { "en": "Factories, petrochemical plants, natural resources — transferred to public ownership", "fa": "کارخانه‌ها، پتروشیمی‌ها، منابع طبیعی — انتقال به مالکیت عمومی" },
+        { "en": "IRGC's Khatam al-Anbiya conglomerate and EIKO (Execution of Imam Khomeini's Order) are primary confiscation targets", "fa": "قرارگاه خاتم‌الانبیاء سپاه و ستاد (قرارگاه اجرایی امام خمینی) اهداف اصلی مصادره هستند" }
+      ]
+    },
+    {
+      "icon": "🗺️",
+      "title": { "en": "The Dynamics of Internal Colonization", "fa": "پویایی‌های استعمار داخلی" },
+      "sub": { "en": "Core-periphery extraction as a structural mechanism of state control", "fa": "استخراج مرکز-پیرامون به عنوان مکانیزم ساختاری کنترل دولتی" },
+      "color": "#ffd166",
+      "items": [
+        { "en": "The Iranian state engineered a systematic core-periphery dynamic — wealth, water, and raw materials extracted from border regions to enrich the central provinces", "fa": "دولت ایران یک دینامیک سیستماتیک مرکز-پیرامون طراحی کرد — ثروت، آب و مواد خام از مناطق مرزی به استان‌های مرکزی استخراج می‌شود" },
+        { "en": "Arab-majority Khuzestan: oil extracted, water diverted, population left in severe environmental and economic deprivation", "fa": "خوزستان با اکثریت عرب: نفت استخراج می‌شود، آب تغییر مسیر می‌دهد، جمعیت در محرومیت شدید اقتصادی و زیست‌محیطی" },
+        { "en": "Kurdish-majority Kurdistan: militarized, systematically underdeveloped, mother tongue suppressed", "fa": "کردستان با اکثریت کرد: نظامی‌شده، عمداً توسعه‌نیافته، زبان مادری سرکوب شده" },
+        { "en": "Baloch-majority Sistan and Baluchestan: marginalized economically, culturally, and linguistically", "fa": "سیستان و بلوچستان با اکثریت بلوچ: از نظر اقتصادی، فرهنگی و زبانی به حاشیه رانده شده" },
+        { "en": "Uprisings in peripheral regions are framed as a unified anti-colonial struggle — integrated with urban working class demands", "fa": "قیام‌ها در مناطق پیرامونی به عنوان مبارزه ضداستعماری متحد تعریف می‌شوند" },
+        { "en": "Internal colonization is maintained through militarization, economic underdevelopment, and violent suppression of indigenous cultural identities", "fa": "استعمار داخلی از طریق نظامی‌گری، توسعه‌نیافتگی اقتصادی و سرکوب خشونت‌آمیز هویت‌های فرهنگی بومی حفظ می‌شود" }
+      ]
+    },
+    {
+      "icon": "✊",
+      "title": { "en": "The Feminist and Socialist Nexus", "fa": "پیوند فمینیستی و سوسیالیستی" },
+      "sub": { "en": "Liberation of society is contingent on the absolute liberation of women and sexual minorities", "fa": "رهایی جامعه مشروط به رهایی مطلق زنان و اقلیت‌های جنسی است" },
+      "color": "#ba68c8",
+      "items": [
+        { "en": "Moves beyond liberal individual rights framework — identifies state-mandated patriarchy as a structural tool to humiliate, divide, and control the entire working class", "fa": "فراتر از چارچوب لیبرالی حقوق فردی حرکت می‌کند — پدرسالاری اجباری دولتی را ابزاری ساختاری برای تحقیر، تفرقه و کنترل کل طبقه کارگر معرفی می‌کند" },
+        { "en": "Compulsory hijab laws analyzed as an extension of the state's monopoly on violence — not merely a religious imposition", "fa": "قوانین حجاب اجباری به عنوان امتداد انحصار دولت بر خشونت تحلیل می‌شود" },
+        { "en": "In an unprecedented development for a major homegrown Iranian coalition: the charter explicitly recognizes the LGBTQIA+ 'rainbow society'", "fa": "در یک اقدام بی‌سابقه برای یک ائتلاف بزرگ ایرانی: منشور صراحتاً جامعه 'رنگین‌کمان' LGBTQIA+ را به رسمیت می‌شناسد" },
+        { "en": "Demands decriminalization of ALL consensual gender and sexual relations", "fa": "خواستار جرم‌زدایی از تمام روابط جنسیتی و جنسی توافقی است" },
+        { "en": "Cements the transitional framework as a radically inclusive, intersectional socialist project", "fa": "این منشور را به عنوان یک پروژه سوسیالیستی رادیکاً فراگیر و چندبعدی تثبیت می‌کند" },
+        { "en": "Dismantles all intersecting vectors of oppression simultaneously — gender, class, ethnicity, sexuality", "fa": "تمام بردارهای تقاطعی ستم را به صورت همزمان برمی‌چیند — جنسیت، طبقه، قومیت، گرایش جنسی" }
+      ]
+    }
+  ],
+  "preEyebrow": {
+    "en": "Pre-Fall Mobilization",
+    "fa": "بسیج پیش از سقوط"
+  },
+  "preTitle": {
+    "en": "Civil Society Vanguard — The 20 Signatory Organizations",
+    "fa": "پیشتازان جامعه مدنی — ۲۰ سازمان امضاکننده"
+  },
+  "preIntro": {
+    "en": "The charter was authored and signed by 20 independent organizations operating inside Iran's borders. They represent the vanguard of the transitional movement — bridging industrial labor, the public sector, and feminist collectives. Each organization operates in a distinct domain of pre-fall mobilization.",
+    "fa": "منشور توسط ۲۰ سازمان مستقل که در داخل مرزهای ایران فعالیت می‌کنند نوشته و امضا شد. آن‌ها نماینده پیشتازان جنبش گذار هستند — پیوند دهنده نیروی کار صنعتی، بخش دولتی و کلکتیوهای فمینیستی."
+  },
+  "orgs": [
+    {
+      "domain": { "en": "⚙️ Industrial & Energy Labor", "fa": "⚙️ نیروی کار صنعتی و انرژی" },
+      "orgs": { "en": "Syndicate of Workers of Haft Tappeh Sugar Cane · Council for Organizing Protests of Oil Contract Workers · Ahvaz National Steel Group Workers", "fa": "سندیکای کارگران هفت‌تپه · شورای سازماندهی اعتراضات کارگران پیمانی نفت · کارگران فولاد ملی اهواز" },
+      "fn": { "en": "Organizing wildcat strikes to cripple the regime's economic lifelines: petrochemicals and heavy industry. Advocating against privatization and third-party contracting.", "fa": "سازماندهی اعتصابات خودجوش برای فلج کردن شریان‌های اقتصادی رژیم: پتروشیمی و صنایع سنگین. مبارزه علیه خصوصی‌سازی و قراردادهای پیمانکاری." },
+      "color": "#ff9a42"
+    },
+    {
+      "domain": { "en": "📚 Public Sector & Education", "fa": "📚 بخش دولتی و آموزش" },
+      "orgs": { "en": "Coordinating Council of Iranian Teachers' Trade Associations", "fa": "شورای هماهنگی تشکل‌های صنفی فرهنگیان ایران" },
+      "fn": { "en": "Mobilizing nationwide strikes against ideological indoctrination in schools. Demanding fair wages and the release of all imprisoned educators.", "fa": "بسیج اعتصابات سراسری علیه القای آموزش ایدئولوژیک در مدارس. خواستار دستمزد منصفانه و آزادی تمام معلمان زندانی." },
+      "color": "#8B5CF6"
+    },
+    {
+      "domain": { "en": "♀️ Feminist & Human Rights", "fa": "♀️ کلکتیوهای فمینیستی و حقوق بشر" },
+      "orgs": { "en": "Bidarzani (Awakening) · The Call of Iranian Women · Center for Human Rights Defenders · Labor Rights Defenders Center", "fa": "بیدارزنی · صدای زنان ایران · کانون مدافعان حقوق بشر · کانون مدافعان حقوق کارگر" },
+      "fn": { "en": "Documenting state violence. Organizing underground feminist resistance. Anchoring the 'Woman, Life, Freedom' ethos within the labor movement.", "fa": "مستندسازی خشونت دولتی. سازماندهی مقاومت فمینیستی زیرزمینی. لنگر انداختن اتوس 'زن، زندگی، آزادی' در جنبش کارگری." },
+      "color": "#ba68c8"
+    },
+    {
+      "domain": { "en": "🎓 Youth & Student Movements", "fa": "🎓 جنبش‌های دانشجویی و جوانان" },
+      "orgs": { "en": "Union of Free Students · Progressive Students Organization · Council of Free-Thinking Students", "fa": "اتحادیه دانشجویان آزاد · سازمان دانشجویان پیشرو · شورای دانشجویان آزاداندیش" },
+      "fn": { "en": "Transforming university campuses into strongholds of resistance. Coordinating urban protests. Articulating the intersectional demands of Generation Z.", "fa": "تبدیل پردیس‌های دانشگاهی به دژهای مقاومت. هماهنگی اعتراضات شهری. تدوین خواسته‌های چندبعدی نسل Z." },
+      "color": "#69d98c"
+    },
+    {
+      "domain": { "en": "🧓 Retirees & Pensioners", "fa": "🧓 بازنشستگان و مستمری‌بگیران" },
+      "orgs": { "en": "Union of Pensioners · Council of Pensioners of Iran · Council of Retirees of the Social Security Administration", "fa": "کانون بازنشستگان · شورای بازنشستگان ایران · شورای بازنشستگان سازمان تأمین اجتماعی" },
+      "fn": { "en": "Expanding the demographic base by protesting the collapse of pension funds and hyperinflation. Organizing weekly rallies. Bridging older and younger generations.", "fa": "گسترش پایگاه جمعیتی قیام با اعتراض به سقوط صندوق‌های بازنشستگی و تورم بی‌رویه. سازماندهی تجمعات هفتگی." },
+      "color": "#ffd166"
+    }
+  ],
+  "repression": {
+    "title": { "en": "State Repression & The Coalition's Response", "fa": "سرکوب دولتی و پاسخ ائتلاف" },
+    "items": [
+      { "en": "Ministry of Intelligence systematically targeted all charter signatories after publication", "fa": "وزارت اطلاعات پس از انتشار منشور به طور سیستماتیک تمام امضاکنندگان را هدف قرار داد" },
+      { "en": "Labor leaders Mohammad Habibi and Esmail Abdi: violent re-arrests, prolonged solitary confinement, employment termination", "fa": "رهبران کارگری محمد حبیبی و اسماعیل عبدی: بازداشت مجدد با خشونت، بازداشت انفرادی طولانی‌مدت، اخراج از کار" },
+      { "en": "Activists Reyhaneh Ansarinejad, Asal Mohammadi, Anisha Asadollahi forcibly transferred to Evin Prison", "fa": "فعالان ریحانه انصاری‌نژاد، آسل محمدی، آنیشا اسدالهی اجباراً به زندان اوین منتقل شدند" },
+      { "en": "Internet access severely restricted to prevent organizational coordination", "fa": "دسترسی به اینترنت شدیداً محدود شد تا از هماهنگی سازمانی جلوگیری کند" },
+      { "en": "Judiciary classified political dissent as 'vandalism' — seized private property, bank accounts, and assets of activists under guise of compensating for 'damages to urban infrastructure'", "fa": "دادگاه مخالفت سیاسی را 'اخلال و ضرر به اموال عمومی' طبقه‌بندی کرد — اموال خصوصی، حساب‌های بانکی و دارایی‌های فعالان را مصادره کرد" },
+      { "en": "International response: ITUC and Education International submitted formal ILO complaints regarding systematic torture and execution of Iranian trade unionists", "fa": "پاسخ بین‌المللی: ITUC و Education International شکایات رسمی ILO درباره شکنجه سیستماتیک و اعدام فعالان کارگری تسلیم کردند" },
+      { "en": "18 revolutionary student/youth groups across 32 cities formally endorsed the charter, providing critical street-level mobilization support", "fa": "۱۸ گروه دانشجویی و جوانان در ۳۲ شهر رسماً از منشور حمایت کردند" }
+    ]
+  },
+  "s1Eyebrow": {
+    "en": "Stage 1 — Emergency Phase",
+    "fa": "مرحله ۱ — فاز اضطراری"
+  },
+  "s1Title": {
+    "en": "The 180-Day Emergency Transitional Period",
+    "fa": "دوره گذار اضطراری ۱۸۰ روزه"
+  },
+  "s1Intro": {
+    "en": "Upon the structural collapse of the Islamic Republic, the transition enters its most critical phase. Power does NOT transfer to a single executive or monarch. It transfers to a 'Transitional Coordinating Council' — elected representatives from the signatory trade unions, civil society groups, and regional minority councils. Duration: 180 days.",
+    "fa": "پس از فروپاشی ساختاری جمهوری اسلامی، گذار وارد حساس‌ترین مرحله خود می‌شود. قدرت به یک فرد، مجری یا پادشاه منتقل نمی‌شود. به 'شورای هماهنگی موقت' منتقل می‌شود — نمایندگان منتخب سندیکاهای کارگری امضاکننده، گروه‌های جامعه مدنی و شوراهای اقلیت‌های منطقه‌ای."
+  },
+  "phaseLabel01": {
+    "en": "COORDINATING COUNCIL",
+    "fa": "شورای هماهنگی"
+  },
+  "phaseLabel02": {
+    "en": "TRANSITIONAL JUSTICE",
+    "fa": "عدالت انتقالی"
+  },
+  "phaseLabel03": {
+    "en": "SECURITY REFORM",
+    "fa": "اصلاح امنیتی"
+  },
+  "phaseLabel04": {
+    "en": "CIVIL LIBERTIES",
+    "fa": "آزادی‌های مدنی"
+  },
+  "s1Council": {
+    "title": { "en": "The Transitional Coordinating Council — Structure", "fa": "شورای هماهنگی موقت — ساختار" },
+    "items": [
+      { "en": "Composed of elected representatives from all 20 signatory trade unions and civil society organizations", "fa": "متشکل از نمایندگان منتخب تمام ۲۰ سندیکا و سازمان جامعه مدنی امضاکننده" },
+      { "en": "Regional minority councils — Kurdish, Baloch, Arab, Turkmen, and other ethnic communities hold guaranteed representation", "fa": "شوراهای اقلیت منطقه‌ای — کردها، بلوچ‌ها، عرب‌ها، ترکمن‌ها و سایر جوامع قومی نمایندگی تضمین‌شده دارند" },
+      { "en": "No single executive, president, or monarch — power is distributed horizontally", "fa": "هیچ فرد، رئیس‌جمهور یا پادشاهی — قدرت به صورت افقی توزیع می‌شود" },
+      { "en": "Decisions by democratic majority with minority protection clauses", "fa": "تصمیمات با اکثریت دموکراتیک با بندهای حمایت از اقلیت" },
+      { "en": "No individual member holds veto power", "fa": "هیچ عضوی حق وتو ندارد" },
+      { "en": "Term: 180 days only — at which point constitutional drafting elections must have been held", "fa": "مدت: فقط ۱۸۰ روز — پس از آن انتخابات تهیه قانون اساسی باید برگزار شده باشد" }
+    ]
+  },
+  "s1Judicial": {
+    "title": { "en": "Article 1 + 3: Judicial Restitution & Transitional Justice", "fa": "ماده ۱ + ۳: عدالت انتقالی و جبران قضایی" },
+    "items": [
+      { "en": "Unconditional release of ALL political prisoners — Article 1, no exceptions", "fa": "آزادی بی‌قیدوشرط تمام زندانیان سیاسی — ماده ۱، بدون استثنا" },
+      { "en": "Total decriminalization of all political, union, and civil activities", "fa": "جرم‌زدایی کامل از تمام فعالیت‌های سیاسی، صنفی و مدنی" },
+      { "en": "Specialized 'Transitional Lustration and Justice Committee' established to vet the bureaucracy", "fa": "تأسیس 'کمیته موقت پاکسازی و عدالت انتقالی' برای بررسی بوروکراسی" },
+      { "en": "Public, transparent trials for all individuals responsible for suppressing popular protests and state violence", "fa": "محاکمات علنی و شفاف برای تمام افراد مسئول سرکوب اعتراضات مردمی" },
+      { "en": "Immediate cancellation of ALL death penalty sentences — Article 3", "fa": "لغو فوری تمام حکم‌های اعدام — ماده ۳" },
+      { "en": "Formal abolition of qisas (retribution in kind) — the Islamic legal concept enabling state-sanctioned vengeance", "fa": "الغای رسمی قصاص و تمام اشکال شکنجه جسمی و روانی" },
+      { "en": "Explicit prohibition of all forms of mental and physical torture — zero exceptions", "fa": "ممنوعیت صریح تمام اشکال شکنجه ذهنی و جسمی — بدون هیچ استثنا" },
+      { "en": "Victims of the Kurdish and Baloch communities specifically prioritized for restitution", "fa": "قربانیان جوامع کرد و بلوچ به طور خاص در اولویت جبران خسارت قرار می‌گیرند" }
+    ]
+  },
+  "s1Security": {
+    "title": { "en": "Security Sector: Total Dissolution of Repressive Organs", "fa": "بخش امنیتی: انحلال کامل ارگان‌های سرکوب" },
+    "items": [
+      { "en": "IRGC: legally outlawed and structurally dismantled — Day 1", "fa": "سپاه پاسداران: قانوناً منحل و ساختاری برچیده می‌شود — روز اول" },
+      { "en": "Basij paramilitary: legally outlawed and structurally dismantled — Day 1", "fa": "نیروی بسیج: قانوناً منحل و ساختاری برچیده می‌شود — روز اول" },
+      { "en": "Morality police (Gasht-e Ershad): abolished immediately with no successor body", "fa": "پلیس اخلاق (گشت ارشاد): فوری لغو می‌شود بدون هیچ نهاد جانشین" },
+      { "en": "All parallel intelligence agencies dissolved", "fa": "تمام سازمان‌های اطلاعاتی موازی منحل می‌شوند" },
+      { "en": "To prevent a security vacuum: law enforcement localized under direct democratic oversight of municipal and regional councils", "fa": "برای جلوگیری از خلاء امنیتی: اجرای قانون بومی و تحت نظارت دموکراتیک مستقیم شوراهای شهری و منطقه‌ای" },
+      { "en": "New community defense structure: explicitly stripped of ALL ideological enforcement mandates", "fa": "ساختار دفاع اجتماعی جدید: صراحتاً از تمام مأموریت‌های اجرای ایدئولوژیک سلب شده است" },
+      { "en": "Focus solely on public safety and the protection of civil liberties", "fa": "تمرکز صرفاً بر ایمنی عمومی و حفاظت از آزادی‌های مدنی" },
+      { "en": "No single national police force — federated, community-accountable model", "fa": "هیچ نیروی پلیس ملی واحدی وجود ندارد — مدل فدرال و پاسخگو به جامعه" }
+    ]
+  },
+  "s1Civil": {
+    "title": { "en": "Article 2 + 5: Civil Liberties & Mandatory Secularization", "fa": "ماده ۲ + ۵: آزادی‌های مدنی و سکولاریزاسیون اجباری" },
+    "items": [
+      { "en": "Unconditional freedom of opinion, expression, thought, and the press — Article 2", "fa": "آزادی بی‌قیدوشرط عقیده، بیان، اندیشه و مطبوعات — ماده ۲" },
+      { "en": "Absolute right to form political parties, local and national trade unions, and popular organizations", "fa": "حق مطلق تشکیل احزاب سیاسی، سندیکاهای محلی و ملی و سازمان‌های مردمی" },
+      { "en": "Right to organize gatherings, strikes, marches, and utilize all social networks — enshrined as inviolable", "fa": "حق تجمع، اعتصاب، راهپیمایی و استفاده از همه شبکه‌های اجتماعی — ذاتی و تضمین‌شده" },
+      { "en": "Immediate cessation of religious interference in ALL political, economic, social, and educational laws — Article 5", "fa": "توقف فوری دخالت مذهبی در تمام قوانین سیاسی، اقتصادی، اجتماعی و آموزشی — ماده ۵" },
+      { "en": "State officially recognizes religion as a purely PRIVATE matter", "fa": "دولت رسماً مذهب را صرفاً امری خصوصی می‌شناسد" },
+      { "en": "Compulsory hijab laws: nullified immediately", "fa": "قوانین حجاب اجباری: بلافاصله لغو می‌شود" },
+      { "en": "All gender-segregation mandates governing public life: abolished immediately", "fa": "تمام دستورات تفکیک جنسیتی در زندگی عمومی: فوری لغو می‌شود" },
+      { "en": "State educational curriculum: purged of all religious indoctrination content", "fa": "برنامه درسی آموزشی دولتی: از تمام محتوای القای ایدئولوژیک مذهبی پاک‌سازی می‌شود" }
+    ]
+  },
+  "econEyebrow": {
+    "en": "Economic Restitution",
+    "fa": "جبران اقتصادی"
+  },
+  "econTitle": {
+    "en": "Dismantling the Shadow Economy — Article 9",
+    "fa": "برچیدن اقتصاد سایه — ماده ۹"
+  },
+  "econIntro": {
+    "en": "The economic restructuring is arguably the most radical component of the Joint Charter. The IRGC and Supreme Leader's office control vast swathes of the national economy through opaque shadow networks. The charter mandates systematic confiscation and redistribution.",
+    "fa": "بازسازی اقتصادی مقرر شده در منشور مشترک احتمالاً رادیکال‌ترین مؤلفه آن است. سپاه و دفتر رهبر معظم از طریق شبکه‌های سایه مبهم، بخش‌های گسترده‌ای از اقتصاد ملی را کنترل می‌کنند. منشور مصادره سیستماتیک و توزیع مجدد را الزامی می‌داند."
+  },
+  "tableHeaderSector": {
+    "en": "Sector",
+    "fa": "بخش"
+  },
+  "tableHeaderRegime": {
+    "en": "Islamic Republic",
+    "fa": "جمهوری اسلامی"
+  },
+  "tableHeaderCharter": {
+    "en": "Joint Charter",
+    "fa": "منشور مشترک"
+  },
+  "shadowEconomy": {
+    "title": { "en": "The Shadow Economy: Scale of the Target", "fa": "اقتصاد سایه: مقیاس هدف" },
+    "items": [
+      { "en": "IRGC's Khatam al-Anbiya Construction Headquarters: controls major infrastructure, construction, and industrial contracts", "fa": "قرارگاه خاتم‌الانبیاء سپاه: قراردادهای عمده زیرساختی، ساختمانی و صنعتی را کنترل می‌کند" },
+      { "en": "EIKO (Execution of Imam Khomeini's Order): the Supreme Leader's economic empire — hundreds of billions in real estate, industry, and finance", "fa": "ستاد (اجرایی امام خمینی): امپراتوری اقتصادی رهبری — صدها میلیارد دلار در املاک، صنعت و مالیه" },
+      { "en": "Bonyads (religious foundations): Bonyad Mostazafin, Astan Quds Razavi — tax-exempt, state-protected conglomerates", "fa": "بنیادها: بنیاد مستضعفان، آستان قدس رضوی — کنگلومراهای معاف از مالیات و حمایت‌شده دولتی" },
+      { "en": "Ghost fleet of oil tankers: sanctions circumvention networks that bypass the Central Bank — revenues fund proxies, missiles, and domestic suppression", "fa": "ناوگان شبح نفتکش: شبکه‌های دور زدن تحریم که از بانک مرکزی عبور می‌کنند — درآمدها صرف نیروهای نیابتی، موشک و سرکوب داخلی می‌شود" },
+      { "en": "2024–2025 national budget: military/intelligence spending surged 30% while workers' wages remained below the poverty line amid 40%+ hyperinflation", "fa": "بودجه ۱۴۰۳–۱۴۰۴: هزینه‌های نظامی/اطلاعاتی ۳۰٪ رشد کرد در حالی که دستمزد کارگران زیر خط فقر ماند و تورم بیش از ۴۰٪ بود" },
+      { "en": "State assets systematically transferred to Khatam al-Anbiya to 'settle government debt' — effective privatization of public wealth into military hands", "fa": "دارایی‌های دولتی به طور سیستماتیک به قرارگاه خاتم‌الانبیاء منتقل می‌شود تا 'بدهی دولت را تسویه کند' — خصوصی‌سازی مؤثر ثروت عمومی به دست نظامیان" }
+    ]
+  },
+  "restitution": {
+    "title": { "en": "Article 9: Confiscation, Nationalization & Redistribution", "fa": "ماده ۹: مصادره، ملی‌شدن و توزیع مجدد" },
+    "items": [
+      { "en": "Specialized 'Economic Restitution Task Force' mobilized during the 180-day emergency phase", "fa": "کارگروه تخصصی 'جبران اقتصادی' در طول ۱۸۰ روز اضطراری بسیج می‌شود" },
+      { "en": "Systematically freeze, confiscate, and repatriate all assets of the Bonyads, IRGC, and state-affiliated oligarchs", "fa": "سیستماتیک تمام دارایی‌های بنیادها، سپاه و الیگارشی‌های وابسته به دولت را مسدود، مصادره و بازگردانی می‌کند" },
+      { "en": "Recovered capital injected into a new sovereign wealth fund — exclusively for public restitution", "fa": "سرمایه بازیابی‌شده در یک صندوق ثروت حاکمیتی جدید تزریق می‌شود — انحصاراً برای جبران عمومی" },
+      { "en": "Immediate priority: stabilize the national currency", "fa": "اولویت فوری: تثبیت ارز ملی" },
+      { "en": "End ALL predatory privatization — reverse all IRGC-era asset transfers", "fa": "پایان تمام خصوصی‌سازی‌های غارتگرانه — معکوس کردن تمام انتقال دارایی‌های دوره سپاه" },
+      { "en": "All active and retired workers receive a living wage commensurate with cost of living — Article 6", "fa": "تمام کارگران فعال و بازنشسته دستمزد متناسب با هزینه زندگی دریافت می‌کنند — ماده ۶" },
+      { "en": "Wealth redistribution mechanism prioritizes historically deprived border regions — unwinding the legacy of internal colonization", "fa": "مناطق مرزی محروم تاریخی در اولویت توزیع مجدد ثروت قرار می‌گیرند" },
+      { "en": "All energy revenues repatriated to the Central Bank to fund emergency social welfare, infrastructure, and public healthcare", "fa": "تمام درآمدهای انرژی به بانک مرکزی بازگردانی می‌شود تا رفاه اجتماعی اضطراری، زیرساخت و بهداشت عمومی را تأمین کند" }
+    ]
+  },
+  "econComparison": [
+    {
+      "sector": { "en": "Hydrocarbon Revenue", "fa": "درآمد هیدروکربنی" },
+      "regime": { "en": "Oil revenues diverted to the Armed Forces and IRGC via shadow banking and preferential exchange rates", "fa": "درآمد نفتی از طریق شبکه بانکداری سایه به نیروهای مسلح و سپاه تغییر مسیر داده می‌شود" },
+      "charter": { "en": "All energy revenues repatriated to the Central Bank — fund emergency social welfare, infrastructure, and public healthcare", "fa": "تمام درآمدهای انرژی به بانک مرکزی بازگردانی می‌شود — تأمین مالی رفاه اجتماعی اضطراری، زیرساخت و بهداشت عمومی" }
+    },
+    {
+      "sector": { "en": "State Assets & Real Estate", "fa": "دارایی‌های دولتی و املاک" },
+      "regime": { "en": "State assets transferred to Khatam al-Anbiya and EIKO to 'settle government debt' — privatizing public wealth into military hands", "fa": "دارایی‌های دولتی به قرارگاه خاتم‌الانبیاء و ستاد منتقل می‌شود تا 'بدهی دولت را تسویه کند'" },
+      "charter": { "en": "Immediate confiscation and nationalization of all properties looted by governmental, semi-governmental, and private rent-seeking institutions", "fa": "مصادره و ملی‌شدن فوری تمام اموال غارت‌شده توسط نهادهای دولتی، شبه‌دولتی و رانت‌خوار خصوصی" }
+    },
+    {
+      "sector": { "en": "Labor Wages & Pensions", "fa": "دستمزد کارگری و بازنشستگی" },
+      "regime": { "en": "Wages suppressed below the poverty line; pension funds bankrupted by state mismanagement; strikes criminalized", "fa": "دستمزدها عمداً زیر خط فقر نگه داشته می‌شوند؛ صندوق‌های بازنشستگی ورشکسته شده‌اند؛ اعتصابات جرم‌انگاری شده است" },
+      "charter": { "en": "Job security guaranteed; immediate salary increases via independent unions; massive liquidity injected into pension funds", "fa": "امنیت شغلی تضمین‌شده؛ افزایش فوری حقوق از طریق سندیکاهای مستقل؛ تزریق نقدینگی عظیم به صندوق‌های بازنشستگی" }
+    },
+    {
+      "sector": { "en": "Public Welfare", "fa": "رفاه عمومی" },
+      "regime": { "en": "Massive budget deficits passed onto citizens; severe lack of investment in healthcare and education", "fa": "کسری بودجه‌های عظیم به دوش شهروندان؛ فقدان شدید سرمایه‌گذاری در بهداشت و آموزش" },
+      "charter": { "en": "Universal unemployment insurance; prohibition of child labor; free universal education and healthcare as fundamental rights", "fa": "بیمه بیکاری همگانی؛ ممنوعیت کار کودکان؛ آموزش و بهداشت رایگان و همگانی به عنوان حقوق اساسی" }
+    }
+  ],
+  "ecological": {
+    "title": { "en": "Article 10: Ecological Restitution", "fa": "ماده ۱۰: جبران زیست‌محیطی" },
+    "items": [
+      { "en": "Decades of IRGC-affiliated dam-building and resource extraction have pushed Iran's ecosystem to the brink of collapse", "fa": "دهه‌ها فساد گسترده، سدسازی‌های قرارگاه سپاه و استخراج منابع اکوسیستم ایران را به مرز فروپاشی رسانده است" },
+      { "en": "Khuzestan: the most severe environmental victim — oil extraction and water diversion have devastated the province", "fa": "خوزستان: قربانی اصلی زیست‌محیطی — استخراج نفت و انحراف آب استان را نابود کرده است" },
+      { "en": "Immediate end to all environmental destruction — Article 10", "fa": "پایان فوری به تمام تخریب زیست‌محیطی — ماده ۱۰" },
+      { "en": "Policies to revive destroyed ecological infrastructure", "fa": "سیاست‌ها برای احیای زیرساخت اکولوژیکی تخریب‌شده" },
+      { "en": "Return ALL privatized natural areas — pastures, beaches, forests, foothills — to public ownership and management", "fa": "بازگرداندن تمام مناطق طبیعی خصوصی‌شده — مراتع، سواحل، جنگل‌ها، دامنه‌ها — به مالکیت و مدیریت عمومی" },
+      { "en": "Environmental restitution treated as inseparable from economic and social restitution", "fa": "جبران زیست‌محیطی به عنوان جدایی‌ناپذیر از جبران اقتصادی و اجتماعی تلقی می‌شود" }
+    ]
+  },
+  "s2Eyebrow": {
+    "en": "Stage 2 — Permanent Structure",
+    "fa": "مرحله ۲ — ساختار دائمی"
+  },
+  "s2Title": {
+    "en": "The Permanent Democratic Architecture",
+    "fa": "معماری دموکراتیک دائمی"
+  },
+  "s2Intro": {
+    "en": "Following the 180-day emergency phase, the framework advances to permanent structural democracy. Authoritarianism cannot regenerate if the architecture of power is structurally incapable of reconcentrating. The constitution encodes radical equality, direct democracy, and the permanent right of recall.",
+    "fa": "پس از فاز اضطراری ۱۸۰ روزه، چارچوب به دموکراسی ساختاری دائمی پیشرفت می‌کند. اقتدارگرایی نمی‌تواند بازتولید شود اگر معماری قدرت ساختاری از تمرکز مجدد ناتوان باشد."
+  },
+  "s2Democracy": {
+    "title": { "en": "Article 8: Direct Democracy & The Right of Recall", "fa": "ماده ۸: دموکراسی مستقیم و حق عزل" },
+    "items": [
+      { "en": "The charter explicitly rejects ALL models of governance that rely on centralized, unassailable executive power", "fa": "منشور صراحتاً تمام مدل‌های حاکمیتی که به قدرت اجرایی متمرکز و غیرقابل دسترس متکی هستند را رد می‌کند" },
+      { "en": "Permanent legislative architecture: decentralized, relying on a federated network of local, municipal, and national councils", "fa": "معماری قانونگذاری دائمی: غیرمتمرکز، متکی به شبکه فدرال شوراهای محلی، شهری و ملی" },
+      { "en": "The electorate holds the fundamental, permanent right to intervene in council decisions at any time", "fa": "رأی‌دهندگان حق بنیادی و دائمی برای دخالت در تصمیمات شوراها دارند" },
+      { "en": "The electorate holds the permanent right to dismiss ANY government or non-government official at any time — the 'Right of Recall'", "fa": "رأی‌دهندگان حق دائمی عزل هر مقام دولتی یا غیردولتی در هر زمان را دارند — 'حق عزل'" },
+      { "en": "This right of recall is the cornerstone mechanism preventing the formation of a new political elite separated from the material realities of the population", "fa": "این حق عزل مکانیزم اصلی جلوگیری از شکل‌گیری یک نخبه سیاسی جدید است" },
+      { "en": "No single executive accumulates sufficient power to reverse democratic gains", "fa": "هیچ فردی قدرت کافی برای معکوس کردن دستاوردهای دموکراتیک جمع نمی‌کند" }
+    ]
+  },
+  "s2Equality": {
+    "title": { "en": "Article 4 + 7: Radical Social Equality", "fa": "ماده ۴ + ۷: برابری اجتماعی رادیکال" },
+    "items": [
+      { "en": "Full, absolute equality of rights between women and men across ALL political, economic, social, cultural, and family spheres — Article 4", "fa": "برابری کامل و مطلق حقوق بین زن و مرد در تمام حوزه‌های سیاسی، اقتصادی، اجتماعی، فرهنگی و خانوادگی — ماده ۴" },
+      { "en": "All discriminatory laws regarding family, inheritance, and bodily autonomy permanently abolished", "fa": "تمام قوانین تبعیض‌آمیز درباره خانواده، ارث و استقلال بدنی به طور دائمی لغو می‌شوند" },
+      { "en": "Constitutional recognition of the LGBTQIA+ community — the first such recognition in Iranian constitutional history", "fa": "به رسمیت شناختن قانون اساسی جامعه LGBTQIA+ — اولین بار در تاریخ قانون اساسی ایران" },
+      { "en": "Decriminalization of all consensual gender and sexual identities", "fa": "جرم‌زدایی از تمام هویت‌های جنسیتی و جنسی توافقی" },
+      { "en": "Abolition of ALL laws and behaviors based on ethnic or religious discrimination — Article 7", "fa": "الغای تمام قوانین و رفتارهای مبتنی بر تبعیض قومی یا مذهبی — ماده ۷" },
+      { "en": "Centralized assimilationist model replaced with guaranteed fair distribution of government resources for culture and art across all regions", "fa": "مدل تمرکزگرای همگون‌ساز با توزیع منصفانه تضمین‌شده منابع دولتی برای فرهنگ و هنر در تمام مناطق جایگزین می‌شود" },
+      { "en": "State constitutionally mandated to provide equal facilities for teaching and learning ALL mother tongues and minority languages used in Iranian society", "fa": "دولت به صورت قانون اساسی موظف است امکانات برابر برای آموزش تمام زبان‌های مادری و زبان‌های اقلیت فراهم کند" },
+      { "en": "A pluralistic, multi-ethnic federation — not a Persian-centric nation-state", "fa": "یک فدراسیون چندقومی و کثرت‌گرا — نه یک دولت-ملت فارس‌محور" }
+    ]
+  },
+  "s2Welfare": {
+    "title": { "en": "Article 11: The Social Welfare State", "fa": "ماده ۱۱: دولت رفاه اجتماعی" },
+    "items": [
+      { "en": "Prohibition of child labor — constitutionally enshrined — Article 11", "fa": "ممنوعیت کار کودکان — ماده ۱۱" },
+      { "en": "Free, high-quality education guaranteed for every child regardless of family's economic or social status", "fa": "آموزش رایگان و باکیفیت برای هر کودک بدون توجه به وضعیت اقتصادی یا اجتماعی خانواده" },
+      { "en": "Free, universal healthcare enshrined as a fundamental human right — not a market commodity", "fa": "بهداشت و آموزش رایگان و همگانی به عنوان حقوق اساسی بشری — نه کالای بازار" },
+      { "en": "Robust public unemployment insurance for all citizens of legal working age", "fa": "بیمه بیکاری عمومی قوی برای تمام شهروندان در سن کار" },
+      { "en": "Strong social security protections for all those unable to work", "fa": "حمایت قوی تأمین اجتماعی برای همه ناتوان از کار" },
+      { "en": "Public welfare system maintained as a constitutional obligation of the state — not subject to austerity", "fa": "مسکن، بهداشت و آموزش صراحتاً از منطق بازار خارج شده‌اند" },
+      { "en": "Housing, healthcare, and education explicitly removed from market logic", "fa": "سیستم رفاه عمومی به عنوان تعهد قانون اساسی دولت حفظ می‌شود — مشمول ریاضت اقتصادی نیست" }
+    ]
+  },
+  "fpEyebrow": {
+    "en": "Foreign Policy Realignment",
+    "fa": "تجدیدآرایش سیاست خارجی"
+  },
+  "fpTitle": {
+    "en": "Article 12: Geopolitical Transformation",
+    "fa": "ماده ۱۲: تحول ژئوپلیتیک"
+  },
+  "fpIntro": {
+    "en": "The Islamic Republic's foreign policy of regional proxy warfare, nuclear brinkmanship, and anti-Western antagonism has isolated Iran, triggered crippling sanctions, and justified massive domestic security budgets. The transitional framework mandates a complete paradigm shift.",
+    "fa": "سیاست خارجی جمهوری اسلامی مبتنی بر جنگ نیابتی منطقه‌ای، بازی با آتش هسته‌ای و خصومت با غرب، ایران را منزوی کرده، تحریم‌های فلج‌کننده ایجاد کرده و بودجه‌های امنیتی داخلی عظیم را توجیه کرده است."
+  },
+  "fpItems": [
+    { "en": "Normalization of foreign relations with ALL countries of the world — based strictly on fair relations, non-interference, and mutual respect — Article 12", "fa": "عادی‌سازی روابط خارجی با تمام کشورهای جهان — بر اساس روابط منصفانه، عدم مداخله و احترام متقابل — ماده ۱۲" },
+    { "en": "Absolute ban on the acquisition, development, and proliferation of nuclear weapons", "fa": "ممنوعیت مطلق کسب، توسعه و اشاعه سلاح‌های هسته‌ای" },
+    { "en": "Transparent dismantling of the opaque nuclear infrastructure — eliminates justification for international sanctions", "fa": "برچیدن شفاف زیرساخت هسته‌ای مبهم — توجیه تحریم‌های بین‌المللی را از بین می‌برد" },
+    { "en": "Immediate end to the funding of ALL regional proxy militias — Hezbollah, Houthis, PMF, and all affiliated networks", "fa": "پایان فوری به تأمین مالی تمام شبه‌نظامیان منطقه‌ای — حزب‌الله، حوثی‌ها، الحشد الشعبی و تمام شبکه‌های وابسته" },
+    { "en": "Iran's reintegration into the global economy follows automatically from ending the above", "fa": "ادغام مجدد ایران در اقتصاد جهانی به طور خودکار از موارد بالا نتیجه می‌شود" },
+    { "en": "Foreign policy aligned with domestic principles: human rights, environmental sustainability, and economic justice", "fa": "سیاست خارجی با اصول داخلی همسو می‌شود: حقوق بشر، پایداری زیست‌محیطی و عدالت اقتصادی" },
+    { "en": "Active commitment to striving for world peace as a constitutional foreign policy objective", "fa": "تعهد فعال به تلاش برای صلح جهانی به عنوان هدف سیاست خارجی قانون اساسی" }
+  ],
+  "articlesLabel": {
+    "en": "THE 12 FOUNDATIONAL ARTICLES — The Joint Charter of Minimum Demands",
+    "fa": "۱۲ ماده بنیادی — منشور حداقل مطالبات"
+  },
+  "articles": [
+    { "en": "Article 1: Unconditional release of all political prisoners · Full decriminalization of all political, union, and civil activities", "fa": "ماده ۱: آزادی بی‌قیدوشرط تمام زندانیان سیاسی · جرم‌زدایی کامل از فعالیت‌های سیاسی، صنفی و مدنی" },
+    { "en": "Article 2: Absolute freedom of opinion, expression, thought, and press · Right to form parties, unions, and popular organizations · Right to strike, march, and use social networks", "fa": "ماده ۲: آزادی مطلق عقیده، بیان، اندیشه و مطبوعات · حق تشکیل احزاب، سندیکاها و سازمان‌های مردمی · حق اعتصاب، راهپیمایی و شبکه‌های اجتماعی" },
+    { "en": "Article 3: Immediate cancellation of ALL death sentences · Abolition of qisas (retribution in kind) · Explicit prohibition of all mental and physical torture", "fa": "ماده ۳: لغو فوری تمام احکام اعدام · الغای قصاص · ممنوعیت صریح تمام شکنجه‌های جسمی و روانی" },
+    { "en": "Article 4: Full and absolute equality of rights between women and men across all political, economic, social, cultural, and family spheres", "fa": "ماده ۴: برابری کامل و مطلق حقوق بین زن و مرد در تمام حوزه‌های سیاسی، اقتصادی، اجتماعی، فرهنگی و خانوادگی" },
+    { "en": "Article 5: Strict separation of religion and state · Cessation of all religious interference in political, economic, social, and educational laws", "fa": "ماده ۵: جدایی دقیق مذهب از دولت · توقف تمام دخالت مذهبی در قوانین سیاسی، اقتصادی، اجتماعی و آموزشی" },
+    { "en": "Article 6: Job security for all workers · Living wages commensurate with real cost of living negotiated by independent unions · Liquidation of pension funds", "fa": "ماده ۶: امنیت شغلی برای تمام کارگران · دستمزد متناسب با هزینه زندگی واقعی از طریق سندیکاهای مستقل · تصفیه صندوق‌های بازنشستگی" },
+    { "en": "Article 7: Abolition of all laws and behaviors based on ethnic or religious discrimination · Equal resources for all mother tongues, minority languages, and regional cultures", "fa": "ماده ۷: الغای تمام قوانین و رفتارهای مبتنی بر تبعیض قومی یا مذهبی · منابع برابر برای تمام زبان‌های مادری، اقلیت‌های زبانی و فرهنگ‌های منطقه‌ای" },
+    { "en": "Article 8: Direct democracy and the permanent right of recall · Decentralized federated councils at local, municipal, and national levels", "fa": "ماده ۸: دموکراسی مستقیم و حق عزل دائمی · شوراهای فدرال غیرمتمرکز در سطوح محلی، شهری و ملی" },
+    { "en": "Article 9: Confiscation and nationalization of all assets looted by governmental, semi-governmental, and private rent-seeking institutions · Redistribution via sovereign wealth fund", "fa": "ماده ۹: مصادره و ملی‌شدن تمام دارایی‌های غارت‌شده توسط نهادهای دولتی، شبه‌دولتی و رانت‌خوار · توزیع مجدد از طریق صندوق ثروت حاکمیتی" },
+    { "en": "Article 10: Immediate end to all environmental destruction · Restitution of privatized natural areas to public ownership — pastures, beaches, forests, foothills", "fa": "ماده ۱۰: پایان فوری به تخریب زیست‌محیطی · بازگشت مناطق طبیعی خصوصی‌شده به مالکیت عمومی — مراتع، سواحل، جنگل‌ها، دامنه‌ها" },
+    { "en": "Article 11: Prohibition of child labor · Free universal education and healthcare as fundamental rights · Comprehensive unemployment insurance and social security", "fa": "ماده ۱۱: ممنوعیت کار کودکان · آموزش و بهداشت رایگان و همگانی به عنوان حقوق اساسی · بیمه بیکاری همگانی و تأمین اجتماعی" },
+    { "en": "Article 12: Normalization of international relations on basis of mutual respect and non-interference · Absolute ban on nuclear weapons · End all proxy militia funding", "fa": "ماده ۱۲: عادی‌سازی روابط بین‌المللی بر اساس احترام متقابل و عدم مداخله · ممنوعیت مطلق سلاح‌های هسته‌ای · پایان به تأمین مالی تمام شبه‌نظامیان" }
+  ],
+  "stratLabel": {
+    "en": "STRATEGIC ASSESSMENT — Strengths and Challenges",
+    "fa": "ارزیابی استراتژیک — نقاط قوت و چالش‌ها"
+  },
+  "strengths": {
+    "title": { "en": "Strategic Strengths", "fa": "نقاط قوت استراتژیک" },
+    "color": "#69d98c",
+    "items": [
+      { "en": "Entirely homegrown — authored inside Iran by organizations operating under severe repression, conferring unmatched domestic credibility", "fa": "کاملاً خودجوش — توسط سازمان‌هایی که در شرایط سرکوب شدید در داخل ایران عمل می‌کنند نوشته شده است" },
+      { "en": "Material demands: bypasses reformist illusions AND elite diaspora models — targets the structural economic machinery, not just the leadership", "fa": "خواسته‌های مادی: توهمات اصلاح‌طلبانه و مدل‌های نخبگانی دیاسپورا را دور می‌زند" },
+      { "en": "Organized labor controls the strategic heights of the Iranian economy — oil and petrochemical workers can exert structural pressure to cripple the regime", "fa": "نیروی کار سازمان‌یافته قله‌های استراتژیک اقتصاد ایران را کنترل می‌کند — کارگران نفت و پتروشیمی می‌توانند فشار ساختاری وارد کنند" },
+      { "en": "Intersectional coalition: uniquely capable of uniting the urban working class, ethnic minorities, women, LGBTQIA+ communities, and student youth", "fa": "ائتلاف چندبعدی: به طور منحصربه‌فردی قادر به متحد کردن طبقه کارگر، اقلیت‌های قومی، زنان، جامعه LGBTQIA+ و دانشجویان است" },
+      { "en": "The 'Right of Recall' mechanism structurally prevents the regeneration of authoritarianism", "fa": "مکانیزم 'حق عزل' ساختاری از بازتولید اقتدارگرایی جلوگیری می‌کند" },
+      { "en": "Council-based direct democracy is resistant to elite capture — no single actor can accumulate decisive power", "fa": "دموکراسی مستقیم مبتنی بر شورا در برابر تصاحب نخبگان مقاوم است — هیچ عامل واحدی نمی‌تواند قدرت تعیین‌کننده‌ای انباشته کند" }
+    ]
+  },
+  "challenges": {
+    "title": { "en": "Implementation Challenges", "fa": "چالش‌های اجرایی" },
+    "color": "#ef5350",
+    "items": [
+      { "en": "Entrenched state violence: the regime has demonstrated absolute willingness to use lethal force, mass incarceration, and economic expropriation to maintain power", "fa": "خشونت دولتی ریشه‌دار: رژیم تمایل مطلق خود به استفاده از زور کشنده، زندانی‌شدن گروهی و مصادره اقتصادی را نشان داده است" },
+      { "en": "Shadow economy unwinding risk: confiscating the IRGC's deeply embedded economic holdings without triggering economic collapse is a monumental logistical challenge", "fa": "ریسک برچیدن اقتصاد سایه: مصادره دارایی‌های عمیقاً جاسازی‌شده سپاه بدون ایجاد فروپاشی اقتصادی چالش لجستیکی هنگفتی است" },
+      { "en": "Geographic decentralization vs. coordination: the horizontal council model requires sophisticated coordination infrastructure that does not yet exist at scale", "fa": "غیرمتمرکزسازی جغرافیایی در مقابل هماهنگی: مدل افقی شورایی به زیرساخت هماهنگی پیچیده‌ای نیاز دارد که هنوز در مقیاس وجود ندارد" },
+      { "en": "State repression of leadership: key signatories already imprisoned or in exile — the movement operates in conditions of extreme organizational disruption", "fa": "سرکوب دولتی رهبری: امضاکنندگان کلیدی از قبل زندانی یا در تبعید هستند" },
+      { "en": "Coalition coherence: maintaining unity between industrial workers, feminist collectives, ethnic minorities, and student groups across diverse material interests requires sustained organizational work", "fa": "انسجام ائتلاف: حفظ وحدت بین کارگران صنعتی، کلکتیوهای فمینیستی، اقلیت‌های قومی و گروه‌های دانشجویی با منافع مادی متنوع" }
+    ]
+  },
+  "conclusion": {
+    "en": "\"The 20-Point Joint Charter of Minimum Demands sets the indispensable conditions for a sustainable peace. It ensures that any future post-theocratic Iran is constructed not upon the substitution of one autocracy for another, but upon the foundational principles of radical equality, transparent economic justice, and the inviolable dignity of all its citizens.\" — Joint Charter Conclusion",
+    "fa": "«منشور ۲۰ ماده‌ای حداقل مطالبات شرایط ناگزیر یک صلح پایدار را تعیین می‌کند. تضمین می‌کند که ایران پس از تئوکراسی نه بر اساس جایگزینی یک استبداد با استبدادی دیگر، بلکه بر اساس اصول بنیادین برابری رادیکال، عدالت اقتصادی شفاف و کرامت تغییرناپذیر تمام شهروندانش بنا شود.» — نتیجه‌گیری منشور مشترک"
+  },
+  "source": {
+    "en": "Source: Joint Charter of Minimum Demands of Independent Trade Unions and Civil Organizations of Iran (February 2023) · IranWire · International Socialist League · Jacobin · ITUC/ILO submissions",
+    "fa": "منبع: منشور حداقل مطالبات سندیکاهای مستقل و سازمان‌های مدنی ایران (فوریه ۲۰۲۳) · ایران‌وایر · لیگ بین‌المللی سوسیالیستی · جاکوبین · شکایات ITUC/ILO"
+  },
+  "footerAllPlans": {
+    "en": "← All Transitional Plans",
+    "fa": "← همه طرح‌های انتقالی"
+  },
+  "footerArena": {
+    "en": "Arena — Endorse Plans →",
+    "fa": "آرنا — تأیید طرح‌ها ←"
+  },
+  "rejections": [
+    { "en": "Rejects the Islamic Republic as a legitimate transitional custodian — the IRI is explicitly excluded from any transitional role", "fa": "جمهوری اسلامی را به عنوان سرپرست مشروع گذار رد می‌کند — جمهوری اسلامی صراحتاً از هر نقش انتقالی خارج شده است" },
+    { "en": "Rejects any single-party or single-leader transitional authority — no veto power for any member of the Transitional Coordinating Council", "fa": "هرگونه اقتدار انتقالی تک‌حزبی یا تک‌رهبری را رد می‌کند — هیچ حق وتویی برای هیچ عضوی از شورای هماهنگی موقت" },
+    { "en": "Rejects electoral reformism within the IRI framework — targets the entire theocratic-capitalist state structure, not its personnel", "fa": "اصلاح‌طلبی انتخاباتی در چارچوب جمهوری اسلامی را رد می‌کند — کل ساختار دولت تئوکراتیک-سرمایه‌دارانه را هدف می‌گیرد، نه پرسنل آن" },
+    { "en": "Rejects neoliberal economic transition — Article 9 mandates confiscation, not privatization-led restructuring", "fa": "گذار اقتصادی نئولیبرال را رد می‌کند — ماده ۹ مصادره را الزامی می‌داند، نه بازسازی مبتنی بر خصوصی‌سازی" },
+    { "en": "Rejects assimilationist Persian-centric nationalism — Article 7 mandates mother-tongue rights and pluralistic federation", "fa": "ملی‌گرایی فارس‌محور همگون‌ساز را رد می‌کند — ماده ۷ حقوق زبان مادری و فدراسیون کثرت‌گرا را الزامی می‌داند" },
+    { "en": "Rejects any clerical role in the permanent state — Article 5 prohibits clerical influence in governance, courts, or legislation", "fa": "هر نقش روحانی در دولت دائمی را رد می‌کند — ماده ۵ نفوذ روحانی در حاکمیت، دادگاه‌ها یا قانونگذاری را ممنوع می‌کند" }
+  ],
+  "histEyebrow": {
+    "en": "Historical Context",
+    "fa": "بستر تاریخی"
+  },
+  "histTitle": {
+    "en": "Iranian Labor & Civil Society — A Century of Struggle",
+    "fa": "نیروی کار و جامعه مدنی ایران — یک قرن مبارزه"
+  },
+  "history": [
+    { "date": { "en": "1953", "fa": "۱۹۵۳" }, "title": { "en": "CIA/MI6 Coup Against Mosaddegh", "fa": "کودتای CIA/MI6 علیه مصدق" }, "body": { "en": "Destruction of nascent independent unions and labor movement that had grown during 1941–1953. Independent trade unionism crushed for a generation.", "fa": "نابودی سندیکاهای مستقل نوپا و جنبش کارگری که در دوره ۱۳۲۰–۱۳۳۲ رشد کرده بود. اتحادیه‌گرایی مستقل برای یک نسل سرکوب شد." } },
+    { "date": { "en": "1979–1982", "fa": "۱۳۵۸–۱۳۶۱" }, "title": { "en": "Suppression of Independent Labor After Revolution", "fa": "سرکوب نیروی کار مستقل پس از انقلاب" }, "body": { "en": "Initial workers' council (shura) movement quickly suppressed. Independent unions dissolved. Execution and imprisonment of union leaders.", "fa": "جنبش شوراهای کارگری اولیه به سرعت سرکوب شد. سندیکاهای مستقل منحل شدند. اعدام و زندان رهبران اتحادیه‌ای." } },
+    { "date": { "en": "2005", "fa": "۱۳۸۴" }, "title": { "en": "Vahed Bus Drivers' Syndicate", "fa": "سندیکای کارگران شرکت واحد" }, "body": { "en": "Establishment of the first post-revolution independent trade union (Tehran bus drivers). Leaders repeatedly imprisoned. Landmark case for Iranian labor rights.", "fa": "تأسیس اولین سندیکای مستقل پس از انقلاب (رانندگان اتوبوس تهران). رهبران مکرراً زندانی شدند. نقطه عطف برای حقوق کارگری ایران." } },
+    { "date": { "en": "2007–2008", "fa": "۱۳۸۶–۱۳۸۷" }, "title": { "en": "Teachers' Union Founding", "fa": "تأسیس سندیکای معلمان" }, "body": { "en": "Coordinating Council of Iranian Teachers' Trade Associations formally constituted. Immediate repression followed — Mohammad Habibi and Esmail Abdi became internationally known labor rights cases.", "fa": "شورای هماهنگی تشکل‌های صنفی فرهنگیان ایران رسماً تأسیس شد. سرکوب فوری دنبال شد — محمد حبیبی و اسماعیل عبدی به نمادهای بین‌المللی شناخته‌شده حقوق کارگری تبدیل شدند." } },
+    { "date": { "en": "2018", "fa": "۱۳۹۷" }, "title": { "en": "Haft Tappeh & HEPCO Strikes", "fa": "اعتصابات هفت‌تپه و هپکو" }, "body": { "en": "Two of the most significant labor actions of the post-Green Movement era. Workers at Haft Tappeh explicitly demanded worker control of the factory — a direct precursor to the charter's economic demands.", "fa": "دو تا از مهم‌ترین اقدامات کارگری دوران پس از جنبش سبز. کارگران هفت‌تپه صراحتاً خواستار کنترل کارگری کارخانه شدند — پیشروی مستقیم برای خواسته‌های اقتصادی منشور." } },
+    { "date": { "en": "2022", "fa": "۱۴۰۱" }, "title": { "en": "Woman, Life, Freedom Uprising", "fa": "قیام زن، زندگی، آزادی" }, "body": { "en": "Triggered by the death of Mahsa (Jina) Amini in morality police custody on September 16, 2022. The uprising validated the charter's three-pillar intersectional framework before the charter was written.", "fa": "با درگذشت مهسا (ژینا) امینی در بازداشت گشت ارشاد در ۲۵ شهریور ۱۴۰۱ آغاز شد. قیام چارچوب سه‌ستونی چندبعدی منشور را پیش از نوشته شدن آن اثبات کرد." } },
+    { "date": { "en": "February 2023", "fa": "بهمن ۱۴۰۱" }, "title": { "en": "Joint Charter Published", "fa": "انتشار منشور مشترک" }, "body": { "en": "Joint Charter of Minimum Demands published on the 44th anniversary of the 1979 Islamic Revolution — a deliberate symbolic act. Within weeks, 18 additional groups across 32 cities formally endorsed.", "fa": "منشور حداقل مطالبات در چهل و چهارمین سالگرد انقلاب ۱۳۵۷ منتشر شد — یک اقدام نمادین آگاهانه. در طی هفته‌ها، ۱۸ گروه دیگر در ۳۲ شهر رسماً تأیید کردند." } }
+  ],
+  "geoEyebrow": {
+    "en": "Geopolitical Implications",
+    "fa": "پیامدهای ژئوپلیتیک"
+  },
+  "geoTitle": {
+    "en": "Regional & Global Consequences of Charter Implementation",
+    "fa": "پیامدهای منطقه‌ای و جهانی اجرای منشور"
+  },
+  "geoBody": {
+    "en": "Article 12's foreign policy positions carry second-order regional consequences that extend beyond Iran's borders. Defunding proxy militias would create power vacuums in Lebanon (Hezbollah) and Iraq (PMF). Nuclear disarmament would unlock removal of UNSC sanctions, SWIFT re-integration, and resumption of full oil exports — one of the largest single economic events in Middle Eastern history. FATF gray-list removal would restore global banking access. A government implementing Articles 1–11 would qualify for EU Association Agreement candidacy and full UN Human Rights Council participation.",
+    "fa": "مواضع سیاست خارجی ماده ۱۲ پیامدهای منطقه‌ای درجه دوم دارند که فراتر از مرزهای ایران گسترش می‌یابند. قطع تأمین مالی شبه‌نظامیان نیابتی خلاء قدرت در لبنان (حزب‌الله) و عراق (حشدالشعبی) ایجاد می‌کند. خلع سلاح هسته‌ای رفع تحریم‌های شورای امنیت، بازگشت به سیستم SWIFT و از سرگیری صادرات کامل نفت را آزاد می‌کند. خروج از لیست خاکستری FATF دسترسی بانکی جهانی را بازیابی می‌کند. دولتی که مواد ۱ تا ۱۱ را اجرا کند واجد شرایط پیوستن به توافقنامه اتحاد اروپا و مشارکت کامل در شورای حقوق بشر سازمان ملل خواهد بود."
+  },
+  "vulnEyebrow": {
+    "en": "Strategic Analysis",
+    "fa": "تحلیل استراتژیک"
+  },
+  "vulnTitle": {
+    "en": "Regime Vulnerabilities — The Charter's Strategic Position",
+    "fa": "آسیب‌پذیری‌های رژیم — موضع استراتژیک منشور"
+  },
+  "vulnIntro": {
+    "en": "The charter's signatories are uniquely positioned to exploit three structural vulnerabilities of the Islamic Republic — vulnerabilities that the regime cannot address without dismantling the mechanisms that sustain it.",
+    "fa": "امضاکنندگان منشور به طور منحصربه‌فردی در موقعیتی هستند که سه آسیب‌پذیری ساختاری جمهوری اسلامی را بهره‌برداری کنند — آسیب‌پذیری‌هایی که رژیم بدون برچیدن مکانیزم‌هایی که آن را حفظ می‌کنند نمی‌تواند به آن‌ها بپردازد."
+  },
+  "vulnerabilities": [
+    {
+      "number": "01",
+      "title": { "en": "Economic Legitimacy (IRGC Shadow Economy)", "fa": "مشروعیت اقتصادی (اقتصاد سایه سپاه)" },
+      "regime": { "en": "The IRGC shadow economy provides the regime's patronage system but creates measurable inequality: 40%+ inflation, wages below poverty line, collapsing pension funds. The regime cannot reform the shadow economy without destroying the patronage mechanism that sustains it.", "fa": "اقتصاد سایه سپاه سیستم حامی‌پروری رژیم را فراهم می‌کند اما نابرابری قابل اندازه‌گیری ایجاد می‌کند: تورم بیش از ۴۰٪، دستمزدها زیر خط فقر، صندوق‌های بازنشستگی در حال فروپاشی." },
+      "opposition": { "en": "The charter's signatories ARE the workers and retirees experiencing this failure — teachers, factory workers, pensioners with direct material evidence of the regime's broken economic contract. Article 9's confiscation platform is credible precisely because the signatories are its intended beneficiaries.", "fa": "امضاکنندگان منشور همان کارگران و بازنشستگانی هستند که این شکست را تجربه می‌کنند — معلمان، کارگران کارخانه، بازنشستگان با شواهد مادی مستقیم از قرارداد اجتماعی شکسته رژیم." },
+      "verdict": { "en": "Structural vulnerability — cannot be reformed without collapsing the patronage system", "fa": "آسیب‌پذیری ساختاری — بدون فروپاشی سیستم حامی‌پروری قابل اصلاح نیست" },
+      "color": "#ff9a42"
+    },
+    {
+      "number": "02",
+      "title": { "en": "Organizational Penetration (Inside-Iran Coalition)", "fa": "نفوذ سازمانی (ائتلاف داخل ایران)" },
+      "regime": { "en": "The regime's primary counter-narrative characterizes all opposition as foreign-funded or diaspora-driven. This framing works because much of the formal Iranian opposition IS diaspora-based (NUFDI, ITC, URI — all headquartered outside Iran).", "fa": "روایت مقابله اصلی رژیم تمام مخالفت را خارج‌تمویل یا دیاسپورامحور معرفی می‌کند. این چارچوب‌بندی کار می‌کند زیرا بخش زیادی از مخالفت رسمی ایران واقعاً مستقر در خارج است." },
+      "opposition": { "en": "Every signatory organization operates inside Iran. The regime cannot apply the 'foreign agent' narrative without criminalizing organizations whose members are teachers, factory workers, and pensioners. When the state arrests teachers' union leaders, it arrests people whose children attend Iranian schools.", "fa": "هر سازمان امضاکننده در داخل ایران فعالیت می‌کند. رژیم نمی‌تواند روایت 'عامل خارجی' را بدون جرم‌انگاری سازمان‌هایی که اعضای آن‌ها معلم، کارگر کارخانه و بازنشسته هستند اعمال کند." },
+      "verdict": { "en": "Structural vulnerability — eliminates the regime's most effective delegitimization tool", "fa": "آسیب‌پذیری ساختاری — مؤثرترین ابزار مشروعیت‌زدایی رژیم را از بین می‌برد" },
+      "color": "#8B5CF6"
+    },
+    {
+      "number": "03",
+      "title": { "en": "Ideological Fracture (Islam, Feminism, Ethnicity)", "fa": "شکاف ایدئولوژیک (اسلام، فمینیسم، قومیت)" },
+      "regime": { "en": "The IRI's legitimacy rests on three claims: Islamic governance, Persian/Shia cultural identity, and anti-imperialism. The Woman, Life, Freedom uprising demonstrated all three had eroded: women led; Kurdish, Baluch, Arab, and Azeri minorities joined; 'anti-imperialism' failed to contain mass rebellion.", "fa": "مشروعیت جمهوری اسلامی بر سه ادعا استوار است: حاکمیت اسلامی، هویت فرهنگی فارسی/شیعه و ضدامپریالیسم. قیام زن، زندگی، آزادی نشان داد که هر سه فرسوده شده‌اند." },
+      "opposition": { "en": "The charter's three-pillar ideology directly counters all three IRI legitimacy claims. It offers a post-Islamic, pluralistic, feminist framework precisely where the IRI is most exposed. This makes negotiated incorporation impossible — unlike reformists who can be absorbed into the IRI system.", "fa": "ایدئولوژی سه‌ستونی منشور مستقیماً با هر سه ادعای مشروعیت جمهوری اسلامی مقابله می‌کند. چارچوبی پسا-اسلامی، کثرت‌گرا و فمینیستی ارائه می‌دهد دقیقاً جایی که جمهوری اسلامی بیشترین آسیب‌پذیری را دارد." },
+      "verdict": { "en": "Structural vulnerability — the IRI cannot co-opt the charter's offer without abandoning its core legitimacy claims", "fa": "آسیب‌پذیری ساختاری — جمهوری اسلامی نمی‌تواند پیشنهاد منشور را بدون رها کردن ادعاهای اصلی مشروعیت خود جذب کند" },
+      "color": "#ba68c8"
+    }
+  ]
+}

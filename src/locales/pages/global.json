@@ -44,5 +44,12 @@
   "dataNote": {
     "en": "Member counts are real-time from the IranDAO registry. Data updates on page load. Country distribution based on registration location.",
     "fa": "تعداد اعضا به‌صورت زنده از ثبت ایران‌دائو گرفته می‌شود. داده‌ها هنگام بارگذاری صفحه به‌روز می‌شوند. توزیع کشوری بر اساس محل ثبت‌نام است."
+  },
+  "cityPanelClose": { "en": "Close", "fa": "بستن" },
+  "cityPanelPopLabel": { "en": "IRANIAN POPULATION", "fa": "جمعیت ایرانی" },
+  "cityPanelDataUnavailable": { "en": "Data unavailable", "fa": "داده موجود نیست" },
+  "cityPanelSource": {
+    "en": "Source: U.S. Census ACS / Statistics Canada / national statistics agencies. Figures reflect diaspora estimates and may not capture undocumented residents.",
+    "fa": "منبع: سرشماری آمریکا / آمار کانادا / سازمان‌های آمار ملی. ارقام برآورد دیاسپورا هستند و ممکن است ساکنان بدون مدرک را شامل نشوند."
   }
 }

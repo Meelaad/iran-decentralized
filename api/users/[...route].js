@@ -1,11 +1,12 @@
 import { generateInviteCode } from '../../lib/users/invites.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders, checkOrigin } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
     const path = req.url.split('/api/users/')[1]?.split('?')[0] || '';
 
     try {
+        checkOrigin(req);
         rateLimit(req, 'api');
         validateRequestSize(req, 10 * 1024);
 

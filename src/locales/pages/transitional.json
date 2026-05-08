@@ -881,7 +881,86 @@
   "s2ElectLabel": { "en": "elect", "fa": "انتخاب می‌کنند" },
   "s2VoteInLabel": { "en": "vote in", "fa": "رأی می‌دهند" },
   "s2DetailsLabel": { "en": "Details", "fa": "جزئیات" },
-  "navEnterArena": { "en": "Enter Transition Arena →", "fa": "← بازگشت به آرنا" },
+  "navEnterArena": { "en": "Enter Transition Arena →", "fa": "ورود به آرنای گذار ←" },
   "navPermanentConst": { "en": "Phase II: Permanent Constitution →", "fa": "→ قانون اساسی دائمی (مرحله دوم)" },
-  "navBackToChoose": { "en": "← Back to Choose Your Path", "fa": "← بازگشت به انتخاب مسیر" }
+  "navBackToChoose": { "en": "← Back to Choose Your Path", "fa": "← بازگشت به انتخاب مسیر" },
+
+  "ideolEyebrow": { "en": "Ideological Foundation", "fa": "پایه‌های ایدئولوژیک" },
+  "ideolTitle": { "en": "Principles of Free and Democratic Iran", "fa": "اصول ایران آزاد و دموکراتیک" },
+  "ideolIntro": { "en": "NUFDI's blueprint rests on four interlocking pillars: complete separation of religion and state, constitutional democracy determined by national referendum, Iranian civic nationalism rooted in pre-Islamic civilizational heritage, and a liberal rights framework anchored in the Universal Declaration of Human Rights.", "fa": "طرح نافدی بر چهار پایه به‌هم‌پیوسته استوار است: جدایی کامل دین از دولت، دموکراسی مشروطه‌ای که از طریق رفراندوم ملی تعیین می‌شود، ملی‌گرایی مدنی ایرانی ریشه‌دار در میراث تمدنی پیش از اسلام، و چارچوب حقوق لیبرال مبتنی بر اعلامیه جهانی حقوق بشر." },
+  "ideologyPillars": [
+    {
+      "icon": "🕌",
+      "head": { "en": "Secular State", "fa": "دولت سکولار" },
+      "body": { "en": "Complete institutional separation of religion and state. No clerical authority in governance. Dissolution of all theocratic bodies, including the Supreme Leader's Office and the Ministry of Guidance.", "fa": "جدایی نهادی کامل دین از دولت. هیچ اقتداری برای روحانیون در حکومت. انحلال تمام نهادهای تئوکراتیک، از جمله دفتر رهبری و وزارت ارشاد." }
+    },
+    {
+      "icon": "🗳️",
+      "head": { "en": "Constitutional Democracy", "fa": "دموکراسی مشروطه" },
+      "body": { "en": "The permanent system of government — parliamentary monarchy or republic — is decided by national referendum. The transitional leader's role is temporary and dissolves completely once permanent institutions are established.", "fa": "نظام دائمی حکومت — پادشاهی پارلمانی یا جمهوری — از طریق رفراندوم ملی تعیین می‌شود. نقش رهبر موقت موقتی است و با تأسیس نهادهای دائمی کاملاً منحل می‌شود." }
+    },
+    {
+      "icon": "🦁",
+      "head": { "en": "Iranian Civic Nationalism", "fa": "ملی‌گرایی مدنی ایرانی" },
+      "body": { "en": "A multi-ethnic civic nationalism rooted in pre-Islamic Persian civilizational heritage — not ethnic exclusivism. Pre-Islamic administrative vocabulary (Mehestan, Divan, Cyrus Accord) signals a deliberate cultural repositioning away from the Islamic Republic's framing.", "fa": "ملی‌گرایی مدنی چندقومیتی ریشه‌دار در میراث تمدنی پارسی پیش از اسلام — نه تنگ‌نظری قومی. واژگان اداری پیش از اسلام (مهستان، دیوان، توافق کوروش) بازنشینی فرهنگی آگاهانه از چارچوب جمهوری اسلامی را نشان می‌دهد." }
+    },
+    {
+      "icon": "⚖️",
+      "head": { "en": "Liberal Rights Framework", "fa": "چارچوب حقوق لیبرال" },
+      "body": { "en": "UDHR 1948 compliance is a mandatory standard for every law retained under the Hybrid Option. Pro-Western alignment: immediate NATO Partnership for Peace application, SWIFT/FATF normalization, and Israel recognition in Week 1 via the Cyrus Accord.", "fa": "انطباق با اعلامیه جهانی حقوق بشر ۱۹۴۸ استاندارد اجباری برای هر قانونی است که تحت گزینه ترکیبی حفظ می‌شود. هم‌سویی با غرب: درخواست فوری عضویت در شراکت برای صلح ناتو، عادی‌سازی SWIFT/FATF، و شناسایی اسرائیل در هفته اول از طریق توافق کوروش." }
+    }
+  ],
+
+  "geoEyebrow": { "en": "Geopolitical Implications", "fa": "پیامدهای ژئوپلیتیک" },
+  "geoTitle": { "en": "Iran's Strategic Reset: Regional Consequences", "fa": "بازنشینی استراتژیک ایران: پیامدهای منطقه‌ای" },
+  "geoIntro": { "en": "A democratic Iran under this blueprint would fundamentally reorder the Middle East's power balance. Four strategic shifts define the transition's geopolitical footprint.", "fa": "ایران دموکراتیک تحت این طرح به‌طور بنیادی تعادل قدرت خاورمیانه را دگرگون می‌کند. چهار تحول استراتژیک ردپای ژئوپلیتیک گذار را تعریف می‌کنند." },
+  "geoCards": [
+    {
+      "icon": "🕊️",
+      "head": { "en": "Iran–Israel Normalization", "fa": "عادی‌سازی روابط ایران–اسرائیل" },
+      "body": { "en": "Week-1 Israel recognition via the Cyrus Accord immediately delegitimizes Hezbollah's state-sponsor relationship, shifts Saudi Arabia's calculus, and triggers US congressional support for rapid sanctions relief. Most diplomatically unambiguous commitment of any Iranian opposition plan.", "fa": "شناسایی اسرائیل در هفته اول از طریق توافق کوروش فوراً مشروعیت رابطه حزب‌الله با دولت حامی را از بین می‌برد، محاسبات عربستان سعودی را تغییر می‌دهد، و حمایت کنگره آمریکا برای تسریع تخفیف تحریم‌ها را راه‌اندازی می‌کند." }
+    },
+    {
+      "icon": "⚠️",
+      "head": { "en": "Russia Rupture Risk", "fa": "خطر گسست از روسیه" },
+      "body": { "en": "The IRI's deep ties to Russia (drone supply, IRGC support role in Ukraine) would be completely severed. Russia would likely attempt to destabilize the transition through proxy support to IRGC remnants. This is the highest-risk geopolitical scenario for transition stability.", "fa": "روابط عمیق جمهوری اسلامی با روسیه (تأمین پهپاد، نقش حمایتی سپاه در اوکراین) کاملاً قطع خواهد شد. روسیه احتمالاً از طریق حمایت نیابتی از بازماندگان سپاه تلاش خواهد کرد گذار را بی‌ثبات کند." }
+    },
+    {
+      "icon": "🌊",
+      "head": { "en": "Gulf Stabilization Opportunity", "fa": "فرصت ثبات‌بخشی خلیج فارس" },
+      "body": { "en": "IRGC dissolution removes the primary Iranian threat vector to Saudi Arabia and Gulf states. Immediate proxy disengagement from Yemen (Houthi arms supply) and Iraq (PMF/Kata'ib Hezbollah) creates a window for regional normalization.", "fa": "انحلال سپاه بردار تهدید اصلی ایران علیه عربستان سعودی و کشورهای خلیج فارس را حذف می‌کند. قطع فوری نیابت در یمن (تأمین سلاح حوثی‌ها) و عراق (PMF) پنجره‌ای برای عادی‌سازی منطقه‌ای می‌گشاید." }
+    },
+    {
+      "icon": "🌐",
+      "head": { "en": "Western Alignment: Advantage and Risk", "fa": "هم‌سویی با غرب: مزیت و ریسک" },
+      "body": { "en": "NUFDI is the Iranian opposition plan most aligned with US and EU policy preferences, enabling early diplomatic recognition and accelerated sanctions relief. The risk: perception as a Western-backed regime-change project invites the 1953 coup narrative domestically.", "fa": "نافدی هم‌سوترین طرح اپوزیسیون ایرانی با ترجیحات سیاسی آمریکا و اتحادیه اروپا است که شناسایی دیپلماتیک زودهنگام و تسریع تخفیف تحریم را ممکن می‌سازد. ریسک: تصویر به عنوان پروژه تغییر رژیم با حمایت غربی روایت کودتای ۱۳۳۲ را در داخل کشور فعال می‌کند." }
+    }
+  ],
+
+  "assessEyebrow": { "en": "Strategic Assessment", "fa": "ارزیابی استراتژیک" },
+  "assessTitle": { "en": "Strengths and Structural Vulnerabilities", "fa": "نقاط قوت و آسیب‌پذیری‌های ساختاری" },
+  "strengths": {
+    "title": { "en": "Structural Strengths", "fa": "نقاط قوت ساختاری" },
+    "color": "#69d98c",
+    "items": [
+      { "en": "Operational completeness — the only plan with a day-by-day 180-day timeline covering military, diplomatic, economic, and social reform simultaneously", "fa": "کامل بودن عملیاتی — تنها طرح با برنامه روزانه ۱۸۰ روزه که اصلاحات نظامی، دیپلماتیک، اقتصادی و اجتماعی را به‌طور همزمان پوشش می‌دهد" },
+      { "en": "Hybrid Option legal continuity — Brexit-model retention of existing laws avoids the legal vacuum that destabilized Iraq (2003) and Libya (2011)", "fa": "تداوم حقوقی گزینه ترکیبی — حفظ قوانین موجود به سبک برگزیت از خلأ حقوقی که عراق (۲۰۰۳) و لیبی (۲۰۱۱) را بی‌ثبات کرد جلوگیری می‌کند" },
+      { "en": "Pre-fall institutional planning — NUC and TET provide an organizational scaffold that reduces Day-1 startup time if already operational", "fa": "برنامه‌ریزی نهادی پیش از سقوط — شورای قیام ملی و تیم اجرایی موقت داربستی سازمانی فراهم می‌کنند که زمان راه‌اندازی روز اول را کاهش می‌دهد" },
+      { "en": "Explicit contingency planning — the Leadership Council succession clause addresses single-point-of-failure risk that most plans ignore", "fa": "برنامه‌ریزی اضطراری صریح — بند جانشینی شورای رهبری ریسک نقطه شکست تکین را که اکثر طرح‌ها نادیده می‌گیرند برطرف می‌کند" },
+      { "en": "PBAD asset recovery scope — dedicated program targeting IRGC-held assets in 7 jurisdictions including crypto holdings shows awareness of financial preconditions for stabilization", "fa": "دامنه برنامه بازیابی دارایی پباد — برنامه اختصاصی هدف‌گیری دارایی‌های سپاه در ۷ حوزه قضایی شامل رمزارزها آگاهی از پیش‌شرط‌های مالی ثبات‌سازی را نشان می‌دهد" },
+      { "en": "Diplomatic clarity — Week-1 Israel recognition and NATO Partnership for Peace application give Western governments high-confidence predictability, reducing the uncertainty that delays recognition and sanctions relief", "fa": "وضوح دیپلماتیک — شناسایی اسرائیل در هفته اول و درخواست شراکت برای صلح ناتو به دولت‌های غربی قابلیت پیش‌بینی با اطمینان بالا می‌دهد" }
+    ]
+  },
+  "weaknesses": {
+    "title": { "en": "Structural Vulnerabilities", "fa": "آسیب‌پذیری‌های ساختاری" },
+    "color": "#ef5350",
+    "items": [
+      { "en": "Single-leader dependency — the entire legitimacy architecture rests on one named individual; any discrediting event or incapacitation before the transition activates an unproven contingency body", "fa": "وابستگی به رهبر واحد — تمام معماری مشروعیت بر یک فرد نام‌برده تکیه دارد؛ هرگونه رویداد بی‌اعتبارکننده یا ناتوانی پیش از گذار نهاد اضطراری آزمون‌نشده را فعال می‌کند" },
+      { "en": "Appointed (non-elected) Stage 1 institutions — 18–24 months under centralized appointed governance creates a democratic legitimacy deficit; historical precedent (Afghanistan 2001, Iraq 2003) shows significant fragility without external force guarantors", "fa": "نهادهای مرحله اول انتصابی (نه منتخب) — ۱۸–۲۴ ماه تحت حکمرانی انتصابی متمرکز کسری مشروعیت دموکراتیک ایجاد می‌کند" },
+      { "en": "IRGC dissolution security gap — Days 1–10 gap between IRGC dissolution and NISS formation is the highest-risk period in the military reform timeline", "fa": "شکاف امنیتی انحلال سپاه — شکاف روزهای ۱–۱۰ بین انحلال سپاه و تأسیس سرین پرریسک‌ترین دوره در برنامه اصلاح نظامی است" },
+      { "en": "No explicit minority rights or federalism commitment — UDHR compliance covers minority rights in principle but the plan does not name Kurdish, Baloch, Arab, or Azerbaijani regional autonomy demands explicitly", "fa": "هیچ تعهد صریحی به حقوق اقلیت‌ها یا فدرالیسم — انطباق با اعلامیه جهانی حقوق بشر حقوق اقلیت‌ها را به‌طور اصولی پوشش می‌دهد اما طرح خواسته‌های خودمختاری منطقه‌ای کردی، بلوچی، عربی یا آذربایجانی را صریحاً نام نمی‌برد" },
+      { "en": "Western-dependence perception risk — Reza Pahlavi's pro-Western alignment exposes the plan to the 1953 CIA coup narrative; domestic legitimacy in working-class and religious communities may lag diaspora support", "fa": "خطر درک وابستگی به غرب — هم‌سویی ولیعهد با غرب طرح را در معرض روایت کودتای ۱۳۳۲ CIA قرار می‌دهد؛ مشروعیت داخلی در جوامع کارگری و مذهبی ممکن است از حمایت دیاسپورا عقب باشد" },
+      { "en": "PBAD implementation timeline — asset recovery from 7 jurisdictions requires FATF/Interpol cooperation; historical precedent (Marcos, Abacha, Gaddafi) shows this takes years, not months, and depends on foreign political will outside the transitional government's control", "fa": "جدول زمانی اجرای پباد — بازیابی دارایی از ۷ حوزه قضایی نیازمند همکاری FATF/اینترپل است؛ سابقه تاریخی (مارکوس، ابوچا، قذافی) نشان می‌دهد این سال‌ها طول می‌کشد نه ماه‌ها" }
+    ]
+  }
 }

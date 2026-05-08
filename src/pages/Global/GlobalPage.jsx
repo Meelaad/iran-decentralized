@@ -38,7 +38,7 @@ function StatCard({ title, value }) {
 }
 
 // ─── City detail panel ─────────────────────────────────────────────────────────
-function CityPanel({ city, onClose }) {
+function CityPanel({ city, onClose, popLabel, dataUnavailable, sourceText }) {
   if (!city) return null;
   return (
     <div className="gm-city-panel-backdrop" onClick={onClose}>
@@ -47,11 +47,11 @@ function CityPanel({ city, onClose }) {
         <div className="gm-city-panel-region">{city.region || ''}</div>
         <h2 className="gm-city-panel-name">{city.label || city.name}</h2>
         <div className="gm-city-panel-row">
-          <span className="gm-city-panel-label">IRANIAN POPULATION</span>
-          <span className="gm-city-panel-value">{city.pop_estimate ?? city.pop ?? 'Data unavailable'}</span>
+          <span className="gm-city-panel-label">{popLabel}</span>
+          <span className="gm-city-panel-value">{city.pop_estimate ?? city.pop ?? dataUnavailable}</span>
         </div>
         <p className="gm-city-panel-note">{city.description || city.note || ''}</p>
-        <p className="gm-city-panel-source">Source: U.S. Census ACS / Statistics Canada / national statistics agencies. Figures reflect diaspora estimates and may not capture undocumented residents.</p>
+        <p className="gm-city-panel-source">{sourceText}</p>
       </div>
     </div>
   );
@@ -91,14 +91,20 @@ function useGlobalStats() {
 
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function GlobalPage() {
-  const { isRTL, t } = useLang();
+  const { isRTL, t, headFont } = useLang();
   const stats = useGlobalStats();
   const markers = useMapMarkersPublic();
   const [selectedCity, setSelectedCity] = useState(null);
 
   return (
-    <div className="gm-page" dir={isRTL ? 'rtl' : 'ltr'}>
-      <CityPanel city={selectedCity} onClose={() => setSelectedCity(null)} />
+    <div className="gm-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
+      <CityPanel
+        city={selectedCity}
+        onClose={() => setSelectedCity(null)}
+        popLabel={t(CONTENT.cityPanelPopLabel)}
+        dataUnavailable={t(CONTENT.cityPanelDataUnavailable)}
+        sourceText={t(CONTENT.cityPanelSource)}
+      />
       <div className="gm-bg-grid" />
 
       <div className="gm-inner">

@@ -1,0 +1,12 @@
+/* LoginPage.css — standalone overrides on top of RegisterPage.css */
+
+/* Language + theme switcher (top-right, fixed) */
+.login-topbar {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    z-index: 10;
+}

@@ -1,8 +1,8 @@
 /* RegisterPage.css */
 
 .reg-page {
-    background-color: #010303;
-    min-height: calc(100vh - 60px);
+    background-color: var(--clr-bg);
+    min-height: 100vh;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -13,7 +13,7 @@
 /* ── Background grid (reuses global retroGridScroll keyframe) ── */
 .reg-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.07);
+    --grid-color: var(--clr-accent-08);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -26,8 +26,8 @@
     animation: retroGridScroll 5s linear infinite;
     pointer-events: none;
     z-index: 0;
-    mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, rgba(0,0,0,0.5) 60%, rgba(0,0,0,0.9) 100%);
+    mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 20%, oklch(0% 0 0 / 0.5) 60%, oklch(0% 0 0 / 0.9) 100%);
 }
 
 .reg-scanline {
@@ -35,7 +35,7 @@
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(139,92,246,0.25) 20%, rgba(139,92,246,0.35) 50%, rgba(139,92,246,0.25) 80%, transparent);
+    background: linear-gradient(90deg, transparent, var(--clr-accent-25) 20%, var(--clr-accent-35) 50%, var(--clr-accent-25) 80%, transparent);
     animation: scanLine 6s linear infinite;
     pointer-events: none;
     z-index: 1;
@@ -59,7 +59,7 @@
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 3px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     text-transform: uppercase;
     margin-bottom: 12px;
     font-family: inherit;
@@ -68,7 +68,7 @@
 .reg-title {
     font-size: 28px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 10px;
     letter-spacing: -0.01em;
     line-height: 1.2;
@@ -76,14 +76,15 @@
 
 .reg-subtitle {
     font-size: 13px;
-    color: #5a6a7e;
+    color: var(--clr-text-dim);
     line-height: 1.7;
 }
 
 /* ── Card wrapper ── */
 .reg-card {
-    background: rgba(8, 13, 22, 0.85);
-    border: 1px solid rgba(139, 92, 246, 0.12);
+    background: oklch(11% 0.015 215 / 0.85);
+    border: 1px solid var(--clr-accent-10);
+    border-radius: 16px;
     padding: 32px;
     position: relative;
     animation: fadeInUp 0.4s ease both;
@@ -93,7 +94,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(139,92,246,0.03) 0%, transparent 60%);
+    background: linear-gradient(135deg, oklch(55% 0.23 293 / 0.03) 0%, transparent 60%);
     pointer-events: none;
 }
 
@@ -113,17 +114,17 @@
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     font-family: inherit;
     transition: color 0.2s;
 }
 
 .reg-step-item.is-active {
-    color: #8B5CF6;
+    color: var(--clr-accent);
 }
 
 .reg-step-item.is-done {
-    color: #2e7d52;
+    color: oklch(45% 0.16 145);
 }
 
 .reg-step-num {
@@ -139,17 +140,17 @@
 }
 
 .reg-step-item.is-active .reg-step-num {
-    background: rgba(139,92,246,0.12);
+    background: var(--clr-accent-10);
 }
 
 .reg-step-item.is-done .reg-step-num {
-    background: rgba(46,125,82,0.15);
+    background: oklch(59% 0.18 141 / 0.15);
 }
 
 .reg-step-sep {
     flex: 1;
     height: 1px;
-    background: rgba(139,92,246,0.1);
+    background: var(--clr-accent-10);
     margin: 0 10px;
 }
 
@@ -158,7 +159,9 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    border: 1px solid rgba(139,92,246,0.15);
+    border: 1px solid var(--clr-accent-15);
+    border-radius: 8px;
+    overflow: hidden;
     margin-bottom: 4px;
 }
 
@@ -166,9 +169,9 @@
     padding: 10px 14px;
     background: transparent;
     border: none;
-    border-bottom: 1px solid rgba(139,92,246,0.08);
+    border-bottom: 1px solid var(--clr-accent-08);
     cursor: pointer;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     font-size: 11px;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -185,19 +188,19 @@
 }
 
 .reg-blueprint-btn:hover {
-    color: #a8c4d8;
-    background: rgba(139,92,246,0.04);
+    color: var(--clr-text-muted);
+    background: oklch(55% 0.23 293 / 0.04);
 }
 
 .reg-blueprint-btn.is-active {
-    color: #8B5CF6;
-    background: rgba(139,92,246,0.08);
-    border-left: 2px solid #8B5CF6;
+    color: var(--clr-accent);
+    background: var(--clr-accent-08);
+    border-left: 2px solid var(--clr-accent);
 }
 
 [dir="rtl"] .reg-blueprint-btn.is-active {
     border-left: none;
-    border-right: 2px solid #8B5CF6;
+    border-right: 2px solid var(--clr-accent);
 }
 
 /* ── User type toggle ── */
@@ -205,7 +208,9 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0;
-    border: 1px solid rgba(139,92,246,0.15);
+    border: 1px solid var(--clr-accent-15);
+    border-radius: 8px;
+    overflow: hidden;
     margin-bottom: 24px;
 }
 
@@ -218,7 +223,7 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -229,24 +234,24 @@
 }
 
 .reg-type-btn + .reg-type-btn {
-    border-left: 1px solid rgba(139,92,246,0.15);
+    border-left: 1px solid var(--clr-accent-15);
 }
 
 [dir="rtl"] .reg-type-btn + .reg-type-btn {
     border-left: none;
-    border-right: 1px solid rgba(139,92,246,0.15);
+    border-right: 1px solid var(--clr-accent-15);
 }
 
 .reg-type-btn.is-active[data-type="citizen"] {
-    background: rgba(46, 125, 50, 0.1);
-    color: #66bb6a;
-    border-bottom: 2px solid #388e3c;
+    background: oklch(59% 0.18 141 / 0.10);
+    color: oklch(67% 0.15 145);
+    border-bottom: 2px solid oklch(45% 0.16 145);
 }
 
 .reg-type-btn.is-active[data-type="diaspora"] {
-    background: rgba(21, 101, 192, 0.12);
-    color: #64b5f6;
-    border-bottom: 2px solid #1565c0;
+    background: oklch(40% 0.16 255 / 0.12);
+    color: oklch(70% 0.12 230);
+    border-bottom: 2px solid oklch(38% 0.18 255);
 }
 
 .reg-type-icon {
@@ -265,7 +270,7 @@
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #4a5568;
+    color: var(--clr-text-dim);
     margin-bottom: 8px;
     font-family: inherit;
     text-align: start;
@@ -276,7 +281,7 @@
     font-size: 9px;
     font-weight: 400;
     letter-spacing: 1px;
-    color: #718096;
+    color: var(--clr-text-muted);
     text-transform: none;
 }
 
@@ -285,27 +290,31 @@
 .reg-input,
 .reg-select {
     width: 100%;
-    background: #080d14;
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    color: #c8ccd4;
+    background: oklch(100% 0 0 / 0.04);
+    border: none;
+    outline: 1px solid oklch(100% 0 0 / 0.08);
+    outline-offset: -1px;
+    border-radius: 8px;
+    color: var(--clr-text);
     font-size: 14px;
-    padding: 12px 14px;
-    transition: border-color 0.18s, box-shadow 0.18s;
+    padding: 10px 14px;
+    transition: outline-color 0.15s, box-shadow 0.15s, background 0.15s;
     font-family: inherit;
     appearance: none;
     -webkit-appearance: none;
-    caret-color: #8B5CF6;
+    caret-color: var(--clr-accent);
 }
 
 .reg-input:focus,
 .reg-select:focus {
-    outline: none;
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.06);
+    outline: 2px solid var(--clr-accent-50);
+    outline-offset: -2px;
+    background: oklch(100% 0 0 / 0.06);
+    box-shadow: none;
 }
 
 .reg-input::placeholder {
-    color: #2a3545;
+    color: oklch(100% 0 0 / 0.18);
 }
 
 .reg-select {
@@ -323,22 +332,23 @@
 }
 
 .reg-select option {
-    background: #0a0f18;
-    color: #c8ccd4;
+    background: var(--clr-bg-panel);
+    color: var(--clr-text);
 }
 
 .reg-input--other-country {
     margin-top: 6px;
-    border-top-color: rgba(139, 92, 246, 0.08);
+    border-top-color: var(--clr-accent-08);
 }
 
 /* ── Submit button ── */
 .reg-submit-btn {
     width: 100%;
     padding: 14px 24px;
-    background: rgba(139, 92, 246, 0.08);
-    border: 1px solid rgba(139, 92, 246, 0.35);
-    color: #8B5CF6;
+    background: var(--clr-accent-08);
+    border: 1px solid var(--clr-accent-35);
+    border-radius: 8px;
+    color: var(--clr-accent);
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -354,9 +364,9 @@
 }
 
 .reg-submit-btn:hover:not(:disabled) {
-    background: rgba(139, 92, 246, 0.16);
-    border-color: rgba(139, 92, 246, 0.6);
-    box-shadow: 0 0 16px rgba(139, 92, 246, 0.1);
+    background: oklch(55% 0.23 293 / 0.16);
+    border-color: var(--clr-accent-60);
+    box-shadow: 0 0 16px var(--clr-accent-10);
 }
 
 .reg-submit-btn:disabled {
@@ -367,8 +377,8 @@
 .reg-submit-btn .reg-spinner {
     width: 14px;
     height: 14px;
-    border: 2px solid rgba(139,92,246,0.2);
-    border-top-color: #8B5CF6;
+    border: 2px solid var(--clr-accent-20);
+    border-top-color: var(--clr-accent);
     border-radius: 50%;
     animation: regSpin 0.7s linear infinite;
     flex-shrink: 0;
@@ -383,9 +393,9 @@
     display: flex;
     align-items: flex-start;
     gap: 8px;
-    background: rgba(183, 28, 28, 0.08);
-    border: 1px solid rgba(183, 28, 28, 0.25);
-    color: #ef9a9a;
+    background: oklch(48% 0.22 28 / 0.08);
+    border: 1px solid oklch(48% 0.22 28 / 0.25);
+    color: oklch(72% 0.12 28);
     font-size: 12px;
     padding: 12px 14px;
     margin-bottom: 18px;
@@ -425,18 +435,18 @@
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #8B5CF6;
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    color: var(--clr-accent);
+    border: 1px solid var(--clr-accent-20);
     padding: 5px 12px;
-    background: rgba(139, 92, 246, 0.04);
+    background: oklch(55% 0.23 293 / 0.04);
     text-decoration: none;
     align-self: flex-start;
     transition: background 0.2s, border-color 0.2s;
 }
 
 .reg-support-link:hover {
-    background: rgba(139, 92, 246, 0.1);
-    border-color: rgba(139, 92, 246, 0.4);
+    background: var(--clr-accent-10);
+    border-color: var(--clr-accent-40);
 }
 
 /* ── OTP / Verify step ── */
@@ -446,14 +456,14 @@
 
 .reg-verify-text {
     font-size: 13px;
-    color: #8a9bb0;
+    color: var(--clr-text-muted);
     line-height: 1.7;
     margin-bottom: 8px;
 }
 
 .reg-verify-email {
     font-size: 13px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     font-family: 'intelone-mono', monospace;
     letter-spacing: 0.5px;
 }
@@ -473,27 +483,30 @@
     flex: 1;
     min-width: 0;
     height: 54px;
-    background: #080d14;
-    border: 1px solid rgba(139, 92, 246, 0.18);
-    color: #eef5ff;
+    background: oklch(100% 0 0 / 0.04);
+    border: none;
+    outline: 1px solid oklch(100% 0 0 / 0.08);
+    outline-offset: -1px;
+    border-radius: 8px;
+    color: var(--clr-text-heading);
     font-size: 22px;
     font-weight: 700;
     text-align: center;
     font-family: 'intelone-mono', monospace;
-    caret-color: #8B5CF6;
-    transition: border-color 0.15s, box-shadow 0.15s;
+    caret-color: var(--clr-accent);
+    transition: outline-color 0.15s, background 0.15s;
     padding: 0;
 }
 
 .reg-otp-digit:focus {
-    outline: none;
-    border-color: rgba(139, 92, 246, 0.55);
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.07);
+    outline: 2px solid var(--clr-accent-50);
+    outline-offset: -2px;
+    background: oklch(100% 0 0 / 0.06);
 }
 
 .reg-otp-digit.is-filled {
-    border-color: rgba(139, 92, 246, 0.35);
-    color: #8B5CF6;
+    border-color: var(--clr-accent-35);
+    color: var(--clr-accent);
 }
 
 .reg-resend-row {
@@ -516,7 +529,7 @@
 .reg-cooldown-bar-track {
     width: 110px;
     height: 2px;
-    background: rgba(139, 92, 246, 0.07);
+    background: var(--clr-accent-08);
     position: relative;
     overflow: hidden;
 }
@@ -526,27 +539,27 @@
     left: 0;
     top: 0;
     height: 100%;
-    background: linear-gradient(90deg, rgba(139,92,246,0.25), #8B5CF6);
+    background: linear-gradient(90deg, var(--clr-accent-25), var(--clr-accent));
     transition: width 0.95s linear;
-    box-shadow: 0 0 6px rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 6px var(--clr-accent-50);
 }
 
 [dir="rtl"] .reg-cooldown-bar-fill {
     left: auto;
     right: 0;
-    background: linear-gradient(270deg, rgba(139,92,246,0.25), #8B5CF6);
+    background: linear-gradient(270deg, var(--clr-accent-25), var(--clr-accent));
 }
 
 .reg-cooldown-label {
     font-size: 10px;
     letter-spacing: 1.5px;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
 }
 
 .reg-resend-btn {
     background: none;
     border: none;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     font-size: 12px;
     cursor: pointer;
     padding: 0;
@@ -557,7 +570,7 @@
 }
 
 .reg-resend-btn:hover:not(:disabled) {
-    color: #8B5CF6;
+    color: var(--clr-accent);
 }
 
 .reg-resend-btn:disabled {
@@ -568,7 +581,7 @@
 .reg-back-btn {
     background: none;
     border: none;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     font-size: 11px;
     cursor: pointer;
     font-family: inherit;
@@ -582,42 +595,42 @@
 }
 
 .reg-back-btn:hover {
-    color: #8B5CF6;
+    color: var(--clr-accent);
 }
 
 /* ── Shamsi conversion hint ── */
 .reg-shamsi-hint {
     margin: 6px 0 0;
     font-size: 11px;
-    color: #26DEC2;
+    color: oklch(79% 0.13 180);
     letter-spacing: 0.5px;
 }
 
 /* ── Caretaker / too-young message ── */
 .reg-caretaker-msg {
     padding: 14px 16px;
-    background: rgba(139,92,246,0.04);
-    border: 1px solid rgba(139,92,246,0.15);
-    border-left: 3px solid rgba(139,92,246,0.4);
+    background: oklch(55% 0.23 293 / 0.04);
+    border: 1px solid var(--clr-accent-15);
+    border-left: 3px solid var(--clr-accent-40);
     margin-bottom: 4px;
 }
 
 [dir="rtl"] .reg-caretaker-msg {
-    border-left: 1px solid rgba(139,92,246,0.15);
-    border-right: 3px solid rgba(139,92,246,0.4);
+    border-left: 1px solid var(--clr-accent-15);
+    border-right: 3px solid var(--clr-accent-40);
 }
 
 .reg-caretaker-title {
     font-size: 10px;
     letter-spacing: 1.2px;
     text-transform: uppercase;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     margin-bottom: 8px;
 }
 
 .reg-caretaker-body {
     font-size: 12px;
-    color: #7a9ab5;
+    color: var(--clr-text-muted);
     line-height: 1.6;
     margin: 0;
 }
@@ -631,13 +644,13 @@
 .reg-choose-title {
     font-size: 18px;
     font-weight: 700;
-    color: #c8dff0;
+    color: oklch(85% 0.04 220);
     margin: 0 0 8px;
 }
 
 .reg-choose-subtitle {
     font-size: 11px;
-    color: #5a6a7e;
+    color: oklch(50% 0.025 230);
     margin: 0 0 24px;
     letter-spacing: 0.04em;
 }
@@ -653,8 +666,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 20px;
-    background: rgba(9,14,24,0.7);
-    border: 1px solid rgba(139,92,246,0.12);
+    background: oklch(11% 0.015 215 / 0.7);
+    border: 1px solid var(--clr-accent-10);
     cursor: pointer;
     transition: background 0.18s, border-color 0.18s;
     text-align: left;
@@ -665,20 +678,20 @@
 }
 
 .reg-choose-card:hover {
-    background: rgba(139,92,246,0.06);
-    border-color: rgba(139,92,246,0.35);
+    background: var(--clr-accent-05);
+    border-color: var(--clr-accent-35);
 }
 
 .reg-choose-card-name {
     font-size: 14px;
     font-weight: 600;
-    color: #a8c8e0;
+    color: oklch(75% 0.04 220);
 }
 
 .reg-choose-confirm {
     font-size: 10px;
     letter-spacing: 1px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     opacity: 0;
     transition: opacity 0.15s;
     white-space: nowrap;
@@ -705,13 +718,13 @@
 .reg-success-title {
     font-size: 20px;
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     margin-bottom: 12px;
 }
 
 .reg-success-body {
     font-size: 13px;
-    color: #8a9bb0;
+    color: var(--clr-text-muted);
     line-height: 1.7;
     margin-bottom: 24px;
 }
@@ -724,16 +737,16 @@
     text-transform: uppercase;
     font-family: inherit;
     padding: 8px 18px;
-    border: 1px solid rgba(46,125,82,0.4);
-    color: #66bb6a;
-    background: rgba(46,125,82,0.08);
+    border: 1px solid oklch(59% 0.18 141 / 0.4);
+    color: oklch(67% 0.15 145);
+    background: oklch(59% 0.18 141 / 0.08);
 }
 
 /* ── Bottom note ── */
 .reg-footnote {
     margin-top: 20px;
     font-size: 11px;
-    color: #2a3545;
+    color: oklch(27% 0.03 230);
     text-align: center;
     line-height: 1.6;
     font-family: inherit;
@@ -743,7 +756,7 @@
 @media (min-width: 561px) {
     .reg-footnote {
         font-size: 13px;
-        color: #3d4f63;
+        color: oklch(36% 0.04 230);
     }
 
     .reg-submit-btn {
@@ -758,10 +771,10 @@
     gap: 10px;
     font-size: 11px;
     letter-spacing: 1px;
-    color: #8B5CF6;
+    color: var(--clr-accent);
     opacity: 0.7;
-    background: rgba(139,92,246,0.04);
-    border: 1px solid rgba(139,92,246,0.12);
+    background: oklch(55% 0.23 293 / 0.04);
+    border: 1px solid var(--clr-accent-10);
     padding: 10px 14px;
     margin-bottom: 20px;
 }

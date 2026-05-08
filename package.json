@@ -13,7 +13,7 @@
     "generate:manifest": "node scripts/generate-manifest.js",
     "merge:manifest": "node scripts/generate-manifest.js && node scripts/merge-manifest.js",
     "validate:manifest": "node scripts/validate-manifest.js",
-    "ci:manifest-check": "node scripts/generate-manifest.js --check"
+    "ci:manifest-check": "node scripts/generate-manifest.js --check && node scripts/validate-manifest.js"
   },
   "dependencies": {
     "@marsidev/react-turnstile": "^1.4.2",

@@ -121,13 +121,13 @@ export default function BlueprintEditorPage() {
     }
 
     if (loading) return (
-        <div className="editor-page">
+        <div className="editor-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="editor-loading"><span className="prof-spinner" /></div>
         </div>
     );
 
     if (!blueprint) return (
-        <div className="editor-page">
+        <div className="editor-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="editor-notfound" style={{ fontFamily: monoFont }}>
                 {tKey('editor.notFound')} <Link to="/my-blueprints" className="editor-link">←</Link>
             </div>
@@ -137,7 +137,7 @@ export default function BlueprintEditorPage() {
     const sourceBlueprint = BLUEPRINTS[blueprint.forkedFrom];
 
     return (
-        <div className="editor-page" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="editor-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="editor-bg-grid" />
             <div className="editor-inner">
 

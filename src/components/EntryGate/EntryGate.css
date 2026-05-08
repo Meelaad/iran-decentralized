@@ -4,7 +4,7 @@
     position: fixed;
     inset: 0;
     z-index: 9999;
-    background: #010303;
+    background: var(--clr-bg);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -29,7 +29,7 @@
 /* ── Retro grid ── */
 .gate-bg-grid {
     --grid-cell: 50px;
-    --grid-color: rgba(139, 92, 246, 0.03);
+    --grid-color: oklch(55% 0.23 293 / 0.03);
     position: absolute;
     bottom: -20%;
     left: -20%;
@@ -41,8 +41,8 @@
     background-size: var(--grid-cell) var(--grid-cell);
     animation: retroGridScroll 6s linear infinite;
     pointer-events: none;
-    mask-image: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
-    -webkit-mask-image: linear-gradient(to bottom, transparent 10%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+    mask-image: linear-gradient(to bottom, transparent 10%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.85) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 10%, oklch(0% 0 0 / 0.4) 50%, oklch(0% 0 0 / 0.85) 100%);
 }
 
 /* ── Scanline ── */
@@ -54,9 +54,9 @@
     background: linear-gradient(
         90deg,
         transparent,
-        rgba(139,92,246,0.18) 20%,
-        rgba(139,92,246,0.28) 50%,
-        rgba(139,92,246,0.18) 80%,
+        var(--clr-accent-18) 20%,
+        var(--clr-accent-25) 50%,
+        var(--clr-accent-18) 80%,
         transparent
     );
     animation: scanLine 8s linear infinite;
@@ -82,7 +82,7 @@
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: #239F40;
+    color: var(--clr-green);
     opacity: 0.6;
     margin-bottom: 44px;
 }
@@ -100,10 +100,10 @@
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(52px, 11vw, 96px);
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     letter-spacing: -0.03em;
     line-height: 1;
-    text-shadow: 0 0 80px rgba(139,92,246,0.1);
+    text-shadow: 0 0 80px var(--clr-accent-10);
     margin: 0;
 }
 
@@ -111,7 +111,7 @@
     font-family: 'Vazirmatn', sans-serif;
     font-size: clamp(20px, 3.5vw, 32px);
     font-weight: 300;
-    color: #3a4a5e;
+    color: oklch(35% 0.025 230);
     letter-spacing: 0.01em;
     line-height: 1;
     margin: 0;
@@ -121,7 +121,7 @@
 .gate-tagline {
     font-size: clamp(14px, 1.8vw, 18px);
     font-weight: 400;
-    color: #4a5a6e;
+    color: var(--clr-text-dim);
     letter-spacing: 0.03em;
     margin-bottom: 56px;
     max-width: 480px;
@@ -145,7 +145,7 @@
 }
 .gate-hex-btn:hover {
     transform: scale(1.07);
-    filter: drop-shadow(0 0 24px rgba(139,92,246,0.35));
+    filter: drop-shadow(0 0 24px var(--clr-accent-35));
 }
 
 /* Rotating outer ring */
@@ -191,14 +191,14 @@
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 4px;
-    color: #ffffff;
-    text-shadow: 0 0 24px rgba(35,159,64,0.7), 0 0 48px rgba(218,0,0,0.3);
+    color: oklch(100% 0 0);
+    text-shadow: 0 0 24px var(--clr-green-70), 0 0 48px var(--clr-red-30);
     text-transform: uppercase;
 }
 .gate-hex-enter-fa {
     font-family: 'Vazirmatn', sans-serif;
     font-size: 13px;
-    color: rgba(35,159,64,0.85);
+    color: var(--clr-green-85);
 }
 
 /* Pulse halos — green & red (Iran flag) */
@@ -206,13 +206,13 @@
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    border: 1px solid rgba(35,159,64,0.4);
+    border: 1px solid var(--clr-green-40);
     animation: gateHexPulse 3s ease-out infinite;
     pointer-events: none;
 }
 .gate-hex-pulse--2 {
     animation-delay: 1.5s;
-    border-color: rgba(218,0,0,0.3);
+    border-color: var(--clr-red-30);
 }
 @keyframes gateHexPulse {
     0%   { transform: scale(0.8); opacity: 0.8; }
@@ -234,21 +234,21 @@
     font-size: clamp(13px, 1.3vw, 16px);
     font-weight: 600;
     letter-spacing: 1.5px;
-    color: #2e3e50;
+    color: var(--clr-text-faint);
     padding: 0;
     transition: color 0.2s ease;
 }
 
 .gate-lang-btn:hover {
-    color: #4a6070;
+    color: oklch(46% 0.02 225);
 }
 
 .gate-lang-btn.is-active {
-    color: #239F40;
+    color: var(--clr-green);
 }
 
 .gate-lang-sep {
-    color: #1a2530;
+    color: oklch(18% 0.02 215);
     font-size: clamp(13px, 1.3vw, 16px);
     font-family: inherit;
 }
@@ -256,7 +256,7 @@
 /* ── Hint ── */
 .gate-hint {
     font-size: clamp(11px, 1.1vw, 13px);
-    color: #2a3a4e;
+    color: oklch(28% 0.04 230);
     letter-spacing: 0.03em;
 }
 
@@ -272,4 +272,26 @@
         width: 100px;
         height: 100px;
     }
+}
+
+/* ── Light mode ─────────────────────────────────────────────── */
+/* EntryGate is a cinematic dark intro — keep dark even in light mode,
+   but make readable elements work on a lighter background */
+[data-theme="light"] .gate-overlay {
+    background: oklch(10% 0.02 260);
+}
+[data-theme="light"] .gate-title-fa {
+    color: oklch(55% 0.025 230);
+}
+[data-theme="light"] .gate-hint {
+    color: oklch(45% 0.04 230);
+}
+[data-theme="light"] .gate-lang-sep {
+    color: oklch(35% 0.02 215);
+}
+[data-theme="light"] .gate-lang-btn {
+    color: oklch(55% 0.03 230);
+}
+[data-theme="light"] .gate-lang-btn.is-active {
+    color: var(--clr-green);
 }

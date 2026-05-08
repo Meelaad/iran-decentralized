@@ -658,7 +658,7 @@ export default function AdminPage() {
     const STATUS_COLORS = { incubator: '#ffd54f', arena: '#66bb6a', archived: '#5a6a7e' };
 
     return (
-        <div className="admin-page">
+        <div className="admin-page" dir={isRTL ? 'rtl' : 'ltr'}>
             <div className="admin-inner">
 
                 {/* Header */}

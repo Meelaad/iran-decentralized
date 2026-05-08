@@ -8,20 +8,20 @@ export default function TermsPage() {
     const { t, isRTL, monoFont, headFont } = useLang();
 
     return (
-        <div className="terms-page">
+        <div className="terms-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="terms-bg-grid" />
             <div className="terms-scanline" />
 
-            <div className="terms-inner" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="terms-inner">
                 <div className="terms-header">
                     <div className="terms-eyebrow" style={{ fontFamily: monoFont }}>
-                        {isRTL ? 'سند قانونی' : 'LEGAL'}
+                        {t(CONTENT.eyebrow)}
                     </div>
                     <h1 className="terms-title" style={{ fontFamily: headFont }}>
-                        {isRTL ? 'شرایط استفاده' : 'Terms of Use'}
+                        {t(CONTENT.title)}
                     </h1>
                     <p className="terms-date" style={{ fontFamily: monoFont }}>
-                        {isRTL ? 'آخرین به‌روزرسانی: مارس ۲۰۲۶' : 'Last updated: March 2026'}
+                        {t(CONTENT.date)}
                     </p>
                 </div>
 

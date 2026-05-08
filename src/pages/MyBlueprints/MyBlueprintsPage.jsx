@@ -43,13 +43,13 @@ export default function MyBlueprintsPage() {
     const loading = authLoading || (!!userId && forksLoading);
 
     if (loading) return (
-        <div className="myblue-page">
+        <div className="myblue-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="myblue-loading"><Spinner size="md" /></div>
         </div>
     );
 
     if (!session) return (
-        <div className="myblue-page">
+        <div className="myblue-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="myblue-nosession" style={{ fontFamily: monoFont }}>
                 {tKey('myBlueprints.loginPrompt')}{' '}
                 <Link to="/login" className="myblue-link">{tKey('nav.login')}</Link>
@@ -60,7 +60,7 @@ export default function MyBlueprintsPage() {
     const officialList = Object.values(BLUEPRINTS);
 
     return (
-        <div className="myblue-page" dir={isRTL ? 'rtl' : 'ltr'}>
+        <div className="myblue-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
             <div className="myblue-bg-grid" />
             <div className="myblue-inner">
 

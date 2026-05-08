@@ -171,7 +171,7 @@ export default function VotePage() {
     // ── Age gate ──────────────────────────────────────────────────────────────
     if (ageStatus === 'loading') {
         return (
-            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
                 <div className="vote-bg-grid" />
                 <div className="vote-inner" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
                     <span style={{ color: '#3a4a5e', fontFamily: "'intelone-mono', monospace", fontSize: 12 }}>...</span>
@@ -182,7 +182,7 @@ export default function VotePage() {
 
     if (ageStatus === 'gate') {
         return (
-            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
                 <div className="vote-bg-grid" />
                 <div className="vote-scanline" />
                 <div className="vote-inner">
@@ -220,7 +220,7 @@ export default function VotePage() {
 
     if (ageStatus === 'too-young') {
         return (
-            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'}>
+            <div className="vote-page" dir={isRTL ? 'rtl' : 'ltr'} style={{ fontFamily: headFont }}>
                 <div className="vote-bg-grid" />
                 <div className="vote-scanline" />
                 <div className="vote-inner">

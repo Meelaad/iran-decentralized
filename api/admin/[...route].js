@@ -1,6 +1,6 @@
 import { requireAdmin } from '../../lib/admin/_auth.js';
 import { getUsers, generateCodes, deleteCode, updateInvites, seedBlueprints, saveBlueprintLayout, getMapMarkers, addMapMarker, updateMapMarker, deleteMapMarker } from '../../lib/admin/operations.js';
-import { rateLimit, validateRequestSize, setSecurityHeaders } from '../../lib/security/middleware.js';
+import { rateLimit, validateRequestSize, setSecurityHeaders, checkOrigin } from '../../lib/security/middleware.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
@@ -8,6 +8,7 @@ export default async function handler(req, res) {
 
     let adminUser;
     try {
+        if (req.method !== 'GET') checkOrigin(req);
         rateLimit(req, 'admin');
         validateRequestSize(req, 500 * 1024);
         const adminResult = await requireAdmin(req);

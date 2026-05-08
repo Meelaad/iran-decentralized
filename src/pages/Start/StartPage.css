@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
     min-height: 100dvh;
-    background: #0a0a0a;
+    background: var(--clr-bg);
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -23,8 +23,8 @@
     z-index: 1;
     background: radial-gradient(
         ellipse at center,
-        rgba(0, 0, 0, 0.35) 0%,
-        rgba(0, 0, 0, 0.75) 100%
+        oklch(0% 0 0 / 0.35) 0%,
+        oklch(0% 0 0 / 0.75) 100%
     );
     pointer-events: none;
 }
@@ -60,12 +60,12 @@
     width: clamp(40px, 25vmin, 400px);
     height: auto;
     opacity: 0.88;
-    filter: drop-shadow(0 0 12px rgba(79, 195, 247, 0.25));
+    filter: drop-shadow(0 0 12px oklch(83% 0.12 200 / 0.25));
 }
 
 [data-theme="light"] .sp-hero-logo {
     opacity: 0.82;
-    filter: drop-shadow(0 0 10px rgba(2, 132, 199, 0.2));
+    filter: drop-shadow(0 0 10px oklch(70% 0.15 220 / 0.2));
 }
 
 /* ─── Particle title canvas ───────────────────────────────────────────────────── */
@@ -89,7 +89,7 @@
     font-family: 'Space Grotesk', 'intelone-mono', sans-serif;
     font-size: clamp(52px, 10vw, 100px);
     font-weight: 700;
-    color: #eef5ff;
+    color: var(--clr-text-heading);
     letter-spacing: -0.03em;
     line-height: 1;
     margin: 0;
@@ -97,7 +97,7 @@
     flex-wrap: wrap;
     gap: 0.25em;
     justify-content: center;
-    text-shadow: 0 0 80px rgba(139, 92, 246, 0.08);
+    text-shadow: 0 0 80px var(--clr-accent-08);
 }
 
 .sp-title-word-wrap {
@@ -115,7 +115,7 @@
 .sp-tagline {
     font-size: clamp(12px, 2vmin, 22px);
     font-weight: 400;
-    color: rgba(200, 220, 235, 0.75);
+    color: oklch(82% 0.01 250 / 0.75);
     letter-spacing: 0.02em;
     margin: 0;
     max-width: 480px;
@@ -127,23 +127,23 @@
     display: inline-flex;
     align-items: center;
     gap: clamp(4px, 0.8vmin, 8px);
-    background: white;
+    background: oklch(100% 0 0);
     border: none;
     border-radius: 9999px;
     padding: clamp(8px, 1.5vmin, 14px) clamp(16px, 3vmin, 32px);
     font-size: clamp(11px, 1.8vmin, 17px);
     font-weight: 600;
     letter-spacing: 0.01em;
-    color: #0a0a0a;
+    color: var(--clr-bg);
     cursor: pointer;
     transition: transform 0.28s ease, box-shadow 0.28s ease, background 0.28s ease, color 0.28s ease;
 }
 
 .sp-cta:hover {
     transform: scale(1.07);
-    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
-    color: #fff;
-    box-shadow: 0 0 48px rgba(139, 92, 246, 0.55), 0 4px 24px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, var(--clr-accent-soft) 0%, var(--clr-accent-deep) 100%);
+    color: oklch(100% 0 0);
+    box-shadow: 0 0 48px oklch(55% 0.23 293 / 0.55), 0 4px 24px oklch(0% 0 0 / 0.25);
 }
 
 .sp-cta:active {
@@ -162,7 +162,7 @@
     font-size: clamp(9px, 1.4vmin, 14px);
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: #26DEC2;
+    color: oklch(83% 0.12 180);
     text-transform: uppercase;
 }
 
@@ -189,10 +189,10 @@
     font-family: 'intelone-mono', monospace;
     font-size: clamp(10px, 1.2vmin, 13px);
     letter-spacing: 0.5px;
-    color: rgba(139, 92, 246, 0.4);
+    color: var(--clr-accent-40);
 }
 
-.sp-stats-dot { color: rgba(139, 92, 246, 0.18); }
+.sp-stats-dot { color: var(--clr-accent-18); }
 
 /* ─── Language switcher ───────────────────────────────────────────────────────── */
 .sp-lang {
@@ -205,9 +205,9 @@
 }
 
 .sp-lang-btn {
-    background: rgba(10, 15, 22, 0.75);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    color: rgba(139, 92, 246, 0.5);
+    background: oklch(11% 0.015 215 / 0.75);
+    border: 1px solid var(--clr-accent-20);
+    color: var(--clr-accent-50);
     font-family: 'intelone-mono', monospace;
     font-size: clamp(10px, 1.2vmin, 13px);
     letter-spacing: 1px;
@@ -221,8 +221,8 @@
 
 .sp-lang-btn.is-active,
 .sp-lang-btn:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    color: #8B5CF6;
+    border-color: var(--clr-accent-50);
+    color: var(--clr-accent);
 }
 
 /* ─── Responsive ──────────────────────────────────────────────────────────────── */

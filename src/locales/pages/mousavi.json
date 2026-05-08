@@ -1,0 +1,913 @@
+{
+  "heroEyebrow": {
+    "en": "Mir Hossein Mousavi · Green Movement · 'To Save Iran' Manifesto, February 2023 – January 2026",
+    "fa": "میر حسین موسوی · جنبش سبز · بیانیه 'برای نجات ایران'، فوریه ۲۰۲۳ – ژانویه ۲۰۲۶"
+  },
+  "heroTitle": {
+    "en": "Democratic Transition Architecture",
+    "fa": "معماری گذار دموکراتیک"
+  },
+  "heroDesc": {
+    "en": "A three-stage operational blueprint for the peaceful, non-violent dismantlement of the Islamic Republic and its replacement with a democratic state anchored in popular sovereignty. Initiated by former Prime Minister Mir Hossein Mousavi on February 4, 2023, updated through the July 2025 post-war statement, and radicalized to a direct demand for capitulation in January 2026.",
+    "fa": "یک طرح عملیاتی سه‌مرحله‌ای برای برچیدن مسالمت‌آمیز و بدون خشونت جمهوری اسلامی و جایگزینی آن با یک دولت دموکراتیک مبتنی بر حاکمیت مردمی. آغاز شده توسط نخست‌وزیر سابق میر حسین موسوی در ۴ فوریه ۲۰۲۳، به‌روزرسانی شده در بیانیه پس از جنگ جولای ۲۰۲۵، و تبدیل به درخواست مستقیم برای کناره‌گیری در ژانویه ۲۰۲۶."
+  },
+  "heroBadges": [
+    { "label": { "en": "3-Stage Blueprint", "fa": "طرح ۳ مرحله‌ای" }, "c": "#69d98c" },
+    { "label": { "en": "Feb 2023 → Jan 2026", "fa": "فوریه ۲۰۲۳ ← ژانویه ۲۰۲۶" }, "c": "#8B5CF6" },
+    { "label": { "en": "Non-Violent Transition", "fa": "گذار غیرخشونت‌آمیز" }, "c": "#ffd166" },
+    { "label": { "en": "Popular Sovereignty", "fa": "حاکمیت مردمی" }, "c": "#ba68c8" },
+    { "label": { "en": "Constituent Assembly", "fa": "مجلس مؤسسان" }, "c": "#ff9a42" }
+  ],
+  "philEyebrow": {
+    "en": "Ideological Foundation",
+    "fa": "بنیاد ایدئولوژیک"
+  },
+  "philTitle": {
+    "en": "The Death of Reformism — The Philosophical Core",
+    "fa": "مرگ اصلاح‌طلبی — هسته فلسفی"
+  },
+  "philIntro": {
+    "en": "The February 2023 manifesto represents the formal, irreversible death of intra-systemic reformism in Iran. For over a decade following the 2009 Green Movement, Mousavi's paradigm rested on the assumption that the Islamic Republic could correct itself from within. The Mahsa Amini uprising of September 2022 permanently shattered that assumption.",
+    "fa": "بیانیه فوریه ۲۰۲۳ نماینده مرگ رسمی و برگشت‌ناپذیر اصلاح‌طلبی درون‌سیستمی در ایران است. برای بیش از یک دهه پس از جنبش سبز ۲۰۰۹، پارادایم موسوی بر این فرض استوار بود که جمهوری اسلامی می‌تواند از درون خود را اصلاح کند. قیام مهسا امینی در سپتامبر ۲۰۲۲ این فرض را برای همیشه در هم شکست."
+  },
+  "paradigmShift": {
+    "title": {
+      "en": "The Paradigm Shift: Reformism → Transitional Democracy",
+      "fa": "تغییر پارادایم: اصلاح‌طلبی → دموکراسی انتقالی"
+    },
+    "items": [
+      {
+        "en": "PRE-2023: Goal = Implementation of the existing Constitution without compromise",
+        "fa": "پیش از ۲۰۲۳: هدف = اجرای قانون اساسی موجود بدون سازش"
+      },
+      {
+        "en": "POST-2023: Goal = Drafting and ratification of an entirely new democratic Constitution",
+        "fa": "پس از ۲۰۲۳: هدف = تهیه و تصویب یک قانون اساسی دموکراتیک کاملاً جدید"
+      },
+      {
+        "en": "PRE-2023: Sovereignty = Dual legitimacy (divine mandate via Supreme Leader + republican elections)",
+        "fa": "پیش از ۲۰۲۳: حاکمیت = مشروعیت دوگانه (مأموریت الهی از طریق رهبر + انتخابات محدود جمهوری)"
+      },
+      {
+        "en": "POST-2023: Sovereignty = Absolute and singular popular sovereignty — the citizenry alone",
+        "fa": "پس از ۲۰۲۳: حاکمیت = حاکمیت مردمی مطلق و منحصربه‌فرد — فقط شهروندان"
+      },
+      {
+        "en": "PRE-2023: System assessment = Contains errors but capable of internal self-correction",
+        "fa": "پیش از ۲۰۲۳: ارزیابی سیستم = دارای خطا اما قادر به اصلاح درونی"
+      },
+      {
+        "en": "POST-2023: System assessment = 'Contradictory and unsustainable structure' — irreformable",
+        "fa": "پس از ۲۰۲۳: ارزیابی سیستم = 'ساختار متناقض و ناپایدار' — غیرقابل اصلاح"
+      },
+      {
+        "en": "PRE-2023: Method = Electoral participation, elite lobbying, incremental policy shifts",
+        "fa": "پیش از ۲۰۲۳: روش = مشارکت انتخاباتی، لابی‌گری نخبگان، تغییرات تدریجی سیاستی"
+      },
+      {
+        "en": "POST-2023: Method = Three-stage structural transition via national referendums + Constituent Assembly",
+        "fa": "پس از ۲۰۲۳: روش = گذار ساختاری سه‌مرحله‌ای از طریق همه‌پرسی‌های ملی + مجلس مؤسسان"
+      }
+    ]
+  },
+  "corePhilosophy": {
+    "title": {
+      "en": "Core Philosophical Principles",
+      "fa": "اصول فلسفی محوری"
+    },
+    "items": [
+      {
+        "en": "The Islamic Republic's structure is fundamentally 'contradictory and unsustainable' — incapable of reform, not merely in need of it",
+        "fa": "ساختار جمهوری اسلامی اساساً 'متناقض و ناپایدار' است — نه صرفاً نیازمند اصلاح، بلکه قادر به اصلاح نیست"
+      },
+      {
+        "en": "State sovereignty originates exclusively from the citizenry — not from divine mandate or the Velayat-e Faqih institution",
+        "fa": "حاکمیت دولتی منحصراً از شهروندان نشأت می‌گیرد — نه از مأموریت الهی یا نهاد ولایت فقیه"
+      },
+      {
+        "en": "The 'Woman, Life, Freedom' movement represents a systemic awakening that permanently delegitimized the theocratic state",
+        "fa": "جنبش 'زن، زندگی، آزادی' یک بیداری سیستمی را نشان می‌دهد که مشروعیت دولت تئوکراتیک را برای همیشه سلب کرد"
+      },
+      {
+        "en": "Foreign military intervention is categorically rejected — transition must be engineered entirely by the Iranian people",
+        "fa": "مداخله نظامی خارجی قاطعانه رد می‌شود — گذار باید کاملاً توسط مردم ایران طراحی شود"
+      },
+      {
+        "en": "Violent domestic revolution is rejected — the mechanism is peaceful, democratic, and legally structured",
+        "fa": "انقلاب خشونت‌آمیز داخلی رد می‌شود — مکانیزم، صلح‌آمیز، دموکراتیک و ساختارمند قانونی است"
+      },
+      {
+        "en": "The regime has demonstrated absolute unwillingness to meet even the most minimal public demands, relying entirely on suppression, corruption, and injustice",
+        "fa": "رژیم نشان داده که هیچ تمایلی به برآوردن حتی کمترین خواسته‌های عمومی ندارد و کاملاً به سرکوب، فساد و بی‌عدالتی متکی است"
+      }
+    ]
+  },
+  "catalyst": {
+    "title": {
+      "en": "The Catalyzing Event: The 'Woman, Life, Freedom' Uprising",
+      "fa": "رویداد کاتالیزور: قیام 'زن، زندگی، آزادی'"
+    },
+    "items": [
+      {
+        "en": "September 2022: Mahsa (Jina) Amini dies in morality police custody",
+        "fa": "سپتامبر ۲۰۲۲: مهسا (ژینا) امینی در بازداشت گشت ارشاد جان می‌سپارد"
+      },
+      {
+        "en": "Nationwide protests erupt — the broadest civil uprising since 1979",
+        "fa": "اعتراضات سراسری شروع می‌شود — گسترده‌ترین قیام مدنی از سال ۱۳۵۸"
+      },
+      {
+        "en": "The movement exposes the regime's absolute reliance on lethal force for survival",
+        "fa": "جنبش اتکای مطلق رژیم به زور کشنده برای بقا را آشکار می‌کند"
+      },
+      {
+        "en": "Intersectional coalition forms: women, youth, ethnic minorities, religious minorities, diaspora",
+        "fa": "ائتلاف فراگیر شکل می‌گیرد: زنان، جوانان، اقلیت‌های قومی و مذهبی، دیاسپورا"
+      },
+      {
+        "en": "Mousavi explicitly aligns his manifesto with the 'pure features' of this movement",
+        "fa": "موسوی صراحتاً بیانیه‌اش را با 'ویژگی‌های پاک' این جنبش همسو می‌کند"
+      },
+      {
+        "en": "The 2009 Green Movement demanded the constitution be honored — 'Woman, Life, Freedom' demanded the system itself be replaced",
+        "fa": "جنبش سبز ۲۰۰۹ خواستار احترام به قانون اساسی بود — 'زن، زندگی، آزادی' خواستار جایگزینی خود سیستم شد"
+      }
+    ]
+  },
+  "stagesEyebrow": {
+    "en": "The Operational Blueprint",
+    "fa": "طرح عملیاتی"
+  },
+  "stagesTitle": {
+    "en": "The Three-Stage Transition Architecture",
+    "fa": "معماری گذار سه‌مرحله‌ای"
+  },
+  "stagesIntro": {
+    "en": "A sequential, legally structured pathway designed to dismantle the Islamic Republic and replace it with a democratic state while maintaining maximum domestic and international legitimacy at every stage. Each stage feeds the next — no stage can be skipped or reversed.",
+    "fa": "یک مسیر قانونی ساختارمند و متوالی که برای برچیدن جمهوری اسلامی و جایگزینی آن با یک دولت دموکراتیک طراحی شده است، در حالی که حداکثر مشروعیت داخلی و بین‌المللی را در هر مرحله حفظ می‌کند. هر مرحله به مرحله بعدی منتهی می‌شود — هیچ مرحله‌ای را نمی‌توان نادیده گرفت یا معکوس کرد."
+  },
+  "stage1": {
+    "number": { "en": "01", "fa": "۰۱" },
+    "label": { "en": "DECONSTRUCTION", "fa": "فروپاشی" },
+    "title": { "en": "The Deconstruction Referendum", "fa": "همه‌پرسی فروپاشی" },
+    "sub": {
+      "en": "A free and fair national referendum on whether to maintain or replace the existing political structure",
+      "fa": "یک همه‌پرسی آزاد و منصفانه ملی درباره حفظ یا جایگزینی ساختار سیاسی موجود"
+    },
+    "prereqs": {
+      "title": { "en": "Required Prerequisites", "fa": "پیش‌نیازهای الزامی" },
+      "items": [
+        {
+          "en": "Suspension of all systemic violence and security force operations against civilians",
+          "fa": "تعلیق تمام خشونت سیستماتیک و عملیات نیروهای امنیتی علیه غیرنظامیان"
+        },
+        {
+          "en": "International observation — verified, independent electoral monitors",
+          "fa": "ناظران بین‌المللی — ناظران انتخاباتی مستقل و تأییدشده"
+        },
+        {
+          "en": "Guaranteed transparency of the electoral process",
+          "fa": "شفافیت تضمین‌شده فرآیند انتخاباتی"
+        },
+        {
+          "en": "Unrestricted access to information and communication for all citizens",
+          "fa": "دسترسی نامحدود به اطلاعات و ارتباطات برای همه شهروندان"
+        }
+      ]
+    },
+    "mechanics": {
+      "title": { "en": "Operational Mechanics", "fa": "مکانیزم‌های عملیاتی" },
+      "items": [
+        {
+          "en": "A single, binary question put to the entire Iranian citizenry",
+          "fa": "یک سؤال باینری ساده به تمام شهروندان ایرانی"
+        },
+        {
+          "en": "Empirically validates — or refutes — the populace's desire to terminate the existing constitutional order",
+          "fa": "به صورت تجربی اثبات یا رد می‌کند که آیا مردم می‌خواهند نظم قانون اساسی موجود پایان یابد"
+        },
+        {
+          "en": "Legally eliminates the regime's claim of divine or popular legitimacy if rejected",
+          "fa": "در صورت رد، ادعای مشروعیت الهی یا مردمی رژیم را قانوناً از بین می‌برد"
+        },
+        {
+          "en": "Note: Supreme Leader Khamenei publicly rejected this referendum in April 2023 — acknowledging its existential threat to the regime",
+          "fa": "توجه: رهبر معظم خامنه‌ای در آوریل ۲۰۲۳ این همه‌پرسی را علناً رد کرد — تهدید وجودی آن برای رژیم را تأیید کرد"
+        },
+        {
+          "en": "The regime's refusal to permit Stage 1 forces the opposition into persistent civil disobedience",
+          "fa": "امتناع رژیم از اجازه مرحله اول، اپوزیسیون را به وضعیت نافرمانی مدنی پیوسته وادار می‌کند"
+        }
+      ]
+    }
+  },
+  "stage2": {
+    "number": { "en": "02", "fa": "۰۲" },
+    "label": { "en": "RECONSTITUTION", "fa": "بازسازی" },
+    "title": { "en": "The Constituent Assembly", "fa": "مجلس مؤسسان" },
+    "sub": {
+      "en": "Free elections for an Assembly of Founders to draft an entirely new democratic constitution",
+      "fa": "انتخابات آزاد برای مجلس مؤسسان جهت تهیه یک قانون اساسی دموکراتیک کاملاً جدید"
+    },
+    "prereqs": {
+      "title": { "en": "Required Prerequisites", "fa": "پیش‌نیازهای الزامی" },
+      "items": [
+        {
+          "en": "Unconditional release of ALL political prisoners without exception",
+          "fa": "آزادی بی‌قیدوشرط تمام زندانیان سیاسی بدون استثنا"
+        },
+        {
+          "en": "Total cessation of all media and internet censorship",
+          "fa": "توقف کامل تمام سانسور رسانه‌ای و اینترنتی"
+        },
+        {
+          "en": "Genuine, unhindered participation of all political factions and ideological streams",
+          "fa": "مشارکت واقعی و بدون مانع همه جناح‌های سیاسی و جریان‌های ایدئولوژیک"
+        },
+        {
+          "en": "Inclusion of all demographic segments — ethnic minorities, religious minorities, diaspora",
+          "fa": "شامل شدن همه بخش‌های جمعیتی — اقلیت‌های قومی، مذهبی، دیاسپورا"
+        }
+      ]
+    },
+    "mechanics": {
+      "title": { "en": "Operational Mechanics", "fa": "مکانیزم‌های عملیاتی" },
+      "items": [
+        {
+          "en": "Assembly formed through entirely free, fair, and inclusive national elections",
+          "fa": "مجلس از طریق انتخابات ملی کاملاً آزاد، منصفانه و فراگیر تشکیل می‌شود"
+        },
+        {
+          "en": "Singular legal mandate: draft a new constitution based on democracy, universal human rights, and national sovereignty",
+          "fa": "مأموریت قانونی منحصربه‌فرد: تهیه قانون اساسی جدید مبتنی بر دموکراسی، حقوق بشر جهانی و حاکمیت ملی"
+        },
+        {
+          "en": "The Velayat-e Faqih principle is structurally excluded from the drafting parameters",
+          "fa": "اصل ولایت فقیه به صورت ساختاری از پارامترهای تهیه پیش‌نویس حذف شده است"
+        },
+        {
+          "en": "All political factions — from monarchists to leftists to religious democrats — permitted to participate in elections",
+          "fa": "همه جناح‌های سیاسی — از مشروطه‌خواهان تا چپ‌گراها تا دموکرات‌های مذهبی — مجاز به مشارکت در انتخابات"
+        },
+        {
+          "en": "Assembly operates under a strict constitutional mandate — cannot expand its own powers",
+          "fa": "مجلس تحت مأموریت قانون اساسی محدود عمل می‌کند — نمی‌تواند اختیارات خود را گسترش دهد"
+        },
+        {
+          "en": "Consults civil society, diaspora experts, and international democratic institutions during drafting",
+          "fa": "در طول تهیه پیش‌نویس با جامعه مدنی، کارشناسان دیاسپورا و نهادهای بین‌المللی دموکراتیک مشورت می‌کند"
+        }
+      ]
+    }
+  },
+  "stage3": {
+    "number": { "en": "03", "fa": "۰۳" },
+    "label": { "en": "LEGITIMIZATION", "fa": "مشروعیت‌بخشی" },
+    "title": { "en": "The Ratification Referendum", "fa": "همه‌پرسی تصویب" },
+    "sub": {
+      "en": "A final national referendum to ratify the newly drafted constitution and select the form of government",
+      "fa": "همه‌پرسی ملی نهایی برای تصویب قانون اساسی تهیه‌شده و انتخاب شکل حکومت"
+    },
+    "prereqs": {
+      "title": { "en": "Required Prerequisites", "fa": "پیش‌نیازهای الزامی" },
+      "items": [
+        {
+          "en": "Unrestricted public debate regarding the drafted constitution across ALL media platforms prior to the vote",
+          "fa": "بحث عمومی نامحدود درباره پیش‌نویس قانون اساسی در تمام رسانه‌ها قبل از رأی‌گیری"
+        },
+        {
+          "en": "Minimum deliberation period before the referendum — no rushed ratification",
+          "fa": "حداقل دوره تأمل قبل از همه‌پرسی — تصویب شتابزده ممنوع"
+        },
+        {
+          "en": "Independent legal review of the draft constitution by recognized international bodies",
+          "fa": "بررسی حقوقی مستقل پیش‌نویس توسط نهادهای بین‌المللی معتبر"
+        },
+        {
+          "en": "Full diaspora participation guaranteed",
+          "fa": "مشارکت تضمین‌شده کامل دیاسپورا"
+        }
+      ]
+    },
+    "mechanics": {
+      "title": { "en": "Operational Mechanics", "fa": "مکانیزم‌های عملیاتی" },
+      "items": [
+        {
+          "en": "Ratifies the specific structure of the new government — parliamentary republic, presidential system, or other democratic formulation",
+          "fa": "ساختار خاص حکومت جدید را تصویب می‌کند — جمهوری پارلمانی، سیستم ریاستی، یا فرمول دموکراتیک دیگر"
+        },
+        {
+          "en": "Provides the ultimate popular and legal authorization for the new state apparatus",
+          "fa": "نهایی‌ترین مجوز مردمی و قانونی را برای دستگاه دولتی جدید فراهم می‌کند"
+        },
+        {
+          "en": "Legally and structurally replaces the Velayat-e Faqih system with the newly approved democratic charter",
+          "fa": "سیستم ولایت فقیه را به صورت قانونی و ساختاری با منشور دموکراتیک تازه تصویب‌شده جایگزین می‌کند"
+        },
+        {
+          "en": "If rejected: Assembly revises and a second referendum is held — no return to the old system",
+          "fa": "در صورت رد: مجلس اصلاح می‌کند و همه‌پرسی دوم برگزار می‌شود — بازگشت به سیستم قدیم ممکن نیست"
+        },
+        {
+          "en": "The new state is constitutionally bound only to the ratified charter — not to any revolutionary ideology",
+          "fa": "دولت جدید فقط به منشور تصویب‌شده پایبند است — نه به هیچ ایدئولوژی انقلابی"
+        }
+      ]
+    }
+  },
+  "coalEyebrow": {
+    "en": "The Endorsement Network",
+    "fa": "شبکه تأیید"
+  },
+  "coalTitle": {
+    "en": "Coalition Topography — The 2023 Baseline",
+    "fa": "توپوگرافی ائتلاف — خط پایه ۲۰۲۳"
+  },
+  "coalIntro": {
+    "en": "The 'To Save Iran' manifesto immediately generated a complex, interconnected web of endorsements from historically disparate actors — demonstrating its utility as a unifying structural framework capable of absorbing varied ideological streams across the Iranian political spectrum.",
+    "fa": "بیانیه 'برای نجات ایران' فوری یک شبکه پیچیده و به‌هم‌پیوسته از تأییدها از بازیگران تاریخاً متفاوت ایجاد کرد — نشان‌دهنده کاربرد آن به عنوان یک چارچوب متحدکننده ساختاری قادر به جذب جریان‌های ایدئولوژیک متنوع در سراسر طیف سیاسی ایران."
+  },
+  "coalNodes": [
+    {
+      "icon": "✍️",
+      "title": { "en": "Architect", "fa": "معمار" },
+      "sub": { "en": "Mir Hossein Mousavi", "fa": "میر حسین موسوی" },
+      "color": "#69d98c",
+      "items": [
+        {
+          "en": "Former Prime Minister of Iran (1981–1989) — revolutionary-era insider",
+          "fa": "نخست‌وزیر سابق ایران (۱۳۶۰–۱۳۶۸) — از خودی‌های دوره انقلاب"
+        },
+        {
+          "en": "Leader of the 2009 Green Movement — 'Where is my vote?'",
+          "fa": "رهبر جنبش سبز ۲۰۰۹ — 'رأی من کجاست؟'"
+        },
+        {
+          "en": "Under extrajudicial house arrest since February 2011 on Akhtar Street, Tehran",
+          "fa": "از فوریه ۲۰۱۱ تحت حصر خانگی غیرقضایی در خیابان اختر تهران"
+        },
+        {
+          "en": "Co-detained with wife Zahra Rahnavard and ally Mehdi Karroubi",
+          "fa": "همراه با همسرش زهرا رهنورد و متحد سیاسی‌اش مهدی کروبی محبوس است"
+        },
+        {
+          "en": "83 years old at time of January 2026 statement — enduring 14+ years of confinement",
+          "fa": "۸۳ ساله در زمان بیانیه ژانویه ۲۰۲۶ — بیش از ۱۴ سال حصر را تحمل می‌کند"
+        },
+        {
+          "en": "His revolutionary legitimacy makes the demand for regime change structurally unanswerable",
+          "fa": "مشروعیت انقلابی او، خواسته تغییر رژیم را از نظر ساختاری بی‌پاسخ می‌سازد"
+        }
+      ]
+    },
+    {
+      "icon": "✊",
+      "title": { "en": "Domestic Civil Society", "fa": "جامعه مدنی داخلی" },
+      "sub": {
+        "en": "350–400 journalists, activists, academics · February 2023",
+        "fa": "۳۵۰–۴۰۰ روزنامه‌نگار، فعال، دانشگاهی · فوریه ۲۰۲۳"
+      },
+      "color": "#8B5CF6",
+      "items": [
+        {
+          "en": "Majority physically reside inside Iran — conferring enormous domestic credibility and personal courage",
+          "fa": "اکثریت داخل ایران زندگی می‌کنند — اعتبار داخلی و شجاعت شخصی فوق‌العاده‌ای به آن می‌بخشند"
+        },
+        {
+          "en": "Explicitly cited intractable corruption, injustice, and brutal suppression in their endorsement",
+          "fa": "صریحاً فساد لاعلاج، بی‌عدالتی و سرکوب وحشیانه را در تأییدیه خود ذکر کردند"
+        },
+        {
+          "en": "Key figures: Hashem Aghajari, Abdollah Momeni, Noushin Ahmadi-Khorasani, Mashallah Shamsolvaezin, Abolfazl Ghadyani",
+          "fa": "چهره‌های کلیدی: هاشم آقاجری، عبدالله مومنی، نوشین احمدی خراسانی، مشالله شمس‌الواعظین، ابوالفضل قادیانی"
+        },
+        {
+          "en": "All endorsers possess immense credibility from enduring decades of state persecution",
+          "fa": "تمام حامیان از تحمل دهه‌ها آزار و اذیت دولتی از اعتبار فوق‌العاده‌ای برخوردارند"
+        },
+        {
+          "en": "Signatory count expanded from ~400 in 2023 to ~800 in July 2025 — measurable acceleration of anti-regime consensus",
+          "fa": "تعداد امضاکنندگان از ~۴۰۰ نفر در ۲۰۲۳ به ~۸۰۰ نفر در جولای ۲۰۲۵ افزایش یافت"
+        }
+      ]
+    },
+    {
+      "icon": "🏛️",
+      "title": { "en": "Former State Establishment", "fa": "دولت سابق" },
+      "sub": {
+        "en": "112 reformist ex-officials · February 2023",
+        "fa": "۱۱۲ مقام اصلاح‌طلب سابق · فوریه ۲۰۲۳"
+      },
+      "color": "#ffd166",
+      "items": [
+        {
+          "en": "Formerly operated within the highest echelons of the Islamic Republic's state apparatus",
+          "fa": "قبلاً در بالاترین سطوح دستگاه دولتی جمهوری اسلامی فعالیت می‌کردند"
+        },
+        {
+          "en": "Issued statements admitting the TOTAL failure of the 1979 revolution's stated goals of justice and democracy",
+          "fa": "بیانیه‌هایی صادر کردند که شکست کامل اهداف انقلاب ۱۳۵۷ را در زمینه عدالت و دموکراسی اعتراف می‌کنند"
+        },
+        {
+          "en": "Their institutional weight signals terminal elite defection from the Velayat-e Faqih system",
+          "fa": "وزن نهادی آن‌ها نشانه فرار نهایی نخبگان از سیستم ولایت فقیه است"
+        },
+        {
+          "en": "Demonstrates the manifesto's penetration beyond street activists into the administrative core",
+          "fa": "نشان می‌دهد که بیانیه به فراتر از فعالان خیابانی، به هسته اداری نفوذ کرده است"
+        },
+        {
+          "en": "Their defection directly degrades the regime's administrative capacity and institutional legitimacy",
+          "fa": "فرار آن‌ها مستقیماً ظرفیت اداری و مشروعیت نهادی رژیم را تضعیف می‌کند"
+        }
+      ]
+    },
+    {
+      "icon": "⛓️",
+      "title": { "en": "Incarcerated Leadership", "fa": "رهبری محبوس" },
+      "sub": {
+        "en": "Prominent political prisoners in active solidarity",
+        "fa": "زندانیان سیاسی برجسته در همبستگی فعال"
+      },
+      "color": "#ef5350",
+      "items": [
+        {
+          "en": "Mostafa Tajzadeh — senior reformist politician, political prisoner, co-authored the January 2026 'Black Page' statement",
+          "fa": "مصطفی تاجزاده — سیاستمدار ارشد اصلاح‌طلب، زندانی سیاسی، همراه موسوی بیانیه 'صفحه سیاه' ژانویه ۲۰۲۶ را نوشت"
+        },
+        {
+          "en": "Faezeh Hashemi — daughter of former President Rafsanjani, demands the regime 'surrender to popular self-determination'",
+          "fa": "فائزه هاشمی — دختر رئیس‌جمهور سابق رفسنجانی، خواستار 'تسلیم رژیم به حق تعیین سرنوشت مردمی' است"
+        },
+        {
+          "en": "Narges Mohammadi — Nobel Peace Prize laureate 2023, active from inside Evin Prison",
+          "fa": "نرگس محمدی — برنده جایزه نوبل صلح ۲۰۲۳، فعال از داخل زندان اوین"
+        },
+        {
+          "en": "Nasrin Sotoudeh — internationally recognized human rights lawyer",
+          "fa": "نسرین ستوده — وکیل حقوق بشر با شهرت بین‌المللی"
+        },
+        {
+          "en": "Their endorsement from inside prison confers profound moral authority",
+          "fa": "تأیید آن‌ها از داخل زندان اقتدار اخلاقی عمیقی اعطا می‌کند"
+        },
+        {
+          "en": "Highlights the unsustainability of the state's reliance on mass incarceration as a political tool",
+          "fa": "ناپایداری اتکای دولت به زندانی‌سازی گسترده به عنوان ابزار سیاسی را آشکار می‌کند"
+        }
+      ]
+    },
+    {
+      "icon": "🕌",
+      "title": { "en": "Religious & Ethnic Periphery", "fa": "پیرامون مذهبی و قومی" },
+      "sub": {
+        "en": "Sunni and minority community leadership",
+        "fa": "رهبری جامعه اهل سنت و اقلیت‌ها"
+      },
+      "color": "#ff9a42",
+      "items": [
+        {
+          "en": "Mowlavi Abdolhamid Esmail-Zehi — most influential Sunni Baluch cleric in Iran",
+          "fa": "مولوی عبدالحمید اسماعیل‌زهی — تأثیرگذارترین روحانی سنی بلوچ در ایران"
+        },
+        {
+          "en": "Became an exceptionally vocal regime critic during the lethal Zahedan crackdowns in 2022 protests",
+          "fa": "در دوران سرکوب‌های مرگبار زاهدان در اعتراضات ۲۰۲۲ به ناقد بسیار صریح رژیم تبدیل شد"
+        },
+        {
+          "en": "Voiced public support for the three-stage structural proposals",
+          "fa": "از پیشنهادهای ساختاری سه‌مرحله‌ای ابراز حمایت عمومی کرد"
+        },
+        {
+          "en": "Strategically critical: actively counters the regime's reliance on sectarian and ethnic division to control peripheral provinces",
+          "fa": "از نظر استراتژیک حیاتی: شکاف اپوزیسیون بین مرکز فارسی/شیعه و پیرامون سنی/بلوچ را پر می‌کند"
+        },
+        {
+          "en": "Bridges the opposition divide between the Persian/Shia center and the Sunni/Baluch periphery",
+          "fa": "پل میان مرکز فارسی/شیعه و پیرامون سنی/بلوچ در اپوزیسیون می‌سازد"
+        },
+        {
+          "en": "Neutralizes the regime's most reliable divide-and-conquer tactical instrument",
+          "fa": "رایج‌ترین ابزار تاکتیکی تفرقه‌انداز رژیم را خنثی می‌کند"
+        }
+      ]
+    },
+    {
+      "icon": "🌍",
+      "title": { "en": "Diaspora Leadership", "fa": "رهبری دیاسپورا" },
+      "sub": {
+        "en": "International exiled opposition — tactical convergence",
+        "fa": "اپوزیسیون تبعیدی بین‌المللی — همگرایی تاکتیکی"
+      },
+      "color": "#ba68c8",
+      "items": [
+        {
+          "en": "Prince Reza Pahlavi welcomed the manifesto's secular trajectory and its rejection of the Islamic Republic",
+          "fa": "شاهزاده رضا پهلوی از مسیر سکولار بیانیه و رد جمهوری اسلامی استقبال کرد"
+        },
+        {
+          "en": "Called for 'maximum participation' and unity — despite deep historical differences with Mousavi's revolutionary past",
+          "fa": "خواستار 'حداکثر مشارکت' و وحدت شد — علی‌رغم اختلافات تاریخی عمیق با گذشته انقلابی موسوی"
+        },
+        {
+          "en": "Note: Mousavi was a high-ranking official of the 1979 revolution that ousted the Pahlavi dynasty — this convergence is historically extraordinary",
+          "fa": "توجه: موسوی یک مقام ارشد انقلاب ۱۳۵۷ بود که سلسله پهلوی را ساقط کرد — این همگرایی از نظر تاریخی استثنایی است"
+        },
+        {
+          "en": "Interaction demonstrates latent potential for a tactical, objective-based coalition between domestic post-reformist network and international secular-democratic diaspora",
+          "fa": "این تعامل پتانسیل نهفته برای یک ائتلاف تاکتیکی و هدف‌محور بین شبکه داخلی پسا-اصلاح‌طلب و دیاسپورای سکولار-دموکراتیک بین‌المللی را نشان می‌دهد"
+        },
+        {
+          "en": "Shared structural objective: the three-stage transition — not shared ideology",
+          "fa": "هدف مشترک ساختاری: گذار سه‌مرحله‌ای — نه ایدئولوژی مشترک"
+        }
+      ]
+    }
+  ],
+  "evolEyebrow": {
+    "en": "Temporal Evolution 2023–2026",
+    "fa": "تحول زمانی ۲۰۲۳–۲۰۲۶"
+  },
+  "evolTitle": {
+    "en": "Doctrine Adaptation — From Referendum to Abdication",
+    "fa": "تطبیق دکترین — از همه‌پرسی تا درخواست کناره‌گیری"
+  },
+  "evolIntro": {
+    "en": "Between 2023 and 2026, the Islamic Republic experienced extreme volatility: economic collapse, a 12-day war with Israel, and mass civilian massacres. Mousavi, operating from 14 years of house arrest, adapted his platform in real time — escalating from a peaceful three-stage proposal to a direct demand for regime capitulation.",
+    "fa": "بین ۲۰۲۳ و ۲۰۲۶، جمهوری اسلامی با بی‌ثباتی شدید روبرو شد: فروپاشی اقتصادی، جنگ ۱۲ روزه با اسرائیل، و کشتارهای جمعی غیرنظامیان. موسوی، در حالی که ۱۴ سال در حصر خانگی بود، پلتفرم خود را در زمان واقعی تطبیق داد."
+  },
+  "timeline": [
+    {
+      "date": { "en": "August 2022", "fa": "اوت ۲۰۲۲" },
+      "event": {
+        "en": "Pre-manifesto: Succession rumors surface regarding Mojtaba Khamenei as next Supreme Leader.",
+        "fa": "شایعات جانشینی مجتبی خامنه‌ای به عنوان رهبر معظم بعدی مطرح می‌شود."
+      },
+      "action": {
+        "en": "Mousavi warns of the 'stench of tyranny' and questions whether 2,500-year dynastic rule had returned to Iran.",
+        "fa": "موسوی از 'بوی ظلم' هشدار می‌دهد و زیر سؤال می‌برد که آیا حکومت سلسله‌ای ۲۵۰۰ ساله به ایران بازگشته است."
+      },
+      "shift": {
+        "en": "Preemptive delegitimization of the Velayat-e Faqih mechanism before the main uprising.",
+        "fa": "تضعیف مشروعیت ولایت فقیه پیش از قیام اصلی."
+      },
+      "color": "#7c72e8"
+    },
+    {
+      "date": { "en": "September 2022", "fa": "سپتامبر ۲۰۲۲" },
+      "event": {
+        "en": "Mahsa (Jina) Amini dies in morality police custody. Nationwide 'Woman, Life, Freedom' protests erupt.",
+        "fa": "مهسا (ژینا) امینی در بازداشت گشت ارشاد جان می‌سپارد. اعتراضات سراسری 'زن، زندگی، آزادی' شروع می‌شود."
+      },
+      "action": {
+        "en": "The uprising becomes the catalyst for Mousavi's ontological shift from reformism to transitional democracy.",
+        "fa": "قیام به کاتالیزور تغییر هستی‌شناختی موسوی از اصلاح‌طلبی به دموکراسی انتقالی تبدیل می‌شود."
+      },
+      "shift": {
+        "en": "Demographic base shifts from urban middle-class to an intersectional nationwide coalition.",
+        "fa": "پایگاه جمعیتی از طبقه متوسط شهری به ائتلاف ملی فراگیر تغییر می‌کند."
+      },
+      "color": "#ba68c8"
+    },
+    {
+      "date": { "en": "February 4, 2023", "fa": "۴ فوریه ۲۰۲۳" },
+      "event": {
+        "en": "Publication of the 'To Save Iran' manifesto — the formal death of reformism.",
+        "fa": "انتشار بیانیه 'برای نجات ایران' — مرگ رسمی اصلاح‌طلبی."
+      },
+      "action": {
+        "en": "Three-stage transition blueprint announced: Referendum → Constituent Assembly → Ratification Referendum.",
+        "fa": "طرح گذار سه‌مرحله‌ای اعلام می‌شود: همه‌پرسی → مجلس مؤسسان → همه‌پرسی تصویب."
+      },
+      "shift": {
+        "en": "Definitive rejection of the reformist paradigm. Extra-systemic democratic transition institutionalized.",
+        "fa": "رد قطعی پارادایم اصلاح‌طلبی. گذار دموکراتیک فراسیستمی نهادینه شد."
+      },
+      "color": "#69d98c"
+    },
+    {
+      "date": { "en": "February–March 2023", "fa": "فوریه–مارس ۲۰۲۳" },
+      "event": {
+        "en": "Immediate coalition formation: 350-400 domestic activists + 112 ex-officials endorse the manifesto.",
+        "fa": "ائتلاف فوری: ۳۵۰-۴۰۰ فعال داخلی + ۱۱۲ مقام سابق بیانیه را تأیید می‌کنند."
+      },
+      "action": {
+        "en": "Prince Reza Pahlavi calls for 'maximum participation' and welcomes the secular trajectory.",
+        "fa": "شاهزاده رضا پهلوی خواستار 'حداکثر مشارکت' می‌شود."
+      },
+      "shift": {
+        "en": "Unprecedented domestic-diaspora convergence around the three-stage framework.",
+        "fa": "همگرایی بی‌سابقه داخلی-دیاسپورا حول چارچوب سه‌مرحله‌ای."
+      },
+      "color": "#8B5CF6"
+    },
+    {
+      "date": { "en": "April 2023", "fa": "آوریل ۲۰۲۳" },
+      "event": {
+        "en": "Supreme Leader Ali Khamenei publicly and explicitly rejects all calls for a referendum.",
+        "fa": "رهبر معظم خامنه‌ای به صورت عمومی و صریح تمام درخواست‌های همه‌پرسی را رد می‌کند."
+      },
+      "action": {
+        "en": "Opposition interprets the rejection as confirmation that the referendum poses an existential threat to the regime.",
+        "fa": "اپوزیسیون این رد را به عنوان تأیید اینکه همه‌پرسی تهدید وجودی برای رژیم است تفسیر می‌کند."
+      },
+      "shift": {
+        "en": "Regime's refusal forces the opposition into a posture of persistent civil disobedience.",
+        "fa": "امتناع رژیم، اپوزیسیون را به وضعیت نافرمانی مدنی پیوسته وادار می‌کند."
+      },
+      "color": "#ffd166"
+    },
+    {
+      "date": { "en": "December 2024", "fa": "دسامبر ۲۰۲۴" },
+      "event": {
+        "en": "Mousavi, 83, suffers a severe life-threatening allergic reaction. State physicians had prior knowledge of the contraindication.",
+        "fa": "موسوی ۸۳ ساله دچار واکنش آلرژیک شدید و تهدیدکننده حیات می‌شود. پزشکان دولتی از این تناقض دارویی از قبل آگاه بودند."
+      },
+      "action": {
+        "en": "570+ activists issue joint statement condemning 'systematic torture' and 'gradual murder' of Akhtar Street prisoners.",
+        "fa": "۵۷۰+ فعال بیانیه مشترکی صادر می‌کنند که 'شکنجه سیستماتیک' و 'قتل تدریجی' زندانیان خیابان اختر را محکوم می‌کند."
+      },
+      "shift": {
+        "en": "Mousavi's physical survival becomes a potent mobilization variable — triggering rapid consensus among disparate activists.",
+        "fa": "بقای جسمی موسوی به یک متغیر بسیج قوی تبدیل می‌شود."
+      },
+      "color": "#ff9a42"
+    },
+    {
+      "date": { "en": "June 2025", "fa": "ژوئن ۲۰۲۵" },
+      "event": {
+        "en": "12-Day War between Israel and Iran. Direct kinetic strikes on Iranian military and nuclear sites.",
+        "fa": "جنگ ۱۲ روزه ایران و اسرائیل. حملات نظامی مستقیم به تأسیسات نظامی و هسته‌ای ایران."
+      },
+      "action": {
+        "en": "Regime attempts to manufacture a 'rally-around-the-flag' domestic cohesion effect.",
+        "fa": "رژیم تلاش می‌کند با استفاده از تهدید خارجی، وحدت داخلی تحمیل کند."
+      },
+      "shift": {
+        "en": "Public response bifurcated — reports emerge of Iranians cheering strikes against regime targets.",
+        "fa": "واکنش عمومی دوقطبی — گزارش‌هایی از ایرانیانی که برای حملات علیه اهداف رژیم شادی می‌کنند."
+      },
+      "color": "#ef5350"
+    },
+    {
+      "date": { "en": "July 11, 2025", "fa": "۱۱ جولای ۲۰۲۵" },
+      "event": {
+        "en": "Post-war statement published by Mousavi in Hammihan and Kalameh.",
+        "fa": "بیانیه پس از جنگ توسط موسوی در همهان و کلمه منتشر می‌شود."
+      },
+      "action": {
+        "en": "Warns regime: public survival instinct during bombardment must NOT be misconstrued as approval. Diagnoses the war as the 'bitter result of a series of grave errors' by an unrepresentative government. Renews demand for Constituent Assembly.",
+        "fa": "هشدار به رژیم: مقاومت عمومی در برابر بمباران نباید به عنوان 'تأیید دولت' تفسیر شود. جنگ را 'نتیجه تلخ یک سری اشتباهات فاحش' توصیف می‌کند."
+      },
+      "shift": {
+        "en": "Signatory base expands to 700–800 activists. Counter-narrative capability demonstrated: the regime's rally-around-the-flag mechanism is neutralized.",
+        "fa": "پایگاه امضاکنندگان به ۷۰۰–۸۰۰ فعال گسترش می‌یابد."
+      },
+      "color": "#ffd166"
+    },
+    {
+      "date": { "en": "January 8–9, 2026", "fa": "۸–۹ ژانویه ۲۰۲۶" },
+      "event": {
+        "en": "Nationwide mass protests. Regime deploys extreme, indiscriminate lethal force. Estimated 6,373+ civilians killed.",
+        "fa": "اعتراضات سراسری عظیم. رژیم نیروی کشنده شدید و بی‌هدف اعمال می‌کند. تخمین ۶۳۷۳+ غیرنظامی کشته شدند."
+      },
+      "action": {
+        "en": "The January 2026 massacres represent the ultimate manifestation of the 'contradictory and unsustainable' system operating without popular consent.",
+        "fa": "کشتارهای ژانویه ۲۰۲۶ نهایی‌ترین تجلی سیستم 'متناقض و ناپایدار' است که بدون رضایت مردم عمل می‌کند."
+      },
+      "shift": {
+        "en": "Total exhaustion of the regime's non-violent conflict resolution mechanisms.",
+        "fa": "تخلیه کامل مکانیزم‌های حل‌وفصل غیرخشونت‌آمیز رژیم."
+      },
+      "color": "#ef5350"
+    },
+    {
+      "date": { "en": "January 29, 2026", "fa": "۲۹ ژانویه ۲۰۲۶" },
+      "event": {
+        "en": "'Black Page' statement — authored jointly by Mousavi and Tajzadeh, published on Kalameh.",
+        "fa": "بیانیه 'صفحه سیاه' — نوشته مشترک موسوی و تاجزاده، منتشر شده در کلمه."
+      },
+      "action": {
+        "en": "Condemns the crackdown as a 'great betrayal' and 'black page in Iranian history.' Abandons diplomatic language. Directly addresses the leadership: 'Enough is enough. Put down your guns and step down from power so that the nation itself can lead this land to freedom and prosperity.'",
+        "fa": "سرکوب را 'خیانت بزرگ' و 'صفحه سیاه تاریخ ایران' می‌نامد. زبان دیپلماتیک را کنار می‌گذارد. مستقیماً به رهبری خطاب می‌کند: 'کافی است. نه شما راه‌حلی برای هیچ‌کدام از بحران‌های کشور دارید و نه ملت چاره‌ای جز اعتراض دارد. اسلحه را زمین بگذارید و از قدرت کنار بروید.'"
+      },
+      "shift": {
+        "en": "TERMINAL ESCALATION: Total paradigm shift from proposing referendums to demanding unconditional abdication. Predicts imminent security force fracture and mass defections.",
+        "fa": "تصعید نهایی: تغییر پارادایم کامل از پیشنهاد همه‌پرسی به درخواست تسلیم بی‌قیدوشرط. پیش‌بینی شکست نیروهای امنیتی."
+      },
+      "color": "#ef5350"
+    }
+  ],
+  "vulnRegimeLabel": { "en": "Regime", "fa": "رژیم" },
+  "vulnOppLabel": { "en": "Opposition", "fa": "اپوزیسیون" },
+  "vulnEyebrow": {
+    "en": "Predictive Intelligence Matrix",
+    "fa": "ماتریس اطلاعاتی پیش‌بینی"
+  },
+  "vulnTitle": {
+    "en": "Three Systemic Vulnerability Vectors",
+    "fa": "سه بردار آسیب‌پذیری سیستمی"
+  },
+  "vulnIntro": {
+    "en": "The Mousavi blueprint functions simultaneously as a mirror reflecting the Islamic Republic's structural vulnerabilities and a wedge actively exploiting them. Three critical vectors indicate the regime is operating under an acute, multifaceted legitimacy deficit that directly threatens its existential continuity.",
+    "fa": "طرح موسوی هم‌زمان به عنوان آینه‌ای عمل می‌کند که آسیب‌پذیری‌های ساختاری جمهوری اسلامی را منعکس می‌کند و هم به عنوان اهرمی که فعالانه آن‌ها را بهره‌برداری می‌کند."
+  },
+  "vulnerabilities": [
+    {
+      "number": { "en": "01", "fa": "۰۱" },
+      "title": {
+        "en": "The Collapse of Ideological Defense Mechanisms",
+        "fa": "فروپاشی مکانیزم‌های دفاع ایدئولوژیک"
+      },
+      "regime": {
+        "en": "Claims divine mandate via Velayat-e Faqih; uses 'Axis of Resistance' doctrine and external threat (Israel war) to enforce domestic cohesion and silence dissent.",
+        "fa": "ادعای مأموریت الهی از طریق ولایت فقیه؛ استفاده از جنگ خارجی (اسرائیل ۲۰۲۵) برای اعمال وحدت داخلی و خاموش کردن مخالفت."
+      },
+      "opposition": {
+        "en": "Anchors demands in universally recognized human rights language and 'Woman, Life, Freedom' paradigm — reclaiming the moral high ground. July 2025 statement explicitly blocks the rally-around-the-flag mechanism by reframing the war as the regime's own 'major mistakes.'",
+        "fa": "خواسته‌ها را در زبان جهانی حقوق بشر و پارادایم 'زن، زندگی، آزادی' لنگر می‌اندازد. بیانیه جولای ۲۰۲۵ صریحاً مکانیزم روی‌آوری به پرچم را با بازتعریف جنگ به عنوان 'اشتباهات فاحش' رژیم مسدود می‌کند."
+      },
+      "verdict": {
+        "en": "CRITICAL DAMAGE — The 1979 theological mandate has been entirely superseded by democratic paradigms among the youth demographic. The regime has no remaining ideological language to deploy.",
+        "fa": "آسیب حیاتی — مأموریت الهی ۱۳۵۷ کاملاً توسط پارادایم‌های دموکراتیک در جمعیت جوان منسوخ شده است."
+      },
+      "color": "#ba68c8"
+    },
+    {
+      "number": { "en": "02", "fa": "۰۲" },
+      "title": {
+        "en": "The Hereditary Succession Crisis",
+        "fa": "بحران جانشینی موروثی"
+      },
+      "regime": {
+        "en": "Covert, systematic grooming of Mojtaba Khamenei to succeed his father as Supreme Leader — a hereditary transfer of absolute theocratic power.",
+        "fa": "پرورش پنهانی و سیستماتیک مجتبی خامنه‌ای برای جانشینی پدرش — انتقال موروثی قدرت مطلق تئوکراتیک."
+      },
+      "opposition": {
+        "en": "Preemptively condemned as early as August 2022: 'Has 2,500-year-old dynastic rule returned to Iran?' The prospect of a hereditary Supreme Leader destroys the remaining republican veneer of the 1979 constitution — empirically validating Mousavi's claim that the structure is irreformable.",
+        "fa": "از اوت ۲۰۲۲ پیشگیرانه محکوم شد: 'آیا حکومت سلسله‌ای ۲۵۰۰ ساله به ایران بازگشته است؟' رهبر معظم موروثی نمایش جمهوری باقیمانده از قانون اساسی ۱۳۵۷ را کاملاً از بین می‌برد."
+      },
+      "verdict": {
+        "en": "CRITICAL DAMAGE — Completely shatters the illusion of an Islamic 'Republic.' Alienates traditional revolutionaries and even lower-level clerics. Makes the Constituent Assembly demand infinitely more appealing.",
+        "fa": "آسیب حیاتی — توهم 'جمهوری' اسلامی را کاملاً از بین می‌برد. انقلابیون سنتی و حتی روحانیون سطح پایین را بیگانه می‌کند."
+      },
+      "color": "#ffd166"
+    },
+    {
+      "number": { "en": "03", "fa": "۰۳" },
+      "title": {
+        "en": "The Erosion of the Coercive Monopoly",
+        "fa": "فرسایش انحصار اجبار"
+      },
+      "regime": {
+        "en": "Deploying extreme, indiscriminate lethal force against civilian populations — 6,373+ killed in January 2026 alone — as the sole remaining mechanism for maintaining political control.",
+        "fa": "اعمال نیروی کشنده شدید و بی‌هدف علیه جمعیت‌های غیرنظامی — ۶۳۷۳+ کشته در ژانویه ۲۰۲۶ — به عنوان تنها مکانیزم باقیمانده برای حفظ کنترل سیاسی."
+      },
+      "opposition": {
+        "en": "January 2026 'Black Page' statement explicitly targets the loyalty of security forces: 'The military and law enforcement will refuse to bear the burden of massacring citizens sooner or later, and probably sooner.' The structured three-stage plan provides a credible, non-chaotic 'day after' scenario — shifting the personal cost-benefit analysis of mid-level security personnel dramatically toward defection.",
+        "fa": "بیانیه 'صفحه سیاه' ژانویه ۲۰۲۶ صراحتاً وفاداری نیروهای امنیتی را هدف قرار می‌دهد: 'نیروهای نظامی و انتظامی دیر یا زود و احتمالاً زودتر از حمل این بار سنگین امتناع خواهند کرد.' طرح سه‌مرحله‌ای ساختارمند یک سناریوی معتبر و غیرآشوبناک 'روز پس از' فراهم می‌کند."
+      },
+      "verdict": {
+        "en": "ESCALATING TERMINAL RISK — Extreme violence creates unsustainable psychological strain on security forces. The existence of a legal transition pathway geometrically increases defection probability within the IRGC, Basij, and Artesh.",
+        "fa": "ریسک نهایی در حال تصعید — خشونت شدید فشار روانی غیرقابل‌تحمل بر نیروهای امنیتی ایجاد می‌کند. احتمال فرار در سپاه، بسیج و ارتش به صورت هندسی افزایش می‌یابد."
+      },
+      "color": "#ef5350"
+    }
+  ],
+  "demandsLabel": {
+    "en": "NON-NEGOTIABLE MINIMUM DEMANDS (July 2025 Statement)",
+    "fa": "حداقل خواسته‌های غیرقابل مذاکره (بیانیه جولای ۲۰۲۵)"
+  },
+  "demands": [
+    {
+      "en": "Unconditional release of ALL political prisoners — including Mousavi, Rahnavard, and Karroubi themselves",
+      "fa": "آزادی بی‌قیدوشرط تمام زندانیان سیاسی — از جمله خود موسوی، رهنورد و کروبی"
+    },
+    {
+      "en": "Total cessation of all media and internet censorship — complete freedom of press and information",
+      "fa": "توقف کامل تمام سانسور رسانه‌ای و اینترنتی — آزادی کامل مطبوعات و اطلاعات"
+    },
+    {
+      "en": "Fundamental overhaul of the state broadcaster IRIB — state media must treat all political viewpoints equally",
+      "fa": "بازسازی بنیادی صداوسیمای دولتی — رسانه دولتی باید با تمام دیدگاه‌های سیاسی برابر رفتار کند"
+    },
+    {
+      "en": "Immediate halt to all lethal force against civilian protesters",
+      "fa": "توقف فوری تمام نیروی کشنده علیه معترضان غیرنظامی"
+    },
+    {
+      "en": "International observation of any transition process",
+      "fa": "ناظران بین‌المللی برای هر فرآیند گذار"
+    },
+    {
+      "en": "Recognition of the 'Woman, Life, Freedom' movement's demands as legitimate national grievances",
+      "fa": "به رسمیت شناختن خواسته‌های جنبش 'زن، زندگی، آزادی' به عنوان مظالم ملی مشروع"
+    }
+  ],
+  "abdication": {
+    "en": "\"Enough is enough. Neither do you have a solution to any of the country's crises, nor does the nation have any choice but to protest again until a result is reached. Put down your guns and step down from power so that the nation itself can lead this land to freedom and prosperity.\" — Mir Hossein Mousavi & Mostafa Tajzadeh, January 29, 2026",
+    "fa": "«کافی است. نه شما راه‌حلی برای هیچ‌کدام از بحران‌های کشور دارید و نه ملت چاره‌ای جز اعتراض تا رسیدن به نتیجه دارد. اسلحه را زمین بگذارید و از قدرت کنار بروید تا ملت خود این سرزمین را به آزادی و رفاه رهبری کند.» — میر حسین موسوی و مصطفی تاجزاده، ۲۹ ژانویه ۲۰۲۶"
+  },
+  "source": {
+    "en": "Source: 'To Save Iran' Manifesto (Feb 2023) · July 2025 Post-War Statement · January 2026 'Black Page' Statement · Mousavi / Tajzadeh / Kalameh · Green Movement",
+    "fa": "منبع: بیانیه 'برای نجات ایران' (فوریه ۲۰۲۳) · بیانیه پس از جنگ جولای ۲۰۲۵ · بیانیه 'صفحه سیاه' ژانویه ۲۰۲۶ · موسوی / تاجزاده / وبسایت کلمه · جنبش سبز"
+  },
+  "assessEyebrow": {
+    "en": "Strategic Assessment",
+    "fa": "ارزیابی استراتژیک"
+  },
+  "assessTitle": {
+    "en": "Strengths & Weaknesses",
+    "fa": "نقاط قوت و ضعف"
+  },
+  "strengths": [
+    {
+      "en": "Unimpeachable revolutionary legitimacy — Mousavi was a senior official of the 1979 revolution; his demand for regime change cannot be dismissed as foreign-backed or monarchist",
+      "fa": "مشروعیت انقلابی غیرقابل انکار — موسوی مقام ارشد انقلاب ۱۳۵۷ بود؛ خواسته او برای تغییر رژیم نمی‌تواند به عنوان خارجی یا مشروطه‌خواهانه رد شود"
+    },
+    {
+      "en": "Multi-spectrum coalition breadth — 6-category endorsement network (domestic civil society, ex-officials, incarcerated figures, religious minority leadership, diaspora) spans the broadest ideological range of any transitional plan",
+      "fa": "گستردگی ائتلاف چندطیفه — شبکه تأییدیه ۶ دسته‌ای (جامعه مدنی داخلی، مقامات سابق، رهبران زندانی، رهبری اقلیت مذهبی، دیاسپورا) گسترده‌ترین طیف ایدئولوژیک را در بر می‌گیرد"
+    },
+    {
+      "en": "Legal structure — the three-stage plan provides a defensible, internationally recognizable transition pathway that avoids the chaos scenario used by the regime to justify suppression",
+      "fa": "ساختار قانونی — طرح سه‌مرحله‌ای مسیر گذار قابل دفاع و بین‌المللاً قابل تشخیصی فراهم می‌کند که از سناریوی آشوب مورد استفاده رژیم برای توجیه سرکوب اجتناب می‌کند"
+    },
+    {
+      "en": "Growing signatory base — 400 → 800 documented endorsers from 2023 to 2025; measurable and accelerating momentum",
+      "fa": "پایگاه امضاکننده در حال رشد — ۴۰۰ → ۸۰۰ حامی مستند از ۲۰۲۳ تا ۲۰۲۵؛ شتاب قابل اندازه‌گیری"
+    },
+    {
+      "en": "Counter-narrative capability — the July 2025 statement demonstrates real-time adaptability: neutralizing the regime's rally-around-the-flag mechanism during the Israel war",
+      "fa": "قابلیت ضدروایت — بیانیه جولای ۲۰۲۵ انعطاف‌پذیری در زمان واقعی را نشان می‌دهد: خنثی کردن مکانیزم بسیج‌سازی رژیم در جنگ با اسرائیل"
+    }
+  ],
+  "weaknesses": [
+    {
+      "en": "Physical imprisonment of the architect — Mousavi has been under house arrest since 2011 and cannot lead, organize, or coordinate the plan's implementation",
+      "fa": "زندانی بودن معمار — موسوی از ۲۰۱۱ در حصر خانگی است و نمی‌تواند اجرای طرح را رهبری، سازماندهی یا هماهنگ کند"
+    },
+    {
+      "en": "Deliberate proceduralism creates policy vacuum — refusal to specify governance form, economic policy, or foreign policy leaves supporters uncertain about the 'day after'",
+      "fa": "رویه‌گرایی عمدی یک خلاء سیاسی ایجاد می‌کند — امتناع از مشخص کردن شکل حکومت، سیاست اقتصادی یا سیاست خارجی، حامیان را درباره 'روز پس از' دچار تردید می‌کند"
+    },
+    {
+      "en": "Referendum prerequisite problem — Stage 1 requires suspension of systemic violence as a precondition; the regime's January 2026 massacres (6,373+ killed) demonstrate this precondition will not be fulfilled voluntarily",
+      "fa": "مشکل پیش‌شرط همه‌پرسی — مرحله اول نیازمند تعلیق خشونت سیستماتیک به عنوان پیش‌شرط است؛ کشتارهای ژانویه ۲۰۲۶ نشان می‌دهد این پیش‌شرط به صورت داوطلبانه محقق نخواهد شد"
+    },
+    {
+      "en": "No operational organization — unlike NUFDI or ITC, the plan has no organizational vehicle (council, committee, command structure) to implement the transition",
+      "fa": "بدون سازمان عملیاتی — برخلاف نوفدی یا شورای گذار، طرح هیچ وسیله سازمانی (شورا، کمیته، ساختار فرماندهی) برای اجرای گذار ندارد"
+    },
+    {
+      "en": "Succession risk — the plan is architecturally dependent on Mousavi's moral authority; no successor or deputy architect is named; the December 2024 medical crisis exposed this fragility",
+      "fa": "ریسک جانشینی — طرح به صورت معماری به اقتدار اخلاقی موسوی وابسته است؛ هیچ جانشین یا معماری جایگزین نامیده نشده؛ بحران پزشکی دسامبر ۲۰۲۴ این شکنندگی را آشکار کرد"
+    }
+  ],
+  "geoEyebrow": {
+    "en": "Geopolitical Implications",
+    "fa": "پیامدهای ژئوپلیتیک"
+  },
+  "geoTitle": {
+    "en": "If the Three-Stage Plan Succeeds",
+    "fa": "اگر طرح سه‌مرحله‌ای موفق شود"
+  },
+  "geoIntro": {
+    "en": "A democratic transition in Iran anchored in popular sovereignty would fundamentally restructure the Middle East's security architecture. Mousavi's plan explicitly rejects foreign intervention while requiring international observation — a balance that would reshape Iran's relationships with every major power.",
+    "fa": "یک گذار دموکراتیک در ایران مبتنی بر حاکمیت مردمی، معماری امنیتی خاورمیانه را به طور بنیادی بازساخت می‌کند. طرح موسوی صراحتاً مداخله خارجی را رد می‌کند در حالی که ناظران بین‌المللی را الزامی می‌داند — تعادلی که روابط ایران با هر قدرت بزرگی را بازتعریف می‌کند."
+  },
+  "geoCards": [
+    {
+      "title": { "en": "Axis of Resistance", "fa": "محور مقاومت" },
+      "body": {
+        "en": "A democratic government with a popular mandate could not justify the financial and strategic cost of sustaining Hezbollah, Hamas, the Houthis, and Iraqi Shia militias. The July 2025 statement explicitly separates the Iranian public from the regime's foreign adventurism: public 'survival instinct during bombardment must NOT be misconstrued as approval.'",
+        "fa": "یک حکومت دموکراتیک با مأموریت مردمی نمی‌تواند هزینه مالی و استراتژیک حمایت از حزب‌الله، حماس، حوثی‌ها و شبه‌نظامیان شیعه عراق را توجیه کند. بیانیه جولای ۲۰۲۵ صریحاً مردم ایران را از ماجراجویی خارجی رژیم جدا می‌کند."
+      },
+      "color": "#ef5350"
+    },
+    {
+      "title": { "en": "Nuclear Program", "fa": "برنامه هسته‌ای" },
+      "body": {
+        "en": "The nuclear program is institutionally linked to IRGC control and Supreme Leader authority. A Constituent Assembly-based government would inherit the nuclear question but face public pressure for demilitarization. A democratic Iran with international legitimacy would have greater leverage for a comprehensive post-JCPOA agreement.",
+        "fa": "برنامه هسته‌ای به صورت نهادی به کنترل سپاه و اقتدار رهبری گره خورده است. یک دولت مبتنی بر مجلس مؤسسان، مسئله هسته‌ای را به ارث می‌برد اما با فشار عمومی برای کاهش نظامی مواجه می‌شود."
+      },
+      "color": "#8B5CF6"
+    },
+    {
+      "title": { "en": "Regional Power Balance", "fa": "توازن قدرت منطقه‌ای" },
+      "body": {
+        "en": "Removal of the Islamic Republic as a revisionist regional actor would alter Gulf security architecture. Saudi-Iran normalization (2023) would require renegotiation. The Kurdish question — spanning Iran, Turkey, Iraq, and Syria — would intensify as a democratic Iran could not avoid addressing Kurdish autonomy demands.",
+        "fa": "حذف جمهوری اسلامی به عنوان یک بازیگر منطقه‌ای تجدیدنظرطلب، معماری امنیتی خلیج‌فارس را تغییر می‌دهد. عادی‌سازی سعودی-ایرانی (۲۰۲۳) نیازمند مذاکره مجدد خواهد بود."
+      },
+      "color": "#ffd166"
+    },
+    {
+      "title": { "en": "Great Power Competition", "fa": "رقابت قدرت‌های بزرگ" },
+      "body": {
+        "en": "Russia and China have significant economic and strategic interests in the current regime (arms sales, energy contracts, anti-Western alignment) and would resist a democratic transition. The plan's non-interventionism principle means the transition must be internally driven — it cannot invite Western patronage without undermining its own legitimacy.",
+        "fa": "روسیه و چین منافع اقتصادی و استراتژیک قابل توجهی در رژیم کنونی دارند و با گذار دموکراتیک مقاومت خواهند کرد. اصل عدم مداخله‌طلبی طرح به این معناست که گذار باید از درون هدایت شود."
+      },
+      "color": "#69d98c"
+    }
+  ]
+}
