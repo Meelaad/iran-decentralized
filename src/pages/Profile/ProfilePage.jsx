@@ -9,6 +9,7 @@ import BirthDatePicker from '../../components/BirthDatePicker/BirthDatePicker';
 import ContributionGrid from '../../components/ContributionGrid/ContributionGrid';
 import StatsRow from '../../components/Charts/StatsRow';
 import BadgesShelf from '../../components/Achievements/BadgesShelf';
+import CivicScoreGuide from '../../components/CivicScoreGuide/CivicScoreGuide';
 import { ThemeSwitch } from '../../components/ThemeSwitch/ThemeSwitch';
 import CONTENT from '../../locales/pages/profile.json';
 import './ProfilePage.css';
@@ -500,6 +501,9 @@ export default function ProfilePage() {
                             <div className="pd-section">
                                 <div className="pd-section-heading" style={{ fontFamily: headFont }}>{isRTL ? CONTENT.achievementsHeading.fa : CONTENT.achievementsHeading.en}</div>
                                 <BadgesShelf userId={userId} />
+                                <div className="pd-card pd-mt">
+                                    <CivicScoreGuide />
+                                </div>
                             </div>
                         )}
 

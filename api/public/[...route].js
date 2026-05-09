@@ -2,6 +2,7 @@ import { sendContactEmail } from '../../lib/public/contact.js';
 import { rateLimit, validateRequestSize, setSecurityHeaders, checkOrigin } from '../../lib/security/middleware.js';
 import { getArenaPlans, getPlanBySlug, endorsePlan, signPlan } from '../../lib/public/plans.js';
 import { searchPublicPlans } from '../../lib/public/search.js';
+import { listScoreRules } from '../../lib/public/civic.js';
 
 export default async function handler(req, res) {
     setSecurityHeaders(res);
@@ -123,6 +124,11 @@ export default async function handler(req, res) {
                     const out = await postExpertQA(req);
                     return res.status(out && out.ok ? 200 : 400).json(out);
                 }
+
+            // Score rules — public reference data
+            case 'score-rules':
+                if (req.method !== 'GET') return res.status(405).json({ error: 'Method not allowed.' });
+                return res.status(200).json(await listScoreRules());
 
             // Civic score
             case 'civic-score':
