@@ -73,7 +73,7 @@ const COUNTRIES = CONTENT.countries;
 function parseEstimate(str) {
     if (!str) return 0;
     const match = str.replace(/,/g, '').match(/\d+/);
-    return match ? parseInt(match[0], 10) : 0;
+    return match ? parseInt(match[0], 10) : 0;ww
 }
 
 // Sorted at module load time by DIASPORA_ESTIMATES lower bound.
